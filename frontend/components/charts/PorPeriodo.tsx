@@ -41,11 +41,10 @@ export function PorPeriodo({ data }: Props) {
           width={44}
         />
         <Tooltip
-          formatter={(value: number, name: string) => [
-            `R$ ${(value / 1e6).toLocaleString("pt-BR", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })} M`,
+          formatter={(value, name) => [
+            typeof value === "number"
+              ? `R$ ${(value / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} M`
+              : String(value),
             name,
           ]}
           contentStyle={{

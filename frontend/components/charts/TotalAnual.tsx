@@ -37,11 +37,10 @@ export function TotalAnual({ data }: Props) {
           width={52}
         />
         <Tooltip
-          formatter={(value: number) => [
-            `R$ ${(value / 1e6).toLocaleString("pt-BR", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })} M`,
+          formatter={(value) => [
+            typeof value === "number"
+              ? `R$ ${(value / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} M`
+              : String(value),
             "Total liquidado",
           ]}
           contentStyle={{
