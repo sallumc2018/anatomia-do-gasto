@@ -1,0 +1,22 @@
+# Dependências e build
+frontend/node_modules/
+frontend/.next/
+
+# Ambiente Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Variáveis de ambiente (contém caminhos locais)
+frontend/.env.local
+
+# PDFs brutos (grandes; podem ser baixados novamente do portal)
+sorocaba/saude/entrada/
+sorocaba/educacao/entrada/
+
+# HTMLs gerados pelo pipeline (redundantes com os CSVs)
+sorocaba/**/*.html
+
+# Dados intermediários gerados automaticamente
+sorocaba/saude/intermediario/
