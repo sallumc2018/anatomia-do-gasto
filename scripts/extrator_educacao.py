@@ -47,7 +47,10 @@ def formatar_br(v):
 def extrair_texto_pagina1(pdf_path):
     import pdfplumber
     with pdfplumber.open(pdf_path) as pdf:
-        return (pdf.pages[0].extract_text() or "") if pdf.pages else ""
+        texto = (pdf.pages[0].extract_text() or "") if pdf.pages else ""
+    if re.search(r'abacoroS|ONISNE\b', texto):
+        texto = "\n".join(linha[::-1] for linha in texto.splitlines())
+    return texto
 
 
 # ── Extração de receitas ──────────────────────────────────────────────────────
@@ -110,15 +113,83 @@ RE_DOTACAO_TOTAL = re.compile(
 )
 
 
+def extrair_despesas_vertical(texto):
+    """
+    PDFs onde cada valor ocupa sua própria linha (algumas edições de 2023).
+    Após reversão RTL, a ordem das colunas é: PAGA, LIQUIDADA, EMPENHADA.
+    Cada coluna tem dois valores: percentual e valor absoluto.
+    O nome da função aparece após os 6 números.
+    """
+    linhas = [l.strip().strip('|').strip() for l in texto.splitlines()]
+
+    inicio = None
+    for i, l in enumerate(linhas):
+        if 'LIQUIDAS' in l:
+            for j in range(i + 1, min(i + 5, len(linhas))):
+                if 'DESPESAS' in linhas[j]:
+                    inicio = j + 1
+                    break
+        if inicio is not None:
+            break
+        if 'DESPESAS LIQUIDAS' in l:
+            inicio = i + 1
+            break
+
+    if inicio is None:
+        return {}
+
+    NUM_RE = re.compile(r'^\d{1,3}(?:\.\d{3})*,\d{2}$')
+    IGNORAR = {'FUNDEB', 'RETENCOES', 'RETIDO', 'APLICADO', 'RETORNO', 'GANHOS',
+               'FINANCEIRAS', 'APLICACOES', 'MUNICIPAL', 'APLICACAO', 'MINIMA',
+               'PROPRIAS', 'RECEITA', 'BASE', 'IMPOSTOS', 'ARRECADADO'}
+
+    resultado = {}
+    num_buffer = []
+
+    for l in linhas[inicio:]:
+        if not l or l.startswith('-'):
+            continue
+        lu = l.upper()
+
+        if NUM_RE.match(l):
+            num_buffer.append(parse_br(l))
+            continue
+
+        if any(k in lu for k in IGNORAR):
+            num_buffer = []
+            continue
+
+        funcao = None
+        if 'FUNDAMENTAL' in lu or ('ENSINO' in lu and 'MUNICIPAL' not in lu):
+            funcao = 'ENSINO FUNDAMENTAL'
+        elif 'INFANTIL' in lu or ('EDUCACAO' in lu and 'MINIMA' not in lu and 'PROPRIAS' not in lu):
+            funcao = 'EDUCACAO INFANTIL'
+        elif 'TOTAL' in lu:
+            funcao = 'TOTAL'
+
+        if funcao and len(num_buffer) >= 6 and funcao not in resultado:
+            # Pairs: paga%, paga, liq%, liq, emp%, emp → indices 1, 3, 5
+            resultado[funcao] = {
+                'dotacao':   0.0,
+                'empenhada': num_buffer[5],
+                'liquidada': num_buffer[3],
+                'paga':      num_buffer[1],
+            }
+            num_buffer = []
+        elif funcao:
+            num_buffer = []
+
+    return resultado
+
+
 def extrair_despesas(texto):
     """
     Extrai despesas líquidas por função do bloco DESPESAS LIQUIDAS.
     Retorna dict: funcao → {dotacao, empenhada, liquidada, paga}
     """
-    # Localiza o bloco DESPESAS LIQUIDAS
     inicio = texto.find('DESPESAS LIQUIDAS')
     if inicio == -1:
-        return {}
+        return extrair_despesas_vertical(texto)
     bloco = texto[inicio:]
 
     resultado = {}
@@ -129,7 +200,6 @@ def extrair_despesas(texto):
         paga       = parse_br(m.group(4))
         resultado[funcao] = {'dotacao': 0.0, 'empenhada': empenhada, 'liquidada': liquidada, 'paga': paga}
 
-    # Dotação: aparece no bloco DESPESAS TOTAIS para TOTAL
     m_dot = RE_DOTACAO_TOTAL.search(texto)
     if m_dot and 'TOTAL' in resultado:
         resultado['TOTAL']['dotacao'] = parse_br(m_dot.group(1))

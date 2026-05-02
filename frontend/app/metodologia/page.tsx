@@ -105,7 +105,7 @@ const DEFINICOES = [
 
 const LIMITACOES = [
   "Cobertura atual: apenas Sorocaba/SP. A expansão para outros municípios está em planejamento.",
-  "Cobertura educação: 2024–2025. O portal da Prefeitura de Sorocaba não disponibiliza os relatórios de educação anteriores a 2024.",
+  "Cobertura educação: 2020–2025. Anos 2020–2023 obtidos via URL legada do portal; 2023 T3 não possui dotação atualizada (limitação do formato do PDF original).",
   "O pipeline extrai dados dos PDFs oficiais. Erros de digitação nos PDFs originais são refletidos nos CSVs.",
   "Os valores são acumulados por quadrimestre (Jan–Abr, Jan–Ago, Jan–Dez), não incrementais. O 3º quad representa o total anual.",
   "Outras subfunções de saúde (saúde do trabalhador, saúde mental) são agrupadas como 'Outras subfunções' no RREO, sem detalhamento.",

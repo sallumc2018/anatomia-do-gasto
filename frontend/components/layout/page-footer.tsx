@@ -25,7 +25,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Piloto: Sorocaba/SP apenas" },
       { label: "Áreas: Saúde e Educação" },
-      { label: "Saúde: 2020–2025 · Educação: 2024–2025" },
+      { label: "Saúde: 2020–2025 · Educação: 2020–2025" },
       { label: "Expansão para outros municípios planejada" },
     ],
   },

@@ -15,21 +15,34 @@ import urllib.error
 
 ENTRADA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sorocaba', 'educacao', 'entrada'))
 
-BASE_URL = (
+# URL nova (2024+): encoding UTF-8, barras literais
+BASE_URL_NOVO = (
     "https://sorocaba.sp.gov.br/anexos/SEF/Transparencia/"
     "01%20-%20Informacoes%20de%20Prestacoes%20de%20Contas%20-%20Lei%20de%20Responsabilidade%20Fiscal/"
     "Relatorios%20de%20Aplicacao%20em%20Ensino"
 )
 
-TRIMESTRE_ORD = {1: "1%C2%BA", 2: "2%C2%BA", 3: "3%C2%BA", 4: "4%C2%BA"}
+# URL legado (até 2023): encoding Latin-1, barras codificadas como %2F
+BASE_URL_LEGADO = (
+    "https://sorocaba.sp.gov.br/anexos/SEF%2FTransparencia%2F"
+    "01%20-%20Informacoes%20de%20Prestacoes%20de%20Contas%20-%20Lei%20de%20Responsabilidade%20Fiscal/"
+    "%2FRelatorios%20de%20Aplicacao%20em%20Ensino%2F"
+)
 
 
 def url_trimestre(ano, trimestre):
-    ord_ = TRIMESTRE_ORD[trimestre]
-    return (
-        f"{BASE_URL}/{ano}/"
-        f"{ano}-%20{ord_}%20trimestre%20-%20Relat%C3%B3rios%20de%20Aplica%C3%A7%C3%A3o%20no%20Ensino.pdf"
-    )
+    if ano >= 2024:
+        ord_ = {1: "1%C2%BA", 2: "2%C2%BA", 3: "3%C2%BA", 4: "4%C2%BA"}[trimestre]
+        return (
+            f"{BASE_URL_NOVO}/{ano}/"
+            f"{ano}-%20{ord_}%20trimestre%20-%20Relat%C3%B3rios%20de%20Aplica%C3%A7%C3%A3o%20no%20Ensino.pdf"
+        )
+    else:
+        # Latin-1: º=%BA, ó=%F3, ç=%E7, ã=%E3
+        return (
+            f"{BASE_URL_LEGADO}{ano}/"
+            f"{ano}%20-%20{trimestre}%BA%20trimestre%20-%20Relat%F3rios%20de%20Aplica%E7%E3o%20no%20Ensino.pdf"
+        )
 
 
 def nome_local(ano, trimestre):
