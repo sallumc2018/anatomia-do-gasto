@@ -133,7 +133,14 @@ export default function SobrePage() {
                   O pipeline de extração de dados e o código do site são públicos.
                   Qualquer pessoa pode auditar, reportar erros ou contribuir.
                 </p>
-                <p style={S.caption}>github.com/anatomia-do-gasto</p>
+                <a
+                  href="https://github.com/sallumc2018/anatomia-do-gasto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...S.caption, color: "var(--text-03)", textDecoration: "underline" }}
+                >
+                  github.com/sallumc2018/anatomia-do-gasto
+                </a>
               </div>
               <div>
                 <h2 style={S.h2}>Erros nos dados</h2>

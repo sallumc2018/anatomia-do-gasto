@@ -8,41 +8,43 @@ const S_label = {
 
 const S_caption = { fontSize: "12px", color: "var(--text-04)" }
 
-const COLS = [
+type FooterItem = { label: string; href?: string }
+
+const COLS: { title: string; items: FooterItem[] }[] = [
   {
     title: "Fontes de dados",
     items: [
-      "Relatórios de Aplicação da LRF",
-      "Portal de Transparência de Sorocaba",
-      "fazenda.sorocaba.sp.gov.br/transparencia",
-      "SIOPS — Ministério da Saúde",
+      { label: "Relatórios de Aplicação da LRF" },
+      { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
+      { label: "fazenda.sorocaba.sp.gov.br/transparencia", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
+      { label: "SIOPS — Ministério da Saúde", href: "https://siops.datasus.gov.br" },
     ],
   },
   {
     title: "Limitações declaradas",
     items: [
-      "Piloto: Sorocaba/SP apenas",
-      "Áreas: Saúde e Educação",
-      "Saúde: 2020–2025 · Educação: 2024–2025",
-      "Expansão para outros municípios planejada",
+      { label: "Piloto: Sorocaba/SP apenas" },
+      { label: "Áreas: Saúde e Educação" },
+      { label: "Saúde: 2020–2025 · Educação: 2024–2025" },
+      { label: "Expansão para outros municípios planejada" },
     ],
   },
   {
     title: "Princípios",
     items: [
-      "Dados sem interpretação editorial",
-      "Limitações declaradas explicitamente",
-      "Sem afiliação política",
-      "Código aberto · Sem fins lucrativos",
+      { label: "Dados sem interpretação editorial" },
+      { label: "Limitações declaradas explicitamente" },
+      { label: "Sem afiliação política" },
+      { label: "Código aberto · Sem fins lucrativos" },
     ],
   },
   {
     title: "Projeto",
     items: [
-      "Anatomia do Gasto",
-      "ONG em formação",
-      "Piloto: Sorocaba/SP + UFSCar",
-      "Expansão nacional planejada",
+      { label: "Anatomia do Gasto" },
+      { label: "ONG em formação" },
+      { label: "Piloto: Sorocaba/SP + UFSCar" },
+      { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
     ],
   },
 ]
@@ -59,8 +61,12 @@ export default function PageFooter() {
               </p>
               <ul className="flex flex-col gap-2">
                 {col.items.map((item) => (
-                  <li key={item} style={{ fontSize: "13px", color: "var(--border-03)", lineHeight: "18px" }}>
-                    {item}
+                  <li key={item.label} style={{ fontSize: "13px", color: "var(--border-03)", lineHeight: "18px" }}>
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                        {item.label}
+                      </a>
+                    ) : item.label}
                   </li>
                 ))}
               </ul>

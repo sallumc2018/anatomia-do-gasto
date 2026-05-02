@@ -182,16 +182,19 @@ export default function MetodologiaPage() {
                   titulo: "Relatórios de Aplicação da LRF",
                   texto:  "Publicados quadrimestralmente pela Prefeitura de Sorocaba. Contêm as despesas por função de saúde (ASPS) e a demonstração do cumprimento do mínimo constitucional.",
                   url:    "fazenda.sorocaba.sp.gov.br/transparencia",
+                  href:   "https://fazenda.sorocaba.sp.gov.br/transparencia",
                 },
                 {
                   titulo: "RREO — Relatório Resumido da Execução Orçamentária",
                   texto:  "Publicado bimestralmente. O Anexo 12 discrimina os gastos em saúde entre ASPS e recursos SUS, com previsão e arrecadação das transferências.",
                   url:    "siconfi.tesouro.gov.br",
+                  href:   "https://siconfi.tesouro.gov.br",
                 },
                 {
                   titulo: "SIOPS — Sistema de Informações sobre Orçamentos Públicos em Saúde",
                   texto:  "Sistema federal do Ministério da Saúde que consolida os dados declarados pelos municípios. Usado como referência de validação cruzada.",
                   url:    "siops.datasus.gov.br",
+                  href:   "https://siops.datasus.gov.br",
                 },
               ] as const).map((f, i) => (
                 <div key={f.titulo} className="py-8" style={{
@@ -202,7 +205,7 @@ export default function MetodologiaPage() {
                 }}>
                   <h2 style={{ ...S.h2, fontSize: "16px" }}>{f.titulo}</h2>
                   <p style={{ ...S.body, marginBottom: "12px" }}>{f.texto}</p>
-                  <p style={S.mono}>{f.url}</p>
+                  <a href={f.href} target="_blank" rel="noopener noreferrer" style={{ ...S.mono, textDecoration: "underline" }}>{f.url}</a>
                 </div>
               ))}
             </div>

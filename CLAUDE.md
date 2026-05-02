@@ -57,6 +57,6 @@ cd "C:\projetos\anatomia-do-gasto"
 - `/sobre` e `/metodologia`
 
 ## Pendências conhecidas
-- Deploy (Vercel é o caminho natural)
-- Integrar educação ao pipeline.py
-- Path traversal no parâmetro [ano]: validar que é número de 4 dígitos
+- Páginas /sobre e /metodologia existem mas têm conteúdo placeholder (UFSCar, ONG em formação)
+- Verificar dados educação 2020–2023 (portal Sorocaba pode não ter esses PDFs)
+- Expandir verificar_dados.py para cobrir educação

@@ -1,8 +1,8 @@
 """
-Executa o pipeline completo para um ou mais anos:
-  1. Baixar PDFs do portal
+Executa o pipeline completo de saúde e educação para um ou mais anos:
+  1. Baixar PDFs do portal (saúde + educação)
   2. Extrair dados para CSV
-  3. Verificar integridade dos dados
+  3. Verificar integridade dos dados de saúde
   4. Gerar HTML
 
 Uso:
@@ -20,15 +20,20 @@ SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 PYTHON      = sys.executable
 
 ETAPAS = [
-    ('Download',      'baixar_pdfs.py'),
-    ('Extracao',      'extrator_saude.py'),
-    ('RREO',          'extrator_rreo.py'),
-    ('BaixarRREO',    'baixar_rreo_sus.py'),
-    ('ExtracaoRREO',  'extrator_rreo_sus.py'),
-    ('Verificacao',   os.path.join('testes', 'verificar_dados.py')),
-    ('HTML',          'gerar_html.py'),
-    ('Index',         'gerar_index.py'),
+    ('Download',          'baixar_pdfs.py'),
+    ('Extracao',          'extrator_saude.py'),
+    ('RREO',              'extrator_rreo.py'),
+    ('BaixarRREO',        'baixar_rreo_sus.py'),
+    ('ExtracaoRREO',      'extrator_rreo_sus.py'),
+    ('DownloadEducacao',  'baixar_pdfs_educacao.py'),
+    ('ExtracaoEducacao',  'extrator_educacao.py'),
+    ('Verificacao',       os.path.join('testes', 'verificar_dados.py')),
+    ('HTML',              'gerar_html.py'),
+    ('Index',             'gerar_index.py'),
 ]
+
+ETAPAS_DOWNLOAD = {'Download', 'BaixarRREO', 'DownloadEducacao'}
+ETAPAS_SEM_ANO  = {'Index'}
 
 
 def rodar(script, args_extras):
@@ -44,12 +49,12 @@ def processar_ano(ano, pular_download, forcar):
     print(f"{'='*50}")
 
     for nome_etapa, script in ETAPAS:
-        if nome_etapa in ('Download', 'BaixarRREO') and pular_download:
+        if nome_etapa in ETAPAS_DOWNLOAD and pular_download:
             print(f"\n[{nome_etapa}] Pulado (--pular-download)")
             continue
 
-        args = [] if nome_etapa == 'Index' else ['--ano', str(ano)]
-        if nome_etapa in ('Download', 'BaixarRREO') and forcar:
+        args = [] if nome_etapa in ETAPAS_SEM_ANO else ['--ano', str(ano)]
+        if nome_etapa in ETAPAS_DOWNLOAD and forcar:
             args.append('--forcar')
 
         print(f"\n[{nome_etapa}]")
@@ -72,7 +77,7 @@ def processar_ano(ano, pular_download, forcar):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Pipeline completo de dados de saude de Sorocaba')
+    parser = argparse.ArgumentParser(description='Pipeline completo de dados de saude e educacao de Sorocaba')
     parser.add_argument('--ano', type=int, action='append', required=True,
                         help='Ano a processar (pode repetir para multiplos anos)')
     parser.add_argument('--pular-download', action='store_true',
