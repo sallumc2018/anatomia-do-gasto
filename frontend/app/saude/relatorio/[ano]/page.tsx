@@ -117,6 +117,7 @@ export default async function RelatorioSaudePage({ params, searchParams }: PageP
   const { ano } = await params
   const { q } = await searchParams
 
+  if (!/^\d{4}$/.test(ano)) notFound()
   const year = Number(ano)
   const availableYears = getAvailableYears(AREA)
 

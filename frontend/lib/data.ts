@@ -64,7 +64,7 @@ function parseCSV(content: string): HealthRow[] {
 
 function getDataDir(area: Area): string {
   const envKey = area === "saude" ? "DATA_SAIDA_DIR" : `DATA_SAIDA_DIR_${area.toUpperCase()}`
-  return process.env[envKey] ?? path.join(process.cwd(), "..", "sorocaba", area, "saida")
+  return process.env[envKey] ?? path.join(process.cwd(), "data", area, "saida")
 }
 
 export function getAvailableYears(area: Area): number[] {
@@ -215,7 +215,7 @@ function parseRREODespesasCSV(content: string): RREODespesasRow[] {
 
 export function loadRREODespesas(year: number): RREODespesasRow[] {
   const filePath = path.join(
-    process.env.DATA_SAIDA_DIR ?? path.join(process.cwd(), "..", "sorocaba", "saude", "saida"),
+    process.env.DATA_SAIDA_DIR ?? path.join(process.cwd(), "data", "saude", "saida"),
     `rreo_despesas_saude_sorocaba_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []
@@ -261,7 +261,7 @@ function parseRREOReceitasCSV(content: string): RREOReceitasRow[] {
 
 export function loadRREOReceitas(year: number): RREOReceitasRow[] {
   const filePath = path.join(
-    process.env.DATA_SAIDA_DIR ?? path.join(process.cwd(), "..", "sorocaba", "saude", "saida"),
+    process.env.DATA_SAIDA_DIR ?? path.join(process.cwd(), "data", "saude", "saida"),
     `rreo_receitas_sus_sorocaba_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []

@@ -17,7 +17,7 @@ import sys
 
 SCRIPTS_DIR  = os.path.dirname(os.path.abspath(__file__))
 ENTRADA_DIR  = os.path.join(SCRIPTS_DIR, '..', 'sorocaba', 'educacao', 'entrada')
-SAIDA_DIR    = os.path.join(SCRIPTS_DIR, '..', 'sorocaba', 'educacao', 'saida')
+SAIDA_DIR    = os.path.join(SCRIPTS_DIR, '..', 'frontend', 'data', 'educacao', 'saida')
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

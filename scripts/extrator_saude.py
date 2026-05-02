@@ -458,7 +458,7 @@ def main():
     diretorio_script  = os.path.dirname(os.path.abspath(__file__))
     pasta_pdfs        = os.path.abspath(os.path.join(diretorio_script, "..", "sorocaba", "saude", "entrada"))
     intermediario_dir = os.path.abspath(os.path.join(diretorio_script, "..", "sorocaba", "saude", "intermediario"))
-    saida_dir         = os.path.abspath(os.path.join(diretorio_script, "..", "sorocaba", "saude", "saida"))
+    saida_dir         = os.path.abspath(os.path.join(diretorio_script, "..", "frontend", "data", "saude", "saida"))
     os.makedirs(intermediario_dir, exist_ok=True)
     os.makedirs(saida_dir, exist_ok=True)
 

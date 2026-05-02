@@ -22,9 +22,9 @@ const COLS = [
     title: "Limitações declaradas",
     items: [
       "Piloto: Sorocaba/SP apenas",
-      "Área atual: Saúde",
-      "Período: 2024 e 2025",
-      "Receitas e transferências: em desenvolvimento",
+      "Áreas: Saúde e Educação",
+      "Saúde: 2020–2025 · Educação: 2024–2025",
+      "Expansão para outros municípios planejada",
     ],
   },
   {

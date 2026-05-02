@@ -81,6 +81,7 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
   const { ano } = await params
   const { t }   = await searchParams
 
+  if (!/^\d{4}$/.test(ano)) notFound()
   const year           = Number(ano)
   const availableYears = getAvailableYears(AREA)
 

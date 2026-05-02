@@ -24,7 +24,7 @@ import sys
 DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 RAIZ             = os.path.abspath(os.path.join(DIRETORIO_SCRIPT, '..'))
 ENTRADA_DIR      = os.path.join(RAIZ, 'sorocaba', 'saude', 'rreo', 'entrada')
-SAIDA_DIR        = os.path.join(RAIZ, 'sorocaba', 'saude', 'saida')
+SAIDA_DIR        = os.path.join(RAIZ, 'frontend', 'data', 'saude', 'saida')
 
 # bimestre → quadrimestre
 QUAD = {2: 1, 4: 2, 6: 3}

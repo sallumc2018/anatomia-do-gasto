@@ -73,7 +73,7 @@ def extrair_detalhamento(items):
 
 
 def salvar_csv(ano, detalhamento):
-    saida_dir = os.path.join(RAIZ, 'sorocaba', 'saude', 'saida')
+    saida_dir = os.path.join(RAIZ, 'frontend', 'data', 'saude', 'saida')
     os.makedirs(saida_dir, exist_ok=True)
     caminho = os.path.join(saida_dir, f'receitas_detalhamento_sorocaba_{ano}.csv')
     with open(caminho, 'w', newline='', encoding='utf-8-sig') as f:
