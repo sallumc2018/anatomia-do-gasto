@@ -74,7 +74,7 @@ export default function PageFooter() {
           ))}
         </div>
 
-        <div style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }}>
+        <div style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }} className="flex flex-col gap-3">
           <p style={S_caption}>
             Anatomia do Gasto · Dados públicos extraídos dos Relatórios de
             Aplicação da LRF — Prefeitura de Sorocaba/SP. Os dados são de
@@ -82,6 +82,17 @@ export default function PageFooter() {
             abertos. Nenhum dado é editado ou selecionado para favorecer
             qualquer narrativa.
           </p>
+          <div className="flex flex-wrap gap-4">
+            {[
+              { label: "Política de Dados",        href: "/politica-de-dados" },
+              { label: "Política de Neutralidade", href: "/politica-de-neutralidade" },
+              { label: "Termos de Uso",             href: "/termos" },
+            ].map((link) => (
+              <a key={link.href} href={link.href} style={{ ...S_caption, textDecoration: "underline", color: "var(--text-04)" }}>
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
