@@ -7,20 +7,38 @@ import {
 
 export interface PorPeriodoPoint {
   year: string
-  "1º quad": number
-  "2º quad": number
-  "3º quad": number
+  [key: string]: number | string
 }
+
+export interface PeriodoConfig {
+  key: string
+  label: string
+  fill: string
+}
+
+export const TRIMS: PeriodoConfig[] = [
+  { key: "1º trim", label: "1º trim — Jan–Mar", fill: "#2d71e0" },
+  { key: "2º trim", label: "2º trim — Abr–Jun", fill: "#4589ff" },
+  { key: "3º trim", label: "3º trim — Jul–Set", fill: "#5491f0" },
+  { key: "4º trim", label: "4º trim — Out–Dez", fill: "#82aef5" },
+]
+
+const QUADS: PeriodoConfig[] = [
+  { key: "1º quad", label: "1º quad — Jan–Abr", fill: "#2d71e0" },
+  { key: "2º quad", label: "2º quad — Mai–Ago", fill: "#5491f0" },
+  { key: "3º quad", label: "3º quad — Set–Dez", fill: "#82aef5" },
+]
 
 interface Props {
   data: PorPeriodoPoint[]
+  periodos?: PeriodoConfig[]
 }
 
 function fmtM(v: number) {
   return `${(v / 1e6).toFixed(0)}M`
 }
 
-export function PorPeriodo({ data }: Props) {
+export function PorPeriodo({ data, periodos = QUADS }: Props) {
   return (
     <ResponsiveContainer width="100%" height={200}>
       <BarChart data={data} layout="vertical" barCategoryGap="35%" margin={{ top: 4, right: 24, left: 0, bottom: 0 }}>
@@ -69,9 +87,9 @@ export function PorPeriodo({ data }: Props) {
             paddingTop: "12px",
           }}
         />
-        <Bar dataKey="1º quad" name="1º quad — Jan–Abr" fill="#2d71e0" radius={0} barSize={9} />
-        <Bar dataKey="2º quad" name="2º quad — Mai–Ago" fill="#5491f0" radius={0} barSize={9} />
-        <Bar dataKey="3º quad" name="3º quad — Set–Dez" fill="#82aef5" radius={0} barSize={9} />
+        {periodos.map((p) => (
+          <Bar key={p.key} dataKey={p.key} name={p.label} fill={p.fill} radius={0} barSize={9} />
+        ))}
       </BarChart>
     </ResponsiveContainer>
   )

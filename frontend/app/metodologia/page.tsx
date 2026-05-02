@@ -46,13 +46,13 @@ const PIPELINE = [
     num: "02",
     titulo: "Extração de texto",
     texto:  "Um script Python com pdfplumber lê os PDFs e localiza as tabelas de despesas. Para PDFs em formato de imagem (sem texto selecionável), há fallback automático para PyMuPDF.",
-    fonte:  "scripts/extrator_saude.py · extrator_rreo_sus.py",
+    fonte:  "scripts/extrator_saude.py · extrator_rreo_sus.py · extrator_educacao.py",
   },
   {
     num: "03",
     titulo: "Conversão para CSV",
     texto:  "Os dados extraídos são normalizados (acentos removidos, valores numéricos convertidos do formato BR) e salvos em arquivos CSV estruturados por área e ano.",
-    fonte:  "sorocaba/saude/saida/*.csv",
+    fonte:  "frontend/data/saude/saida/*.csv · frontend/data/educacao/saida/*.csv",
   },
   {
     num: "04",
@@ -105,7 +105,7 @@ const DEFINICOES = [
 
 const LIMITACOES = [
   "Cobertura atual: apenas Sorocaba/SP. A expansão para outros municípios está em planejamento.",
-  "Área de dados: saúde. Educação está em desenvolvimento com dados disponíveis a partir de 2020.",
+  "Cobertura educação: 2024–2025. O portal da Prefeitura de Sorocaba não disponibiliza os relatórios de educação anteriores a 2024.",
   "O pipeline extrai dados dos PDFs oficiais. Erros de digitação nos PDFs originais são refletidos nos CSVs.",
   "Os valores são acumulados por quadrimestre (Jan–Abr, Jan–Ago, Jan–Dez), não incrementais. O 3º quad representa o total anual.",
   "Outras subfunções de saúde (saúde do trabalhador, saúde mental) são agrupadas como 'Outras subfunções' no RREO, sem detalhamento.",

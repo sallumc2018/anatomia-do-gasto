@@ -11,6 +11,7 @@ import {
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
+import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/PorPeriodo"
 
 const AREA: Area = "educacao"
 const PERIODO_ANUAL = 4  // educação é trimestral; T4 = acumulado Jan–Dez
@@ -77,6 +78,21 @@ export default function EducacaoPage() {
   for (const year of chartYears) {
     yearData[year] = loadYearData(year, AREA)
   }
+
+  const porPeriodoData: PorPeriodoPoint[] = chartYears.map((year) => {
+    const rows = yearData[year]
+    const t1acc = rows.find((r) => r.quadrimestre === 1 && r.funcao === areaTotal)?.liquidada ?? 0
+    const t2acc = rows.find((r) => r.quadrimestre === 2 && r.funcao === areaTotal)?.liquidada ?? 0
+    const t3acc = rows.find((r) => r.quadrimestre === 3 && r.funcao === areaTotal)?.liquidada ?? 0
+    const t4acc = rows.find((r) => r.quadrimestre === 4 && r.funcao === areaTotal)?.liquidada ?? 0
+    return {
+      year: String(year),
+      "1º trim": t1acc,
+      "2º trim": Math.max(0, t2acc - t1acc),
+      "3º trim": Math.max(0, t3acc - t2acc),
+      "4º trim": Math.max(0, t4acc - t3acc),
+    }
+  })
 
   const revenueRows  = latestYear ? loadRevenueData(latestYear, AREA) : []
   const latestRevQ   = revenueRows.find((r) => r.quadrimestre === 4)
@@ -279,10 +295,14 @@ export default function EducacaoPage() {
         {chartYears.length > 0 && (
           <section id="graficos" style={{ backgroundColor: "var(--bg-base)", ...S.borderTop, ...S.borderBottom }}>
             <div className="mx-auto px-6 py-16" style={S.container}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
                   <p className="uppercase font-semibold mb-3" style={S.label}>Histórico anual — total liquidado</p>
                   <TotalAnual data={totalAnualData} />
+                </div>
+                <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
+                  <p className="uppercase font-semibold mb-3" style={S.label}>Por trimestre</p>
+                  <PorPeriodo data={porPeriodoData} periodos={TRIMS} />
                 </div>
                 <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
                   <p className="uppercase font-semibold mb-3" style={S.label}>Comparativo por função</p>

@@ -65,6 +65,7 @@ const COLS: { label: string; tip: string }[] = [
   { label: "Liquidada",          tip: "Serviço entregue e verificado pela prefeitura." },
   { label: "Paga",               tip: "Valor efetivamente transferido." },
   { label: "% do total",         tip: "Participação da função no total liquidado em educação." },
+  { label: "Exec.",              tip: "Execução orçamentária: valor liquidado dividido pela dotação atualizada." },
 ]
 
 const FUNCAO_TIPS: Record<string, string> = {
@@ -278,6 +279,9 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
                         <td style={{ padding: "14px 16px 14px 0", fontSize: "13px", textAlign: "right", color: "var(--text-03)", fontFamily: "var(--font-ibm-plex-mono)" }}>
                           {pct(row.liquidada, total?.liquidada ?? 0)}
                         </td>
+                        <td style={{ padding: "14px 16px 14px 0", fontSize: "13px", textAlign: "right", color: "var(--text-03)", fontFamily: "var(--font-ibm-plex-mono)" }}>
+                          {pct(row.liquidada, row.dotacao)}
+                        </td>
                         {prevYear && <Delta current={row.liquidada} prev={prevByFuncao[row.funcao]} />}
                       </tr>
                     ))}
@@ -294,6 +298,9 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
                         <Num value={total.paga}      bold />
                         <td style={{ padding: "14px 16px 14px 0", fontSize: "13px", textAlign: "right", color: "var(--text-03)", fontFamily: "var(--font-ibm-plex-mono)" }}>
                           100%
+                        </td>
+                        <td style={{ padding: "14px 16px 14px 0", fontSize: "13px", textAlign: "right", color: "var(--text-03)", fontFamily: "var(--font-ibm-plex-mono)" }}>
+                          {pct(total.liquidada, total.dotacao)}
                         </td>
                         {prevYear && <Delta current={total.liquidada} prev={prevByFuncao[TOTAL_ROW[AREA]]} bold />}
                       </tr>
