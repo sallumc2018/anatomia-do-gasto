@@ -179,11 +179,11 @@ anatomiadogasto.ong.br
 
 ### 3.6. Pendências abertas
 
-- 🟡 Executar verificar_dados.py para educação (cobertura de integridade ainda não existe)
-- 🟡 Verificar integridade dos dados de saúde 2020–2023
-- 🔴 Expandir para outros setores (transporte, segurança, etc.)
-- 🔴 Câmara 2: sistema de moderação jurídica
-- 🔴 Câmara 3: praça pública com comentários supervisionados
+- 🟡 Verificar integridade dos dados de saúde 2020–2023 e educação 2024–2025
+- 🟡 Implementar trilha de auditoria de agentes políticos (coleta de remuneração e emendas)
+- 🔴 Câmaras 2 e 3 (moderação jurídica e praça pública)
+
+Demais pendências e fases de expansão estão no [roadmap do projeto](docs/roadmap.md).
 
 ---
 
