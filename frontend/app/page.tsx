@@ -1,4 +1,4 @@
-import React from "react"
+﻿import React from "react"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -77,6 +77,22 @@ export default function IndexPage() {
                   </p>
                   <div className="mt-4 flex items-center gap-2" style={{ color: "var(--blue-50)", fontSize: "14px" }}>
                     Acessar auditoria
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/auditoria/ranking" className="tile-link" style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}>
+                <div className="p-8 flex flex-col gap-4">
+                  <p style={S.label}>Trilha de Auditoria</p>
+                  <p className="font-mono font-medium" style={{ fontSize: "32px", color: "var(--text-01)" }}>Ranking</p>
+                  <p style={{ ...S.body, fontSize: "14px", color: "var(--text-03)" }}>
+                    Classificação objetiva dos agentes políticos com base em critérios de execução e transparência.
+                  </p>
+                  <div className="mt-4 flex items-center gap-2" style={{ color: "var(--blue-50)", fontSize: "14px" }}>
+                    Acessar ranking
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
