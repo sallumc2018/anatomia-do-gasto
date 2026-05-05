@@ -43,7 +43,9 @@ export default function AuditoriaPage() {
                 Os valores, nomes e entidades aqui apresentados são ilustrativos.
                 Veja o <a href="https://github.com/sallumc2018/anatomia-do-gasto/blob/main/docs/auditoria/01-fontes.md" style={{ color: "var(--blue-50)" }}>plano de fontes</a> e
                 o <a href="https://github.com/sallumc2018/anatomia-do-gasto/blob/main/docs/auditoria/README.md" style={{ color: "var(--blue-50)" }}>escopo da auditoria</a>.
-              </p>
+              <p style="font-size:14px;line-height:22px;color:var(--text-03);marginTop:16px">📊 <a href="/auditoria/ranking" style="color:var(--blue-50);text-decoration:underline">Ver ranking completo dos agentes políticos</a></p>
+
+</p>
             </div>
             <TabelaPerfis />
           </div>
