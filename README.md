@@ -42,14 +42,15 @@ Este projeto extrai, estrutura e verifica automaticamente os dados do Portal da 
   - **Proposições legislativas**: quem propôs cada lei e como cada parlamentar votou (a favor, contra, abstenção).
   - **Identificação padronizada**: `CARGO - NOME_DO_SERVIDOR - PARTIDO`.
 
-  **Ordem de abrangência (do bairro à Presidência):**
-  1. Vereador
-  2. Prefeito
-  3. Deputado Estadual
-  4. Governador
-  5. Deputado Federal
-  6. Senador
-  7. Presidente da República
+**Ordem de abrangência (do bairro à Presidência):**
+
+1. Vereador
+2. Prefeito
+3. Deputado Estadual
+4. Governador
+5. Deputado Federal
+6. Senador
+7. Presidente da República
 
   A atualização respeitará os calendários de divulgação das fontes oficiais (portais de transparência, diários oficiais, sistemas do Legislativo), com prazo máximo de 24 a 48 horas para espelhar os novos dados no site.
 
@@ -169,7 +170,7 @@ anatomia-do-gasto/
 - Git instalado (para clonar o repositório)
 - VS Code (recomendado, mas opcional)
 
-### Configuração inicial (apenas uma vez)
+#### Configuração inicial (apenas uma vez)
 
 ```bash
 # Clone o repositório
@@ -182,7 +183,7 @@ cd anatomia-do-gasto
 python -m venv venv
 ```
 
-### Ative o ambiente virtual
+#### Ative o ambiente virtual
 **Windows:**
 ```bash
 venv\Scripts\activate
@@ -193,17 +194,17 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### Instale as dependências
+#### Instale as dependências
 ```bash
 pip install -r requirements.txt
 ```
 
-### Rodar o pipeline completo para um ano
+#### Rodar o pipeline completo para um ano
 ```bash
 python scripts/pipeline.py --ano 2024
 ```
 
-### Isso executa em sequência:
+#### Isso executa em sequência:
 
 1. Download — baixa os PDFs do portal (pula se já existirem)
 2. Extração — gera o CSV com despesas por função e quadrimestre
@@ -211,45 +212,45 @@ python scripts/pipeline.py --ano 2024
 4. HTML — gera o relatório visual do ano
 5. Index — atualiza o index.html com todos os anos disponíveis
 
-### Opções do pipeline
+#### Opções do pipeline
 
-### Múltiplos anos de uma vez
+#### Múltiplos anos de uma vez
 ```bash
 python scripts/pipeline.py --ano 2024 --ano 2025
 ```
 
-### PDFs já estão na pasta, pular download
+#### PDFs já estão na pasta, pular download
 ```bash
 python scripts/pipeline.py --ano 2024 --pular-download
 ```
 
-### Forçar re-download e re-processamento
+#### Forçar re-download e re-processamento
 ```bash
 python scripts/pipeline.py --ano 2024 --forcar
 ```
 
-### Rodar scripts individualmente
-### Só baixar PDFs
+#### Rodar scripts individualmente
+#### Só baixar PDFs
 ```bash
 python scripts/baixar_pdfs.py --ano 2024
 ```
 
-### Só extrair dados
+#### Só extrair dados
 ```bash
 python scripts/extrator_saude.py --ano 2024
 ```
 
-### Só verificar integridade
+#### Só verificar integridade
 ```bash
 python scripts/testes/verificar_dados.py --ano 2024
 ```
 
-### Só gerar HTML
+#### Só gerar HTML
 ```bash
 python scripts/gerar_html.py --ano 2024
 ```
 
-### Só gerar index
+#### Só gerar index
 ```bash
 python scripts/gerar_index.py
 ```
