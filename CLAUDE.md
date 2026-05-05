@@ -5,14 +5,14 @@
 - **node_modules:** junto com o projeto em `frontend\node_modules\` (não versionar)
 - **Dados saúde:** `C:\projetos\anatomia-do-gasto\sorocaba\saude\saida`
 - **Dados educação:** `C:\projetos\anatomia-do-gasto\sorocaba\educacao\saida`
-- **Repositório:** `github.com/sallumc2018/anatomia-do-gasto` (privado)
+- **Repositório:** `github.com/sallumc2018/anatomia-do-gasto` (público)
 
 ## Rodar o projeto
 ```powershell
 cd "C:\projetos\anatomia-do-gasto\frontend"
 .\dev.ps1   # sobe o Next.js dev server
 ```
-Instalar pacote: `cd "C:\projetos\anatomia-do-gasto\frontend"; npm install <pacote>`
+#Instalar pacote: `cd "C:\projetos\anatomia-do-gasto\frontend"; npm install <pacote>`
 
 ## Stack
 - Next.js + TypeScript + Recharts
