@@ -250,7 +250,7 @@ Segurança passa a ser relevante quando forem adicionados: autenticação de mod
 
 ## 6. Limitações Importantes
 
-Veja o arquivo LIMITACOES.md para entender o que este projeto NÃO oferece e como usar os dados com responsabilidade.
+Veja o arquivo [LIMITACOES.md](LIMITACOES.md) para entender o que este projeto NÃO oferece e como usar os dados com responsabilidade.
 
 ---
 
