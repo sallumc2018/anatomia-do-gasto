@@ -275,6 +275,8 @@ O site é gerado pelo Next.js e publicado via Vercel (arquivos estáticos + serv
 
 Segurança passa a ser relevante quando forem adicionados: autenticação de moderadores (Câmara 2) e comentários de cidadãos (Câmara 3).
 
+Para mais detalhes, veja [`docs/seguranca.md`](docs/seguranca.md).
+
 ## 6. Limitações Importantes
 
 Veja o arquivo [LIMITACOES.md](LIMITACOES.md) para entender o que este projeto NÃO oferece e como usar os dados com responsabilidade.
