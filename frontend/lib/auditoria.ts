@@ -41,7 +41,7 @@ export interface AgentePerfil extends Agente {
 }
 
 // Caminho base para os dados mock (funciona em server components)
-const DATA_DIR = path.join(process.cwd(), "frontend", "data", "auditoria")
+const DATA_DIR = path.join(process.cwd(), "data", "auditoria")
 
 function readJSON<T>(filename: string): T {
   const filePath = path.join(DATA_DIR, filename)
