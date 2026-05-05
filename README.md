@@ -106,50 +106,77 @@ Cada novo setor seguirá o mesmo pipeline: download automático → extração �
 ```
 anatomia-do-gasto/
 │
-├── frontend/                        ← site Next.js (source of truth)
-│   ├── app/                         ← rotas Next.js (App Router)
-│   │   ├── page.tsx                 ← home com gráficos comparativos
-│   │   ├── saude/
-│   │   │   ├── page.tsx             ← hub de saúde
-│   │   │   └── relatorio/[ano]/     ← relatório por ano (dinâmico)
-│   │   ├── educacao/
-│   │   │   ├── page.tsx             ← hub de educação
-│   │   │   └── relatorio/[ano]/     ← relatório por ano (dinâmico)
-│   │   ├── sobre/
-│   │   ├── metodologia/
-│   │   ├── termos/
-│   │   ├── politica-de-dados/
-│   │   └── politica-de-neutralidade/
-│   ├── components/                  ← componentes React (gráficos, layout, UI)
-│   ├── data/                        ← CSVs gerados pelo pipeline Python
-│   │   ├── saude/saida/             ← despesas e receitas SUS por ano
-│   │   └── educacao/saida/          ← despesas educação por ano
-│   └── lib/
-│       ├── data.ts                  ← leitura de CSV (server only, usa fs/path)
-│       └── types.ts                 ← interfaces e labels (browser-safe)
+├── docs/ ← documentação do projeto
+│ ├── arquitetura.md ← stack, fluxo de dados, decisões técnicas
+│ ├── faq.md ← perguntas frequentes
+│ ├── glossario.md ← termos técnicos em linguagem cidadã
+│ ├── pipeline.md ← documentação detalhada do pipeline
+│ ├── politica-de-moderacao.md ← regras para Câmaras 2 e 3
+│ ├── roadmap.md ← fases de evolução do projeto
+│ ├── seguranca.md ← política de segurança
+│ └── auditoria/ ← trilha de auditoria de agentes políticos
+│ ├── README.md
+│ ├── 01-fontes.md
+│ ├── 02-atores.md
+│ ├── 03-metodologia.md
+│ ├── 04-visualizacoes.md
+│ ├── 05-emendas-saude.md
+│ └── 06-lacunas.md
 │
-├── scripts/                         ← pipeline Python (extração de dados)
-│   ├── pipeline.py                  ← orquestrador principal
-│   ├── baixar_pdfs.py
-│   ├── baixar_pdfs_educacao.py
-│   ├── baixar_rreo_sus.py
-│   ├── extrator_saude.py
-│   ├── extrator_educacao.py
-│   ├── extrator_rreo.py
-│   ├── extrator_rreo_sus.py
-│   ├── extrator_universal.py
-│   └── testes/
-│       └── verificar_dados.py       ← compara CSV com PDF bruto
+├── frontend/ ← site Next.js (source of truth)
+│ ├── app/ ← rotas Next.js (App Router)
+│ │ ├── page.tsx ← home com gráficos comparativos
+│ │ ├── saude/
+│ │ │ ├── page.tsx ← hub de saúde
+│ │ │ └── relatorio/[ano]/ ← relatório por ano (dinâmico)
+│ │ ├── educacao/
+│ │ │ ├── page.tsx ← hub de educação
+│ │ │ └── relatorio/[ano]/ ← relatório por ano (dinâmico)
+│ │ ├── sobre/
+│ │ ├── metodologia/
+│ │ ├── termos/
+│ │ ├── politica-de-dados/
+│ │ └── politica-de-neutralidade/
+│ ├── components/ ← componentes React (gráficos, layout, UI)
+│ ├── data/ ← CSVs gerados pelo pipeline Python
+│ │ ├── saude/saida/ ← despesas e receitas SUS por ano
+│ │ └── educacao/saida/ ← despesas educação por ano
+│ └── lib/
+│ ├── data.ts ← leitura de CSV (server only, usa fs/path)
+│ └── types.ts ← interfaces e labels (browser-safe)
 │
-├── sorocaba/
-│   ├── saude/entrada/               ← PDFs brutos (não versionar)
-│   └── educacao/entrada/            ← PDFs brutos (não versionar)
+├── scripts/ ← pipeline Python (extração de dados)
+│ ├── pipeline.py ← orquestrador principal
+│ ├── baixar_pdfs.py
+│ ├── baixar_pdfs_educacao.py
+│ ├── baixar_rreo_sus.py
+│ ├── extrator_saude.py
+│ ├── extrator_educacao.py
+│ ├── extrator_rreo.py
+│ ├── extrator_rreo_sus.py
+│ ├── extrator_universal.py
+│ └── testes/
+│ └── verificar_dados.py ← compara CSV com PDF bruto
 │
-├── requirements.txt                 ← dependências Python
-├── venv/                            ← ambiente virtual (não versionar)
+├── sorocaba/ ← dados brutos e saídas do pipeline
+│ ├── saude/
+│ │ ├── entrada/ ← PDFs brutos (não versionar)
+│ │ ├── intermediario/ ← JSONs de extração
+│ │ ├── rreo/entrada/ ← PDFs do RREO
+│ │ └── saida/ ← CSVs extraídos
+│ └── educacao/
+│ ├── entrada/ ← PDFs brutos (não versionar)
+│ └── saida/ ← CSVs extraídos
+│
+├── .gitignore
+├── CLAUDE.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
 ├── GOVERNANCE.md
+├── LICENSE
 ├── LIMITACOES.md
-└── LICENSE                          ← MIT
+├── README.md
+└── requirements.txt
 ```
 
 ### 3.4. Fluxo de dados
