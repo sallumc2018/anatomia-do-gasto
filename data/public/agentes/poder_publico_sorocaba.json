@@ -1,0 +1,610 @@
+{
+  "municipio": "Sorocaba",
+  "uf": "SP",
+  "atualizado_em": "2026-05-06",
+  "observacao": "Lista inicial para transparência cidadã. Deputados listados são os eleitos por Sorocaba/região ou com vínculo público direto com Sorocaba; bases e vínculos serão refinados por manifesto próprio.",
+  "fontes": [
+    {
+      "id": "camara-sorocaba-posse-2025",
+      "titulo": "Câmara Municipal de Sorocaba - posse da 19ª Legislatura",
+      "url": "https://www.camarasorocaba.sp.gov.br/newsitem.html?id=6772f403b70fd0be8e1417af"
+    },
+    {
+      "id": "prefeitura-prefeito",
+      "titulo": "Prefeitura de Sorocaba - Prefeito",
+      "url": "https://prefeito.sorocaba.sp.gov.br/"
+    },
+    {
+      "id": "governo-sp-estrutura",
+      "titulo": "Governo do Estado de São Paulo - Estrutura",
+      "url": "https://www.sp.gov.br/sp/institucional/estrutura"
+    },
+    {
+      "id": "camara-deputados",
+      "titulo": "Câmara dos Deputados - páginas de parlamentares",
+      "url": "https://www.camara.leg.br/deputados"
+    },
+    {
+      "id": "alesp",
+      "titulo": "Assembleia Legislativa do Estado de São Paulo - deputados",
+      "url": "https://www.al.sp.gov.br/alesp/deputados-estaduais/"
+    },
+    {
+      "id": "prefeitura-salarios-2025",
+      "titulo": "Prefeitura de Sorocaba - Tabela de salários 2025",
+      "url": "https://noticias.sorocaba.sp.gov.br/wp-content/uploads/2025/07/noticias.sorocaba.sp.gov.br-3746-03-de-julho-de-2025-tabela-de-salarios-2025.pdf"
+    },
+    {
+      "id": "camara-sorocaba-subsidios-2026",
+      "titulo": "Câmara Municipal de Sorocaba - subsídios publicados em 2026",
+      "url": "https://noticias.sorocaba.sp.gov.br/wp-content/uploads/2026/01/noticias.sorocaba.sp.gov.br-3866-05-de-janeiro-de-2026-ok.pdf"
+    },
+    {
+      "id": "alesp-subsidio-deputados-2025",
+      "titulo": "ALESP - subsídio de deputados estaduais a partir de 2025",
+      "url": "https://www.al.sp.gov.br/noticia/?id=445103"
+    },
+    {
+      "id": "alesp-subsidio-governador-vice",
+      "titulo": "ALESP - subsídio do Governador e Vice-Governador",
+      "url": "https://www.al.sp.gov.br/repositorio/legislacao/lei/2023/lei-17862-22.12.2023.html"
+    },
+    {
+      "id": "camara-deputados-subsidio-2025",
+      "titulo": "Câmara dos Deputados - salário parlamentar",
+      "url": "https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalistas/salario-de-deputados"
+    }
+  ],
+  "grupos": [
+    {
+      "id": "executivo-municipal",
+      "titulo": "Prefeitura de Sorocaba",
+      "escopo": "Municipal",
+      "pessoas": [
+        {
+          "nome": "Rodrigo Maganhato",
+          "nome_publico": "Rodrigo Manga",
+          "cargo": "Prefeito",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "prefeitura-prefeito",
+          "remuneracao": {
+            "valor_bruto_mensal": 29363.01,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "prefeitura-salarios-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Fernando Martins da Costa Neto",
+          "nome_publico": "Fernando Martins",
+          "cargo": "Vice-prefeito",
+          "partido": "PSD",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 17617.8,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "prefeitura-salarios-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "vereadores",
+      "titulo": "Vereadores de Sorocaba",
+      "escopo": "Municipal",
+      "pessoas": [
+        {
+          "nome": "Alexandre da Horta",
+          "cargo": "Vereador",
+          "partido": "Solidariedade",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Caio Oliveira",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Cláudio Sorocaba",
+          "cargo": "Vereador",
+          "partido": "PSD",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Cristiano Passos",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Dylan Dantas",
+          "cargo": "Vereador",
+          "partido": "PL",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Fabio Simoa",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Fausto Peres",
+          "cargo": "Vereador",
+          "partido": "Podemos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Fernanda Garcia",
+          "cargo": "Vereadora",
+          "partido": "PSOL",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Fernando Dini",
+          "cargo": "Vereador",
+          "partido": "PP",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Henri Arida",
+          "cargo": "Vereador",
+          "partido": "MDB",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Iara Bernardi",
+          "cargo": "Vereadora",
+          "partido": "PT",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Ítalo Moreira",
+          "cargo": "Vereador",
+          "partido": "União Brasil",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Izídio de Brito",
+          "cargo": "Vereador",
+          "partido": "PT",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "João Donizeti Silvestre",
+          "cargo": "Vereador",
+          "partido": "União Brasil",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Jussara Fernandes",
+          "cargo": "Vereadora",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Luis Santos",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18900,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial do Presidente da Câmara."
+          }
+        },
+        {
+          "nome": "Péricles Régis",
+          "cargo": "Vereador",
+          "partido": "Agir",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Raul Marcelo",
+          "cargo": "Vereador",
+          "partido": "PSOL",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Roberto Freitas",
+          "cargo": "Vereador",
+          "partido": "PL",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Rodolfo Ganem",
+          "cargo": "Vereador",
+          "partido": "Podemos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Rogério Marques Munhoz",
+          "cargo": "Vereador",
+          "partido": "Agir",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Silvano Jr.",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Tatiane Costa",
+          "cargo": "Vereadora",
+          "partido": "PL",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Toninho Corredor",
+          "cargo": "Vereador",
+          "partido": "Agir",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Vinicius Aith",
+          "cargo": "Vereador",
+          "partido": "Republicanos",
+          "mandato": "2025-2028",
+          "fonte_id": "camara-sorocaba-posse-2025",
+          "remuneracao": {
+            "valor_bruto_mensal": 18000,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-sorocaba-subsidios-2026",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "subprefeituras",
+      "titulo": "Subprefeituras",
+      "escopo": "Municipal",
+      "observacao": "Não há subprefeitos mapeados para Sorocaba nesta fase. O projeto manterá o grupo para municípios que possuam subprefeituras ou administrações regionais.",
+      "pessoas": []
+    },
+    {
+      "id": "executivo-estadual",
+      "titulo": "Governo do Estado de São Paulo",
+      "escopo": "Estadual",
+      "pessoas": [
+        {
+          "nome": "Tarcísio de Freitas",
+          "cargo": "Governador",
+          "partido": "Republicanos",
+          "mandato": "2023-2026",
+          "fonte_id": "governo-sp-estrutura",
+          "remuneracao": {
+            "valor_bruto_mensal": 34572.89,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-governador-vice",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Felicio Ramuth",
+          "cargo": "Vice-governador",
+          "partido": "MDB",
+          "mandato": "2023-2026",
+          "fonte_id": "governo-sp-estrutura",
+          "remuneracao": {
+            "valor_bruto_mensal": 32844.41,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-governador-vice",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "deputados-estaduais",
+      "titulo": "Deputados estaduais ligados a Sorocaba/região",
+      "escopo": "Estadual",
+      "pessoas": [
+        {
+          "nome": "Carlos Cezar",
+          "cargo": "Deputado estadual",
+          "partido": "PL",
+          "mandato": "2023-2027",
+          "fonte_id": "alesp",
+          "remuneracao": {
+            "valor_bruto_mensal": 34774.64,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-deputados-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Danilo Balas",
+          "nome_publico": "Agente Federal Danilo Balas",
+          "cargo": "Deputado estadual",
+          "partido": "PL",
+          "mandato": "2023-2027",
+          "fonte_id": "alesp",
+          "remuneracao": {
+            "valor_bruto_mensal": 34774.64,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-deputados-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Maria Lúcia Amary",
+          "cargo": "Deputada estadual",
+          "partido": "PSD",
+          "mandato": "2023-2027",
+          "fonte_id": "alesp",
+          "remuneracao": {
+            "valor_bruto_mensal": 34774.64,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-deputados-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Vitão do Cachorrão",
+          "cargo": "Deputado estadual",
+          "partido": "Republicanos",
+          "mandato": "2023-2027",
+          "fonte_id": "alesp",
+          "remuneracao": {
+            "valor_bruto_mensal": 34774.64,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "alesp-subsidio-deputados-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "deputados-federais",
+      "titulo": "Deputados federais ligados a Sorocaba",
+      "escopo": "Federal",
+      "pessoas": [
+        {
+          "nome": "Guilherme Derrite",
+          "nome_publico": "Capitão Derrite",
+          "cargo": "Deputado federal",
+          "partido": "PP",
+          "mandato": "2023-2027",
+          "fonte_id": "camara-deputados",
+          "remuneracao": {
+            "valor_bruto_mensal": 46366.19,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-deputados-subsidio-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Jefferson Campos",
+          "cargo": "Deputado federal",
+          "partido": "PL",
+          "mandato": "2023-2027",
+          "fonte_id": "camara-deputados",
+          "remuneracao": {
+            "valor_bruto_mensal": 46366.19,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-deputados-subsidio-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        },
+        {
+          "nome": "Vitor Lippi",
+          "cargo": "Deputado federal",
+          "partido": "PSD",
+          "mandato": "2023-2027",
+          "fonte_id": "camara-deputados",
+          "remuneracao": {
+            "valor_bruto_mensal": 46366.19,
+            "moeda": "BRL",
+            "tipo": "subsídio bruto mensal",
+            "fonte_id": "camara-deputados-subsidio-2025",
+            "nota": "Subsídio bruto mensal oficial por cargo."
+          }
+        }
+      ]
+    }
+  ]
+}

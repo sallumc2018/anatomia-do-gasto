@@ -1,0 +1,196 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --font-ibm-plex-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-ibm-plex-mono: Consolas, "Courier New", monospace;
+
+  /* Carbon Gray-100 — dark theme aplicado globalmente, sem toggle */
+  --bg-base:     #161616;
+  --bg-elevated: #262626;
+  --bg-raised:   #393939;
+  --bg-high:     #525252;
+
+  --text-01: #f4f4f4;
+  --text-02: #c6c6c6;
+  --text-03: #a8a8a8;
+  --text-04: #8d8d8d;
+  --text-on-color: #ffffff;
+  --text-inverse:  #161616;
+
+  --border-01:    #393939;
+  --border-02:    #525252;
+  --border-03:    #6f6f6f;
+  --border-focus: #4589ff;
+
+  --blue-60: #0f62fe;
+  --blue-50: #4589ff;
+  --blue-40: #78a9ff;
+  --blue-30: #a6c8ff;
+
+  --support-error:   #ff8389;
+  --support-success: #42be65;
+  --support-warning: #f1c21b;
+
+  /* Mapeamento para Tailwind/Shadcn */
+  --background:         var(--bg-base);
+  --foreground:         var(--text-01);
+  --card:               var(--bg-elevated);
+  --card-foreground:    var(--text-01);
+  --muted:              var(--bg-raised);
+  --muted-foreground:   var(--text-03);
+  --border:             var(--border-01);
+  --ring:               var(--border-focus);
+  --primary:            var(--blue-60);
+  --primary-foreground: var(--text-on-color);
+  --radius: 2px;
+}
+
+@theme inline {
+  --color-background:         var(--bg-base);
+  --color-foreground:         var(--text-01);
+  --color-card:               var(--bg-elevated);
+  --color-card-foreground:    var(--text-01);
+  --color-muted:              var(--bg-raised);
+  --color-muted-foreground:   var(--text-03);
+  --color-border:             var(--border-01);
+  --color-ring:               var(--border-focus);
+  --color-primary:            var(--blue-60);
+  --color-primary-foreground: var(--text-on-color);
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 4px;
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+html {
+  background-color: var(--bg-base);
+  color: var(--text-01);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ibm-plex-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 8px;
+  z-index: 100;
+  transform: translateY(-160%);
+  background: var(--blue-60);
+  color: var(--text-on-color);
+  padding: 8px 12px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Utilitários de hover via CSS — evitam event handlers em server components */
+.nav-link {
+  color: var(--text-02);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 100ms ease;
+}
+.nav-link:hover {
+  color: var(--text-01);
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--text-01);
+}
+
+.tile-link {
+  display: block;
+  background-color: var(--bg-elevated);
+  transition: background-color 100ms ease;
+}
+.tile-link:hover {
+  background-color: #2c2c2c;
+}
+
+.tile-link:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.mobile-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-scroll > * {
+  flex: 0 0 auto;
+}
+
+.section-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section-tabs a {
+  flex: 0 0 auto;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid var(--border-01);
+}
+
+.table-scroll table {
+  min-width: 820px;
+}
+
+.table-scroll::before {
+  content: "Role horizontalmente para ver todas as colunas";
+  display: block;
+  padding: 8px 0;
+  color: var(--text-04);
+  font-size: 12px;
+}
+
+.trace-column {
+  border-top: 1px solid var(--border-01);
+}
+
+.trace-column:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .trace-column {
+    border-top: 0;
+    border-left: 1px solid var(--border-01);
+  }
+
+  .trace-column:first-child {
+    border-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .table-scroll::before {
+    display: none;
+  }
+}

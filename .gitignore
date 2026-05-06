@@ -1,6 +1,6 @@
 # Dependências e build
-frontend/node_modules/
-frontend/.next/
+apps/web/node_modules/
+apps/web/.next/
 
 # Ambiente Python
 venv/
@@ -9,17 +9,19 @@ __pycache__/
 *.pyo
 
 # Variáveis de ambiente (contém caminhos locais)
-frontend/.env.local
+apps/web/.env.local
 
-# PDFs brutos (grandes; podem ser baixados novamente do portal)
-sorocaba/saude/entrada/
-sorocaba/educacao/entrada/
+# PDFs brutos legados de saude (grandes; podem ser baixados novamente do portal)
+data/raw/sorocaba/saude/entrada/
 
 # HTMLs gerados pelo pipeline (redundantes com os CSVs)
-sorocaba/**/*.html
+data/**/*.html
 
 # Dados intermediários gerados automaticamente
-sorocaba/saude/intermediario/
+data/extracted/sorocaba/saude/intermediario/
+
+# Ambientes locais Linux/WSL
+.venv/
 
 #rtk.exe é um executável específico do ambiente de desenvolvimento, não deve ser versionado
 rtk.exe

@@ -32,7 +32,7 @@ Sim. Abra uma [issue no GitHub](https://github.com/sallumc2018/anatomia-do-gasto
 
 ### Como usar os dados em uma reportagem?
 
-Todos os CSVs estão disponíveis no repositório (`frontend/data/`). Você pode baixá-los e abrir no Excel ou Google Sheets. Para cruzamentos mais avançados, recomendamos usar os dados brutos com ferramentas como Python (pandas) ou R. Se precisar de ajuda, entre em contato: [contato@anatomiadogasto.ong.br](mailto:contato@anatomiadogasto.ong.br).
+Os CSVs publicados ficam em `data/public/`. Dados extraídos, mas ainda não validados, ficam em `data/extracted/` e não devem ser tratados como publicação oficial. Você pode abrir os CSVs no Excel ou Google Sheets; para cruzamentos mais avançados, recomendamos Python (pandas) ou R.
 
 ### Preciso creditar o projeto?
 
@@ -60,7 +60,7 @@ Leia o [CONTRIBUTING.md](../CONTRIBUTING.md). Pull requests são bem-vindos.
 
 ### Os dados estão disponíveis via API?
 
-Ainda não. O frontend lê CSVs diretamente do sistema de arquivos. Uma API pública está no radar para a Fase 3 do [roadmap](roadmap.md).
+Ainda não. O site lê CSVs publicados em `data/public/` diretamente do sistema de arquivos durante o build/render do Next.js. Uma API pública está no radar para uma fase futura.
 
 ### Posso usar os dados em meu próprio projeto?
 

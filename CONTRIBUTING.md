@@ -36,7 +36,7 @@ Use o template de issue para propor:
 5. **Teste** localmente (veja [README.md](README.md#4-como-executar)).
 6. Siga o estilo do projeto:
    - **Python:** PEP 8.
-   - **TypeScript/React:** ESLint configurado no frontend.
+   - **TypeScript/React:** ESLint configurado em `apps/web`.
    - **Documentação:** Markdown, um parágrafo por linha.
 7. **Commits em português**, com prefixos descritivos:
    - `feat:` para novas funcionalidades.
