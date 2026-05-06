@@ -184,50 +184,50 @@ export default function EducacaoPage() {
             area={AREA}
             year={latestYear}
             periodLabel={TRIMESTRE_LABEL[PERIODO_ANUAL]}
-            documentSource="Relatorios de Aplicacao no Ensino publicados pela Prefeitura de Sorocaba."
+            documentSource="Relatórios de Aplicação no Ensino publicados pela Prefeitura de Sorocaba."
             sources={[
               {
-                label: "Impostos proprios",
+                label: "Impostos próprios",
                 value: latestRevQ.proprios_arrecadado,
                 note: "Valor arrecadado registrado na base fiscal da educacao.",
               },
               {
-                label: "Transferencias do Estado",
+                label: "Transferências do Estado",
                 value: latestRevQ.transferencias_estaduais_arrecadado,
                 note: "Repasses estaduais registrados na base fiscal da educacao.",
               },
               {
-                label: "Transferencias da Uniao",
+                label: "Transferências da União",
                 value: latestRevQ.transferencias_federais_arrecadado,
                 note: "Repasses federais registrados na base fiscal da educacao.",
               },
             ]}
             stages={[
               {
-                label: "Dotacao atualizada",
+                label: "Dotação atualizada",
                 value: latestT.find((r) => r.funcao === areaTotal)?.dotacao ?? 0,
-                note: "Orcamento autorizado no relatorio agregado.",
+                note: "Orçamento autorizado no relatório agregado.",
               },
               {
                 label: "Empenhada",
                 value: latestT.find((r) => r.funcao === areaTotal)?.empenhada ?? 0,
-                note: "Valor comprometido no relatorio agregado.",
+                note: "Valor comprometido no relatório agregado.",
               },
               {
                 label: "Liquidada",
                 value: totalLiquidado,
-                note: "Valor entregue/conferido segundo o relatorio agregado.",
+                note: "Valor entregue/conferido segundo o relatório agregado.",
               },
               {
                 label: "Paga",
                 value: latestT.find((r) => r.funcao === areaTotal)?.paga ?? 0,
-                note: "Valor pago segundo o relatorio agregado.",
+                note: "Valor pago segundo o relatório agregado.",
               },
             ]}
             destinations={[
               { label: "Ensino fundamental", value: ensinoFund },
-              { label: "Educacao infantil", value: educInfantil },
-              { label: "Demais funcoes da educacao", value: Math.max(0, totalLiquidado - ensinoFund - educInfantil) },
+              { label: "Educação infantil", value: educInfantil },
+              { label: "Demais funções da educação", value: Math.max(0, totalLiquidado - ensinoFund - educInfantil) },
             ]}
           />
         )}

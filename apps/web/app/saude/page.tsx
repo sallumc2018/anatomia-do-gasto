@@ -193,55 +193,55 @@ export default function SaudePage() {
             area={AREA}
             year={latestYear}
             periodLabel="Acumulado Jan-Dez"
-            documentSource="Relatorios de Aplicacao da LRF e RREO Anexo 12 publicados pela Prefeitura de Sorocaba."
+            documentSource="Relatórios de Aplicação da LRF e RREO Anexo 12 publicados pela Prefeitura de Sorocaba."
             sources={[
               {
-                label: "Impostos proprios",
+                label: "Impostos próprios",
                 value: latestRevQ.proprios_arrecadado,
-                note: "Valor arrecadado registrado na base fiscal da saude.",
+                note: "Valor arrecadado registrado na base fiscal da saúde.",
               },
               {
-                label: "Transferencias do Estado",
+                label: "Transferências do Estado",
                 value: latestRevQ.transferencias_estaduais_arrecadado,
-                note: "Repasses estaduais registrados na base fiscal da saude.",
+                note: "Repasses estaduais registrados na base fiscal da saúde.",
               },
               {
-                label: "Transferencias da Uniao",
+                label: "Transferências da União",
                 value: latestRevQ.transferencias_federais_arrecadado,
-                note: "Repasses federais registrados na base fiscal da saude.",
+                note: "Repasses federais registrados na base fiscal da saúde.",
               },
               {
-                label: "Transferencias SUS",
+                label: "Transferências SUS",
                 value: rreoRecQ?.sus_total_arrecadado ?? 0,
-                note: "Transferencias federais e estaduais do SUS registradas no RREO Anexo 12.",
+                note: "Transferências federais e estaduais do SUS registradas no RREO Anexo 12.",
               },
             ]}
             stages={[
               {
-                label: "Dotacao atualizada",
+                label: "Dotação atualizada",
                 value: q3.find((r) => r.funcao === areaTotal)?.dotacao ?? 0,
-                note: "Orcamento autorizado no relatorio agregado.",
+                note: "Orçamento autorizado no relatório agregado.",
               },
               {
                 label: "Empenhada",
                 value: q3.find((r) => r.funcao === areaTotal)?.empenhada ?? 0,
-                note: "Valor comprometido no relatorio agregado.",
+                note: "Valor comprometido no relatório agregado.",
               },
               {
                 label: "Liquidada",
                 value: totalLiquidado,
-                note: "Valor entregue/conferido segundo o relatorio agregado.",
+                note: "Valor entregue/conferido segundo o relatório agregado.",
               },
               {
                 label: "Paga",
                 value: q3.find((r) => r.funcao === areaTotal)?.paga ?? 0,
-                note: "Valor pago segundo o relatorio agregado.",
+                note: "Valor pago segundo o relatório agregado.",
               },
             ]}
             destinations={[
               { label: "Atencao basica", value: atencaoBasica },
               { label: "Assistencia hospitalar e ambulatorial", value: hospitalar },
-              { label: "Demais funcoes de saude", value: Math.max(0, totalLiquidado - atencaoBasica - hospitalar) },
+              { label: "Demais funções de saúde", value: Math.max(0, totalLiquidado - atencaoBasica - hospitalar) },
             ]}
           />
         )}

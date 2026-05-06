@@ -211,44 +211,44 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
             area={AREA}
             year={year}
             periodLabel={TRIMESTRE_LABELS[trim] ?? `${trim}º trimestre`}
-            documentSource="Relatorios de Aplicacao no Ensino publicados pela Prefeitura de Sorocaba."
+            documentSource="Relatórios de Aplicação no Ensino publicados pela Prefeitura de Sorocaba."
             sources={[
               {
-                label: "Impostos proprios",
+                label: "Impostos próprios",
                 value: revQ?.proprios_arrecadado ?? 0,
                 note: "Valor arrecadado registrado na base fiscal da educacao.",
               },
               {
-                label: "Transferencias do Estado",
+                label: "Transferências do Estado",
                 value: revQ?.transferencias_estaduais_arrecadado ?? 0,
                 note: "Repasses estaduais registrados na base fiscal da educacao.",
               },
               {
-                label: "Transferencias da Uniao",
+                label: "Transferências da União",
                 value: revQ?.transferencias_federais_arrecadado ?? 0,
                 note: "Repasses federais registrados na base fiscal da educacao.",
               },
             ]}
             stages={[
               {
-                label: "Dotacao atualizada",
+                label: "Dotação atualizada",
                 value: total.dotacao,
-                note: "Orcamento autorizado no relatorio agregado.",
+                note: "Orçamento autorizado no relatório agregado.",
               },
               {
                 label: "Empenhada",
                 value: total.empenhada,
-                note: "Valor comprometido no relatorio agregado.",
+                note: "Valor comprometido no relatório agregado.",
               },
               {
                 label: "Liquidada",
                 value: total.liquidada,
-                note: "Valor entregue/conferido segundo o relatorio agregado.",
+                note: "Valor entregue/conferido segundo o relatório agregado.",
               },
               {
                 label: "Paga",
                 value: total.paga,
-                note: "Valor pago segundo o relatorio agregado.",
+                note: "Valor pago segundo o relatório agregado.",
               },
             ]}
             destinations={detail.map((row) => ({

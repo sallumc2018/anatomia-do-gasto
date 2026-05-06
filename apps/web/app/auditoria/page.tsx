@@ -28,10 +28,10 @@ export default function AuditoriaPage() {
                 fictícios até a coleta real ser ativada.
               </p>
               <p style={{ fontSize: "14px", lineHeight: "22px", color: "var(--text-03)", marginBottom: "8px" }}>
-                <strong>Salário Bruto:</strong> subsídio oficial bruto mensal por cargo.<br />
-                <strong>Emendas (Empenhado):</strong> exemplo fictício de total destinado em emendas de saúde.<br />
-                <strong>Total Pago:</strong> exemplo fictício de valor transferido à entidade.<br />
-                <strong>Taxa de Execução:</strong> exemplo fictício do percentual pago.
+                <strong>Subsídio mensal oficial:</strong> valor bruto mensal publicado para o cargo.<br />
+                <strong>Emendas (exemplo):</strong> total fictício destinado em emendas de saúde.<br />
+                <strong>Total pago (exemplo):</strong> valor fictício transferido à entidade.<br />
+                <strong>Taxa de execução (exemplo):</strong> percentual fictício pago.
                 <span style={{ color: "var(--blue-40)" }}> Verde</span> ≥ 80%,
                 <span style={{ color: "#f1c21b" }}> Amarelo</span> ≥ 30%,
                 <span style={{ color: "#fa4d56" }}> Vermelho</span> &lt; 30%.

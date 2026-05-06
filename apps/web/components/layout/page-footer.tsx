@@ -14,40 +14,40 @@ const COLS: { title: string; items: FooterItem[] }[] = [
   {
     title: "Fontes de dados",
     items: [
-      { label: "Relatorios de Aplicacao da LRF" },
-      { label: "Portal de Transparencia de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
+      { label: "Relatórios de Aplicação da LRF" },
+      { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "fazenda.sorocaba.sp.gov.br/transparencia", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
-      { label: "SIOPS - Ministerio da Saude", href: "https://siops.datasus.gov.br" },
+      { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
     ],
   },
   {
-    title: "Limitacoes declaradas",
+    title: "Limitações declaradas",
     items: [
       { label: "Piloto: Sorocaba/SP apenas" },
-      { label: "Areas: Saude e Educacao" },
-      { label: "Saude publicada: 2020-2025" },
-      { label: "Educacao publicada: 2020-2025" },
+      { label: "Áreas: Saúde e Educação" },
+      { label: "Saúde publicada: 2020-2025" },
+      { label: "Educação publicada: 2020-2025" },
       { label: "Dados por fornecedor/pessoa ainda ausentes" },
-      { label: "Expansao para outros municipios planejada" },
+      { label: "Expansão para outros municípios planejada" },
     ],
   },
   {
-    title: "Principios",
+    title: "Princípios",
     items: [
-      { label: "Dados sem interpretacao editorial" },
+      { label: "Dados sem interpretação editorial" },
       { label: "Rastro exibido somente quando documentado" },
-      { label: "Limitacoes declaradas explicitamente" },
-      { label: "Sem afiliacao politica" },
-      { label: "Codigo aberto - Sem fins lucrativos" },
+      { label: "Limitações declaradas explicitamente" },
+      { label: "Sem afiliação política" },
+      { label: "Código aberto - Sem fins lucrativos" },
     ],
   },
   {
     title: "Projeto",
     items: [
       { label: "Anatomia do Gasto" },
-      { label: "ONG em formacao" },
+      { label: "ONG em formação" },
       { label: "Piloto: Sorocaba/SP + UFSCar" },
-      { label: "Codigo-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
+      { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
     ],
   },
 ]
@@ -79,17 +79,17 @@ export default function PageFooter() {
 
         <div style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }} className="flex flex-col gap-3">
           <p style={S_caption}>
-            Anatomia do Gasto - Dados publicos extraidos dos Relatorios de
-            Aplicacao da LRF e bases oficiais. O objetivo e mostrar, em linguagem
-            legivel, como o dinheiro entra no governo e para onde ele vai depois.
-            Quando pessoa, fornecedor, unidade ou conta bancaria nao constam no dataset
-            publicado, o site declara essa ausencia em vez de inferir. A metodologia
-            de extracao e o codigo-fonte sao abertos.
+            Anatomia do Gasto - Dados públicos extraídos dos Relatórios de
+            Aplicação da LRF e bases oficiais. O objetivo é mostrar, em linguagem
+            legível, como o dinheiro entra no governo e para onde ele vai depois.
+            Quando pessoa, fornecedor, unidade ou conta bancária não constam no dataset
+            publicado, o site declara essa ausência em vez de inferir. A metodologia
+            de extração e o código-fonte são abertos.
           </p>
           <div className="flex flex-wrap gap-4">
             {[
-              { label: "Politica de Dados",        href: "/politica-de-dados" },
-              { label: "Politica de Neutralidade", href: "/politica-de-neutralidade" },
+              { label: "Política de Dados",        href: "/politica-de-dados" },
+              { label: "Política de Neutralidade", href: "/politica-de-neutralidade" },
               { label: "Termos de Uso",            href: "/termos" },
             ].map((link) => (
               <a key={link.href} href={link.href} style={{ ...S_caption, textDecoration: "underline", color: "var(--text-04)" }}>

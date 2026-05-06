@@ -289,39 +289,39 @@ export default async function RelatorioSaudePage({ params, searchParams }: PageP
             area={AREA}
             year={year}
             periodLabel={QUAD_LABELS[quad] ?? `${quad}º quadrimestre`}
-            documentSource="Relatorios de Aplicacao da LRF e RREO Anexo 12 publicados pela Prefeitura de Sorocaba."
+            documentSource="Relatórios de Aplicação da LRF e RREO Anexo 12 publicados pela Prefeitura de Sorocaba."
             sources={[
               {
                 label: "Recursos municipais ASPS",
                 value: rreoTot?.asps_liquidada ?? total.liquidada,
-                note: "Valor ASPS liquidado no RREO Anexo 12 quando disponivel; caso contrario, total liquidado no relatorio LRF.",
+                note: "Valor ASPS liquidado no RREO Anexo 12 quando disponível; caso contrário, total liquidado no relatório LRF.",
               },
               {
-                label: "Transferencias SUS",
+                label: "Transferências SUS",
                 value: rreoRec?.sus_total_arrecadado ?? 0,
-                note: "Transferencias federais e estaduais do SUS registradas no RREO Anexo 12.",
+                note: "Transferências federais e estaduais do SUS registradas no RREO Anexo 12.",
               },
             ]}
             stages={[
               {
-                label: "Dotacao atualizada",
+                label: "Dotação atualizada",
                 value: total.dotacao,
-                note: "Orcamento autorizado no relatorio agregado.",
+                note: "Orçamento autorizado no relatório agregado.",
               },
               {
                 label: "Empenhada",
                 value: total.empenhada,
-                note: "Valor comprometido no relatorio agregado.",
+                note: "Valor comprometido no relatório agregado.",
               },
               {
                 label: "Liquidada",
                 value: total.liquidada,
-                note: "Valor entregue/conferido segundo o relatorio agregado.",
+                note: "Valor entregue/conferido segundo o relatório agregado.",
               },
               {
                 label: "Paga",
                 value: total.paga,
-                note: "Valor pago segundo o relatorio agregado.",
+                note: "Valor pago segundo o relatório agregado.",
               },
             ]}
             destinations={detail.map((row) => ({

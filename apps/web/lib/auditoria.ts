@@ -136,7 +136,7 @@ export function getGrafoData(): { nos: GrafoNo[]; arestas: GrafoAresta[] } {
     arestas.push({
       source: "cidadao",
       target: a.id,
-      label: `Salário: R$ ${a.salario_bruto.toLocaleString("pt-BR")}`,
+      label: `Subsídio: R$ ${a.salario_bruto.toLocaleString("pt-BR")}`,
       value: a.salario_bruto,
     })
   })

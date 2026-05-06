@@ -62,8 +62,8 @@ const S = {
 }
 
 const AREA_LABEL: Record<Area, string> = {
-  saude: "Saude",
-  educacao: "Educacao",
+  saude: "Saúde",
+  educacao: "Educação",
 }
 
 export function RastroDinheiro({
@@ -88,8 +88,8 @@ export function RastroDinheiro({
           Origem, registro administrativo e destino funcional
         </h2>
         <p className="mb-8" style={{ ...S.body, maxWidth: "760px" }}>
-          Este bloco mostra apenas etapas presentes nos arquivos publicados. Quando o dataset nao identifica
-          pessoa, fornecedor, conta bancaria ou local fisico, essa ausencia fica declarada.
+          Este bloco mostra apenas etapas presentes nos arquivos publicados. Quando o dataset não identifica
+          pessoa, fornecedor, conta bancária ou local físico, essa ausência fica declarada.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-0" style={S.borderTop}>
@@ -109,7 +109,7 @@ export function RastroDinheiro({
               {
                 label: "Prefeitura de Sorocaba",
                 value: null,
-                note: "Os relatorios agregados registram a execucao municipal por area. O dataset publicado nao identifica conta bancaria ou unidade gestora detalhada.",
+                note: "Os relatórios agregados registram a execução municipal por área. O dataset publicado não identifica conta bancária ou unidade gestora detalhada.",
               },
             ]}
           />
@@ -128,7 +128,7 @@ export function RastroDinheiro({
             rows={validDestinations.map((destination) => ({
               label: destination.label,
               value: destination.value,
-              note: "Classificacao funcional do documento oficial. Nao equivale a fornecedor, escola, unidade de saude ou endereco.",
+              note: "Classificação funcional do documento oficial. Não equivale a fornecedor, escola, unidade de saúde ou endereço.",
             }))}
           />
         </div>
@@ -139,10 +139,10 @@ export function RastroDinheiro({
             <p style={S.body}>{documentSource}</p>
           </div>
           <div className="py-6 md:pl-8" style={{ ...S.borderBottom, borderLeft: "1px solid var(--border-01)" }}>
-            <p className="uppercase font-semibold mb-2" style={S.label}>Campos nao publicados neste dataset</p>
+            <p className="uppercase font-semibold mb-2" style={S.label}>Campos não publicados neste dataset</p>
             <p style={S.body}>
-              Ordenador de despesa, servidor responsavel, fornecedor, CNPJ, nota de empenho individual,
-              conta bancaria, escola, unidade de saude, endereco e comprovante de pagamento individual.
+              Ordenador de despesa, servidor responsável, fornecedor, CNPJ, nota de empenho individual,
+              conta bancária, escola, unidade de saúde, endereço e comprovante de pagamento individual.
             </p>
           </div>
         </div>
