@@ -42,8 +42,8 @@ Write-Host "Windows — .venv: $venvOk | node_modules: $nodeOk | ADB: $adbOk | C
 ```bash
 echo "=== PDFs saúde ===" && ls data/raw/sorocaba/saude/entrada/*.pdf 2>/dev/null | wc -l
 echo "=== PDFs educação ===" && ls data/raw/sorocaba/educacao/entrada/*.pdf 2>/dev/null | wc -l
-echo "=== CSVs públicos (saúde) ===" && ls data/public/sorocoba/saude/saida/*.csv 2>/dev/null | wc -l
-echo "=== CSVs públicos (educação) ===" && ls data/public/sorocoba/educacao/saida/*.csv 2>/dev/null | wc -l
+echo "=== CSVs públicos (saúde) ===" && ls data/public/sorocaba/saude/saida/*.csv 2>/dev/null | wc -l
+echo "=== CSVs públicos (educação) ===" && ls data/public/sorocaba/educacao/saida/*.csv 2>/dev/null | wc -l
 ```
 
 ## Passo 4 — Tablet (opcional, só se ADB disponível)

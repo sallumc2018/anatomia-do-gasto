@@ -34,13 +34,13 @@ const S = {
 const SECOES = [
   {
     titulo: "Dados que coletamos sobre você",
-    corpo: "Nenhum.",
-    detalhe: "O site não exige cadastro, não tem formulário de contato e não instala cookies de rastreamento. Não sabemos quem você é, de onde acessa ou quantas vezes visitou o site. Se quiser entrar em contato, o canal é direto: sallumc@gmail.com",
+    corpo: "Não pedimos cadastro, mas medimos eventos agregados de uso do site.",
+    detalhe: "O site não exige cadastro, não tem login e não usa cookies de publicidade. Usamos Vercel Web Analytics para registrar eventos agregados de navegação e entender se o usuário encontrou a trilha principal do produto. Se quiser entrar em contato, o canal é direto: sallumc@gmail.com",
   },
   {
     titulo: "Dados exibidos no site",
     corpo: "Os dados exibidos são de domínio público, extraídos de documentos oficiais publicados pelo poder público brasileiro.",
-    detalhe: "Eles podem ser reproduzidos livremente para fins não comerciais, desde que a fonte seja citada: \"Anatomia do Gasto — anatomia-do-gasto-y1ze.vercel.app, com base em dados de [fonte original]\". Para uso comercial, entre em contato antes: sallumc@gmail.com",
+    detalhe: "Eles podem ser reproduzidos livremente para fins não comerciais, desde que a fonte seja citada: \"Anatomia do Gasto — https://www.anatomiadogasto.ong.br, com base em dados de [fonte original]\". Para uso comercial, entre em contato antes: sallumc@gmail.com",
   },
   {
     titulo: "Responsabilidade sobre os dados",
@@ -78,7 +78,7 @@ export default function TermosPage() {
                 Sem letra miúda
               </h1>
               <p style={{ ...S.body, maxWidth: "600px" }}>
-                O site não coleta seus dados. Os dados que exibe são públicos. O código é aberto.
+                O site não exige cadastro. Os dados que exibe são públicos. O código é aberto.
                 O que está abaixo é o detalhamento disso — em linguagem direta.
               </p>
             </div>

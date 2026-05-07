@@ -72,13 +72,14 @@ const SECOES = [
     ],
   },
   {
-    titulo: "O que não coletamos sobre você",
-    corpo: "O site não coleta nenhum dado pessoal dos visitantes.",
+    titulo: "Como medimos uso do produto",
+    corpo: "O site não exige cadastro e não usa cookies de publicidade, mas registra eventos agregados de navegação para entender se as trilhas principais estão funcionando.",
     itens: [
       "Nenhum formulário de cadastro ou login",
-      "Nenhum cookie de rastreamento ou publicidade",
-      "Nenhum sistema de analytics de terceiros (Google Analytics, Meta Pixel ou similar)",
-      "Os únicos cookies presentes são os estritamente necessários para o funcionamento do Next.js em produção",
+      "Nenhum cookie de publicidade ou retargeting",
+      "Uso de Vercel Web Analytics para medir eventos agregados, como navegação entre páginas e cliques em trilhas principais do site",
+      "Não usamos Google Analytics, Meta Pixel ou plataformas de publicidade comportamental",
+      "A medição existe para avaliar se o produto ajuda o usuário a encontrar dados, chegar à fonte oficial e voltar ao site",
     ],
   },
 ]
@@ -98,7 +99,7 @@ export default function PoliticaDeDadosPage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "600px" }}>
                 O Anatomia do Gasto apresenta dados públicos, extraídos de fontes oficiais, sem edição editorial.
-                Esta página explica o processo, a cadência de atualização e como reportar erros.
+                Esta página explica o processo, a cadência de atualização, como reportar erros e como medimos uso do produto.
               </p>
             </div>
           </div>

@@ -14,7 +14,7 @@ Não é "portal de transparência genérico". É infraestrutura cívica — ferr
 
 ## Estado Atual
 
-- Site: https://anatomia-do-gasto-y1ze.vercel.app
+- Site: https://www.anatomiadogasto.ong.br
 - Saúde e educação Sorocaba: ~100% cobertos em `data/public`
 - Salários e emendas: ~80%, estrutura sendo refinada
 - Auditoria: mock público, sinalizado como fictício no site

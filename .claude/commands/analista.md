@@ -22,7 +22,7 @@ Raiz dos dados publicados: `C:\projetos\anatomia-do-gasto\data\public\sorocaba\`
 
 **Educação** — `data/public/sorocaba/educacao/saida/`
 - `despesas_educacao_sorocaba_{ano}.csv`
-- `receitas_base_educacao_sorocoba_{ano}.csv`
+- `receitas_base_educacao_sorocaba_{ano}.csv`
 
 Valores em formato brasileiro: `"432.933.595,14"` — trocar `.` por `` e `,` por `.` antes de calcular.
 

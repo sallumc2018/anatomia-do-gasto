@@ -8,7 +8,8 @@
       "WebFetch(domain:carbondesignsystem.com)",
       "PowerShell(Get-ChildItem -Path \"$env:USERPROFILE\\\\.claude\\\\projects\" -Recurse | Where-Object { $_.Extension -eq \".jsonl\" } | Select-Object FullName)",
       "PowerShell(Start-Sleep -Seconds 5; \\(Invoke-WebRequest -Uri \"http://localhost:4040/api/tunnels\" -UseBasicParsing\\).Content)",
-      "Bash(rtk gain *)"
+      "Bash(rtk gain *)",
+      "PowerShell(git add docs/estrategia.md AI_MASTER_PROMPT.md)"
     ]
   }
 }

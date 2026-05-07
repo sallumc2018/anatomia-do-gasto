@@ -12,9 +12,9 @@ Binários e caches não são versionados. Este diretório documenta apenas o con
 # Verificar se já está instalado
 rtk --version
 
-# Se não estiver: baixar o binário para ~/bin/
+# Se não estiver: instalar manualmente o binário que vocês validarem
 mkdir -p ~/bin
-# Copie o binário Linux para ~/bin/rtk e torne executável:
+# Copie o binário Linux validado para ~/bin/rtk e torne executável:
 chmod +x ~/bin/rtk
 
 # Verificar que está no PATH
@@ -22,7 +22,7 @@ which rtk   # deve retornar ~/bin/rtk
 rtk gain    # deve mostrar analytics de economia
 ```
 
-⚠️ Se `rtk gain` falhar com o binário instalado, verifique colisão de nome com `reachingforthejack/rtk` (Rust Type Kit).
+⚠️ Esta documentação não fixa uma origem única de instalação. Validem o binário e a origem antes de padronizar qualquer fluxo automatizado.
 
 ### Windows
 
