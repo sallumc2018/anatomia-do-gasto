@@ -35,7 +35,7 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 5. Antes de commit/push/deploy, rodar as validações mínimas aplicáveis.
 6. Não versionar `node_modules`, `.next`, `.venv`, `venv`, `.env.local`, caches ou binários RTK.
 7. Preferir mudanças pequenas, rastreáveis e com justificativa objetiva.
-8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md` e `docs/ambiente.md`.
+8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`.
 9. Nenhum agente faz commit, push ou deploy sem autorização explícita do usuário.
 10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
 
