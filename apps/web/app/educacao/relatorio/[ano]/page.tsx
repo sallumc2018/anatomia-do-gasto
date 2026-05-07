@@ -116,10 +116,12 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
 
         {/* Breadcrumb */}
         <div style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
-          <div className="mx-auto px-6 py-3 flex items-center gap-2" style={S.container}>
-            <Link href="/"          className="nav-link" style={{ fontSize: "12px" }}>Início</Link>
+          <div className="mx-auto px-6 py-3 flex items-center gap-2" style={{ ...S.container, flexWrap: "wrap" }}>
+            <Link href="/"                      className="nav-link" style={{ fontSize: "12px" }}>Início</Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
-            <Link href="/educacao"  className="nav-link" style={{ fontSize: "12px" }}>Educação</Link>
+            <Link href="/educacao"              className="nav-link" style={{ fontSize: "12px" }}>Educação</Link>
+            <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
+            <Link href="/educacao/comparativo"  className="nav-link" style={{ fontSize: "12px" }}>Série histórica</Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
             <span style={{ fontSize: "12px", color: "var(--text-01)" }}>{year}</span>
           </div>

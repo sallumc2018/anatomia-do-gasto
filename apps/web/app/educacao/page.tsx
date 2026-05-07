@@ -1,3 +1,4 @@
+import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import {
@@ -363,6 +364,17 @@ export default function EducacaoPage() {
                   <p className="uppercase font-semibold mb-3" style={S.label}>Comparativo por função</p>
                   <ComparativoAnos data={chartData} years={chartYears} />
                 </div>
+              </div>
+              <div className="mt-10 flex items-center justify-between" style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }}>
+                <div>
+                  <p style={{ fontSize: "14px", color: "var(--text-02)" }}>
+                    Série histórica completa com detalhamento por função, taxa de execução, percentual MDE e variação ano a ano.
+                  </p>
+                </div>
+                <Link href="/educacao/comparativo"
+                  style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none", whiteSpace: "nowrap", marginLeft: "24px" }}>
+                  Ver série {yearRange} completa →
+                </Link>
               </div>
             </div>
           </section>

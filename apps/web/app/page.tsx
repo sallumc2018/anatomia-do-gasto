@@ -137,7 +137,8 @@ export default function IndexPage() {
                 Para onde vai o dinheiro público
               </h1>
               <p style={{ ...S.body, maxWidth: "760px", fontSize: "16px", lineHeight: "26px" }}>
-                O painel mostra quanto foi arrecadado como base de aplicação, quanto foi liquidado em Saúde e Educação e quais agentes públicos entram no mapa de responsabilidade.
+                Quanto Sorocaba gastou em saúde e educação, de onde veio esse dinheiro e em que áreas ele foi aplicado —
+                tudo extraído diretamente dos relatórios oficiais publicados pela Prefeitura, sem interpretação editorial.
               </p>
             </div>
           </div>
@@ -188,53 +189,60 @@ export default function IndexPage() {
         <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {summaries.map(({ area, titulo, href, resumo }) => (
-                <Link
-                  key={area}
-                  href={href}
-                  className="tile-link"
-                  style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
-                >
-                  <div className="p-6 md:p-8">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                      <div>
-                        <p style={S.label}>{titulo}</p>
-                        <h2 className="font-semibold mt-2" style={{ fontSize: "30px", color: "var(--text-01)" }}>
-                          {resumo.total ? formatMillions(resumo.total.liquidada) : "sem dado"}
-                        </h2>
-                        <p className="mt-2" style={S.body}>
-                          Liquidado no {resumo.period ?? "-"}º quadrimestre de {resumo.latestYear ?? "-"}
+              {summaries.map(({ area, titulo, href, resumo }) => {
+                const periodLabel = area === "educacao"
+                  ? `${resumo.period ?? "-"}º trimestre`
+                  : `${resumo.period ?? "-"}º quadrimestre`
+                const minLabel = area === "educacao" ? "Mín. constitucional: 25%" : "Mín. constitucional: 15%"
+                return (
+                  <Link
+                    key={area}
+                    href={href}
+                    className="tile-link"
+                    style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
+                  >
+                    <div className="p-6 md:p-8">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                        <div>
+                          <p style={S.label}>{titulo}</p>
+                          <h2 className="font-semibold mt-2" style={{ fontSize: "30px", color: "var(--text-01)" }}>
+                            {resumo.total ? formatMillions(resumo.total.liquidada) : "sem dado"}
+                          </h2>
+                          <p className="mt-2" style={S.body}>
+                            Gasto confirmado · {periodLabel} de {resumo.latestYear ?? "-"}
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                          <div>
+                            <p style={S.label}>Receitas da área</p>
+                            <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
+                              {resumo.latestRevenue ? formatMillions(resumo.latestRevenue.total_base_arrecadado) : "sem dado"}
+                            </p>
+                          </div>
+                          <div>
+                            <p style={S.label}>% aplicado</p>
+                            <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
+                              {formatPercent(resumo.latestRevenue?.percentual_aplicado_liquidado)}
+                            </p>
+                            <p style={{ fontSize: "11px", color: "var(--text-04)", marginTop: "2px" }}>{minLabel}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <FunctionRows area={area} rows={resumo.funcoes} />
+
+                      <div className="mt-6 flex items-center justify-between gap-4">
+                        <p style={{ ...S.body, color: "var(--text-03)" }}>
+                          Série disponível: {resumo.years.join(", ") || "nenhum"}
                         </p>
-                      </div>
-                      <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
-                        <div>
-                          <p style={S.label}>Base arrecadada</p>
-                          <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
-                            {resumo.latestRevenue ? formatMillions(resumo.latestRevenue.total_base_arrecadado) : "sem dado"}
-                          </p>
-                        </div>
-                        <div>
-                          <p style={S.label}>Aplicado</p>
-                          <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
-                            {formatPercent(resumo.latestRevenue?.percentual_aplicado_liquidado)}
-                          </p>
-                        </div>
+                        <span style={{ color: "var(--blue-50)", fontSize: "14px", whiteSpace: "nowrap" }}>
+                          Ver painel
+                        </span>
                       </div>
                     </div>
-
-                    <FunctionRows area={area} rows={resumo.funcoes} />
-
-                    <div className="mt-6 flex items-center justify-between gap-4">
-                      <p style={{ ...S.body, color: "var(--text-03)" }}>
-                        Anos publicados: {resumo.years.join(", ") || "nenhum"}
-                      </p>
-                      <span style={{ color: "var(--blue-50)", fontSize: "14px", whiteSpace: "nowrap" }}>
-                        Ver painel
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

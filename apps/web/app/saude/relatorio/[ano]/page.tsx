@@ -159,13 +159,17 @@ export default async function RelatorioSaudePage({ params, searchParams }: PageP
 
         {/* ── Breadcrumb ──────────────────────────────────────────────────── */}
         <div style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
-          <div className="mx-auto px-6 py-3 flex items-center gap-2" style={S.container}>
+          <div className="mx-auto px-6 py-3 flex items-center gap-2" style={{ ...S.container, flexWrap: "wrap" }}>
             <Link href="/" className="nav-link" style={{ fontSize: "12px" }}>
               Início
             </Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
             <Link href="/saude" className="nav-link" style={{ fontSize: "12px" }}>
               Saúde
+            </Link>
+            <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
+            <Link href="/saude/comparativo" className="nav-link" style={{ fontSize: "12px" }}>
+              Série histórica
             </Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
             <span style={{ fontSize: "12px", color: "var(--text-01)" }}>
