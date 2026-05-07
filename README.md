@@ -12,6 +12,18 @@ Site oficial: https://www.anatomiadogasto.ong.br
 
 O projeto não realiza auditoria jurídica nem emite juízo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificação independente.
 
+## Auditoria E Publicacao
+
+- O site oficial lê apenas `data/public`.
+- `data/raw`, `data/extracted` e `data/validated` são camadas operacionais distintas e não devem ser tratadas automaticamente como publicação.
+- Toda decisão de tornar um dado público ou não público deve ser justificável por fonte independente.
+
+Referências:
+
+- [docs/arquitetura.md](docs/arquitetura.md)
+- [docs/seguranca.md](docs/seguranca.md)
+- [docs/auditoria-seguranca-publicacao.md](docs/auditoria-seguranca-publicacao.md)
+
 ## Estrutura
 
 ```

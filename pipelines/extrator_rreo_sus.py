@@ -233,7 +233,7 @@ def salvar_despesas(ano, registros):
         'ASPS_Empenhada', 'ASPS_Liquidada', 'ASPS_Paga',
         'SUS_Empenhada',  'SUS_Liquidada',  'SUS_Paga',
         'Total_Empenhada','Total_Liquidada','Total_Paga',
-        'Quadrimestre',
+        'Quadrimestre', 'Fonte_PDF',
     ]
     with open(caminho, 'w', newline='', encoding='utf-8-sig') as f:
         w = csv.DictWriter(f, fieldnames=campos)
@@ -252,7 +252,7 @@ def salvar_receitas(ano, registros):
         'SUS_Total_Previsao',    'SUS_Total_Arrecadado',
         'SUS_Uniao_Previsao',    'SUS_Uniao_Arrecadado',
         'SUS_Estados_Previsao',  'SUS_Estados_Arrecadado',
-        'Percentual_ASPS',
+        'Percentual_ASPS', 'Fonte_PDF',
     ]
     with open(caminho, 'w', newline='', encoding='utf-8-sig') as f:
         w = csv.DictWriter(f, fieldnames=campos)
@@ -322,6 +322,7 @@ def processar_ano(ano):
                 'Total_Liquidada':  a.get('liquidada', 0.0) + s.get('liquidada', 0.0),
                 'Total_Paga':       a.get('paga',      0.0) + s.get('paga',      0.0),
                 'Quadrimestre':     quad,
+                'Fonte_PDF':        nome,
             })
 
         # Montar linha de receita
@@ -334,6 +335,7 @@ def processar_ano(ano):
             'SUS_Estados_Previsao':  rec.get('estados_previsao',  0.0),
             'SUS_Estados_Arrecadado':rec.get('estados_arrecadado',0.0),
             'Percentual_ASPS':       pct or 0.0,
+            'Fonte_PDF':             nome,
         })
 
         # Resumo no console

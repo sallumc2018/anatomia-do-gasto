@@ -219,7 +219,7 @@ FUNCAO_MAP = {
 
 # ── Pipeline principal ────────────────────────────────────────────────────────
 
-def processar_trimestre(pdf_path, trimestre):
+def processar_trimestre(pdf_path, trimestre, pdf_nome):
     texto = extrair_texto_pagina1(pdf_path)
     if not texto:
         return None, None
@@ -241,6 +241,7 @@ def processar_trimestre(pdf_path, trimestre):
             'liquidada':  vals['liquidada'],
             'paga':       vals['paga'],
             'trimestre':  trimestre,
+            'fonte_pdf':  pdf_nome,
         })
 
     return receitas, linhas_despesa
@@ -251,7 +252,7 @@ def salvar_despesas(rows, ano):
     caminho = os.path.join(SAIDA_DIR, f'despesas_educacao_sorocaba_{ano}.csv')
     with open(caminho, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['Funcao', 'Dotacao_Atualizada', 'Empenhada', 'Liquidada', 'Paga', 'Quadrimestre'])
+        writer.writerow(['Funcao', 'Dotacao_Atualizada', 'Empenhada', 'Liquidada', 'Paga', 'Quadrimestre', 'Fonte_PDF'])
         for r in rows:
             writer.writerow([
                 r['funcao'],
@@ -260,6 +261,7 @@ def salvar_despesas(rows, ano):
                 formatar_br(r['liquidada']),
                 formatar_br(r['paga']),
                 r['trimestre'],
+                r.get('fonte_pdf', ''),
             ])
     print(f"  Despesas salvas: {caminho}")
 
@@ -277,6 +279,7 @@ def salvar_receitas(rows, ano):
             'Total_Base_Previsao', 'Total_Base_Arrecadado',
             'Minimo_Educacao_Previsao', 'Minimo_Educacao_Arrecadado',
             'Percentual_Aplicado_Liquidado',
+            'Fonte_PDF',
         ])
         for r in rows:
             writer.writerow([
@@ -292,6 +295,7 @@ def salvar_receitas(rows, ano):
                 formatar_br(r['minimo_educacao_previsao']),
                 formatar_br(r['minimo_educacao_arrecadado']),
                 formatar_br(r['percentual_aplicado_liquidado']),
+                r.get('fonte_pdf', ''),
             ])
     print(f"  Receitas salvas: {caminho}")
 
@@ -311,12 +315,13 @@ def processar_ano(ano):
             continue
 
         print(f"  T{t}: {nome}")
-        receitas, despesas = processar_trimestre(pdf_path, t)
+        receitas, despesas = processar_trimestre(pdf_path, t, nome)
 
         if despesas:
             todas_despesas.extend(despesas)
         if receitas:
             receitas['trimestre'] = t
+            receitas['fonte_pdf'] = nome
             todas_receitas.append(receitas)
 
     if todas_despesas:

@@ -58,7 +58,7 @@ def fetch_rreo(ano):
     return items
 
 
-def extrair_detalhamento(items):
+def extrair_detalhamento(items, fonte_url):
     resultado = []
     for item in items:
         cod    = item.get('cod_conta', '')
@@ -69,7 +69,7 @@ def extrair_detalhamento(items):
             continue
         categoria, nome = CONTAS_INTERESSE[cod]
         valor = float(item.get('valor') or 0)
-        resultado.append({'categoria': categoria, 'conta': nome, 'valor': valor})
+        resultado.append({'categoria': categoria, 'conta': nome, 'valor': valor, 'fonte_url': fonte_url})
     return resultado
 
 
@@ -78,26 +78,32 @@ def salvar_csv(ano, detalhamento):
     os.makedirs(saida_dir, exist_ok=True)
     caminho = os.path.join(saida_dir, f'receitas_detalhamento_sorocaba_{ano}.csv')
     with open(caminho, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=['Categoria', 'Conta', 'Valor'])
+        writer = csv.DictWriter(f, fieldnames=['Categoria', 'Conta', 'Valor', 'Fonte_URL'])
         writer.writeheader()
         for row in detalhamento:
             writer.writerow({
                 'Categoria': row['categoria'],
                 'Conta':     row['conta'],
                 'Valor':     f"{row['valor']:.2f}",
+                'Fonte_URL': row['fonte_url'],
             })
     return caminho
 
 
 def processar_ano(ano):
     print(f"\nProcessando {ano}...")
+    fonte_url = (
+        f"{BASE_URL}?an_exercicio={ano}&nr_periodo=6"
+        f"&co_tipo_demonstrativo=RREO&id_ente={IBGE_SOROCABA}"
+        f"&no_anexo=RREO-Anexo%2003"
+    )
     try:
         items = fetch_rreo(ano)
     except Exception as e:
         print(f"  ERRO ao baixar dados: {e}")
         return False
 
-    det = extrair_detalhamento(items)
+    det = extrair_detalhamento(items, fonte_url)
     if not det:
         print(f"  ATENCAO: nenhum dado extraido para {ano}")
         return False

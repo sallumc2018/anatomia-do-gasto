@@ -44,7 +44,25 @@ O mantenedor responderá em até 72 horas.
 - **Dependências:** atualizadas periodicamente com `npm update` e `pip install --upgrade`.
 - **Variáveis de ambiente:** `.env.local` está no `.gitignore`.
 - **HTTPS:** forçado pela Vercel (certificado automático).
-- **CSP (Content Security Policy):** será implementado quando o frontend amadurecer.
+- **Headers de segurança:** CSP básica, `X-Frame-Options`, `nosniff`, `Referrer-Policy`, `Permissions-Policy` e HSTS configurados no frontend.
+
+## Princípio De Auditabilidade Independente
+
+Toda decisão de tornar um dado público ou não público deve ser justificável por fonte independente.
+
+Isso vale especialmente para:
+
+- `data/raw`
+- `data/extracted`
+- `data/validated`
+
+Regra prática:
+
+- o fato de um arquivo existir localmente não basta para publicá-lo;
+- o fato de a fonte original ser pública não basta para republicar a extração estruturada;
+- a finalidade institucional e o risco de exposição adicional precisam estar documentados.
+
+Ver [auditoria-seguranca-publicacao.md](C:/projetos/anatomia-do-gasto/docs/auditoria-seguranca-publicacao.md).
 
 ## Colaboradores e Dispositivos Próprios
 

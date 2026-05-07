@@ -494,20 +494,21 @@ def main():
         dados = extrair_tabela_saude(pdf)
         print(f"  Extraidas {len(dados)} linhas de tabela")
         if dados:
-            todas_as_despesas.extend([linha + [quadrimestre] for linha in dados])
+            todas_as_despesas.extend([linha + [quadrimestre, os.path.basename(pdf)] for linha in dados])
         else:
             print("  Nenhuma tabela de despesas encontrada.")
 
         receitas = extrair_receitas_saude(pdf)
         if receitas:
             receitas['Quadrimestre'] = quadrimestre
+            receitas['Fonte_PDF'] = os.path.basename(pdf)
             todas_as_receitas.append(receitas)
             print(f"  Receitas: {len(receitas) - 1} campos extraidos")
         else:
             print("  Nenhuma receita extraida.")
 
     if todas_as_despesas:
-        df = pd.DataFrame(todas_as_despesas, columns=['Funcao', 'Dotacao_Atualizada', 'Empenhada', 'Liquidada', 'Paga', 'Quadrimestre'])
+        df = pd.DataFrame(todas_as_despesas, columns=['Funcao', 'Dotacao_Atualizada', 'Empenhada', 'Liquidada', 'Paga', 'Quadrimestre', 'Fonte_PDF'])
         arquivo_csv = os.path.join(saida_dir, f'despesas_saude_sorocaba_{ano}.csv')
         df.to_csv(arquivo_csv, index=False, encoding='utf-8-sig')
         print(f"\nExtracao concluida! {len(df)} linhas salvas em '{arquivo_csv}'")
@@ -532,7 +533,7 @@ def main():
         }
         rows = [{RENAME.get(k, k): v for k, v in r.items()} for r in todas_as_receitas]
         df_receitas = pd.DataFrame(rows)
-        cols = ['Quadrimestre'] + [v for v in RENAME.values() if v in df_receitas.columns]
+        cols = ['Quadrimestre', 'Fonte_PDF'] + [v for v in RENAME.values() if v in df_receitas.columns]
         df_receitas = df_receitas.reindex(columns=cols)
         arquivo_receitas = os.path.join(saida_dir, f'receitas_base_saude_sorocaba_{ano}.csv')
         df_receitas.to_csv(arquivo_receitas, index=False, encoding='utf-8-sig')
