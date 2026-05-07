@@ -105,11 +105,12 @@ export default function DadosPage() {
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
               <p className="uppercase font-semibold mb-4" style={S.label}>Dados publicados</p>
               <h1 className="font-light mb-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "760px" }}>
-                O que já está no site e o que ainda está em validação
+                Dados disponíveis para download e consulta
               </h1>
               <p style={{ ...S.body, maxWidth: "680px" }}>
-                O site usa somente dados em <span style={{ color: "var(--text-01)" }}>data/public</span>.
-                Arquivos extraídos, mas não validados, permanecem fora da publicação.
+                Todos os arquivos CSV usados pelo site estão abertos para download.
+                Nos datasets estruturados de saúde e educação, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
+                Arquivos ainda em validação não são exibidos no site até serem conferidos.
               </p>
             </div>
           </div>
@@ -147,9 +148,9 @@ export default function DadosPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-12" style={S.borderTop}>
               {[
-                ["data/raw", "Fonte bruta preservada, como PDF ou arquivo oficial."],
-                ["data/extracted", "Resultado automático dos extratores. Ainda não é publicação."],
-                ["data/public", "Dados que o site oficial pode exibir."],
+                ["PDF original", "O documento publicado pela Prefeitura, preservado sem alteração."],
+                ["CSV extraído", "Tabela gerada automaticamente a partir do PDF. Passa por verificação antes de ser publicada."],
+                ["CSV publicado", "Arquivo disponível para download e exibido no site. Verificado e rastreável até a fonte oficial declarada."],
               ].map(([title, text]) => (
                 <div key={title} className="py-8 md:pr-8" style={S.borderBottom}>
                   <p style={{ ...S.mono, color: "var(--blue-40)", marginBottom: "10px" }}>{title}</p>

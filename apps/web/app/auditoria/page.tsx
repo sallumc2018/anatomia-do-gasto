@@ -21,12 +21,20 @@ export default function AuditoriaPage() {
         </section>
         <section style={{ backgroundColor: "var(--bg-base)", paddingTop: "48px", paddingBottom: "64px" }}>
           <div className="mx-auto px-6" style={{ maxWidth: "1312px" }}>
-            <div style={{ width: "100%", marginBottom: "40px" }}>
-              <p style={{ fontSize: "16px", lineHeight: "24px", color: "var(--text-02)", marginBottom: "16px" }}>
-                Esta trilha de auditoria ainda está em desenvolvimento. Os subsídios brutos mensais usam referência
-                oficial por cargo; os exemplos de emendas, entidades, execução financeira e ranking continuam
-                fictícios até a coleta real ser ativada.
+
+            {/* Aviso de dados em desenvolvimento — primeiro elemento visível */}
+            <div style={{ marginBottom: "32px", padding: "16px 20px", backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)", borderLeft: "4px solid #f1c21b" }}>
+              <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-01)", marginBottom: "6px" }}>
+                Dados em desenvolvimento — parte do conteúdo abaixo é fictício
               </p>
+              <p style={{ fontSize: "13px", lineHeight: "20px", color: "var(--text-03)" }}>
+                Os <strong>subsídios mensais</strong> são referência oficial por cargo.
+                As colunas de <strong>emendas, entidades e ranking</strong> são exemplos fictícios usados para estruturar a trilha de auditoria.
+                A coleta automatizada de dados reais está em implementação.
+              </p>
+            </div>
+
+            <div style={{ width: "100%", marginBottom: "32px" }}>
               <p style={{ fontSize: "14px", lineHeight: "22px", color: "var(--text-03)", marginBottom: "8px" }}>
                 <strong>Subsídio mensal oficial:</strong> valor bruto mensal publicado para o cargo.<br />
                 <strong>Emendas (exemplo):</strong> total fictício destinado em emendas de saúde.<br />
@@ -36,14 +44,8 @@ export default function AuditoriaPage() {
                 <span style={{ color: "#f1c21b" }}> Amarelo</span> ≥ 30%,
                 <span style={{ color: "#fa4d56" }}> Vermelho</span> &lt; 30%.
               </p>
-              <p style={{ fontSize: "13px", lineHeight: "20px", color: "var(--text-04)", marginTop: "12px", padding: "12px", backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)" }}>
-                <strong>Atenção:</strong> Emendas, entidades e ranking exibidos atualmente são exemplos fictícios (mock) para desenvolvimento.
-                A coleta automatizada de dados reais está em implementação. Os subsídios são referência oficial por cargo.
-                Veja o <a href="https://github.com/sallumc2018/anatomia-do-gasto/blob/main/docs/auditoria/01-fontes.md" style={{ color: "var(--blue-50)" }}>plano de fontes</a> e
-                o <a href="https://github.com/sallumc2018/anatomia-do-gasto/blob/main/docs/auditoria/README.md" style={{ color: "var(--blue-50)" }}>escopo da auditoria</a>.
-              </p>
-              <p style={{ fontSize: "14px", lineHeight: "22px", color: "var(--text-03)", marginTop: "16px" }}>
-                📊 <a href="/auditoria/ranking" style={{ color: "var(--blue-50)", textDecoration: "underline" }}>Ver ranking completo dos agentes políticos</a>
+              <p style={{ fontSize: "14px", lineHeight: "22px", color: "var(--text-03)", marginTop: "12px" }}>
+                <a href="/auditoria/ranking" style={{ color: "var(--blue-50)", textDecoration: "underline" }}>Ver ranking completo dos agentes políticos</a>
               </p>
             </div>
             <TabelaPerfis />

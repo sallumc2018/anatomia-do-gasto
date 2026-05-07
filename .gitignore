@@ -11,14 +11,13 @@ __pycache__/
 # Variáveis de ambiente (contém caminhos locais)
 apps/web/.env.local
 
-# PDFs brutos legados de saude (grandes; podem ser baixados novamente do portal)
-data/raw/sorocaba/saude/entrada/
+# Camadas operacionais internas de dados
+data/raw/
+data/extracted/
+data/validated/
 
 # HTMLs gerados pelo pipeline (redundantes com os CSVs)
 data/**/*.html
-
-# Dados intermediários gerados automaticamente
-data/extracted/sorocaba/saude/intermediario/
 
 # Ambientes locais Linux/WSL
 .venv/

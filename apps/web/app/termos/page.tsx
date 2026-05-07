@@ -39,13 +39,13 @@ const SECOES = [
   },
   {
     titulo: "Dados exibidos no site",
-    corpo: "Os dados exibidos são de domínio público, extraídos de documentos oficiais publicados pelo poder público brasileiro.",
-    detalhe: "Eles podem ser reproduzidos livremente para fins não comerciais, desde que a fonte seja citada: \"Anatomia do Gasto — https://www.anatomiadogasto.ong.br, com base em dados de [fonte original]\". Para uso comercial, entre em contato antes: sallumc@gmail.com",
+    corpo: "Os dados orçamentários exibidos no site são baseados em documentos oficiais publicados pelo poder público brasileiro.",
+    detalhe: "Sempre que possível, cite a fonte: \"Anatomia do Gasto — https://www.anatomiadogasto.ong.br, com base em dados de [fonte original]\". O reuso deve respeitar a licença do código do projeto e as condições aplicáveis às fontes oficiais de origem.",
   },
   {
     titulo: "Responsabilidade sobre os dados",
-    corpo: "O Anatomia do Gasto reproduz o conteúdo dos documentos oficiais. Não criamos, estimamos nem corrigimos valores.",
-    detalhe: "Se um PDF oficial contiver um erro de digitação, esse erro será refletido nos dados do site até que o documento original seja corrigido. Divergências identificadas são registradas publicamente. O site não constitui assessoria jurídica, financeira ou contábil — os dados são fornecidos para fins informativos.",
+    corpo: "Nos datasets orçamentários publicados, o Anatomia do Gasto reproduz os valores extraídos dos documentos oficiais e declara as limitações conhecidas.",
+    detalhe: "Se um PDF oficial contiver um erro de digitação, esse erro poderá aparecer no site até que a fonte seja corrigida ou a divergência seja declarada. O site não constitui assessoria jurídica, financeira ou contábil — os dados são fornecidos para fins informativos e de controle social.",
   },
   {
     titulo: "Código-fonte",

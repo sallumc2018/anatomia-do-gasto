@@ -9,7 +9,21 @@
       "PowerShell(Get-ChildItem -Path \"$env:USERPROFILE\\\\.claude\\\\projects\" -Recurse | Where-Object { $_.Extension -eq \".jsonl\" } | Select-Object FullName)",
       "PowerShell(Start-Sleep -Seconds 5; \\(Invoke-WebRequest -Uri \"http://localhost:4040/api/tunnels\" -UseBasicParsing\\).Content)",
       "Bash(rtk gain *)",
-      "PowerShell(git add docs/estrategia.md AI_MASTER_PROMPT.md)"
+      "PowerShell(git add docs/estrategia.md AI_MASTER_PROMPT.md)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/saude/relatorio/2020\" -UseBasicParsing)",
+      "PowerShell(Head -10)",
+      "PowerShell(Get-Content \"C:\\\\projetos\\\\anatomia-do-gasto\\\\data\\\\public\\\\sorocaba\\\\saude\\\\saida\\\\despesas_saude_sorocaba_2024.csv\" | Select-Object -Skip 1 | Select-Object -First 5 | ForEach-Object { \\($_ -split \",\"\\)[-1] })",
+      "PowerShell(Get-Content \"C:\\\\projetos\\\\anatomia-do-gasto\\\\data\\\\public\\\\sorocaba\\\\educacao\\\\saida\\\\despesas_educacao_sorocaba_2024.csv\" | Select-Object -Skip 1 | Select-Object -First 5 | ForEach-Object { \\($_ -split \",\"\\)[-1] })",
+      "Bash(rtk git *)",
+      "Bash(git check-ignore *)",
+      "Bash(rtk read *)",
+      "Bash(echo \"exit: $?\")",
+      "PowerShell(wsl -e bash -c \"cd ~/projetos/anatomia-do-gasto && git diff apps/web/package.json apps/web/package-lock.json | head -40\")",
+      "PowerShell(wsl -e bash -c \"cd ~/projetos/anatomia-do-gasto && git status --short | head -20\")",
+      "Bash(rtk grep *)",
+      "PowerShell(wsl -e bash -c \"cd ~/projetos/anatomia-do-gasto && git status --short && git log --oneline -3\")",
+      "Skill(analista)",
+      "Skill(analista:*)"
     ]
   }
 }

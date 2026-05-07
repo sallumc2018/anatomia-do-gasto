@@ -32,8 +32,8 @@ const S = {
 
 const PRINCIPIOS = [
   {
-    titulo: "Dados sem interpretação editorial",
-    texto:  "Mostramos o que está nos relatórios oficiais. Não adicionamos rótulos como 'gasto excessivo' ou 'má gestão'. O leitor interpreta.",
+    titulo: "Sem juízo editorial sobre os valores",
+    texto:  "Mostramos os valores e limites das fontes oficiais sem adjetivar o gasto como 'excessivo' ou 'má gestão'. Quando há lacuna ou escolha metodológica, o site declara isso.",
   },
   {
     titulo: "Limitações declaradas explicitamente",
@@ -51,7 +51,7 @@ const PRINCIPIOS = [
 
 const ETAPAS = [
   { num: "01", titulo: "Piloto em Sorocaba/SP",  texto: "Sorocaba foi escolhida por ter relatórios públicos bem estruturados e tamanho suficiente para ser representativa de municípios médios brasileiros." },
-  { num: "02", titulo: "Parceria com UFSCar",     texto: "O projeto nasceu em colaboração com pesquisadores da Universidade Federal de São Carlos, que contribuem com revisão metodológica e validação dos dados." },
+  { num: "02", titulo: "Aproximação acadêmica em construção", texto: "O projeto pretende dialogar com pesquisadores e instituições acadêmicas para revisão metodológica e validação externa. Parcerias formais só serão anunciadas quando estiverem documentadas." },
   { num: "03", titulo: "ONG em formação",         texto: "O Anatomia do Gasto está se constituindo como organização sem fins lucrativos. Sem publicidade, sem fins comerciais, sem financiamento partidário." },
   { num: "04", titulo: "Expansão nacional",       texto: "O objetivo é replicar o modelo para outros municípios brasileiros. A arquitetura do pipeline foi projetada para isso desde o início." },
 ]
@@ -72,7 +72,7 @@ export default function SobrePage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "600px" }}>
                 O Anatomia do Gasto transforma relatórios fiscais oficiais em informação compreensível para qualquer cidadão.
-                Sem jargão desnecessário, sem interpretação editorial — só os dados, organizados.
+                Sem jargão desnecessário e sem juízo editorial sobre os valores — com metodologia, limites e fontes declarados.
               </p>
             </div>
           </div>

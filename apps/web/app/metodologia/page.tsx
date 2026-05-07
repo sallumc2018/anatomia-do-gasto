@@ -38,34 +38,34 @@ const S = {
 
 const PIPELINE = [
   {
-    num: "01",
-    titulo: "Download dos PDFs",
-    texto:  "Os relatórios quadrimestrais de saúde (LRF) e bimestrais do RREO são baixados automaticamente do portal de transparência da Prefeitura de Sorocaba.",
+    num:    "01",
+    titulo: "Download dos relatórios",
+    texto:  "Os relatórios quadrimestrais de saúde e de educação são baixados automaticamente do portal de transparência da Prefeitura de Sorocaba conforme são publicados.",
     fonte:  "fazenda.sorocaba.sp.gov.br/transparencia",
   },
   {
-    num: "02",
-    titulo: "Extração de texto",
-    texto:  "Um script Python com pdfplumber lê os PDFs e localiza as tabelas de despesas. Para PDFs em formato de imagem (sem texto selecionável), há fallback automático para PyMuPDF.",
-    fonte:  "pipelines/extrator_saude.py · extrator_rreo_sus.py · extrator_educacao.py",
+    num:    "02",
+    titulo: "Leitura dos PDFs",
+    texto:  "Um programa lê os PDFs e localiza as tabelas de despesas dentro de cada documento. Cada linha extraída registra de qual arquivo ela veio.",
+    fonte:  null,
   },
   {
-    num: "03",
-    titulo: "Conversão para CSV",
-    texto:  "Os dados extraídos são normalizados (acentos removidos, valores numéricos convertidos do formato BR) e salvos em arquivos CSV estruturados por área e ano.",
-    fonte:  "data/extracted → data/validated → data/public",
+    num:    "03",
+    titulo: "Conversão para tabela",
+    texto:  "Os dados são organizados em planilhas CSV com colunas padronizadas: função, dotação, empenhado, liquidado, pago, período e arquivo de origem.",
+    fonte:  null,
   },
   {
-    num: "04",
-    titulo: "Verificação de integridade",
-    texto:  "Um script de testes confere se os totais batem, se todos os quadrimestres estão presentes e se nenhum valor essencial está zerado.",
-    fonte:  "pipelines/testes/verificar_dados.py",
+    num:    "04",
+    titulo: "Verificação",
+    texto:  "Um verificador automático confere se os totais estão consistentes, se todos os períodos estão presentes e se nenhum valor essencial está ausente.",
+    fonte:  null,
   },
   {
-    num: "05",
-    titulo: "Exibição no site",
-    texto:  "O Next.js lê os CSVs diretamente no servidor e renderiza as páginas. Nenhum banco de dados intermediário — os arquivos CSV são a fonte de verdade.",
-    fonte:  "apps/web/lib/data.ts",
+    num:    "05",
+    titulo: "Publicação no site",
+    texto:  "As planilhas verificadas são lidas diretamente pelo site. Não há banco de dados intermediário — a planilha CSV é a fonte de verdade, auditável por qualquer pessoa.",
+    fonte:  null,
   },
 ]
 
@@ -129,7 +129,7 @@ export default function MetodologiaPage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "600px" }}>
                 Do PDF publicado pela prefeitura até o número na tela: cada etapa é automatizada, verificada e auditável.
-                Nenhum dado é editado manualmente.
+                Nos datasets orçamentários publicados, os valores não são editados manualmente.
               </p>
             </div>
           </div>
@@ -147,8 +147,8 @@ export default function MetodologiaPage() {
                   </span>
                   <div style={{ flex: 1 }}>
                     <h2 style={{ ...S.h2, marginBottom: "8px" }}>{e.titulo}</h2>
-                    <p style={{ ...S.body, marginBottom: "10px" }}>{e.texto}</p>
-                    <p style={S.mono}>{e.fonte}</p>
+                    <p style={{ ...S.body, marginBottom: e.fonte ? "10px" : 0 }}>{e.texto}</p>
+                    {e.fonte && <p style={S.mono}>{e.fonte}</p>}
                   </div>
                 </div>
               ))}

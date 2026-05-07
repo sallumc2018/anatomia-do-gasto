@@ -161,7 +161,7 @@ export default function ComparativoEducacaoPage() {
                 </p>
               </div>
               <div className="p-6" style={{ backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)" }}>
-                <p className="font-semibold mb-4" style={S.h3}>Como ler a coluna "% MDE"</p>
+                <p className="font-semibold mb-4" style={S.h3}>Como ler a coluna &quot;% MDE&quot;</p>
                 <p style={S.body}>
                   O percentual mostrado na tabela abaixo é o valor do campo <em>Percentual Aplicado (liquidado)</em>
                   no relatório oficial de cada trimestre. Ele é calculado pela própria prefeitura e publicado no

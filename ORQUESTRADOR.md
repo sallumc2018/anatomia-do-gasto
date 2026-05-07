@@ -25,6 +25,8 @@ Montar contexto mínimo (ver § 4)
 Executar — e registrar o que foi feito
 ```
 
+Regra transversal: o orquestrador deve sempre montar o **menor contexto suficiente** para cada subagente, reduzindo consumo de token sem sacrificar auditabilidade.
+
 ## 2. Classificação Da Tarefa
 
 | Tipo | Palavras-chave / sinais |
@@ -72,6 +74,12 @@ Cada agente recebe apenas o que é necessário para a tarefa. O orquestrador nun
 | `frontend` | Paths de `apps/web` afetados + regras de frontend do `CLAUDE.md` |
 | `deploy` | Nenhum dado sensível — apenas confirmação de autorização |
 | `engenheiro` | Paths afetados + objetivo estrutural + regras do `CODEX.md` |
+
+Também deve evitar repassar:
+
+- arquivo completo quando diff, trecho curto ou resumo rastreável bastar;
+- contexto já estabilizado em `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`;
+- histórico redundante de chat quando a evidência já estiver em arquivo.
 
 ## 5. Coordenação Entre Agentes
 

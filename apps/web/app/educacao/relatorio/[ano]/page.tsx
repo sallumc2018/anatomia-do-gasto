@@ -109,6 +109,9 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
             ?? revenueRows.find((r) => r.quadrimestre === PERIODO_ANUAL)
             ?? null
 
+  // 2023 T3: dotação marcada com * no PDF oficial (não atribuída por natureza econômica)
+  const dotacaoAusente = year === 2023 && trim === 3 && (total?.dotacao ?? 0) === 0
+
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
@@ -175,6 +178,19 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
             </div>
           </div>
         </div>
+
+        {/* Nota de dotação ausente — 2023 T3 */}
+        {dotacaoAusente && (
+          <div style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+            <div className="mx-auto px-6 py-4" style={S.container}>
+              <p style={{ fontSize: "13px", lineHeight: "20px", color: "var(--text-03)", borderLeft: "3px solid var(--border-02)", paddingLeft: "12px" }}>
+                <strong style={{ color: "var(--text-02)" }}>Dotação não publicada neste relatório.</strong>{" "}
+                O PDF oficial deste trimestre marca a coluna de dotação com <code>*</code>, indicando que os valores não foram discriminados por classificação econômica.
+                As colunas de empenhado, liquidado e pago estão corretas. A taxa de execução não pode ser calculada para este período.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Summary bar */}
         {total && (

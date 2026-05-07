@@ -34,7 +34,7 @@ const S = {
 const SECOES = [
   {
     titulo: "Origem dos dados",
-    corpo: "Todos os dados exibidos no Anatomia do Gasto são extraídos exclusivamente de documentos oficiais publicados pelo poder público. Nenhum dado é criado, estimado ou editado pela equipe do projeto.",
+    corpo: "Os dados orçamentários de saúde e educação exibidos no Anatomia do Gasto são extraídos de documentos oficiais publicados pelo poder público. Conteúdos ilustrativos ou de curadoria editorial devem ser sinalizados explicitamente.",
     itens: [
       "Portal de Transparência da Prefeitura de Sorocaba — relatórios de aplicação da LRF (saúde) e relatórios de execução orçamentária (educação)",
       "SICONFI — Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro (Tesouro Nacional) — RREO Anexo 12",
@@ -43,7 +43,7 @@ const SECOES = [
   },
   {
     titulo: "Como os dados são extraídos",
-    corpo: "O processo de extração é automatizado e auditável. Nenhuma etapa envolve edição manual dos valores.",
+    corpo: "O processo de extração dos datasets orçamentários é automatizado e auditável. A equipe não altera manualmente os valores publicados nessas bases.",
     itens: [
       "Download automático dos PDFs a partir das URLs oficiais",
       "Leitura do texto dos PDFs com pdfplumber; fallback para PyMuPDF em PDFs baseados em imagem",
@@ -66,7 +66,7 @@ const SECOES = [
     corpo: "Erros podem ocorrer por falhas no processo de extração ou por inconsistências nos próprios PDFs oficiais. Em ambos os casos, o procedimento é o mesmo.",
     itens: [
       "Para reportar um erro: sallumc@gmail.com — informe a página, o valor incorreto e a fonte que indica o valor correto",
-      "Verificamos a ocorrência em até 7 dias úteis",
+      "Buscamos verificar a ocorrência com prioridade e registrar a resposta publicamente no histórico do projeto",
       "Erros confirmados são corrigidos e o commit de correção fica registrado publicamente no histórico do GitHub",
       "Se o erro estiver no PDF original: registramos a divergência na página correspondente, mas mantemos o valor do documento oficial até que ele seja corrigido na fonte",
     ],

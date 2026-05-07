@@ -23,6 +23,7 @@ Referências:
 - [docs/arquitetura.md](docs/arquitetura.md)
 - [docs/seguranca.md](docs/seguranca.md)
 - [docs/auditoria-seguranca-publicacao.md](docs/auditoria-seguranca-publicacao.md)
+- [docs/politica-publicacao-dados.md](docs/politica-publicacao-dados.md)
 
 ## Estrutura
 

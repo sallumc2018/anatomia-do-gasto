@@ -138,13 +138,37 @@ export default function IndexPage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "760px", fontSize: "16px", lineHeight: "26px" }}>
                 Quanto Sorocaba gastou em saúde e educação, de onde veio esse dinheiro e em que áreas ele foi aplicado —
-                tudo extraído diretamente dos relatórios oficiais publicados pela Prefeitura, sem interpretação editorial.
+                com base em relatórios oficiais publicados pelo poder público, sem alteração manual dos valores orçamentários exibidos.
               </p>
             </div>
           </div>
         </section>
 
-        <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
+        {/* Como usar — 3 passos */}
+        <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-10" style={S.container}>
+            <p style={{ ...S.label, marginBottom: "20px" }}>Como usar este site</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={{ borderTop: "1px solid var(--border-01)" }}>
+              {[
+                { num: "01", titulo: "Escolha uma área", texto: "Saúde ou Educação. Cada uma tem os dados de 2020 a 2025 organizados por ano e período." },
+                { num: "02", titulo: "Veja os números", texto: "Quanto foi autorizado, comprometido e efetivamente pago. A divisão por área (UBSs, hospitais, creches, escolas) está em cada relatório." },
+                { num: "03", titulo: "Confira a fonte", texto: "Nos datasets principais, cada linha publicada informa o PDF ou a URL oficial de origem. Quando houver lacuna, o site declara isso." },
+              ].map((step, i) => (
+                <div key={step.num} className="py-7" style={{
+                  paddingRight: i < 2 ? "40px" : 0,
+                  paddingLeft:  i > 0 ? "40px" : 0,
+                  borderLeft:   i > 0 ? "1px solid var(--border-01)" : "none",
+                }}>
+                  <p className="font-mono mb-3" style={{ fontSize: "12px", color: "var(--text-04)" }}>{step.num}</p>
+                  <p className="font-semibold mb-2" style={{ fontSize: "15px", color: "var(--text-01)" }}>{step.titulo}</p>
+                  <p style={{ ...S.body, fontSize: "14px" }}>{step.texto}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10">
               <div>

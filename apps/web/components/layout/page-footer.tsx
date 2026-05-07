@@ -34,7 +34,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
   {
     title: "Princípios",
     items: [
-      { label: "Dados sem interpretação editorial" },
+      { label: "Sem juízo editorial sobre os valores" },
       { label: "Rastro exibido somente quando documentado" },
       { label: "Limitações declaradas explicitamente" },
       { label: "Sem afiliação política" },
@@ -46,7 +46,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Anatomia do Gasto" },
       { label: "ONG em formação" },
-      { label: "Piloto: Sorocaba/SP + UFSCar" },
+      { label: "Piloto: Sorocaba/SP" },
       { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
     ],
   },

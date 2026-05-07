@@ -46,10 +46,6 @@ const S = {
   borderBottom: { borderBottom: "1px solid var(--border-01)" } as React.CSSProperties,
 }
 
-function brNum(s: string): number {
-  return parseFloat(s.replace(/\./g, "").replace(",", ".")) || 0
-}
-
 function fmtMi(v: number): string {
   const m = v / 1_000_000
   return `R$ ${m.toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} mi`

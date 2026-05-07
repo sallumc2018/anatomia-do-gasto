@@ -63,6 +63,7 @@ Regra prática:
 - a finalidade institucional e o risco de exposição adicional precisam estar documentados.
 
 Ver [auditoria-seguranca-publicacao.md](C:/projetos/anatomia-do-gasto/docs/auditoria-seguranca-publicacao.md).
+Ver tambem [politica-publicacao-dados.md](C:/projetos/anatomia-do-gasto/docs/politica-publicacao-dados.md).
 
 ## Colaboradores e Dispositivos Próprios
 

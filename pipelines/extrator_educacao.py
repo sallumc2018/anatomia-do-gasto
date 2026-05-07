@@ -64,6 +64,83 @@ RE_REC_LIQ       = re.compile(r'Receitas Liquidas\s+([\d.,]+)\s+([\d.,]+)')
 RE_MINIMO        = re.compile(r'TOTAL\s*\(\s*25%\s*\)\s+([\d.,]+)\s+([\d.,]+)')
 
 
+def extrair_receitas_vertical(texto):
+    """
+    Fallback para PDFs onde cada valor e cada palavra de rótulo ficam em linhas próprias.
+    Padrão por linha: [arrecadado, previsao, ...palavras do rótulo em RTL...].
+    Algoritmo: acumula números; quando vê uma linha monetária após texto, tenta casar o grupo.
+    """
+    linhas = [l.strip().strip('|').strip() for l in texto.splitlines()]
+    MONETARY_RE = re.compile(r'^\d{1,3}(?:\.\d{3})+,\d{2}$')
+
+    resultado = {}
+    num_buf: list = []
+    lbl_buf: list = []
+
+    def try_match(nums, labels):
+        if len(nums) < 2:
+            return False
+        arr, prev = nums[0], nums[1]
+        lu = ' '.join(normalizar(l) for l in labels if l)
+        raw = ' '.join(labels)
+
+        if 'PROPRIOS' in lu and 'PROPRIAS' not in lu and 'TRANSFERE' not in lu and 'RECEITA' not in lu:
+            resultado['proprios_arrecadado'] = arr
+            resultado['proprios_previsao']   = prev
+        elif 'UNIAO' in lu and 'TRANSFERE' in lu:
+            resultado['uniao_arrecadado'] = arr
+            resultado['uniao_previsao']   = prev
+        elif ('ESTADO' in lu or 'ESTADOS' in lu) and 'TRANSFERE' in lu:
+            resultado['estados_arrecadado'] = arr
+            resultado['estados_previsao']   = prev
+        elif 'FUNDEB' in lu and 'RETENC' in lu:
+            pass  # deduction — skip
+        elif 'LIQUIDA' in lu and 'RECEITA' in lu:
+            resultado['liq_arrecadado'] = arr
+            resultado['liq_previsao']   = prev
+        elif '25%' in raw:
+            resultado['min_arrecadado'] = arr
+            resultado['min_previsao']   = prev
+        return True
+
+    for l in linhas:
+        if not l:
+            continue
+        if MONETARY_RE.match(l):
+            if lbl_buf:
+                try_match(num_buf, lbl_buf)
+                num_buf = []
+                lbl_buf = []
+            num_buf.append(parse_br(l))
+        else:
+            lbl_buf.append(l)
+
+    if num_buf and lbl_buf:
+        try_match(num_buf, lbl_buf)
+
+    if not resultado or 'liq_arrecadado' not in resultado:
+        return {}
+
+    liq_arr = resultado.get('liq_arrecadado', 0.0)
+    min_arr = resultado.get('min_arrecadado', 0.0)
+    pct = round(min_arr / liq_arr * 100, 2) if liq_arr else 0.0
+
+    return {
+        'proprios_previsao':                   resultado.get('proprios_previsao', 0.0),
+        'proprios_arrecadado':                 resultado.get('proprios_arrecadado', 0.0),
+        'transferencias_federais_previsao':    resultado.get('uniao_previsao', 0.0),
+        'transferencias_federais_arrecadado':  resultado.get('uniao_arrecadado', 0.0),
+        'transferencias_estaduais_previsao':   resultado.get('estados_previsao', 0.0),
+        'transferencias_estaduais_arrecadado': resultado.get('estados_arrecadado', 0.0),
+        'total_base_previsao':                 resultado.get('liq_previsao', 0.0),
+        'total_base_arrecadado':               liq_arr,
+        'minimo_educacao_previsao':            resultado.get('min_previsao', 0.0),
+        'minimo_educacao_arrecadado':          min_arr,
+        'percentual_aplicado_liquidado':       pct,
+        'retencoes_fundeb_arrecadado':         0.0,
+    }
+
+
 def extrair_receitas(texto):
     """Extrai dados de receitas da página 1."""
     def g(pattern):
@@ -76,6 +153,12 @@ def extrair_receitas(texto):
     ret_prev,   ret_arr    = g(RE_RETENCOES)
     liq_prev,   liq_arr    = g(RE_REC_LIQ)
     min_prev,   min_arr    = g(RE_MINIMO)
+
+    # Fallback: vertical format (each value on its own line, words in RTL order)
+    if liq_arr == 0.0 and prop_arr == 0.0:
+        vertical = extrair_receitas_vertical(texto)
+        if vertical:
+            return vertical
 
     total_prev = prop_prev + fed_prev + est_prev
     total_arr  = prop_arr  + fed_arr  + est_arr
