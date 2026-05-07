@@ -25,6 +25,7 @@ interface RastroDinheiroProps {
   stages: BudgetStage[]
   destinations: MoneyDestination[]
   documentSource: string
+  documentLinks?: string[]
 }
 
 const S = {
@@ -74,6 +75,7 @@ export function RastroDinheiro({
   stages,
   destinations,
   documentSource,
+  documentLinks = [],
 }: RastroDinheiroProps) {
   const validSources = sources.filter((source) => source.value > 0)
   const validDestinations = destinations.filter((destination) => destination.value > 0)
@@ -137,6 +139,26 @@ export function RastroDinheiro({
           <div className="py-6 md:pr-8" style={S.borderBottom}>
             <p className="uppercase font-semibold mb-2" style={S.label}>Fonte usada</p>
             <p style={S.body}>{documentSource}</p>
+            {documentLinks.length > 0 && (
+              <div className="mt-4 flex flex-col gap-2">
+                <p className="uppercase font-semibold" style={S.label}>Documentos originais</p>
+                {documentLinks.map((pdf) => (
+                  <a
+                    key={pdf}
+                    href="https://fazenda.sorocaba.sp.gov.br/transparencia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ ...S.mono, color: "var(--blue-60)", textDecoration: "underline", wordBreak: "break-all" }}
+                    title={`Acesse o portal de transparência de Sorocaba para localizar o arquivo: ${pdf}`}
+                  >
+                    {pdf}
+                  </a>
+                ))}
+                <p style={{ ...S.small, marginTop: "4px" }}>
+                  Disponível em fazenda.sorocaba.sp.gov.br/transparencia
+                </p>
+              </div>
+            )}
           </div>
           <div className="py-6 md:pl-8" style={{ ...S.borderBottom, borderLeft: "1px solid var(--border-01)" }}>
             <p className="uppercase font-semibold mb-2" style={S.label}>Campos não publicados neste dataset</p>

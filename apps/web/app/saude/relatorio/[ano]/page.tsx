@@ -290,6 +290,7 @@ export default async function RelatorioSaudePage({ params, searchParams }: PageP
             year={year}
             periodLabel={QUAD_LABELS[quad] ?? `${quad}º quadrimestre`}
             documentSource="Relatórios de Aplicação da LRF e RREO Anexo 12 publicados pela Prefeitura de Sorocaba."
+            documentLinks={[...new Set(rows.map((r) => r.fonte_pdf).filter(Boolean))]}
             sources={[
               {
                 label: "Recursos municipais ASPS",

@@ -10,6 +10,7 @@ export interface HealthRow {
   liquidada: number
   paga: number
   quadrimestre: number
+  fonte_pdf: string
 }
 
 // Labels por área
@@ -58,6 +59,7 @@ function parseCSV(content: string): HealthRow[] {
       liquidada:    parseBrNumber(fields[3] ?? "0"),
       paga:         parseBrNumber(fields[4] ?? "0"),
       quadrimestre: parseInt(fields[5] ?? "0"),
+      fonte_pdf:    fields[6]?.trim() ?? "",
     }
   }).filter((r) => r.funcao)
 }

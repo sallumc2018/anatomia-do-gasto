@@ -212,6 +212,7 @@ export default async function RelatorioEducacaoPage({ params, searchParams }: Pa
             year={year}
             periodLabel={TRIMESTRE_LABELS[trim] ?? `${trim}º trimestre`}
             documentSource="Relatórios de Aplicação no Ensino publicados pela Prefeitura de Sorocaba."
+            documentLinks={[...new Set(rows.map((r) => r.fonte_pdf).filter(Boolean))]}
             sources={[
               {
                 label: "Impostos próprios",
