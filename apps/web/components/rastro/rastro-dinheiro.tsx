@@ -141,21 +141,20 @@ export function RastroDinheiro({
             <p style={S.body}>{documentSource}</p>
             {documentLinks.length > 0 && (
               <div className="mt-4 flex flex-col gap-2">
-                <p className="uppercase font-semibold" style={S.label}>Documentos originais</p>
+                <p className="uppercase font-semibold" style={S.label}>Arquivos usados na extração</p>
                 {documentLinks.map((pdf) => (
+                  <p key={pdf} style={{ ...S.mono, wordBreak: "break-all" }}>{pdf}</p>
+                ))}
+                <p style={{ ...S.small, marginTop: "2px" }}>
+                  Documentos publicados em{" "}
                   <a
-                    key={pdf}
                     href="https://fazenda.sorocaba.sp.gov.br/transparencia/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ ...S.mono, color: "var(--blue-60)", textDecoration: "underline", wordBreak: "break-all" }}
-                    title={`Acesse o portal de transparência de Sorocaba para localizar o arquivo: ${pdf}`}
+                    style={{ color: "inherit", textDecoration: "underline" }}
                   >
-                    {pdf}
+                    fazenda.sorocaba.sp.gov.br/transparencia
                   </a>
-                ))}
-                <p style={{ ...S.small, marginTop: "4px" }}>
-                  Disponível em fazenda.sorocaba.sp.gov.br/transparencia
                 </p>
               </div>
             )}
