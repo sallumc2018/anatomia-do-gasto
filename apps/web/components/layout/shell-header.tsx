@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { trackEvent } from "@/lib/analytics"
 
 interface ShellHeaderProps {
   nav?: { href: string; label: string }[]
@@ -44,6 +45,7 @@ export default function ShellHeader({ nav = defaultNav }: ShellHeaderProps) {
               href={link.href}
               className="nav-link"
               aria-current={pathname === link.href ? "page" : undefined}
+              onClick={() => trackEvent.navClick(link.href)}
             >
               {link.label}
             </Link>
@@ -60,6 +62,7 @@ export default function ShellHeader({ nav = defaultNav }: ShellHeaderProps) {
             href={link.href}
             className="nav-link"
             aria-current={pathname === link.href ? "page" : undefined}
+            onClick={() => trackEvent.navClick(link.href)}
           >
             {link.label}
           </Link>
