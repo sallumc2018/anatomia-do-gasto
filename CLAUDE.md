@@ -1,62 +1,43 @@
-# Anatomia do Gasto — contexto para Claude
+# Anatomia do Gasto — contexto para Claude Code
 
 Leia primeiro `AI_MASTER_PROMPT.md`.
 
-## Paths Críticos
+## Papel Do Claude Code
 
-- App web: `apps/web/`
-- Pipeline Python: `pipelines/`
-- Dados brutos: `data/raw/`
-- Dados extraídos: `data/extracted/`
-- Dados validados: `data/validated/`
-- Dados publicados no site: `data/public/`
-- Manifests de auditoria: `data/manifests/`
+Assistente interativo de desenvolvimento local. Executa tarefas no terminal, lê e edita arquivos, e aciona subagentes especializados via skills. É o ponto de entrada padrão para tarefas interativas, validação local e análise iterativa.
 
-## Regra Principal
+Codex pode estar trabalhando em paralelo. Antes de editar qualquer arquivo, verificar o estado atual do repositório para não sobrescrever trabalho em andamento.
 
-O site oficial só pode ler `data/public`. CSV em `data/extracted` ainda não está validado. CSV em `data/validated` está aprovado localmente, mas só vira publicação depois de ser copiado para `data/public`.
+## Skills Disponíveis
 
-Não commitar, fazer push ou deploy sem autorização explícita.
+| Comando | Responsabilidade | Ambiente preferido |
+|---|---|---|
+| `/orquestrador` | Analisa o pedido e roteia para o subagente correto | qualquer |
+| `/iniciar` | Inicializa e verifica todos os ambientes (WSL, Windows, tablet) | qualquer |
+| `/dados` | Verifica e baixa novos PDFs do portal | WSL / Windows |
+| `/pipeline` | Processa PDFs em CSV/JSON | WSL (primário) |
+| `/analista` | Analisa despesas com linguagem cidadã | WSL / Windows |
+| `/frontend` | Sobe servidor Next.js local | WSL (primário) |
+| `/deploy` | Faz build e publica na Vercel | WSL / Windows |
+| `/tablet` | Sincroniza e monitora o tablet Android via ADB | Windows |
 
-## Rodar No Windows
+## Regras De Frontend
 
+- Stack: Next.js + TypeScript + Recharts.
+- Não importar módulos `fs`/`path` em componentes `"use client"`.
+- `apps/web/lib/data.ts` lê CSVs de `data/public`.
+- `apps/web/lib/auditoria.ts` lê dados de auditoria de `data/public`.
+
+## Servidor De Desenvolvimento
+
+Windows:
 ```powershell
-cd "C:\projetos\anatomia-do-gasto"
-.\.venv\Scripts\python.exe pipelines\pipeline.py --ano 2025
-.\.venv\Scripts\python.exe pipelines\testes\verificar_dados.py --ano 2025
-
-cd apps\web
+cd "C:\projetos\anatomia-do-gasto\apps\web"
 npm.cmd run dev
 ```
 
-## Rodar No WSL/Linux
-
+WSL/Linux:
 ```bash
-cd ~/projetos/anatomia-do-gasto
-./.venv/bin/python pipelines/pipeline.py --ano 2025
-./.venv/bin/python pipelines/testes/verificar_dados.py --ano 2025
-
-cd apps/web
+cd ~/projetos/anatomia-do-gasto/apps/web
 npm run dev
 ```
-
-## RTK
-
-RTK é ferramenta local para economia de contexto/token. Não versionar binários ou caches. Documentar comandos em `tools/rtk/README.md`.
-
-## Frontend
-
-- Next.js + TypeScript + Recharts
-- `apps/web/lib/data.ts` lê CSVs publicados.
-- `apps/web/lib/auditoria.ts` lê dados de auditoria publicados.
-- Não importar módulos com `fs`/`path` em componentes `"use client"`.
-
-## Dados Atuais
-
-- Saúde: 2020-2025 em `data/public`.
-- Educação: 2020-2025 em `data/public`, validada contra PDFs oficiais locais.
-- Auditoria: mock público sinalizado no site como fictício.
-
-## Vercel
-
-Root Directory esperado: `apps/web`.

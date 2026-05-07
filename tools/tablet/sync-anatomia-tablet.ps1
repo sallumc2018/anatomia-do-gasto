@@ -29,11 +29,14 @@ function Resolve-AdbPath {
 $Adb = Resolve-AdbPath -Preferred $Adb
 
 if (Test-Path $AdbHome) {
+  New-Item -ItemType Directory -Force $AdbHome | Out-Null
   $env:HOME = $AdbHome
   $env:USERPROFILE = $AdbHome
   $env:ANDROID_SDK_HOME = $AdbHome
+  $env:ANDROID_USER_HOME = $AdbHome
 }
 
+& $Adb kill-server | Out-Null
 New-Item -ItemType Directory -Force "$Work\projeto\data" | Out-Null
 Remove-Item -Recurse -Force "$Work\projeto" -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force "$Work\projeto\data" | Out-Null

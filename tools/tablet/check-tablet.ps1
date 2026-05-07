@@ -3,7 +3,7 @@ param(
   [string]$AdbHome = "C:\infra\android-adb-home"
 )
 
-$ErrorActionPreference = "Continue"
+$ErrorActionPreference = "Stop"
 
 function Resolve-AdbPath {
   param([string]$Preferred)
@@ -34,15 +34,22 @@ if (Test-Path $AdbHome) {
 }
 
 & $Adb kill-server | Out-Null
+
+Write-Host "== Dispositivo =="
 & $Adb devices -l
-& $Adb shell "mkdir -p /sdcard/AnatomiaTerminal"
-& $Adb shell "dumpsys battery | grep -E 'level|status|temperature|USB powered' > /sdcard/AnatomiaTerminal/battery.txt && date '+%Y-%m-%d %H:%M:%S' > /sdcard/AnatomiaTerminal/battery-updated.txt"
 
-# Keep the tablet useful as a visible output terminal while connected to USB.
-& $Adb shell "svc power stayon usb"
-& $Adb shell "settings put system screen_off_timeout 2147483647"
+Write-Host ""
+Write-Host "== Bateria =="
+& $Adb shell "dumpsys battery | grep -E 'level|status|temperature|USB powered'"
 
-# Launch Termux; ~/.bashrc starts the status panel.
-& $Adb shell "monkey -p com.termux 1"
+Write-Host ""
+Write-Host "== Armazenamento =="
+& $Adb shell "df -h /sdcard | tail -1"
 
-Write-Host "Painel solicitado no tablet. Se a tela estiver bloqueada, desbloqueie uma vez."
+Write-Host ""
+Write-Host "== Estrutura do tablet =="
+& $Adb shell "du -sh /sdcard/AnatomiaDrive/* 2>/dev/null || ls -lah /sdcard/AnatomiaDrive"
+
+Write-Host ""
+Write-Host "== Painel =="
+& $Adb shell "ls -lah /sdcard/AnatomiaTerminal && tail -20 /sdcard/AnatomiaTerminal/battery.txt 2>/dev/null || true"

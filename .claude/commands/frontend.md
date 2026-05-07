@@ -1,59 +1,49 @@
 ---
-description: Sincroniza arquivos fonte e sobe o servidor Next.js local do Anatomia do Gasto
-allowed-tools: Read, Glob, PowerShell
+description: Sobe o servidor Next.js local do Anatomia do Gasto e auxilia no desenvolvimento de páginas e componentes
+allowed-tools: Read, Glob, PowerShell, Edit, Write
 ---
 
 Você é o agente de frontend do **Anatomia do Gasto**.
 
-## Contexto do ambiente
+Raiz do frontend: `C:\projetos\anatomia-do-gasto\apps\web`
 
-O projeto usa um workaround obrigatório por limitação do npm no Google Drive:
-- **Source of truth:** `G:\Meu Drive\anatomia-do-gasto\frontend\`
-- **Runtime (node_modules):** `C:\nm\adg\`
-- O script `dev.ps1` sincroniza os arquivos e sobe o servidor.
+Stack: Next.js + TypeScript + Recharts
+- `lib/data.ts` lê CSVs de `data/public`
+- `lib/auditoria.ts` lê dados de auditoria de `data/public`
+- Não importar módulos `fs`/`path` em componentes `"use client"`
 
-## Passo 1 — Verificar runtime
+## Passo 1 — Verificar dependências
 
 ```powershell
-Test-Path "C:\nm\adg\node_modules"
+Test-Path "C:\projetos\anatomia-do-gasto\apps\web\node_modules"
 ```
 
-Se retornar `False`, o runtime não está configurado. Informe o usuário e pare — não é possível continuar sem o setup inicial do `C:\nm\adg`.
+Se `False`, instalar:
+```powershell
+cd "C:\projetos\anatomia-do-gasto\apps\web"
+npm.cmd install
+```
 
 ## Passo 2 — Verificar dados disponíveis
 
 ```powershell
-Get-ChildItem "G:\Meu Drive\anatomia-do-gasto\sorocaba\saude\saida\" -Filter "*.csv" | Select-Object Name
+Get-ChildItem "C:\projetos\anatomia-do-gasto\data\public\sorocaba\saude\saida\" -Filter "*.csv" | Select-Object Name
 ```
 
-Se não houver CSVs, avise o usuário que o frontend não terá dados para exibir e sugira rodar `/pipeline <ano>` primeiro. Continue mesmo assim se o usuário confirmar.
+Se não houver CSVs, avise que o frontend não terá dados e sugira `/pipeline <ano>` primeiro.
 
-## Passo 3 — Subir o servidor
+## Passo 3 — Subir o servidor de desenvolvimento
 
 ```powershell
-cd "G:\Meu Drive\anatomia-do-gasto\frontend"
-.\dev.ps1
+cd "C:\projetos\anatomia-do-gasto\apps\web"
+npm.cmd run dev
 ```
 
-Aguarde a mensagem `ready` ou `Local: http://localhost:3000` na saída.
-
-Se o dev.ps1 não existir, execute manualmente:
-
-```powershell
-# Sincronizar source para runtime
-Copy-Item "G:\Meu Drive\anatomia-do-gasto\frontend\*" "C:\nm\adg\" -Recurse -Force -Exclude "node_modules",".next"
-# Subir servidor
-cd "C:\nm\adg"
-node_modules\.bin\next dev
-```
+Aguarde `ready` ou `Local: http://localhost:3000`.
 
 ## Passo 4 — Confirmar funcionamento
 
-Após o servidor subir, informe:
-
 - **URL local:** http://localhost:3000
-- **Páginas disponíveis:**
-  - `/` — homepage
-  - `/relatorio/2023` `/relatorio/2024` `/relatorio/2025` — relatórios por ano
+- **Páginas principais:** `/` · `/saude` · `/educacao` · `/auditoria` · `/dados`
 
-Encerre com: **"Frontend no ar. Acesse http://localhost:3000 — quer trabalhar em alguma página específica?"**
+Encerre com: **"Frontend no ar em http://localhost:3000 — em qual página quer trabalhar?"**

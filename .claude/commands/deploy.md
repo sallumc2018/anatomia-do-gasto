@@ -1,91 +1,57 @@
 ---
-description: Faz build do frontend e publica o Anatomia do Gasto na internet (Vercel ou GitHub Pages)
+description: Faz build do frontend e publica o Anatomia do Gasto na Vercel
 allowed-tools: Read, Glob, PowerShell
 ---
 
 Você é o agente de deploy do **Anatomia do Gasto**.
 
-## O que é deploy
+Raiz do frontend: `C:\projetos\anatomia-do-gasto\apps\web`
+Plataforma configurada: Vercel (Root Directory `apps/web`)
 
-Deploy = compilar o Next.js e publicar na internet para acesso público.
-Hoje o site só roda localmente. Após o deploy, qualquer pessoa acessa pela URL pública.
+⚠️ Deploy requer autorização explícita do usuário antes de executar qualquer push ou publicação.
 
 ## Passo 1 — Verificar pré-condições
 
-**Git:**
+**Estado do repositório:**
 ```powershell
-cd "G:\Meu Drive\anatomia-do-gasto"
+cd "C:\projetos\anatomia-do-gasto"
 git status
 ```
 
-Se git não estiver inicializado, pare e instrua o usuário:
-> "O deploy exige git. Posso inicializar agora com `git init` — quer prosseguir?"
-Aguarde confirmação antes de continuar.
+Se houver arquivos não commitados relevantes, pare e informe o usuário.
 
-**Build funcional:**
+**Build local:**
 ```powershell
-cd "C:\nm\adg"
-node_modules\.bin\next build
+cd "C:\projetos\anatomia-do-gasto\apps\web"
+npm.cmd --script-shell cmd.exe run lint
+npm.cmd --script-shell cmd.exe run build
 ```
 
-Se o build falhar, mostre o erro completo e pare. Não faça deploy de código quebrado.
+Se o build falhar, mostre o erro completo e pare. Nunca faça deploy de código quebrado.
 
-## Passo 2 — Detectar plataforma configurada
-
-Verifique qual plataforma está configurada:
+## Passo 2 — Confirmar dados publicados
 
 ```powershell
-Test-Path "G:\Meu Drive\anatomia-do-gasto\vercel.json"
-Test-Path "G:\Meu Drive\anatomia-do-gasto\.github\workflows\deploy.yml"
+Get-ChildItem "C:\projetos\anatomia-do-gasto\data\public\" -Recurse -Filter "*.csv" | Measure-Object | Select-Object Count
 ```
 
-**Se nenhuma estiver configurada**, apresente a escolha ao usuário:
+Confirme que apenas dados validados estão em `data/public`.
 
-> **Vercel** (recomendado): deploy automático a cada push, URL gerada na hora, gratuito para projetos pessoais.
-> **GitHub Pages**: requer exportação estática (`next export`), sem rotas dinâmicas do servidor.
->
-> Qual prefere?
+## Passo 3 — Deploy via Vercel
 
-Aguarde a resposta antes de continuar.
-
-## Passo 3A — Deploy via Vercel
+O deploy é automático via GitHub — basta fazer push para `main`.
 
 ```powershell
-cd "C:\nm\adg"
-node_modules\.bin\vercel --prod
+cd "C:\projetos\anatomia-do-gasto"
+git push
 ```
 
-Se `vercel` não estiver instalado:
-```powershell
-cd "C:\nm\adg"
-npm install vercel
-```
-
-Siga as instruções interativas do CLI para autenticação e configuração do projeto na primeira vez.
-
-## Passo 3B — Deploy via GitHub Pages
-
-Requer `next export` configurado em `next.config.js`. Se não estiver, instrua o usuário a adicionar:
-```js
-output: 'export'
-```
-
-Depois:
-```powershell
-cd "C:\nm\adg"
-node_modules\.bin\next build
-git -C "G:\Meu Drive\anatomia-do-gasto" add -A
-git -C "G:\Meu Drive\anatomia-do-gasto" commit -m "deploy: build $(Get-Date -Format 'yyyy-MM-dd')"
-git -C "G:\Meu Drive\anatomia-do-gasto" push
-```
-
-GitHub Actions fará o deploy automaticamente se o workflow estiver configurado.
+Aguarde o build na Vercel e confirme o resultado na URL pública.
 
 ## Passo 4 — Confirmar deploy
 
-Após o deploy, informe:
-- **URL pública:** (mostrar a URL retornada pelo CLI)
-- **Plataforma:** Vercel / GitHub Pages
 - **Build:** ✅ sem erros
+- **URL pública:** (informar URL da Vercel)
+- **Páginas verificadas:** `/` · `/saude` · `/educacao`
 
-Encerre com: **"Site publicado. Quer configurar deploy automático a cada push?"**
+Encerre com: **"Deploy concluído. Acesse o site e confirme que está tudo certo."**

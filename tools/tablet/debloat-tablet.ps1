@@ -32,10 +32,14 @@ $Adb = Resolve-AdbPath -Preferred $Adb
 New-Item -ItemType Directory -Force $BackupDir | Out-Null
 
 if (Test-Path $AdbHome) {
+  New-Item -ItemType Directory -Force $AdbHome | Out-Null
   $env:HOME = $AdbHome
   $env:USERPROFILE = $AdbHome
   $env:ANDROID_SDK_HOME = $AdbHome
+  $env:ANDROID_USER_HOME = $AdbHome
 }
+
+& $Adb kill-server | Out-Null
 
 $Packages = @(
   "com.google.android.youtube",

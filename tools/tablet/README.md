@@ -17,6 +17,7 @@ No Windows, a partir da raiz do repositorio:
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools\tablet\sync-anatomia-tablet.ps1
 powershell -ExecutionPolicy Bypass -File tools\tablet\start-tablet-panel.ps1
+powershell -ExecutionPolicy Bypass -File tools\tablet\check-tablet.ps1
 ```
 
 Para remover apps de consumo do usuario atual do tablet:

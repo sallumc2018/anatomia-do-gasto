@@ -6,50 +6,61 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 
 ## 2. Ecossistema De Trabalho
 
-- Ambiente local Windows: `C:\projetos\anatomia-do-gasto`.
-- Ambiente local WSL/Linux recomendado: `~/projetos/anatomia-do-gasto`.
-- Repositório central: GitHub `sallumc2018/anatomia-do-gasto`.
-- Deploy: Vercel conectada ao GitHub, com Root Directory `apps/web`.
+| Ambiente | Papel | Path |
+|---|---|---|
+| WSL/Linux | Desenvolvimento principal — Python, Node, Codex, RTK, Claude Code CLI | `~/projetos/anatomia-do-gasto` |
+| Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:\projetos\anatomia-do-gasto` |
+| GitHub | Fonte da verdade entre todos os ambientes | `sallumc2018/anatomia-do-gasto` |
+| Vercel | Deploy automático a partir do push em `main` | Root Directory `apps/web` |
+| Tablet Android | Terminal portátil — leitura de docs e dados públicos | `/sdcard/AnatomiaDrive` via ADB |
+
 - App web: `apps/web`.
 - Pipeline Python: `pipelines`.
+- Infraestrutura local Windows: `C:\infra\` (ADB, drivers USB, logs de tablet).
+- Sincronização WSL: `tools/dev/sync-wsl-mirror.ps1`.
 - Dados:
   - `data/raw`: fontes brutas.
-  - `data/extracted`: extrações automáticas, ainda não publicadas.
+  - `data/extracted`: extrações automáticas, não publicadas.
   - `data/validated`: dados aprovados localmente.
   - `data/public`: única fonte de dados do site.
   - `data/manifests`: inventário e status dos datasets.
-- RTK: ferramenta local de economia de contexto/token; binários e caches não são versionados.
+- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados.
 
 ## 3. Regras Permanentes
 
 1. O site oficial só pode ler `data/public`.
 2. CSV em `data/extracted` não é dado publicado.
 3. CSV em `data/validated` só vira publicação depois de cópia explícita para `data/public`.
-4. Alterações estruturais exigem atualização de documentação relacionada.
-5. Antes de commit/push/deploy, rodar validações locais aplicáveis.
+4. Alterações estruturais exigem atualização da documentação relacionada.
+5. Antes de commit/push/deploy, rodar as validações mínimas aplicáveis.
 6. Não versionar `node_modules`, `.next`, `.venv`, `venv`, `.env.local`, caches ou binários RTK.
 7. Preferir mudanças pequenas, rastreáveis e com justificativa objetiva.
 8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md` e `docs/ambiente.md`.
+9. Nenhum agente faz commit, push ou deploy sem autorização explícita do usuário.
+10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
 
 ## 4. Validação Mínima
 
-Python:
-
+**Python — Windows:**
 ```powershell
-python -m py_compile pipelines\paths.py pipelines\pipeline.py pipelines\publicar_dados.py
-python pipelines\testes\verificar_publicacao.py
+.\.venv\Scripts\python.exe -m py_compile pipelines\paths.py pipelines\pipeline.py pipelines\publicar_dados.py
+.\.venv\Scripts\python.exe pipelines\testes\verificar_publicacao.py
 ```
 
-Frontend:
+**Python — WSL/Linux:**
+```bash
+./.venv/bin/python -m py_compile pipelines/paths.py pipelines/pipeline.py pipelines/publicar_dados.py
+./.venv/bin/python pipelines/testes/verificar_publicacao.py
+```
 
+**Frontend — Windows:**
 ```powershell
 cd apps\web
 npm.cmd --script-shell cmd.exe run lint
 npm.cmd --script-shell cmd.exe run build
 ```
 
-WSL/Linux:
-
+**Frontend — WSL/Linux:**
 ```bash
 cd apps/web
 npm run lint
@@ -58,41 +69,64 @@ npm run build
 
 ## 5. Política De Commit
 
-Não commitar automaticamente qualquer mudança. Commitar somente depois de:
+Não commitar automaticamente. Commitar somente depois de:
 
 - validar localmente;
 - revisar o diff;
 - confirmar que dados não validados não entraram em `data/public`;
-- usar mensagem clara no formato recomendado:
+- usar mensagem no formato:
 
 ```text
 [Ferramenta] descrição curta
 ```
 
-Exemplos:
-
-```text
-[Codex] reorganiza camadas de dados
-[Claude] ajusta textos da página de metodologia
-```
+Exemplos: `[Codex] reorganiza camadas de dados` · `[Claude] ajusta textos da metodologia`
 
 ## 6. Sincronia Entre Ambientes
 
-A fonte da verdade é o GitHub. Windows, WSL, Vercel e ferramentas de IA devem convergir para o mesmo estado por meio de Git, documentação e manifests.
+A fonte da verdade é o GitHub. Antes de deploy:
 
-Antes de deploy:
-
-1. Validar localmente no ambiente atual.
+1. Validar localmente.
 2. Validar no WSL quando a mudança afetar build, scripts ou caminhos.
-3. Fazer commit.
-4. Fazer push.
-5. Conferir build na Vercel.
-6. Conferir o site oficial.
+3. Commit → push → conferir build na Vercel → conferir o site.
 
-## 7. Resposta Esperada Das IAs
+## 7. Estado Atual Dos Dados
+
+- Saúde: 2020–2025 em `data/public`.
+- Educação: 2020–2025 em `data/public`, validada contra PDFs oficiais; 2020–2023 também em `data/extracted` como saída mecânica.
+- Auditoria: dados mock sinalizados no site como fictícios. Não publicar dados reais sem revisão explícita.
+
+## 8. Arquitetura De Agentes
+
+O projeto usa um conjunto de agentes especializados coordenados por um orquestrador.
+
+### Orquestrador
+
+Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o contexto mínimo necessário — nunca repassa secrets, dados não publicados ou conteúdo de PDFs brutos.
+
+### Subagentes
+
+| Agente | Ferramenta | Ambiente | Responsabilidade |
+|---|---|---|---|
+| `dados` | Claude Code | WSL / Windows | Verifica e baixa novos PDFs do portal |
+| `pipeline` | Claude Code | WSL (primário) | Processa PDFs em CSV/JSON |
+| `analista` | Claude Code | WSL / Windows | Analisa despesas com linguagem cidadã |
+| `frontend` | Claude Code | WSL (primário) | Desenvolvimento e validação do app web |
+| `deploy` | Claude Code | WSL / Windows | Build e publicação na Vercel |
+| `tablet` | Claude Code | Windows (ADB) | Sincroniza e monitora o tablet Android |
+| `engenheiro` | Codex | WSL | Refatorações grandes, migrações de estrutura |
+
+### Critério De Roteamento
+
+- **WSL**: tarefas de código, pipeline, frontend, Codex — ambiente primário de desenvolvimento.
+- **Windows**: operações com tablet (ADB), GUI, tarefas que exigem drivers locais.
+- **Codex**: tarefas autônomas em WSL, refatorações em massa, geração de código estrutural.
+
+## 9. Resposta Esperada Das IAs
 
 - Ser conciso.
 - Explicar decisões técnicas quando houver tradeoff.
 - Indicar arquivos afetados em mudanças estruturais.
 - Não afirmar que algo foi validado sem ter rodado a validação.
 - Se houver lacuna de ambiente, registrar claramente.
+- Nunca agir fora do escopo autorizado pelo usuário.

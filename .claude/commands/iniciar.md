@@ -1,60 +1,71 @@
 ---
-description: Inicializa o contexto do projeto Anatomia do Gasto e verifica se tudo está funcionando
-allowed-tools: Read, Glob, PowerShell
+description: Inicializa o contexto do projeto Anatomia do Gasto e verifica todos os ambientes
+allowed-tools: Read, Glob, PowerShell, Bash
 ---
 
 Você está iniciando uma sessão no projeto **Anatomia do Gasto**.
 
-## Passo 1 — Verificar ambiente Python
+Verifique todos os ambientes ativos e apresente um painel de status consolidado.
 
-```powershell
-cd "G:\Meu Drive\anatomia-do-gasto"
-if (Test-Path "venv") { .\venv\Scripts\python.exe -c "import pdfplumber, pandas; print('OK')" } else { Write-Output "venv NAO existe" }
+## Passo 1 — Ambiente WSL (desenvolvimento principal)
+
+```bash
+cd ~/projetos/anatomia-do-gasto
+echo "=== Python ===" && .venv/bin/python -c "import pdfplumber, pandas; print('OK')" 2>/dev/null || echo "ERRO: .venv ou dependências ausentes"
+echo "=== Node ===" && node --version && npm --version
+echo "=== Git ===" && git status --short | head -10
+echo "=== Branch ===" && git branch --show-current
 ```
 
-Se `venv` não existir:
-```powershell
-py -m venv venv
-.\venv\Scripts\pip.exe install pdfplumber pandas
+Se o repositório não existir no WSL:
+```bash
+mkdir -p ~/projetos && cd ~/projetos
+git clone https://github.com/sallumc2018/anatomia-do-gasto.git
 ```
 
-## Passo 2 — Subir o servidor de desenvolvimento
+## Passo 2 — Ambiente Windows (operações)
 
 ```powershell
-cd "G:\Meu Drive\anatomia-do-gasto\frontend"
-Start-Process powershell -ArgumentList '-NoExit', '-Command', '.\dev.ps1'
+# Python
+$venvOk = Test-Path "C:\projetos\anatomia-do-gasto\.venv"
+# Node
+$nodeOk = Test-Path "C:\projetos\anatomia-do-gasto\apps\web\node_modules"
+# ADB para tablet
+$adbOk = Test-Path "C:\infra\adb\adb.exe"
+# Infraestrutura
+$infraOk = Test-Path "C:\infra"
+Write-Host "Windows — .venv: $venvOk | node_modules: $nodeOk | ADB: $adbOk | C:\infra: $infraOk"
 ```
 
-Aguarde ~5 segundos e verifique se a porta 3000 está ouvindo:
+## Passo 3 — Dados disponíveis
 
+```bash
+echo "=== PDFs saúde ===" && ls data/raw/sorocaba/saude/entrada/*.pdf 2>/dev/null | wc -l
+echo "=== PDFs educação ===" && ls data/raw/sorocaba/educacao/entrada/*.pdf 2>/dev/null | wc -l
+echo "=== CSVs públicos (saúde) ===" && ls data/public/sorocoba/saude/saida/*.csv 2>/dev/null | wc -l
+echo "=== CSVs públicos (educação) ===" && ls data/public/sorocoba/educacao/saida/*.csv 2>/dev/null | wc -l
+```
+
+## Passo 4 — Tablet (opcional, só se ADB disponível)
+
+Se `C:\infra\adb\adb.exe` existir, rode em PowerShell:
 ```powershell
-Start-Sleep -Seconds 5
-netstat -an | findstr ":3000"
+C:\infra\adb\adb.exe devices -l
 ```
 
-Se aparecer `LISTENING`, o servidor está no ar em http://localhost:3000.
+## Passo 5 — Painel de status
 
-## Passo 4 — Verificar dados disponíveis
-
-```powershell
-Get-ChildItem "G:\Meu Drive\anatomia-do-gasto\sorocaba\saude\entrada\" -Filter "*.pdf" | Select-Object Name | Sort-Object Name
-Get-ChildItem "G:\Meu Drive\anatomia-do-gasto\sorocaba\saude\saida\" -Filter "*.csv" | Select-Object Name | Sort-Object Name
-```
-
-## Passo 5 — Apresentar status
-
-Mostre ao usuário uma tabela compacta:
-
-| Item | Status |
-|---|---|
-| venv | ✅ / ❌ |
-| pdfplumber + pandas | ✅ / ❌ |
-| PDFs disponíveis | ex: 9 arquivos (2023–2025) |
-| CSVs gerados | ex: 3 arquivos (2023–2025) |
-
-Depois liste as **pendências abertas** (do CLAUDE.md):
-- Gráfico comparativo entre quadrimestres e entre anos
-- Deploy (Vercel)
-- Páginas /sobre e /metodologia
+| Ambiente | Item | Status |
+|---|---|---|
+| WSL | Python + dependências | ✅ / ❌ |
+| WSL | Node + npm | ✅ / ❌ |
+| WSL | Repositório sincronizado | ✅ / ❌ |
+| Windows | .venv | ✅ / ❌ |
+| Windows | node_modules | ✅ / ❌ |
+| Windows | ADB (`C:\infra\adb\`) | ✅ / ❌ |
+| Dados | PDFs saúde | N arquivos |
+| Dados | PDFs educação | N arquivos |
+| Dados | CSVs públicos | N arquivos |
+| Tablet | Conectado via ADB | ✅ / ❌ / não verificado |
 
 Encerre perguntando: **"Em que você quer trabalhar hoje?"**

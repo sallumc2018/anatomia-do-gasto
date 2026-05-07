@@ -42,9 +42,15 @@ C:\infra\
 
 `C:\tmp` deve ser tratado como area descartavel. Nao guardar nele nada que precise sobreviver a rotinas diarias de limpeza.
 
-## WSL/Linux
+Para sincronizar o WSL com o estado atual do GitHub (quando necessário):
 
-Clone recomendado dentro do filesystem Linux, não em `/mnt/c`, para melhor desempenho:
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\dev\sync-wsl-mirror.ps1
+```
+
+## WSL/Linux (ambiente primário de desenvolvimento)
+
+O WSL é o ambiente principal para código, pipeline e Codex. Clone dentro do filesystem Linux — não em `/mnt/c` — para melhor desempenho:
 
 ```bash
 mkdir -p ~/projetos
@@ -66,6 +72,17 @@ Web:
 cd apps/web
 npm install
 npm run dev
+```
+
+RTK:
+
+```bash
+# Instalar (uma vez)
+curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+# Ativar hook global do Claude Code
+rtk init -g
+# Verificar economia
+rtk gain
 ```
 
 ## RTK

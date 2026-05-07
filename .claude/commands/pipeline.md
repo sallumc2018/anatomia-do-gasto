@@ -8,26 +8,22 @@ Você é o agente de pipeline do **Anatomia do Gasto**.
 Argumento recebido (ano): $ARGUMENTS
 Se não foi passado ano, pergunte ao usuário qual ano processar antes de continuar.
 
-## O que este agente faz
+Raiz do projeto: `C:\projetos\anatomia-do-gasto`
 
-Transforma PDFs brutos em dados estruturados:
-`PDFs em sorocaba/saude/entrada/` → `CSVs em sorocaba/saude/saida/`
-
-Etapas internas do pipeline: download → extração → verificação → CSV → index
+Fluxo: `data/raw` → `data/extracted` → (validação manual) → `data/validated` → `data/public`
 
 ## Passo 1 — Verificar pré-condições
 
 ```powershell
-cd "G:\Meu Drive\anatomia-do-gasto"
-.\venv\Scripts\python.exe -c "import pdfplumber, pandas; print('OK')"
+cd "C:\projetos\anatomia-do-gasto"
+.\.venv\Scripts\python.exe -c "import pdfplumber, pandas; print('OK')"
 ```
 
 Se falhar, pare e informe o usuário para rodar `/iniciar` primeiro.
 
 Verifique se existem PDFs para o ano solicitado:
-
 ```powershell
-Get-ChildItem "G:\Meu Drive\anatomia-do-gasto\sorocaba\saude\entrada\" -Filter "*$ARGUMENTS*"
+Get-ChildItem "C:\projetos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*$ARGUMENTS*"
 ```
 
 Se não houver PDFs, sugira rodar `/dados $ARGUMENTS` primeiro.
@@ -35,30 +31,32 @@ Se não houver PDFs, sugira rodar `/dados $ARGUMENTS` primeiro.
 ## Passo 2 — Rodar o pipeline
 
 ```powershell
-cd "G:\Meu Drive\anatomia-do-gasto"
-.\venv\Scripts\python.exe scripts\pipeline.py --ano $ARGUMENTS --pular-download
+cd "C:\projetos\anatomia-do-gasto"
+.\.venv\Scripts\python.exe pipelines\pipeline.py --ano $ARGUMENTS --pular-download
 ```
 
-Monitore a saída. Se aparecer erro de extração com 0 linhas, verifique se é formato RTL:
-- Formato RTL = PDF com texto invertido (ex: "abacoroS"). Já tratado automaticamente.
-- Se for outro erro, mostre a mensagem completa ao usuário.
+Monitore a saída. Se aparecer erro de extração com 0 linhas, verifique:
+- Formato RTL (texto invertido, ex: "abacoroS") — já tratado automaticamente.
+- Outro erro → mostre a mensagem completa ao usuário.
 
 ## Passo 3 — Verificar integridade
 
 ```powershell
-.\venv\Scripts\python.exe scripts\testes\verificar_dados.py --ano $ARGUMENTS
+.\.venv\Scripts\python.exe pipelines\testes\verificar_dados.py --ano $ARGUMENTS
 ```
 
-Resultado esperado: `X/X valores corretos, nenhuma divergência`.
+Resultado esperado: nenhuma divergência.
 
-Se houver divergências, mostre quais linhas falharam e interrompa — não prossiga para o frontend com dados incorretos.
+Se houver divergências, mostre quais linhas falharam e interrompa — não prossiga para publicação com dados incorretos.
 
 ## Passo 4 — Relatório final
 
 Mostre:
 - **Ano processado:** {ano}
-- **Quadrimestres:** Q1 ✅ / Q2 ✅ / Q3 ✅ (ou ❌ com motivo)
-- **Verificação:** X/X valores corretos
-- **CSVs gerados em:** `sorocaba/saude/saida/`
+- **Períodos:** lista com ✅ / ❌ e motivo se falhou
+- **Verificação:** resultado do verificar_dados.py
+- **CSVs gerados em:** `data/extracted/`
 
-Encerre com: **"Pipeline concluído. Quer subir o frontend com `/frontend` para visualizar?"**
+⚠️ Os CSVs estão em `data/extracted` — ainda não publicados. Para publicar, mova para `data/public` após validação explícita.
+
+Encerre com: **"Pipeline concluído. Quer validar e publicar os dados?"**
