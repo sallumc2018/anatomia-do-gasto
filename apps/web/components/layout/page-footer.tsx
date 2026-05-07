@@ -66,9 +66,9 @@ export default function PageFooter() {
                 {col.items.map((item) => (
                   <li key={item.label} style={{ fontSize: "13px", color: "var(--border-03)", lineHeight: "18px" }}>
                     {item.href ? (
-                      <a href={item.href} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                      <TrackedExternalLink href={item.href} area="footer" label={item.label} style={{ color: "inherit", textDecoration: "underline" }}>
                         {item.label}
-                      </a>
+                      </TrackedExternalLink>
                     ) : item.label}
                   </li>
                 ))}
@@ -102,3 +102,4 @@ export default function PageFooter() {
     </footer>
   )
 }
+import { TrackedExternalLink } from "@/components/analytics/tracked-link"

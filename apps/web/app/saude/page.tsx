@@ -1,4 +1,3 @@
-import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import {
@@ -17,6 +16,7 @@ import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual
 import { PorPeriodo, type PorPeriodoPoint } from "@/components/charts/PorPeriodo"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
+import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 const AREA: Area = "saude"
 
@@ -158,14 +158,14 @@ export default function SaudePage() {
             <h2 className="font-light mb-10" style={S.h2}>Relatórios disponíveis</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {years.map((year) => (
-                <Link key={year} href={`/saude/relatorio/${year}`} className="tile-link" style={{ border: "1px solid var(--border-01)" }}>
+                <TrackedReportLink key={year} href={`/saude/relatorio/${year}`} area={AREA} year={year} className="tile-link" style={{ border: "1px solid var(--border-01)" }}>
                   <div className="p-6 flex flex-col gap-4 h-full">
                     <p className="font-mono uppercase mb-1" style={{ fontSize: "11px", color: "var(--text-03)" }}>Sorocaba / SP</p>
                     <p className="font-mono font-medium" style={{ fontSize: "36px", color: "var(--text-01)" }}>{year}</p>
                     <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 600, color: "#005d5d", border: "1px solid #005d5d", borderRadius: "2px", padding: "1px 6px" }}>SAÚDE</span>
                     <div className="mt-auto flex items-center gap-2" style={{ color: "#005d5d", fontSize: "13px" }}>Ver relatório</div>
                   </div>
-                </Link>
+                </TrackedReportLink>
               ))}
             </div>
           </div>

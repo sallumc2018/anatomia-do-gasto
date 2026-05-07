@@ -1,5 +1,6 @@
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,
@@ -205,7 +206,7 @@ export default function MetodologiaPage() {
                 }}>
                   <h2 style={{ ...S.h2, fontSize: "16px" }}>{f.titulo}</h2>
                   <p style={{ ...S.body, marginBottom: "12px" }}>{f.texto}</p>
-                  <a href={f.href} target="_blank" rel="noopener noreferrer" style={{ ...S.mono, textDecoration: "underline" }}>{f.url}</a>
+                  <TrackedExternalLink href={f.href} area="metodologia" label={f.url} style={{ ...S.mono, textDecoration: "underline" }}>{f.url}</TrackedExternalLink>
                 </div>
               ))}
             </div>
