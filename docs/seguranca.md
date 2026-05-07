@@ -73,3 +73,9 @@ Política de segurança do tablet:
 ## Divulgação Responsável
 
 Após a correção de uma vulnerabilidade, o mantenedor publicará um aviso no repositório (tag `security`) em até 30 dias, dando crédito ao reportador, se autorizado.
+
+## Infraestrutura Local Do Tablet
+
+- O estado local do ADB no Windows deve ficar em `C:\infra\android-adb-home`, não em `C:\tmp`, para não ser apagado por rotinas de limpeza.
+- Logs e inventários do tablet devem ficar em área persistente fora de `C:\tmp`, preferencialmente `C:\infra\logs\tablet`.
+- `C:\tmp` deve ser tratado como área descartável e nunca como armazenamento persistente de pareamentos ADB ou artefatos operacionais do tablet.

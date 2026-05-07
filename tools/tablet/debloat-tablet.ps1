@@ -1,11 +1,41 @@
 param(
-  [string]$Adb = "C:\adb\adb.exe"
+  [string]$Adb = "",
+  [string]$LogRoot = "C:\infra\logs\tablet",
+  [string]$AdbHome = "C:\infra\android-adb-home"
 )
 
 $ErrorActionPreference = "Continue"
 
 $Stamp = Get-Date -Format "yyyyMMdd-HHmmss"
-$Backup = "C:\tmp\tablet-packages-$Stamp.txt"
+$BackupDir = Join-Path $LogRoot "packages"
+$Backup = Join-Path $BackupDir "tablet-packages-$Stamp.txt"
+
+function Resolve-AdbPath {
+  param([string]$Preferred)
+
+  $candidates = @(
+    $Preferred,
+    "C:\infra\adb\adb.exe",
+    "C:\adb\adb.exe"
+  ) | Where-Object { $_ }
+
+  foreach ($candidate in $candidates) {
+    if (Test-Path $candidate) {
+      return $candidate
+    }
+  }
+
+  throw "adb.exe nao encontrado. Informe -Adb ou mova o Android SDK para C:\infra\adb."
+}
+
+$Adb = Resolve-AdbPath -Preferred $Adb
+New-Item -ItemType Directory -Force $BackupDir | Out-Null
+
+if (Test-Path $AdbHome) {
+  $env:HOME = $AdbHome
+  $env:USERPROFILE = $AdbHome
+  $env:ANDROID_SDK_HOME = $AdbHome
+}
 
 $Packages = @(
   "com.google.android.youtube",

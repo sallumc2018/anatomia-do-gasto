@@ -1,8 +1,35 @@
 param(
-  [string]$Adb = "C:\adb\adb.exe"
+  [string]$Adb = "",
+  [string]$AdbHome = "C:\infra\android-adb-home"
 )
 
 $ErrorActionPreference = "Continue"
+
+function Resolve-AdbPath {
+  param([string]$Preferred)
+
+  $candidates = @(
+    $Preferred,
+    "C:\infra\adb\adb.exe",
+    "C:\adb\adb.exe"
+  ) | Where-Object { $_ }
+
+  foreach ($candidate in $candidates) {
+    if (Test-Path $candidate) {
+      return $candidate
+    }
+  }
+
+  throw "adb.exe nao encontrado. Informe -Adb ou mova o Android SDK para C:\infra\adb."
+}
+
+$Adb = Resolve-AdbPath -Preferred $Adb
+
+if (Test-Path $AdbHome) {
+  $env:HOME = $AdbHome
+  $env:USERPROFILE = $AdbHome
+  $env:ANDROID_SDK_HOME = $AdbHome
+}
 
 & $Adb devices -l
 & $Adb shell "mkdir -p /sdcard/AnatomiaTerminal"

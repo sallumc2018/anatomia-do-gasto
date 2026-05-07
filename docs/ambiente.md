@@ -29,6 +29,19 @@ npm.cmd run dev
 
 Use `npm.cmd` no PowerShell para evitar conflito com `npm.ps1` quando a Execution Policy estiver restritiva.
 
+Infraestrutura local persistente recomendada para a operacao do tablet:
+
+```text
+C:\infra\
+  adb\
+  usb_driver\
+  android-adb-home\
+  logs\
+    tablet\
+```
+
+`C:\tmp` deve ser tratado como area descartavel. Nao guardar nele nada que precise sobreviver a rotinas diarias de limpeza.
+
 ## WSL/Linux
 
 Clone recomendado dentro do filesystem Linux, não em `/mnt/c`, para melhor desempenho:
