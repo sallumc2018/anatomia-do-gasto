@@ -64,6 +64,23 @@ def check_manifest() -> bool:
     with MANIFEST.open(newline="", encoding="utf-8") as file:
         rows = list(csv.DictReader(file))
 
+    required_columns = {
+        "municipio",
+        "area",
+        "anos",
+        "status",
+        "fonte_nome",
+        "fonte_url",
+        "fonte_arquivo",
+        "script_extracao",
+        "validado_por",
+        "arquivo_publico",
+        "observacao",
+    }
+    missing_columns = sorted(required_columns - set(rows[0].keys() if rows else []))
+    if missing_columns:
+        return fail(f"colunas obrigatorias ausentes no manifesto: {missing_columns}")
+
     required = {
         ("Sorocaba", "saude", "2020-2025", "public"),
         ("Sorocaba", "educacao", "2020-2025", "public"),

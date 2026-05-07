@@ -65,9 +65,17 @@ python pipelines/publicar_dados.py --area educacao --ano 2025
 Cada conjunto publicável deve ter registro em `data/manifests`, incluindo:
 
 - fonte oficial;
+- URL oficial da fonte;
+- nome exato do arquivo de origem;
 - data de coleta;
 - arquivo bruto;
 - arquivo extraído;
 - arquivo validado;
 - hash SHA256 quando disponível;
+- script de extração;
+- critério ou responsável pela validação local;
+- data de publicação em `data/public`;
+- caminho do arquivo publicado;
 - status de publicação.
+
+`data/manifests` deve funcionar como camada pública de prova. Isso permite que o projeto continue open source e auditável sem tornar `data/raw`, `data/extracted` e `data/validated` públicos por padrão.

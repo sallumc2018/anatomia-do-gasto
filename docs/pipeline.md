@@ -83,3 +83,14 @@ python pipelines\testes\verificar_rastro_execucao.py --ano 2020 --ano 2024
 O rastro extraído cobre fornecedor, código do fornecedor, nota de empenho, documento de despesa, valor pago, órgão, unidade, natureza da despesa e programa de trabalho. Campos como conta bancária individual, ordenador, fiscal do contrato, unidade física final e comprovante bancário só podem entrar se aparecerem em fonte oficial específica.
 
 Na listagem oficial consultada, 2020 e 2024 tinham os dois livros essenciais em tamanho pequeno. Para 2021-2023, pelo menos um dos livros essenciais estava acima de 900 MB; esses anos exigem estratégia separada antes de baixar e extrair. O livro anual de 2025 ainda não apareceu na listagem consultada.
+
+O inventário público dessa camada fica em `data/manifests/fontes_execucao_sorocaba.csv`, com:
+
+- URL oficial do portal;
+- nome esperado do PDF bruto;
+- CSV extraído correspondente, quando existir;
+- script de download;
+- script de extração;
+- validação local aplicável.
+
+Isso permite auditoria externa do rastro de execução sem transformar `data/extracted/sorocaba/execucao/saida` em publicação automática.

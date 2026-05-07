@@ -124,3 +124,41 @@ Se a resposta a 2, 3 e 4 nao estiver clara, o default deve ser **nao publicar**.
 3. Quando houver necessidade de auditoria externa:
    - preferir manifesto, hash, documentacao de origem e amostras pequenas;
    - publicar o arquivo inteiro apenas com justificativa escrita.
+
+## Bloqueadores Atuais Para Auditoria Publica
+
+### 1. Fronteira incompleta entre site publico e repositorio publico
+
+O site esta corretamente limitado a `data/public`, mas o GitHub publico continua expondo camadas operacionais:
+
+- `data/raw`
+- `data/extracted`
+- `data/validated`
+
+Isso significa que o projeto ainda nao esta institucionalmente pronto para "forcar divulgacao" sem antes decidir se essa exposicao ampliada e deliberada ou acidental.
+
+### 2. `data/extracted` amplia exposicao de forma material
+
+Especialmente em:
+
+- `data/extracted/sorocaba/execucao/saida/*`
+
+Essa camada aumenta muito a descobribilidade de dados financeiros detalhados. Mesmo quando a fonte original e publica, a republicacao estruturada altera o nivel de acessibilidade do dado.
+
+### 3. `data/validated` nao deve ser confundido com dado publicado
+
+`data/validated` representa aprovacao local, nao decisao institucional final de publicacao. Mantelo publicamente versionado reduz a clareza da trilha:
+
+`raw -> extracted -> validated -> public`
+
+## Decisoes Ainda Pendentes
+
+1. `data/raw` ficara no repositorio publico?
+2. `data/extracted` ficara no repositorio publico?
+3. `data/validated` ficara no repositorio publico?
+4. Se alguma dessas camadas permanecer publica, qual a justificativa institucional documentada?
+5. Quando a auditoria externa precisar de prova adicional, vamos publicar:
+   - o arquivo inteiro;
+   - um manifesto;
+   - hashes;
+   - ou uma amostra controlada?
