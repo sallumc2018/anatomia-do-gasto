@@ -46,6 +46,30 @@ O mantenedor responderá em até 72 horas.
 - **HTTPS:** forçado pela Vercel (certificado automático).
 - **CSP (Content Security Policy):** será implementado quando o frontend amadurecer.
 
+## Colaboradores e Dispositivos Próprios
+
+O projeto deve permitir colaboração a partir de computadores pessoais, tablets e ambientes WSL, mas sem compartilhar credenciais pessoais.
+
+Regras operacionais:
+
+- Cada colaborador deve usar sua própria conta GitHub e, quando necessário, seu próprio acesso Vercel.
+- Senhas, tokens, chaves SSH, chaves ADB e arquivos `.env*` nunca devem ser versionados.
+- O site oficial deve continuar lendo apenas `data/public`.
+- Dados extraídos em `data/extracted` e dados validados em `data/validated` só viram publicação após validação local e cópia explícita para `data/public`.
+- Dispositivos auxiliares, como tablets de campo, devem receber apenas dados públicos, documentação e backups sem segredos.
+
+## Tablet Operacional
+
+O tablet da ONG funciona como terminal de status e armazenamento portátil. A automação fica em `tools/tablet/`.
+
+Política de segurança do tablet:
+
+- O tablet armazena somente `docs`, `data/manifests`, `data/public` e backups públicos.
+- Não copiar `.git`, `.env.local`, chaves SSH, chaves ADB, tokens, dumps pessoais ou dados não publicados.
+- ADB deve ser usado apenas em computadores confiáveis.
+- Se o tablet for perdido, revogar pareamentos ADB e trocar senhas usadas no Termux.
+- O debloat usa `pm uninstall --user 0`, que remove apps para o usuário atual sem alterar a partição de sistema.
+
 ## Divulgação Responsável
 
 Após a correção de uma vulnerabilidade, o mantenedor publicará um aviso no repositório (tag `security`) em até 30 dias, dando crédito ao reportador, se autorizado.
