@@ -11,7 +11,7 @@ import {
   formatMillions,
   TOTAL_ROW,
   type RevenueDetailRow,
-  type Area,
+  type HealthArea,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { PorPeriodo, type PorPeriodoPoint } from "@/components/charts/PorPeriodo"
@@ -19,7 +19,7 @@ import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/Comp
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
-const AREA: Area = "saude"
+const AREA: HealthArea = "saude"
 
 const S = {
   container: { maxWidth: "1312px" } as React.CSSProperties,

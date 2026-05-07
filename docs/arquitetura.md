@@ -58,7 +58,10 @@ O pipeline escreve em `data/extracted`. A publicação para `data/public` deve s
 ```powershell
 python pipelines/publicar_dados.py --area saude --ano 2025
 python pipelines/publicar_dados.py --area educacao --ano 2025
+python pipelines/extrator_seguranca.py --ano 2025   # segurança: extrai + salva raw JSON
 ```
+
+**Nota sobre Segurança Pública:** diferente de saúde e educação (que usam PDFs do portal municipal de Sorocaba), a área de segurança usa a API SICONFI DCA-Anexo I-E (Declaração de Contas Anuais, Despesas por Função e Subfunção). Os dados são anuais (sem quadrimestres) e sem mínimo constitucional. O snapshot bruto JSON fica em `data/raw/sorocaba/seguranca/entrada/{ano}_dca_siconfi.json`.
 
 ## Auditoria
 

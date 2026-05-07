@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_EDUCACAO = ROOT / "data" / "public" / "sorocaba" / "educacao" / "saida"
 EXTRACTED_EDUCACAO = ROOT / "data" / "extracted" / "sorocaba" / "educacao" / "saida"
+PUBLIC_SEGURANCA = ROOT / "data" / "public" / "sorocaba" / "seguranca" / "saida"
 WEB_DATA = ROOT / "apps" / "web" / "data"
 MANIFEST = ROOT / "data" / "manifests" / "datasets.csv"
 
@@ -57,6 +58,17 @@ def check_educacao_extracted() -> bool:
     return True
 
 
+def check_seguranca_public() -> bool:
+    esperados = [
+        PUBLIC_SEGURANCA / f"despesas_seguranca_sorocaba_{ano}.csv"
+        for ano in range(2020, 2026)
+    ]
+    faltantes = [path.name for path in esperados if not path.exists()]
+    if faltantes:
+        return fail(f"seguranca 2020-2025 faltando em data/public: {', '.join(faltantes)}")
+    return True
+
+
 def check_manifest() -> bool:
     if not MANIFEST.exists():
         return fail(f"manifesto nao encontrado: {MANIFEST}")
@@ -84,6 +96,7 @@ def check_manifest() -> bool:
     required = {
         ("Sorocaba", "saude", "2020-2025", "public"),
         ("Sorocaba", "educacao", "2020-2025", "public"),
+        ("Sorocaba", "seguranca", "2020-2025", "public"),
         ("Sorocaba", "auditoria", "2026", "public-mock"),
     }
     found = {(r["municipio"], r["area"], r["anos"], r["status"]) for r in rows}
@@ -98,6 +111,7 @@ def main() -> int:
         check_no_web_data(),
         check_educacao_public(),
         check_educacao_extracted(),
+        check_seguranca_public(),
         check_manifest(),
     ]
 

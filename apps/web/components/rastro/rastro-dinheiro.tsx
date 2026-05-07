@@ -65,6 +65,7 @@ const S = {
 const AREA_LABEL: Record<Area, string> = {
   saude: "Saúde",
   educacao: "Educação",
+  seguranca: "Segurança Pública",
 }
 
 export function RastroDinheiro({

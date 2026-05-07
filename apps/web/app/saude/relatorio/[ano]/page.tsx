@@ -11,13 +11,13 @@ import {
   formatPrecise,
   FUNCAO_LABELS,
   TOTAL_ROW,
-  type Area,
+  type HealthArea,
   type HealthRow,
 } from "@/lib/data"
 import { InfoTooltip } from "@/components/ui/info-tooltip"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 
-const AREA: Area = "saude"
+const AREA: HealthArea = "saude"
 
 // ── Types ────────────────────────────────────────────────────────────────────
 

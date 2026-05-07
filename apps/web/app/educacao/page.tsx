@@ -7,7 +7,7 @@ import {
   loadRevenueData,
   formatMillions,
   TOTAL_ROW,
-  type Area,
+  type HealthArea,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
@@ -15,7 +15,7 @@ import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/Por
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
-const AREA: Area = "educacao"
+const AREA: HealthArea = "educacao"
 const PERIODO_ANUAL = 4  // educação é trimestral; T4 = acumulado Jan–Dez
 
 const S = {

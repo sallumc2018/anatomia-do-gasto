@@ -1,7 +1,14 @@
 import fs from "fs"
 import path from "path"
 
-export type Area = "saude" | "educacao"
+/** Todas as áreas do site — usada em componentes de UI. */
+export type Area = "saude" | "educacao" | "seguranca"
+
+/**
+ * Áreas cujo CSV segue o shape de saúde/educação (HealthRow, parseCSV).
+ * Segurança usa estrutura própria (SegurancaRow) e não pertence a este tipo.
+ */
+export type HealthArea = "saude" | "educacao"
 
 export interface HealthRow {
   funcao: string
@@ -13,8 +20,8 @@ export interface HealthRow {
   fonte_pdf: string
 }
 
-// Labels por área
-export const FUNCAO_LABELS: Record<Area, Record<string, string>> = {
+// Segurança usa SUBFUNCAO_LABELS — estas constantes são exclusivas de saúde/educação
+export const FUNCAO_LABELS: Record<HealthArea, Record<string, string>> = {
   saude: {
     "administracao geral":                          "Administração geral",
     "atencao basica":                               "Atenção básica",
@@ -30,7 +37,7 @@ export const FUNCAO_LABELS: Record<Area, Record<string, string>> = {
   },
 }
 
-export const TOTAL_ROW: Record<Area, string> = {
+export const TOTAL_ROW: Record<HealthArea, string> = {
   saude: "DESPESAS LIQUIDAS DA SAUDE",
   educacao: "DESPESAS LIQUIDAS DA EDUCACAO",
 }
@@ -78,14 +85,14 @@ function publicDataDir(...parts: string[]): string {
   return path.join(findRepoRoot(process.cwd()), "data", "public", ...parts)
 }
 
-function getDataDir(area: Area): string {
+function getDataDir(area: HealthArea): string {
   const envKey = area === "saude" ? "DATA_SAIDA_DIR" : `DATA_SAIDA_DIR_${area.toUpperCase()}`
   const envDir = process.env[envKey]
   if (envDir && fs.existsSync(envDir)) return envDir
   return publicDataDir("sorocaba", area, "saida")
 }
 
-export function getAvailableYears(area: Area): number[] {
+export function getAvailableYears(area: HealthArea): number[] {
   const dir = getDataDir(area)
   if (!fs.existsSync(dir)) return []
   return fs
@@ -96,7 +103,7 @@ export function getAvailableYears(area: Area): number[] {
     .sort((a, b) => b - a)
 }
 
-export function loadYearData(year: number, area: Area): HealthRow[] {
+export function loadYearData(year: number, area: HealthArea): HealthRow[] {
   const filePath = path.join(getDataDir(area), `despesas_${area}_sorocaba_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseCSV(fs.readFileSync(filePath, "utf-8"))
@@ -172,7 +179,7 @@ function parseRevenueCSV(content: string): RevenueRow[] {
   }).filter((r) => r.quadrimestre > 0)
 }
 
-export function loadRevenueData(year: number, area: Area): RevenueRow[] {
+export function loadRevenueData(year: number, area: HealthArea): RevenueRow[] {
   const filePath = path.join(getDataDir(area), `receitas_base_${area}_sorocaba_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseRevenueCSV(fs.readFileSync(filePath, "utf-8"))
@@ -205,7 +212,7 @@ function parseRevenueDetailCSV(content: string): RevenueDetailRow[] {
   }).filter((r) => r.categoria && r.conta)
 }
 
-export function loadRevenueDetailData(year: number, area: Area): RevenueDetailRow[] {
+export function loadRevenueDetailData(year: number, area: HealthArea): RevenueDetailRow[] {
   const filePath = path.join(getDataDir(area), `receitas_detalhamento_sorocaba_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseRevenueDetailCSV(fs.readFileSync(filePath, "utf-8"))
@@ -307,6 +314,74 @@ export function loadRREOReceitas(year: number): RREOReceitasRow[] {
   )
   if (!fs.existsSync(filePath)) return []
   return parseRREOReceitasCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+export interface SegurancaRow {
+  subfuncao: string
+  empenhada: number
+  liquidada: number
+  paga: number
+  restos_nao_processados: number
+  restos_processados: number
+  fonte_url: string
+}
+
+function parseSegurancaCSV(content: string): SegurancaRow[] {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const iSF  = col("subfuncao")
+  const iEmp = col("empenhada")
+  const iLiq = col("liquidada")
+  const iPag = col("paga")
+  const iRNP = col("restos_nao_processados")
+  const iRP  = col("restos_processados")
+  const iURL = col("fonte_url")
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      subfuncao:              g(f, iSF).trim(),
+      empenhada:              parseBrNumber(g(f, iEmp)),
+      liquidada:              parseBrNumber(g(f, iLiq)),
+      paga:                   parseBrNumber(g(f, iPag)),
+      restos_nao_processados: parseBrNumber(g(f, iRNP)),
+      restos_processados:     parseBrNumber(g(f, iRP)),
+      fonte_url:              g(f, iURL).trim(),
+    }
+  }).filter((r) => r.subfuncao)
+}
+
+function getSegurancaDir(): string {
+  const envDir = process.env.DATA_SAIDA_DIR_SEGURANCA
+  if (envDir && fs.existsSync(envDir)) return envDir
+  return publicDataDir("sorocaba", "seguranca", "saida")
+}
+
+export function getAvailableYearsSeguranca(): number[] {
+  const dir = getSegurancaDir()
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(/^despesas_seguranca_sorocaba_(\d{4})\.csv$/))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadSegurancaData(year: number): SegurancaRow[] {
+  const filePath = path.join(getSegurancaDir(), `despesas_seguranca_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  return parseSegurancaCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+export const SUBFUNCAO_LABELS: Record<string, string> = {
+  "06 - Segurança Pública":        "Total — Segurança Pública",
+  "06.122 - Administração Geral":  "Guarda Municipal (Admin Geral)",
+  "06.181 - Policiamento":         "Policiamento",
+  "06.182 - Defesa Civil":         "Defesa Civil",
+  "06.183 - Informação e Inteligência": "Informação e Inteligência",
 }
 
 export function formatMillions(value: number): string {

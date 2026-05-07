@@ -58,6 +58,12 @@ Educação:
 - `despesas_educacao_sorocaba_YYYY.csv`
 - `receitas_base_educacao_sorocaba_YYYY.csv`
 
+Segurança Pública (SICONFI DCA — anual, sem quadrimestres):
+
+- `despesas_seguranca_sorocaba_YYYY.csv` — subfunções de segurança (Policiamento, Defesa Civil, Guarda Municipal, etc.)
+- Raw: `data/raw/sorocaba/seguranca/entrada/YYYY_dca_siconfi.json` — snapshot bruto da API
+- Fonte: SICONFI DCA-Anexo I-E. Diferente de saúde/educação: não usa PDFs do portal municipal.
+
 Execução financeira detalhada:
 
 - `conta_corrente_fornecedor_sorocaba_YYYY.csv`

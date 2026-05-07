@@ -10,12 +10,12 @@ import {
   formatPrecise,
   FUNCAO_LABELS,
   TOTAL_ROW,
-  type Area,
+  type HealthArea,
 } from "@/lib/data"
 import { InfoTooltip } from "@/components/ui/info-tooltip"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 
-const AREA: Area = "educacao"
+const AREA: HealthArea = "educacao"
 const PERIODO_ANUAL = 4  // educação trimestral: T4 = acumulado Jan-Dez
 
 interface PageProps {

@@ -1,9 +1,9 @@
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
-import { getAvailableYears, loadYearData, TOTAL_ROW, type Area } from "@/lib/data"
+import { getAvailableYears, loadYearData, TOTAL_ROW, type HealthArea } from "@/lib/data"
 
-const AREA: Area = "saude"
+const AREA: HealthArea = "saude"
 const QUAD_ANUAL = 3 // 3º quadrimestre = acumulado Jan–Dez
 
 const S = {

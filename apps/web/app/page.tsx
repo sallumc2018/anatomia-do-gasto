@@ -10,7 +10,7 @@ import {
   getAvailableYears,
   loadRevenueData,
   loadYearData,
-  type Area,
+  type HealthArea,
   type HealthRow,
 } from "@/lib/data"
 
@@ -30,7 +30,7 @@ const S = {
   } as React.CSSProperties,
 }
 
-const AREAS: { area: Area; titulo: string; href: string }[] = [
+const AREAS: { area: HealthArea; titulo: string; href: string }[] = [
   { area: "saude", titulo: "Saúde", href: "/saude" },
   { area: "educacao", titulo: "Educação", href: "/educacao" },
 ]
@@ -79,7 +79,7 @@ function latestPeriodRows(rows: HealthRow[]): HealthRow[] {
   return rows.filter((row) => row.quadrimestre === latestPeriod)
 }
 
-function getAreaSummary(area: Area) {
+function getAreaSummary(area: HealthArea) {
   const years = getAvailableYears(area)
   const latestYear = years[0]
   const rows = latestYear ? latestPeriodRows(loadYearData(latestYear, area)) : []
@@ -99,7 +99,7 @@ function getAreaSummary(area: Area) {
   }
 }
 
-function FunctionRows({ area, rows }: { area: Area; rows: HealthRow[] }) {
+function FunctionRows({ area, rows }: { area: HealthArea; rows: HealthRow[] }) {
   return (
     <div className="mt-6" style={{ borderTop: "1px solid var(--border-01)" }}>
       {rows.map((row) => (
