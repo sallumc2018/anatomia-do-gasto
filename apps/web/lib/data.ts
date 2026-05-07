@@ -117,32 +117,57 @@ export interface RevenueRow {
   percentual_aplicado_liquidado: number
 }
 
+function splitCsvLine(line: string): string[] {
+  const fields: string[] = []
+  let cur = ""
+  let inQ = false
+  for (const c of line) {
+    if (c === '"') { inQ = !inQ; continue }
+    if (c === "," && !inQ) { fields.push(cur); cur = ""; continue }
+    cur += c
+  }
+  fields.push(cur)
+  return fields
+}
+
 function parseRevenueCSV(content: string): RevenueRow[] {
   const lines = content.split("\n").filter(Boolean)
   if (lines.length < 2) return []
+
+  // Parse by header name so column order (including optional Fonte_PDF) doesn't matter
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+
+  const iQ    = col("quadrimestre")
+  const iPP   = col("proprios_previsao")
+  const iPA   = col("proprios_arrecadado")
+  const iFP   = col("transferencias_federais_previsao")
+  const iFA   = col("transferencias_federais_arrecadado")
+  const iEP   = col("transferencias_estaduais_previsao")
+  const iEA   = col("transferencias_estaduais_arrecadado")
+  const iTP   = col("total_base_previsao")
+  const iTA   = col("total_base_arrecadado")
+  const iMP   = col("minimo_saude_previsao")   >= 0 ? col("minimo_saude_previsao")   : col("minimo_educacao_previsao")
+  const iMA   = col("minimo_saude_arrecadado") >= 0 ? col("minimo_saude_arrecadado") : col("minimo_educacao_arrecadado")
+  const iPct  = col("percentual_aplicado_liquidado")
+
+  const g = (fields: string[], i: number) => (i >= 0 ? fields[i] ?? "0" : "0")
+
   return lines.slice(1).map((line) => {
-    const fields: string[] = []
-    let cur = ""
-    let inQ = false
-    for (const c of line) {
-      if (c === '"') { inQ = !inQ; continue }
-      if (c === "," && !inQ) { fields.push(cur); cur = ""; continue }
-      cur += c
-    }
-    fields.push(cur)
+    const f = splitCsvLine(line)
     return {
-      quadrimestre:                        parseInt(fields[0]  ?? "0"),
-      proprios_previsao:                   parseBrNumber(fields[1]  ?? "0"),
-      proprios_arrecadado:                 parseBrNumber(fields[2]  ?? "0"),
-      transferencias_federais_previsao:    parseBrNumber(fields[3]  ?? "0"),
-      transferencias_federais_arrecadado:  parseBrNumber(fields[4]  ?? "0"),
-      transferencias_estaduais_previsao:   parseBrNumber(fields[5]  ?? "0"),
-      transferencias_estaduais_arrecadado: parseBrNumber(fields[6]  ?? "0"),
-      total_base_previsao:                 parseBrNumber(fields[7]  ?? "0"),
-      total_base_arrecadado:               parseBrNumber(fields[8]  ?? "0"),
-      minimo_saude_previsao:               parseBrNumber(fields[9]  ?? "0"),
-      minimo_saude_arrecadado:             parseBrNumber(fields[10] ?? "0"),
-      percentual_aplicado_liquidado:       parseBrNumber(fields[11] ?? "0"),
+      quadrimestre:                        parseInt(g(f, iQ)),
+      proprios_previsao:                   parseBrNumber(g(f, iPP)),
+      proprios_arrecadado:                 parseBrNumber(g(f, iPA)),
+      transferencias_federais_previsao:    parseBrNumber(g(f, iFP)),
+      transferencias_federais_arrecadado:  parseBrNumber(g(f, iFA)),
+      transferencias_estaduais_previsao:   parseBrNumber(g(f, iEP)),
+      transferencias_estaduais_arrecadado: parseBrNumber(g(f, iEA)),
+      total_base_previsao:                 parseBrNumber(g(f, iTP)),
+      total_base_arrecadado:               parseBrNumber(g(f, iTA)),
+      minimo_saude_previsao:               parseBrNumber(g(f, iMP)),
+      minimo_saude_arrecadado:             parseBrNumber(g(f, iMA)),
+      percentual_aplicado_liquidado:       parseBrNumber(g(f, iPct)),
     }
   }).filter((r) => r.quadrimestre > 0)
 }
