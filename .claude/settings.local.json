@@ -23,7 +23,25 @@
       "Bash(rtk grep *)",
       "PowerShell(wsl -e bash -c \"cd ~/projetos/anatomia-do-gasto && git status --short && git log --oneline -3\")",
       "Skill(analista)",
-      "Skill(analista:*)"
+      "Skill(analista:*)",
+      "WebFetch(domain:apidatalake.tesouro.gov.br)",
+      "Bash(python extrator_rreo_seguranca.py)",
+      "Bash(rtk lint *)",
+      "Bash(rtk npx *)",
+      "Bash(./node_modules/.bin/eslint app/seguranca)",
+      "Bash(./node_modules/.bin/eslint app/seguranca lib/data.ts)",
+      "Bash(./node_modules/.bin/eslint .)",
+      "Bash(rtk tsc *)",
+      "Bash(./node_modules/.bin/next lint *)",
+      "Bash(node ./node_modules/.bin/next lint)",
+      "Bash(./node_modules/.bin/eslint --ext .ts,.tsx app/ lib/ --format=stylish)",
+      "Bash(rtk ls *)",
+      "Bash(python -c ' *)",
+      "Bash(python publicar_dados.py --area seguranca)",
+      "Bash(python pipelines/testes/verificar_publicacao.py)",
+      "Bash(python -m py_compile pipelines/extrator_rreo_seguranca.py pipelines/publicar_dados.py pipelines/testes/verificar_publicacao.py)",
+      "Bash(python pipelines/extrator_rreo_seguranca.py --use-raw --ano 2021)",
+      "Bash(python -m py_compile pipelines/extrator_rreo_seguranca.py pipelines/publicar_dados.py)"
     ]
   }
 }
