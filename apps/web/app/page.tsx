@@ -334,7 +334,9 @@ export default function IndexPage() {
                       <div>
                         <p style={S.label}>Série</p>
                         <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
-                          {seguranca.years.join(", ") || "sem dado"}
+                          {seguranca.years.length > 1
+                            ? `${Math.min(...seguranca.years)}–${Math.max(...seguranca.years)}`
+                            : seguranca.years[0]?.toString() ?? "sem dado"}
                         </p>
                       </div>
                     </div>

@@ -9,6 +9,7 @@ import {
   SUBFUNCAO_LABELS,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
+import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"
@@ -69,16 +70,32 @@ export default function SegurancaPage() {
     : "—"
 
   const chartYears = [...years].reverse()
-  const totalAnualData: TotalAnualPoint[] = chartYears.map((year) => {
-    const rows = loadSegurancaData(year)
-    const tot = rows.find((r) => r.subfuncao === SEGURANCA_TOTAL)
-    return { year: String(year), total: tot?.liquidada ?? 0 }
-  })
 
-  const totalVariacao =
-    totalAnualData.length > 1 && totalAnualData[0].total > 0
-      ? (((totalAnualData[totalAnualData.length - 1].total - totalAnualData[0].total) / totalAnualData[0].total) * 100).toFixed(0)
-      : null
+  // Load all years once — used for both charts
+  const allYearRows: Record<number, ReturnType<typeof loadSegurancaData>> = {}
+  for (const year of chartYears) {
+    allYearRows[year] = loadSegurancaData(year)
+  }
+
+  const totalAnualData: TotalAnualPoint[] = chartYears.map((year) => ({
+    year: String(year),
+    total: allYearRows[year]?.find((r) => r.subfuncao === SEGURANCA_TOTAL)?.liquidada ?? 0,
+  }))
+
+  const SUBFUNCOES_CHART = [
+    { key: "06.181 - Policiamento",              label: "Policiamento" },
+    { key: "06.122 - Administração Geral",        label: "Adm. Geral" },
+    { key: "06.182 - Defesa Civil",               label: "Defesa Civil" },
+    { key: "06.183 - Informação e Inteligência",  label: "Inteligência" },
+  ]
+
+  const subfuncaoChartData: ComparativoPoint[] = SUBFUNCOES_CHART.map(({ key, label }) => {
+    const point: ComparativoPoint = { funcao: label }
+    for (const year of chartYears) {
+      point[String(year)] = allYearRows[year]?.find((r) => r.subfuncao === key)?.liquidada ?? 0
+    }
+    return point
+  })
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -254,25 +271,22 @@ export default function SegurancaPage() {
                 <p className="uppercase font-semibold mb-3" style={S.label}>Total liquidado por ano</p>
                 <TotalAnual data={totalAnualData} />
               </div>
-              <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
-                <p className="uppercase font-semibold mb-3" style={S.label}>Variação acumulada</p>
-                <p className="font-mono text-3xl" style={{ color: "var(--text-01)", marginBottom: "16px" }}>
-                  {totalVariacao !== null ? `+${totalVariacao}%` : "—"}
-                </p>
-                <p style={S.body}>
-                  Crescimento do gasto liquidado de {chartYears[0] ?? "—"} a {chartYears[chartYears.length - 1] ?? "—"},
-                  medido pelo valor liquidado anual.
+              <div style={{ padding: "28px", border: "1px solid var(--border-01)", gridColumn: "span 2" } as React.CSSProperties}>
+                <p className="uppercase font-semibold mb-3" style={S.label}>Comparativo de subfunções</p>
+                <ComparativoAnos data={subfuncaoChartData} years={chartYears} />
+              </div>
+            </div>
+            <div className="mt-10 flex items-center justify-between" style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }}>
+              <div>
+                <p style={{ fontSize: "14px", color: "var(--text-02)" }}>
+                  Série histórica completa com variação ano a ano e distribuição por subfunção.
+                  Nota: em 2020–2021 a subfunção Administração Geral não estava declarada separadamente.
                 </p>
               </div>
-              <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
-                <p className="uppercase font-semibold mb-3" style={S.label}>Série histórica completa</p>
-                <p style={{ ...S.body, marginBottom: "16px" }}>
-                  Comparativo entre os anos disponíveis com variação ano a ano e distribuição por subfunção.
-                </p>
-                <Link href="/seguranca/comparativo" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
-                  Ver série {yearRange} completa →
-                </Link>
-              </div>
+              <Link href="/seguranca/comparativo"
+                style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none", whiteSpace: "nowrap", marginLeft: "24px" }}>
+                Ver série {yearRange} completa →
+              </Link>
             </div>
           </div>
         </section>

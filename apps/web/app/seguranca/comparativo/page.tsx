@@ -7,6 +7,7 @@ import {
   SUBFUNCAO_LABELS,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
+import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"
 
@@ -109,6 +110,21 @@ export default function ComparativoSegurancaPage() {
     return { year: String(year), total: row?.liquidada ?? 0 }
   })
 
+  const SUBFUNCOES_CHART = [
+    { key: "06.181 - Policiamento",              label: "Policiamento" },
+    { key: "06.122 - Administração Geral",        label: "Adm. Geral" },
+    { key: "06.182 - Defesa Civil",               label: "Defesa Civil" },
+    { key: "06.183 - Informação e Inteligência",  label: "Inteligência" },
+  ] as const
+
+  const subfuncaoChartData: ComparativoPoint[] = SUBFUNCOES_CHART.map(({ key, label }) => {
+    const point: ComparativoPoint = { funcao: label }
+    for (const row of rows) {
+      point[String(row.year)] = row.subfuncoes[key] ?? 0
+    }
+    return point
+  })
+
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
@@ -195,10 +211,23 @@ export default function ComparativoSegurancaPage() {
         {/* ── Gráfico histórico ────────────────────────────────────────────── */}
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
-            <p className="uppercase font-semibold mb-4" style={S.label}>
-              Total liquidado · {years[0]}–{years[years.length - 1]}
-            </p>
-            <TotalAnual data={totalAnualData} />
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6">
+              <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
+                <p className="uppercase font-semibold mb-3" style={S.label}>
+                  Total liquidado · {years[0]}–{years[years.length - 1]}
+                </p>
+                <TotalAnual data={totalAnualData} />
+              </div>
+              <div style={{ padding: "28px", border: "1px solid var(--border-01)" }}>
+                <p className="uppercase font-semibold mb-1" style={S.label}>
+                  Comparativo de subfunções
+                </p>
+                <p className="mb-3" style={{ ...S.small, color: "var(--text-04)" }}>
+                  Em 2020–2021, Administração Geral não estava declarada separadamente — o valor aparece como zero, refletindo reclassificação em 2022.
+                </p>
+                <ComparativoAnos data={subfuncaoChartData} years={chartYears} />
+              </div>
+            </div>
           </div>
         </section>
 
