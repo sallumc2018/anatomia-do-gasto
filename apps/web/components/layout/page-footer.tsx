@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 
 const S_label = {
@@ -10,7 +11,7 @@ const S_label = {
 
 const S_caption = { fontSize: "12px", color: "var(--text-04)" }
 
-type FooterItem = { label: string; href?: string }
+type FooterItem = { label: string; href?: string; internal?: boolean }
 
 const COLS: { title: string; items: FooterItem[] }[] = [
   {
@@ -27,10 +28,10 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Piloto: Sorocaba/SP apenas" },
       { label: "Áreas: Saúde, Educação, Segurança e Transporte" },
-      { label: "Saúde publicada: 2020-2025" },
-      { label: "Educação publicada: 2020-2025" },
-      { label: "Segurança publicada: 2020-2025 · DCA/SICONFI" },
-      { label: "Transporte publicada: 2020-2025 · RREO+DCA/SICONFI · subfunção única" },
+      { label: "Saúde publicada: 2020-2025", href: "/saude", internal: true },
+      { label: "Educação publicada: 2020-2025", href: "/educacao", internal: true },
+      { label: "Segurança publicada: 2020-2025 · DCA/SICONFI", href: "/seguranca", internal: true },
+      { label: "Transporte publicada: 2020-2025 · RREO+DCA/SICONFI · subfunção única", href: "/transporte", internal: true },
       { label: "Dados por fornecedor/pessoa ainda ausentes" },
       { label: "Expansão para outros municípios planejada" },
     ],
@@ -69,7 +70,11 @@ export default function PageFooter() {
               <ul className="flex flex-col gap-2">
                 {col.items.map((item) => (
                   <li key={item.label} style={{ fontSize: "13px", color: "var(--border-03)", lineHeight: "18px" }}>
-                    {item.href ? (
+                    {item.internal && item.href ? (
+                      <Link href={item.href} style={{ color: "inherit", textDecoration: "underline" }}>
+                        {item.label}
+                      </Link>
+                    ) : item.href ? (
                       <TrackedExternalLink href={item.href} area="footer" label={item.label} style={{ color: "inherit", textDecoration: "underline" }}>
                         {item.label}
                       </TrackedExternalLink>

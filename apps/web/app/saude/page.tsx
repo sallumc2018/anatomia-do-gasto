@@ -158,16 +158,21 @@ export default function SaudePage() {
           <div className="mx-auto px-6 py-16" style={S.container}>
             <h2 className="font-light mb-10" style={S.h2}>Relatórios disponíveis</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {years.map((year) => (
-                <TrackedReportLink key={year} href={`/saude/relatorio/${year}`} area={AREA} year={year} className="tile-link" style={{ border: "1px solid var(--border-01)" }}>
-                  <div className="p-6 flex flex-col gap-4 h-full">
-                    <p className="font-mono uppercase mb-1" style={{ fontSize: "11px", color: "var(--text-03)" }}>Sorocaba / SP</p>
-                    <p className="font-mono font-medium" style={{ fontSize: "36px", color: "var(--text-01)" }}>{year}</p>
-                    <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 600, color: "#005d5d", border: "1px solid #005d5d", borderRadius: "2px", padding: "1px 6px" }}>SAÚDE</span>
-                    <div className="mt-auto flex items-center gap-2" style={{ color: "#005d5d", fontSize: "13px" }}>Ver relatório</div>
-                  </div>
-                </TrackedReportLink>
-              ))}
+              {years.map((year) => {
+                const rows = yearData[year] ?? []
+                const val = rows.find((r) => r.quadrimestre === 3 && r.funcao === TOTAL_ROW[AREA])?.liquidada ?? 0
+                return (
+                  <TrackedReportLink key={year} href={`/saude/relatorio/${year}`} area={AREA} year={year} className="tile-link" style={{ border: "1px solid var(--border-01)", borderRadius: "8px" }}>
+                    <div style={{ padding: "20px" }}>
+                      <p style={S.label}>{year}</p>
+                      <p className="mt-2 font-light" style={{ fontSize: "20px", color: "var(--text-01)" }}>
+                        {val > 0 ? formatMillions(val) : "—"}
+                      </p>
+                      <p style={S.caption} className="mt-1">liquidado Jan-Dez</p>
+                    </div>
+                  </TrackedReportLink>
+                )
+              })}
             </div>
           </div>
         </section>

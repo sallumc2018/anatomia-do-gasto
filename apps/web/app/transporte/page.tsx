@@ -87,13 +87,12 @@ export default function TransportePage() {
                 Piloto · Sorocaba/SP · Transporte · {yearRange}
               </p>
 
-              {/* Limitação principal — sempre visível */}
-              <div style={S.warning}>
-                <strong>Limitação do dado:</strong> Sorocaba declara toda a função 26 em uma
+              <p className="mt-2" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "640px" }}>
+                <strong style={{ color: "var(--text-03)" }}>Limitação:</strong> Sorocaba declara toda a função 26 em uma
                 única subfunção (&ldquo;FU26 — Demais Subfunções&rdquo;). Os valores incluem transporte
                 público urbano (ônibus/URBES) e obras de infraestrutura viária sem discriminação.
                 Não é possível isolar só o serviço de ônibus a partir desta fonte.
-              </div>
+              </p>
             </div>
           </div>
         </section>
