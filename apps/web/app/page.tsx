@@ -5,10 +5,13 @@ import PageFooter from "@/components/layout/page-footer"
 import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import {
   FUNCAO_LABELS,
+  SUBFUNCAO_LABELS,
   TOTAL_ROW,
   formatMillions,
   getAvailableYears,
+  getAvailableYearsSeguranca,
   loadRevenueData,
+  loadSegurancaData,
   loadYearData,
   type HealthArea,
   type HealthRow,
@@ -30,10 +33,12 @@ const S = {
   } as React.CSSProperties,
 }
 
-const AREAS: { area: HealthArea; titulo: string; href: string }[] = [
+const HEALTH_AREAS: { area: HealthArea; titulo: string; href: string }[] = [
   { area: "saude", titulo: "Saúde", href: "/saude" },
   { area: "educacao", titulo: "Educação", href: "/educacao" },
 ]
+
+const SEGURANCA_TOTAL = "06 - Segurança Pública"
 
 const EXPLICACOES = [
   {
@@ -50,7 +55,7 @@ const EXPLICACOES = [
   },
   {
     titulo: "Para onde foi",
-    texto: "Os dados mostram grandes funções: atenção básica, hospitalar, vigilância, ensino fundamental e educação infantil.",
+    texto: "Os dados mostram funções e subfunções visíveis na fonte oficial publicada para cada área.",
   },
 ]
 
@@ -92,10 +97,24 @@ function getAreaSummary(area: HealthArea) {
     latestYear,
     period: rows[0]?.quadrimestre,
     years,
-    rows,
     total,
     latestRevenue,
     funcoes,
+  }
+}
+
+function getSegurancaSummary() {
+  const years = getAvailableYearsSeguranca()
+  const latestYear = years[0]
+  const rows = latestYear ? loadSegurancaData(latestYear) : []
+  const total = rows.find((row) => row.subfuncao === SEGURANCA_TOTAL) ?? rows[0]
+  const subfuncoes = rows.filter((row) => row.subfuncao !== SEGURANCA_TOTAL)
+
+  return {
+    latestYear,
+    years,
+    total,
+    subfuncoes,
   }
 }
 
@@ -120,8 +139,30 @@ function FunctionRows({ area, rows }: { area: HealthArea; rows: HealthRow[] }) {
   )
 }
 
+function SegurancaRows({ rows }: { rows: ReturnType<typeof getSegurancaSummary>["subfuncoes"] }) {
+  return (
+    <div className="mt-6" style={{ borderTop: "1px solid var(--border-01)" }}>
+      {rows.map((row) => (
+        <div
+          key={`seguranca-${row.subfuncao}`}
+          className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 py-3"
+          style={{ borderBottom: "1px solid var(--border-01)" }}
+        >
+          <span style={{ ...S.body, color: "var(--text-01)" }}>
+            {SUBFUNCAO_LABELS[row.subfuncao] ?? row.subfuncao}
+          </span>
+          <span style={{ ...S.body, color: "var(--text-02)", fontVariantNumeric: "tabular-nums" }}>
+            {formatMillions(row.liquidada)}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function IndexPage() {
-  const summaries = AREAS.map((item) => ({ ...item, resumo: getAreaSummary(item.area) }))
+  const summaries = HEALTH_AREAS.map((item) => ({ ...item, resumo: getAreaSummary(item.area) }))
+  const seguranca = getSegurancaSummary()
   const poderPublico = getPoderPublicoSorocaba()
   const totalAgentes = poderPublico.grupos.reduce((total, grupo) => total + grupo.pessoas.length, 0)
 
@@ -137,27 +178,26 @@ export default function IndexPage() {
                 Para onde vai o dinheiro público
               </h1>
               <p style={{ ...S.body, maxWidth: "760px", fontSize: "16px", lineHeight: "26px" }}>
-                Quanto Sorocaba gastou em saúde e educação, de onde veio esse dinheiro e em que áreas ele foi aplicado —
+                Quanto Sorocaba gastou em saúde, educação e segurança pública, de onde veio esse dinheiro e em que áreas ele foi aplicado,
                 com base em relatórios oficiais publicados pelo poder público, sem alteração manual dos valores orçamentários exibidos.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Como usar — 3 passos */}
         <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-10" style={S.container}>
             <p style={{ ...S.label, marginBottom: "20px" }}>Como usar este site</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={{ borderTop: "1px solid var(--border-01)" }}>
               {[
-                { num: "01", titulo: "Escolha uma área", texto: "Saúde ou Educação. Cada uma tem os dados de 2020 a 2025 organizados por ano e período." },
-                { num: "02", titulo: "Veja os números", texto: "Quanto foi autorizado, comprometido e efetivamente pago. A divisão por área (UBSs, hospitais, creches, escolas) está em cada relatório." },
+                { num: "01", titulo: "Escolha uma área", texto: "Saúde, Educação ou Segurança Pública. Cada uma tem os dados organizados por ano e período ou exercício." },
+                { num: "02", titulo: "Veja os números", texto: "Quanto foi autorizado, comprometido, liquidado e efetivamente pago. A divisão por área aparece em cada painel." },
                 { num: "03", titulo: "Confira a fonte", texto: "Nos datasets principais, cada linha publicada informa o PDF ou a URL oficial de origem. Quando houver lacuna, o site declara isso." },
               ].map((step, i) => (
                 <div key={step.num} className="py-7" style={{
                   paddingRight: i < 2 ? "40px" : 0,
-                  paddingLeft:  i > 0 ? "40px" : 0,
-                  borderLeft:   i > 0 ? "1px solid var(--border-01)" : "none",
+                  paddingLeft: i > 0 ? "40px" : 0,
+                  borderLeft: i > 0 ? "1px solid var(--border-01)" : "none",
                 }}>
                   <p className="font-mono mb-3" style={{ fontSize: "12px", color: "var(--text-04)" }}>{step.num}</p>
                   <p className="font-semibold mb-2" style={{ fontSize: "15px", color: "var(--text-01)" }}>{step.titulo}</p>
@@ -178,7 +218,7 @@ export default function IndexPage() {
                 </h2>
                 <p style={{ ...S.body, maxWidth: "620px", fontSize: "15px", lineHeight: "24px" }}>
                   Com os dados atuais, qualquer pessoa consegue acompanhar a origem agregada do dinheiro,
-                  a obrigação legal de aplicação, a execução orçamentária e o destino por função pública.
+                  a obrigação legal de aplicação, a execução orçamentária e o destino por função ou subfunção pública.
                   Quando a fonte não chega a fornecedor, unidade ou pessoa, o site declara essa lacuna.
                 </p>
               </div>
@@ -267,6 +307,51 @@ export default function IndexPage() {
                   </Link>
                 )
               })}
+
+              <Link
+                href="/seguranca"
+                className="tile-link"
+                style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
+              >
+                <div className="p-6 md:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    <div>
+                      <p style={S.label}>Segurança Pública</p>
+                      <h2 className="font-semibold mt-2" style={{ fontSize: "30px", color: "var(--text-01)" }}>
+                        {seguranca.total ? formatMillions(seguranca.total.liquidada) : "sem dado"}
+                      </h2>
+                      <p className="mt-2" style={S.body}>
+                        Gasto liquidado anual · {seguranca.latestYear ?? "-"}
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                      <div>
+                        <p style={S.label}>Fonte</p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>
+                          SICONFI / DCA
+                        </p>
+                      </div>
+                      <div>
+                        <p style={S.label}>Série</p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
+                          {seguranca.years.join(", ") || "sem dado"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <SegurancaRows rows={seguranca.subfuncoes} />
+
+                  <div className="mt-6 flex items-center justify-between gap-4">
+                    <p style={{ ...S.body, color: "var(--text-03)" }}>
+                      Subfunções: guarda municipal, policiamento, defesa civil e inteligência.
+                    </p>
+                    <span style={{ color: "var(--blue-50)", fontSize: "14px", whiteSpace: "nowrap" }}>
+                      Ver painel
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -347,6 +432,7 @@ export default function IndexPage() {
         <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
             <Link href="/dados" className="nav-link">Ver datasets publicados</Link>
+            <Link href="/seguranca" className="nav-link">Ver segurança pública</Link>
             <Link href="/auditoria" className="nav-link">Ver auditoria de agentes</Link>
             <Link href="/auditoria/ranking" className="nav-link">Ver ranking</Link>
           </div>

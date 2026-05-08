@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { getAvailableYears } from "@/lib/data"
+import { getAvailableYears, getAvailableYearsSeguranca } from "@/lib/data"
 
 const BASE_URL = "https://www.anatomiadogasto.ong.br"
 
@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/saude",
     "/educacao",
+    "/seguranca",
     "/dados",
     "/metodologia",
     "/sobre",
@@ -41,5 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticEntries, ...saudeEntries, ...educacaoEntries]
+  const segurancaEntries = getAvailableYearsSeguranca().map(() => ({
+    url: `${BASE_URL}/seguranca`,
+    lastModified: now,
+    changeFrequency: "yearly" as const,
+    priority: 0.75,
+  }))
+
+  return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries]
 }

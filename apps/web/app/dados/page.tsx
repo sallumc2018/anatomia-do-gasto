@@ -109,7 +109,7 @@ export default function DadosPage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "680px" }}>
                 Todos os arquivos CSV usados pelo site estão abertos para download.
-                Nos datasets estruturados de saúde e educação, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
+                Nos datasets estruturados de saúde, educação e segurança pública, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
                 Arquivos ainda em validação não são exibidos no site até serem conferidos.
               </p>
             </div>

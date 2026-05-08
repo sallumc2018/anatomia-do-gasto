@@ -10,6 +10,7 @@ interface ShellHeaderProps {
 
 const defaultNav = [
   { href: "/", label: "Consultar" },
+  { href: "/seguranca", label: "Segurança" },
   { href: "/dados", label: "Dados" },
   { href: "/auditoria", label: "Auditoria" },
   { href: "/metodologia", label: "Metodologia" },
