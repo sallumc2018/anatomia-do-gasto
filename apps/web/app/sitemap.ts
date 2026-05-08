@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { getAvailableYears, getAvailableYearsSeguranca } from "@/lib/data"
+import { getAvailableYears, getAvailableYearsSeguranca, getAvailableYearsTransporte } from "@/lib/data"
 
 const BASE_URL = "https://www.anatomiadogasto.ong.br"
 
@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/educacao",
     "/seguranca",
     "/seguranca/comparativo",
+    "/transporte",
+    "/transporte/comparativo",
     "/dados",
     "/metodologia",
     "/sobre",
@@ -26,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}${route}`,
     lastModified: now,
     changeFrequency: (route === "" ? "weekly" : "monthly") as "weekly" | "monthly",
-    priority: route === "" ? 1 : route === "/saude" || route === "/educacao" ? 0.9 : 0.7,
+    priority: route === "" ? 1 : ["/saude", "/educacao", "/seguranca", "/transporte"].includes(route) ? 0.9 : 0.7,
   }))
 
   const saudeEntries = getAvailableYears("saude").map((year) => ({
@@ -50,5 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries]
+  const transporteEntries = getAvailableYearsTransporte().map((year) => ({
+    url: `${BASE_URL}/transporte/relatorio/${year}`,
+    lastModified: now,
+    changeFrequency: "yearly" as const,
+    priority: 0.8,
+  }))
+
+  return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries, ...transporteEntries]
 }

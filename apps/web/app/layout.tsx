@@ -9,13 +9,14 @@ export const metadata: Metadata = {
     template: "%s | Anatomia do Gasto",
   },
   description:
-    "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Saúde, educação e segurança pública com fontes oficiais, metodologia aberta e dados verificáveis.",
+    "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Saúde, educação, segurança pública e transporte com fontes oficiais, metodologia aberta e dados verificáveis.",
   keywords: [
     "transparencia publica",
     "sorocaba",
     "saude publica",
     "educacao publica",
     "seguranca publica",
+    "transporte publico",
     "orcamento publico",
     "gasto publico",
     "dados publicos",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     url: "https://www.anatomiadogasto.ong.br",
     title: "Anatomia do Gasto",
     description:
-      "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Saúde, educação e segurança pública com fontes oficiais e metodologia aberta.",
+      "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Saúde, educação, segurança pública e transporte com fontes oficiais e metodologia aberta.",
     siteName: "Anatomia do Gasto",
     locale: "pt_BR",
   },
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Anatomia do Gasto",
     description:
-      "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Dados públicos, fontes oficiais e metodologia aberta para saúde, educação e segurança pública.",
+      "Rastreador auditável do fluxo de dinheiro público em Sorocaba. Dados públicos, fontes oficiais e metodologia aberta para saúde, educação, segurança pública e transporte.",
   },
   robots: {
     index: true,

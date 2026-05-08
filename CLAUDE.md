@@ -13,13 +13,14 @@ Codex pode estar trabalhando em paralelo. Antes de editar qualquer arquivo, veri
 Claude Code deve operar com contexto mínimo por padrão:
 
 - ler apenas arquivos e trechos necessários para a tarefa atual;
-- **antes de ler um arquivo, usar `Grep` para localizar o símbolo/seção e então ler só aquele trecho com `offset`+`limit`**;
-- arquivos com mais de 150 linhas nunca devem ser lidos integralmente a menos que a tarefa exija compreensão de toda a estrutura;
+- antes de ler um arquivo grande, usar `Grep` para localizar símbolo, seção ou caminho relevante e então ler só o trecho necessário com `offset` + `limit`;
+- arquivos com mais de 150 linhas não devem ser lidos integralmente por padrão; só fazer isso quando a tarefa exigir compreensão da estrutura completa;
 - preferir `git diff`, `rg`, `head`, `tail` e leituras parciais a `Get-Content` integral de arquivos longos;
 - evitar reler documentação já estabilizada no mesmo fluxo;
 - usar RTK quando isso reduzir contexto sem esconder fatos relevantes;
 - não repetir no chat conteúdo já registrado no repositório;
-- validações (`py_compile`, `tsc`, `eslint`) devem ser executadas em uma única chamada Bash encadeada com `&&`, não em chamadas separadas.
+- agrupar validações quando isso reduzir rodadas sem sacrificar o diagnóstico; quando a falha precisar ficar legível, preferir chamadas separadas ou paralelas em vez de uma única linha encadeada;
+- se houver ambiguidade metodológica, risco institucional ou divergência de fonte, ampliar a leitura e a validação mesmo que isso consuma mais contexto; economia de token nunca substitui rigor.
 
 Quando o usuário pedir quanto foi reduzido:
 

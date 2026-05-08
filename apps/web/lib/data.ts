@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 
 /** Todas as áreas do site — usada em componentes de UI. */
-export type Area = "saude" | "educacao" | "seguranca"
+export type Area = "saude" | "educacao" | "seguranca" | "transporte"
 
 /**
  * Áreas cujo CSV segue o shape de saúde/educação (HealthRow, parseCSV).
@@ -435,6 +435,101 @@ export function loadSegurancaOrcamento(year: number): SegurancaOrcamentoRow | nu
   const filePath = path.join(getSegurancaDir(), `rreo_seguranca_sorocaba_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseSegurancaOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+// ─── Transporte ──────────────────────────────────────────────────────────────
+
+function getTransporteDir(): string {
+  const envDir = process.env.DATA_SAIDA_DIR_TRANSPORTE
+  if (envDir && fs.existsSync(envDir)) return envDir
+  return publicDataDir("sorocaba", "transporte", "saida")
+}
+
+export function getAvailableYearsTransporte(): number[] {
+  const dir = getTransporteDir()
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(/^rreo_transporte_sorocaba_(\d{4})\.csv$/))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export interface TransporteOrcamentoRow {
+  ano: number
+  dotacao_inicial: number
+  dotacao_atualizada: number
+  /** EXCETO INTRA-ORÇAMENTÁRIAS. DCA Empenhado = RREO EXCETO em todos os anos verificados. */
+  empenhado: number
+  /** INTRA-ORÇAMENTÁRIO — componente minoritário, dado de auditoria. */
+  intra_empenhado: number
+  liquidado: number
+  intra_liquidado: number
+  pct_orcamento: number
+  total_municipal_empenhado: number
+  fonte_url: string
+}
+
+export interface TransporteDcaRow {
+  ano: number
+  empenhado: number
+  liquidado: number
+  pago: number
+  rp_nao_processado: number
+  rp_processado: number
+  fonte_url: string
+}
+
+function parseTransporteOrcamentoCSV(content: string): TransporteOrcamentoRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:                       parseInt(g(f, col("ano"))),
+    dotacao_inicial:           parseBrNumber(g(f, col("dotacao_inicial"))),
+    dotacao_atualizada:        parseBrNumber(g(f, col("dotacao_atualizada"))),
+    empenhado:                 parseBrNumber(g(f, col("empenhado"))),
+    intra_empenhado:           parseBrNumber(g(f, col("intra_empenhado"))),
+    liquidado:                 parseBrNumber(g(f, col("liquidado"))),
+    intra_liquidado:           parseBrNumber(g(f, col("intra_liquidado"))),
+    pct_orcamento:             parseBrNumber(g(f, col("pct_orcamento"))),
+    total_municipal_empenhado: parseBrNumber(g(f, col("total_municipal_empenhado"))),
+    fonte_url:                 g(f, col("fonte_url")).trim(),
+  }
+}
+
+function parseTransporteDcaCSV(content: string): TransporteDcaRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:               parseInt(g(f, col("ano"))),
+    empenhado:         parseBrNumber(g(f, col("empenhado"))),
+    liquidado:         parseBrNumber(g(f, col("liquidado"))),
+    pago:              parseBrNumber(g(f, col("pago"))),
+    rp_nao_processado: parseBrNumber(g(f, col("rp_nao_processado"))),
+    rp_processado:     parseBrNumber(g(f, col("rp_processado"))),
+    fonte_url:         g(f, col("fonte_url")).trim(),
+  }
+}
+
+export function loadTransporteOrcamento(year: number): TransporteOrcamentoRow | null {
+  const filePath = path.join(getTransporteDir(), `rreo_transporte_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parseTransporteOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+export function loadTransporteDca(year: number): TransporteDcaRow | null {
+  const filePath = path.join(getTransporteDir(), `dca_transporte_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parseTransporteDcaCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
 export function formatMillions(value: number): string {

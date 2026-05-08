@@ -28,6 +28,11 @@ SEGURANCA_EXTRACTED_DIR = EXTRACTED_DIR / "seguranca"
 SEGURANCA_VALIDATED_DIR = VALIDATED_DIR / "seguranca"
 SEGURANCA_PUBLIC_DIR = PUBLIC_DIR / "seguranca"
 
+TRANSPORTE_RAW_DIR = RAW_DIR / "transporte"
+TRANSPORTE_EXTRACTED_DIR = EXTRACTED_DIR / "transporte"
+TRANSPORTE_VALIDATED_DIR = VALIDATED_DIR / "transporte"
+TRANSPORTE_PUBLIC_DIR = PUBLIC_DIR / "transporte"
+
 
 def as_str(path: Path) -> str:
     return str(path.resolve())

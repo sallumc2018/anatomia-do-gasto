@@ -4,12 +4,22 @@ Publica dados para consumo do site.
 Fluxo por área:
     saude, educacao : raw -> extracted -> validated -> public  (fonte: prefeitura)
     seguranca       : raw -> extracted -> public               (fonte: API federal SICONFI)
+    transporte      : raw -> extracted -> public               (fonte: API federal SICONFI)
+                      EXCETO contratos PNCP: raw -> extracted -> validated -> public
+                      (contratos requerem curadoria manual antes de publicar)
 
-Para segurança, a ausência de uma etapa de validated é intencional:
-a garantia de integridade é da API federal (SICONFI/Tesouro Nacional).
-O extrator RREO registra os valores EXCETO INTRA como valor primário.
-Padrão observado: em 2020 e 2022–2025, DCA Empenhada = RREO EXCETO;
-em 2021, DCA = RREO EXCETO + INTRA (comportamento atípico daquele exercício).
+Para segurança e transporte, a ausência de validated é intencional para os dados
+SICONFI: a garantia de integridade é da API federal (Tesouro Nacional).
+
+Segurança — padrão RREO EXCETO INTRA:
+    2020 e 2022–2025: DCA Empenhada = RREO EXCETO (padrão esperado).
+    2021: DCA = RREO EXCETO + INTRA (comportamento atípico daquele exercício).
+
+Transporte — subfunção única:
+    Sorocaba declara toda a função 26 em "FU26 - Demais Subfunções".
+    O total inclui transporte público urbano e obras viárias sem discriminação.
+    Contratos PNCP (validated) seguem fluxo com curadoria manual — não publicar
+    sem revisar o CSV em validated/transporte/saida/ primeiro.
 """
 import argparse
 import shutil
@@ -18,7 +28,7 @@ from pathlib import Path
 from paths import PUBLIC_DIR, VALIDATED_DIR, EXTRACTED_DIR
 
 AREAS_VALIDADAS = {"saude", "educacao"}
-AREAS_EXTRACTED = {"seguranca"}
+AREAS_EXTRACTED = {"seguranca", "transporte"}
 AREAS_VALIDAS = AREAS_VALIDADAS | AREAS_EXTRACTED
 
 

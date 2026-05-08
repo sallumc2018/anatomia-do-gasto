@@ -67,14 +67,40 @@ function parseCsvLine(line: string): string[] {
   return fields
 }
 
+const AREA_LABEL: Record<string, string> = {
+  saude: "Saúde",
+  educacao: "Educação",
+  seguranca: "Segurança Pública",
+  transporte: "Transporte",
+}
+
 function getDatasets(): DatasetRow[] {
   const filePath = path.join(findRepoRoot(process.cwd()), "data", "manifests", "datasets.csv")
   if (!fs.existsSync(filePath)) return []
 
   const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).filter(Boolean)
+  if (lines.length < 2) return []
+
+  const headers = parseCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const iArea     = col("area")
+  const iDescricao = col("descricao")
+  const iAnos     = col("anos")
+  const iFonte    = col("fonte")
+  const iOrigem   = col("origem_dir")
+
   return lines.slice(1).map((line) => {
-    const [municipio, area, anos, status, fonte, observacao] = parseCsvLine(line)
-    return { municipio, area, anos, status, fonte, observacao }
+    const f = parseCsvLine(line)
+    const areaKey = f[iArea]?.trim() ?? ""
+    const origem  = f[iOrigem]?.trim() ?? ""
+    return {
+      municipio:  "Sorocaba/SP",
+      area:       AREA_LABEL[areaKey] ?? areaKey,
+      anos:       f[iAnos]?.trim() ?? "",
+      status:     origem,
+      fonte:      f[iFonte]?.trim() ?? "",
+      observacao: f[iDescricao]?.trim() ?? "",
+    }
   })
 }
 
@@ -109,7 +135,7 @@ export default function DadosPage() {
               </h1>
               <p style={{ ...S.body, maxWidth: "680px" }}>
                 Todos os arquivos CSV usados pelo site estão abertos para download.
-                Nos datasets estruturados de saúde, educação e segurança pública, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
+                Nos datasets estruturados de saúde, educação, segurança pública e transporte, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
                 Arquivos ainda em validação não são exibidos no site até serem conferidos.
               </p>
             </div>

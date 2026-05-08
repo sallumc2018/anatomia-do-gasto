@@ -5,3 +5,6 @@ educacao,despesas,Despesas por funcao - educacao,2020-2025,Portal de Transparenc
 educacao,receitas,Receitas base FUNDEB - educacao,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,receitas_base_educacao_sorocaba_{ano}.csv,public
 seguranca,despesas,Despesas por subfuncao - DCA Anexo I-E,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_seguranca_sorocaba_{ano}.csv,public
 seguranca,orcamento,Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_seguranca_sorocaba_{ano}.csv,public
+transporte,orcamento-rreo,Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA - subfuncao unica sem discriminacao de servico vs obras,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_transporte_sorocaba_{ano}.csv,public
+transporte,orcamento-dca,Despesas DCA Anexo I-E funcao 26 empenhado+liquidado+pago - subfuncao unica sem discriminacao,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,dca_transporte_sorocaba_{ano}.csv,public
+transporte,contratos-pncp,Contratos publicos transporte PNCP filtrado por palavras-chave - requer curadoria manual - cobertura parcial a partir de 2022,2022-2025,PNCP / Compras.gov,API federal,anual,contratos_transporte_sorocaba_{ano}.csv,validated

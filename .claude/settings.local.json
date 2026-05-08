@@ -41,7 +41,37 @@
       "Bash(python pipelines/testes/verificar_publicacao.py)",
       "Bash(python -m py_compile pipelines/extrator_rreo_seguranca.py pipelines/publicar_dados.py pipelines/testes/verificar_publicacao.py)",
       "Bash(python pipelines/extrator_rreo_seguranca.py --use-raw --ano 2021)",
-      "Bash(python -m py_compile pipelines/extrator_rreo_seguranca.py pipelines/publicar_dados.py)"
+      "Bash(python -m py_compile pipelines/extrator_rreo_seguranca.py pipelines/publicar_dados.py)",
+      "WebSearch",
+      "WebFetch(domain:www.emtu.sp.gov.br)",
+      "WebFetch(domain:www.urbes.com.br)",
+      "WebFetch(domain:fazenda.sorocaba.sp.gov.br)",
+      "WebFetch(domain:pncp.gov.br)",
+      "WebFetch(domain:dados.pbh.gov.br)",
+      "Bash(python extrator_rreo_transporte.py --use-raw --ano 2020)",
+      "Bash(python extrator_rreo_transporte.py)",
+      "Bash(python extrator_dca_transporte.py)",
+      "Bash(python publicar_dados.py --area transporte)",
+      "Bash(python testes/verificar_publicacao.py --strict)",
+      "Bash(cd \"C:\\\\projetos\\\\anatomia-do-gasto\" && mkdir -p apps/web/app/transporte/relatorio/\\\\[ano\\\\] apps/web/app/transporte/comparativo && echo \"Dirs OK\")",
+      "Bash(grep -v \"^$\")",
+      "Bash(npm.cmd run *)",
+      "Bash(node_modules/.bin/eslint app/transporte/page.tsx app/transporte/relatorio/\\\\[ano\\\\]/page.tsx app/transporte/comparativo/page.tsx)",
+      "Bash(node_modules/.bin/eslint app/transporte/page.tsx \"app/transporte/relatorio/[ano]/page.tsx\" app/transporte/comparativo/page.tsx)",
+      "Bash(python pipelines/testes/verificar_publicacao.py --strict)",
+      "Bash(rtk curl *)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3001/transporte\" -UseBasicParsing -TimeoutSec 10)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/transporte\" -UseBasicParsing -TimeoutSec 10)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000,3001 -ErrorAction SilentlyContinue)",
+      "PowerShell($r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000/transporte\"\\); $r.Timeout = 5000; try { $resp = $r.GetResponse\\(\\); $resp.StatusCode } catch { $_.Exception.Message })",
+      "PowerShell($pages = @\\(\"/transporte\", \"/transporte/relatorio/2024\", \"/transporte/relatorio/2021\", \"/transporte/comparativo\"\\); foreach \\($p in $pages\\) { $r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000$p\"\\); $r.Timeout = 8000; try { $resp = $r.GetResponse\\(\\); \"$p -> $\\($resp.StatusCode\\)\" } catch { \"$p -> ERRO: $\\($_.Exception.Message\\)\" } })",
+      "Bash(node_modules/.bin/eslint \"app/transporte/relatorio/[ano]/page.tsx\")",
+      "PowerShell(sleep 5; $pages = @\\(\"/transporte\", \"/transporte/relatorio/2024\", \"/transporte/relatorio/2021\", \"/transporte/comparativo\"\\); foreach \\($p in $pages\\) { $r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000$p\"\\); $r.Timeout = 8000; try { $resp = $r.GetResponse\\(\\); \"$p -> $\\($resp.StatusCode\\)\" } catch { \"$p -> ERRO: $\\($_.Exception.Message\\)\" } })",
+      "PowerShell(sleep 3; $r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000\"\\); $r.Timeout = 8000; try { $resp = $r.GetResponse\\(\\); \"/ -> $\\($resp.StatusCode\\)\" } catch { \"/ -> ERRO: $\\($_.Exception.Message\\)\" })",
+      "Bash(node_modules/.bin/next build *)"
+    ],
+    "additionalDirectories": [
+      "C:\\projetos\\anatomia-do-gasto\\apps\\web\\app\\transporte\\relatorio"
     ]
   }
 }

@@ -38,7 +38,7 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`.
 9. Nenhum agente faz commit, push ou deploy sem autorização explícita do usuário.
 10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
-11. Claude Code deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RTK quando isso reduzir contexto sem perder rastreabilidade.
+11. Claude Code deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
 12. Quando o usuário pedir o quanto foi economizado, Claude Code deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
 
 ## 4. Validação Mínima

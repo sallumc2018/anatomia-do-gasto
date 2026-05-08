@@ -10,8 +10,11 @@ import {
   formatMillions,
   getAvailableYears,
   getAvailableYearsSeguranca,
+  getAvailableYearsTransporte,
   loadRevenueData,
   loadSegurancaData,
+  loadTransporteDca,
+  loadTransporteOrcamento,
   loadYearData,
   type HealthArea,
   type HealthRow,
@@ -160,9 +163,21 @@ function SegurancaRows({ rows }: { rows: ReturnType<typeof getSegurancaSummary>[
   )
 }
 
+function getTransporteSummary() {
+  const years = getAvailableYearsTransporte()
+  const latestYear = years[0] ?? null
+  const orc = latestYear ? loadTransporteOrcamento(latestYear) : null
+  const dca = latestYear ? loadTransporteDca(latestYear) : null
+  const taxa = orc && orc.dotacao_atualizada > 0
+    ? (orc.empenhado / orc.dotacao_atualizada) * 100
+    : null
+  return { years, latestYear, orc, dca, taxa }
+}
+
 export default function IndexPage() {
   const summaries = HEALTH_AREAS.map((item) => ({ ...item, resumo: getAreaSummary(item.area) }))
   const seguranca = getSegurancaSummary()
+  const transporte = getTransporteSummary()
   const poderPublico = getPoderPublicoSorocaba()
   const totalAgentes = poderPublico.grupos.reduce((total, grupo) => total + grupo.pessoas.length, 0)
 
@@ -347,6 +362,51 @@ export default function IndexPage() {
                   <div className="mt-6 flex items-center justify-between gap-4">
                     <p style={{ ...S.body, color: "var(--text-03)" }}>
                       Subfunções: guarda municipal, policiamento, defesa civil e inteligência.
+                    </p>
+                    <span style={{ color: "var(--blue-50)", fontSize: "14px", whiteSpace: "nowrap" }}>
+                      Ver painel
+                    </span>
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="/transporte"
+                className="tile-link"
+                style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
+              >
+                <div className="p-6 md:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    <div>
+                      <p style={S.label}>Transporte</p>
+                      <h2 className="font-semibold mt-2" style={{ fontSize: "30px", color: "var(--text-01)" }}>
+                        {transporte.dca ? formatMillions(transporte.dca.pago) : "sem dado"}
+                      </h2>
+                      <p className="mt-2" style={S.body}>
+                        Gasto pago anual · função 26 · {transporte.latestYear ?? "—"}
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                      <div>
+                        <p style={S.label}>Fonte</p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>
+                          SICONFI / RREO
+                        </p>
+                      </div>
+                      <div>
+                        <p style={S.label}>Série</p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
+                          {transporte.years.length > 1
+                            ? `${Math.min(...transporte.years)}–${Math.max(...transporte.years)}`
+                            : transporte.years[0]?.toString() ?? "sem dado"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex items-center justify-between gap-4">
+                    <p style={{ ...S.body, color: "var(--text-03)" }}>
+                      Inclui transporte público e obras viárias — subfunção única, sem discriminação.
                     </p>
                     <span style={{ color: "var(--blue-50)", fontSize: "14px", whiteSpace: "nowrap" }}>
                       Ver painel
