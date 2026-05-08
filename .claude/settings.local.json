@@ -73,7 +73,14 @@
       "Bash(npm.cmd --script-shell cmd.exe run lint)",
       "Bash(python \"c:/projetos/anatomia-do-gasto/pipelines/testes/auditar_exposicao_repositorio.py\")",
       "Bash(python \"c:/projetos/anatomia-do-gasto/pipelines/testes/verificar_publicacao.py\")",
-      "Bash(git ls-remote *)"
+      "Bash(git ls-remote *)",
+      "Bash(wsl -e bash -c \"cd ~/projetos/anatomia-do-gasto && git pull origin main 2>&1\")",
+      "Bash(vercel ls *)",
+      "PowerShell(vercel ls --prod 2>&1)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('token found' if d.get\\('token'\\) else 'no token'\\)\")",
+      "Bash(wsl -e bash -c \"which vercel && vercel --version\")",
+      "Bash(wsl bash *)",
+      "Bash(set NODE_OPTIONS=--max-old-space-size=4096)"
     ],
     "additionalDirectories": [
       "C:\\projetos\\anatomia-do-gasto\\apps\\web\\app\\transporte\\relatorio"
