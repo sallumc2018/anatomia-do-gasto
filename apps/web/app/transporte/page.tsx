@@ -36,14 +36,6 @@ const S = {
     color: "var(--text-04)",
   } as React.CSSProperties,
   borderTop: { borderTop: "1px solid var(--border-01)" } as React.CSSProperties,
-  warning: {
-    backgroundColor: "var(--yellow-10, #fef9e7)",
-    border: "1px solid var(--yellow-40, #f0c040)",
-    borderRadius: "6px",
-    padding: "12px 16px",
-    fontSize: "13px",
-    color: "var(--text-02)",
-  } as React.CSSProperties,
 }
 
 export default function TransportePage() {
@@ -145,14 +137,14 @@ export default function TransportePage() {
               )}
 
               {/* Nota taxa de execução alta */}
-              <div className="mt-6" style={S.warning}>
-                <strong>Nota — taxa de execução &gt;95%:</strong> a função 26 apresenta execução
+              <p className="mt-6" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "760px" }}>
+                <strong style={{ color: "var(--text-03)" }}>Nota — taxa de execução &gt;95%:</strong> a função 26 apresenta execução
                 acima de 95% em 2020 e 2022–2025. Isso sugere que a dotação atualizada é reajustada
                 ao longo do ano via créditos adicionais para cobrir o subsídio ao transporte público,
                 não necessariamente que o orçamento inicial foi bem dimensionado.
                 Em 2021 a dotação foi R$&nbsp;3M (vs R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022) —
                 anomalia que requer investigação sobre mudança na forma de contabilização naquele exercício.
-              </div>
+              </p>
             </div>
           </section>
         )}
@@ -191,8 +183,10 @@ export default function TransportePage() {
                       href={`/transporte/relatorio/${year}`}
                       area="transporte"
                       year={year}
+                      className="tile-link"
+                      style={{ border: "1px solid var(--border-01)", borderRadius: "8px" }}
                     >
-                      <div style={{ padding: "20px", border: "1px solid var(--border-01)", borderRadius: "8px" }}>
+                      <div style={{ padding: "20px" }}>
                         <p style={S.label}>{year}</p>
                         {orc ? (
                           <p className="mt-2 font-light" style={{ fontSize: "20px", color: "var(--text-01)" }}>
