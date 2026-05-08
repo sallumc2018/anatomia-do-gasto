@@ -61,17 +61,17 @@ def extrair_pdf_ano(ano):
     receitas = {}
 
     for trimestre in range(1, 5):
-      nome = f"{ano}-{trimestre}-trimestre-relatorios-de-aplicacao-no-ensino.pdf"
-      pdf_path = EDUCACAO_RAW_DIR / "entrada" / nome
-      if not pdf_path.exists():
-          raise FileNotFoundError(as_str(pdf_path))
+        nome = f"{ano}-{trimestre}-trimestre-relatorios-de-aplicacao-no-ensino.pdf"
+        pdf_path = EDUCACAO_RAW_DIR / "entrada" / nome
+        if not pdf_path.exists():
+            raise FileNotFoundError(as_str(pdf_path))
 
-      receita, linhas_despesa = processar_trimestre(as_str(pdf_path), trimestre)
-      for row in linhas_despesa or []:
-          despesas[(row["trimestre"], row["funcao"])] = row
-      if receita:
-          receita["trimestre"] = trimestre
-          receitas[trimestre] = receita
+        receita, linhas_despesa = processar_trimestre(as_str(pdf_path), trimestre, nome)
+        for row in linhas_despesa or []:
+            despesas[(row["trimestre"], row["funcao"])] = row
+        if receita:
+            receita["trimestre"] = trimestre
+            receitas[trimestre] = receita
 
     return despesas, receitas
 

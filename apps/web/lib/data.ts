@@ -384,6 +384,59 @@ export const SUBFUNCAO_LABELS: Record<string, string> = {
   "06.183 - Informação e Inteligência": "Informação e Inteligência",
 }
 
+export interface SegurancaOrcamentoRow {
+  ano: number
+  dotacao_inicial: number
+  dotacao_atualizada: number
+  /** EXCETO INTRA-ORÇAMENTÁRIAS. Em 2020 e 2022-2025 coincide com DCA Empenhada. */
+  empenhado: number
+  /** Componente INTRA-ORÇAMENTÁRIO — dado de auditoria.
+   *  Em 2021 o DCA consolidou EXCETO+INTRA; nos demais anos DCA=EXCETO apenas. */
+  intra_empenhado: number
+  liquidado: number
+  intra_liquidado: number
+  pct_orcamento: number
+  total_municipal_empenhado: number
+  fonte_url: string
+}
+
+function parseSegurancaOrcamentoCSV(content: string): SegurancaOrcamentoRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const iAno   = col("ano")
+  const iDI    = col("dotacao_inicial")
+  const iDA    = col("dotacao_atualizada")
+  const iEmp   = col("empenhado")
+  const iIEmp  = col("intra_empenhado")
+  const iLiq   = col("liquidado")
+  const iILiq  = col("intra_liquidado")
+  const iPct   = col("pct_orcamento")
+  const iTotal = col("total_municipal_empenhado")
+  const iURL   = col("fonte_url")
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:                       parseInt(g(f, iAno)),
+    dotacao_inicial:           parseBrNumber(g(f, iDI)),
+    dotacao_atualizada:        parseBrNumber(g(f, iDA)),
+    empenhado:                 parseBrNumber(g(f, iEmp)),
+    intra_empenhado:           parseBrNumber(g(f, iIEmp)),
+    liquidado:                 parseBrNumber(g(f, iLiq)),
+    intra_liquidado:           parseBrNumber(g(f, iILiq)),
+    pct_orcamento:             parseBrNumber(g(f, iPct)),
+    total_municipal_empenhado: parseBrNumber(g(f, iTotal)),
+    fonte_url:                 g(f, iURL).trim(),
+  }
+}
+
+export function loadSegurancaOrcamento(year: number): SegurancaOrcamentoRow | null {
+  const filePath = path.join(getSegurancaDir(), `rreo_seguranca_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parseSegurancaOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
 export function formatMillions(value: number): string {
   const m = value / 1_000_000
   return `R$ ${m.toLocaleString("pt-BR", { maximumFractionDigits: 0 })} milhões`

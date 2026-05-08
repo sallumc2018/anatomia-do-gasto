@@ -7,6 +7,7 @@ import {
   formatPrecise,
   getAvailableYearsSeguranca,
   loadSegurancaData,
+  loadSegurancaOrcamento,
   SUBFUNCAO_LABELS,
 } from "@/lib/data"
 
@@ -86,7 +87,12 @@ export default async function RelatorioSegurancaPage({ params }: PageProps) {
     prevRows.map((r) => [r.subfuncao, r.liquidada])
   )
 
+  const orcamento = loadSegurancaOrcamento(year)
   const source = rows.find((r) => r.fonte_url)?.fonte_url ?? null
+
+  const taxaExecucao = orcamento && orcamento.dotacao_atualizada > 0
+    ? (orcamento.empenhado / orcamento.dotacao_atualizada) * 100
+    : null
 
   const is2020or2021 = year <= 2021
 
@@ -166,14 +172,53 @@ export default async function RelatorioSegurancaPage({ params }: PageProps) {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 p-4" style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}>
-                <p style={{ ...S.small, color: "var(--text-04)" }}>
-                  O DCA Anexo I-E não registra dotação orçamentária. Por isso, não é possível calcular a taxa de
-                  execução (pago ÷ dotação) da mesma forma que em saúde e educação.
-                  Restos a pagar = não processados ({formatPrecise(total.restos_nao_processados)}) +
-                  processados ({formatPrecise(total.restos_processados)}).
-                </p>
-              </div>
+              {/* RREO orçamento panel */}
+              {orcamento ? (
+                <div className="mt-6" style={{ border: "1px solid var(--border-01)" }}>
+                  <div className="px-4 py-3" style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+                    <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", color: "var(--text-03)", textTransform: "uppercase" }}>
+                      RREO Anexo 02 · Bimestre 6 · Orçamento autorizado
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+                    {[
+                      { label: "Dotação inicial",      value: formatPrecise(orcamento.dotacao_inicial) },
+                      { label: "Dotação atualizada",   value: formatPrecise(orcamento.dotacao_atualizada) },
+                      { label: "Taxa de execução",     value: taxaExecucao !== null ? `${taxaExecucao.toFixed(1)}%` : "—" },
+                      { label: "% do orç. municipal",  value: orcamento.pct_orcamento > 0 ? `${orcamento.pct_orcamento.toFixed(2)}%` : "—" },
+                    ].map((item, i) => (
+                      <div key={item.label} className="px-4 py-4" style={{
+                        borderLeft: i > 0 ? "1px solid var(--border-01)" : "none",
+                      }}>
+                        <p className="font-mono font-semibold" style={{ fontSize: "16px", color: "var(--text-01)" }}>{item.value}</p>
+                        <p style={{ fontSize: "11px", color: "var(--text-04)", marginTop: "4px" }}>{item.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="px-4 py-3" style={{ borderTop: "1px solid var(--border-01)", backgroundColor: "var(--bg-base)" }}>
+                    <p style={{ ...S.caption, lineHeight: "18px" }}>
+                      Valores EXCETO INTRA-ORÇAMENTÁRIAS — excluem transferências internas entre unidades.
+                      Componente intra-orçamentário (auditoria): Empenhado {formatPrecise(orcamento.intra_empenhado)} ·
+                      Liquidado {formatPrecise(orcamento.intra_liquidado)}.
+                      {year === 2021
+                        ? " Em 2021 o DCA consolidou EXCETO + INTRA no total da função — o RREO EXCETO fica R$7,77M abaixo do DCA. Anomalia declarada, não erro de extração."
+                        : " Nos demais exercícios, DCA Empenhada = RREO EXCETO (padrão)."
+                      }
+                      {" "}Taxa = Empenhado EXCETO ÷ Dotação Atualizada.
+                      % municipal = Segurança Pública / total EXCETO municipal ({formatPrecise(orcamento.total_municipal_empenhado)}).
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-6 p-4" style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}>
+                  <p style={{ ...S.small, color: "var(--text-04)" }}>
+                    O DCA Anexo I-E não registra dotação orçamentária. Por isso, não é possível calcular a taxa de
+                    execução (pago ÷ dotação) da mesma forma que em saúde e educação.
+                    Restos a pagar = não processados ({formatPrecise(total.restos_nao_processados)}) +
+                    processados ({formatPrecise(total.restos_processados)}).
+                  </p>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -352,7 +397,7 @@ export default async function RelatorioSegurancaPage({ params }: PageProps) {
                 </h2>
                 <ul className="flex flex-col gap-3">
                   {[
-                    "Dotação orçamentária autorizada — o DCA não registra esse campo.",
+                    "Dotação por subfunção — o RREO fornece apenas o total de Segurança Pública, não o detalhamento por 06.122, 06.181 etc.",
                     "Fornecedor, CNPJ ou empresa que recebeu cada pagamento.",
                     "Número de contratos, licitações ou processos individuais.",
                     "Efetivo em serviço, viaturas, ocorrências ou qualquer dado operacional.",
@@ -362,8 +407,8 @@ export default async function RelatorioSegurancaPage({ params }: PageProps) {
                   ))}
                 </ul>
                 <p className="mt-6" style={{ ...S.caption, lineHeight: "18px" }}>
-                  Esses dados existem em outros sistemas do portal de transparência,
-                  mas não estão disponíveis no DCA Anexo I-E que este site processa.
+                  A dotação total (RREO Anexo 02) e a execução detalhada por subfunção (DCA Anexo I-E)
+                  vêm de relatórios SICONFI distintos — por isso há dois blocos de fonte nesta página.
                 </p>
               </div>
             </div>

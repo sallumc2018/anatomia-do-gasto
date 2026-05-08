@@ -4,6 +4,7 @@ import PageFooter from "@/components/layout/page-footer"
 import {
   getAvailableYearsSeguranca,
   loadSegurancaData,
+  loadSegurancaOrcamento,
   SUBFUNCAO_LABELS,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
@@ -87,6 +88,9 @@ export default function ComparativoSegurancaPage() {
     liquidada: number
     paga: number
     subfuncoes: Record<string, number>
+    dotacao_atualizada: number
+    taxa_execucao: number | null
+    pct_orcamento: number
   }
 
   const rows: YearRow[] = years.map((year) => {
@@ -96,11 +100,17 @@ export default function ComparativoSegurancaPage() {
     for (const sf of ALL_SUBFUNCOES) {
       sfMap[sf] = data.find((r) => r.subfuncao === sf)?.liquidada ?? 0
     }
+    const orcamento = loadSegurancaOrcamento(year)
+    const dotacao = orcamento?.dotacao_atualizada ?? 0
+    const emp = total?.empenhada ?? 0
     return {
       year,
       liquidada: total?.liquidada ?? 0,
       paga:      total?.paga      ?? 0,
       subfuncoes: sfMap,
+      dotacao_atualizada: dotacao,
+      taxa_execucao: dotacao > 0 ? (emp / dotacao) * 100 : null,
+      pct_orcamento: orcamento?.pct_orcamento ?? 0,
     }
   })
 
@@ -181,8 +191,8 @@ export default function ComparativoSegurancaPage() {
                 },
                 {
                   num: "04",
-                  termo: "Sem dotação",
-                  def: "O DCA Anexo I-E não registra dotação orçamentária (orçamento autorizado). Por isso, não é possível calcular taxa de execução comparável à de saúde e educação.",
+                  termo: "Dotação (RREO)",
+                  def: "O DCA não registra dotação, mas o RREO Anexo 02 bimestre 6 sim. A taxa de execução nesta página usa Empenhado ÷ Dotação Atualizada do RREO — válida para o total da função, não por subfunção.",
                 },
               ].map((item, i) => (
                 <div key={item.num} className="py-8" style={{
@@ -200,9 +210,9 @@ export default function ComparativoSegurancaPage() {
             <div className="mt-8 p-5" style={{ backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)" }}>
               <p style={{ ...S.body, color: "var(--text-03)" }}>
                 <strong style={{ color: "var(--text-01)" }}>Diferença fundamental em relação a saúde e educação:</strong>{" "}
-                saúde e educação usam PDFs quadrimestrais publicados pela Prefeitura de Sorocaba, com registro de dotação
-                e mínimos constitucionais. Segurança pública usa a API federal do SICONFI, com frequência anual,
-                sem dotação e sem mínimo constitucional vinculado.
+                saúde e educação usam PDFs quadrimestrais publicados pela Prefeitura de Sorocaba, com mínimos constitucionais.
+                Segurança pública usa dois relatórios federais SICONFI com frequência anual e sem mínimo constitucional:
+                o DCA Anexo I-E (execução por subfunção) e o RREO Anexo 02 (dotação total + % do orçamento municipal).
               </p>
             </div>
           </div>
@@ -246,7 +256,7 @@ export default function ComparativoSegurancaPage() {
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
                 <thead>
                   <tr style={{ borderBottom: "2px solid var(--border-01)" }}>
-                    {["Ano", "Liquidado", "Variação", "Pago", "Relatório"].map((h) => (
+                    {["Ano", "Dotação Atual.", "Taxa execução", "Liquidado", "Variação", "% Mun.", "Relatório"].map((h) => (
                       <th key={h} style={{
                         textAlign:    h === "Ano" ? "left" : "right",
                         padding:      "10px 16px 10px 0",
@@ -269,6 +279,13 @@ export default function ComparativoSegurancaPage() {
                         <td style={{ padding: "14px 16px 14px 0", color: "var(--text-01)", fontWeight: 600, fontFamily: "var(--font-ibm-plex-mono)", whiteSpace: "nowrap" }}>
                           {row.year}
                         </td>
+                        <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", color: "var(--text-03)", whiteSpace: "nowrap" }}>
+                          {row.dotacao_atualizada > 0 ? fmtMi(row.dotacao_atualizada) : "—"}
+                        </td>
+                        <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", whiteSpace: "nowrap",
+                          color: row.taxa_execucao === null ? "var(--text-04)" : row.taxa_execucao >= 85 ? "#42be65" : row.taxa_execucao < 70 ? "#fa4d56" : "var(--text-02)" }}>
+                          {row.taxa_execucao !== null ? fmtPct(row.taxa_execucao) : "—"}
+                        </td>
                         <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", color: "var(--text-01)", whiteSpace: "nowrap" }}>
                           {fmtMi(row.liquidada)}
                         </td>
@@ -277,7 +294,7 @@ export default function ComparativoSegurancaPage() {
                           {d === null ? "—" : `${d >= 0 ? "+" : ""}${fmtPct(d)}`}
                         </td>
                         <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", color: "var(--text-03)", whiteSpace: "nowrap" }}>
-                          {fmtMi(row.paga)}
+                          {row.pct_orcamento > 0 ? fmtPct(row.pct_orcamento, 2) : "—"}
                         </td>
                         <td style={{ padding: "14px 0 14px 0", textAlign: "right" }}>
                           <Link href={`/seguranca/relatorio/${row.year}`} style={{ fontSize: "12px", color: "var(--blue-50)", textDecoration: "none" }}>
@@ -414,7 +431,7 @@ export default function ComparativoSegurancaPage() {
                 <h2 className="font-light mb-6" style={S.h2}>Lacunas declaradas da fonte</h2>
                 <ul className="flex flex-col gap-3">
                   {[
-                    "Dotação orçamentária autorizada — o DCA não registra esse campo.",
+                    "Dotação por subfunção — o RREO fornece apenas o total da função 06, não o detalhamento por 06.122, 06.181 etc.",
                     "Fornecedor, CNPJ ou empresa que recebeu cada pagamento.",
                     "Número de contratos, licitações ou processos individuais.",
                     "Efetivo em serviço, viaturas ou qualquer indicador operacional.",
@@ -461,7 +478,15 @@ export default function ComparativoSegurancaPage() {
                     rel="noopener noreferrer"
                     style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}
                   >
-                    API SICONFI — DCA {years[years.length - 1]} (mais recente) →
+                    API DCA Anexo I-E — {years[years.length - 1]} →
+                  </a>
+                  <a
+                    href={`https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=${years[years.length - 1]}&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3552205`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}
+                  >
+                    API RREO Anexo 02 — {years[years.length - 1]} →
                   </a>
                   <Link href="/dados" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
                     Baixar os CSVs →

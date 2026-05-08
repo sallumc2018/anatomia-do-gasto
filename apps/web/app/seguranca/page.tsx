@@ -6,6 +6,7 @@ import {
   formatPrecise,
   getAvailableYearsSeguranca,
   loadSegurancaData,
+  loadSegurancaOrcamento,
   SUBFUNCAO_LABELS,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
@@ -68,6 +69,11 @@ export default function SegurancaPage() {
     years.length > 1 ? `${Math.min(...years)}–${Math.max(...years)}`
     : years.length === 1 ? String(years[0])
     : "—"
+
+  const latestOrcamento = latestYear ? loadSegurancaOrcamento(latestYear) : null
+  const taxaExecucaoLatest = latestOrcamento && latestOrcamento.dotacao_atualizada > 0
+    ? (latestOrcamento.empenhado / latestOrcamento.dotacao_atualizada) * 100
+    : null
 
   const chartYears = [...years].reverse()
 
@@ -211,17 +217,46 @@ export default function SegurancaPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 p-5" style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}>
-                <p style={{ ...S.body, color: "var(--text-03)" }}>
-                  <strong style={{ color: "var(--text-01)" }}>Nota metodológica:</strong> o DCA Anexo I-E não registra dotação orçamentária.
-                  Por isso, não é possível calcular a taxa de execução (pago ÷ dotação) da mesma forma que em saúde e educação.
-                  O valor pago foi{" "}
-                  {total.liquidada > 0
-                    ? `${((total.paga / total.liquidada) * 100).toFixed(1)}% do valor liquidado`
-                    : "não disponível"}{" "}
-                  em {latestYear}.
-                </p>
-              </div>
+              {/* RREO orçamento + % municipal */}
+              {latestOrcamento ? (
+                <div className="mt-6" style={{ border: "1px solid var(--border-01)" }}>
+                  <div className="px-5 py-3" style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+                    <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", color: "var(--text-03)", textTransform: "uppercase" }}>
+                      RREO Anexo 02 · Bimestre 6 · Orçamento e contexto municipal
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+                    {[
+                      { label: "Dotação atualizada",   value: formatPrecise(latestOrcamento.dotacao_atualizada) },
+                      { label: "Taxa de execução",     value: taxaExecucaoLatest !== null ? `${taxaExecucaoLatest.toFixed(1)}%` : "—" },
+                      { label: "% do orç. municipal",  value: latestOrcamento.pct_orcamento > 0 ? `${latestOrcamento.pct_orcamento.toFixed(2)}%` : "—" },
+                      { label: "Total municipal empenhado", value: formatMillions(latestOrcamento.total_municipal_empenhado) },
+                    ].map((item, i) => (
+                      <div key={item.label} className="px-5 py-4" style={{ borderLeft: i > 0 ? "1px solid var(--border-01)" : "none" }}>
+                        <p className="font-mono font-semibold" style={{ fontSize: "15px", color: "var(--text-01)" }}>{item.value}</p>
+                        <p style={{ fontSize: "11px", color: "var(--text-04)", marginTop: "4px" }}>{item.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="px-5 py-3" style={{ borderTop: "1px solid var(--border-01)", backgroundColor: "var(--bg-base)" }}>
+                    <p style={{ ...S.caption, lineHeight: "18px" }}>
+                      Fonte: RREO Anexo 02 bimestre 6 · SICONFI. Taxa = Empenhado ÷ Dotação Atualizada.
+                      % municipal = Segurança Pública / total empenhado EXCETO INTRA-ORÇAMENTÁRIAS.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-6 p-5" style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}>
+                  <p style={{ ...S.body, color: "var(--text-03)" }}>
+                    <strong style={{ color: "var(--text-01)" }}>Nota metodológica:</strong> o DCA Anexo I-E não registra dotação orçamentária.
+                    O valor pago foi{" "}
+                    {total.liquidada > 0
+                      ? `${((total.paga / total.liquidada) * 100).toFixed(1)}% do valor liquidado`
+                      : "não disponível"}{" "}
+                    em {latestYear}.
+                  </p>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -303,11 +338,11 @@ export default function SegurancaPage() {
                 },
                 {
                   titulo: "Como difere de saúde e educação",
-                  texto: "Saúde e educação usam PDFs quadrimestrais da Prefeitura de Sorocaba. Segurança usa a API federal do SICONFI, com frequência anual, sem mínimo constitucional e sem registro de dotação.",
+                  texto: "Saúde e educação usam PDFs quadrimestrais da Prefeitura de Sorocaba, com mínimos constitucionais. Segurança usa dois relatórios federais SICONFI (DCA Anexo I-E + RREO Anexo 02), com frequência anual e sem mínimo constitucional.",
                 },
                 {
                   titulo: "O que esta fonte não mostra",
-                  texto: "Dotação autorizada, fornecedor, contrato, nota fiscal, ocorrência policial, efetivo em serviço ou unidade operacional. Esses dados existem em outros sistemas — não no DCA.",
+                  texto: "Dotação por subfunção, fornecedor, contrato, nota fiscal, ocorrência policial, efetivo em serviço ou unidade operacional. O RREO fornece dotação apenas para o total da função — não por subfunção.",
                 },
               ] as const).map((item, i) => (
                 <div key={item.titulo} className="py-8" style={{
@@ -323,14 +358,24 @@ export default function SegurancaPage() {
             </div>
             <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4">
               {latestYear && (
-                <a
-                  href={`https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=${latestYear}&id_ente=3552205`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}
-                >
-                  Consultar API SICONFI — DCA {latestYear} →
-                </a>
+                <>
+                  <a
+                    href={`https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=${latestYear}&id_ente=3552205`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}
+                  >
+                    API DCA Anexo I-E — {latestYear} →
+                  </a>
+                  <a
+                    href={`https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=${latestYear}&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3552205`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}
+                  >
+                    API RREO Anexo 02 — {latestYear} →
+                  </a>
+                </>
               )}
               <Link href="/dados" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
                 Baixar os CSVs publicados →
