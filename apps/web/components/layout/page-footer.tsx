@@ -1,3 +1,5 @@
+import { TrackedExternalLink } from "@/components/analytics/tracked-link"
+
 const S_label = {
   fontSize: "11px",
   letterSpacing: "0.08em",
@@ -18,6 +20,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
       { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "fazenda.sorocaba.sp.gov.br/transparencia", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
+      { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
     ],
   },
   {
@@ -80,18 +83,18 @@ export default function PageFooter() {
 
         <div style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }} className="flex flex-col gap-3">
           <p style={S_caption}>
-            Anatomia do Gasto - Dados públicos extraídos dos Relatórios de
-            Aplicação da LRF e bases oficiais. O objetivo é mostrar, em linguagem
-            legível, como o dinheiro entra no governo e para onde ele vai depois.
-            Quando pessoa, fornecedor, unidade ou conta bancária não constam no dataset
-            publicado, o site declara essa ausência em vez de inferir. A metodologia
-            de extração e o código-fonte são abertos.
+            Anatomia do Gasto - Dados públicos extraídos de relatórios oficiais,
+            portais municipais e bases federais como SIOPS e SICONFI. O objetivo é
+            mostrar, em linguagem legível, como o dinheiro entra no governo e para
+            onde ele vai depois. Quando pessoa, fornecedor, unidade ou conta bancária
+            não constam no dataset publicado, o site declara essa ausência em vez de
+            inferir. A metodologia de extração e o código-fonte são abertos.
           </p>
           <div className="flex flex-wrap gap-4">
             {[
-              { label: "Política de Dados",        href: "/politica-de-dados" },
+              { label: "Política de Dados", href: "/politica-de-dados" },
               { label: "Política de Neutralidade", href: "/politica-de-neutralidade" },
-              { label: "Termos de Uso",            href: "/termos" },
+              { label: "Termos de Uso", href: "/termos" },
             ].map((link) => (
               <a key={link.href} href={link.href} style={{ ...S_caption, textDecoration: "underline", color: "var(--text-04)" }}>
                 {link.label}
@@ -103,4 +106,3 @@ export default function PageFooter() {
     </footer>
   )
 }
-import { TrackedExternalLink } from "@/components/analytics/tracked-link"

@@ -23,33 +23,74 @@ function Resolve-AdbPath {
   throw "adb.exe nao encontrado. Informe -Adb ou mova o Android SDK para C:\infra\adb."
 }
 
-$Adb = Resolve-AdbPath -Preferred $Adb
+function Set-AdbHome {
+  param([string]$Path)
 
-if (Test-Path $AdbHome) {
-  New-Item -ItemType Directory -Force $AdbHome | Out-Null
-  $env:HOME = $AdbHome
-  $env:USERPROFILE = $AdbHome
-  $env:ANDROID_SDK_HOME = $AdbHome
-  $env:ANDROID_USER_HOME = $AdbHome
+  New-Item -ItemType Directory -Force $Path | Out-Null
+  $env:HOME = $Path
+  $env:USERPROFILE = $Path
+  $env:ANDROID_SDK_HOME = $Path
+  $env:ANDROID_USER_HOME = $Path
 }
 
-& $Adb kill-server | Out-Null
+function Run-Adb {
+  param(
+    [string]$Executable,
+    [string[]]$Arguments
+  )
 
-Write-Host "== Dispositivo =="
-& $Adb devices -l
+  $output = & $Executable @Arguments 2>&1 | Out-String
+  if ($LASTEXITCODE -ne 0) {
+    throw ($output.Trim())
+  }
+  return $output.Trim()
+}
 
-Write-Host ""
-Write-Host "== Bateria =="
-& $Adb shell "dumpsys battery | grep -E 'level|status|temperature|USB powered'"
+function Show-Section {
+  param(
+    [string]$Title,
+    [scriptblock]$Script
+  )
 
-Write-Host ""
-Write-Host "== Armazenamento =="
-& $Adb shell "df -h /sdcard | tail -1"
+  Write-Host ""
+  Write-Host "== $Title =="
+  try {
+    $result = & $Script
+    if ([string]::IsNullOrWhiteSpace($result)) {
+      Write-Host "(sem saida)"
+    } else {
+      Write-Host $result
+    }
+  } catch {
+    Write-Host "erro: $($_.Exception.Message)"
+  }
+}
 
-Write-Host ""
-Write-Host "== Estrutura do tablet =="
-& $Adb shell "du -sh /sdcard/AnatomiaDrive/* 2>/dev/null || ls -lah /sdcard/AnatomiaDrive"
+$Adb = Resolve-AdbPath -Preferred $Adb
+Set-AdbHome -Path $AdbHome
 
-Write-Host ""
-Write-Host "== Painel =="
-& $Adb shell "ls -lah /sdcard/AnatomiaTerminal && tail -20 /sdcard/AnatomiaTerminal/battery.txt 2>/dev/null || true"
+Run-Adb -Executable $Adb -Arguments @("start-server") | Out-Null
+
+Show-Section -Title "Dispositivo" -Script {
+  Run-Adb -Executable $Adb -Arguments @("devices", "-l")
+}
+
+Show-Section -Title "Bateria" -Script {
+  Run-Adb -Executable $Adb -Arguments @("shell", "dumpsys", "battery")
+}
+
+Show-Section -Title "Armazenamento" -Script {
+  Run-Adb -Executable $Adb -Arguments @("shell", "df", "-h", "/sdcard")
+}
+
+Show-Section -Title "Foreground" -Script {
+  Run-Adb -Executable $Adb -Arguments @("shell", "dumpsys", "window")
+}
+
+Show-Section -Title "Estrutura do tablet" -Script {
+  Run-Adb -Executable $Adb -Arguments @("shell", "ls", "-lah", "/sdcard/AnatomiaDrive")
+}
+
+Show-Section -Title "Painel" -Script {
+  Run-Adb -Executable $Adb -Arguments @("shell", "ls", "-lah", "/sdcard/AnatomiaTerminal")
+}

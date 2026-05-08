@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/saude",
     "/educacao",
     "/seguranca",
+    "/seguranca/comparativo",
     "/dados",
     "/metodologia",
     "/sobre",
@@ -42,11 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const segurancaEntries = getAvailableYearsSeguranca().map(() => ({
-    url: `${BASE_URL}/seguranca`,
+  const segurancaEntries = getAvailableYearsSeguranca().map((year) => ({
+    url: `${BASE_URL}/seguranca/relatorio/${year}`,
     lastModified: now,
     changeFrequency: "yearly" as const,
-    priority: 0.75,
+    priority: 0.8,
   }))
 
   return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries]
