@@ -68,7 +68,12 @@
       "Bash(node_modules/.bin/eslint \"app/transporte/relatorio/[ano]/page.tsx\")",
       "PowerShell(sleep 5; $pages = @\\(\"/transporte\", \"/transporte/relatorio/2024\", \"/transporte/relatorio/2021\", \"/transporte/comparativo\"\\); foreach \\($p in $pages\\) { $r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000$p\"\\); $r.Timeout = 8000; try { $resp = $r.GetResponse\\(\\); \"$p -> $\\($resp.StatusCode\\)\" } catch { \"$p -> ERRO: $\\($_.Exception.Message\\)\" } })",
       "PowerShell(sleep 3; $r = [System.Net.WebRequest]::Create\\(\"http://localhost:3000\"\\); $r.Timeout = 8000; try { $resp = $r.GetResponse\\(\\); \"/ -> $\\($resp.StatusCode\\)\" } catch { \"/ -> ERRO: $\\($_.Exception.Message\\)\" })",
-      "Bash(node_modules/.bin/next build *)"
+      "Bash(node_modules/.bin/next build *)",
+      "Bash(Get-ChildItem \"C:\\\\projetos\\\\anatomia-do-gasto\\\\data\\\\public\\\\sorocaba\\\\transporte\\\\saida\\\\\" | Select-Object Name)",
+      "Bash(npm.cmd --script-shell cmd.exe run lint)",
+      "Bash(python \"c:/projetos/anatomia-do-gasto/pipelines/testes/auditar_exposicao_repositorio.py\")",
+      "Bash(python \"c:/projetos/anatomia-do-gasto/pipelines/testes/verificar_publicacao.py\")",
+      "Bash(git ls-remote *)"
     ],
     "additionalDirectories": [
       "C:\\projetos\\anatomia-do-gasto\\apps\\web\\app\\transporte\\relatorio"

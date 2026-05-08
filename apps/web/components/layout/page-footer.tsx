@@ -18,7 +18,6 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Relatórios de Aplicação da LRF" },
       { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
-      { label: "fazenda.sorocaba.sp.gov.br/transparencia", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
       { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
     ],
