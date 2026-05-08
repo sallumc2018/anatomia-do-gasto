@@ -37,14 +37,6 @@ const S = {
     fontSize: "12px",
     color: "var(--text-04)",
   } as React.CSSProperties,
-  warning: {
-    backgroundColor: "var(--yellow-10, #fef9e7)",
-    border: "1px solid var(--yellow-40, #f0c040)",
-    borderRadius: "6px",
-    padding: "12px 16px",
-    fontSize: "13px",
-    color: "var(--text-02)",
-  } as React.CSSProperties,
   info: {
     backgroundColor: "var(--bg-elevated)",
     border: "1px solid var(--border-01)",
@@ -118,21 +110,20 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
             </p>
 
             {/* Limitação sempre visível */}
-            <div className="mt-6" style={S.warning}>
-              <strong>Limitação desta fonte:</strong> Sorocaba declara toda a função 26 em
+            <p className="mt-4" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "640px" }}>
+              <strong style={{ color: "var(--text-03)" }}>Limitação desta fonte:</strong> Sorocaba declara toda a função 26 em
               uma única subfunção (&ldquo;FU26 — Demais Subfunções&rdquo;). Os valores abaixo incluem
               transporte público urbano (ônibus/URBES) e obras viárias sem discriminação.
-
               {is2021Anomaly && (
                 <>
                   {" "}
-                  <strong>2021 — anomalia de dotação:</strong> neste exercício a dotação atualizada
+                  <strong style={{ color: "var(--text-03)" }}>2021 — anomalia de dotação:</strong> neste exercício a dotação atualizada
                   foi R$&nbsp;3M, contra R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022. A causa
                   não foi identificada nos dados federais — possível mudança na forma de
                   contabilização do subsídio ou reclassificação orçamentária.
                 </>
               )}
-            </div>
+            </p>
           </div>
         </section>
 
@@ -201,12 +192,12 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
 
                 {/* Nota taxa alta */}
                 {taxaExecucao !== null && taxaExecucao > 95 && (
-                  <div style={S.warning} className="mb-6">
-                    <strong>Taxa {taxaExecucao.toFixed(1)}%:</strong> execução acima de 95% é o padrão
+                  <p className="mb-6" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "640px" }}>
+                    <strong style={{ color: "var(--text-03)" }}>Taxa {taxaExecucao.toFixed(1)}%:</strong> execução acima de 95% é o padrão
                     desta função em Sorocaba (2020 e 2022–2025). Indica que a dotação atualizada
                     é reajustada durante o ano via créditos adicionais para cobrir o subsídio ao
                     transporte — a dotação inicial é subestimada sistematicamente.
-                  </div>
+                  </p>
                 )}
 
                 <div style={S.info}>

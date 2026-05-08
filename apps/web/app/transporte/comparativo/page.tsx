@@ -31,14 +31,6 @@ const S = {
     fontSize: "12px",
     color: "var(--text-04)",
   } as React.CSSProperties,
-  warning: {
-    backgroundColor: "var(--yellow-10, #fef9e7)",
-    border: "1px solid var(--yellow-40, #f0c040)",
-    borderRadius: "6px",
-    padding: "12px 16px",
-    fontSize: "13px",
-    color: "var(--text-02)",
-  } as React.CSSProperties,
   th: {
     padding: "8px 12px",
     textAlign: "right" as const,
@@ -152,12 +144,12 @@ export default function TransporteComparativoPage() {
               Função 26 (SICONFI) · Sorocaba/SP · RREO Anexo 02 + DCA Anexo I-E
             </p>
 
-            <div className="mt-6" style={S.warning}>
-              <strong>Lembre-se:</strong> os valores incluem transporte público urbano (ônibus/URBES)
+            <p className="mt-4" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "640px" }}>
+              <strong style={{ color: "var(--text-03)" }}>Lembre-se:</strong> os valores incluem transporte público urbano (ônibus/URBES)
               e obras viárias — não é possível separar as duas categorias. O dado de 2021 (R$&nbsp;3M)
               é atípico e pode distorcer análises de tendência — considere excluí-lo ao calcular
               variações ou médias.
-            </div>
+            </p>
           </div>
         </section>
 
@@ -182,10 +174,7 @@ export default function TransporteComparativoPage() {
                 </thead>
                 <tbody>
                   {rows.map((row) => (
-                    <tr key={row.year} style={row.is2021
-                      ? { backgroundColor: "var(--yellow-10, #fef9e7)" }
-                      : {}
-                    }>
+                    <tr key={row.year} style={row.is2021 ? { backgroundColor: "rgba(255,255,255,0.04)" } : {}}>
                       <td style={{ ...S.tdLeft, fontWeight: 500, color: "var(--text-01)" }}>
                         {row.year}
                         {row.is2021 && (
