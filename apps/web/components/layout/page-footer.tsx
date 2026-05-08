@@ -24,9 +24,10 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     title: "Limitações declaradas",
     items: [
       { label: "Piloto: Sorocaba/SP apenas" },
-      { label: "Áreas: Saúde e Educação" },
+      { label: "Áreas: Saúde, Educação e Segurança Pública" },
       { label: "Saúde publicada: 2020-2025" },
       { label: "Educação publicada: 2020-2025" },
+      { label: "Segurança publicada: 2020-2025 · DCA/SICONFI" },
       { label: "Dados por fornecedor/pessoa ainda ausentes" },
       { label: "Expansão para outros municípios planejada" },
     ],
