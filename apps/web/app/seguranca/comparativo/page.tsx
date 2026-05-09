@@ -287,7 +287,7 @@ export default function ComparativoSegurancaPage() {
                           {row.taxa_execucao !== null ? fmtPct(row.taxa_execucao) : "—"}
                         </td>
                         <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", color: "var(--text-01)", whiteSpace: "nowrap" }}>
-                          {fmtMi(row.liquidada)}
+                          {row.liquidada > 0 ? fmtMi(row.liquidada) : "—"}
                         </td>
                         <td style={{ padding: "14px 16px 14px 0", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)", whiteSpace: "nowrap",
                           color: d === null ? "var(--text-04)" : d < 0 ? "#fa4d56" : d > 15 ? "#42be65" : "var(--text-02)" }}>
