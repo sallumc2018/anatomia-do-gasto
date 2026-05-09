@@ -21,6 +21,7 @@ export interface Emenda {
   valor_liquidado: number
   valor_pago: number
   status: "pago" | "parcialmente_pago" | "pendente"
+  ficticio?: boolean
 }
 
 export interface RankingItem {
@@ -61,7 +62,8 @@ export function getAgentes(): Agente[] {
 }
 
 export function getEmendas(): Emenda[] {
-  return readJSON<Emenda[]>("emendas.json")
+  const raw = readJSON<Emenda[] | { itens: Emenda[] }>("emendas.json")
+  return Array.isArray(raw) ? raw : raw.itens
 }
 
 export function getRanking(): RankingItem[] {
