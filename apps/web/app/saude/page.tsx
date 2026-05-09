@@ -394,7 +394,6 @@ export default function SaudePage() {
           const propPct = (prop / total * 100).toFixed(1)
           const estPct  = (est  / total * 100).toFixed(1)
           const fedPct  = (fed  / total * 100).toFixed(1)
-          const pctApl  = latestRevQ.percentual_aplicado_liquidado.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           const quadLabel = latestRevQ.quadrimestre === 3 ? "Acumulado Jan–Dez"
                           : latestRevQ.quadrimestre === 2 ? "Acumulado Jan–Ago"
                           : "Acumulado Jan–Abr"
@@ -409,8 +408,7 @@ export default function SaudePage() {
                 </h2>
                 <p className="mb-10" style={{ ...S.small, color: "var(--text-04)" }}>
                   A lei exige que pelo menos 15% desta base seja aplicado em saúde.
-                  Sorocaba aplicou <span style={{ color: "var(--text-01)", fontWeight: 600 }}>{pctApl}%</span> em {latestYear}{" "}
-                  <span style={{ color: "var(--text-04)", fontSize: "12px" }}>(Relatório de Aplicação LRF, 3º quadrimestre)</span>.
+                  O percentual aplicado consta no demonstrativo RREO Anexo 12 apresentado acima.
                 </p>
 
                 <div className="mb-2" style={{ display: "flex", width: "100%", gap: "2px", alignItems: "flex-end" }}>
