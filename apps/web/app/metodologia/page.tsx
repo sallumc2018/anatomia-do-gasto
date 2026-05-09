@@ -104,6 +104,21 @@ const DEFINICOES = [
   },
 ]
 
+const ERRATA = [
+  {
+    data:   "08/05/2026",
+    area:   "Transporte 2020–2021",
+    resumo: "Valores de empenhado e dotação corrigidos para 2020 e 2021.",
+    detalhe:
+      "O extrator capturava apenas a subfunção residual \"FU26 - Demais Subfunções\" e ignorava " +
+      "a subfunção \"Transportes Coletivos Urbanos\" (782), que em 2020–2021 concentrava a maior " +
+      "parte do gasto. A partir de 2022 Sorocaba consolidou tudo em subfunção única e os anos " +
+      "seguintes estavam corretos. Valores corrigidos: 2020 de R$ 98M → R$ 245M; 2021 de R$ 2,4M → R$ 307M.",
+    commit: "18e070e",
+    commitUrl: "https://github.com/sallumc2018/anatomia-do-gasto/commit/18e070e",
+  },
+]
+
 const LIMITACOES = [
   "Cobertura atual: apenas Sorocaba/SP. A expansão para outros municípios está em planejamento.",
   "Cobertura educação: 2020–2025. Anos 2020–2023 obtidos via URL legada do portal; 2023 T3 não possui dotação atualizada (limitação do formato do PDF original).",
@@ -207,6 +222,38 @@ export default function MetodologiaPage() {
                   <h2 style={{ ...S.h2, fontSize: "16px" }}>{f.titulo}</h2>
                   <p style={{ ...S.body, marginBottom: "12px" }}>{f.texto}</p>
                   <TrackedExternalLink href={f.href} area="metodologia" label={f.url} style={{ ...S.mono, textDecoration: "underline" }}>{f.url}</TrackedExternalLink>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Errata */}
+        <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-16" style={S.container}>
+            <p className="uppercase font-semibold mb-2" style={S.label}>Errata</p>
+            <p className="mb-10" style={{ ...S.caption, maxWidth: "640px" }}>
+              Correções materiais nos dados publicados. Cada entrada inclui data, impacto e link para o commit com a correção.
+            </p>
+            <div className="flex flex-col gap-0" style={S.borderTop}>
+              {ERRATA.map((e) => (
+                <div key={e.commit} className="py-8 grid grid-cols-1 md:grid-cols-4 gap-4 items-start" style={S.borderBottom}>
+                  <div>
+                    <p style={{ ...S.mono, marginBottom: "4px" }}>{e.data}</p>
+                    <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-01)" }}>{e.area}</p>
+                  </div>
+                  <div style={{ gridColumn: "span 3" }}>
+                    <p style={{ ...S.body, marginBottom: "8px" }}>{e.resumo}</p>
+                    <p style={{ fontSize: "13px", lineHeight: "21px", color: "var(--text-03)", marginBottom: "12px" }}>{e.detalhe}</p>
+                    <TrackedExternalLink
+                      href={e.commitUrl}
+                      area="metodologia"
+                      label={`commit ${e.commit}`}
+                      style={{ ...S.mono, textDecoration: "underline" }}
+                    >
+                      commit {e.commit}
+                    </TrackedExternalLink>
+                  </div>
                 </div>
               ))}
             </div>
