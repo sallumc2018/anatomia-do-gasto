@@ -72,7 +72,7 @@ const SECOES = [
     titulo: "Erros e correções",
     corpo: "Erros podem ocorrer por falhas no processo de extração ou por inconsistências nos próprios PDFs oficiais. Em ambos os casos, o procedimento é o mesmo.",
     itens: [
-      "Para reportar um erro: sallumc@gmail.com — informe a página, o valor incorreto e a fonte que indica o valor correto",
+      "Para reportar um erro: contato@anatomiadogasto.ong.br — informe a página, o valor incorreto e a fonte que indica o valor correto",
       "Buscamos verificar a ocorrência com prioridade e registrar a resposta publicamente no histórico do projeto",
       "Erros confirmados são corrigidos e o commit de correção fica registrado publicamente no histórico do GitHub",
       "Se o erro estiver no PDF original: registramos a divergência na página correspondente, mas mantemos o valor do documento oficial até que ele seja corrigido na fonte",

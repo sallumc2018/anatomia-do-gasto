@@ -159,7 +159,7 @@ export default function PoliticaDeNeutralidadePage() {
                 Qualquer parceria institucional, acordo de pesquisa ou financiamento recebido será declarado publicamente nesta página e no repositório do projeto no GitHub.
               </p>
               <p style={S.body}>
-                Se você identificar um conflito de interesse não declarado, reporte: <span style={S.mono}>sallumc@gmail.com</span>
+                Se você identificar um conflito de interesse não declarado, reporte: <span style={S.mono}>contato@anatomiadogasto.ong.br</span>
               </p>
             </div>
           </div>

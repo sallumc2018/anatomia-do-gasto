@@ -35,7 +35,7 @@ const SECOES = [
   {
     titulo: "Dados que coletamos sobre você",
     corpo: "Não pedimos cadastro, mas medimos eventos agregados de uso do site.",
-    detalhe: "O site não exige cadastro, não tem login e não usa cookies de publicidade. Usamos Vercel Web Analytics para registrar eventos agregados de navegação e entender se o usuário encontrou a trilha principal do produto. Se quiser entrar em contato, o canal é direto: sallumc@gmail.com",
+    detalhe: "O site não exige cadastro, não tem login e não usa cookies de publicidade. Usamos Vercel Web Analytics para registrar eventos agregados de navegação e entender se o usuário encontrou a trilha principal do produto. Se quiser entrar em contato, o canal é direto: contato@anatomiadogasto.ong.br",
   },
   {
     titulo: "Dados exibidos no site",
@@ -60,7 +60,7 @@ const SECOES = [
   {
     titulo: "Contato",
     corpo: "Para dúvidas, erros, parcerias ou qualquer outro assunto:",
-    detalhe: "sallumc@gmail.com",
+    detalhe: "contato@anatomiadogasto.ong.br",
   },
 ]
 
