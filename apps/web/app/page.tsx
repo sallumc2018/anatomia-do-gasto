@@ -288,7 +288,7 @@ export default function IndexPage() {
                             {resumo.total ? formatMillions(resumo.total.liquidada) : "sem dado"}
                           </h2>
                           <p className="mt-2" style={S.body}>
-                            Gasto confirmado · {periodLabel} de {resumo.latestYear ?? "-"}
+                            Gasto liquidado · {periodLabel} de {resumo.latestYear ?? "-"}
                           </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
@@ -380,10 +380,10 @@ export default function IndexPage() {
                     <div>
                       <p style={S.label}>Transporte</p>
                       <h2 className="font-semibold mt-2" style={{ fontSize: "30px", color: "var(--text-01)" }}>
-                        {transporte.dca ? formatMillions(transporte.dca.pago) : "sem dado"}
+                        {transporte.dca ? formatMillions(transporte.dca.liquidado) : "sem dado"}
                       </h2>
                       <p className="mt-2" style={S.body}>
-                        Gasto pago anual · função 26 · {transporte.latestYear ?? "—"}
+                        Gasto liquidado anual · função 26 · {transporte.latestYear ?? "—"}
                       </p>
                     </div>
                     <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
