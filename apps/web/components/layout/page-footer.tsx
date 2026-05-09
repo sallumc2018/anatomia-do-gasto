@@ -50,7 +50,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     title: "Projeto",
     items: [
       { label: "Anatomia do Gasto" },
-      { label: "ONG em formação" },
+      { label: "Projeto independente sem fins lucrativos" },
       { label: "Piloto: Sorocaba/SP" },
       { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
     ],
