@@ -33,6 +33,11 @@ const S = {
   borderBottom: { borderBottom: "1px solid var(--border-01)" } as React.CSSProperties,
 }
 
+interface DownloadLink {
+  ano: string
+  url: string
+}
+
 interface DatasetRow {
   municipio: string
   area: string
@@ -40,6 +45,15 @@ interface DatasetRow {
   status: string
   fonte: string
   observacao: string
+  downloadLinks: DownloadLink[]
+}
+
+function expandYears(anosStr: string): string[] {
+  const m = anosStr.match(/^(\d{4})-(\d{4})$/)
+  if (!m) return anosStr ? [anosStr] : []
+  const start = parseInt(m[1])
+  const end = parseInt(m[2])
+  return Array.from({ length: end - start + 1 }, (_, i) => String(start + i))
 }
 
 function findRepoRoot(startDir: string): string {
@@ -90,23 +104,36 @@ function getDatasets(): DatasetRow[] {
 
   const headers = parseCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
   const col = (name: string) => headers.indexOf(name)
-  const iArea     = col("area")
-  const iDescricao = col("descricao")
-  const iAnos     = col("anos")
-  const iFonte    = col("fonte")
-  const iOrigem   = col("origem_dir")
+  const iArea          = col("area")
+  const iDescricao     = col("descricao")
+  const iAnos          = col("anos")
+  const iFonte         = col("fonte")
+  const iOrigem        = col("origem_dir")
+  const iArquivoPadrao = col("arquivo_padrao")
 
   return lines.slice(1).map((line) => {
     const f = parseCsvLine(line)
-    const areaKey = f[iArea]?.trim() ?? ""
-    const origem  = f[iOrigem]?.trim() ?? ""
+    const areaKey       = f[iArea]?.trim() ?? ""
+    const origem        = f[iOrigem]?.trim() ?? ""
+    const anosStr       = f[iAnos]?.trim() ?? ""
+    const arquivoPadrao = f[iArquivoPadrao]?.trim() ?? ""
+
+    const downloadLinks: DownloadLink[] =
+      origem === "public" && arquivoPadrao
+        ? expandYears(anosStr).map((ano) => ({
+            ano,
+            url: `/api/dados/sorocaba/${areaKey}/saida/${arquivoPadrao.replace("{ano}", ano)}`,
+          }))
+        : []
+
     return {
       municipio:  "Sorocaba/SP",
       area:       AREA_LABEL[areaKey] ?? areaKey,
-      anos:       f[iAnos]?.trim() ?? "",
+      anos:       anosStr,
       status:     origem,
       fonte:      f[iFonte]?.trim() ?? "",
       observacao: f[iDescricao]?.trim() ?? "",
+      downloadLinks,
     }
   })
 }
@@ -155,7 +182,7 @@ export default function DadosPage() {
               <table style={{ width: "100%", minWidth: "860px", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={S.borderBottom}>
-                    {["Município", "Área", "Anos", "Status", "Fonte", "Observação"].map((header) => (
+                    {["Município", "Área", "Anos", "Status", "Fonte", "Observação", "Download"].map((header) => (
                       <th key={header} style={{ textAlign: "left", padding: "16px 12px", ...S.label }}>
                         {header}
                       </th>
@@ -173,6 +200,32 @@ export default function DadosPage() {
                       </td>
                       <td style={{ padding: "18px 12px", ...S.body }}>{dataset.fonte}</td>
                       <td style={{ padding: "18px 12px", ...S.body }}>{dataset.observacao}</td>
+                      <td style={{ padding: "18px 12px" }}>
+                        {dataset.downloadLinks.length > 0 ? (
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+                            {dataset.downloadLinks.map(({ ano, url }) => (
+                              <a
+                                key={ano}
+                                href={url}
+                                download
+                                style={{
+                                  fontFamily: "var(--font-ibm-plex-mono)",
+                                  fontSize: "11px",
+                                  padding: "2px 6px",
+                                  border: "1px solid var(--border-01)",
+                                  color: "var(--blue-40)",
+                                  textDecoration: "none",
+                                  whiteSpace: "nowrap",
+                                }}
+                              >
+                                {ano}
+                              </a>
+                            ))}
+                          </div>
+                        ) : (
+                          <span style={{ ...S.mono, color: "var(--text-04)" }}>—</span>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
