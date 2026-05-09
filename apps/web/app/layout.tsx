@@ -61,7 +61,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
         <a href="#conteudo" className="skip-link">
-          Ir para o conteudo
+          Ir para o conteúdo
         </a>
         {children}
         <Analytics />
