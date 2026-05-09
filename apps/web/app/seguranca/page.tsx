@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -12,6 +13,12 @@ import {
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+
+export const metadata: Metadata = {
+  title: "Segurança Pública",
+  description: "Gastos públicos com segurança em Sorocaba: execução orçamentária e evolução anual dos investimentos com fontes oficiais.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/seguranca" },
+}
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"
 

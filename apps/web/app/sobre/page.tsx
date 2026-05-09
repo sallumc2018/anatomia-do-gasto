@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description: "Quem faz o Anatomia do Gasto, por que existe e quais são os princípios que guiam o projeto de rastreamento auditável do dinheiro público em Sorocaba.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sobre" },
+}
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,

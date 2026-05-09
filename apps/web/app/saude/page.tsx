@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -18,6 +19,12 @@ import { PorPeriodo, type PorPeriodoPoint } from "@/components/charts/PorPeriodo
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+
+export const metadata: Metadata = {
+  title: "Saúde",
+  description: "Gastos públicos com saúde em Sorocaba: execução orçamentária, cumprimento do mínimo constitucional e evolução anual com fontes oficiais.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/saude" },
+}
 
 const AREA: HealthArea = "saude"
 

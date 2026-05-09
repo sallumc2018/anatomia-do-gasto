@@ -1,6 +1,13 @@
+import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
+
+export const metadata: Metadata = {
+  title: "Metodologia",
+  description: "Como os dados de saúde, educação, segurança e transporte de Sorocaba são coletados, extraídos de PDFs oficiais e validados antes de serem publicados.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/metodologia" },
+}
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,

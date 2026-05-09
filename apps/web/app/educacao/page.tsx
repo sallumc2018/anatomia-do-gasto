@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -14,6 +15,12 @@ import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/Comp
 import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/PorPeriodo"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+
+export const metadata: Metadata = {
+  title: "Educação",
+  description: "Gastos públicos com educação em Sorocaba: execução orçamentária, cumprimento do mínimo constitucional e evolução anual com fontes oficiais.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/educacao" },
+}
 
 const AREA: HealthArea = "educacao"
 const PERIODO_ANUAL = 4  // educação é trimestral; T4 = acumulado Jan–Dez

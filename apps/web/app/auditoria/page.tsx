@@ -1,6 +1,13 @@
-﻿import ShellHeader from "@/components/layout/shell-header"
+﻿import type { Metadata } from "next"
+import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import TabelaPerfis from "@/components/auditoria/tabela-perfis"
+
+export const metadata: Metadata = {
+  title: "Auditoria",
+  description: "Subsídios oficiais de agentes políticos de Sorocaba e trilha de auditoria de emendas parlamentares. Dados em desenvolvimento.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/auditoria" },
+}
 
 export default function AuditoriaPage() {
   return (

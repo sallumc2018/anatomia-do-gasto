@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+
+export const metadata: Metadata = {
+  title: "Política de Dados",
+  description: "Como o Anatomia do Gasto coleta, trata e publica dados de gastos públicos de Sorocaba, incluindo fontes, limitações e contato para correções.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/politica-de-dados" },
+}
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,

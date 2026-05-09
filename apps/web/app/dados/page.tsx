@@ -1,7 +1,14 @@
+import type { Metadata } from "next"
 import fs from "fs"
 import path from "path"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+
+export const metadata: Metadata = {
+  title: "Dados",
+  description: "Datasets abertos de gastos públicos de Sorocaba em saúde, educação, segurança e transporte. CSVs gerados a partir de PDFs oficiais, com rastreabilidade até a fonte.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/dados" },
+}
 
 const S = {
   container: { maxWidth: "1312px" } as React.CSSProperties,
