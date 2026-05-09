@@ -15,7 +15,6 @@ const defaultNav = [
   { href: "/seguranca", label: "Segurança" },
   { href: "/transporte", label: "Transporte" },
   { href: "/dados", label: "Dados" },
-  { href: "/auditoria", label: "Auditoria" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre o projeto" },
 ]

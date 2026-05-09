@@ -21,9 +21,14 @@ import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 export const metadata: Metadata = {
-  title: "Saúde",
-  description: "Gastos públicos com saúde em Sorocaba: execução orçamentária, cumprimento do mínimo constitucional e evolução anual com fontes oficiais.",
+  title: "Saúde em Sorocaba",
+  description: "Execução orçamentária de saúde em Sorocaba 2020–2025: ASPS, recursos SUS, mínimo constitucional de 15% e fontes por relatório oficial.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/saude" },
+  openGraph: {
+    title: "Saúde em Sorocaba | Anatomia do Gasto",
+    description: "Execução orçamentária de saúde em Sorocaba 2020–2025: ASPS, recursos SUS, mínimo constitucional de 15% e fontes por relatório oficial.",
+    url: "https://www.anatomiadogasto.ong.br/saude",
+  },
 }
 
 const AREA: HealthArea = "saude"
@@ -339,7 +344,7 @@ export default function SaudePage() {
                             label: "% ASPS aplicado",
                             value: null as null,
                             pct:   null as null,
-                            note:  "Percentual das receitas próprias aplicado em ações e serviços públicos de saúde. Mínimo constitucional: 15%.",
+                            note:  "Percentual das receitas próprias aplicado em saúde, calculado sobre a base fiscal do RREO Anexo 12 (6º bimestre). Mínimo constitucional: 15%.",
                             asps:  pctAsps,
                           },
                         ] as const).map((item, i) => (
@@ -404,7 +409,8 @@ export default function SaudePage() {
                 </h2>
                 <p className="mb-10" style={{ ...S.small, color: "var(--text-04)" }}>
                   A lei exige que pelo menos 15% desta base seja aplicado em saúde.
-                  Sorocaba aplicou <span style={{ color: "var(--text-01)", fontWeight: 600 }}>{pctApl}%</span> em {latestYear}.
+                  Sorocaba aplicou <span style={{ color: "var(--text-01)", fontWeight: 600 }}>{pctApl}%</span> em {latestYear}{" "}
+                  <span style={{ color: "var(--text-04)", fontSize: "12px" }}>(Relatório de Aplicação LRF, 3º quadrimestre)</span>.
                 </p>
 
                 <div className="mb-2" style={{ display: "flex", width: "100%", gap: "2px", alignItems: "flex-end" }}>

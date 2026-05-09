@@ -20,8 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/politica-de-dados",
     "/politica-de-neutralidade",
     "/termos",
-    "/auditoria",
-    "/auditoria/ranking",
   ]
 
   const staticEntries = staticRoutes.map((route) => ({

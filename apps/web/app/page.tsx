@@ -193,7 +193,7 @@ export default function IndexPage() {
                 Para onde vai o dinheiro público
               </h1>
               <p style={{ ...S.body, maxWidth: "760px", fontSize: "16px", lineHeight: "26px" }}>
-                Quanto Sorocaba gastou em saúde, educação e segurança pública, de onde veio esse dinheiro e em que áreas ele foi aplicado,
+                Quanto Sorocaba gastou em saúde, educação, segurança pública e transporte, de onde veio esse dinheiro e em que áreas ele foi aplicado,
                 com base em relatórios oficiais publicados pelo poder público, sem alteração manual dos valores orçamentários exibidos.
               </p>
             </div>
@@ -205,7 +205,7 @@ export default function IndexPage() {
             <p style={{ ...S.label, marginBottom: "20px" }}>Como usar este site</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={{ borderTop: "1px solid var(--border-01)" }}>
               {[
-                { num: "01", titulo: "Escolha uma área", texto: "Saúde, Educação ou Segurança Pública. Cada uma tem os dados organizados por ano e período ou exercício." },
+                { num: "01", titulo: "Escolha uma área", texto: "Saúde, Educação, Segurança Pública ou Transporte. Cada uma tem os dados organizados por ano e período ou exercício." },
                 { num: "02", titulo: "Veja os números", texto: "Quanto foi autorizado, comprometido, liquidado e efetivamente pago. A divisão por área aparece em cada painel." },
                 { num: "03", titulo: "Confira a fonte", texto: "Nos datasets principais, cada linha publicada informa o PDF ou a URL oficial de origem. Quando houver lacuna, o site declara isso." },
               ].map((step, i) => (
@@ -495,8 +495,7 @@ export default function IndexPage() {
           <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
             <Link href="/dados" className="nav-link">Ver datasets publicados</Link>
             <Link href="/seguranca" className="nav-link">Ver segurança pública</Link>
-            <Link href="/auditoria" className="nav-link">Ver auditoria de agentes</Link>
-            <Link href="/auditoria/ranking" className="nav-link">Ver ranking</Link>
+            <Link href="/transporte" className="nav-link">Ver transporte</Link>
           </div>
         </section>
       </main>

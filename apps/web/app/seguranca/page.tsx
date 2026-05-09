@@ -15,9 +15,14 @@ import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/Comp
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 export const metadata: Metadata = {
-  title: "Segurança Pública",
-  description: "Gastos públicos com segurança em Sorocaba: execução orçamentária e evolução anual dos investimentos com fontes oficiais.",
+  title: "Segurança Pública em Sorocaba",
+  description: "Execução orçamentária de segurança pública em Sorocaba 2020–2025: Guarda Municipal, subfunções e fontes DCA/SICONFI por ano.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/seguranca" },
+  openGraph: {
+    title: "Segurança Pública em Sorocaba | Anatomia do Gasto",
+    description: "Execução orçamentária de segurança pública em Sorocaba 2020–2025: Guarda Municipal, subfunções e fontes DCA/SICONFI por ano.",
+    url: "https://www.anatomiadogasto.ong.br/seguranca",
+  },
 }
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"

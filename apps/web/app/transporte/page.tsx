@@ -13,9 +13,14 @@ import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 export const metadata: Metadata = {
-  title: "Transporte",
-  description: "Gastos públicos com transporte em Sorocaba: execução orçamentária e evolução anual dos investimentos com fontes oficiais.",
+  title: "Função Transporte em Sorocaba",
+  description: "Execução orçamentária da função transporte em Sorocaba 2020–2025: liquidado, pago e fontes RREO+DCA/SICONFI por ano. Limitação declarada: subfunção única, não isola ônibus de obras viárias.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/transporte" },
+  openGraph: {
+    title: "Função Transporte em Sorocaba | Anatomia do Gasto",
+    description: "Execução orçamentária da função transporte em Sorocaba 2020–2025: liquidado, pago e fontes RREO+DCA/SICONFI por ano.",
+    url: "https://www.anatomiadogasto.ong.br/transporte",
+  },
 }
 
 const S = {
@@ -76,7 +81,7 @@ export default function TransportePage() {
           <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
               <h1 className="font-light mb-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "760px" }}>
-                Transporte Público em Sorocaba
+                Função Transporte em Sorocaba
               </h1>
               <p className="mb-6" style={{ ...S.body, fontSize: "16px", lineHeight: "26px", maxWidth: "620px" }}>
                 Orçamento anual da função Transporte (função 26) declarado ao Tesouro Nacional

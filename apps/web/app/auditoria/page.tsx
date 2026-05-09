@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Auditoria",
   description: "Subsídios oficiais de agentes políticos de Sorocaba e trilha de auditoria de emendas parlamentares. Dados em desenvolvimento.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/auditoria" },
+  robots: { index: false, follow: false },
 }
 
 export default function AuditoriaPage() {

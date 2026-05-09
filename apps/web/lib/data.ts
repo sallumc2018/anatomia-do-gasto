@@ -533,6 +533,10 @@ export function loadTransporteDca(year: number): TransporteDcaRow | null {
 }
 
 export function formatMillions(value: number): string {
+  if (value < 1_000_000) {
+    const k = value / 1_000
+    return `R$ ${k.toLocaleString("pt-BR", { maximumFractionDigits: 0 })} mil`
+  }
   const m = value / 1_000_000
   return `R$ ${m.toLocaleString("pt-BR", { maximumFractionDigits: 0 })} milhões`
 }

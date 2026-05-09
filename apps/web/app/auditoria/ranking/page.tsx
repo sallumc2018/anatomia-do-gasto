@@ -1,6 +1,12 @@
-﻿import ShellHeader from "@/components/layout/shell-header"
+﻿import type { Metadata } from "next"
+import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import RankingLista from "@/components/auditoria/ranking-lista"
+
+export const metadata: Metadata = {
+  title: "Ranking de Agentes",
+  robots: { index: false, follow: false },
+}
 
 export default function RankingPage() {
   return (

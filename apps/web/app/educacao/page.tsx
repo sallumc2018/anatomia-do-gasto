@@ -17,9 +17,14 @@ import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 
 export const metadata: Metadata = {
-  title: "Educação",
-  description: "Gastos públicos com educação em Sorocaba: execução orçamentária, cumprimento do mínimo constitucional e evolução anual com fontes oficiais.",
+  title: "Educação em Sorocaba",
+  description: "Execução orçamentária de educação em Sorocaba 2020–2025: MDE, FUNDEB, mínimo constitucional de 25% e fontes por relatório oficial.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/educacao" },
+  openGraph: {
+    title: "Educação em Sorocaba | Anatomia do Gasto",
+    description: "Execução orçamentária de educação em Sorocaba 2020–2025: MDE, FUNDEB, mínimo constitucional de 25% e fontes por relatório oficial.",
+    url: "https://www.anatomiadogasto.ong.br/educacao",
+  },
 }
 
 const AREA: HealthArea = "educacao"
@@ -282,11 +287,15 @@ export default function EducacaoPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mb-10 flex gap-6 flex-wrap" style={{ fontSize: "11px", color: "var(--text-03)" }}>
+                <div className="mb-2 flex gap-6 flex-wrap" style={{ fontSize: "11px", color: "var(--text-03)" }}>
                   <span><span style={{ display: "inline-block", width: "8px", height: "8px", backgroundColor: "var(--blue-60)", marginRight: "4px" }} />Impostos próprios {propPct}%</span>
                   <span><span style={{ display: "inline-block", width: "8px", height: "8px", backgroundColor: "#525252", marginRight: "4px" }} />Repasses do estado {estPct}%</span>
                   <span><span style={{ display: "inline-block", width: "8px", height: "8px", backgroundColor: "#8d8d8d", marginRight: "4px" }} />Repasses da União {fedPct}%</span>
                 </div>
+                <p className="mb-10" style={{ fontSize: "11px", color: "var(--text-04)", maxWidth: "640px" }}>
+                  Os percentuais são calculados sobre a base líquida — receita bruta de impostos após dedução da cota retida para o FUNDEB.
+                  Por isso a soma dos componentes brutos pode ultrapassar 100%.
+                </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={S.borderTop}>
                   {([
