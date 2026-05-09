@@ -79,7 +79,6 @@ interface YearRow {
   pct_orcamento: number
   variacao_pago: number | null
   fonte_url: string
-  is2021: boolean
 }
 
 function fmtMi(v: number) {
@@ -120,7 +119,6 @@ export default function TransporteComparativoPage() {
       pct_orcamento:      orc?.pct_orcamento ?? 0,
       variacao_pago:      variacao,
       fonte_url:          orc?.fonte_url ?? "",
-      is2021:             year === 2021,
     }
   })
 
@@ -146,9 +144,7 @@ export default function TransporteComparativoPage() {
 
             <p className="mt-4" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "640px" }}>
               <strong style={{ color: "var(--text-03)" }}>Lembre-se:</strong> os valores incluem transporte público urbano (ônibus/URBES)
-              e obras viárias — não é possível separar as duas categorias. O dado de 2021 (R$&nbsp;3M)
-              é atípico e pode distorcer análises de tendência — considere excluí-lo ao calcular
-              variações ou médias.
+              e obras viárias — não é possível separar as duas categorias com esta fonte.
             </p>
           </div>
         </section>
@@ -174,14 +170,9 @@ export default function TransporteComparativoPage() {
                 </thead>
                 <tbody>
                   {rows.map((row) => (
-                    <tr key={row.year} style={row.is2021 ? { backgroundColor: "rgba(255,255,255,0.04)" } : {}}>
+                    <tr key={row.year}>
                       <td style={{ ...S.tdLeft, fontWeight: 500, color: "var(--text-01)" }}>
                         {row.year}
-                        {row.is2021 && (
-                          <span style={{ fontSize: "10px", color: "var(--yellow-60, #b45309)", marginLeft: "6px" }}>
-                            ⚠ atípico
-                          </span>
-                        )}
                       </td>
                       <td style={S.td}>{fmtMi(row.dotacao_inicial)}</td>
                       <td style={S.td}>{fmtMi(row.dotacao_atualizada)}</td>
@@ -228,25 +219,25 @@ export default function TransporteComparativoPage() {
             <h2 style={S.h2} className="mb-4">Notas metodológicas</h2>
             <ul style={{ ...S.body, listStyle: "disc", paddingLeft: "24px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <li>
-                <strong>2021 — dotação atípica:</strong> R$&nbsp;3M vs R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022.
-                Não identificado nos dados federais se houve mudança de contabilização, reclassificação
-                orçamentária ou transferência para outro órgão naquele exercício.
-              </li>
-              <li>
-                <strong>Taxa de execução sistematicamente &gt;95% (exceto 2021):</strong> padrão indica
+                <strong>Taxa de execução sistematicamente &gt;95%:</strong> padrão indica
                 que a dotação inicial é subestimada e reforçada via créditos adicionais ao longo do ano.
                 Não equivale a &ldquo;eficiência&rdquo; — o orçamento acompanha a despesa, não o contrário.
+              </li>
+              <li>
+                <strong>2020 — subfunção dupla:</strong> em 2020 e 2021 Sorocaba declarou a Função 26
+                em duas subfunções separadas no RREO — &ldquo;Transportes Coletivos Urbanos&rdquo; (subfunção 782)
+                e &ldquo;FU26 - Demais Subfunções&rdquo;. A partir de 2022 tudo foi consolidado em subfunção única.
+                Os valores desta tabela somam ambas as subfunções.
               </li>
               <li>
                 <strong>2023 — dotação atualizada abaixo da inicial:</strong> R$&nbsp;457M vs
                 R$&nbsp;500M inicial, indicando reduções orçamentárias ao longo do exercício.
               </li>
               <li>
-                <strong>DCA Empenhado = RREO EXCETO INTRA</strong> em todos os anos verificados
-                (diferentemente de Segurança 2021, não há anomalia documentada em Transporte).
+                <strong>DCA Empenhado = RREO EXCETO INTRA</strong> em todos os anos verificados.
               </li>
               <li>
-                <strong>Função 26 — subfunção única:</strong> análise por tipo de despesa
+                <strong>Função 26 — subfunção única (2022–2025):</strong> análise por tipo de despesa
                 (ônibus vs obras) é inviável com esta fonte — requer dados complementares da URBES
                 ou portal de transparência municipal.
               </li>

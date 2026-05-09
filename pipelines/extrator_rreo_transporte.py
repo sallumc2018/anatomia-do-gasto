@@ -58,6 +58,9 @@ BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 BIMESTRE = 6
 
 CONTA_TRANSPORTE = "Transporte"
+# Em 2020-2021 Sorocaba declarou parte da Função 26 em subfunção 782 separada.
+# A partir de 2022, tudo foi consolidado em "FU26 - Demais Subfunções".
+CONTA_TCU = "Transportes Coletivos Urbanos"
 SECAO_EXCETO = "DESPESAS (EXCETO INTRA-ORÇAMENTÁRIAS) (I)"
 SECAO_INTRA = "DESPESAS (INTRA-ORÇAMENTÁRIAS) (II)"
 
@@ -136,6 +139,8 @@ def extrair_rreo(items: list, fonte_url: str, ano: int) -> dict | None:
     secao = None
     exceto: dict = {}
     intra: dict = {}
+    exceto_tcu: dict = {}  # subfunção 782 separada em 2020-2021
+    intra_tcu: dict = {}
     total_exceto_emp = 0.0
 
     for item in items:
@@ -164,9 +169,25 @@ def extrair_rreo(items: list, fonte_url: str, ano: int) -> dict | None:
             if campo not in bucket:
                 bucket[campo] = v
 
+        elif conta == CONTA_TCU:
+            v = parse_valor(item)
+            bucket = exceto_tcu if secao == "EXCETO" else intra_tcu
+            if campo not in bucket:
+                bucket[campo] = v
+
     if not exceto:
         print(f"  ATENCAO: '{CONTA_TRANSPORTE}' EXCETO INTRA nao localizado no RREO {ano}")
         return None
+
+    # Somar subfunção TCU quando presente (2020-2021: subfunção 782 declarada separada)
+    if exceto_tcu:
+        for campo in ("dotacao_inicial", "dotacao_atualizada", "empenhado", "liquidado"):
+            if campo in exceto_tcu:
+                exceto[campo] = exceto.get(campo, 0.0) + exceto_tcu[campo]
+        for campo in ("empenhado", "liquidado"):
+            if campo in intra_tcu:
+                intra[campo] = intra.get(campo, 0.0) + intra_tcu.get(campo, 0.0)
+        print(f"  Somando '{CONTA_TCU}' ao total da funcao 26 (subfuncao separada em {ano})")
 
     emp_exceto = exceto.get("empenhado", 0.0)
     emp_intra = intra.get("empenhado", 0.0)

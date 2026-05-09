@@ -139,11 +139,9 @@ export default function TransportePage() {
               {/* Nota taxa de execução alta */}
               <p className="mt-6" style={{ fontSize: "13px", color: "var(--text-04)", maxWidth: "760px" }}>
                 <strong style={{ color: "var(--text-03)" }}>Nota — taxa de execução &gt;95%:</strong> a função 26 apresenta execução
-                acima de 95% em 2020 e 2022–2025. Isso sugere que a dotação atualizada é reajustada
+                acima de 95% em 2021–2025. Isso sugere que a dotação atualizada é reajustada
                 ao longo do ano via créditos adicionais para cobrir o subsídio ao transporte público,
                 não necessariamente que o orçamento inicial foi bem dimensionado.
-                Em 2021 a dotação foi R$&nbsp;3M (vs R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022) —
-                anomalia que requer investigação sobre mudança na forma de contabilização naquele exercício.
               </p>
             </div>
           </section>
@@ -158,11 +156,6 @@ export default function TransportePage() {
                 Função 26 — Transporte · DCA Anexo I-E · Sorocaba/SP
               </p>
               <TotalAnual data={totalAnualData} />
-              <p className="mt-4" style={S.caption}>
-                2021: R$&nbsp;{(
-                  totalAnualData.find((d) => d.year === "2021")?.total ?? 0
-                ).toLocaleString("pt-BR", { maximumFractionDigits: 0 })} — atípico; ver relatório.
-              </p>
             </div>
           </section>
         )}
@@ -229,10 +222,6 @@ export default function TransportePage() {
               <li>
                 <strong>Serviços intermunicipais (EMTU/SP):</strong> linhas metropolitanas operadas
                 pelo Estado de São Paulo não estão incluídas no orçamento municipal.
-              </li>
-              <li>
-                <strong>2021:</strong> dotação declarada de R$&nbsp;3M vs R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022.
-                Causa ainda não identificada — possível mudança na forma de contabilização do subsídio.
               </li>
             </ul>
 

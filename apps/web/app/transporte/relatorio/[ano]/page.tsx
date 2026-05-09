@@ -79,8 +79,6 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
   const hasPrev = years.includes(prevYear)
   const hasNext = years.includes(nextYear)
 
-  const is2021Anomaly = year === 2021
-
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
@@ -114,15 +112,6 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
               <strong style={{ color: "var(--text-03)" }}>Limitação desta fonte:</strong> Sorocaba declara toda a função 26 em
               uma única subfunção (&ldquo;FU26 — Demais Subfunções&rdquo;). Os valores abaixo incluem
               transporte público urbano (ônibus/URBES) e obras viárias sem discriminação.
-              {is2021Anomaly && (
-                <>
-                  {" "}
-                  <strong style={{ color: "var(--text-03)" }}>2021 — anomalia de dotação:</strong> neste exercício a dotação atualizada
-                  foi R$&nbsp;3M, contra R$&nbsp;101M em 2020 e R$&nbsp;404M em 2022. A causa
-                  não foi identificada nos dados federais — possível mudança na forma de
-                  contabilização do subsídio ou reclassificação orçamentária.
-                </>
-              )}
             </p>
           </div>
         </section>
@@ -272,8 +261,8 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
           <div className="mx-auto px-6 py-10" style={S.container}>
             <h2 style={S.h2} className="mb-4">O que este relatório não mostra</h2>
             <ul style={{ ...S.body, listStyle: "disc", paddingLeft: "24px", display: "flex", flexDirection: "column", gap: "8px" }}>
-              <li>Discriminação entre transporte público urbano e obras viárias (subfunção única)</li>
-              <li>Dotação por subfunção — o RREO fornece apenas o total da função 26</li>
+              <li>Discriminação entre transporte público urbano e obras viárias — o RREO não permite essa separação</li>
+              <li>Dotação por tipo de despesa — o RREO fornece apenas o total da função 26</li>
               <li>Operação (frota, linhas, passageiros) — URBES não publica dados abertos</li>
               <li>Contratos do serviço — PNCP disponível a partir de ~2022, requer curadoria</li>
               <li>Serviços intermunicipais (EMTU/SP) — fora do orçamento municipal</li>
