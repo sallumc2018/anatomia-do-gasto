@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import {
   FUNCAO_LABELS,
@@ -184,6 +185,7 @@ export default function IndexPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)" }}>
           <div className="mx-auto px-6 py-12 md:py-16" style={S.container}>

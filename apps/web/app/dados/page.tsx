@@ -3,6 +3,7 @@ import fs from "fs"
 import path from "path"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 
 export const metadata: Metadata = {
   title: "Dados",
@@ -159,6 +160,7 @@ export default function DadosPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>

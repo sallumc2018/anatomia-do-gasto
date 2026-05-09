@@ -257,8 +257,8 @@ export default function SaudePage() {
               },
             ]}
             destinations={[
-              { label: "Atencao basica", value: atencaoBasica },
-              { label: "Assistencia hospitalar e ambulatorial", value: hospitalar },
+              { label: "Atenção básica", value: atencaoBasica },
+              { label: "Assistência hospitalar e ambulatorial", value: hospitalar },
               { label: "Demais funções de saúde", value: Math.max(0, totalLiquidado - atencaoBasica - hospitalar) },
             ]}
           />

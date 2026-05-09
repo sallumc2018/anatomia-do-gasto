@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 import RankingLista from "@/components/auditoria/ranking-lista"
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function RankingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)", paddingTop: "48px", paddingBottom: "48px" }}>
           <div className="mx-auto px-6" style={{ maxWidth: "1312px" }}>

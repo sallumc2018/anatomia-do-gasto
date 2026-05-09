@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 
 export const metadata: Metadata = {
@@ -139,6 +140,7 @@ export default function MetodologiaPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
 
         {/* Hero */}
