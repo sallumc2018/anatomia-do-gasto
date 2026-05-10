@@ -1,5 +1,5 @@
 param(
-  [string]$Repo = "C:\projetos\anatomia-do-gasto",
+  [string]$Repo = "C:\Omega\02_Repos\anatomia-do-gasto",
   [string]$Work = "C:\tmp\anatomia-tablet",
   [string]$Zip = "C:\tmp\anatomia-do-gasto-publico.zip",
   [string]$Adb = "",

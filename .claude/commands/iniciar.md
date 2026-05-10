@@ -10,7 +10,7 @@ Verifique todos os ambientes ativos e apresente um painel de status consolidado.
 ## Passo 1 — Ambiente WSL (desenvolvimento principal)
 
 ```bash
-cd ~/projetos/anatomia-do-gasto
+cd /mnt/c/Omega/02_Repos/anatomia-do-gasto
 echo "=== Python ===" && .venv/bin/python -c "import pdfplumber, pandas; print('OK')" 2>/dev/null || echo "ERRO: .venv ou dependências ausentes"
 echo "=== Node ===" && node --version && npm --version
 echo "=== Git ===" && git status --short | head -10
@@ -27,9 +27,9 @@ git clone https://github.com/sallumc2018/anatomia-do-gasto.git
 
 ```powershell
 # Python
-$venvOk = Test-Path "C:\projetos\anatomia-do-gasto\.venv"
+$venvOk = Test-Path "C:\Omega\02_Repos\anatomia-do-gasto\.venv"
 # Node
-$nodeOk = Test-Path "C:\projetos\anatomia-do-gasto\apps\web\node_modules"
+$nodeOk = Test-Path "C:\Omega\02_Repos\anatomia-do-gasto\apps\web\node_modules"
 # ADB para tablet
 $adbOk = Test-Path "C:\infra\adb\adb.exe"
 # Infraestrutura

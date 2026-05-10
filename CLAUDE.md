@@ -56,12 +56,12 @@ Quando o usuário pedir quanto foi reduzido:
 
 Windows:
 ```powershell
-cd "C:\projetos\anatomia-do-gasto\apps\web"
+cd "C:\Omega\02_Repos\anatomia-do-gasto\apps\web"
 npm.cmd run dev
 ```
 
 WSL/Linux:
 ```bash
-cd ~/projetos/anatomia-do-gasto/apps/web
+cd /mnt/c/Omega/02_Repos/anatomia-do-gasto/apps/web
 npm run dev
 ```

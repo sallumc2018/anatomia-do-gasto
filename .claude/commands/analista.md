@@ -11,7 +11,7 @@ Argumento recebido: $ARGUMENTS
 - `saude todos` ou `educacao todos` → comparativo entre todos os anos disponíveis
 - Sem argumento → pergunte ao usuário área e ano antes de continuar
 
-Raiz dos dados publicados: `C:\projetos\anatomia-do-gasto\data\public\sorocaba\`
+Raiz dos dados publicados: `C:\Omega\02_Repos\anatomia-do-gasto\data\public\sorocaba\`
 
 ## Estrutura dos dados
 

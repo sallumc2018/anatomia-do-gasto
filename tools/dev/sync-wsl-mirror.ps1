@@ -1,5 +1,5 @@
 param(
-  [string]$WslRepo = "~/projetos/anatomia-do-gasto",
+  [string]$WslRepo = "/mnt/c/Omega/02_Repos/anatomia-do-gasto",
   [string]$Branch = "main",
   [string]$Remote = "origin"
 )

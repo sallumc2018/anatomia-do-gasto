@@ -9,19 +9,19 @@ Argumento recebido (área e ano): $ARGUMENTS
 - Formato esperado: `saude 2025` ou `educacao 2024` ou só o ano (assume saúde).
 - Se não foi passado argumento, pergunte ao usuário antes de continuar.
 
-Raiz do projeto: `C:\projetos\anatomia-do-gasto`
+Raiz do projeto: `C:\Omega\02_Repos\anatomia-do-gasto`
 
 ## Passo 1 — Verificar PDFs já baixados
 
 **Saúde** (quadrimestral — esperado: 3 por ano):
 ```powershell
-Get-ChildItem "C:\projetos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*.pdf" |
+Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*.pdf" |
   Select-Object Name, @{n='MB';e={[math]::Round($_.Length/1MB,1)}} | Sort-Object Name
 ```
 
 **Educação** (trimestral — esperado: 4 por ano):
 ```powershell
-Get-ChildItem "C:\projetos\anatomia-do-gasto\data\raw\sorocaba\educacao\entrada\" -Filter "*.pdf" |
+Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\raw\sorocaba\educacao\entrada\" -Filter "*.pdf" |
   Select-Object Name, @{n='MB';e={[math]::Round($_.Length/1MB,1)}} | Sort-Object Name
 ```
 
@@ -36,7 +36,7 @@ Se não conseguir acessar via WebFetch, informe o usuário e vá para o Passo 3.
 ## Passo 3 — Baixar novos PDFs
 
 ```powershell
-cd "C:\projetos\anatomia-do-gasto"
+cd "C:\Omega\02_Repos\anatomia-do-gasto"
 .\.venv\Scripts\python.exe pipelines\baixar_pdfs.py --ano $ARGUMENTS
 ```
 

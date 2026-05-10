@@ -8,14 +8,14 @@ Você é o agente de pipeline do **Anatomia do Gasto**.
 Argumento recebido (ano): $ARGUMENTS
 Se não foi passado ano, pergunte ao usuário qual ano processar antes de continuar.
 
-Raiz do projeto: `C:\projetos\anatomia-do-gasto`
+Raiz do projeto: `C:\Omega\02_Repos\anatomia-do-gasto`
 
 Fluxo: `data/raw` → `data/extracted` → (validação manual) → `data/validated` → `data/public`
 
 ## Passo 1 — Verificar pré-condições
 
 ```powershell
-cd "C:\projetos\anatomia-do-gasto"
+cd "C:\Omega\02_Repos\anatomia-do-gasto"
 .\.venv\Scripts\python.exe -c "import pdfplumber, pandas; print('OK')"
 ```
 
@@ -23,7 +23,7 @@ Se falhar, pare e informe o usuário para rodar `/iniciar` primeiro.
 
 Verifique se existem PDFs para o ano solicitado:
 ```powershell
-Get-ChildItem "C:\projetos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*$ARGUMENTS*"
+Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*$ARGUMENTS*"
 ```
 
 Se não houver PDFs, sugira rodar `/dados $ARGUMENTS` primeiro.
@@ -31,7 +31,7 @@ Se não houver PDFs, sugira rodar `/dados $ARGUMENTS` primeiro.
 ## Passo 2 — Rodar o pipeline
 
 ```powershell
-cd "C:\projetos\anatomia-do-gasto"
+cd "C:\Omega\02_Repos\anatomia-do-gasto"
 .\.venv\Scripts\python.exe pipelines\pipeline.py --ano $ARGUMENTS --pular-download
 ```
 

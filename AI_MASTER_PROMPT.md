@@ -8,8 +8,8 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 
 | Ambiente | Papel | Path |
 |---|---|---|
-| WSL/Linux | Desenvolvimento principal — Python, Node, Codex, RTK, Claude Code CLI | `~/projetos/anatomia-do-gasto` |
-| Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:\projetos\anatomia-do-gasto` |
+| WSL/Linux | Desenvolvimento principal — Python, Node, Codex, RTK, Claude Code CLI | `/mnt/c/Omega/02_Repos/anatomia-do-gasto` |
+| Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:\Omega\02_Repos\anatomia-do-gasto` |
 | GitHub | Fonte da verdade entre todos os ambientes | `sallumc2018/anatomia-do-gasto` |
 | Vercel | Deploy automático a partir do push em `main` | Root Directory `apps/web` |
 | Tablet Android | Terminal portátil — leitura de docs e dados públicos | `/sdcard/AnatomiaDrive` via ADB |
