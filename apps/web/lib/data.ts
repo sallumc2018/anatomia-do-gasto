@@ -81,15 +81,26 @@ function findRepoRoot(startDir: string): string {
   }
 }
 
-function publicDataDir(...parts: string[]): string {
-  return path.join(findRepoRoot(process.cwd()), "data", "public", ...parts)
+const DATA_PUBLIC_ROOT = path.join(findRepoRoot(process.cwd()), "data", "public")
+
+const SOROCABA_PUBLIC_DATA_DIRS = {
+  saude: path.join(DATA_PUBLIC_ROOT, "sorocaba", "saude", "saida"),
+  educacao: path.join(DATA_PUBLIC_ROOT, "sorocaba", "educacao", "saida"),
+  seguranca: path.join(DATA_PUBLIC_ROOT, "sorocaba", "seguranca", "saida"),
+  transporte: path.join(DATA_PUBLIC_ROOT, "sorocaba", "transporte", "saida"),
+  executivo: path.join(DATA_PUBLIC_ROOT, "sorocaba", "executivo", "saida"),
+  receita: path.join(DATA_PUBLIC_ROOT, "sorocaba", "receita", "saida"),
+}
+
+function maybeDevDataDir(envKey: string): string | null {
+  if (process.env.NODE_ENV === "production") return null
+  const envDir = process.env[envKey]
+  return envDir && fs.existsSync(envDir) ? envDir : null
 }
 
 function getDataDir(area: HealthArea): string {
   const envKey = area === "saude" ? "DATA_SAIDA_DIR" : `DATA_SAIDA_DIR_${area.toUpperCase()}`
-  const envDir = process.env[envKey]
-  if (envDir && fs.existsSync(envDir)) return envDir
-  return publicDataDir("sorocaba", area, "saida")
+  return maybeDevDataDir(envKey) ?? SOROCABA_PUBLIC_DATA_DIRS[area]
 }
 
 export function getAvailableYears(area: HealthArea): number[] {
@@ -263,7 +274,7 @@ function parseRREODespesasCSV(content: string): RREODespesasRow[] {
 
 export function loadRREODespesas(year: number): RREODespesasRow[] {
   const filePath = path.join(
-    process.env.DATA_SAIDA_DIR ?? publicDataDir("sorocaba", "saude", "saida"),
+    maybeDevDataDir("DATA_SAIDA_DIR") ?? SOROCABA_PUBLIC_DATA_DIRS.saude,
     `rreo_despesas_saude_sorocaba_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []
@@ -309,7 +320,7 @@ function parseRREOReceitasCSV(content: string): RREOReceitasRow[] {
 
 export function loadRREOReceitas(year: number): RREOReceitasRow[] {
   const filePath = path.join(
-    process.env.DATA_SAIDA_DIR ?? publicDataDir("sorocaba", "saude", "saida"),
+    maybeDevDataDir("DATA_SAIDA_DIR") ?? SOROCABA_PUBLIC_DATA_DIRS.saude,
     `rreo_receitas_sus_sorocaba_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []
@@ -354,9 +365,7 @@ function parseSegurancaCSV(content: string): SegurancaRow[] {
 }
 
 function getSegurancaDir(): string {
-  const envDir = process.env.DATA_SAIDA_DIR_SEGURANCA
-  if (envDir && fs.existsSync(envDir)) return envDir
-  return publicDataDir("sorocaba", "seguranca", "saida")
+  return maybeDevDataDir("DATA_SAIDA_DIR_SEGURANCA") ?? SOROCABA_PUBLIC_DATA_DIRS.seguranca
 }
 
 export function getAvailableYearsSeguranca(): number[] {
@@ -440,9 +449,7 @@ export function loadSegurancaOrcamento(year: number): SegurancaOrcamentoRow | nu
 // ─── Transporte ──────────────────────────────────────────────────────────────
 
 function getTransporteDir(): string {
-  const envDir = process.env.DATA_SAIDA_DIR_TRANSPORTE
-  if (envDir && fs.existsSync(envDir)) return envDir
-  return publicDataDir("sorocaba", "transporte", "saida")
+  return maybeDevDataDir("DATA_SAIDA_DIR_TRANSPORTE") ?? SOROCABA_PUBLIC_DATA_DIRS.transporte
 }
 
 export function getAvailableYearsTransporte(): number[] {
@@ -530,6 +537,285 @@ export function loadTransporteDca(year: number): TransporteDcaRow | null {
   const filePath = path.join(getTransporteDir(), `dca_transporte_sorocaba_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseTransporteDcaCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+// ─── Executivo (orçamento municipal total por função) ─────────────────────────
+
+export interface ExecutivoRow {
+  funcao: string
+  dotacao_inicial: number
+  dotacao_atualizada: number
+  empenhado: number
+  liquidado: number
+  exceto_intra_liquidado: number
+  intra_liquidado: number
+  fonte_url: string
+}
+
+function getExecutivoDir(): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_EXECUTIVO") ?? SOROCABA_PUBLIC_DATA_DIRS.executivo
+}
+
+function parseExecutivoCSV(content: string): ExecutivoRow[] {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      funcao:                 g(f, col("funcao")).trim(),
+      dotacao_inicial:        parseFloat(g(f, col("dotacao_inicial")))  || 0,
+      dotacao_atualizada:     parseFloat(g(f, col("dotacao_atualizada"))) || 0,
+      empenhado:              parseFloat(g(f, col("empenhado")))        || 0,
+      liquidado:              parseFloat(g(f, col("liquidado")))        || 0,
+      exceto_intra_liquidado: parseFloat(g(f, col("exceto_intra_liquidado"))) || 0,
+      intra_liquidado:        parseFloat(g(f, col("intra_liquidado")))  || 0,
+      fonte_url:              g(f, col("fonte_url")).trim(),
+    }
+  }).filter((r) => r.funcao)
+}
+
+export function getAvailableYearsExecutivo(): number[] {
+  const dir = getExecutivoDir()
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(/^despesas_executivo_sorocaba_(\d{4})\.csv$/))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadExecutivoData(year: number): ExecutivoRow[] {
+  const filePath = path.join(getExecutivoDir(), `despesas_executivo_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  return parseExecutivoCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+// ─── Receita Municipal (RREO Anexo 01) ───────────────────────────────────────
+
+export interface ReceitaMunicipalRow {
+  categoria: string
+  cod_conta: string
+  previsto_inicial: number
+  previsto_atualizado: number
+  arrecadado_bimestre: number
+  arrecadado_acumulado: number
+  fonte_url: string
+}
+
+function getReceitaDir(): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_RECEITA") ?? SOROCABA_PUBLIC_DATA_DIRS.receita
+}
+
+function parseReceitaMunicipalCSV(content: string): ReceitaMunicipalRow[] {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      categoria:            g(f, col("categoria")).trim(),
+      cod_conta:            g(f, col("cod_conta")).trim(),
+      previsto_inicial:     parseFloat(g(f, col("previsto_inicial"))) || 0,
+      previsto_atualizado:  parseFloat(g(f, col("previsto_atualizado"))) || 0,
+      arrecadado_bimestre:  parseFloat(g(f, col("arrecadado_bimestre"))) || 0,
+      arrecadado_acumulado: parseFloat(g(f, col("arrecadado_acumulado"))) || 0,
+      fonte_url:            g(f, col("fonte_url")).trim(),
+    }
+  }).filter((r) => r.categoria)
+}
+
+export function getAvailableYearsReceita(): number[] {
+  const dir = getReceitaDir()
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(/^receitas_sorocaba_(\d{4})\.csv$/))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadReceitaMunicipal(year: number): ReceitaMunicipalRow[] {
+  const filePath = path.join(getReceitaDir(), `receitas_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  return parseReceitaMunicipalCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+// ─── Saúde Fiscal (RGF Anexo 01 + 02 + RREO Anexo 03) ───────────────────────
+
+function getFiscalDir(): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_FISCAL") ?? path.join(DATA_PUBLIC_ROOT, "sorocaba", "fiscal", "saida")
+}
+
+export interface PessoalRow {
+  ano: number
+  rcl: number
+  rcl_ajustada: number
+  pessoal_bruto: number
+  pessoal_ativo: number
+  pessoal_inativo: number
+  pessoal_liquido: number
+  dtp: number
+  dtp_pct_rcl: number
+  limite_maximo_pct: number
+  limite_prudencial_pct: number
+  limite_alerta_pct: number
+  fonte_url: string
+}
+
+export interface DividaRow {
+  ano: number
+  dc_bruta: number
+  dc_contratual: number
+  emprestimos: number
+  financiamentos: number
+  precatorios: number
+  deducoes: number
+  dcl: number
+  rcl: number
+  dc_pct_rcl: number
+  dcl_pct_rcl: number
+  limite_valor: number
+  limite_pct_rcl: number
+  passivo_atuarial: number
+  fonte_url: string
+}
+
+export interface RclDetalhadaRow {
+  ano: number
+  receitas_correntes: number
+  iptu: number
+  iss: number
+  itbi: number
+  irrf: number
+  outras_tributarias: number
+  transferencias_total: number
+  fpm: number
+  icms: number
+  ipva: number
+  fundeb: number
+  outras_transferencias: number
+  receita_servicos: number
+  receita_patrimonial: number
+  receita_contribuicoes: number
+  outras_correntes: number
+  outros: number
+  fonte_url: string
+}
+
+function parsePessoalCSV(content: string): PessoalRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:                   parseInt(g(f, col("ano"))),
+    rcl:                   parseFloat(g(f, col("rcl"))) || 0,
+    rcl_ajustada:          parseFloat(g(f, col("rcl_ajustada"))) || 0,
+    pessoal_bruto:         parseFloat(g(f, col("pessoal_bruto"))) || 0,
+    pessoal_ativo:         parseFloat(g(f, col("pessoal_ativo"))) || 0,
+    pessoal_inativo:       parseFloat(g(f, col("pessoal_inativo"))) || 0,
+    pessoal_liquido:       parseFloat(g(f, col("pessoal_liquido"))) || 0,
+    dtp:                   parseFloat(g(f, col("dtp"))) || 0,
+    dtp_pct_rcl:           parseFloat(g(f, col("dtp_pct_rcl"))) || 0,
+    limite_maximo_pct:     parseFloat(g(f, col("limite_maximo_pct"))) || 54,
+    limite_prudencial_pct: parseFloat(g(f, col("limite_prudencial_pct"))) || 51.3,
+    limite_alerta_pct:     parseFloat(g(f, col("limite_alerta_pct"))) || 48.6,
+    fonte_url:             g(f, col("fonte_url")).trim(),
+  }
+}
+
+function parseDividaCSV(content: string): DividaRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:           parseInt(g(f, col("ano"))),
+    dc_bruta:      parseFloat(g(f, col("dc_bruta"))) || 0,
+    dc_contratual: parseFloat(g(f, col("dc_contratual"))) || 0,
+    emprestimos:   parseFloat(g(f, col("emprestimos"))) || 0,
+    financiamentos:parseFloat(g(f, col("financiamentos"))) || 0,
+    precatorios:   parseFloat(g(f, col("precatorios"))) || 0,
+    deducoes:      parseFloat(g(f, col("deducoes"))) || 0,
+    dcl:           parseFloat(g(f, col("dcl"))) || 0,
+    rcl:           parseFloat(g(f, col("rcl"))) || 0,
+    dc_pct_rcl:    parseFloat(g(f, col("dc_pct_rcl"))) || 0,
+    dcl_pct_rcl:   parseFloat(g(f, col("dcl_pct_rcl"))) || 0,
+    limite_valor:  parseFloat(g(f, col("limite_valor"))) || 0,
+    limite_pct_rcl:parseFloat(g(f, col("limite_pct_rcl"))) || 120,
+    passivo_atuarial: parseFloat(g(f, col("passivo_atuarial"))) || 0,
+    fonte_url:     g(f, col("fonte_url")).trim(),
+  }
+}
+
+function parseRclDetalhadaCSV(content: string): RclDetalhadaRow | null {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return null
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "0" : "0")
+  const f = splitCsvLine(lines[1])
+  return {
+    ano:                   parseInt(g(f, col("ano"))),
+    receitas_correntes:    parseFloat(g(f, col("receitas_correntes"))) || 0,
+    iptu:                  parseFloat(g(f, col("iptu"))) || 0,
+    iss:                   parseFloat(g(f, col("iss"))) || 0,
+    itbi:                  parseFloat(g(f, col("itbi"))) || 0,
+    irrf:                  parseFloat(g(f, col("irrf"))) || 0,
+    outras_tributarias:    parseFloat(g(f, col("outras_tributarias"))) || 0,
+    transferencias_total:  parseFloat(g(f, col("transferencias_total"))) || 0,
+    fpm:                   parseFloat(g(f, col("fpm"))) || 0,
+    icms:                  parseFloat(g(f, col("icms"))) || 0,
+    ipva:                  parseFloat(g(f, col("ipva"))) || 0,
+    fundeb:                parseFloat(g(f, col("fundeb"))) || 0,
+    outras_transferencias: parseFloat(g(f, col("outras_transferencias"))) || 0,
+    receita_servicos:      parseFloat(g(f, col("receita_servicos"))) || 0,
+    receita_patrimonial:   parseFloat(g(f, col("receita_patrimonial"))) || 0,
+    receita_contribuicoes: parseFloat(g(f, col("receita_contribuicoes"))) || 0,
+    outras_correntes:      parseFloat(g(f, col("outras_correntes"))) || 0,
+    outros:                parseFloat(g(f, col("outros"))) || 0,
+    fonte_url:             g(f, col("fonte_url")).trim(),
+  }
+}
+
+export function getAvailableYearsFiscal(): number[] {
+  const dir = getFiscalDir()
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(/^pessoal_sorocaba_(\d{4})\.csv$/))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadPessoal(year: number): PessoalRow | null {
+  const filePath = path.join(getFiscalDir(), `pessoal_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parsePessoalCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+export function loadDivida(year: number): DividaRow | null {
+  const filePath = path.join(getFiscalDir(), `divida_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parseDividaCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+export function loadRclDetalhada(year: number): RclDetalhadaRow | null {
+  const filePath = path.join(getFiscalDir(), `rcl_sorocaba_${year}.csv`)
+  if (!fs.existsSync(filePath)) return null
+  return parseRclDetalhadaCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
 export function formatMillions(value: number): string {
