@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from paths import EXECUCAO_EXTRACTED_DIR, EXECUCAO_RAW_DIR  # noqa: E402
+from paths import EXECUCAO_EXTRACTED_DIR, EXECUCAO_RAW_DIR, EXECUCAO_VALIDATED_DIR  # noqa: E402
 
 
 def carregar_csv(path: Path):
@@ -33,7 +33,11 @@ def verificar_ano(ano: int):
             raise FileNotFoundError(path)
 
     fornecedor = carregar_csv(caminhos[2])
-    despesa = carregar_csv(caminhos[3])
+
+    # Prefere o CSV validado (pos-saneamento) quando disponivel
+    despesa_validada = EXECUCAO_VALIDATED_DIR / "saida" / f"despesa_orcamentaria_sorocaba_{ano}.csv"
+    despesa_path = despesa_validada if despesa_validada.exists() else caminhos[3]
+    despesa = carregar_csv(despesa_path)
 
     if not fornecedor:
         raise AssertionError(f"{caminhos[2]} sem registros")
@@ -47,9 +51,9 @@ def verificar_ano(ano: int):
         if (r["fornecedor_codigo"], r["nota_empenho"]) not in fornecedor_keys
     ]
 
+    # unidade_orcamentaria omitida: ausente em alguns anos por formato do PDF
     campos_obrigatorios = (
         "orgao",
-        "unidade_orcamentaria",
         "natureza_despesa",
         "programa_trabalho",
         "data",

@@ -1,6 +1,6 @@
 param(
   [string]$Adb = "",
-  [string]$AdbHome = "C:\infra\android-adb-home"
+  [string]$AdbHome = "C:\Omega\03_Ferramentas\infra\android-adb-home"
 )
 
 $ErrorActionPreference = "Stop"
@@ -10,8 +10,8 @@ function Resolve-AdbPath {
 
   $candidates = @(
     $Preferred,
-    "C:\infra\adb\adb.exe",
-    "C:\adb\adb.exe"
+    "C:\Omega\03_Ferramentas\infra\adb\adb.exe",
+    "C:\Omega\03_Ferramentas\adb_root_legacy\adb.exe"
   ) | Where-Object { $_ }
 
   foreach ($candidate in $candidates) {
@@ -20,7 +20,7 @@ function Resolve-AdbPath {
     }
   }
 
-  throw "adb.exe nao encontrado. Informe -Adb ou mova o Android SDK para C:\infra\adb."
+  throw "adb.exe nao encontrado. Informe -Adb ou mova o Android SDK para C:\Omega\03_Ferramentas\infra\adb."
 }
 
 function Set-AdbHome {

@@ -13,6 +13,7 @@ import argparse
 import html
 import os
 import re
+import shutil
 import sys
 import time
 import urllib.error
@@ -120,14 +121,18 @@ def baixar(url: str, destino: Path, forcar: bool):
         return
 
     destino.parent.mkdir(parents=True, exist_ok=True)
+    parcial = destino.with_suffix(destino.suffix + ".part")
     with abrir_url(url) as resp:
-        dados = resp.read()
+        prefixo = resp.read(4)
+        if prefixo != b"%PDF":
+            raise RuntimeError(f"Resposta nao parece PDF: {url}")
 
-    if not dados.startswith(b"%PDF"):
-        raise RuntimeError(f"Resposta nao parece PDF: {url}")
+        with parcial.open("wb") as f:
+            f.write(prefixo)
+            shutil.copyfileobj(resp, f, length=1024 * 1024)
 
-    destino.write_bytes(dados)
-    print(f"Baixado: {destino} ({len(dados) // 1024} KB)")
+    parcial.replace(destino)
+    print(f"Baixado: {destino} ({destino.stat().st_size // 1024} KB)")
 
 
 def main():
@@ -137,6 +142,7 @@ def main():
     parser.add_argument("--apenas-listar", action="store_true")
     parser.add_argument("--forcar", action="store_true")
     parser.add_argument("--permitir-grandes", action="store_true")
+    parser.add_argument("--max-mb", type=int, help="Limite opcional de tamanho por arquivo")
     args = parser.parse_args()
 
     documentos = args.documento or ["fornecedor"]
@@ -162,6 +168,9 @@ def main():
 
             if tamanho and tamanho > MAX_BYTES_PADRAO and not args.permitir_grandes:
                 print("  Pulando: arquivo grande; use --permitir-grandes para baixar.")
+                continue
+            if tamanho and args.max_mb and tamanho > args.max_mb * 1024 * 1024:
+                print(f"  Pulando: maior que --max-mb {args.max_mb}.")
                 continue
 
             nome = DOCUMENTOS[documento]["arquivo"].format(ano=ano)
