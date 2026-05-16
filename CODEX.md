@@ -11,6 +11,9 @@ Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` e aplicar o fluxo de dec
 ## Regras Específicas
 
 - Antes de editar, verificar estado do repositório com `git status` e localizar referências com `rg`.
+- Para tarefas com subagentes, aplicar `docs/agentes-contexto.md`: delegar somente tarefas isoladas, com paths de leitura/escrita e validação explícitos.
+- Se o usuário disser "Chame o orquestrador, preciso completar os dados faltantes agora", tratar como fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, seguindo o gatilho padrão de `docs/agentes-contexto.md`.
+- Cada tópico deve ter sua própria conversa; ao perceber mudança de assunto, área ou objetivo, avisar o usuário para abrir uma nova conversa antes de continuar.
 - Usar `apply_patch` para alterações manuais em arquivos.
 - Não reverter alterações do usuário ou de outro agente sem pedido explícito.
 - Ao alterar estrutura, atualizar documentação e arquivos de instrução de IA relacionados.

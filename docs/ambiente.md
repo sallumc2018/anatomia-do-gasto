@@ -32,15 +32,44 @@ Use `npm.cmd` no PowerShell para evitar conflito com `npm.ps1` quando a Executio
 Infraestrutura local persistente recomendada para a operacao do tablet:
 
 ```text
-C:\infra\
+C:\Omega\03_Ferramentas\infra\
   adb\
   usb_driver\
   android-adb-home\
   logs\
     tablet\
+
+C:\Omega\Sensivel\infra\
+  secrets\
 ```
 
-`C:\tmp` deve ser tratado como area descartavel. Nao guardar nele nada que precise sobreviver a rotinas diarias de limpeza.
+`C:\tmp` deve ser tratado como area descartavel. O projeto deve usar `C:\Omega\tmp` para status operacional local que precisa ser lido por agentes, watchdog ou tablet.
+
+O watchdog local de seguranca usa `C:\Omega\tmp` para status operacional, `C:\Omega\03_Ferramentas\infra` para configuracoes operacionais locais e `C:\Omega\Sensivel\infra\secrets` para segredos:
+
+```text
+C:\Omega\tmp\
+  omega-security-status.txt
+  omega-security-last-check.txt
+  omega-security-watch.log
+  omega-security-alerts\
+  omega-security-triggers\
+  omega-security-events.jsonl
+  omega-pc-status.txt
+  omega-pc-status.json
+
+C:\Omega\03_Ferramentas\infra\
+  omega-security-alerts.json
+  omega-tablet-ssh.json
+
+C:\Omega\Sensivel\infra\
+  secrets\
+    omega-security-smtp.credential.xml
+    omega-tablet-status-ed25519
+    omega-tablet-known_hosts
+```
+
+Arquivos em `C:\Omega\Sensivel\infra\secrets` nunca devem ser copiados para o repositorio.
 
 Para sincronizar o WSL com o estado atual do GitHub (quando necessário):
 

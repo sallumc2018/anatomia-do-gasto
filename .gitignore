@@ -15,6 +15,7 @@ apps/web/.env.local
 data/raw/
 data/extracted/
 data/validated/
+data/manifests/*_local.csv
 
 # HTMLs gerados pelo pipeline (redundantes com os CSVs)
 data/**/*.html
@@ -38,3 +39,30 @@ docs/fluxo-operacional-agentes.md
 !.env.example
 !.env.sample
 !.env.template
+
+# Runtime local para scripts de operador
+.local/
+
+# Artefatos locais de operador/seguranca
+*fw-allow-rules.txt
+*.credential.xml
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*known_hosts*
+authorized_keys
+omega-security-*.json
+omega-security-*.log
+omega-security-*.txt
+omega-security-*.xml
+omega-tablet-*.json
+omega-tablet-*.log
+omega-tablet-*.txt
+omega-tablet-*.xml
+tablet-*.log
+tablet-*.xml
+tablet-*.png
+window_dump.xml
+screencap*.png
+screenshot*.png

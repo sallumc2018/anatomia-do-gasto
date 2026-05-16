@@ -16,7 +16,7 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 
 - App web: `apps/web`.
 - Pipeline Python: `pipelines`.
-- Infraestrutura local Windows: `C:\infra\` (ADB, drivers USB, logs de tablet).
+- Infraestrutura local Windows: `C:\Omega\03_Ferramentas\infra\` (ADB, drivers USB, logs de tablet); secrets locais ficam fora do repo em `C:\Omega\Sensivel\infra\secrets\`.
 - Sincronização WSL: `tools/dev/sync-wsl-mirror.ps1`.
 - Dados:
   - `data/raw`: fontes brutas.
@@ -40,6 +40,9 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
 11. Claude Code deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
 12. Quando o usuário pedir o quanto foi economizado, Claude Code deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
+13. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
+14. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
+15. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
 
 ## 4. Validação Mínima
 
@@ -106,6 +109,10 @@ O projeto usa um conjunto de agentes especializados coordenados por um orquestra
 
 Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o contexto mínimo necessário — nunca repassa secrets, dados não publicados ou conteúdo de PDFs brutos.
 
+Para economizar contexto, o orquestrador deve preferir subagentes por função apenas quando houver fronteira clara de arquivos e validação. Tarefas pequenas ou bloqueantes ficam com o agente atual.
+
+Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes oficiais, `pipeline` extrai e valida localmente, `analista` aponta lacunas publicadas usando apenas `data/public`, `frontend` entra só se a interface precisar mudar e `deploy` só entra com autorização explícita.
+
 ### Subagentes
 
 | Agente | Ferramenta | Ambiente | Responsabilidade |
@@ -117,6 +124,7 @@ Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o 
 | `deploy` | Claude Code | WSL / Windows | Build e publicação na Vercel |
 | `tablet` | Claude Code | Windows (ADB) | Sincroniza e monitora o tablet Android |
 | `engenheiro` | Codex | WSL | Refatorações grandes, migrações de estrutura |
+| `seguranca` | Claude Code / Codex | Windows / WSL | Auditoria local, supply chain, regras de publicação e watchdog |
 
 ### Critério De Roteamento
 

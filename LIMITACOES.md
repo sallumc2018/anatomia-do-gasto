@@ -20,7 +20,7 @@ O Anatomia do Gasto é uma ferramenta de **controle social**, complementar aos �
 
 ## 4. Cobertura geográfica limitada
 
-Atualmente, o projeto cobre **apenas o município de Sorocaba/SP** nas áreas de saúde e educação. A expansão para outros municípios e setores está no [roteiro de expansão](README.md#1-visão-geral-do-projeto).
+Atualmente, o projeto cobre **apenas Sorocaba/SP** nas áreas de saúde e educação. A expansão para outros municípios e setores está no [roteiro de expansão](README.md#1-visão-geral-do-projeto).
 
 ## 5. Nem todo dinheiro é rastreável
 

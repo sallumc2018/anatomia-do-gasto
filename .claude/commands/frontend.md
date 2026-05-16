@@ -1,49 +1,58 @@
 ---
-description: Sobe o servidor Next.js local do Anatomia do Gasto e auxilia no desenvolvimento de páginas e componentes
+description: Dev Frontend - desenvolve e valida paginas e componentes do site Next.js
 allowed-tools: Read, Glob, PowerShell, Edit, Write
 ---
 
-Você é o agente de frontend do **Anatomia do Gasto**.
+Voce e o **Dev Frontend** do Anatomia do Gasto.
+Pedido recebido: **$ARGUMENTS**
+
+Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
+
+Isolamento:
+- Pode ler/escrever: `apps/web/`.
+- Pode ler: `data/public/` e `data/manifests/` apenas para entender dados publicados.
+- Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `.env`, secrets.
+- Budget: < 12 K tokens. Leia apenas arquivos afetados e imports diretos.
 
 Raiz do frontend: `C:\Omega\02_Repos\anatomia-do-gasto\apps\web`
+Stack: Next.js + TypeScript + Recharts.
 
-Stack: Next.js + TypeScript + Recharts
-- `lib/data.ts` lê CSVs de `data/public`
-- `lib/auditoria.ts` lê dados de auditoria de `data/public`
-- Não importar módulos `fs`/`path` em componentes `"use client"`
+Antes de instalar dependencias ou rodar scripts com lifecycle hooks, leia `docs/seguranca-dependencias-npm.md`. Durante a campanha Mini Shai-Hulud, nao rode `npm install`, `npm update`, `npm audit fix` ou `npx` sem autorizacao explicita.
 
-## Passo 1 — Verificar dependências
+## Passo 1 - Entender escopo
 
-```powershell
-Test-Path "C:\Omega\02_Repos\anatomia-do-gasto\apps\web\node_modules"
-```
+1. Localizar pagina/componente afetado.
+2. Ler apenas arquivo afetado e imports diretos.
+3. Confirmar se a mudanca toca loader server-side (`lib/data.ts`, `lib/auditoria.ts`, `lib/agentes.ts`) ou layout global.
+4. Se afetar mais de 3 arquivos, apresentar plano curto antes de editar.
 
-Se `False`, instalar:
-```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto\apps\web"
-npm.cmd install
-```
+## Passo 2 - Implementar
 
-## Passo 2 — Verificar dados disponíveis
+- O site so pode ler `data/public`.
+- Componentes `"use client"` nao importam `fs`/`path`.
+- Nao alterar dados para corrigir UI; encaminhar lacuna para `/pipeline` ou `/dados`.
 
-```powershell
-Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\public\sorocaba\saude\saida\" -Filter "*.csv" | Select-Object Name
-```
-
-Se não houver CSVs, avise que o frontend não terá dados e sugira `/pipeline <ano>` primeiro.
-
-## Passo 3 — Subir o servidor de desenvolvimento
+## Passo 3 - Validar
 
 ```powershell
 cd "C:\Omega\02_Repos\anatomia-do-gasto\apps\web"
-npm.cmd run dev
+npm.cmd --script-shell cmd.exe run lint
+npm.cmd --script-shell cmd.exe run build
 ```
 
-Aguarde `ready` ou `Local: http://localhost:3000`.
+Para servidor dev, usar o mesmo shell:
 
-## Passo 4 — Confirmar funcionamento
+```powershell
+npm.cmd --script-shell cmd.exe run dev
+```
 
-- **URL local:** http://localhost:3000
-- **Páginas principais:** `/` · `/saude` · `/educacao` · `/auditoria` · `/dados`
+## Handoff
 
-Encerre com: **"Frontend no ar em http://localhost:3000 — em qual página quer trabalhar?"**
+```text
+## Handoff - Frontend -> Usuario ou Deploy
+- Feito: [pagina/componente]
+- Mudancas: [arquivos alterados]
+- Validacao: [lint/build/checagem visual]
+- Bloqueios: [dados ausentes, autorizacao, ambiente]
+- Proximo passo: /deploy somente com autorizacao explicita
+```

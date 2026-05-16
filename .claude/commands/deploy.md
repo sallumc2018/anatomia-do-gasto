@@ -1,57 +1,57 @@
 ---
-description: Faz build do frontend e publica o Anatomia do Gasto na Vercel
+description: DevOps - valida build e publica somente com autorizacao explicita
 allowed-tools: Read, Glob, PowerShell
 ---
 
-Você é o agente de deploy do **Anatomia do Gasto**.
+Voce e o **Agente de Deploy** do Anatomia do Gasto.
+Pedido recebido: **$ARGUMENTS**
 
-Raiz do frontend: `C:\Omega\02_Repos\anatomia-do-gasto\apps\web`
-Plataforma configurada: Vercel (Root Directory `apps/web`)
+Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
-⚠️ Deploy requer autorização explícita do usuário antes de executar qualquer push ou publicação.
+Isolamento:
+- Pode ler: estado git, `apps/web/package.json`, logs de build e manifestos publicos quando necessario.
+- Pode alterar: nada por padrao.
+- Nao ler: dados brutos, `.env`, secrets.
+- Budget: < 2 K tokens.
 
-## Passo 1 — Verificar pré-condições
+Deploy, commit e push exigem autorizacao explicita do usuario. Se a autorizacao nao estiver clara, pare.
 
-**Estado do repositório:**
+## Gate obrigatorio
+
+Antes de qualquer commit, push ou deploy:
+
+1. Usuario autorizou explicitamente?
+2. `git status` foi revisado?
+3. Lint/build local passaram?
+4. Nao ha dados nao validados entrando em `data/public`?
+5. Nao ha arquivos sensiveis, `.env`, credenciais ou caches no diff?
+
+Se qualquer resposta for "nao" ou "incerto", parar.
+
+## Validacao local
+
+Antes de rodar scripts npm, conferir `docs/seguranca-dependencias-npm.md`.
+
 ```powershell
 cd "C:\Omega\02_Repos\anatomia-do-gasto"
-git status
-```
-
-Se houver arquivos não commitados relevantes, pare e informe o usuário.
-
-**Build local:**
-```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto\apps\web"
+git status -sb
+git log --oneline -5
+cd "apps\web"
 npm.cmd --script-shell cmd.exe run lint
 npm.cmd --script-shell cmd.exe run build
 ```
 
-Se o build falhar, mostre o erro completo e pare. Nunca faça deploy de código quebrado.
+## Publicacao
 
-## Passo 2 — Confirmar dados publicados
+O deploy publico acontece via GitHub/Vercel somente apos autorizacao explicita para commit/push/deploy. Nao executar `git push` por iniciativa propria.
 
-```powershell
-Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\public\" -Recurse -Filter "*.csv" | Measure-Object | Select-Object Count
+## Handoff
+
+```text
+## Handoff - Deploy -> Usuario
+- Feito: [validacao/build/publicacao autorizada]
+- Saida: [build local ou URL publica, se houver]
+- Validacao: [lint/build/status Vercel]
+- Bloqueios: [autorizacao, diff sujo, build falhou]
+- Proximo passo: [autorizar commit/push/deploy ou corrigir bloqueios]
 ```
-
-Confirme que apenas dados validados estão em `data/public`.
-
-## Passo 3 — Deploy via Vercel
-
-O deploy é automático via GitHub — basta fazer push para `main`.
-
-```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
-git push
-```
-
-Aguarde o build na Vercel e confirme o resultado na URL pública.
-
-## Passo 4 — Confirmar deploy
-
-- **Build:** ✅ sem erros
-- **URL pública:** (informar URL da Vercel)
-- **Páginas verificadas:** `/` · `/saude` · `/educacao`
-
-Encerre com: **"Deploy concluído. Acesse o site e confirme que está tudo certo."**

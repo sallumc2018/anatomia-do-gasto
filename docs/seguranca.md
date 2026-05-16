@@ -95,6 +95,30 @@ Após a correção de uma vulnerabilidade, o mantenedor publicará um aviso no r
 
 ## Infraestrutura Local Do Tablet
 
-- O estado local do ADB no Windows deve ficar em `C:\infra\android-adb-home`, não em `C:\tmp`, para não ser apagado por rotinas de limpeza.
-- Logs e inventários do tablet devem ficar em área persistente fora de `C:\tmp`, preferencialmente `C:\infra\logs\tablet`.
+- O estado local do ADB no Windows deve ficar em `C:\Omega\03_Ferramentas\infra\android-adb-home`, não em `C:\tmp`, para não ser apagado por rotinas de limpeza.
+- Logs e inventários do tablet devem ficar em área persistente fora de `C:\tmp`, preferencialmente `C:\Omega\03_Ferramentas\infra\logs\tablet`.
 - `C:\tmp` deve ser tratado como área descartável e nunca como armazenamento persistente de pareamentos ADB ou artefatos operacionais do tablet.
+- O watchdog local de segurança fica em `tools/security/` e escreve status temporário em `C:\Omega\tmp\omega-security-*`.
+- Alertas do watchdog podem ser enviados por email SMTP usando configuração local em `C:\Omega\03_Ferramentas\infra\omega-security-alerts.json` e credencial criptografada por usuário Windows em `C:\Omega\Sensivel\infra\secrets\`. Esses arquivos não pertencem ao repositório.
+- O tablet pode receber cópia read-only do status do PC e do watchdog por `tools/tablet/update-tablet-status.ps1`, em `/sdcard/AnatomiaTerminal/`.
+- Sem USB, o tablet deve receber status por SSH/SCP no Termux, com chave dedicada e fingerprint do host fixada em `C:\Omega\03_Ferramentas\infra\omega-tablet-ssh.json`. Não usar automação de tela nem sessão web para transportar status operacional.
+
+## Gate Local Antes De Release
+
+Antes de preparar release, push ou deploy do site, execute a auditoria local em modo read-only:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\security\check-site-local.ps1 -SkipBuild
+```
+
+Essa checagem falha quando scripts operacionais sensiveis de tablet/SSH/status sync aparecem como modificados ou untracked em `tools/tablet`, ou quando nomes tipicos de segredo, credencial, `known_hosts`, logs, screenshots, dumps e artefatos `omega-*` aparecem no pacote local.
+
+Scripts de setup SSH, status sync, firewall e hardening sao operacao local. Eles nao devem entrar inadvertidamente em release do site; quando precisarem ser versionados, devem passar por revisao separada e autorizacao explicita.
+
+Quando a validacao for explicitamente apenas do site, sem empacotar operacao local, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\security\check-site-local.ps1 -SkipBuild -SiteOnly
+```
+
+O modo `-SiteOnly` limita a auditoria de escopo Git a `apps/web` e `data/public`. Ele serve para validar o pacote publico do site mesmo quando ha scripts operacionais locais em `tools/tablet` ou firewall fora do release. Esse modo nao autoriza publicar tablet, SSH, firewall, credenciais, logs ou artefatos locais; esses itens continuam exigindo revisao separada no modo completo.

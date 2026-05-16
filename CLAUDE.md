@@ -44,6 +44,8 @@ Antes de alterar:
 
 git status -sb
 
+Antes de instalar dependencias npm ou rodar scripts que possam disparar lifecycle hooks, leia `docs/seguranca-dependencias-npm.md`. Durante a campanha Mini Shai-Hulud, nao rode `npm install`, `npm update`, `npm audit fix`, `npx` ou scripts de pacote sem autorizacao explicita; comece por triagem read-only do `package-lock.json`.
+
 Depois de alterar:
 
 git status -sb
@@ -52,3 +54,9 @@ git log --oneline -5
 ## Separacao de contexto
 
 Nao trazer para este repositorio conteudo privado, credenciais, registros operacionais internos ou arquivos pessoais.
+
+Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta. Nao repasse historico completo quando diff, trecho ou resumo rastreavel bastar.
+
+Se o usuario disser "Chame o orquestrador, preciso completar os dados faltantes agora", acione o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/orquestrador.md`.
+
+Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avise para abrir uma nova conversa antes de continuar.

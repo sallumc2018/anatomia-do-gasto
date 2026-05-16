@@ -1,109 +1,120 @@
-# Orquestrador
+# Empresa Anatomia do Gasto - Orquestrador
 
-Leia primeiro `AI_MASTER_PROMPT.md`.
+Leia `AI_MASTER_PROMPT.md`. O protocolo detalhado de economia de contexto e subagentes fica em `docs/agentes-contexto.md`.
 
-Este arquivo define a lógica de decisão compartilhada entre Claude Code e Codex. Todo agente deve aplicar este roteamento antes de agir em qualquer pedido.
+Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. Todo agente aplica este roteamento antes de agir.
 
-## 1. Fluxo De Decisão
+## 1. Regra Central
 
+O orquestrador monta o menor contexto suficiente para cada agente.
+
+Nunca repassa:
+- secrets, `.env`, tokens ou chaves;
+- historico completo quando resumo, diff ou trecho bastar;
+- dados brutos fora do escopo;
+- `data/extracted` ou `data/validated` como dado publicado;
+- logs privados ou arquivos pessoais.
+
+Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avisar para abrir uma nova conversa antes de continuar.
+
+## 2. Gatilho Padrao
+
+Quando o usuario disser **"Chame o orquestrador, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
+
+```text
+orquestrador -> dados -> pipeline -> analista -> frontend? -> deploy?
 ```
-Pedido recebido
-    │
-    ▼
-Verificar estado do repositório (git status)
-    │
-    ▼
-Classificar a tarefa (ver § 2)
-    │
-    ▼
-Selecionar agente (ver § 3)
-    │
-    ▼
-Montar contexto mínimo (ver § 4)
-    │
-    ▼
-Executar — e registrar o que foi feito
-```
 
-Regra transversal: o orquestrador deve sempre montar o **menor contexto suficiente** para cada subagente, reduzindo consumo de token sem sacrificar auditabilidade.
+Objetivo: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente e preparar handoff.
 
-## 2. Classificação Da Tarefa
+Limites:
+- `data/public` so muda com autorizacao explicita.
+- `data/validated` so entra como etapa local quando autorizado.
+- commit, push e deploy exigem autorizacao explicita.
 
-| Tipo | Palavras-chave / sinais |
+## 3. Tabela de Roteamento
+
+| Sinais | Agente |
 |---|---|
-| `dados` | baixar, portal, PDF, fonte, atualizar dados |
-| `pipeline` | processar, extrair, converter, CSV, JSON, pipeline |
-| `analista` | analisar, comparar, percentual, execução orçamentária, relatório |
-| `frontend` | página, componente, visual, layout, Next.js, TypeScript |
-| `deploy` | publicar, subir, Vercel, produção, build |
-| `engenheiro` | refatorar, migrar, reorganizar estrutura, mover arquivos em massa |
-| `composto` | pedido que combina dois ou mais tipos acima |
+| completar dados faltantes, lacunas de dados, dados ausentes | fluxo composto: `dados` -> `pipeline` -> `analista` |
+| baixar, portal, PDF, fonte nova, URL, download, SICONFI | `dados` |
+| processar, extrair, CSV, JSON, pipeline, converter PDF | `pipeline` |
+| analisar, percentual, execucao, comparar, relatorio, cifra | `analista` |
+| pagina, componente, visual, layout, Next.js, TypeScript, UI | `frontend` |
+| publicar, Vercel, deploy, build, producao, push main | `deploy` |
+| tablet, ADB, Android, sincronizar tablet, Termux, painel | `tablet` |
+| refatorar, migrar, reorganizar estrutura, mover em massa | `engenheiro` |
+| firewall, watchdog, seguranca, rede, alerta, intrusao, supply chain | `seguranca` |
 
-Para tarefas compostas: decompor em subtarefas, rotear cada uma separadamente, executar na ordem lógica.
+Regra de desempate: WSL para codigo; Windows para hardware/ADB; `engenheiro` para mudancas estruturais em muitos arquivos.
 
-## 3. Seleção Do Agente
+## 4. Tarefas Compostas
 
-| Agente | Ferramenta | Ambiente | Quando usar |
+Ordem normal:
+
+```text
+dados -> pipeline -> analista
+dados -> pipeline -> frontend -> deploy
+analista -> frontend
+frontend -> deploy
+```
+
+Paralelismo permitido:
+- `dados` para areas/anos independentes;
+- `analista` + `frontend` quando leem fontes distintas;
+- `tablet` com qualquer outro.
+
+Nunca em paralelo:
+- `pipeline` + `analista` quando o analista depender da saida do pipeline;
+- `deploy` + qualquer outro;
+- `engenheiro` + `frontend` nos mesmos paths.
+
+## 5. Isolamento por Agente
+
+| Agente | Pode ler | Pode alterar | Nao ler |
 |---|---|---|---|
-| `dados` | Claude Code | WSL / Windows | Acesso ao portal, download de PDFs |
-| `pipeline` | Claude Code | WSL (primário) | Processamento com venv Python |
-| `analista` | Claude Code | WSL / Windows | Análise iterativa com feedback em tempo real |
-| `frontend` | Claude Code | WSL (primário) | Dev server, lint/build, validação visual |
-| `deploy` | Claude Code | WSL / Windows | Build + push + Vercel — requer autorização explícita |
-| `tablet` | Claude Code | Windows (ADB) | Sincronizar e monitorar tablet Android |
-| `engenheiro` | Codex | WSL | Refatorações grandes, geração de código em massa |
+| `dados` | `data/raw` como inventario, `data/manifests`, URLs oficiais | `data/raw`, manifestos de coleta autorizados | `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
+| `pipeline` | `data/raw` do escopo, scripts especificos em `pipelines`, manifestos relevantes | `data/extracted`; `data/validated` quando autorizado | `apps`, `.env`, secrets; nunca publicar em `data/public` sem autorizacao |
+| `analista` | `data/public`, `data/manifests`, docs publicos | nenhum por padrao | `data/raw`, `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
+| `frontend` | `apps/web`, `data/public`, `data/manifests` | `apps/web` | `data/raw`, `data/extracted`, `data/validated`, `.env`, secrets |
+| `deploy` | estado git, build, `apps/web/package.json` | nada por padrao | dados brutos, `.env`, secrets |
+| `engenheiro` | paths explicitamente autorizados | paths explicitamente autorizados | dados, `.env`, secrets fora do escopo |
+| `tablet` | `tools/tablet`, docs de ambiente/seguranca | `tools/tablet` e docs quando solicitado | dados brutos, `.env`, chaves privadas; pode sincronizar `data/public`/manifestos sem analisar conteudo |
+| `seguranca` | `tools/security`, docs de seguranca, logs em `C:\Omega\tmp`; package/loaders quando check exigir | `tools/security` e docs quando solicitado | dados brutos, `.env`, secrets |
 
-**Google Drive não faz parte desta arquitetura.** GitHub é a fonte da verdade entre ambientes.
+## 6. Pacote Minimo
 
-**Regra de desempate:** WSL para código; Windows para operações com hardware (ADB); Codex para tarefas autônomas que afetam muitos arquivos de uma vez.
+Todo subagente recebe:
 
-## 4. Contexto Mínimo Por Agente
+```text
+Agente:
+Objetivo:
+Pode ler:
+Pode alterar:
+Nao ler:
+Validacao:
+Resposta: Achados, Mudancas, Validacao, Bloqueios
+```
 
-Cada agente recebe apenas o que é necessário para a tarefa. O orquestrador nunca repassa:
+Nao criar subagente quando a tarefa for pequena, bloqueante ou quando explicar o contexto custar mais que executar.
 
-- Conteúdo de arquivos `.env` ou qualquer secret
-- Conteúdo bruto de PDFs de `data/raw`
-- Dados de `data/extracted` ou `data/validated` como destino de escrita
-- Informações pessoais ou dados de auditoria não publicados
+## 7. Autorizacao
 
-| Agente | Contexto que recebe |
-|---|---|
-| `dados` | URL do portal + paths de destino em `data/raw` |
-| `pipeline` | Paths de entrada (`data/raw`) + paths de saída (`data/extracted`) + script relevante |
-| `analista` | Paths de `data/public` + ano(s) de interesse + métrica solicitada |
-| `frontend` | Paths de `apps/web` afetados + regras de frontend do `CLAUDE.md` |
-| `deploy` | Nenhum dado sensível — apenas confirmação de autorização |
-| `engenheiro` | Paths afetados + objetivo estrutural + regras do `CODEX.md` |
+O orquestrador nunca autoriza por conta propria:
+- commit, push ou deploy;
+- mover dados para `data/public`;
+- deletar arquivos ou branches;
+- instalar dependencias;
+- alterar DNS, dominio, hospedagem ou variaveis de ambiente;
+- rodar acoes destrutivas no tablet/firewall.
 
-Também deve evitar repassar:
+## 8. Handoff
 
-- arquivo completo quando diff, trecho curto ou resumo rastreável bastar;
-- contexto já estabilizado em `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`;
-- histórico redundante de chat quando a evidência já estiver em arquivo.
-
-## 5. Coordenação Entre Agentes
-
-Claude Code e Codex podem estar trabalhando em paralelo.
-
-Antes de editar qualquer arquivo:
-1. Rodar `git status` para ver modificações em andamento.
-2. Se o arquivo já foi modificado recentemente por outro agente, ler o estado atual antes de editar.
-3. Nunca usar `git checkout --` ou `git restore` sem autorização explícita — isso apaga trabalho em andamento.
-
-## 6. Limites De Autorização
-
-O orquestrador nunca autoriza por conta própria:
-
-- Commit, push ou deploy
-- Mover dados para `data/public`
-- Deletar arquivos ou branches
-- Instalar dependências novas
-
-Qualquer uma dessas ações exige confirmação explícita do usuário antes de executar.
-
-## 7. Registro
-
-Ao concluir, registrar de forma concisa:
-- Qual agente foi usado
-- O que foi feito
-- O que ainda precisa de validação ou autorização humana
+```text
+## Handoff - [Agente] -> [ProximoAgente ou Usuario]
+- Feito:
+- Saida:
+- Validacao:
+- Bloqueios:
+- Proximo passo:
+```

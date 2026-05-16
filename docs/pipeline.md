@@ -64,6 +64,17 @@ Segurança Pública (SICONFI DCA — anual, sem quadrimestres):
 - Raw: `data/raw/sorocaba/seguranca/entrada/YYYY_dca_siconfi.json` — snapshot bruto da API
 - Fonte: SICONFI DCA-Anexo I-E. Diferente de saúde/educação: não usa PDFs do portal municipal.
 
+Orçamento municipal por função (SICONFI RREO Anexo 02 — 6º bimestre):
+
+- `despesas_executivo_sorocaba_YYYY.csv` — despesas municipais por função, incluindo Prefeitura, autarquias e Câmara Municipal, com colunas separadas para valores exceto intra e intra-orçamentários.
+
+Receita e saúde fiscal (SICONFI):
+
+- `receitas_sorocaba_YYYY.csv` — receitas municipais por categoria do RREO Anexo 01, 6º bimestre.
+- `pessoal_sorocaba_YYYY.csv` — despesa com pessoal, RCL e RCL ajustada do RGF Anexo 01, 3º quadrimestre.
+- `divida_sorocaba_YYYY.csv` — dívida consolidada e limites do RGF Anexo 02, 3º quadrimestre.
+- `rcl_sorocaba_YYYY.csv` — composição das receitas correntes do RREO Anexo 03, 6º bimestre.
+
 Execução financeira detalhada:
 
 - `conta_corrente_fornecedor_sorocaba_YYYY.csv`
@@ -100,3 +111,15 @@ O inventário público dessa camada fica em `data/manifests/fontes_execucao_soro
 - validação local aplicável.
 
 Isso permite auditoria externa do rastro de execução sem transformar `data/extracted/sorocaba/execucao/saida` em publicação automática.
+
+## Gate De Publicacao
+
+`pipelines\publicar_dados.py` consulta `data/manifests/datasets.csv` antes de copiar qualquer CSV. Somente linhas com `Origem_Dir=public` podem ser publicadas por esse script. Linhas `validated`, `extracted` ou `public_aux` exigem fluxo especifico e autorizacao explicita.
+
+Antes de release, rode:
+
+```powershell
+python pipelines\testes\verificar_publicacao.py --strict
+```
+
+Esse teste deve falhar se um arquivo marcado como nao publicavel aparecer em `data/public`.

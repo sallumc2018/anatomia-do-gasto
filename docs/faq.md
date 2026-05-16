@@ -12,11 +12,11 @@ Não. O projeto é independente, apartidário e mantido por um cidadão, sem ví
 
 ### Os dados são confiáveis?
 
-Sim. Todos os dados vêm de portais oficiais de transparência. O pipeline de extração é automatizado e verificamos a integridade de cada valor extraído. A fonte e a data da coleta são sempre informadas.
+Os datasets publicados neste site vêm de portais oficiais de transparência. Para cada área publicada (saúde, educação, segurança, transporte), o pipeline de extração é automatizado, a fonte é declarada na página e a integridade dos totais é verificada. Para temas em construção ou mapeamento, declaramos o escopo e as limitações antes de publicar qualquer número — dado ausente não é tratado como zero.
 
 ### O site mostra irregularidades?
 
-O site mostra os dados oficiais de forma organizada e aponta situações que merecem atenção (como emendas não pagas ou entidades com CNPJ irregular). Mas **não** faz auditoria jurídica nem emite juízos de valor. A interpretação final cabe ao cidadão e aos órgãos de controle.
+O site mostra dados oficiais de forma organizada e declara explicitamente quando um número está ausente ou quando a fonte não permite granularidade maior. **Não** faz auditoria jurídica nem emite juízos de valor — a interpretação final cabe ao cidadão e aos órgãos de controle. Funcionalidades de cruzamento por fornecedor, CNPJ ou contrato ainda não estão publicadas.
 
 ### Por que só tem Sorocaba?
 

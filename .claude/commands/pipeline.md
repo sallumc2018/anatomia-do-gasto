@@ -1,62 +1,59 @@
 ---
-description: Processa PDFs do portal de Sorocaba em dados estruturados (CSV/JSON) prontos para o frontend
+description: Engenheiro de dados - extrai fontes brutas para data/extracted e valida localmente
 allowed-tools: Read, Glob, PowerShell
 ---
 
-Você é o agente de pipeline do **Anatomia do Gasto**.
+Voce e o **Agente de Pipeline** do Anatomia do Gasto.
+Pedido recebido: **$ARGUMENTS**
 
-Argumento recebido (ano): $ARGUMENTS
-Se não foi passado ano, pergunte ao usuário qual ano processar antes de continuar.
+Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
-Raiz do projeto: `C:\Omega\02_Repos\anatomia-do-gasto`
+Isolamento:
+- Pode ler: `data/raw/` do escopo, scripts especificos em `pipelines/`, manifestos relevantes.
+- Pode alterar: `data/extracted/` e scripts de pipeline do escopo. `data/validated/` apenas com autorizacao explicita como etapa local de validacao.
+- Nao ler: `apps/`, `.env`, secrets. Nao publicar em `data/public` sem autorizacao explicita.
+- Budget: < 5 K tokens. Leia somente o script relevante e a saida do processo.
 
-Fluxo: `data/raw` → `data/extracted` → (validação manual) → `data/validated` → `data/public`
+Formato esperado: `<area> <ano ou faixa>`, por exemplo `saude 2025`, `receita 2020-2025`, `fiscal todos`.
 
-## Passo 1 — Verificar pré-condições
+Raiz: `C:\Omega\02_Repos\anatomia-do-gasto`
+Fluxo: `data/raw` -> `data/extracted` -> `data/validated` autorizado -> `data/public` autorizado.
 
-```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
-.\.venv\Scripts\python.exe -c "import pdfplumber, pandas; print('OK')"
-```
-
-Se falhar, pare e informe o usuário para rodar `/iniciar` primeiro.
-
-Verifique se existem PDFs para o ano solicitado:
-```powershell
-Get-ChildItem "C:\Omega\02_Repos\anatomia-do-gasto\data\raw\sorocaba\saude\entrada\" -Filter "*$ARGUMENTS*"
-```
-
-Se não houver PDFs, sugira rodar `/dados $ARGUMENTS` primeiro.
-
-## Passo 2 — Rodar o pipeline
+## Passo 1 - Identificar script correto
 
 ```powershell
 cd "C:\Omega\02_Repos\anatomia-do-gasto"
-.\.venv\Scripts\python.exe pipelines\pipeline.py --ano $ARGUMENTS --pular-download
+Get-ChildItem "pipelines" -File -Filter "*.py" | Select-Object Name
 ```
 
-Monitore a saída. Se aparecer erro de extração com 0 linhas, verifique:
-- Formato RTL (texto invertido, ex: "abacoroS") — já tratado automaticamente.
-- Outro erro → mostre a mensagem completa ao usuário.
+Escolha o script especifico da area (`extrator_receita.py`, `extrator_executivo.py`, `extrator_*`, validadores ou agregadores existentes). Nao assumir `pipeline.py` como unico fluxo.
 
-## Passo 3 — Verificar integridade
+## Passo 2 - Pre-condicoes
 
 ```powershell
-.\.venv\Scripts\python.exe pipelines\testes\verificar_dados.py --ano $ARGUMENTS
+.\.venv\Scripts\python.exe -m py_compile pipelines\paths.py
+Get-ChildItem "data\raw" -Recurse -File | Select-Object FullName, Length | Sort-Object FullName
 ```
 
-Resultado esperado: nenhuma divergência.
+Se faltar fonte bruta, parar e encaminhar para `/dados <area> <anos>`.
 
-Se houver divergências, mostre quais linhas falharam e interrompa — não prossiga para publicação com dados incorretos.
+## Passo 3 - Executar e validar
 
-## Passo 4 — Relatório final
+Rode o script especifico com `--help` antes quando houver duvida de argumentos. Depois compile os scripts tocados:
 
-Mostre:
-- **Ano processado:** {ano}
-- **Períodos:** lista com ✅ / ❌ e motivo se falhou
-- **Verificação:** resultado do verificar_dados.py
-- **CSVs gerados em:** `data/extracted/`
+```powershell
+.\.venv\Scripts\python.exe -m py_compile pipelines\<script>.py
+```
 
-⚠️ Os CSVs estão em `data/extracted` — ainda não publicados. Para publicar, mova para `data/public` após validação explícita.
+Se existir validador especifico (`validar_*`, `diagnosticar_*`, `auditar_*`), rode-o. Divergencia interrompe publicacao.
 
-Encerre com: **"Pipeline concluído. Quer validar e publicar os dados?"**
+## Handoff
+
+```text
+## Handoff - Pipeline -> Usuario ou Analista
+- Feito: extracao/processamento de [area] [anos]
+- Saida: [paths em data/extracted ou data/validated autorizado]
+- Validacao: [py_compile + validador especifico]
+- Bloqueios: [divergencias, fonte faltante, autorizacao para publicar]
+- Proximo passo: revisar -> autorizar copia para data/public OU /analista [area] [anos]
+```
