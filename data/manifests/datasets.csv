@@ -8,3 +8,19 @@ seguranca,orcamento,Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA,2020-2025,SI
 transporte,orcamento-rreo,Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA - subfuncao unica sem discriminacao de servico vs obras,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_transporte_sorocaba_{ano}.csv,public
 transporte,orcamento-dca,Despesas DCA Anexo I-E funcao 26 empenhado+liquidado+pago - subfuncao unica sem discriminacao,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,dca_transporte_sorocaba_{ano}.csv,public
 transporte,contratos-pncp,Contratos publicos transporte PNCP filtrado por palavras-chave - requer curadoria manual - cobertura parcial a partir de 2022,2022-2025,PNCP / Compras.gov,API federal,anual,contratos_transporte_sorocaba_{ano}.csv,validated
+executivo,despesas,Orcamento municipal por funcao - RREO Anexo 02 bimestre 6 incluindo exceto intra e intra,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_executivo_sorocaba_{ano}.csv,public
+receita,receitas,Receitas municipais por categoria - RREO Anexo 01 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,receitas_sorocaba_{ano}.csv,public
+fiscal,pessoal,Despesa com pessoal e RCL ajustada - RGF Anexo 01 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,pessoal_sorocaba_{ano}.csv,public
+fiscal,divida,Divida consolidada e limite de endividamento - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_sorocaba_{ano}.csv,public
+fiscal,rcl,Composicao das receitas correntes - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_sorocaba_{ano}.csv,public
+fiscal,rcl-capital,Composicao das receitas de capital - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_capital_sorocaba_{ano}.csv,public
+fiscal,divida-detalhada,Detalhamento da divida consolidada e limites - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_detalhada_sorocaba_{ano}.csv,public
+fiscal,natureza-despesa,Resumo fiscal por natureza da despesa,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,natureza_despesa_sorocaba_{ano}.csv,public
+fiscal,rpps,Indicadores previdenciarios e RPPS,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rpps_sorocaba_{ano}.csv,public
+saude,receitas-detalhamento,Detalhamento auxiliar das receitas de saude,2020-2025,Portal de Transparencia Sorocaba / SICONFI,PDF municipal e API federal,quadrimestral,receitas_detalhamento_sorocaba_{ano}.csv,public
+saude,rreo-despesas,Despesas de saude no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_despesas_saude_sorocaba_{ano}.csv,public
+saude,rreo-receitas-sus,Receitas SUS no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_receitas_sus_sorocaba_{ano}.csv,public
+agentes,poder-publico,Lista estruturada de agentes e instituicoes do poder publico local,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,poder_publico_sorocaba.json,public_aux
+auditoria,agentes,Perfis publicos de agentes politicos em escopo de auditoria,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,agentes.json,public_aux
+auditoria,emendas,Emendas parlamentares em escopo de auditoria; vazio quando nao ha dado validado publicado,2025-2028,Fontes oficiais legislativas,JSON manual auditavel,sob demanda,emendas.json,public_aux
+auditoria,ranking,Ranking de auditoria; vazio enquanto nao houver metodologia aplicada com dados reais validados,2025-2028,Metodologia interna + fontes oficiais,JSON manual auditavel,sob demanda,ranking.json,public_aux

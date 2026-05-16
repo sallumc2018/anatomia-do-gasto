@@ -1,0 +1,3 @@
+municipio,ano,status,movimentos_extraidos,recebedores_agregados,credito_diff,debito_diff,arquivo_validado,script,observacao
+Sorocaba,2020,validado_localmente,59340,3094,0.00,0.00,data/validated/sorocaba/execucao/saida/fornecedores_agregado_sorocaba_2020.csv,pipelines/agregar_fornecedores_execucao.py --ano 2020,"Soma agregada bate com CSV extraido; classificacao_inicial requer curadoria antes de publicacao"
+Sorocaba,2024,validado_localmente,82253,5060,0.00,0.00,data/validated/sorocaba/execucao/saida/fornecedores_agregado_sorocaba_2024.csv,pipelines/agregar_fornecedores_execucao.py --ano 2024,"Soma agregada bate com CSV extraido; classificacao_inicial requer curadoria antes de publicacao"
