@@ -7,21 +7,22 @@ import { trackEvent } from "@/lib/analytics"
 import { SiteSearch } from "@/components/search/SiteSearch"
 
 const MAIN_NAV = [
-  { href: "/", label: "Home" },
-  { href: "/saude", label: "Saúde" },
-  { href: "/educacao", label: "Educação" },
-  { href: "/seguranca", label: "Segurança" },
-  { href: "/transporte", label: "Transporte" },
+  { href: "/executivo", label: "Dinheiro" },
   { href: "/camara-municipal", label: "Câmara" },
-  { href: "/executivo", label: "Orçamento" },
+  { href: "/saude", label: "Serviços" },
+  { href: "/dados", label: "Dados" },
 ]
 
 const MAIS_NAV = [
   { href: "/receita", label: "Receita" },
+  { href: "/execucao", label: "Execução" },
   { href: "/saude-fiscal", label: "Saúde Fiscal" },
-  { href: "/dados", label: "Dados" },
-  { href: "/metodologia", label: "Metodologia" },
+  { href: "/educacao", label: "Educação" },
+  { href: "/seguranca", label: "Segurança" },
+  { href: "/transporte", label: "Transporte" },
+  { href: "/auditoria", label: "Agentes" },
   { href: "/pacto-federativo", label: "Federativo" },
+  { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre" },
 ]
 

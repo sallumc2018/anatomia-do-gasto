@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 :root {
+  --header-h: 48px; /* altura do header sticky no desktop */
+
   --font-ibm-plex-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
   --font-ibm-plex-mono: Consolas, "Courier New", monospace;
 
@@ -68,6 +70,8 @@
 html {
   background-color: var(--bg-base);
   color: var(--text-01);
+  /* Compensa header sticky + subnav sticky nos links âncora */
+  scroll-padding-top: calc(var(--header-h) + 44px);
 }
 
 body {
@@ -75,6 +79,7 @@ body {
   font-family: var(--font-ibm-plex-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a:focus-visible,
@@ -127,6 +132,158 @@ button:focus-visible {
 .tile-link:focus-visible {
   outline: 2px solid var(--border-focus);
   outline-offset: 2px;
+}
+
+.theo-floating-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 8px 14px 8px 8px;
+  color: var(--text-01);
+  text-decoration: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--blue-60);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.36);
+  transition: background-color 100ms ease, border-color 100ms ease, transform 100ms ease;
+}
+
+.theo-floating-button:hover {
+  background: var(--bg-raised);
+  border-color: var(--blue-40);
+  transform: translateY(-1px);
+}
+
+.theo-floating-button__mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--text-on-color);
+  background: var(--blue-60);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.theo-floating-button__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.1;
+}
+
+.theo-floating-button__text strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.theo-floating-button__text span {
+  font-size: 11px;
+  color: var(--text-03);
+}
+
+.theo-chat__composer {
+  /* no padding: sits directly in the section */
+}
+
+.theo-chat__composer div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-01);
+  transition: border-color 100ms ease;
+}
+
+.theo-chat__composer div:focus-within {
+  border-color: var(--border-03);
+}
+
+.theo-chat__composer input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  color: var(--text-01);
+  background: transparent;
+  border: none;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.theo-chat__composer input::placeholder {
+  color: var(--text-04);
+}
+
+.theo-chat__composer button {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0 14px;
+  color: var(--text-03);
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--border-01);
+  cursor: pointer;
+  font: inherit;
+  font-size: 18px;
+  transition: color 100ms ease, background-color 100ms ease;
+}
+
+.theo-chat__composer button:hover {
+  color: var(--text-01);
+  background: var(--bg-high);
+}
+
+.theo-chat__answer {
+  padding-top: 20px;
+}
+
+.theo-chat__answer h4 {
+  margin: 0 0 8px;
+  color: var(--text-01);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.theo-chat__answer p {
+  margin: 0;
+  color: var(--text-02);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.theo-chat__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.theo-chat__links a {
+  padding: 6px 12px;
+  color: var(--blue-40);
+  border: 1px solid var(--border-01);
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: none;
+  transition: border-color 100ms ease, color 100ms ease;
+}
+
+.theo-chat__links a:hover {
+  color: var(--text-01);
+  border-color: var(--border-02);
+}
+
+.theo-chat__trace {
+  margin: 12px 0 0;
+  color: var(--text-04);
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .mobile-scroll {
@@ -193,4 +350,104 @@ button:focus-visible {
   .table-scroll::before {
     display: none;
   }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 80px; /* mobile: barra (48px) + nav horizontal (~32px) */
+  }
+}
+
+@media (max-width: 639px) {
+  .nav-link {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .mobile-hero-inset {
+    border-left-width: 3px !important;
+    padding-left: 16px !important;
+  }
+
+  .mobile-metric-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    text-align: left !important;
+  }
+
+  .mobile-card-footer,
+  .mobile-value-row,
+  .mobile-status-row {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .mobile-status-row > span {
+    white-space: normal !important;
+  }
+
+  .mobile-loa-row,
+  .mobile-assessores-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    align-items: start !important;
+  }
+
+  .mobile-value-row > * {
+    white-space: normal !important;
+  }
+
+  .mobile-indexed-cell {
+    border-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .mobile-bordered-grid {
+    border-left: 0 !important;
+  }
+
+  .theo-floating-button {
+    right: 14px;
+    bottom: 14px;
+    min-height: 42px;
+    padding: 7px;
+  }
+
+  .theo-floating-button__text {
+    display: none;
+  }
+
+  .theo-chat__composer div {
+    grid-template-columns: 1fr;
+  }
+
+  .theo-chat__composer button {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border-01);
+  }
+}
+
+/* ─── Théo: notices ─────────────────────────────────────────────────────── */
+
+.theo-chat__fallback-notice {
+  margin: 0 0 10px;
+  color: var(--text-03);
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.theo-chat__status-notice {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.theo-chat__status-notice--lacuna {
+  color: var(--support-error);
+}
+
+.theo-chat__status-notice--coleta {
+  color: var(--support-warning);
 }

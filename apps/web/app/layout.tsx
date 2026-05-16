@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
+import TheoFloatingButton from "@/components/layout/theo-floating-button"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -64,6 +65,7 @@ export default function RootLayout({
           Ir para o conteúdo
         </a>
         {children}
+        <TheoFloatingButton />
         <Analytics />
       </body>
     </html>

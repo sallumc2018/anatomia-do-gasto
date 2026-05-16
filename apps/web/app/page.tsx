@@ -2,8 +2,8 @@ import React from "react"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import TheoGuide from "@/components/theo/theo-guide"
 import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
-import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import {
   FUNCAO_LABELS,
   SUBFUNCAO_LABELS,
@@ -43,6 +43,65 @@ const HEALTH_AREAS: { area: HealthArea; titulo: string; href: string }[] = [
 ]
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"
+
+const PERGUNTAS_GUIA = [
+  {
+    pergunta: "Para onde foi o dinheiro?",
+    resposta: "Comece pelo orçamento por função e depois aprofunde por área.",
+    href: "/executivo",
+    status: "Disponível",
+    termos: "orçamento, função, gasto total",
+  },
+  {
+    pergunta: "Quanto entrou em Sorocaba?",
+    resposta: "Veja impostos, transferências e composição das receitas.",
+    href: "/receita",
+    status: "Disponível",
+    termos: "receita, ISS, IPTU, ICMS, FPM",
+  },
+  {
+    pergunta: "O dinheiro foi só autorizado ou realmente pago?",
+    resposta: "Compare dotação, empenhado, liquidado e pago.",
+    href: "/execucao",
+    status: "Disponível",
+    termos: "execução, liquidado, pago",
+  },
+  {
+    pergunta: "Quanto custa saúde, educação, segurança e transporte?",
+    resposta: "Abra os painéis de serviços públicos e compare a série histórica.",
+    href: "/saude",
+    status: "Disponível",
+    termos: "serviços públicos, gasto por área",
+  },
+  {
+    pergunta: "Quanto custa a Câmara e cada vereador?",
+    resposta: "Veja orçamento legislativo, subsídios e agentes públicos mapeados.",
+    href: "/camara-municipal",
+    status: "Disponível",
+    termos: "vereadores, Câmara, subsídio",
+  },
+  {
+    pergunta: "Sorocaba está endividada?",
+    resposta: "Confira dívida, pessoal, RCL, previdência e limites fiscais.",
+    href: "/saude-fiscal",
+    status: "Disponível",
+    termos: "dívida, pessoal, RCL, previdência",
+  },
+  {
+    pergunta: "Quem recebeu dinheiro público?",
+    resposta: "Fonte já inventariada; a página de fornecedores ainda precisa entrar no site.",
+    href: "/dados",
+    status: "Em coleta",
+    termos: "fornecedores, contratos, pagamentos",
+  },
+  {
+    pergunta: "Quais dados posso baixar e auditar?",
+    resposta: "Acesse os CSVs publicados e a metodologia de validação.",
+    href: "/dados",
+    status: "Disponível",
+    termos: "CSV, fonte, metodologia",
+  },
+]
 
 const EXPLICACOES = [
   {
@@ -96,15 +155,7 @@ function getAreaSummary(area: HealthArea) {
   const latestRevenue = revenues.sort((a, b) => b.quadrimestre - a.quadrimestre)[0]
   const total = rows.find((row) => row.funcao === TOTAL_ROW[area])
   const funcoes = rows.filter((row) => row.funcao !== TOTAL_ROW[area])
-
-  return {
-    latestYear,
-    period: rows[0]?.quadrimestre,
-    years,
-    total,
-    latestRevenue,
-    funcoes,
-  }
+  return { latestYear, period: rows[0]?.quadrimestre, years, total, latestRevenue, funcoes }
 }
 
 function getSegurancaSummary() {
@@ -113,13 +164,15 @@ function getSegurancaSummary() {
   const rows = latestYear ? loadSegurancaData(latestYear) : []
   const total = rows.find((row) => row.subfuncao === SEGURANCA_TOTAL) ?? rows[0]
   const subfuncoes = rows.filter((row) => row.subfuncao !== SEGURANCA_TOTAL)
+  return { latestYear, years, total, subfuncoes }
+}
 
-  return {
-    latestYear,
-    years,
-    total,
-    subfuncoes,
-  }
+function getTransporteSummary() {
+  const years = getAvailableYearsTransporte()
+  const latestYear = years[0] ?? null
+  const orc = latestYear ? loadTransporteOrcamento(latestYear) : null
+  const dca = latestYear ? loadTransporteDca(latestYear) : null
+  return { years, latestYear, orc, dca }
 }
 
 function FunctionRows({ area, rows }: { area: HealthArea; rows: HealthRow[] }) {
@@ -164,117 +217,94 @@ function SegurancaRows({ rows }: { rows: ReturnType<typeof getSegurancaSummary>[
   )
 }
 
-function getTransporteSummary() {
-  const years = getAvailableYearsTransporte()
-  const latestYear = years[0] ?? null
-  const orc = latestYear ? loadTransporteOrcamento(latestYear) : null
-  const dca = latestYear ? loadTransporteDca(latestYear) : null
-  const taxa = orc && orc.dotacao_atualizada > 0
-    ? (orc.empenhado / orc.dotacao_atualizada) * 100
-    : null
-  return { years, latestYear, orc, dca, taxa }
-}
-
 export default function IndexPage() {
   const summaries = HEALTH_AREAS.map((item) => ({ ...item, resumo: getAreaSummary(item.area) }))
   const seguranca = getSegurancaSummary()
   const transporte = getTransporteSummary()
-  const poderPublico = getPoderPublicoSorocaba()
-  const totalAgentes = poderPublico.grupos.reduce((total, grupo) => total + grupo.pessoas.length, 0)
 
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
-        <section style={{ backgroundColor: "var(--bg-elevated)" }}>
+
+        {/* ── Seção 1: Entrada — Théo + Cards ── */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12 md:py-16" style={S.container}>
-            <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
-              <p style={S.label}>Sorocaba, SP</p>
-              <h1 className="font-semibold mt-3 mb-5" style={{ fontSize: "clamp(32px, 4vw, 52px)", lineHeight: "1.12", color: "var(--text-01)", maxWidth: "860px" }}>
-                Para onde vai o dinheiro público
-              </h1>
-              <p style={{ ...S.body, maxWidth: "760px", fontSize: "16px", lineHeight: "26px" }}>
-                Quanto Sorocaba gastou em saúde, educação, segurança pública e transporte, de onde veio esse dinheiro e em que áreas ele foi aplicado,
-                com base em relatórios oficiais publicados pelo poder público, sem alteração manual dos valores orçamentários exibidos.
-              </p>
-            </div>
-          </div>
-        </section>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10">
 
-        <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)", borderBottom: "1px solid var(--border-01)" }}>
-          <div className="mx-auto px-6 py-10" style={S.container}>
-            <p style={{ ...S.label, marginBottom: "20px" }}>Como usar este site</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={{ borderTop: "1px solid var(--border-01)" }}>
-              {[
-                { num: "01", titulo: "Escolha uma área", texto: "Saúde, Educação, Segurança Pública ou Transporte. Cada uma tem os dados organizados por ano e período ou exercício." },
-                { num: "02", titulo: "Veja os números", texto: "Quanto foi autorizado, comprometido, liquidado e efetivamente pago. A divisão por área aparece em cada painel." },
-                { num: "03", titulo: "Confira a fonte", texto: "Nos datasets principais, cada linha publicada informa o PDF ou a URL oficial de origem. Quando houver lacuna, o site declara isso." },
-              ].map((step, i) => (
-                <div key={step.num} className="py-7" style={{
-                  paddingRight: i < 2 ? "40px" : 0,
-                  paddingLeft: i > 0 ? "40px" : 0,
-                  borderLeft: i > 0 ? "1px solid var(--border-01)" : "none",
-                }}>
-                  <p className="font-mono mb-3" style={{ fontSize: "12px", color: "var(--text-04)" }}>{step.num}</p>
-                  <p className="font-semibold mb-2" style={{ fontSize: "15px", color: "var(--text-01)" }}>{step.titulo}</p>
-                  <p style={{ ...S.body, fontSize: "14px" }}>{step.texto}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
-          <div className="mx-auto px-6 py-12" style={S.container}>
-            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10">
+              {/* Esquerda: intro + Théo */}
               <div>
-                <p style={S.label}>O que estes dados explicam</p>
-                <h2 className="font-semibold mt-3 mb-5" style={{ fontSize: "30px", lineHeight: "38px", color: "var(--text-01)", maxWidth: "560px" }}>
-                  O caminho documentado do dinheiro até onde a fonte permite enxergar
-                </h2>
-                <p style={{ ...S.body, maxWidth: "620px", fontSize: "15px", lineHeight: "24px" }}>
-                  Com os dados atuais, qualquer pessoa consegue acompanhar a origem agregada do dinheiro,
-                  a obrigação legal de aplicação, a execução orçamentária e o destino por função ou subfunção pública.
-                  Quando a fonte não chega a fornecedor, unidade ou pessoa, o site declara essa lacuna.
+                <p style={S.label}>Sorocaba, SP</p>
+                <h1
+                  className="font-semibold mt-3"
+                  style={{
+                    fontSize: "clamp(26px, 3.5vw, 42px)",
+                    lineHeight: "1.12",
+                    color: "var(--text-01)",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Para onde vai o dinheiro público
+                </h1>
+                <p
+                  style={{
+                    ...S.body,
+                    fontSize: "15px",
+                    lineHeight: "24px",
+                    color: "var(--text-03)",
+                    marginBottom: "24px",
+                  }}
+                >
+                  Dados fiscais oficiais em linguagem compreensível. Fontes declaradas, limites explícitos.
                 </p>
+                <TheoGuide />
               </div>
 
-              <div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0" style={{ borderTop: "1px solid var(--border-01)" }}>
-                  {EXPLICACOES.map((item) => (
-                    <div key={item.titulo} className="py-5 sm:pr-6" style={{ borderBottom: "1px solid var(--border-01)" }}>
-                      <p className="font-semibold mb-2" style={{ color: "var(--text-01)", fontSize: "15px" }}>
-                        {item.titulo}
-                      </p>
-                      <p style={S.body}>{item.texto}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 p-5" style={{ backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)" }}>
-                  <p style={S.label}>O que ainda não dá para afirmar</p>
-                  <ul className="mt-4 flex flex-col gap-2">
-                    {LIMITES.map((limite) => (
-                      <li key={limite} style={{ ...S.body, color: "var(--text-03)" }}>
-                        {limite}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* Direita: cards de perguntas */}
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2"
+                style={{ borderTop: "1px solid var(--border-01)", borderLeft: "1px solid var(--border-01)" }}
+              >
+                {PERGUNTAS_GUIA.map((item) => (
+                  <Link
+                    key={item.pergunta}
+                    href={item.href}
+                    className="tile-link p-5 flex flex-col gap-3"
+                    style={{
+                      minHeight: "170px",
+                      borderRight: "1px solid var(--border-01)",
+                      borderBottom: "1px solid var(--border-01)",
+                    }}
+                  >
+                    <p style={{ ...S.label, color: item.status === "Disponível" ? "var(--blue-40)" : "var(--support-warning)" }}>
+                      {item.status}
+                    </p>
+                    <h3 className="font-semibold" style={{ fontSize: "16px", lineHeight: "23px", color: "var(--text-01)" }}>
+                      {item.pergunta}
+                    </h3>
+                    <p style={{ ...S.body, flex: 1, fontSize: "13px" }}>{item.resposta}</p>
+                  </Link>
+                ))}
               </div>
+
             </div>
           </div>
         </section>
 
-        <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
+        {/* ── Seção 2: Dados disponíveis ── */}
+        <section id="dados-disponiveis" style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
+            <p style={{ ...S.label, marginBottom: "20px" }}>Dados disponíveis · Sorocaba 2020–2025</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
               {summaries.map(({ area, titulo, href, resumo }) => {
-                const periodLabel = area === "educacao"
-                  ? `${resumo.period ?? "-"}º trimestre`
-                  : `${resumo.period ?? "-"}º quadrimestre`
-                const minLabel = area === "educacao" ? "Mín. constitucional: 25%" : "Mín. constitucional: 15%"
+                const periodLabel =
+                  area === "educacao"
+                    ? `${resumo.period ?? "-"}º trimestre`
+                    : `${resumo.period ?? "-"}º quadrimestre`
+                const minLabel =
+                  area === "educacao" ? "Mín. constitucional: 25%" : "Mín. constitucional: 15%"
                 return (
                   <Link
                     key={area}
@@ -293,7 +323,7 @@ export default function IndexPage() {
                             Gasto liquidado · {periodLabel} de {resumo.latestYear ?? "-"}
                           </p>
                         </div>
-                        <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                        <div className="mobile-metric-grid grid grid-cols-2 gap-4 text-left sm:text-right">
                           <div>
                             <p style={S.label}>Receitas da área</p>
                             <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
@@ -305,14 +335,14 @@ export default function IndexPage() {
                             <p className="mt-2" style={{ ...S.body, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
                               {formatPercent(resumo.latestRevenue?.percentual_aplicado_liquidado)}
                             </p>
-                            <p style={{ fontSize: "11px", color: "var(--text-04)", marginTop: "2px" }}>{minLabel}</p>
+                            <p style={{ fontSize: "11px", color: "var(--text-04)", marginTop: "2px" }}>
+                              {minLabel}
+                            </p>
                           </div>
                         </div>
                       </div>
-
                       <FunctionRows area={area} rows={resumo.funcoes} />
-
-                      <div className="mt-6 flex items-center justify-between gap-4">
+                      <div className="mobile-card-footer mt-6 flex items-center justify-between gap-4">
                         <p style={{ ...S.body, color: "var(--text-03)" }}>
                           Série disponível: {resumo.years.join(", ") || "nenhum"}
                         </p>
@@ -341,12 +371,10 @@ export default function IndexPage() {
                         Gasto liquidado anual · {seguranca.latestYear ?? "-"}
                       </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                    <div className="mobile-metric-grid grid grid-cols-2 gap-4 text-left sm:text-right">
                       <div>
                         <p style={S.label}>Fonte</p>
-                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>
-                          SICONFI / DCA
-                        </p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>SICONFI / DCA</p>
                       </div>
                       <div>
                         <p style={S.label}>Série</p>
@@ -358,10 +386,8 @@ export default function IndexPage() {
                       </div>
                     </div>
                   </div>
-
                   <SegurancaRows rows={seguranca.subfuncoes} />
-
-                  <div className="mt-6 flex items-center justify-between gap-4">
+                  <div className="mobile-card-footer mt-6 flex items-center justify-between gap-4">
                     <p style={{ ...S.body, color: "var(--text-03)" }}>
                       Subfunções: guarda municipal, policiamento, defesa civil e inteligência.
                     </p>
@@ -388,12 +414,10 @@ export default function IndexPage() {
                         Gasto liquidado anual · função 26 · {transporte.latestYear ?? "—"}
                       </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-4 text-left sm:text-right">
+                    <div className="mobile-metric-grid grid grid-cols-2 gap-4 text-left sm:text-right">
                       <div>
                         <p style={S.label}>Fonte</p>
-                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>
-                          SICONFI / RREO
-                        </p>
+                        <p className="mt-2" style={{ ...S.body, color: "var(--text-01)" }}>SICONFI / RREO</p>
                       </div>
                       <div>
                         <p style={S.label}>Série</p>
@@ -405,8 +429,7 @@ export default function IndexPage() {
                       </div>
                     </div>
                   </div>
-
-                  <div className="mt-6 flex items-center justify-between gap-4">
+                  <div className="mobile-card-footer mt-6 flex items-center justify-between gap-4">
                     <p style={{ ...S.body, color: "var(--text-03)" }}>
                       Inclui transporte público e obras viárias — subfunção única, sem discriminação.
                     </p>
@@ -416,90 +439,68 @@ export default function IndexPage() {
                   </div>
                 </div>
               </Link>
+
             </div>
           </div>
         </section>
 
-        <section style={{ backgroundColor: "var(--bg-elevated)", borderTop: "1px solid var(--border-01)" }}>
+        {/* ── Seção 3: Contexto ── */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+              {/* O que explica */}
               <div>
-                <p style={S.label}>Mapa de responsabilidade</p>
-                <h2 className="font-semibold mt-2" style={{ fontSize: "28px", color: "var(--text-01)" }}>
-                  Poder público ligado a Sorocaba
-                </h2>
-              </div>
-              <p style={{ ...S.body, color: "var(--text-03)" }}>
-                {totalAgentes} agentes mapeados · atualizado em {poderPublico.atualizado_em}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {poderPublico.grupos.map((grupo) => (
-                <section key={grupo.id} style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-base)" }}>
-                  <div className="p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p style={S.label}>{grupo.escopo}</p>
-                        <h3 className="font-semibold mt-2" style={{ fontSize: "20px", color: "var(--text-01)" }}>
-                          {grupo.titulo}
-                        </h3>
-                      </div>
-                      <span style={{ ...S.body, color: "var(--text-03)" }}>
-                        {grupo.pessoas.length}
-                      </span>
-                    </div>
-
-                    {grupo.observacao ? (
-                      <p className="mt-4" style={{ ...S.body, color: "var(--text-03)" }}>
-                        {grupo.observacao}
+                <p style={S.label}>O que estes dados explicam</p>
+                <div className="mt-5" style={{ borderTop: "1px solid var(--border-01)" }}>
+                  {EXPLICACOES.map((item) => (
+                    <div key={item.titulo} className="py-4" style={{ borderBottom: "1px solid var(--border-01)" }}>
+                      <p className="font-semibold mb-1" style={{ color: "var(--text-01)", fontSize: "14px" }}>
+                        {item.titulo}
                       </p>
-                    ) : null}
-
-                    <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-                      {grupo.pessoas.map((pessoa) => (
-                        <div
-                          key={`${grupo.id}-${pessoa.nome}`}
-                          className="py-3"
-                          style={{ borderTop: "1px solid var(--border-01)" }}
-                        >
-                          <p style={{ ...S.body, color: "var(--text-01)", fontWeight: 600 }}>
-                            {pessoa.nome_publico ?? pessoa.nome}
-                          </p>
-                          <p className="mt-1" style={{ ...S.body, color: "var(--text-03)" }}>
-                            {pessoa.cargo}
-                            {pessoa.partido ? ` · ${pessoa.partido}` : ""}
-                            {pessoa.mandato ? ` · ${pessoa.mandato}` : ""}
-                          </p>
-                          {pessoa.remuneracao ? (
-                            <p className="mt-2" style={{ ...S.body, color: "var(--text-02)", fontVariantNumeric: "tabular-nums" }}>
-                              {formatBRL(pessoa.remuneracao.valor_bruto_mensal)} / mês
-                            </p>
-                          ) : null}
-                        </div>
-                      ))}
+                      <p style={S.body}>{item.texto}</p>
                     </div>
-                  </div>
-                </section>
-              ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Limites */}
+              <div>
+                <p style={S.label}>O que ainda não dá para afirmar</p>
+                <ul className="mt-5" style={{ borderTop: "1px solid var(--border-01)" }}>
+                  {LIMITES.map((limite) => (
+                    <li key={limite} className="py-4" style={{ ...S.body, color: "var(--text-03)", borderBottom: "1px solid var(--border-01)", listStyle: "none" }}>
+                      {limite}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Links */}
+              <div>
+                <p style={S.label}>Sobre o projeto</p>
+                <p className="mt-5" style={{ ...S.body, color: "var(--text-03)", marginBottom: "20px" }}>
+                  Rastreador auditável independente, sem vínculo com partidos ou governos. Piloto em Sorocaba/SP.
+                </p>
+                <div className="flex flex-col gap-3">
+                  {[
+                    { href: "/metodologia", label: "Metodologia e fontes" },
+                    { href: "/sobre", label: "Sobre o projeto" },
+                    { href: "/dados", label: "Baixar datasets" },
+                    { href: "/auditoria", label: "Agentes públicos mapeados" },
+                    { href: "/contato", label: "Contato" },
+                  ].map((link) => (
+                    <Link key={link.href} href={link.href} className="nav-link" style={{ fontSize: "14px" }}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
             </div>
-
-            <p className="mt-6" style={{ ...S.body, color: "var(--text-03)" }}>
-              {poderPublico.observacao}
-            </p>
-            <p className="mt-3" style={{ ...S.body, color: "var(--text-04)", fontSize: "13px" }}>
-              Remuneração exibida como subsídio bruto mensal oficial do cargo, quando publicada em fonte oficial.
-            </p>
           </div>
         </section>
 
-        <section style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
-          <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
-            <Link href="/dados" className="nav-link">Ver datasets publicados</Link>
-            <Link href="/seguranca" className="nav-link">Ver segurança pública</Link>
-            <Link href="/transporte" className="nav-link">Ver transporte</Link>
-          </div>
-        </section>
       </main>
       <PageFooter />
     </div>

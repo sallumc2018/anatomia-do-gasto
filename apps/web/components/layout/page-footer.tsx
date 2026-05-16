@@ -21,38 +21,25 @@ const COLS: { title: string; items: FooterItem[] }[] = [
       { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
       { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
+      { label: "Metodologia completa", href: "/metodologia", internal: true },
     ],
   },
   {
-    title: "Limitações declaradas",
+    title: "Contato e projeto",
     items: [
-      { label: "Piloto: Sorocaba/SP apenas" },
-      { label: "Áreas: Saúde, Educação, Segurança e Transporte" },
-      { label: "Saúde publicada: 2020-2025", href: "/saude", internal: true },
-      { label: "Educação publicada: 2020-2025", href: "/educacao", internal: true },
-      { label: "Segurança publicada: 2020-2025 · DCA/SICONFI", href: "/seguranca", internal: true },
-      { label: "Transporte publicada: 2020-2025 · RREO+DCA/SICONFI · subfunção única", href: "/transporte", internal: true },
-      { label: "Dados por fornecedor/pessoa ainda ausentes" },
-      { label: "Expansão para outros municípios planejada" },
-    ],
-  },
-  {
-    title: "Princípios",
-    items: [
-      { label: "Sem juízo editorial sobre os valores" },
-      { label: "Rastro exibido somente quando documentado" },
-      { label: "Limitações declaradas explicitamente" },
-      { label: "Sem afiliação política" },
-      { label: "Código aberto - Sem fins lucrativos" },
-    ],
-  },
-  {
-    title: "Projeto",
-    items: [
-      { label: "Anatomia do Gasto" },
-      { label: "Projeto independente sem fins lucrativos" },
-      { label: "Piloto: Sorocaba/SP" },
+      { label: "contato@anatomiadogasto.ong.br", href: "mailto:contato@anatomiadogasto.ong.br" },
+      { label: "Página de contato", href: "/contato", internal: true },
+      { label: "Sobre o projeto", href: "/sobre", internal: true },
       { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
+      { label: "Issues e erros nos dados", href: "https://github.com/sallumc2018/anatomia-do-gasto/issues" },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
+      { label: "Política de Dados", href: "/politica-de-dados", internal: true },
+      { label: "Termos de Uso", href: "/termos", internal: true },
+      { label: "Sem afiliação política · Sem fins lucrativos" },
     ],
   },
 ]
@@ -61,7 +48,7 @@ export default function PageFooter() {
   return (
     <footer style={{ backgroundColor: "var(--bg-base)", borderTop: "1px solid var(--border-01)" }}>
       <div className="mx-auto px-6 py-12" style={{ maxWidth: "1312px" }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
           {COLS.map((col) => (
             <div key={col.title}>
               <p className="uppercase font-semibold mb-4" style={S_label}>
