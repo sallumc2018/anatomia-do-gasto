@@ -2,17 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import fs from "fs"
 import path from "path"
 
-function findRepoRoot(startDir: string): string {
-  let dir = startDir
-  while (true) {
-    if (fs.existsSync(path.join(dir, "data", "public"))) return dir
-    const parent = path.dirname(dir)
-    if (parent === dir) return startDir
-    dir = parent
-  }
-}
-
-const DATA_ROOT = path.resolve(path.join(findRepoRoot(process.cwd()), "data", "public"))
+const DATA_ROOT = path.resolve(path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public"))
 
 export async function GET(
   _req: NextRequest,

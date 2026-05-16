@@ -41,10 +41,11 @@ const S = {
 const SECOES = [
   {
     titulo: "Origem dos dados",
-    corpo: "Os dados orçamentários de saúde e educação exibidos no Anatomia do Gasto são extraídos de documentos oficiais publicados pelo poder público. Conteúdos ilustrativos ou de curadoria editorial devem ser sinalizados explicitamente.",
+    corpo: "Os dados orçamentários de saúde, educação, segurança pública e transporte exibidos no Anatomia do Gasto são extraídos de documentos oficiais publicados pelo poder público. Conteúdos ilustrativos ou de curadoria editorial são sinalizados explicitamente.",
     itens: [
       "Portal de Transparência da Prefeitura de Sorocaba — relatórios de aplicação da LRF (saúde) e relatórios de execução orçamentária (educação)",
-      "SICONFI — Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro (Tesouro Nacional) — RREO Anexo 12",
+      "SICONFI / DCA — Declaração de Contas Anuais (Tesouro Nacional) — segurança pública (função 06)",
+      "SICONFI / RREO — Relatório Resumido da Execução Orçamentária — transporte (função 26) e saúde (Anexo 12)",
       "SIOPS — Sistema de Informações sobre Orçamentos Públicos em Saúde (Ministério da Saúde) — referência de validação cruzada",
     ],
   },
@@ -76,6 +77,16 @@ const SECOES = [
       "Buscamos verificar a ocorrência com prioridade e registrar a resposta publicamente no histórico do projeto",
       "Erros confirmados são corrigidos e o commit de correção fica registrado publicamente no histórico do GitHub",
       "Se o erro estiver no PDF original: registramos a divergência na página correspondente, mas mantemos o valor do documento oficial até que ele seja corrigido na fonte",
+    ],
+  },
+  {
+    titulo: "Temas em construção",
+    corpo: "O Anatomia do Gasto está expandindo para além das quatro áreas orçamentárias publicadas. Temas em fase de mapeamento metodológico não têm dados publicados neste site — a ausência é declarada explicitamente.",
+    itens: [
+      "Rastro Federativo — como recursos fluem entre União, estados e municípios — em construção; metodologia disponível em /pacto-federativo",
+      "Câmara Municipal de Sorocaba — custo por vereador e produção legislativa — em mapeamento",
+      "Demais poderes (Judiciário, Legislativo estadual e federal) — fora do escopo atual",
+      "Nenhum número será publicado nessas frentes antes de fonte oficial confirmada e metodologia declarada",
     ],
   },
   {

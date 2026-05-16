@@ -339,7 +339,7 @@ export default async function RelatorioSegurancaPage({ params }: PageProps) {
               </div>
             )}
             <p className="mt-8" style={S.caption}>
-              Fonte: DCA Anexo I-E — SICONFI / Tesouro Nacional. Município de Sorocaba/SP · Exercício {year}.
+              Fonte: DCA Anexo I-E — SICONFI / Tesouro Nacional. Sorocaba/SP · Exercício {year}.
               Dados extraídos da API pública do sistema federal.
               Liquidado = bens ou serviços entregues e aprovados pela prefeitura.
             </p>

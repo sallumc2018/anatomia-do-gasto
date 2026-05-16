@@ -7,11 +7,13 @@ import { PctRclChart, type PctRclPoint } from "@/components/charts/PctRclChart"
 import {
   getAvailableYearsFiscal,
   loadPessoal,
-  loadDivida,
+  loadDividaDetalhada,
   loadRclDetalhada,
+  loadRpps,
   type PessoalRow,
-  type DividaRow,
+  type DividaDetalhadaRow,
   type RclDetalhadaRow,
+  type RppsRow,
 } from "@/lib/data"
 
 export const metadata: Metadata = {
@@ -56,13 +58,21 @@ export default function SaudeFiscalPage() {
   const anos = getAvailableYearsFiscal()
   const anoAtual = anos[0] ?? 2025
 
-  const pessoalSerie: PessoalRow[] = anos.map((a) => loadPessoal(a)).filter((r): r is PessoalRow => r !== null).sort((a, b) => a.ano - b.ano)
-  const dividaSerie:  DividaRow[]  = anos.map((a) => loadDivida(a)).filter((r): r is DividaRow  => r !== null).sort((a, b) => a.ano - b.ano)
-  const rclSerie:     RclDetalhadaRow[] = anos.map((a) => loadRclDetalhada(a)).filter((r): r is RclDetalhadaRow => r !== null).sort((a, b) => a.ano - b.ano)
+  const pessoalSerie: PessoalRow[]          = anos.map((a) => loadPessoal(a)).filter((r): r is PessoalRow => r !== null).sort((a, b) => a.ano - b.ano)
+  const dividaSerie:  DividaDetalhadaRow[]  = anos.map((a) => loadDividaDetalhada(a)).filter((r): r is DividaDetalhadaRow => r !== null).sort((a, b) => a.ano - b.ano)
+  const rclSerie:     RclDetalhadaRow[]     = anos.map((a) => loadRclDetalhada(a)).filter((r): r is RclDetalhadaRow => r !== null).sort((a, b) => a.ano - b.ano)
+  const rppsSerie:    RppsRow[]             = anos.map((a) => loadRpps(a)).filter((r): r is RppsRow => r !== null).sort((a, b) => a.ano - b.ano)
 
   const pessoalAtual = pessoalSerie.find((r) => r.ano === anoAtual)
   const dividaAtual  = dividaSerie.find((r)  => r.ano === anoAtual)
   const rclAtual     = rclSerie.find((r)     => r.ano === anoAtual)
+  const rppsAtual    = rppsSerie.find((r)    => r.ano === anoAtual)
+  const transferenciasIdentificadas = rclAtual
+    ? rclAtual.fpm + rclAtual.icms + rclAtual.ipva + rclAtual.fundeb + rclAtual.outras_transferencias
+    : 0
+  const outrasTransferenciasMenores = rclAtual
+    ? Math.max(0, rclAtual.transferencias_total - transferenciasIdentificadas)
+    : 0
 
   const pessoalChartData: PctRclPoint[] = pessoalSerie.map((r) => ({ ano: String(r.ano), valor: r.dtp_pct_rcl }))
   const dividaChartData:  PctRclPoint[] = dividaSerie.map((r)  => ({ ano: String(r.ano), valor: r.dc_pct_rcl }))
@@ -86,19 +96,19 @@ export default function SaudeFiscalPage() {
   const pessoal2020 = pessoalSerie.find((r) => r.ano === 2020)
   const pessoalInsights: string[] = [
     ...(pessoalAtual ? [
-      `Em ${anoAtual}, Sorocaba gastou ${pessoalAtual.dtp_pct_rcl.toFixed(2)}% da RCL com pessoal — o limite legal para o Executivo é 54% (LRF art. 20). A margem disponível é de ${(pessoalAtual.limite_maximo_pct - pessoalAtual.dtp_pct_rcl).toFixed(2)} pontos percentuais.`,
+      `Em ${anoAtual}, Sorocaba gastou ${pessoalAtual.dtp_pct_rcl.toFixed(2)}% da RCL ajustada com pessoal — o limite legal para o Executivo é 54% (LRF art. 20). A margem disponível é de ${(pessoalAtual.limite_maximo_pct - pessoalAtual.dtp_pct_rcl).toFixed(2)} pontos percentuais.`,
       `Do total, ${fmt(pessoalAtual.pessoal_ativo)} foram com pessoal ativo e ${fmt(pessoalAtual.pessoal_inativo)} com inativos e pensionistas (RPPS).`,
     ] : []),
     ...(pessoal2020 && pessoalAtual ? [
-      `O pico foi em 2020, com ${pessoal2020.dtp_pct_rcl.toFixed(2)}% da RCL, período de pandemia com menor arrecadação e manutenção da folha. Em ${anoAtual} o índice caiu para ${pessoalAtual.dtp_pct_rcl.toFixed(2)}%, reflexo do crescimento da RCL.`,
+      `O pico foi em 2020, com ${pessoal2020.dtp_pct_rcl.toFixed(2)}% da RCL ajustada, período de pandemia com menor arrecadação e manutenção da folha. Em ${anoAtual} o índice caiu para ${pessoalAtual.dtp_pct_rcl.toFixed(2)}%.`,
     ] : []),
   ]
 
   // Insights dívida
   const dividaInsights: string[] = [
     ...(dividaAtual ? [
-      `A dívida consolidada bruta de Sorocaba em ${anoAtual} era de ${fmt(dividaAtual.dc_bruta)} (${dividaAtual.dc_pct_rcl.toFixed(1)}% da RCL). O limite fixado pela Resolução do Senado Federal 40/2001 é de 120% — a cidade usa apenas ${dividaAtual.dc_pct_rcl.toFixed(1)}% desse espaço.`,
-      `A dívida consolidada líquida (DCL) foi de ${fmt(dividaAtual.dcl)} (${dividaAtual.dcl_pct_rcl.toFixed(2)}% da RCL). Sorocaba possui ampla capacidade de endividamento não utilizada.`,
+      `A dívida consolidada bruta de Sorocaba em ${anoAtual} era de ${fmt(dividaAtual.dc_bruta)} (${dividaAtual.dc_pct_rcl.toFixed(1)}% da base ajustada informada no RGF). O limite fixado pela Resolução do Senado Federal 40/2001 é de 120% — a cidade usa apenas ${dividaAtual.dc_pct_rcl.toFixed(1)}% desse espaço.`,
+      `A dívida consolidada líquida (DCL) foi de ${fmt(dividaAtual.dcl)} (${dividaAtual.dcl_pct_rcl.toFixed(2)}% da base ajustada informada no RGF). Sorocaba possui ampla capacidade de endividamento não utilizada.`,
       `O passivo atuarial do RPPS somou ${fmt(dividaAtual.passivo_atuarial)} — compromisso previdenciário futuro com servidores, não contabilizado no limite do Senado, mas relevante para a sustentabilidade fiscal de longo prazo.`,
     ] : []),
   ]
@@ -125,9 +135,9 @@ export default function SaudeFiscalPage() {
                 A Lei de Responsabilidade Fiscal (LRF) estabelece limites para despesa com pessoal
                 e endividamento dos municípios. Em {anoAtual}, Sorocaba gastou{" "}
                 <strong style={{ color: "var(--text-01)" }}>{pessoalAtual?.dtp_pct_rcl.toFixed(2)}%</strong> da
-                RCL com pessoal (limite: 54%) e manteve dívida de{" "}
+                RCL ajustada com pessoal (limite: 54%) e manteve dívida de{" "}
                 <strong style={{ color: "var(--text-01)" }}>{dividaAtual?.dc_pct_rcl.toFixed(1)}%</strong> da
-                RCL (limite: 120%).
+                base ajustada do RGF (limite: 120%).
               </p>
               <p style={{ ...S.body, maxWidth: "640px", color: "var(--text-03)", marginBottom: "20px" }}>
                 Dados extraídos do RGF (Relatório de Gestão Fiscal) e do RREO (Relatório Resumido
@@ -146,10 +156,10 @@ export default function SaudeFiscalPage() {
           <div className="mx-auto px-6 py-12" style={S.container}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { label: `RCL ${anoAtual}`,              valor: pessoalAtual ? fmt(pessoalAtual.rcl) : "—",   nota: "Receita Corrente Líquida (base dos limites)" },
-                { label: "Despesa com pessoal",           valor: pessoalAtual ? `${pessoalAtual.dtp_pct_rcl.toFixed(2)}%` : "—",  nota: `da RCL — limite: ${pessoalAtual?.limite_maximo_pct ?? 54}%` },
-                { label: "Dívida consolidada bruta",      valor: dividaAtual  ? `${dividaAtual.dc_pct_rcl.toFixed(1)}%` : "—",    nota: "da RCL — limite Senado: 120%" },
-                { label: "Dívida consolidada líquida",    valor: dividaAtual  ? `${dividaAtual.dcl_pct_rcl.toFixed(2)}%` : "—",   nota: "da RCL (bruta menos disponibilidades)" },
+                { label: `RCL ${anoAtual}`,              valor: pessoalAtual ? fmt(pessoalAtual.rcl) : "—",   nota: "Receita Corrente Líquida oficial" },
+                { label: "RCL ajustada",                  valor: pessoalAtual ? fmt(pessoalAtual.rcl_ajustada) : "—", nota: "Base usada no limite de pessoal" },
+                { label: "Despesa com pessoal",           valor: pessoalAtual ? `${pessoalAtual.dtp_pct_rcl.toFixed(2)}%` : "—",  nota: `da RCL ajustada — limite: ${pessoalAtual?.limite_maximo_pct ?? 54}%` },
+                { label: "Dívida consolidada bruta",      valor: dividaAtual  ? `${dividaAtual.dc_pct_rcl.toFixed(1)}%` : "—",    nota: "da base ajustada do RGF — limite Senado: 120%" },
               ].map((item) => (
                 <div key={item.label}>
                   <p style={S.label} className="mb-1">{item.label}</p>
@@ -170,9 +180,10 @@ export default function SaudeFiscalPage() {
 
               <div>
                 <p className="uppercase font-semibold mb-4" style={S.label}>Despesa com pessoal 2020–{anoAtual}</p>
-                <h2 style={S.h2}>Folha de pagamento como % da RCL</h2>
+                <h2 style={S.h2}>Folha de pagamento como % da RCL ajustada</h2>
                 <p style={{ ...S.body, marginBottom: "16px" }}>
-                  O limite legal para o Executivo Municipal é 54% da RCL (LRF art. 20, III, b).
+                  O limite legal para o Executivo Municipal é 54% da RCL ajustada usada pelo RGF
+                  (LRF art. 20, III, b).
                   O limite prudencial é 95% desse valor (≈51,3%) e o de alerta é 90% (≈48,6%).
                   Ultrapassar o limite prudencial veda novos reajustes e criação de cargos.
                 </p>
@@ -197,7 +208,7 @@ export default function SaudeFiscalPage() {
               </div>
 
               <div>
-                <p style={{ ...S.label, marginBottom: "12px" }}>% da RCL com pessoal por ano — limite: 54%</p>
+                <p style={{ ...S.label, marginBottom: "12px" }}>% da RCL ajustada com pessoal por ano — limite: 54%</p>
                 <PctRclChart
                   data={pessoalChartData}
                   limite={54}
@@ -224,9 +235,10 @@ export default function SaudeFiscalPage() {
 
               <div>
                 <p className="uppercase font-semibold mb-4" style={S.label}>Dívida consolidada 2020–{anoAtual}</p>
-                <h2 style={S.h2}>Endividamento como % da RCL</h2>
+                <h2 style={S.h2}>Endividamento como % da base ajustada</h2>
                 <p style={{ ...S.body, marginBottom: "16px" }}>
-                  O limite máximo é 120% da RCL (Resolução do Senado Federal 40/2001).
+                  O limite máximo é 120% da base ajustada informada no RGF
+                  (Resolução do Senado Federal 40/2001).
                   A Dívida Consolidada Líquida (DCL) desconta as disponibilidades de caixa —
                   em 2020 e 2021, o caixa superava a dívida, resultando em DCL negativa.
                 </p>
@@ -253,7 +265,7 @@ export default function SaudeFiscalPage() {
               </div>
 
               <div>
-                <p style={{ ...S.label, marginBottom: "12px" }}>DC bruta % da RCL por ano — limite: 120%</p>
+                <p style={{ ...S.label, marginBottom: "12px" }}>DC bruta % da base ajustada por ano — limite: 120%</p>
                 <PctRclChart
                   data={dividaChartData}
                   limite={120}
@@ -266,12 +278,14 @@ export default function SaudeFiscalPage() {
                       <strong style={{ color: "var(--text-02)" }}>Composição da dívida {anoAtual}:</strong>
                     </p>
                     {[
-                      { label: "Empréstimos",        valor: dividaAtual.emprestimos },
-                      { label: "Financiamentos",     valor: dividaAtual.financiamentos },
-                      { label: "Precatórios",        valor: dividaAtual.precatorios },
+                      { label: "Empréstimos (total)",    valor: dividaAtual.emprestimos    },
+                      { label: "  — internos",           valor: dividaAtual.emp_internos   },
+                      { label: "  — externos",           valor: dividaAtual.emp_externos   },
+                      { label: "Financiamentos",         valor: dividaAtual.financiamentos },
+                      { label: "Precatórios vencidos",   valor: dividaAtual.precatorios    },
                     ].map((item) => (
                       <div key={item.label} className="flex justify-between py-1" style={{ borderTop: "1px solid var(--border-01)" }}>
-                        <span style={S.caption}>{item.label}</span>
+                        <span style={{ ...S.caption, color: item.label.startsWith("  ") ? "var(--text-04)" : "var(--text-03)", paddingLeft: item.label.startsWith("  ") ? "12px" : "0" }}>{item.label.trim()}</span>
                         <span style={{ ...S.caption, color: "var(--text-02)" }}>{fmt(item.valor)}</span>
                       </div>
                     ))}
@@ -281,6 +295,79 @@ export default function SaudeFiscalPage() {
                     </div>
                     <p style={{ ...S.caption, marginTop: "6px", color: "var(--text-04)" }}>
                       * Não computa no limite do Senado, mas representa obrigação previdenciária futura.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* RPPS */}
+        <section id="rpps" style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
+
+              <div>
+                <p className="uppercase font-semibold mb-4" style={S.label}>Previdência dos servidores (RPPS) 2020–{anoAtual}</p>
+                <h2 style={S.h2}>Fluxo previdenciário: contribuições vs. aposentadorias</h2>
+                <p style={{ ...S.body, marginBottom: "16px" }}>
+                  O RPPS (Regime Próprio de Previdência Social) cobre os servidores municipais efetivos.
+                  Enquanto houver mais contribuições do que benefícios pagos, o resultado é superávit.
+                  Em 2024, Sorocaba entrou em déficit previdenciário pela primeira vez na série — sinal
+                  de que o fundo começa a pagar mais aposentadorias do que arrecada.
+                </p>
+                <div style={S.borderTop}>
+                  {rppsSerie.slice().reverse().map((r) => {
+                    const isDeficit = r.resultado_rpps < 0
+                    return (
+                      <div key={r.ano} className="flex items-center justify-between py-3" style={S.borderBottom}>
+                        <span style={{ fontSize: "13px", color: r.ano === anoAtual ? "var(--blue-40)" : "var(--text-03)", fontWeight: r.ano === anoAtual ? 600 : 400 }}>
+                          {r.ano}
+                        </span>
+                        <div className="flex items-center gap-4">
+                          <span style={{ fontSize: "12px", color: "var(--text-04)" }}>
+                            rec. {fmt(r.total_receitas_rpps)} · desp. {fmt(r.total_despesas_rpps)}
+                          </span>
+                          <span className="font-mono" style={{ fontSize: "13px", color: isDeficit ? "#da1e28" : "#24a148", fontWeight: r.ano === anoAtual ? 600 : 400, minWidth: "100px", textAlign: "right" }}>
+                            {isDeficit ? "▼" : "▲"} {fmt(Math.abs(r.resultado_rpps))}
+                          </span>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+                <p className="mt-4" style={S.caption}>
+                  Resultado = Total Receitas RPPS − Total Despesas RPPS (RREO Anexo 04 · 6º bimestre).
+                  Verde = superávit · Vermelho = déficit.
+                </p>
+              </div>
+
+              <div>
+                {rppsAtual && (
+                  <div style={{ backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)", padding: "20px" }}>
+                    <p style={{ ...S.label, marginBottom: "16px" }}>Composição do fluxo RPPS — {anoAtual}</p>
+                    {[
+                      { label: "Contrib. dos segurados",  valor: rppsAtual.contribuicoes_segurados, cor: "var(--text-02)" },
+                      { label: "Contrib. patronal",       valor: rppsAtual.contribuicoes_patronal,  cor: "var(--text-02)" },
+                      { label: "Total Receitas RPPS",     valor: rppsAtual.total_receitas_rpps,     cor: "var(--text-01)", bold: true },
+                      { label: "Aposentadorias",          valor: rppsAtual.aposentadorias,          cor: "var(--text-02)" },
+                      { label: "Total Despesas RPPS",     valor: rppsAtual.total_despesas_rpps,     cor: "var(--text-01)", bold: true },
+                    ].map((item) => (
+                      <div key={item.label} className="flex justify-between py-2" style={{ borderTop: "1px solid var(--border-01)" }}>
+                        <span style={{ fontSize: "13px", color: "var(--text-03)", fontWeight: (item as { bold?: boolean }).bold ? 600 : 400 }}>{item.label}</span>
+                        <span className="font-mono" style={{ fontSize: "13px", color: item.cor, fontWeight: (item as { bold?: boolean }).bold ? 600 : 400 }}>{fmt(item.valor)}</span>
+                      </div>
+                    ))}
+                    <div className="flex justify-between py-2 mt-1" style={{ borderTop: "2px solid var(--border-02)" }}>
+                      <span style={{ fontSize: "13px", color: "var(--text-02)", fontWeight: 600 }}>Resultado RPPS {anoAtual}</span>
+                      <span className="font-mono" style={{ fontSize: "14px", color: rppsAtual.resultado_rpps < 0 ? "#da1e28" : "#24a148", fontWeight: 600 }}>
+                        {rppsAtual.resultado_rpps < 0 ? "▼ " : "▲ "}{fmt(Math.abs(rppsAtual.resultado_rpps))}
+                      </span>
+                    </div>
+                    <p style={{ ...S.caption, marginTop: "12px" }}>
+                      O passivo atuarial acumulado ({fmt(dividaAtual?.passivo_atuarial ?? 0)}) representa
+                      obrigações futuras com aposentadorias ainda não pagas — risco fiscal de longo prazo.
                     </p>
                   </div>
                 )}
@@ -299,7 +386,7 @@ export default function SaudeFiscalPage() {
                 <h2 style={S.h2}>De onde vêm as receitas correntes do município</h2>
                 <p style={{ ...S.body, marginBottom: "16px" }}>
                   As receitas correntes brutas, antes das deduções obrigatórias para o FUNDEB e RPPS
-                  que resultam na RCL (base dos limites da LRF). Em {anoAtual}, a RCL oficial foi{" "}
+                  que resultam na RCL e nas bases ajustadas usadas nos limites da LRF. Em {anoAtual}, a RCL oficial foi{" "}
                   {pessoalAtual ? <strong style={{ color: "var(--text-01)" }}>{fmt(pessoalAtual.rcl)}</strong> : "—"}.
                 </p>
                 <p style={{ ...S.body, color: "var(--text-03)", marginBottom: "16px" }}>
@@ -323,6 +410,7 @@ export default function SaudeFiscalPage() {
                       { label: "Contribuições (COSIP etc.)", valor: rclAtual.receita_contribuicoes },
                       { label: "IRRF",              valor: rclAtual.irrf                 },
                       { label: "Outras transf.",    valor: rclAtual.outras_transferencias },
+                      { label: "Demais transferências", valor: outrasTransferenciasMenores },
                       { label: "ITBI",              valor: rclAtual.itbi                 },
                       { label: "FPM",               valor: rclAtual.fpm                  },
                       { label: "Outras correntes",  valor: rclAtual.outras_correntes     },
@@ -367,7 +455,7 @@ export default function SaudeFiscalPage() {
             <p className="uppercase font-semibold mb-2" style={S.label}>Evolução 2020–{anoAtual}</p>
             <h2 style={S.h2}>ISS, ICMS e IPTU ao longo do tempo</h2>
             <p style={{ ...S.body, marginBottom: "24px", maxWidth: "640px" }}>
-              Série histórica dos principais tributos e transferências que compõem a RCL de Sorocaba.
+              Série histórica dos principais tributos e transferências das receitas correntes de Sorocaba.
             </p>
 
             {/* Tabela série */}
@@ -414,7 +502,7 @@ export default function SaudeFiscalPage() {
               <div>
                 <p className="uppercase font-semibold mb-3" style={S.label}>Limite de pessoal (LRF)</p>
                 <p style={S.body}>
-                  A LRF (LC 101/2000) limita a despesa com pessoal a 60% da RCL para o município
+                  A LRF (LC 101/2000) limita a despesa com pessoal a 60% da RCL ajustada para o município
                   inteiro, distribuída em 54% para o Executivo e 6% para a Câmara Municipal.
                   O cálculo é feito sobre os últimos 12 meses de competência.
                 </p>
@@ -422,9 +510,9 @@ export default function SaudeFiscalPage() {
               <div>
                 <p className="uppercase font-semibold mb-3" style={S.label}>Limite de dívida (Senado)</p>
                 <p style={S.body}>
-                  A Resolução SF 40/2001 fixa o limite de endividamento em 120% da RCL.
+                  A Resolução SF 40/2001 fixa o limite de endividamento em 120% da base ajustada informada no RGF.
                   Municípios acima do limite ficam proibidos de contratar novas operações de crédito
-                  até retornar abaixo do teto — o chamado "excesso de dívida".
+                  até retornar abaixo do teto — o chamado &ldquo;excesso de dívida&rdquo;.
                 </p>
               </div>
               <div>

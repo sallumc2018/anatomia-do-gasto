@@ -193,8 +193,8 @@ export default async function ReceitaPage({
     ...(growthSerie !== null
       ? [`Entre 2020 e ${anoFeatured}, a receita total acumulou +${growthSerie.toFixed(0)}% — passando de ${fmt(s2020!.total)} para ${fmt(totalArrecadado)}.`]
       : []),
-    `Sorocaba depende de transferências intergovernamentais para ${depTransf.toFixed(1)}% de sua receita corrente líquida — incluindo cota-parte do ICMS e do FPM.`,
-    `Receita tributária própria (impostos, taxas e contribuição de melhoria) representa ${depTrib.toFixed(1)}% da receita corrente, indicando capacidade fiscal própria do município.`,
+    `As transferências intergovernamentais representam ${depTransf.toFixed(1)}% das receitas exceto intra-orçamentárias — incluindo cota-parte do ICMS, FPM, FUNDEB e outros repasses.`,
+    `Receita tributária própria (impostos, taxas e contribuição de melhoria) representa ${depTrib.toFixed(1)}% das receitas exceto intra-orçamentárias, indicando capacidade fiscal própria do município.`,
   ]
 
   return (
@@ -480,7 +480,7 @@ export default async function ReceitaPage({
                 <p style={{ ...S.label, marginBottom: "12px" }}>Total arrecadado por ano (R$ bilhões)</p>
                 <SerieHistorica data={serieChartData} unit="bi" />
                 <p className="mt-2" style={S.caption}>
-                  A barra "fixado" é omitida neste gráfico pois apenas o arrecadado é relevante para receita.
+                  A barra &ldquo;fixado&rdquo; é omitida neste gráfico pois apenas o arrecadado é relevante para receita.
                 </p>
               </div>
             </div>

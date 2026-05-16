@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
@@ -132,9 +133,37 @@ export default function SobrePage() {
         {/* Contato */}
         <section style={{ backgroundColor: "var(--bg-base)" }}>
           <div className="mx-auto px-6 py-16" style={S.container}>
-            <p className="uppercase font-semibold mb-6" style={S.label}>Contato e código</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+            <p className="uppercase font-semibold mb-10" style={S.label}>Contato</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={S.borderTop}>
+              <div className="py-8 md:pr-10" style={S.borderBottom}>
+                <h2 style={S.h2}>Fale diretamente</h2>
+                <p style={{ ...S.body, marginBottom: "16px" }}>
+                  Uma pessoa real vai ler e responder. Sem chatbot, sem triagem automática.
+                </p>
+                <a
+                  href="mailto:contato@anatomiadogasto.ong.br"
+                  style={{
+                    fontFamily: "var(--font-ibm-plex-mono)",
+                    fontSize: "13px",
+                    color: "var(--blue-40)",
+                    textDecoration: "underline",
+                    display: "block",
+                    marginBottom: "12px",
+                  }}
+                >
+                  contato@anatomiadogasto.ong.br
+                </a>
+                <Link
+                  href="/contato"
+                  style={{ ...S.caption, color: "var(--text-03)", textDecoration: "underline" }}
+                >
+                  Ver página de contato
+                </Link>
+              </div>
+              <div
+                className="py-8 md:px-10"
+                style={{ borderLeft: "1px solid var(--border-01)", ...S.borderBottom }}
+              >
                 <h2 style={S.h2}>Código-fonte</h2>
                 <p style={{ ...S.body, marginBottom: "12px" }}>
                   O pipeline de extração de dados e o código do site são públicos.
@@ -149,7 +178,10 @@ export default function SobrePage() {
                   github.com/sallumc2018/anatomia-do-gasto
                 </a>
               </div>
-              <div>
+              <div
+                className="py-8 md:pl-10"
+                style={{ borderLeft: "1px solid var(--border-01)", ...S.borderBottom }}
+              >
                 <h2 style={S.h2}>Erros nos dados</h2>
                 <p style={{ ...S.body, marginBottom: "12px" }}>
                   Se você encontrar um número incorreto ou uma discrepância com a fonte oficial,

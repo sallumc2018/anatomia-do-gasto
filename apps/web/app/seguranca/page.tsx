@@ -169,7 +169,7 @@ export default function SegurancaPage() {
         </section>
 
         {/* ── Sticky nav ───────────────────────────────────────────────────── */}
-        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "48px", zIndex: 10 }}>
+        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "var(--header-h)", zIndex: 10 }}>
           <div className="mx-auto px-6 py-2 section-tabs" style={{ ...S.container, alignItems: "center", gap: "32px" }}>
             {[
               { id: "consultar",   label: "Relatórios" },

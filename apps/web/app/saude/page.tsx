@@ -19,6 +19,7 @@ import { PorPeriodo, type PorPeriodoPoint } from "@/components/charts/PorPeriodo
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 
 export const metadata: Metadata = {
   title: "Saúde em Sorocaba",
@@ -146,6 +147,33 @@ export default function SaudePage() {
     return point
   })
 
+  // "E daí?" — fatos objetivos
+  const latestAnualTotal = totalAnualData[totalAnualData.length - 1]?.total ?? 0
+  const prevAnualTotal   = totalAnualData[totalAnualData.length - 2]?.total ?? 0
+  const firstAnualTotal  = totalAnualData[0]?.total ?? 0
+  const firstYear        = totalAnualData[0]?.year ?? "2020"
+  const yoyChangeSaude   = prevAnualTotal > 0 ? ((latestAnualTotal - prevAnualTotal) / prevAnualTotal * 100) : null
+  const growthSaudeSerie = firstAnualTotal > 0 && latestYear && parseInt(firstYear) < latestYear
+    ? ((latestAnualTotal - firstAnualTotal) / firstAnualTotal * 100) : null
+  const pctAplicado      = latestRevQ?.percentual_aplicado_liquidado ?? null
+  const atencaoBasicaPct = totalLiquidado > 0 && atencaoBasica > 0
+    ? (atencaoBasica / totalLiquidado * 100) : null
+
+  const saudeInsights: string[] = [
+    ...(pctAplicado !== null
+      ? [`Em ${latestYear ?? "—"}, Sorocaba aplicou ${pctAplicado.toFixed(2)}% da base fiscal em saúde — o mínimo constitucional exigido é de 15%. ${pctAplicado >= 15 ? "O município cumpriu o piso." : "O município ficou abaixo do piso constitucional."}`]
+      : []),
+    ...(yoyChangeSaude !== null
+      ? [`O gasto total em saúde ${yoyChangeSaude >= 0 ? "cresceu" : "recuou"} ${Math.abs(yoyChangeSaude).toFixed(1)}% em relação ao ano anterior.`]
+      : []),
+    ...(growthSaudeSerie !== null
+      ? [`Entre ${firstYear} e ${latestYear}, o gasto em saúde acumulou variação de ${growthSaudeSerie >= 0 ? "+" : ""}${growthSaudeSerie.toFixed(0)}%.`]
+      : []),
+    ...(atencaoBasicaPct !== null
+      ? [`Atenção básica representou ${atencaoBasicaPct.toFixed(1)}% do total liquidado em saúde — a maior subfunção registrada.`]
+      : []),
+  ]
+
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
@@ -189,7 +217,7 @@ export default function SaudePage() {
           </div>
         </section>
 
-        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "48px", zIndex: 10 }}>
+        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "var(--header-h)", zIndex: 10 }}>
           <div className="mx-auto px-6 py-2 section-tabs" style={{ ...S.container, alignItems: "center", gap: "32px" }}>
             {[
               { id: "consultar",   label: "Relatórios" },
@@ -552,6 +580,12 @@ export default function SaudePage() {
                 <ComparativoAnos data={chartData} years={chartYears} />
               </div>
             </div>
+            {saudeInsights.length > 0 && (
+              <div className="mt-10">
+                <DadoQueMostra items={saudeInsights} />
+              </div>
+            )}
+
             <div className="mt-10 flex items-center justify-between" style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }}>
               <div>
                 <p style={{ fontSize: "14px", color: "var(--text-02)" }}>

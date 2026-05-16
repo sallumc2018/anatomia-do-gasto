@@ -40,19 +40,11 @@ export interface PoderPublicoMunicipal {
   grupos: GrupoPublico[]
 }
 
-function findRepoRoot(startDir: string): string {
-  let dir = startDir
-  while (true) {
-    if (fs.existsSync(path.join(dir, "data", "public"))) return dir
-    const parent = path.dirname(dir)
-    if (parent === dir) return startDir
-    dir = parent
-  }
-}
-
 export function getPoderPublicoSorocaba(): PoderPublicoMunicipal {
   const filePath = path.join(
-    findRepoRoot(process.cwd()),
+    /*turbopackIgnore: true*/ process.cwd(),
+    "..",
+    "..",
     "data",
     "public",
     "agentes",

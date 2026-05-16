@@ -229,8 +229,8 @@ export default async function ExecutivoPage({
                 <strong style={{ color: "var(--text-01)" }}>{top2Pct.toFixed(0)}%</strong> do total.
               </p>
               <p style={{ ...S.body, maxWidth: "640px", color: "var(--text-03)", marginBottom: "20px" }}>
-                O RREO Anexo 02 agrega todos os poderes municipais: Executivo (Prefeitura e autarquias),
-                Legislativo (Câmara) e Judiciário. Os valores incluem tanto dotação exceto intra-orçamentária
+                O RREO Anexo 02 agrega o orçamento municipal por função, incluindo Prefeitura, autarquias
+                e Câmara Municipal. Os valores incluem tanto dotação exceto intra-orçamentária
                 quanto contribuições previdenciárias intra-orçamentárias.
               </p>
               <p style={S.caption}>Fonte: SICONFI/Tesouro Nacional — RREO Anexo 02 · 6º bimestre · IBGE 3552205</p>
@@ -343,7 +343,7 @@ export default async function ExecutivoPage({
                 <h2 style={{ ...S.h2, fontSize: "20px" }}>Top funções por gasto liquidado</h2>
                 <p style={{ ...S.body, color: "var(--text-03)" }}>
                   As 6 maiores funções orçamentárias concentram a maior parte do gasto municipal.
-                  "Outras" agrega as demais {funcoesComGasto.length > 6 ? funcoesComGasto.length - 6 : 0} funções com execução registrada.
+                  &ldquo;Outras&rdquo; agrega as demais {funcoesComGasto.length > 6 ? funcoesComGasto.length - 6 : 0} funções com execução registrada.
                 </p>
               </div>
               <DonutFuncoes data={donutData} />
@@ -403,7 +403,7 @@ export default async function ExecutivoPage({
                       100%
                     </td>
                     <td style={{ ...S.body, color: "var(--text-03)", textAlign: "right", paddingTop: "12px", fontVariantNumeric: "tabular-nums" }}>
-                      {pctExec(totalLiq, totalDot)}
+                      {pctExec(totalLiq, totalDotAtualizada)}
                     </td>
                   </tr>
                 </tbody>
@@ -485,8 +485,8 @@ export default async function ExecutivoPage({
                 <p className="uppercase font-semibold mb-4" style={S.label}>O que este total representa</p>
                 <h2 style={{ ...S.h2, fontSize: "20px" }}>Orçamento consolidado do município</h2>
                 <p style={{ ...S.body, marginBottom: "12px" }}>
-                  O RREO Anexo 02 consolida todos os poderes e entidades do município: Prefeitura,
-                  autarquias (SMAE, DAEO), fundação cultural, câmara municipal e demais. Por isso
+                  O RREO Anexo 02 consolida os órgãos e entidades municipais por função: Prefeitura,
+                  autarquias (SMAE, DAEO), fundação cultural, Câmara Municipal e demais. Por isso
                   o total supera o que seria apenas a LOA da Prefeitura.
                 </p>
                 <p style={{ ...S.body, color: "var(--text-03)", marginBottom: "16px" }}>

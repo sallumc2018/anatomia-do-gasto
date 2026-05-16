@@ -15,6 +15,7 @@ import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/Comp
 import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/PorPeriodo"
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 
 export const metadata: Metadata = {
   title: "Educação em Sorocaba",
@@ -134,6 +135,33 @@ export default function EducacaoPage() {
     return point
   })
 
+  // "E daí?" — fatos objetivos
+  const latestAnualTotalEd = totalAnualData[totalAnualData.length - 1]?.total ?? 0
+  const prevAnualTotalEd   = totalAnualData[totalAnualData.length - 2]?.total ?? 0
+  const firstAnualTotalEd  = totalAnualData[0]?.total ?? 0
+  const firstYearEd        = totalAnualData[0]?.year ?? "2020"
+  const yoyChangeEd = prevAnualTotalEd > 0 ? ((latestAnualTotalEd - prevAnualTotalEd) / prevAnualTotalEd * 100) : null
+  const growthEdSerie = firstAnualTotalEd > 0 && latestYear && parseInt(firstYearEd) < latestYear
+    ? ((latestAnualTotalEd - firstAnualTotalEd) / firstAnualTotalEd * 100) : null
+  const pctAplicadoEd = latestRevQ?.percentual_aplicado_liquidado ?? null
+  const ensinoFundPct = totalLiquidado > 0 && ensinoFund > 0 ? (ensinoFund / totalLiquidado * 100) : null
+  const educInfantilPct = totalLiquidado > 0 && educInfantil > 0 ? (educInfantil / totalLiquidado * 100) : null
+
+  const educInsights: string[] = [
+    ...(pctAplicadoEd !== null
+      ? [`Em ${latestYear ?? "—"}, Sorocaba aplicou ${pctAplicadoEd.toFixed(2)}% da base fiscal em educação — o mínimo constitucional exigido é de 25%. ${pctAplicadoEd >= 25 ? "O município cumpriu o piso." : "O município ficou abaixo do piso constitucional."}`]
+      : []),
+    ...(yoyChangeEd !== null
+      ? [`O gasto total em educação ${yoyChangeEd >= 0 ? "cresceu" : "recuou"} ${Math.abs(yoyChangeEd).toFixed(1)}% em relação ao ano anterior.`]
+      : []),
+    ...(growthEdSerie !== null
+      ? [`Entre ${firstYearEd} e ${latestYear}, o gasto em educação acumulou variação de ${growthEdSerie >= 0 ? "+" : ""}${growthEdSerie.toFixed(0)}%.`]
+      : []),
+    ...(ensinoFundPct !== null
+      ? [`Ensino Fundamental: ${ensinoFundPct.toFixed(1)}% do total. Educação Infantil: ${educInfantilPct?.toFixed(1) ?? "—"}%.`]
+      : []),
+  ]
+
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
@@ -181,7 +209,7 @@ export default function EducacaoPage() {
         </section>
 
         {/* Nav interna */}
-        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "48px", zIndex: 10 }}>
+        <nav style={{ ...S.borderBottom, backgroundColor: "var(--bg-base)", position: "sticky", top: "var(--header-h)", zIndex: 10 }}>
           <div className="mx-auto px-6 py-2 section-tabs" style={{ ...S.container, alignItems: "center", gap: "32px" }}>
             {[
               { id: "consultar",   label: "Relatórios" },
@@ -386,6 +414,12 @@ export default function EducacaoPage() {
                   <ComparativoAnos data={chartData} years={chartYears} />
                 </div>
               </div>
+              {educInsights.length > 0 && (
+                <div className="mt-10">
+                  <DadoQueMostra items={educInsights} />
+                </div>
+              )}
+
               <div className="mt-10 flex items-center justify-between" style={{ borderTop: "1px solid var(--border-01)", paddingTop: "24px" }}>
                 <div>
                   <p style={{ fontSize: "14px", color: "var(--text-02)" }}>

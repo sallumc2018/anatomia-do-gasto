@@ -129,6 +129,7 @@ const ERRATA = [
 
 const LIMITACOES = [
   "Cobertura atual: apenas Sorocaba/SP. A expansão para outros municípios está em planejamento.",
+  "Sorocaba não possui subprefeituras nem administrações regionais autônomas — a gestão territorial é centralizada na Prefeitura. Dados territorializados por bairro, região ou zeladoria não estão disponíveis nestas fontes.",
   "Cobertura educação: 2020–2025. Anos 2020–2023 obtidos via URL legada do portal; 2023 T3 não possui dotação atualizada (limitação do formato do PDF original).",
   "O pipeline extrai dados dos PDFs oficiais. Erros de digitação nos PDFs originais são refletidos nos CSVs.",
   "Os valores são acumulados por quadrimestre (Jan–Abr, Jan–Ago, Jan–Dez), não incrementais. O 3º quad representa o total anual.",

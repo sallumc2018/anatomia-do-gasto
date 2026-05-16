@@ -14,14 +14,23 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self'",
-  "upgrade-insecure-requests",
-].join("; ");
+  isDev ? "connect-src 'self' ws: http:" : "connect-src 'self' https://vitals.vercel-insights.com",
+  !isDev ? "upgrade-insecure-requests" : "",
+].filter(Boolean).join("; ");
 
 const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.join(__dirname, "../../"),
+  poweredByHeader: false,
+  outputFileTracingRoot: path.join(/*turbopackIgnore: true*/ __dirname, "../../"),
   outputFileTracingIncludes: {
-    "/api/dados/[...slug]": ["data/public/**/*.csv"],
+    "/api/dados/[...slug]": ["data/public/**/*"],
+    "/executivo": ["data/public/**/*"],
+    "/receita": ["data/public/**/*"],
+    "/transporte": ["data/public/sorocaba/transporte/saida/**/*"],
+    "/transporte/comparativo": ["data/public/sorocaba/transporte/saida/**/*"],
+    "/transporte/relatorio/[ano]": ["data/public/sorocaba/transporte/saida/**/*"],
+    "/saude/relatorio/[ano]": ["data/public/**/*"],
+    "/educacao/relatorio/[ano]": ["data/public/**/*"],
+    "/seguranca/relatorio/[ano]": ["data/public/**/*"],
   },
   async headers() {
     return [
@@ -34,7 +43,9 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-DNS-Prefetch-Control", value: "on" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
-          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          ...(!isDev
+            ? [{ key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" }]
+            : []),
         ],
       },
     ];

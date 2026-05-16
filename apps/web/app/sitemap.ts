@@ -4,17 +4,7 @@ import type { MetadataRoute } from "next"
 
 const BASE_URL = "https://www.anatomiadogasto.ong.br"
 
-function findRepoRoot(startDir: string): string {
-  let dir = startDir
-  while (true) {
-    if (fs.existsSync(path.join(dir, "data", "public"))) return dir
-    const parent = path.dirname(dir)
-    if (parent === dir) return startDir
-    dir = parent
-  }
-}
-
-const DATA_ROOT = path.join(findRepoRoot(/*turbopackIgnore: true*/ process.cwd()), "data", "public", "sorocaba")
+const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public", "sorocaba")
 
 function newestMtime(dir: string): Date {
   try {

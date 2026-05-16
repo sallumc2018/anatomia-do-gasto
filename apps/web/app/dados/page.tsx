@@ -7,7 +7,7 @@ import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 
 export const metadata: Metadata = {
   title: "Dados",
-  description: "Datasets abertos de gastos públicos de Sorocaba em saúde, educação, segurança e transporte. CSVs gerados a partir de PDFs oficiais, com rastreabilidade até a fonte.",
+  description: "Datasets abertos de gastos publicos de Sorocaba em saude, educacao, seguranca e transporte. CSVs gerados a partir de fontes oficiais, com rastreabilidade ate a fonte.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/dados" },
 }
 
@@ -57,100 +57,66 @@ function expandYears(anosStr: string): string[] {
   return Array.from({ length: end - start + 1 }, (_, i) => String(start + i))
 }
 
-function findRepoRoot(startDir: string): string {
-  let dir = startDir
-  while (true) {
-    if (fs.existsSync(path.join(dir, "data", "manifests", "datasets.csv"))) return dir
-    const parent = path.dirname(dir)
-    if (parent === dir) return startDir
-    dir = parent
-  }
-}
-
-function parseCsvLine(line: string): string[] {
-  const fields: string[] = []
-  let cur = ""
-  let inQuotes = false
-
-  for (const char of line) {
-    if (char === '"') {
-      inQuotes = !inQuotes
-      continue
-    }
-    if (char === "," && !inQuotes) {
-      fields.push(cur)
-      cur = ""
-      continue
-    }
-    cur += char
-  }
-
-  fields.push(cur)
-  return fields
-}
-
 const AREA_LABEL: Record<string, string> = {
-  saude: "Saúde",
-  educacao: "Educação",
-  seguranca: "Segurança Pública",
+  saude: "Saude",
+  educacao: "Educacao",
+  seguranca: "Seguranca publica",
   transporte: "Transporte",
+  executivo: "Executivo",
+  receita: "Receita",
+  fiscal: "Saude fiscal",
 }
+
+const PUBLIC_DATASETS = [
+  ["saude", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - saude.", "despesas_saude_sorocaba_{ano}.csv"],
+  ["saude", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base ASPS - saude.", "receitas_base_saude_sorocaba_{ano}.csv"],
+  ["educacao", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - educacao.", "despesas_educacao_sorocaba_{ano}.csv"],
+  ["educacao", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base FUNDEB - educacao.", "receitas_base_educacao_sorocaba_{ano}.csv"],
+  ["seguranca", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas por subfuncao - DCA Anexo I-E.", "despesas_seguranca_sorocaba_{ano}.csv"],
+  ["seguranca", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6.", "rreo_seguranca_sorocaba_{ano}.csv"],
+  ["transporte", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 funcao 26.", "rreo_transporte_sorocaba_{ano}.csv"],
+  ["transporte", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas DCA Anexo I-E funcao 26.", "dca_transporte_sorocaba_{ano}.csv"],
+  ["executivo", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento municipal por funcao.", "despesas_executivo_sorocaba_{ano}.csv"],
+  ["receita", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas municipais por categoria.", "receitas_sorocaba_{ano}.csv"],
+  ["fiscal", "2020-2025", "SICONFI / Tesouro Nacional", "Divida, pessoal, RCL e demonstrativos fiscais complementares.", "divida_sorocaba_{ano}.csv"],
+] as const
 
 function getDatasets(): DatasetRow[] {
-  const filePath = path.join(findRepoRoot(process.cwd()), "data", "manifests", "datasets.csv")
-  if (!fs.existsSync(filePath)) return []
+  const publicRoot = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
-  const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).filter(Boolean)
-  if (lines.length < 2) return []
-
-  const headers = parseCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
-  const col = (name: string) => headers.indexOf(name)
-  const iArea          = col("area")
-  const iDescricao     = col("descricao")
-  const iAnos          = col("anos")
-  const iFonte         = col("fonte")
-  const iOrigem        = col("origem_dir")
-  const iArquivoPadrao = col("arquivo_padrao")
-
-  return lines.slice(1).map((line) => {
-    const f = parseCsvLine(line)
-    const areaKey       = f[iArea]?.trim() ?? ""
-    const origem        = f[iOrigem]?.trim() ?? ""
-    const anosStr       = f[iAnos]?.trim() ?? ""
-    const arquivoPadrao = f[iArquivoPadrao]?.trim() ?? ""
-
-    const downloadLinks: DownloadLink[] =
-      origem === "public" && arquivoPadrao
-        ? expandYears(anosStr).map((ano) => ({
-            ano,
-            url: `/api/dados/sorocaba/${areaKey}/saida/${arquivoPadrao.replace("{ano}", ano)}`,
-          }))
-        : []
+  return PUBLIC_DATASETS.map(([areaKey, anosStr, fonte, observacao, arquivoPadrao]) => {
+    const downloadLinks: DownloadLink[] = expandYears(anosStr)
+      .map((ano) => ({
+        ano,
+        filename: arquivoPadrao.replace("{ano}", ano),
+      }))
+      .filter(({ filename }) => fs.existsSync(path.join(publicRoot, "sorocaba", areaKey, "saida", filename)))
+      .map(({ ano, filename }) => ({
+        ano,
+        url: `/api/dados/sorocaba/${areaKey}/saida/${filename}`,
+      }))
 
     return {
-      municipio:  "Sorocaba/SP",
-      area:       AREA_LABEL[areaKey] ?? areaKey,
-      anos:       anosStr,
-      status:     origem,
-      fonte:      f[iFonte]?.trim() ?? "",
-      observacao: f[iDescricao]?.trim() ?? "",
+      municipio: "Sorocaba/SP",
+      area: AREA_LABEL[areaKey] ?? areaKey,
+      anos: anosStr,
+      status: "public",
+      fonte,
+      observacao,
       downloadLinks,
     }
-  })
+  }).filter((dataset) => dataset.downloadLinks.length > 0)
 }
 
 function statusLabel(status: string): string {
   const labels: Record<string, string> = {
     public: "Publicado",
-    extracted: "Extraído, pendente de validação",
-    "public-mock": "Publicado como mock",
   }
   return labels[status] ?? status
 }
 
 function statusColor(status: string): string {
   if (status === "public") return "var(--support-success)"
-  if (status === "extracted") return "var(--support-warning)"
   return "var(--text-03)"
 }
 
@@ -167,12 +133,12 @@ export default function DadosPage() {
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
               <p className="uppercase font-semibold mb-4" style={S.label}>Dados publicados</p>
               <h1 className="font-light mb-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "760px" }}>
-                Dados disponíveis para download e consulta
+                Dados disponiveis para download e consulta
               </h1>
               <p style={{ ...S.body, maxWidth: "680px" }}>
-                Todos os arquivos CSV usados pelo site estão abertos para download.
-                Nos datasets estruturados de saúde, educação, segurança pública e transporte, cada linha publicada indica o PDF ou a URL oficial de origem, salvo lacunas declaradas na própria base ou na metodologia.
-                Arquivos ainda em validação não são exibidos no site até serem conferidos.
+                Todos os arquivos CSV usados pelo site estao abertos para download.
+                Esta pagina le somente arquivos em data/public e so exibe links que existem na camada publicada.
+                Arquivos ainda em validacao nao aparecem no site ate serem conferidos e copiados explicitamente para publicacao.
               </p>
             </div>
           </div>
@@ -184,7 +150,7 @@ export default function DadosPage() {
               <table style={{ width: "100%", minWidth: "860px", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={S.borderBottom}>
-                    {["Município", "Área", "Anos", "Status", "Fonte", "Observação", "Download"].map((header) => (
+                    {["Municipio", "Area", "Anos", "Status", "Fonte", "Observacao", "Download"].map((header) => (
                       <th key={header} style={{ textAlign: "left", padding: "16px 12px", ...S.label }}>
                         {header}
                       </th>
@@ -203,30 +169,26 @@ export default function DadosPage() {
                       <td style={{ padding: "18px 12px", ...S.body }}>{dataset.fonte}</td>
                       <td style={{ padding: "18px 12px", ...S.body }}>{dataset.observacao}</td>
                       <td style={{ padding: "18px 12px" }}>
-                        {dataset.downloadLinks.length > 0 ? (
-                          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-                            {dataset.downloadLinks.map(({ ano, url }) => (
-                              <a
-                                key={ano}
-                                href={url}
-                                download
-                                style={{
-                                  fontFamily: "var(--font-ibm-plex-mono)",
-                                  fontSize: "11px",
-                                  padding: "2px 6px",
-                                  border: "1px solid var(--border-01)",
-                                  color: "var(--blue-40)",
-                                  textDecoration: "none",
-                                  whiteSpace: "nowrap",
-                                }}
-                              >
-                                {ano}
-                              </a>
-                            ))}
-                          </div>
-                        ) : (
-                          <span style={{ ...S.mono, color: "var(--text-04)" }}>—</span>
-                        )}
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+                          {dataset.downloadLinks.map(({ ano, url }) => (
+                            <a
+                              key={ano}
+                              href={url}
+                              download
+                              style={{
+                                fontFamily: "var(--font-ibm-plex-mono)",
+                                fontSize: "11px",
+                                padding: "2px 6px",
+                                border: "1px solid var(--border-01)",
+                                color: "var(--blue-40)",
+                                textDecoration: "none",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {ano}
+                            </a>
+                          ))}
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -236,9 +198,9 @@ export default function DadosPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-12" style={S.borderTop}>
               {[
-                ["PDF original", "O documento publicado pela Prefeitura, preservado sem alteração."],
-                ["CSV extraído", "Tabela gerada automaticamente a partir do PDF. Passa por verificação antes de ser publicada."],
-                ["CSV publicado", "Arquivo disponível para download e exibido no site. Verificado e rastreável até a fonte oficial declarada."],
+                ["Fonte oficial", "Documento ou API publicado por orgao oficial."],
+                ["CSV extraido", "Tabela gerada a partir da fonte. Nao vira publicacao automaticamente."],
+                ["CSV publicado", "Arquivo disponivel para download e exibido no site, lido exclusivamente de data/public."],
               ].map(([title, text]) => (
                 <div key={title} className="py-8 md:pr-8" style={S.borderBottom}>
                   <p style={{ ...S.mono, color: "var(--blue-40)", marginBottom: "10px" }}>{title}</p>
