@@ -141,6 +141,24 @@ export default function MetodologiaPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Como os dados chegam até você — Metodologia",
+            "description": "Metodologia de coleta, extração e validação de dados públicos de Sorocaba: pipeline automatizado, fontes oficiais, limitações declaradas e errata.",
+            "url": "https://www.anatomiadogasto.ong.br/metodologia",
+            "author": { "@type": "Organization", "name": "Anatomia do Gasto" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Anatomia do Gasto",
+              "url": "https://www.anatomiadogasto.ong.br",
+            },
+          }),
+        }}
+      />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
 

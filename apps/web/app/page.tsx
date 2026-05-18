@@ -38,8 +38,8 @@ const S = {
 }
 
 const HEALTH_AREAS: { area: HealthArea; titulo: string; href: string }[] = [
-  { area: "saude", titulo: "Saúde", href: "/saude" },
-  { area: "educacao", titulo: "Educação", href: "/educacao" },
+  { area: "saude", titulo: "Saúde", href: "/sorocaba/saude" },
+  { area: "educacao", titulo: "Educação", href: "/sorocaba/educacao" },
 ]
 
 const SEGURANCA_TOTAL = "06 - Segurança Pública"
@@ -48,56 +48,56 @@ const PERGUNTAS_GUIA = [
   {
     pergunta: "Para onde foi o dinheiro?",
     resposta: "Comece pelo orçamento por função e depois aprofunde por área.",
-    href: "/executivo",
+    href: "/sorocaba/executivo",
     status: "Disponível",
     termos: "orçamento, função, gasto total",
   },
   {
     pergunta: "Quanto entrou em Sorocaba?",
     resposta: "Veja impostos, transferências e composição das receitas.",
-    href: "/receita",
+    href: "/sorocaba/receita",
     status: "Disponível",
     termos: "receita, ISS, IPTU, ICMS, FPM",
   },
   {
     pergunta: "O dinheiro foi só autorizado ou realmente pago?",
     resposta: "Compare dotação, empenhado, liquidado e pago.",
-    href: "/execucao",
+    href: "/sorocaba/execucao",
     status: "Disponível",
     termos: "execução, liquidado, pago",
   },
   {
     pergunta: "Quanto custa saúde, educação, segurança e transporte?",
     resposta: "Abra os painéis de serviços públicos e compare a série histórica.",
-    href: "/saude",
+    href: "/sorocaba/saude",
     status: "Disponível",
     termos: "serviços públicos, gasto por área",
   },
   {
     pergunta: "Quanto custa a Câmara e cada vereador?",
     resposta: "Veja orçamento legislativo, subsídios e agentes públicos mapeados.",
-    href: "/camara-municipal",
+    href: "/sorocaba/camara-municipal",
     status: "Disponível",
     termos: "vereadores, Câmara, subsídio",
   },
   {
     pergunta: "Sorocaba está endividada?",
     resposta: "Confira dívida, pessoal, RCL, previdência e limites fiscais.",
-    href: "/saude-fiscal",
+    href: "/sorocaba/saude-fiscal",
     status: "Disponível",
     termos: "dívida, pessoal, RCL, previdência",
   },
   {
     pergunta: "Quem recebeu dinheiro público?",
-    resposta: "Fonte já inventariada; a página de fornecedores ainda precisa entrar no site.",
-    href: "/dados",
-    status: "Em coleta",
+    resposta: "Conta-corrente de fornecedores 2020–2025: veja quem recebeu quanto da Prefeitura de Sorocaba.",
+    href: "/sorocaba/fornecedores",
+    status: "Disponível",
     termos: "fornecedores, contratos, pagamentos",
   },
   {
     pergunta: "Quais dados posso baixar e auditar?",
     resposta: "Acesse os CSVs publicados e a metodologia de validação.",
-    href: "/dados",
+    href: "/sorocaba/dados",
     status: "Disponível",
     termos: "CSV, fonte, metodologia",
   },
@@ -225,6 +225,20 @@ export default function IndexPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Anatomia do Gasto",
+            "url": "https://www.anatomiadogasto.ong.br",
+            "description": "ONG brasileira que organiza dados públicos em linguagem cidadã, com fonte, método e rastreabilidade.",
+            "email": "contato@anatomiadogasto.ong.br",
+            "sameAs": ["https://github.com/sallumc2018/anatomia-do-gasto"],
+          }),
+        }}
+      />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
 
@@ -356,7 +370,7 @@ export default function IndexPage() {
               })}
 
               <Link
-                href="/seguranca"
+                href="/sorocaba/seguranca"
                 className="tile-link"
                 style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
               >
@@ -399,7 +413,7 @@ export default function IndexPage() {
               </Link>
 
               <Link
-                href="/transporte"
+                href="/sorocaba/transporte"
                 className="tile-link"
                 style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
               >

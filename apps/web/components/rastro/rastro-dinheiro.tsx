@@ -1,4 +1,4 @@
-import { formatMillions, formatPrecise, type Area } from "@/lib/data"
+import { formatMillions, formatPrecise, type Area } from "@/lib/format"
 
 type MoneySource = {
   label: string

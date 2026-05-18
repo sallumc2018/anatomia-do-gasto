@@ -211,11 +211,11 @@ const THEO_ROUTES: TheoRoute[] = [
     id: "fornecedores",
     title: "Quem recebeu dinheiro público?",
     answer:
-      "Ainda não temos uma página pública de fornecedores — é uma lacuna declarada. Já existem fontes mapeadas e extrações parciais (2020, 2021 e 2024), mas a curadoria ainda não foi concluída. O roadmap prevê um ranking por área e busca por fornecedor.",
+      "A página de fornecedores mostra quem recebeu dinheiro público de Sorocaba. Cada linha representa um destinatário registrado na conta-corrente — empresas, entidades, folha de pessoal e fundos. Série completa disponível para todos os anos de 2020 a 2025, com ranking dos 50 maiores recebedores.",
     answerSimple:
-      "Ainda não há uma página pública de fornecedores no site — essa é uma lacuna declarada. Já existem fontes mapeadas e extrações parciais dos anos de 2020, 2021 e 2024, mas a organização dos dados ainda não foi concluída. O plano prevê um ranking por área e uma busca por fornecedor.",
-    status: "Em coleta",
-    confidence: "Média",
+      "A página de fornecedores mostra quem recebeu dinheiro da Prefeitura de Sorocaba: empresas, entidades sem fins lucrativos, folha de pessoal e fundos. Série completa 2020–2025 com ranking dos maiores recebedores.",
+    status: "Disponível",
+    confidence: "Alta",
     keywords: [
       "quem recebeu", "fornecedor", "fornecedores", "cnpj", "empresa", "contrato", "pagamento",
       "recebedor", "quem ganhou", "quem foi pago", "empresa contratada", "maior recebedor",
@@ -223,19 +223,19 @@ const THEO_ROUTES: TheoRoute[] = [
       "qual empresa recebeu", "quanto recebeu empresa", "top fornecedores",
     ],
     links: [
-      { href: "/dados", label: "Ver dados publicados" },
-      { href: "/metodologia", label: "Critério de publicação" },
+      { href: "/fornecedores", label: "Ver fornecedores" },
+      { href: "/dados", label: "Baixar dados" },
     ],
-    source: "Roadmap público do projeto; publicação final ainda pendente.",
-    limitation: "Não trate extrações ou validações locais como dados publicados.",
+    source: "Dados publicados em data/public/sorocaba/fornecedores · Portal de Transparência de Sorocaba · PDFs Livro Conta-Corrente Fornecedor 2022 e 2023.",
+    limitation: "Não identifica o objeto do gasto — apenas o destinatário. Classificação automática por nome pode ter imprecisões.",
   },
   {
     id: "contratos",
     title: "Quais contratos existem?",
     answer:
-      "Contratos e licitações são uma lacuna declarada no site. As fontes existem — PNCP e portal da Prefeitura —, mas a curadoria e a publicação ainda não foram feitas. O roadmap prevê cruzar cada contrato com empenhos e pagamentos assim que a página estiver pronta.",
+      "Contratos e licitações são uma lacuna declarada no site. As fontes existem e estão identificadas: o Portal Nacional de Contratações Públicas (PNCP, obrigatório desde 2022 pela Lei 14.133) e o portal de transparência da Prefeitura para contratos anteriores. A curadoria e publicação ainda não foram feitas.",
     answerSimple:
-      "Contratos e licitações ainda não foram publicados no site — é uma lacuna declarada. As fontes existem (o Portal Nacional de Contratações Públicas e o portal da Prefeitura), mas a curadoria ainda não foi feita. O plano é cruzar cada contrato com empenhos e pagamentos assim que a página estiver pronta.",
+      "Contratos e licitações ainda não foram publicados no site — é uma lacuna declarada. As fontes estão identificadas: o PNCP (para contratos a partir de 2022) e o portal da Prefeitura (para anos anteriores). O plano é cruzar cada contrato com empenhos e pagamentos.",
     status: "Lacuna",
     confidence: "Média",
     keywords: [
@@ -245,19 +245,19 @@ const THEO_ROUTES: TheoRoute[] = [
       "inexigibilidade", "contrato emergencial", "licitacao vencedor",
     ],
     links: [
-      { href: "/dados", label: "Ver dados publicados" },
-      { href: "/metodologia", label: "Roadmap e critérios" },
+      { href: "/lacunas", label: "Ver lacunas documentadas" },
+      { href: "/fornecedores", label: "Quem recebeu (agregado)" },
     ],
-    source: "Roadmap público; dados de contratos ainda não publicados.",
-    limitation: "Sem página de contratos publicada. Fontes externas: PNCP e portal da transparência municipal.",
+    source: "Fontes identificadas: pncp.gov.br (2022+) e fazenda.sorocaba.sp.gov.br/transparencia (2020-2021).",
+    limitation: "Sem página de contratos publicada. Coleta e curadoria pendentes.",
   },
   {
     id: "obras",
     title: "Quais obras existem?",
     answer:
-      "Obras públicas ainda são uma lacuna declarada. Por enquanto, a página de transporte traz alguns dados de infraestrutura viária. O roadmap prevê inventariar obras e cruzá-las com contratos, pagamentos e registros do TCE-SP e do PNCP.",
+      "Obras públicas são uma lacuna declarada. As fontes estão identificadas: o PNCP reúne contratos de obras licitadas a partir de 2022 e o TCE-SP publica alertas e fiscalizações. Obras anteriores a 2022 estão no portal de transparência da Prefeitura. A página de transporte já traz dados da função 26 (mobilidade).",
     answerSimple:
-      "Obras públicas ainda são uma lacuna declarada. Por enquanto, a página de transporte traz alguns dados de infraestrutura viária. O plano prevê inventariar as obras e cruzá-las com contratos, pagamentos e registros do Tribunal de Contas do Estado de São Paulo.",
+      "Obras públicas ainda são uma lacuna declarada no site. As fontes estão identificadas: o PNCP reúne contratos de obras licitadas a partir de 2022, e o TCE-SP publica alertas e fiscalizações. A página de transporte já traz alguns dados de mobilidade.",
     status: "Lacuna",
     confidence: "Média",
     keywords: [
@@ -267,19 +267,19 @@ const THEO_ROUTES: TheoRoute[] = [
       "custo obra", "obra licitada", "projeto de obra",
     ],
     links: [
+      { href: "/lacunas", label: "Ver lacunas documentadas" },
       { href: "/transporte", label: "Transporte e infraestrutura" },
-      { href: "/dados", label: "Ver dados publicados" },
     ],
-    source: "Roadmap público; dados de obras ainda não publicados.",
-    limitation: "Sem página de obras publicada. Fontes externas: PNCP, TCE-SP e portal da transparência municipal.",
+    source: "Fontes: pncp.gov.br (obras 2022+), tce.sp.gov.br (fiscalizações), fazenda.sorocaba.sp.gov.br/transparencia (obras anteriores).",
+    limitation: "Sem página de obras publicada. Coleta e curadoria pendentes.",
   },
   {
     id: "autarquias",
     title: "E as autarquias? (SAAE, Urbes, FUNSERV)",
     answer:
-      "SAAE, Urbes e FUNSERV ainda não têm dados separados publicados — são lacunas declaradas. A página de transporte cobre parte das informações da Urbes sobre mobilidade urbana. As demais autarquias (SAAE, FUNSERV e AGEM) estão no roadmap.",
+      "SAAE, Urbes e FUNSERV ainda não têm dados separados publicados — são lacunas declaradas. As fontes estão identificadas: Urbes em urbes.com.br/transparencia/index, SAAE em saaesorocaba.com.br/transparencia e FUNSERV em funservsorocaba.sp.gov.br/transparencia. O passivo atuarial do FUNSERV já aparece no RGF publicado em saúde fiscal.",
     answerSimple:
-      "O Serviço Autônomo de Água e Esgoto (SAAE), a Urbes e o FUNSERV ainda não têm dados separados publicados — são lacunas declaradas. A página de transporte cobre parte das informações da Urbes sobre mobilidade urbana. As demais autarquias estão no plano de expansão do site.",
+      "O SAAE (água e esgoto), a Urbes (transporte) e o FUNSERV (previdência) ainda não têm dados publicados no site — são lacunas declaradas. As fontes estão identificadas: cada órgão tem portal de transparência próprio. O passivo atuarial do FUNSERV já aparece na página de saúde fiscal.",
     status: "Em coleta",
     confidence: "Média",
     keywords: [
@@ -289,11 +289,11 @@ const THEO_ROUTES: TheoRoute[] = [
       "fundo previdenciario", "passivo atuarial funserv",
     ],
     links: [
-      { href: "/transporte", label: "Transporte (Urbes)" },
-      { href: "/dados", label: "Ver dados publicados" },
+      { href: "/saude-fiscal", label: "Saúde fiscal (passivo FUNSERV)" },
+      { href: "/lacunas", label: "Ver lacunas documentadas" },
     ],
-    source: "Roadmap público; dados de autarquias ainda não publicados separadamente.",
-    limitation: "Dados de autarquias não estão publicados no site. Fontes externas: portal da transparência de cada órgão.",
+    source: "Fontes: urbes.com.br/transparencia/index · saaesorocaba.com.br/transparencia · funservsorocaba.sp.gov.br/transparencia.",
+    limitation: "Dados de autarquias não estão publicados no site. Coleta e curadoria pendentes.",
   },
   {
     id: "camara",
@@ -321,9 +321,9 @@ const THEO_ROUTES: TheoRoute[] = [
     id: "emendas",
     title: "Emendas de vereadores",
     answer:
-      "As emendas impositivas dos vereadores são uma lacuna declarada. Ainda não há dados publicados sobre quais emendas cada vereador indicou nem se o dinheiro foi efetivamente pago. Esse levantamento está no roadmap da Câmara.",
+      "As emendas impositivas dos vereadores são uma lacuna declarada. A fonte está identificada: o portal CEPA da Câmara (cepa.camarasorocaba.sp.gov.br) reúne dados de emendas por autor, entidade beneficiada e valor. Ainda não há dados publicados sobre execução e pagamento de emendas.",
     answerSimple:
-      "Ainda não há dados publicados sobre as emendas dos vereadores — quais cada um indicou e se o dinheiro foi efetivamente pago. Essa é uma lacuna declarada no site, e o levantamento está no plano da seção da Câmara.",
+      "Ainda não há dados publicados sobre as emendas dos vereadores. A fonte está identificada: portal CEPA da Câmara (cepa.camarasorocaba.sp.gov.br) com dados de emendas por autor, destino e valor. A coleta e publicação ainda estão pendentes.",
     status: "Em coleta",
     confidence: "Média",
     keywords: [
@@ -334,10 +334,10 @@ const THEO_ROUTES: TheoRoute[] = [
     ],
     links: [
       { href: "/camara-municipal", label: "Câmara Municipal" },
-      { href: "/dados", label: "Ver dados publicados" },
+      { href: "/lacunas", label: "Ver lacunas documentadas" },
     ],
-    source: "Roadmap público; dados de emendas ainda não publicados.",
-    limitation: "Sem dados de emendas publicados. Fontes externas: portal da transparência da Câmara.",
+    source: "Fonte identificada: cepa.camarasorocaba.sp.gov.br · camarasorocaba.sp.gov.br (transparência).",
+    limitation: "Sem dados de emendas publicados. Coleta no portal CEPA pendente.",
   },
   {
     id: "fiscal",

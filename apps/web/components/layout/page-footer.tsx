@@ -17,11 +17,13 @@ const COLS: { title: string; items: FooterItem[] }[] = [
   {
     title: "Fontes de dados",
     items: [
-      { label: "Relatórios de Aplicação da LRF" },
+      { label: "Dados de Sorocaba", href: "/sorocaba", internal: true },
       { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
       { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
       { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
       { label: "Metodologia completa", href: "/metodologia", internal: true },
+      { label: "Fontes de dados", href: "/fontes", internal: true },
+      { label: "Glossário", href: "/glossario", internal: true },
     ],
   },
   {

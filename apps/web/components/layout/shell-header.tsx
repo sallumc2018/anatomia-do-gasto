@@ -7,21 +7,23 @@ import { trackEvent } from "@/lib/analytics"
 import { SiteSearch } from "@/components/search/SiteSearch"
 
 const MAIN_NAV = [
-  { href: "/executivo", label: "Dinheiro" },
-  { href: "/camara-municipal", label: "Câmara" },
-  { href: "/saude", label: "Serviços" },
-  { href: "/dados", label: "Dados" },
+  { href: "/sorocaba/executivo", label: "Dinheiro" },
+  { href: "/sorocaba/camara-municipal", label: "Câmara" },
+  { href: "/sorocaba/saude", label: "Serviços" },
+  { href: "/sorocaba/dados", label: "Dados" },
 ]
 
 const MAIS_NAV = [
-  { href: "/receita", label: "Receita" },
-  { href: "/execucao", label: "Execução" },
-  { href: "/saude-fiscal", label: "Saúde Fiscal" },
-  { href: "/educacao", label: "Educação" },
-  { href: "/seguranca", label: "Segurança" },
-  { href: "/transporte", label: "Transporte" },
-  { href: "/auditoria", label: "Agentes" },
-  { href: "/pacto-federativo", label: "Federativo" },
+  { href: "/sorocaba/receita", label: "Receita" },
+  { href: "/sorocaba/execucao", label: "Execução" },
+  { href: "/sorocaba/fornecedores", label: "Fornecedores" },
+  { href: "/sorocaba/saude-fiscal", label: "Saúde Fiscal" },
+  { href: "/sorocaba/educacao", label: "Educação" },
+  { href: "/sorocaba/seguranca", label: "Segurança" },
+  { href: "/sorocaba/transporte", label: "Transporte" },
+  { href: "/sorocaba/auditoria", label: "Agentes" },
+  { href: "/sorocaba/pacto-federativo", label: "Federativo" },
+  { href: "/sorocaba/lacunas", label: "Lacunas" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre" },
 ]
