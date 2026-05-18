@@ -1,12 +1,15 @@
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
-RAW_DIR = DATA_DIR / "raw" / "sorocaba"
-EXTRACTED_DIR = DATA_DIR / "extracted" / "sorocaba"
-VALIDATED_DIR = DATA_DIR / "validated" / "sorocaba"
-PUBLIC_DIR = DATA_DIR / "public" / "sorocaba"
+MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
+
+RAW_DIR = DATA_DIR / "raw" / MUNICIPIO
+EXTRACTED_DIR = DATA_DIR / "extracted" / MUNICIPIO
+VALIDATED_DIR = DATA_DIR / "validated" / MUNICIPIO
+PUBLIC_DIR = DATA_DIR / "public" / MUNICIPIO
 
 SAUDE_RAW_DIR = RAW_DIR / "saude"
 SAUDE_EXTRACTED_DIR = EXTRACTED_DIR / "saude"
@@ -47,6 +50,11 @@ FISCAL_RAW_DIR = RAW_DIR / "fiscal"
 FISCAL_EXTRACTED_DIR = EXTRACTED_DIR / "fiscal"
 FISCAL_VALIDATED_DIR = VALIDATED_DIR / "fiscal"
 FISCAL_PUBLIC_DIR = PUBLIC_DIR / "fiscal"
+
+TRANSFERENCIAS_RAW_DIR = RAW_DIR / "transferencias_federais"
+TRANSFERENCIAS_EXTRACTED_DIR = EXTRACTED_DIR / "transferencias_federais"
+TRANSFERENCIAS_VALIDATED_DIR = VALIDATED_DIR / "transferencias_federais"
+TRANSFERENCIAS_PUBLIC_DIR = PUBLIC_DIR / "transferencias_federais"
 
 
 def as_str(path: Path) -> str:

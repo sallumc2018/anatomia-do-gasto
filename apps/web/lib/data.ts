@@ -73,13 +73,15 @@ function parseCSV(content: string): HealthRow[] {
 
 const DATA_PUBLIC_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
-const SOROCABA_PUBLIC_DATA_DIRS = {
-  saude: path.join(DATA_PUBLIC_ROOT, "sorocaba", "saude", "saida"),
-  educacao: path.join(DATA_PUBLIC_ROOT, "sorocaba", "educacao", "saida"),
-  seguranca: path.join(DATA_PUBLIC_ROOT, "sorocaba", "seguranca", "saida"),
-  transporte: path.join(DATA_PUBLIC_ROOT, "sorocaba", "transporte", "saida"),
-  executivo: path.join(DATA_PUBLIC_ROOT, "sorocaba", "executivo", "saida"),
-  receita: path.join(DATA_PUBLIC_ROOT, "sorocaba", "receita", "saida"),
+function getDataDirs(municipio: string) {
+  return {
+    saude:      path.join(DATA_PUBLIC_ROOT, municipio, "saude",      "saida"),
+    educacao:   path.join(DATA_PUBLIC_ROOT, municipio, "educacao",   "saida"),
+    seguranca:  path.join(DATA_PUBLIC_ROOT, municipio, "seguranca",  "saida"),
+    transporte: path.join(DATA_PUBLIC_ROOT, municipio, "transporte", "saida"),
+    executivo:  path.join(DATA_PUBLIC_ROOT, municipio, "executivo",  "saida"),
+    receita:    path.join(DATA_PUBLIC_ROOT, municipio, "receita",    "saida"),
+  }
 }
 
 function maybeDevDataDir(envKey: string): string | null {
@@ -88,24 +90,24 @@ function maybeDevDataDir(envKey: string): string | null {
   return envDir && fs.existsSync(envDir) ? envDir : null
 }
 
-function getDataDir(area: HealthArea): string {
+function getDataDir(area: HealthArea, municipio = "sorocaba"): string {
   const envKey = area === "saude" ? "DATA_SAIDA_DIR" : `DATA_SAIDA_DIR_${area.toUpperCase()}`
-  return maybeDevDataDir(envKey) ?? SOROCABA_PUBLIC_DATA_DIRS[area]
+  return maybeDevDataDir(envKey) ?? getDataDirs(municipio)[area]
 }
 
-export function getAvailableYears(area: HealthArea): number[] {
-  const dir = getDataDir(area)
+export function getAvailableYears(area: HealthArea, municipio = "sorocaba"): number[] {
+  const dir = getDataDir(area, municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(new RegExp(`^despesas_${area}_sorocaba_(\\d{4})\\.csv$`)))
+    .map((f) => f.match(new RegExp(`^despesas_${area}_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
 }
 
-export function loadYearData(year: number, area: HealthArea): HealthRow[] {
-  const filePath = path.join(getDataDir(area), `despesas_${area}_sorocaba_${year}.csv`)
+export function loadYearData(year: number, area: HealthArea, municipio = "sorocaba"): HealthRow[] {
+  const filePath = path.join(getDataDir(area, municipio), `despesas_${area}_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -180,8 +182,8 @@ function parseRevenueCSV(content: string): RevenueRow[] {
   }).filter((r) => r.quadrimestre > 0)
 }
 
-export function loadRevenueData(year: number, area: HealthArea): RevenueRow[] {
-  const filePath = path.join(getDataDir(area), `receitas_base_${area}_sorocaba_${year}.csv`)
+export function loadRevenueData(year: number, area: HealthArea, municipio = "sorocaba"): RevenueRow[] {
+  const filePath = path.join(getDataDir(area, municipio), `receitas_base_${area}_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseRevenueCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -213,8 +215,8 @@ function parseRevenueDetailCSV(content: string): RevenueDetailRow[] {
   }).filter((r) => r.categoria && r.conta)
 }
 
-export function loadRevenueDetailData(year: number, area: HealthArea): RevenueDetailRow[] {
-  const filePath = path.join(getDataDir(area), `receitas_detalhamento_sorocaba_${year}.csv`)
+export function loadRevenueDetailData(year: number, area: HealthArea, municipio = "sorocaba"): RevenueDetailRow[] {
+  const filePath = path.join(getDataDir(area, municipio), `receitas_detalhamento_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseRevenueDetailCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -262,10 +264,10 @@ function parseRREODespesasCSV(content: string): RREODespesasRow[] {
   }).filter((r) => r.funcao)
 }
 
-export function loadRREODespesas(year: number): RREODespesasRow[] {
+export function loadRREODespesas(year: number, municipio = "sorocaba"): RREODespesasRow[] {
   const filePath = path.join(
-    maybeDevDataDir("DATA_SAIDA_DIR") ?? SOROCABA_PUBLIC_DATA_DIRS.saude,
-    `rreo_despesas_saude_sorocaba_${year}.csv`
+    maybeDevDataDir("DATA_SAIDA_DIR") ?? getDataDirs(municipio).saude,
+    `rreo_despesas_saude_${municipio}_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []
   return parseRREODespesasCSV(fs.readFileSync(filePath, "utf-8"))
@@ -308,10 +310,10 @@ function parseRREOReceitasCSV(content: string): RREOReceitasRow[] {
   }).filter((r) => r.quadrimestre > 0)
 }
 
-export function loadRREOReceitas(year: number): RREOReceitasRow[] {
+export function loadRREOReceitas(year: number, municipio = "sorocaba"): RREOReceitasRow[] {
   const filePath = path.join(
-    maybeDevDataDir("DATA_SAIDA_DIR") ?? SOROCABA_PUBLIC_DATA_DIRS.saude,
-    `rreo_receitas_sus_sorocaba_${year}.csv`
+    maybeDevDataDir("DATA_SAIDA_DIR") ?? getDataDirs(municipio).saude,
+    `rreo_receitas_sus_${municipio}_${year}.csv`
   )
   if (!fs.existsSync(filePath)) return []
   return parseRREOReceitasCSV(fs.readFileSync(filePath, "utf-8"))
@@ -354,23 +356,23 @@ function parseSegurancaCSV(content: string): SegurancaRow[] {
   }).filter((r) => r.subfuncao)
 }
 
-function getSegurancaDir(): string {
-  return maybeDevDataDir("DATA_SAIDA_DIR_SEGURANCA") ?? SOROCABA_PUBLIC_DATA_DIRS.seguranca
+function getSegurancaDir(municipio = "sorocaba"): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_SEGURANCA") ?? getDataDirs(municipio).seguranca
 }
 
-export function getAvailableYearsSeguranca(): number[] {
-  const dir = getSegurancaDir()
+export function getAvailableYearsSeguranca(municipio = "sorocaba"): number[] {
+  const dir = getSegurancaDir(municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(/^despesas_seguranca_sorocaba_(\d{4})\.csv$/))
+    .map((f) => f.match(new RegExp(`^despesas_seguranca_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
 }
 
-export function loadSegurancaData(year: number): SegurancaRow[] {
-  const filePath = path.join(getSegurancaDir(), `despesas_seguranca_sorocaba_${year}.csv`)
+export function loadSegurancaData(year: number, municipio = "sorocaba"): SegurancaRow[] {
+  const filePath = path.join(getSegurancaDir(municipio), `despesas_seguranca_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseSegurancaCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -430,24 +432,24 @@ function parseSegurancaOrcamentoCSV(content: string): SegurancaOrcamentoRow | nu
   }
 }
 
-export function loadSegurancaOrcamento(year: number): SegurancaOrcamentoRow | null {
-  const filePath = path.join(getSegurancaDir(), `rreo_seguranca_sorocaba_${year}.csv`)
+export function loadSegurancaOrcamento(year: number, municipio = "sorocaba"): SegurancaOrcamentoRow | null {
+  const filePath = path.join(getSegurancaDir(municipio), `rreo_seguranca_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseSegurancaOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
 // ─── Transporte ──────────────────────────────────────────────────────────────
 
-function getTransporteDir(): string {
-  return maybeDevDataDir("DATA_SAIDA_DIR_TRANSPORTE") ?? SOROCABA_PUBLIC_DATA_DIRS.transporte
+function getTransporteDir(municipio = "sorocaba"): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_TRANSPORTE") ?? getDataDirs(municipio).transporte
 }
 
-export function getAvailableYearsTransporte(): number[] {
-  const dir = getTransporteDir()
+export function getAvailableYearsTransporte(municipio = "sorocaba"): number[] {
+  const dir = getTransporteDir(municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(/^rreo_transporte_sorocaba_(\d{4})\.csv$/))
+    .map((f) => f.match(new RegExp(`^rreo_transporte_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
@@ -517,14 +519,14 @@ function parseTransporteDcaCSV(content: string): TransporteDcaRow | null {
   }
 }
 
-export function loadTransporteOrcamento(year: number): TransporteOrcamentoRow | null {
-  const filePath = path.join(getTransporteDir(), `rreo_transporte_sorocaba_${year}.csv`)
+export function loadTransporteOrcamento(year: number, municipio = "sorocaba"): TransporteOrcamentoRow | null {
+  const filePath = path.join(getTransporteDir(municipio), `rreo_transporte_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseTransporteOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
-export function loadTransporteDca(year: number): TransporteDcaRow | null {
-  const filePath = path.join(getTransporteDir(), `dca_transporte_sorocaba_${year}.csv`)
+export function loadTransporteDca(year: number, municipio = "sorocaba"): TransporteDcaRow | null {
+  const filePath = path.join(getTransporteDir(municipio), `dca_transporte_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseTransporteDcaCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -542,8 +544,8 @@ export interface ExecutivoRow {
   fonte_url: string
 }
 
-function getExecutivoDir(): string {
-  return maybeDevDataDir("DATA_SAIDA_DIR_EXECUTIVO") ?? SOROCABA_PUBLIC_DATA_DIRS.executivo
+function getExecutivoDir(municipio = "sorocaba"): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_EXECUTIVO") ?? getDataDirs(municipio).executivo
 }
 
 function parseExecutivoCSV(content: string): ExecutivoRow[] {
@@ -567,19 +569,19 @@ function parseExecutivoCSV(content: string): ExecutivoRow[] {
   }).filter((r) => r.funcao)
 }
 
-export function getAvailableYearsExecutivo(): number[] {
-  const dir = getExecutivoDir()
+export function getAvailableYearsExecutivo(municipio = "sorocaba"): number[] {
+  const dir = getExecutivoDir(municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(/^despesas_executivo_sorocaba_(\d{4})\.csv$/))
+    .map((f) => f.match(new RegExp(`^despesas_executivo_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
 }
 
-export function loadExecutivoData(year: number): ExecutivoRow[] {
-  const filePath = path.join(getExecutivoDir(), `despesas_executivo_sorocaba_${year}.csv`)
+export function loadExecutivoData(year: number, municipio = "sorocaba"): ExecutivoRow[] {
+  const filePath = path.join(getExecutivoDir(municipio), `despesas_executivo_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseExecutivoCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -596,8 +598,8 @@ export interface ReceitaMunicipalRow {
   fonte_url: string
 }
 
-function getReceitaDir(): string {
-  return maybeDevDataDir("DATA_SAIDA_DIR_RECEITA") ?? SOROCABA_PUBLIC_DATA_DIRS.receita
+function getReceitaDir(municipio = "sorocaba"): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_RECEITA") ?? getDataDirs(municipio).receita
 }
 
 function parseReceitaMunicipalCSV(content: string): ReceitaMunicipalRow[] {
@@ -620,27 +622,27 @@ function parseReceitaMunicipalCSV(content: string): ReceitaMunicipalRow[] {
   }).filter((r) => r.categoria)
 }
 
-export function getAvailableYearsReceita(): number[] {
-  const dir = getReceitaDir()
+export function getAvailableYearsReceita(municipio = "sorocaba"): number[] {
+  const dir = getReceitaDir(municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(/^receitas_sorocaba_(\d{4})\.csv$/))
+    .map((f) => f.match(new RegExp(`^receitas_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
 }
 
-export function loadReceitaMunicipal(year: number): ReceitaMunicipalRow[] {
-  const filePath = path.join(getReceitaDir(), `receitas_sorocaba_${year}.csv`)
+export function loadReceitaMunicipal(year: number, municipio = "sorocaba"): ReceitaMunicipalRow[] {
+  const filePath = path.join(getReceitaDir(municipio), `receitas_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   return parseReceitaMunicipalCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
 // ─── Saúde Fiscal (RGF Anexo 01 + 02 + RREO Anexo 03) ───────────────────────
 
-function getFiscalDir(): string {
-  return maybeDevDataDir("DATA_SAIDA_DIR_FISCAL") ?? path.join(DATA_PUBLIC_ROOT, "sorocaba", "fiscal", "saida")
+function getFiscalDir(municipio = "sorocaba"): string {
+  return maybeDevDataDir("DATA_SAIDA_DIR_FISCAL") ?? path.join(DATA_PUBLIC_ROOT, municipio, "fiscal", "saida")
 }
 
 export interface PessoalRow {
@@ -779,31 +781,31 @@ function parseRclDetalhadaCSV(content: string): RclDetalhadaRow | null {
   }
 }
 
-export function getAvailableYearsFiscal(): number[] {
-  const dir = getFiscalDir()
+export function getAvailableYearsFiscal(municipio = "sorocaba"): number[] {
+  const dir = getFiscalDir(municipio)
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
-    .map((f) => f.match(/^pessoal_sorocaba_(\d{4})\.csv$/))
+    .map((f) => f.match(new RegExp(`^pessoal_${municipio}_(\\d{4})\\.csv$`)))
     .filter((m): m is RegExpMatchArray => m !== null)
     .map((m) => Number(m[1]))
     .sort((a, b) => b - a)
 }
 
-export function loadPessoal(year: number): PessoalRow | null {
-  const filePath = path.join(getFiscalDir(), `pessoal_sorocaba_${year}.csv`)
+export function loadPessoal(year: number, municipio = "sorocaba"): PessoalRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `pessoal_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parsePessoalCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
-export function loadDivida(year: number): DividaRow | null {
-  const filePath = path.join(getFiscalDir(), `divida_sorocaba_${year}.csv`)
+export function loadDivida(year: number, municipio = "sorocaba"): DividaRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `divida_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseDividaCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
-export function loadRclDetalhada(year: number): RclDetalhadaRow | null {
-  const filePath = path.join(getFiscalDir(), `rcl_sorocaba_${year}.csv`)
+export function loadRclDetalhada(year: number, municipio = "sorocaba"): RclDetalhadaRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `rcl_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseRclDetalhadaCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -853,8 +855,8 @@ function parseRppsCSV(content: string): RppsRow | null {
   }
 }
 
-export function loadRpps(year: number): RppsRow | null {
-  const filePath = path.join(getFiscalDir(), `rpps_sorocaba_${year}.csv`)
+export function loadRpps(year: number, municipio = "sorocaba"): RppsRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `rpps_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseRppsCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -895,8 +897,8 @@ function parseRclCapitalCSV(content: string): RclCapitalRow | null {
   }
 }
 
-export function loadRclCapital(year: number): RclCapitalRow | null {
-  const filePath = path.join(getFiscalDir(), `rcl_capital_sorocaba_${year}.csv`)
+export function loadRclCapital(year: number, municipio = "sorocaba"): RclCapitalRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `rcl_capital_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseRclCapitalCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -935,8 +937,8 @@ function parseNaturezaDespesaCSV(content: string): NaturezaDespesaRow | null {
   }
 }
 
-export function loadNaturezaDespesa(year: number): NaturezaDespesaRow | null {
-  const filePath = path.join(getFiscalDir(), `natureza_despesa_sorocaba_${year}.csv`)
+export function loadNaturezaDespesa(year: number, municipio = "sorocaba"): NaturezaDespesaRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `natureza_despesa_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseNaturezaDespesaCSV(fs.readFileSync(filePath, "utf-8"))
 }
@@ -986,8 +988,67 @@ function parseDividaDetalhadaCSV(content: string): DividaDetalhadaRow | null {
   }
 }
 
-export function loadDividaDetalhada(year: number): DividaDetalhadaRow | null {
-  const filePath = path.join(getFiscalDir(), `divida_detalhada_sorocaba_${year}.csv`)
+export function loadDividaDetalhada(year: number, municipio = "sorocaba"): DividaDetalhadaRow | null {
+  const filePath = path.join(getFiscalDir(municipio), `divida_detalhada_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return null
   return parseDividaDetalhadaCSV(fs.readFileSync(filePath, "utf-8"))
+}
+
+// ─── Fornecedores (conta-corrente agregada por destinatário) ──────────────────
+
+export interface FornecedorRow {
+  ano: number
+  fornecedor_codigo: string
+  fornecedor_nome: string
+  classificacao: string
+  movimentos: number
+  credito: number
+  debito: number
+  saldo_final: number
+  primeira_data: string
+  ultima_data: string
+}
+
+function getFornecedoresDir(municipio = "sorocaba"): string {
+  return path.join(DATA_PUBLIC_ROOT, municipio, "fornecedores", "saida")
+}
+
+function parseFornecedoresCSV(content: string, ano: number): FornecedorRow[] {
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "" : "")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano,
+      fornecedor_codigo: g(f, col("fornecedor_codigo")).trim(),
+      fornecedor_nome:   g(f, col("fornecedor_nome")).trim(),
+      classificacao:     g(f, col("classificacao_inicial")).trim(),
+      movimentos:        parseInt(g(f, col("movimentos"))) || 0,
+      credito:           parseFloat(g(f, col("credito_num"))) || 0,
+      debito:            parseFloat(g(f, col("debito_num"))) || 0,
+      saldo_final:       parseFloat(g(f, col("saldo_final_num"))) || 0,
+      primeira_data:     g(f, col("primeira_data")).trim(),
+      ultima_data:       g(f, col("ultima_data")).trim(),
+    }
+  }).filter((r) => r.fornecedor_nome && r.classificacao !== "movimentacao_interna")
+}
+
+export function getAvailableYearsFornecedores(municipio = "sorocaba"): number[] {
+  const dir = getFornecedoresDir(municipio)
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(new RegExp(`^fornecedores_agregado_${municipio}_(\\d{4})\\.csv$`)))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadFornecedores(year: number, municipio = "sorocaba"): FornecedorRow[] {
+  const filePath = path.join(getFornecedoresDir(municipio), `fornecedores_agregado_${municipio}_${year}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  return parseFornecedoresCSV(fs.readFileSync(filePath, "utf-8"), year)
 }
