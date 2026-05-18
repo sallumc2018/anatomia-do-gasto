@@ -103,6 +103,40 @@ Após a correção de uma vulnerabilidade, o mantenedor publicará um aviso no r
 - O tablet pode receber cópia read-only do status do PC e do watchdog por `tools/tablet/update-tablet-status.ps1`, em `/sdcard/AnatomiaTerminal/`.
 - Sem USB, o tablet deve receber status por SSH/SCP no Termux, com chave dedicada e fingerprint do host fixada em `C:\Omega\03_Ferramentas\infra\omega-tablet-ssh.json`. Não usar automação de tela nem sessão web para transportar status operacional.
 
+## Pentest 2026-05-17 — Resultados e Riscos Aceitos
+
+Pentest autorizado realizado em 2026-05-17 contra `https://www.anatomiadogasto.ong.br`. Todos os testes foram read-only. Resultados:
+
+### Controles confirmados efetivos
+
+| Controle | Resultado |
+|----------|-----------|
+| Path traversal na API `/api/dados/` | Bloqueado — todos os vetores retornam 404 |
+| `.env`, `.git`, `package.json` via URL | Bloqueados — 404 |
+| Clickjacking | Bloqueado — `X-Frame-Options: DENY` + `frame-ancestors 'none'` |
+| HSTS | Ativo — `max-age=63072000; includeSubDomains; preload` |
+| HTTP→HTTPS redirect | Ativo — 308 Permanent Redirect |
+| Source maps | Não expostos — `.js.map` retorna 404 |
+| `X-Powered-By` | Oculto — `poweredByHeader: false` funciona |
+| `Permissions-Policy` | Ativo — câmera, microfone, geolocalização bloqueados |
+| Supply chain npm | Limpo — nenhum indicador encontrado |
+| Arquivos sensíveis versionados | Nenhum |
+
+### Riscos aceitos (sem ação necessária agora)
+
+**SRI ausente nos chunks JS (L2):** Chunks `_next/static/` servidos sem atributos `integrity`. Risco baixo porque são servidos do mesmo origin via TLS com ETag. Next.js não suporta SRI nativo para chunks gerados dinamicamente.
+
+**`Server: Vercel` exposto (L3):** Vercel não permite ocultar esse header. Sem mitigação possível. Risco informacional.
+
+**CDN cache stale (L4):** `Age` elevado nos headers indica conteúdo antigo no edge. Invalida automaticamente a cada deploy. Não é um risco de segurança.
+
+**CSVs da API retornam 404 em produção (L5):** Os arquivos existem localmente mas o deploy atual é anterior aos commits pendentes. Resolve no próximo deploy sem nenhuma ação adicional.
+
+### Itens com ação pendente (ao implementar Câmara 2)
+
+- **`script-src 'unsafe-inline'` no CSP (H1):** Migrar para nonces quando houver input de usuário. Sem risco imediato (nenhum input renderizado ainda).
+- **`Access-Control-Allow-Origin: *` (M1):** Intencional para site público sem autenticação. Restringir para domínio explícito antes de adicionar login. Documentado em `next.config.ts`.
+
 ## Gate Local Antes De Release
 
 Antes de preparar release, push ou deploy do site, execute a auditoria local em modo read-only:

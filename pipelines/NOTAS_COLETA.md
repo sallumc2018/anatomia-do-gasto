@@ -1,6 +1,111 @@
 # Notas de Coleta — Sorocaba Grupo B
 
 Investigações realizadas em 2026-05-15 sobre fontes externas ao SICONFI/RREO.
+Atualizado em 2026-05-17: resolução dos 4 bloqueios pendentes (ver seção B5).
+Atualizado em 2026-05-18: pipeline completo de despesas de gabinete da Câmara (ver seção B6).
+
+---
+
+## B6 — Despesas de Gabinete da Câmara Municipal (2026-05-18)
+
+**Objetivo:** Coletar e publicar despesas mensais dos gabinetes dos vereadores.
+
+**Fonte:** `https://www.camarasorocaba.sp.gov.br/arquivos_publicos.html?id=5e3f0dc905d7040f28b44e0e`
+Arquivos servidos via: `https://www.camarasorocaba.sp.gov.br:3115/publicFiles/file/{id}`
+
+**Estrutura descoberta via Playwright:**
+- Página índice contém pasta por ano (2005–2026)
+- Cada pasta de ano contém 12 arquivos mensais (jan–dez)
+- PDFs são texto-nativo (não escaneados), 1 página cada, ~20–185 KB
+- Porta 3115 acessível diretamente via urllib sem Playwright
+
+**IDs das pastas de anos (gabinete/prestação de contas):**
+
+| Ano  | ID da pasta             |
+|------|-------------------------|
+| 2020 | `5e4e70bff41c8a1e1d8d24e9` |
+| 2021 | `6026aa116db332166732e66c` |
+| 2022 | `620ce5c4876faaa2f3a325ba` |
+| 2023 | `64063df73c1532f31863841d` |
+| 2024 | `65ddc487c318f75dad65e6cf` |
+| 2025 | `67bf275d2eec7c46f34483f4` |
+| 2026 | `699c7cffc403d903bfce2644` |
+
+**Formato do PDF:**
+Tabela com colunas: VEREADORES | ALUGUEL DE MÁQUINA REPROGRÁFICA | COMBUSTÍVEL |
+MATERIAL DE ESCRITÓRIO | POSTAGEM | TOTAL | REEMBOLSO
+
+Observação: a partir de meados de 2024, a coluna REEMBOLSO é omitida quando zero
+(não aparece como `-`). O parser `extrair_despesas_gabinete_camara.py` trata isso.
+
+**Resultado:**
+- 75 PDFs baixados (2026 = jan–mar apenas; porta 3115 sem WAF)
+- 1.578 registros extraídos e publicados em `data/public/sorocoba/camara/gabinete/saida/`
+- Pipelines: `pipelines/baixar_despesas_gabinete_camara.py` + `pipelines/extrair_despesas_gabinete_camara.py`
+
+**Atualização mensal:** rodar os dois scripts novamente. O downloader pula arquivos já baixados
+com tamanho > 10 KB. Para 2026, novos meses aparecem conforme publicados pela Câmara.
+
+---
+
+## B5 — Resolução dos Bloqueios LOA/Transferências (2026-05-17)
+
+### Bloqueio 1: LOA 2020–2021 relatórios de audiência pública (404)
+
+**Diagnóstico confirmado:** O portal `fazenda.sorocaba.sp.gov.br/transparencia` não publica
+relatórios de audiência pública LOA anteriores a 2022. O link "Versão anterior" aponta para
+`sorocaba.sp.gov.br/transparencia/2015.html` (portal histórico pré-2015, sem LOA).
+
+**Resolução:** Gap documentado. Série histórica dos relatórios de audiência pública LOA
+começa em 2022. Não há fonte alternativa conhecida para 2020–2021.
+
+URLs confirmadas dos relatórios disponíveis (padrão):
+```
+https://sorocaba.sp.gov.br/anexos/SEF%2FTransparencia%2F01%20-%20Informacoes%20de%20Prestacoes%20de%20Contas%20-%20Lei%20de%20Responsabilidade%20Fiscal/%2FRelatorios%20de%20Audiencia%20Publica%2FLOA/Relat%C3%B3rio%20LOA_{AA}.pdf
+```
+Disponíveis: LOA_22, LOA_23, LOA_24, LOA_25, LOA_26.
+
+**Nota separada:** A LOA da Prefeitura (texto da lei orçamentária) existe para todos os anos
+via `www.sorocaba.sp.gov.br/anexos/SEF/.../Lei%20Orcamentaria%20Anual%20-%20LOA/{YYYY}%20-%20Lei%20Or%C3%A7ament%C3%A1ria%20Anual.pdf`.
+Disponível inclusive para 2020 (1,1 MB confirmado). Esses são documentos diferentes dos
+relatórios de audiência pública.
+
+---
+
+### Bloqueio 2: LOA Câmara — 403 ao acesso automatizado
+
+**Diagnóstico:** `camarasorocaba.sp.gov.br/transparencia` retorna 403 para requests
+programáticas. User-Agent de navegador Chrome tentado — 404 (URL não existe nessa forma).
+
+**Status dos dados da Câmara Municipal:**
+- LOA 2020–2025: **completo** (confirmado via PDFs + SICONFI RREO). Ver memória.
+- Realizado 2020–2021: **pendente** (LAI ou acesso manual ao portal).
+- Verba de gabinete: **pendente** (script `pipelines/baixar_camara_playwright.py` existe;
+  requer execução via skill `playwright`).
+
+---
+
+### Bloqueio 3: LOA extração OCR (4 PDFs escaneados)
+
+**Status:** Dados 2022–2025 já extraídos visualmente e hard-coded em
+`pipelines/gerar_audiencia_loa.py`. OCR automatizado marcado como tarefa futura.
+
+**Novo:** LOA 2026 (`relatorio_loa_2026.pdf`, 3,6 MB) baixado de
+`sorocaba.sp.gov.br/.../Relat%C3%B3rio%20LOA_26.pdf` e processado via leitura visual.
+28 páginas; dados por eixo estratégico extraídos (diferente do schema 2022–2025).
+Publicado em `data/public/sorocaba/loa/saida/audiencia_loa_sorocaba_2026.csv` (14 registros).
+
+---
+
+### Bloqueio 4: Transferências federais — aguardando chave API
+
+**Status em 2026-05-17:** Chave `PORTAL_TRANSPARENCIA_KEY` configurada no ambiente Windows.
+Teste em 2026-05-17: HTTP 403 — chave ainda não ativada (prazo: até 24h após cadastro).
+
+**Próximo passo:** Re-executar após ativação:
+```
+python pipelines/baixar_transferencias_federais.py --ano 2020 --ano 2021 --ano 2022 --ano 2023 --ano 2024 --ano 2025
+```
 
 ---
 

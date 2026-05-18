@@ -734,3 +734,7 @@ foreach ($copy in $copies) {
 if ($LASTEXITCODE -ne 0) { throw "Failed to chmod remote painel command." }
 
 Write-Host "Tablet status updated over SSH: $target"
+
+# OMEGA_TABLET_PANEL_COMPAT_BEGIN
+try { $omegaRepoForPanel = if (Get-Variable -Name Repo -ErrorAction SilentlyContinue) { $Repo } else { (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path }; $omegaTabletPanelCompat = Join-Path $omegaRepoForPanel 'tools\tablet\update-tablet-panel-compat.ps1'; if (Test-Path $omegaTabletPanelCompat) { & powershell -NoProfile -ExecutionPolicy Bypass -File $omegaTabletPanelCompat -Repo $omegaRepoForPanel } } catch { Write-Warning "Falha ao atualizar painel compat do tablet: $($_.Exception.Message)" }
+# OMEGA_TABLET_PANEL_COMPAT_END

@@ -51,6 +51,16 @@ Depois de alterar:
 git status -sb
 git log --oneline -5
 
+## Edicao concorrente (Claude + Codex)
+
+Quando Claude e Codex estiverem ativos ao mesmo tempo, o risco real e editar o mesmo arquivo sem que um saiba do outro. O `git status` antes de editar mitiga, mas nao previne totalmente.
+
+Protocolo:
+- Antes de qualquer escrita, verifique `git status -sb` e leia o timestamp dos arquivos alvo.
+- Se um arquivo tiver modificacao recente nao commitada e voce nao foi quem fez, pare e informe antes de escrever.
+- Nunca faca commit silencioso quando o working tree ja tiver mudancas: descreva o que e seu e o que nao e.
+- Em caso de conflito real, prefira `git stash` ou branch temporaria em vez de sobrescrever.
+
 ## Separacao de contexto
 
 Nao trazer para este repositorio conteudo privado, credenciais, registros operacionais internos ou arquivos pessoais.

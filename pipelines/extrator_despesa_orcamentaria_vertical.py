@@ -20,6 +20,32 @@ VALOR_RE = re.compile(r"^-?\d{1,3}(?:\.\d{3})*,\d{2}$")
 NATUREZA_RE = re.compile(r"^\d\.\d\.\d{2}\.\d{2}\.\d{2}$")
 PROGRAMA_RE = re.compile(r"^\d{2}\.\d{3}\.\d{4}-\d\.\d{3}$")
 
+# Faixas y por versao de formato (coordenadas PyMuPDF, eixo y invertido em landscape)
+ZONAS: dict[str, dict[str, tuple[float, float]]] = {
+    "v2021": {
+        "data":             (720, 735),
+        "documento":        (690, 704),
+        "empenho":          (655, 668),
+        "fornecedor_nome":  (540, 635),
+        "fornecedor_codigo":(465, 478),
+        "paga_no_dia":      (385, 405),
+        "paga_ate_data":    (300, 315),
+        "empenhada_ate_data":(225, 238),
+        "empenhos_a_pagar": (150, 165),
+    },
+    "v2022": {
+        "data":             (695, 710),
+        "documento":        (665, 678),
+        "empenho":          (628, 642),
+        "fornecedor_nome":  (515, 610),
+        "fornecedor_codigo":(440, 455),
+        "paga_no_dia":      (365, 380),
+        "paga_ate_data":    (275, 290),
+        "empenhada_ate_data":(199, 213),
+        "empenhos_a_pagar": (127, 141),
+    },
+}
+
 
 def br_float(valor: str) -> float:
     if not valor:
@@ -86,17 +112,21 @@ def extrair_pagina(
     fonte_arquivo: str,
     ultimo_contexto_linha: dict[str, str] | None = None,
     ultimo_contexto_pagina: dict[str, str] | None = None,
+    zonas: dict[str, tuple[float, float]] | None = None,
 ) -> list[dict[str, object]]:
+    if zonas is None:
+        zonas = ZONAS["v2021"]
     words = page.get_text("words")
     contexto = contexto_pagina(words, ultimo_contexto_pagina)
     if ultimo_contexto_pagina is not None:
         ultimo_contexto_pagina.update(contexto)
     registros = []
 
+    y_data_min, y_data_max = zonas["data"]
     datas = [
         (x0, text)
         for x0, y0, _x1, _y1, text, *_rest in words
-        if 720 <= y0 <= 735 and DATA_RE.match(text)
+        if y_data_min <= y0 <= y_data_max and DATA_RE.match(text)
     ]
 
     if ultimo_contexto_linha is None:
@@ -109,10 +139,10 @@ def extrair_pagina(
 
     for x_ref, data in sorted(datas, key=lambda item: item[0]):
         row_words = palavras_da_linha(words, x_ref)
-        documento = apenas_digitos(texto_coluna(row_words, 690, 704))
-        empenho = apenas_digitos(texto_coluna(row_words, 655, 668))
-        fornecedor_nome = texto_coluna(row_words, 540, 635)
-        fornecedor_codigo = apenas_digitos(texto_coluna(row_words, 465, 478))
+        documento = apenas_digitos(texto_coluna(row_words, *zonas["documento"]))
+        empenho = apenas_digitos(texto_coluna(row_words, *zonas["empenho"]))
+        fornecedor_nome = texto_coluna(row_words, *zonas["fornecedor_nome"])
+        fornecedor_codigo = apenas_digitos(texto_coluna(row_words, *zonas["fornecedor_codigo"]))
         campos_herdados = []
 
         if documento:
@@ -146,10 +176,10 @@ def extrair_pagina(
         if not documento or not empenho or not fornecedor_nome:
             continue
 
-        paga_no_dia = primeiro_valor_coluna(row_words, 385, 405)
-        paga_ate_data = primeiro_valor_coluna(row_words, 300, 315)
-        empenhada_ate_data = primeiro_valor_coluna(row_words, 225, 238)
-        empenhos_a_pagar = primeiro_valor_coluna(row_words, 150, 165)
+        paga_no_dia = primeiro_valor_coluna(row_words, *zonas["paga_no_dia"])
+        paga_ate_data = primeiro_valor_coluna(row_words, *zonas["paga_ate_data"])
+        empenhada_ate_data = primeiro_valor_coluna(row_words, *zonas["empenhada_ate_data"])
+        empenhos_a_pagar = primeiro_valor_coluna(row_words, *zonas["empenhos_a_pagar"])
 
         registros.append({
             "ano": ano,
@@ -218,7 +248,12 @@ def main() -> None:
     parser.add_argument("--inicio-pagina", type=int, default=1)
     parser.add_argument("--fim-pagina", type=int)
     parser.add_argument("--saida")
+    parser.add_argument("--formato", choices=["v2021", "v2022"], default=None,
+                        help="Versao do layout PDF (padrao: v2021 para anos<=2021, v2022 para anos>=2022)")
     args = parser.parse_args()
+
+    formato = args.formato or ("v2022" if args.ano >= 2022 else "v2021")
+    zonas = ZONAS[formato]
 
     entrada = Path(args.entrada) if args.entrada else (
         EXECUCAO_RAW_DIR / "livros_contabeis" / str(args.ano) / f"livro_registro_analitico_despesa_orcamentaria_{args.ano}.pdf"
@@ -253,6 +288,7 @@ def main() -> None:
                     entrada.name,
                     ultimo_contexto_linha,
                     ultimo_contexto_pagina,
+                    zonas,
                 )
             )
 
