@@ -37,7 +37,7 @@ Write-Host "Windows - .venv: $venvOk | node_modules: $nodeOk | ADB: $adbOk | inf
 
 ```powershell
 cd "C:\Omega\02_Repos\anatomia-do-gasto"
-Get-ChildItem "data\public\sorocaba" -Recurse -File | Group-Object DirectoryName | Select-Object Count, Name
+Get-ChildItem "data\public" -Recurse -File | Group-Object DirectoryName | Select-Object Count, Name
 Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 ```
 

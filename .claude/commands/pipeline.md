@@ -14,10 +14,12 @@ Isolamento:
 - Nao ler: `apps/`, `.env`, secrets. Nao publicar em `data/public` sem autorizacao explicita.
 - Budget: < 5 K tokens. Leia somente o script relevante e a saida do processo.
 
-Formato esperado: `<area> <ano ou faixa>`, por exemplo `saude 2025`, `receita 2020-2025`, `fiscal todos`.
+Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`.
+
+Formato esperado: `<municipio> <area> <ano ou faixa>`, por exemplo `sorocaba saude 2025`, `campinas receita 2020-2025`.
 
 Raiz: `C:\Omega\02_Repos\anatomia-do-gasto`
-Fluxo: `data/raw` -> `data/extracted` -> `data/validated` autorizado -> `data/public` autorizado.
+Fluxo: `data/raw/<municipio>` -> `data/extracted/<municipio>` -> `data/validated/<municipio>` autorizado -> `data/public/<municipio>` autorizado.
 
 ## Passo 1 - Identificar script correto
 

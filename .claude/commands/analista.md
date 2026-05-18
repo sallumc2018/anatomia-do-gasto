@@ -9,17 +9,20 @@ Pedido recebido: **$ARGUMENTS**
 Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
 Isolamento:
-- Pode ler: `data/public/sorocaba/`, `data/manifests/` e docs publicos de metodologia.
+- Pode ler: `data/public/<municipio>/`, `data/manifests/` e docs publicos de metodologia.
 - Pode alterar: nenhum, salvo se o usuario pedir explicitamente um doc/relatorio.
 - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `apps/`, `.env`, secrets.
 - Budget: < 8 K tokens. Leia apenas CSVs/JSONs necessarios para area e anos solicitados.
 
+Municipio: extrair do argumento se informado (ex: `campinas saude 2024`). Default: `sorocaba`.
+
 Argumentos comuns:
 - `cobertura` ou `faltantes`: listar lacunas publicadas por area/ano.
 - `saude 2024`, `educacao 2023`, `receita 2020-2025`, `fiscal todos`, `executivo todos`.
-- Sem argumento: perguntar area/ano antes de continuar.
+- `<municipio> <area> <anos>`: ex `campinas saude 2024`, `sorocaba cobertura`.
+- Sem argumento: perguntar municipio/area/ano antes de continuar.
 
-Raiz dos dados publicados: `C:\Omega\02_Repos\anatomia-do-gasto\data\public\sorocaba`
+Raiz dos dados publicados: `C:\Omega\02_Repos\anatomia-do-gasto\data\public\<municipio>`
 
 ## Regras de analise
 

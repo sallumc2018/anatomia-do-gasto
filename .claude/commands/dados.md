@@ -31,9 +31,11 @@ Use filtros por area/ano sempre que possivel. Nao abra PDFs brutos se nome/taman
 
 ## Passo 2 - Conferir fonte oficial
 
+Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`.
+
 Use a fonte oficial da area:
-- Portal da Transparencia de Sorocaba para saude, educacao, receita, execucao e fornecedores.
-- SICONFI/relatorios fiscais para RCL, divida, RPPS e dados fiscais.
+- Portal de Transparencia do municipio para saude, educacao, receita, execucao e fornecedores. Se existir entrada em `docs/portais-municipios.md`, consultar la primeiro.
+- SICONFI/relatorios fiscais para RCL, divida, RPPS e dados fiscais (valido para todos os municipios brasileiros).
 
 Se a fonte oficial nao estiver documentada, registre URL e incerteza no handoff. Nao invente fonte.
 
