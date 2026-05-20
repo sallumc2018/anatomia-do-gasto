@@ -321,9 +321,9 @@ const THEO_ROUTES: TheoRoute[] = [
     id: "emendas",
     title: "Emendas de vereadores",
     answer:
-      "As emendas impositivas dos vereadores são uma lacuna declarada. A fonte está identificada: o portal CEPA da Câmara (cepa.camarasorocaba.sp.gov.br) reúne dados de emendas por autor, entidade beneficiada e valor. Ainda não há dados publicados sobre execução e pagamento de emendas.",
+      "As emendas impositivas dos vereadores são uma lacuna declarada. A fonte está identificada no CEPA, com link público divulgado pela Prefeitura que redireciona para servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas. Ainda não há dados publicados sobre execução e pagamento de emendas.",
     answerSimple:
-      "Ainda não há dados publicados sobre as emendas dos vereadores. A fonte está identificada: portal CEPA da Câmara (cepa.camarasorocaba.sp.gov.br) com dados de emendas por autor, destino e valor. A coleta e publicação ainda estão pendentes.",
+      "Ainda não há dados publicados sobre as emendas dos vereadores. A fonte está identificada: CEPA, divulgado publicamente pela Prefeitura e disponível em servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas, com dados de emendas por autor, destino e valor. A coleta e publicação ainda estão pendentes.",
     status: "Em coleta",
     confidence: "Média",
     keywords: [
@@ -336,7 +336,7 @@ const THEO_ROUTES: TheoRoute[] = [
       { href: "/camara-municipal", label: "Câmara Municipal" },
       { href: "/lacunas", label: "Ver lacunas documentadas" },
     ],
-    source: "Fonte identificada: cepa.camarasorocaba.sp.gov.br · camarasorocaba.sp.gov.br (transparência).",
+    source: "Fonte identificada: servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas · camarasorocaba.sp.gov.br (transparência).",
     limitation: "Sem dados de emendas publicados. Coleta no portal CEPA pendente.",
   },
   {

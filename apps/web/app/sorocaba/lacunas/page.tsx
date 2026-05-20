@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
@@ -6,7 +7,7 @@ import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 export const metadata: Metadata = {
   title: "Lacunas conhecidas — Sorocaba",
   description:
-    "Lista completa de dados públicos de Sorocaba que ainda não foram publicados no site. Cada lacuna tem fonte oficial identificada, prioridade e próximo passo.",
+    "Mapa de dados públicos de Sorocaba já publicados, parciais ou ainda pendentes. Cada item tem fonte oficial identificada, prioridade e próximo passo.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/lacunas" },
 }
 
@@ -152,21 +153,21 @@ const LACUNAS: Lacuna[] = [
     status: "lacuna",
     prioridade: "crítica",
     anos: "2020–2025",
-    fonte: "Portal de Emendas da Câmara de Sorocaba",
-    url: "https://cepa.camarasorocaba.sp.gov.br",
-    proximo_passo: "Acessar portal CEPA e mapear campos de emenda: autor, entidade, área, valor e execução",
-    observacao: "Emendas impositivas são de execução obrigatória desde 2015. Fonte alternativa: Portal da Transparência da Câmara.",
+    fonte: "CEPA - Consulta de Emendas Parlamentares",
+    url: "https://servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas",
+    proximo_passo: "Acessar o CEPA pelo link publico divulgado pela Prefeitura e mapear campos de emenda: autor, entidade, area, valor e execucao",
+    observacao: "O subdominio cepa.camarasorocaba.sp.gov.br nao resolveu na checagem de pre-deploy. O link publico divulgado como abre.ai/consultaemendas redireciona para servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas.",
   },
   {
     area: "Câmara Municipal",
-    dado: "Despesas de gabinete e contratos por vereador",
-    status: "lacuna",
+    dado: "Despesas de gabinete publicadas e contratos ainda pendentes por vereador",
+    status: "parcial",
     prioridade: "crítica",
-    anos: "2020–2025",
+    anos: "2020–2026",
     fonte: "Portal de Transparência da Câmara de Sorocaba",
     url: "https://www.camarasorocaba.sp.gov.br",
-    proximo_passo: "Inventariar seção de transparência da Câmara: contratos, licitações e despesas por gabinete",
-    observacao: "Subsídios já publicados na página /auditoria. Faltam despesas de custeio e contratos.",
+    proximo_passo: "Manter a série de gabinete publicada e inventariar contratos, licitações e demais despesas da Câmara.",
+    observacao: "Despesas mensais de gabinete 2020-2026 já estão publicadas em data/public/sorocaba/camara/gabinete. Contratos, licitações e cruzamento por vereador continuam pendentes.",
   },
   {
     area: "Câmara Municipal",
@@ -285,6 +286,10 @@ export default function LacunasPage() {
   const criticas  = LACUNAS.filter((l) => l.prioridade === "crítica")
   const altas     = LACUNAS.filter((l) => l.prioridade === "alta")
   const demais    = LACUNAS.filter((l) => l.prioridade !== "crítica" && l.prioridade !== "alta")
+  const pendentes = LACUNAS.filter((l) => l.status !== "publicado" && l.status !== "inexistente")
+  const pendenciasCriticas = pendentes.filter((l) => l.prioridade === "crítica")
+  const pendenciasAltas = pendentes.filter((l) => l.prioridade === "alta")
+  const publicados = LACUNAS.filter((l) => l.status === "publicado")
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -305,9 +310,9 @@ export default function LacunasPage() {
                 O que ainda falta e onde pegar
               </h1>
               <p style={{ ...S.body, maxWidth: "640px", marginBottom: "12px" }}>
-                Esta página lista todos os dados públicos de Sorocaba que identificamos como disponíveis
-                em fontes oficiais, mas que ainda não foram coletados, validados ou publicados no site.
-                Cada item tem a fonte exata, o próximo passo e a prioridade de publicação.
+                Esta página consolida os dados públicos de Sorocaba que já foram publicados, estão parciais
+                ou ainda precisam ser coletados, validados e publicados. Cada item tem a fonte exata,
+                o próximo passo e a prioridade de publicação.
               </p>
               <p style={{ ...S.body, maxWidth: "640px", color: "var(--text-03)" }}>
                 Lacuna declarada não é dado escondido — é a ausência de um dado que existe em alguma fonte
@@ -322,10 +327,10 @@ export default function LacunasPage() {
           <div className="mx-auto px-6 py-12" style={S.container}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { label: "Lacunas críticas",  valor: criticas.length.toString(),  nota: "Impacto direto na pergunta do cidadão", color: "var(--support-error)" },
-                { label: "Prioridade alta",   valor: altas.length.toString(),      nota: "Relevantes mas não bloqueantes",        color: "var(--support-warning)" },
-                { label: "Demais lacunas",    valor: demais.length.toString(),      nota: "Média ou baixa prioridade",             color: "var(--blue-40)" },
-                { label: "Fontes identificadas", valor: LACUNAS.length.toString(), nota: "Toda lacuna tem URL de fonte",           color: "var(--support-success)" },
+                { label: "Pendências críticas", valor: pendenciasCriticas.length.toString(), nota: "Impacto direto na pergunta do cidadão", color: "var(--support-error)" },
+                { label: "Prioridade alta", valor: pendenciasAltas.length.toString(), nota: "Relevantes mas não bloqueantes", color: "var(--support-warning)" },
+                { label: "Itens publicados", valor: publicados.length.toString(), nota: "Já aparecem em data/public", color: "var(--blue-40)" },
+                { label: "Itens com fonte", valor: LACUNAS.length.toString(), nota: "Publicado, parcial ou lacuna declarada", color: "var(--support-success)" },
               ].map((kpi) => (
                 <div key={kpi.label}>
                   <p style={S.label} className="mb-1">{kpi.label}</p>
@@ -417,25 +422,29 @@ export default function LacunasPage() {
               <div className="flex flex-col gap-3" style={S.body}>
                 <p>
                   Todos os dados atualmente publicados estão disponíveis na{" "}
-                  <a href="/sorocaba/dados" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>página de dados</a>{" "}
+                  <Link href="/sorocaba/dados" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>página de dados</Link>{" "}
                   com download direto em CSV. Isso inclui saúde, educação, segurança, transporte,
-                  orçamento por função, receita, saúde fiscal, fornecedores, restos a pagar, despesa orçamentária e empenhos — todos com série completa 2020–2025 — e priorizações da audiência pública da LOA 2022–2026.
+                  orçamento por função, receita, saúde fiscal, fornecedores, restos a pagar, despesa orçamentária,
+                  empenhos e Câmara/gabinete — com séries publicadas conforme o período de cada fonte — e priorizações
+                  da audiência pública da LOA 2022–2026.
                 </p>
                 <p>
                   Os dados faltantes existem em fontes oficiais — portais municipais, federais e estaduais —
                   mas ainda precisam ser coletados, extraídos de PDFs, validados e publicados.
                   O processo é manual e pode demorar semanas por conjunto de dados.
+                  Esta versão publicada não encerra a cobertura de Sorocaba: contratos, obras, transferências,
+                  autarquias, Câmara avançada e controle externo seguem como próximos blocos.
                 </p>
                 <p>
                   Se você encontrou algum dado oficial não listado aqui, ou se detectou uma inconsistência,
                   use o{" "}
-                  <a href="/contato" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>formulário de contato</a>.
+                  <Link href="/contato" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>formulário de contato</Link>.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-6">
-                <a href="/sorocaba/dados"        style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Ver dados publicados</a>
-                <a href="/metodologia"  style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Como o pipeline funciona</a>
-                <a href="/sorocaba/fornecedores" style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Fornecedores</a>
+                <Link href="/sorocaba/dados" style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Ver dados publicados</Link>
+                <Link href="/metodologia" style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Como o pipeline funciona</Link>
+                <Link href="/sorocaba/fornecedores" style={{ fontSize: "13px", color: "var(--blue-40)", textDecoration: "underline" }}>Fornecedores</Link>
               </div>
             </div>
           </div>

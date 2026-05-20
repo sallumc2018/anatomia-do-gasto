@@ -71,6 +71,14 @@ C:\Omega\Sensivel\infra\
 
 Arquivos em `C:\Omega\Sensivel\infra\secrets` nunca devem ser copiados para o repositorio.
 
+PDFs grandes e acervos brutos devem permanecer fora do disco C. No Windows, use `G:\Meu Drive` como acervo operacional e aponte o pipeline para ele:
+
+```powershell
+$env:ANATOMIA_RAW_ROOT = "G:\Meu Drive\Omega-data\raw"
+```
+
+Com essa variavel, `pipelines/paths.py` resolve `data/raw` para `G:\Meu Drive\Omega-data\raw\<municipio>`. Nao copie PDFs grandes para `C:\Omega` nem para `data/raw` dentro do checkout em C:.
+
 Para sincronizar o WSL com o estado atual do GitHub (quando necessário):
 
 ```powershell
@@ -132,7 +140,7 @@ Configuração esperada:
 - Repository: `sallumc2018/anatomia-do-gasto`
 - Branch: `main`
 - Root Directory: `apps/web`
-- Build Command: `npm run build`
+- Build Command: `npm run build` (o script usa `next build --webpack`; `npm run dev` continua em `next dev`/Turbopack local)
 - Install Command: `npm install`
 
 O site lê somente `data/public`, que deve estar commitado depois da validação local.

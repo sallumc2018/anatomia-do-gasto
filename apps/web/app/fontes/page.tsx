@@ -77,8 +77,8 @@ const FONTES = [
   },
   {
     titulo: "SIOPS — Sistema de Informações sobre Orçamentos Públicos em Saúde",
-    url: "https://siops.datasus.gov.br",
-    urlLabel: "siops.datasus.gov.br",
+    url: "https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops",
+    urlLabel: "gov.br/saude/siops",
     tipo: "Federal",
     responsavel: "Ministério da Saúde",
     dados: [

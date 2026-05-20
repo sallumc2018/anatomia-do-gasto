@@ -19,7 +19,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Dados de Sorocaba", href: "/sorocaba", internal: true },
       { label: "Portal de Transparência de Sorocaba", href: "https://fazenda.sorocaba.sp.gov.br/transparencia" },
-      { label: "SIOPS - Ministério da Saúde", href: "https://siops.datasus.gov.br" },
+      { label: "SIOPS - Ministério da Saúde", href: "https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops" },
       { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
       { label: "Metodologia completa", href: "/metodologia", internal: true },
       { label: "Fontes de dados", href: "/fontes", internal: true },

@@ -23,6 +23,14 @@ PUBLIC_ROOT = ROOT / "data" / "public"
 PUBLIC_SOROCABA = PUBLIC_ROOT / "sorocaba"
 
 
+def area_path(area: str) -> Path:
+    return Path(*[part for part in area.split("/") if part])
+
+
+def public_csv_path(area: str, filename: str) -> Path:
+    return PUBLIC_SOROCABA / area_path(area) / "saida" / filename
+
+
 def padrao_para_regex(padrao: str) -> re.Pattern[str]:
     escaped = re.escape(padrao).replace(r"\{ano\}", r"\d{4}")
     return re.compile(f"^{escaped}$")
@@ -65,7 +73,7 @@ def verificar() -> list[str]:
                 anos = anos_do_manifesto(area, padrao, anos_str, erros)
                 for ano in anos:
                     nome = padrao.replace("{ano}", str(ano))
-                    caminho = PUBLIC_SOROCABA / area / "saida" / nome
+                    caminho = public_csv_path(area, nome)
                     if caminho.exists():
                         erros.append(
                             f"NAO PUBLICAVEL EM data/public: {caminho.relative_to(ROOT)} "
@@ -78,7 +86,7 @@ def verificar() -> list[str]:
 
             for ano in anos:
                 nome = padrao.replace("{ano}", str(ano))
-                caminho = PUBLIC_SOROCABA / area / "saida" / nome
+                caminho = public_csv_path(area, nome)
                 if not caminho.exists():
                     erros.append(f"AUSENTE: {caminho.relative_to(ROOT)}")
                     continue
@@ -88,11 +96,16 @@ def verificar() -> list[str]:
 
     for caminho in sorted(PUBLIC_SOROCABA.rglob("*.csv")):
         partes = caminho.relative_to(PUBLIC_SOROCABA).parts
-        if len(partes) < 3 or partes[1] != "saida":
+        if "saida" not in partes:
             erros.append(f"PUBLICACAO FORA DO PADRAO: {caminho.relative_to(ROOT)}")
             continue
 
-        area = partes[0]
+        saida_idx = partes.index("saida")
+        if saida_idx == 0 or saida_idx != len(partes) - 2:
+            erros.append(f"PUBLICACAO FORA DO PADRAO: {caminho.relative_to(ROOT)}")
+            continue
+
+        area = "/".join(partes[:saida_idx])
         nome = caminho.name
         if any(regex.match(nome) for regex in publicaveis.get(area, [])):
             continue

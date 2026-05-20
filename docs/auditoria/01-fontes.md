@@ -5,7 +5,7 @@
 | Fonte | URL / Acesso | O que fornece | Periodicidade |
 |---|---|---|---|
 | Portal da Transparência de Sorocaba | https://transparencia.sorocaba.sp.gov.br/ | Remuneração de agentes políticos, execução orçamentária, emendas | Mensal (remuneração); trimestral (orçamento) |
-| Câmara Municipal de Sorocaba (CEPA) | https://cepa.camarasorocaba.sp.gov.br/ | Emendas impositivas de vereadores: valor disponível, destinações, empenho, liquidação, pagamento | Atualizado sob demanda |
+| Câmara Municipal de Sorocaba (CEPA) | https://servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas | Emendas impositivas de vereadores: valor disponível, destinações, empenho, liquidação, pagamento | Atualizado sob demanda |
 | Portal da Transparência do Governo Federal | https://portaldatransparencia.gov.br/ + API | Emendas parlamentares federais, transferências fundo a fundo, convênios | Diária (emendas); mensal (convênios) |
 | Portal da Transparência do Estado de SP | https://www.transparencia.sp.gov.br/ | Emendas parlamentares estaduais, convênios | Mensal |
 | SIAFIC / Transferegov | https://plataformamaisbrasil.gov.br/ | Detalhamento de repasses a entidades | Sob consulta |

@@ -5,8 +5,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
+RAW_BASE_DIR = Path(os.getenv("ANATOMIA_RAW_ROOT") or DATA_DIR / "raw")
 
-RAW_DIR = DATA_DIR / "raw" / MUNICIPIO
+RAW_DIR = RAW_BASE_DIR / MUNICIPIO
 EXTRACTED_DIR = DATA_DIR / "extracted" / MUNICIPIO
 VALIDATED_DIR = DATA_DIR / "validated" / MUNICIPIO
 PUBLIC_DIR = DATA_DIR / "public" / MUNICIPIO

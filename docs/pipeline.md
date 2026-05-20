@@ -12,6 +12,14 @@ data/public/       # dados lidos pelo site
 pipelines/         # scripts Python
 ```
 
+Por padrao, `data/raw` fica dentro do repo. No Windows operacional, os PDFs grandes devem ficar fora de `C:\Omega`, em `G:\Meu Drive`, para nao ocupar espaco no disco C. Para isso, defina `ANATOMIA_RAW_ROOT` apontando para a pasta externa que contem a subpasta do municipio, por exemplo:
+
+```powershell
+$env:ANATOMIA_RAW_ROOT = "G:\Meu Drive\Omega-data\raw"
+```
+
+Com essa variavel, os scripts que usam `pipelines/paths.py` leem e gravam brutos em `$env:ANATOMIA_RAW_ROOT\sorocaba\...`, enquanto `data/extracted`, `data/validated` e `data/public` continuam no repo. No Windows operacional atual, o destino canonico do acervo bruto e `G:\Meu Drive\Omega-data\raw`.
+
 ## Execução
 
 Windows:

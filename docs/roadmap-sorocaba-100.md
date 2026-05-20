@@ -26,6 +26,8 @@ Transformar todo dado financeiro oficial, rastreável e legalmente publicável s
 
 ## Onde estamos
 
+Estado reconciliado para o deploy público de 2026-05-20: a base publicada já é suficiente para um MVP auditável, mas Sorocaba ainda não está 100%. As lacunas restantes continuam bloqueando o início do próximo município.
+
 | Frente | Estado atual | Evidência |
 |---|---|---|
 | Saúde | Publicado 2020-2025 | `data/public/sorocaba/saude` |
@@ -35,11 +37,15 @@ Transformar todo dado financeiro oficial, rastreável e legalmente publicável s
 | Orçamento por função | Publicado 2020-2025 | `data/public/sorocaba/executivo` |
 | Receita agregada | Publicado 2020-2025 | `data/public/sorocaba/receita` |
 | Saúde fiscal | Publicado 2020-2025 | `data/public/sorocaba/fiscal` |
-| Fornecedores Prefeitura | 2020, 2021 e 2024 extraídos e validados localmente; 2021 saneado em `data/validated`, ainda não publicado | `data/manifests/validacao_execucao_sorocaba.csv` |
-| Fornecedores agregados | 2020 e 2024 agregados em `data/validated`; ainda não publicados | `data/manifests/validacao_fornecedores_agregado_sorocaba.csv` |
-| Arquivos grandes | 13 arquivos inventariados; nenhum baixado automaticamente | `data/manifests/arquivos_grandes_execucao_sorocaba.csv` |
+| Despesa orçamentária | Publicado 2020-2025 | `data/public/sorocaba/despesa` |
+| Empenhos | Publicado 2020-2025 | `data/public/sorocaba/empenho` |
+| Fornecedores agregados | Publicado 2020-2025 | `data/public/sorocaba/fornecedores` |
+| Restos a pagar agregados | Publicado 2020-2025 | `data/public/sorocaba/restos` |
+| LOA - audiências públicas | Publicado 2022-2026 | `data/public/sorocaba/loa` |
+| Câmara - gabinete | Despesas de gabinete publicadas 2020-2026; contratos e emendas seguem pendentes | `data/public/sorocaba/camara/gabinete` |
+| Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
 | Fontes oficiais | 55 itens inventariados | `data/manifests/inventario_fontes_sorocaba.csv` |
-| Auditoria de cobertura | 216 arquivos locais mapeados; 124 publicados; 71 extraídos não publicados | `data/manifests/auditoria_cobertura_sorocaba.csv` |
+| Auditoria de cobertura | 156 arquivos CSV publicados em `data/public/sorocaba`; camadas internas continuam fora do Git | `docs/auditoria-cobertura-sorocaba.md` |
 | Théo | Guia local determinístico criado; IA externa ainda não implementada | botão global no site e bloco `/#theo` |
 
 ## Mapa das trilhas
@@ -84,11 +90,10 @@ Checklist:
 
 - [x] Orçamento por função 2020-2025.
 - [x] Execução por saúde, educação, segurança e transporte.
-- [x] Despesa orçamentária 2020 e 2024 extraída e validada com fornecedor.
-- [ ] Despesa orçamentária 2022 e 2023, com arquivos grandes; 2021 extraído e validado localmente em `data/validated`.
-- [ ] Registro de empenhos.
+- [x] Despesa orçamentária 2020-2025 publicada.
+- [x] Registro de empenhos 2020-2025 publicado.
 - [ ] Despesa extraorçamentária.
-- [ ] Restos a pagar.
+- [x] Restos a pagar agregados 2020-2025 publicados.
 - [ ] Página consolidada: "O dinheiro foi autorizado ou pago?".
 - [ ] Théo explica diferença entre dotação, empenho, liquidação e pagamento.
 
@@ -112,12 +117,12 @@ Checklist:
 - [x] Conta corrente fornecedor 2021 extraída.
 - [x] Conta corrente fornecedor 2024 extraída.
 - [x] Agregação validada 2020 e 2024.
-- [ ] Conta corrente fornecedor 2022 e 2023.
-- [ ] Restos a pagar por fornecedor 2021-2024.
+- [x] Conta corrente de fornecedores 2020-2025 agregada e publicada.
+- [x] Restos a pagar por fornecedor 2020-2025 agregados e publicados.
 - [ ] Curadoria dos maiores recebedores.
 - [ ] Classificação: folha, fundo, ente público, entidade sem fins lucrativos, empresa privada, movimentação interna, a classificar.
-- [ ] Página: "Quem recebeu".
-- [ ] Busca por fornecedor.
+- [x] Página: "Quem recebeu" via `/sorocaba/fornecedores`.
+- [x] Busca por fornecedor.
 - [ ] Théo responde: "Quem recebeu dinheiro público?".
 
 Critério de pronto:
@@ -187,9 +192,9 @@ Checklist:
 
 - [x] Página inicial da Câmara.
 - [x] Subsídios principais mapeados.
+- [x] Despesas de gabinete 2020-2026 publicadas.
 - [ ] Orçamento e execução detalhada da Câmara.
 - [ ] Contratos da Câmara.
-- [ ] Despesas de gabinete.
 - [ ] Emendas impositivas por vereador.
 - [ ] Cruzar emenda com empenho, liquidação e pagamento.
 - [ ] Página: "Vereadores e emendas".
@@ -282,9 +287,9 @@ Critério de pronto:
 
 ### Fase 4 — publicar
 
-- [ ] Copiar somente dados aprovados para `data/public`.
-- [ ] Atualizar `data/manifests/datasets.csv`.
-- [ ] Criar página "Quem recebeu".
+- [x] Copiar somente dados aprovados para `data/public`.
+- [x] Atualizar `data/manifests/datasets.csv`.
+- [x] Criar página "Quem recebeu".
 - [ ] Criar página "Contratos".
 - [ ] Criar página "Obras".
 - [ ] Adicionar perguntas correspondentes na home.
@@ -296,16 +301,16 @@ Critério de pronto:
 - [ ] Preparar pedidos e-SIC/LAI.
 - [ ] Preparar pedidos à Câmara, Urbes, SAAE e FUNSERV.
 - [ ] Registrar data de consulta e resposta.
-- [ ] Publicar página "Lacunas conhecidas".
+- [x] Publicar página "Lacunas conhecidas".
 
 ## Próximas 10 ações recomendadas
 
-1. Definir uma pasta de acervo fora do repo para PDFs grandes.
-2. Baixar e processar os arquivos grandes de 2022 e 2023 com a mesma política de checkpoint e validação.
-3. Curar os 50 maiores recebedores de 2024.
-4. Criar um dataset validado de ranking de recebedores.
-5. Criar a página "Quem recebeu".
-6. Conectar essa página à home, busca e Théo.
+1. Curar os 50 maiores recebedores publicados.
+2. Criar um dataset validado de ranking/classificação de recebedores.
+3. Inventariar contratos, licitações e atas da Prefeitura e do PNCP.
+4. Inventariar obras e cruzar com contratos, empenhos e pagamentos.
+5. Publicar transferências federais/estaduais somente após validação local.
+6. Completar Câmara avançada: contratos, execução detalhada e emendas.
 
 ## Comandos úteis
 

@@ -295,6 +295,11 @@ export default function CamaraMunicipalPage() {
                   O custo total por vereador ao cidadão não pode ser calculado com precisão:
                   não há tabela estruturada por rubrica e por vereador nesta base pública do projeto.
                 </p>
+                <p style={{ ...S.body, marginBottom: "16px" }}>
+                  O selo Oficial identifica dados publicados por fonte institucional. O selo Imprensa/Transp.
+                  marca contexto jornalístico ou informação atribuída ao portal de transparência, sem substituir
+                  validação oficial.
+                </p>
                 <p style={S.caption}>Dado ausente não é zero — o custo real é maior que a soma abaixo.</p>
               </div>
               <div>

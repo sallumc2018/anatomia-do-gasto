@@ -7,7 +7,7 @@ import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 
 export const metadata: Metadata = {
   title: "Dados",
-  description: "Datasets abertos de gastos publicos de Sorocaba em saude, educacao, seguranca e transporte. CSVs gerados a partir de fontes oficiais, com rastreabilidade ate a fonte.",
+  description: "Datasets abertos de gastos publicos de Sorocaba publicados pelo Anatomia do Gasto. CSVs gerados a partir de fontes oficiais, com rastreabilidade ate a fonte e lacunas declaradas.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/dados" },
 }
 
@@ -70,6 +70,7 @@ const AREA_LABEL: Record<string, string> = {
   despesa: "Despesa orcamentaria",
   empenho: "Empenho",
   loa: "LOA - Audiencia Publica",
+  "camara/gabinete": "Camara - despesas de gabinete",
 }
 
 const PUBLIC_DATASETS = [
@@ -88,7 +89,8 @@ const PUBLIC_DATASETS = [
   ["restos", "2020-2025", "Portal de Transparencia Sorocaba", "Restos a pagar agregados por fornecedor - movimentos de liquidacao e cancelamento de restos pendentes. Serie completa 2020-2025.", "restos_agregado_sorocaba_{ano}.csv"],
   ["despesa", "2020-2025", "Portal de Transparencia Sorocaba", "Registro analitico de despesa orcamentaria por empenho - liga nota de empenho, fornecedor e classificacao orcamentaria. Serie completa 2020-2025.", "despesa_orcamentaria_sorocaba_{ano}.csv"],
   ["empenho", "2020-2025", "Portal de Transparencia Sorocaba", "Registro de empenhos por nota - classificacao orcamentaria, fornecedor, objeto e valor empenhado. Enriquecido com nome do fornecedor via conta corrente. Serie completa 2020-2025.", "empenho_sorocaba_{ano}.csv"],
-  ["loa", "2022-2025", "Portal de Transparencia Sorocaba", "Priorizacoes da audiencia publica da LOA por area tematica e regiao. Dados extraidos dos Relatorios de Audiencia Publica (PDFs de imagem). 2022 contem ranking de eixos (140 participantes); 2023 contem tabela global + breakdowns regionais (200 formularios); 2024 e 2025 contem priorities por regiao (414 e 277 propostas resp.). Coluna qualidade_dado indica 'exato' (valor legivel no grafico) ou 'est' (estimado visualmente).", "audiencia_loa_sorocaba_{ano}.csv"],
+  ["loa", "2022-2026", "Portal de Transparencia Sorocaba", "Priorizacoes da audiencia publica da LOA por area tematica e regiao. Dados extraidos dos Relatorios de Audiencia Publica (PDFs de imagem). 2022 contem ranking de eixos (140 participantes); 2023 contem tabela global + breakdowns regionais (200 formularios); 2024 e 2025 contem prioridades por regiao (414 e 277 propostas resp.); 2026 usa eixo estrategico. Coluna qualidade_dado indica 'exato' (valor legivel no grafico) ou 'est' (estimado visualmente).", "audiencia_loa_sorocaba_{ano}.csv"],
+  ["camara/gabinete", "2020-2026", "Portal Camara Municipal de Sorocaba", "Despesas mensais dos gabinetes dos vereadores por categoria. Publicado em subarea camara/gabinete para manter separacao da Camara Municipal.", "despesas_gabinete_camara_sorocaba_{ano}.csv"],
 ] as const
 
 function getDatasets(): DatasetRow[] {
@@ -143,8 +145,8 @@ export default function DadosPage() {
             "@context": "https://schema.org",
             "@type": "DataCatalog",
             "name": "Dados públicos de Sorocaba — Anatomia do Gasto",
-            "description": "Datasets abertos de gastos públicos de Sorocaba em saúde, educação, segurança e transporte. CSVs gerados a partir de fontes oficiais, com rastreabilidade até a fonte.",
-            "url": "https://www.anatomiadogasto.ong.br/dados",
+            "description": "Datasets abertos de gastos públicos de Sorocaba publicados pelo Anatomia do Gasto. CSVs gerados a partir de fontes oficiais, com rastreabilidade até a fonte e lacunas declaradas.",
+            "url": "https://www.anatomiadogasto.ong.br/sorocaba/dados",
             "creator": { "@type": "Organization", "name": "Anatomia do Gasto", "url": "https://www.anatomiadogasto.ong.br" },
             "spatialCoverage": { "@type": "Place", "name": "Sorocaba, São Paulo, Brasil" },
             "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -164,6 +166,7 @@ export default function DadosPage() {
                 Todos os arquivos CSV usados pelo site estao abertos para download.
                 Esta pagina le somente arquivos em data/public e so exibe links que existem na camada publicada.
                 Arquivos ainda em validacao nao aparecem no site ate serem conferidos e copiados explicitamente para publicacao.
+                Este catalogo nao representa cobertura integral de Sorocaba; as pendencias estao declaradas em /sorocaba/lacunas.
               </p>
             </div>
           </div>

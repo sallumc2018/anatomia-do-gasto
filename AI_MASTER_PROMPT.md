@@ -24,6 +24,7 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
   - `data/validated`: dados aprovados localmente.
   - `data/public`: única fonte de dados do site.
   - `data/manifests`: inventário e status dos datasets.
+- PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\Omega-data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw`. Nao copiar PDFs grandes para `C:\Omega` apenas para rodar pipeline.
 - RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados.
 
 ## 3. Regras Permanentes

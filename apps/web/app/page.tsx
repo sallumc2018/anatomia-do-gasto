@@ -133,15 +133,6 @@ function formatPercent(value?: number): string {
   return `${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`
 }
 
-function formatBRL(value: number): string {
-  return value.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })
-}
-
 function latestPeriodRows(rows: HealthRow[]): HealthRow[] {
   const latestPeriod = Math.max(...rows.map((row) => row.quadrimestre))
   return rows.filter((row) => row.quadrimestre === latestPeriod)

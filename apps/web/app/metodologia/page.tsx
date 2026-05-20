@@ -237,8 +237,8 @@ export default function MetodologiaPage() {
                 {
                   titulo: "SIOPS — Sistema de Informações sobre Orçamentos Públicos em Saúde",
                   texto:  "Sistema federal do Ministério da Saúde que consolida os dados declarados pelos municípios. Usado como referência de validação cruzada.",
-                  url:    "siops.datasus.gov.br",
-                  href:   "https://siops.datasus.gov.br",
+                  url:    "gov.br/saude/siops",
+                  href:   "https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops",
                 },
               ] as const).map((f, i) => (
                 <div key={f.titulo} className="py-8" style={{

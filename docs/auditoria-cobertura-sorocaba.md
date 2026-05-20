@@ -1,6 +1,7 @@
 # Auditoria De Cobertura De Sorocaba
 
 Data da auditoria local: 2026-05-15.
+Reconciliação pré-deploy: 2026-05-20.
 
 Esta auditoria mapeia arquivos locais de Sorocaba nas camadas `data/raw`,
 `data/extracted`, `data/validated`, `data/public` e `data/manifests`.
@@ -22,11 +23,11 @@ Resumo:
 
 | Camada | Arquivos | Status |
 |---|---:|---|
-| `data/public` | 124 | Publicado no site |
-| `data/extracted` | 71 | Extraido, nao publicado |
-| `data/manifests` | 12 | Controle e rastreabilidade |
-| `data/raw` | 6 | Fonte bruta oficial local |
-| `data/validated` | 3 | Validado localmente, nao publicado |
+| `data/public` | 160 | Publicado no site; 156 CSVs de Sorocaba |
+| `data/extracted` | 105 | Extraido, nao publicado |
+| `data/manifests` | 13 | Controle e rastreabilidade |
+| `data/raw` | 0 em C; 602 arquivos no acervo externo `G:\Meu Drive\Omega-data\raw` | Fonte bruta oficial fora do repo |
+| `data/validated` | 19 | Validado localmente, nao publicado |
 
 ## Fontes Brutas Locais
 
@@ -86,7 +87,7 @@ Exemplos:
 
 ## Publicacao Atual
 
-Todos os 124 arquivos atualmente publicados em `data/public` possuem agora um
+Todos os 160 arquivos atualmente publicados em `data/public` possuem agora um
 padrao correspondente em `data/manifests/datasets.csv`.
 
 Esta checagem foi feita comparando os nomes publicados contra `Arquivo_Padrao`
@@ -100,12 +101,12 @@ de CSVs.
 
 Prioridade para fechar Sorocaba com seguranca:
 
-1. Baixar e auditar despesa orcamentaria e fornecedor de 2022 e 2023.
-2. Mapear e baixar registro de empenhos de 2020 a 2024.
-3. Mapear e baixar restos a pagar por fornecedor de 2020 a 2024.
-4. Mapear balancetes mensais de receita e despesa.
-5. Cruzar RREO/RGF local com SICONFI para todos os anos publicados.
-6. Separar o que e dado oficial, dado derivado, inferencia e lacuna declarada.
+1. Inventariar compras, contratos, licitacoes, atas e PNCP.
+2. Inventariar obras e cruzar com contratos, empenhos e pagamentos.
+3. Publicar transferencias federais e estaduais somente apos validacao local.
+4. Completar autarquias e indiretas: Urbes, SAAE, FUNSERV e AGEM.
+5. Completar Camara avancada: contratos, execucao detalhada e emendas.
+6. Cruzar dados publicados com TCE-SP/AUDESP, SIOPS/SIOPE e demais fontes de controle.
 
 ## Regra De Publicacao
 

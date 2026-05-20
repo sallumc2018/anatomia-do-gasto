@@ -109,7 +109,7 @@ function Test-AnyPattern([string]$Value, [string[]]$Patterns) {
   return $false
 }
 
-function Test-Url([string]$Url, [int]$ExpectedStatus) {
+function Test-Url([string]$Url, [int[]]$ExpectedStatus) {
   try {
     $response = Invoke-WebRequest -Uri $Url -Method Get -MaximumRedirection 0 -UseBasicParsing -ErrorAction Stop
     $status = [int]$response.StatusCode
@@ -122,10 +122,11 @@ function Test-Url([string]$Url, [int]$ExpectedStatus) {
     }
   }
 
-  if ($status -ne $ExpectedStatus) {
-    Add-Failure "HTTP $status em $Url; esperado $ExpectedStatus"
+  $expectedText = $ExpectedStatus -join "/"
+  if ($ExpectedStatus -notcontains $status) {
+    Add-Failure "HTTP $status em $Url; esperado $expectedText"
   } else {
-    Write-Host "OK: HTTP $ExpectedStatus $Url"
+    Write-Host "OK: HTTP $status $Url"
   }
 }
 
@@ -289,30 +290,47 @@ if (-not $SkipBuild) {
 
 if ($BaseUrl.Trim().Length -gt 0) {
   $base = $BaseUrl.TrimEnd("/")
-  Write-Step "Rotas locais em $base"
-  $routes = @(
+  Write-Step "Rotas canonicas em $base"
+  $canonicalRoutes = @(
     "/",
-    "/dados",
+    "/sorocaba",
+    "/sorocaba/dados",
     "/metodologia",
     "/sobre",
     "/contato",
-    "/camara-municipal",
-    "/pacto-federativo",
+    "/sorocaba/camara-municipal",
+    "/sorocaba/pacto-federativo",
     "/politica-de-dados",
     "/politica-de-neutralidade",
     "/termos",
-    "/saude",
-    "/educacao",
-    "/seguranca",
-    "/transporte",
-    "/auditoria",
+    "/sorocaba/saude",
+    "/sorocaba/educacao",
+    "/sorocaba/seguranca",
+    "/sorocaba/transporte",
+    "/sorocaba/auditoria",
     "/sitemap.xml",
     "/robots.txt",
     "/opengraph-image"
   )
 
-  foreach ($route in $routes) {
+  foreach ($route in $canonicalRoutes) {
     Test-Url "$base$route" 200
+  }
+
+  Write-Step "Aliases legados em $base"
+  $legacyRedirectRoutes = @(
+    "/dados",
+    "/camara-municipal",
+    "/pacto-federativo",
+    "/saude",
+    "/educacao",
+    "/seguranca",
+    "/transporte",
+    "/auditoria"
+  )
+
+  foreach ($route in $legacyRedirectRoutes) {
+    Test-Url "$base$route" 308
   }
 
   Test-Url "$base/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2025.csv" 200
