@@ -142,6 +142,7 @@ Configuração esperada:
 - Root Directory: `apps/web`
 - Build Command: `npm run build` (o script usa `next build --webpack`; `npm run dev` continua em `next dev`/Turbopack local)
 - Install Command: `npm ci --ignore-scripts`
+- Deploy CLI: respeitar `.vercelignore`; ele exclui `tmp`, logs, segredos e camadas internas (`data/raw`, `data/extracted`, `data/validated`).
 
 O site lê somente `data/public`, que deve estar commitado depois da validação local.
 

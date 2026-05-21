@@ -1,0 +1,53 @@
+# Local dependencies and build outputs
+apps/web/node_modules/
+apps/web/.next/
+node_modules/
+.next/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.venv/
+venv/
+.local/
+.vercel/
+
+# Internal data layers: production may only receive data/public
+data/raw/
+data/extracted/
+data/validated/
+data/manifests/*_local.csv
+
+# Local operator and audit artifacts
+tmp/
+tools/tablet/logs/
+tools/tablet/*.bak*
+*.credential.xml
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*known_hosts*
+authorized_keys
+omega-security-*.json
+omega-security-*.log
+omega-security-*.txt
+omega-security-*.xml
+omega-tablet-*.json
+omega-tablet-*.log
+omega-tablet-*.txt
+omega-tablet-*.xml
+tablet-*.log
+tablet-*.xml
+tablet-*.png
+window_dump.xml
+screencap*.png
+screenshot*.png
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
