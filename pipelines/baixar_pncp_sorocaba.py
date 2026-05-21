@@ -44,6 +44,7 @@ CNPJ_SOROCABA = "46634044000174"
 IBGE_SOROCABA = "3552205"
 PNCP_HOST = "https://pncp.gov.br"
 TAMANHO_PAGINA_PADRAO = 10
+HTTP_TRANSITORIOS = {429, 500, 502, 503, 504}
 
 # O PNCP rejeita algumas combinacoes endpoint/modalidade com 422. A coleta trata
 # esse retorno como combinacao sem dados ou invalida para a janela consultada.
@@ -342,17 +343,25 @@ def coletar_janela(
         raw_page = pagina_path(raw_base, spec.nome, inicio, fim, pagina, modalidade)
         pagina_foi_baixada = False
 
-        if raw_page.exists() and not force:
+        usar_cache = raw_page.exists() and not force
+        if usar_cache:
             envelope = json_load(raw_page)
             http_status = int(envelope.get("http_status", 200))
             payload = envelope.get("payload", {})
             if not isinstance(payload, dict):
                 payload = {}
-        elif export_only:
+            if http_status in HTTP_TRANSITORIOS:
+                if export_only:
+                    status = "parcial_raw"
+                    bloqueio = f"raw transitorio HTTP {http_status} para pagina {pagina}"
+                    break
+                usar_cache = False
+
+        if not usar_cache and export_only:
             status = "parcial_raw"
             bloqueio = f"raw ausente para pagina {pagina}"
             break
-        else:
+        elif not usar_cache:
             try:
                 http_status, payload = fetch_com_retry(url, timeout=timeout, retries=retries, pausa=pausa)
             except ColetaErro as exc:
@@ -368,8 +377,9 @@ def coletar_janela(
                 "coletado_em": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
                 "payload": payload,
             }
-            json_dump(raw_page, envelope)
-            pagina_foi_baixada = True
+            if http_status not in HTTP_TRANSITORIOS:
+                json_dump(raw_page, envelope)
+                pagina_foi_baixada = True
 
         paginas_vistas += 1
 
@@ -493,6 +503,21 @@ def periodo_from_args(args: argparse.Namespace) -> tuple[date, date]:
     return date(min(anos), 1, 1), date(max(anos), 12, 31)
 
 
+def escopo_saida(args: argparse.Namespace, datasets: list[str], modalidades: list[int]) -> str:
+    partes: list[str] = []
+    if args.dataset:
+        partes.append("-".join(sorted(datasets)))
+    if args.modalidade:
+        partes.append("mod" + "-".join(f"{modalidade:02d}" for modalidade in sorted(modalidades)))
+    if args.granularidade != "mensal":
+        partes.append(args.granularidade)
+    if args.max_janelas is not None:
+        partes.append(f"maxj{args.max_janelas}")
+    if args.max_paginas is not None:
+        partes.append(f"maxp{args.max_paginas}")
+    return "_".join(partes)
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Baixa PNCP Sorocaba com checkpoint mensal.")
     parser.add_argument("--ano", type=int, action="append", help="Ano a coletar. Pode repetir.")
@@ -594,14 +619,18 @@ def main(argv: list[str] | None = None) -> int:
                     f"  {resumo['status']}: {resumo['registros']} registros, "
                     f"{resumo['paginas']} paginas"
                 )
+                if args.pausa > 0:
+                    time.sleep(args.pausa)
             if args.max_janelas is not None and janelas_processadas >= args.max_janelas:
                 break
         if args.max_janelas is not None and janelas_processadas >= args.max_janelas:
             break
 
     sufixo = f"{yyyymmdd(inicio_periodo)}_{yyyymmdd(fim_periodo)}"
-    csv_path = extracted_base / "saida" / f"pncp_sorocaba_{sufixo}.csv"
-    resumo_path = extracted_base / "diagnosticos" / f"pncp_sorocaba_{sufixo}_resumo.json"
+    escopo = escopo_saida(args, datasets, modalidades)
+    nome_base = f"pncp_sorocaba_{escopo}_{sufixo}" if escopo else f"pncp_sorocaba_{sufixo}"
+    csv_path = extracted_base / "saida" / f"{nome_base}.csv"
+    resumo_path = extracted_base / "diagnosticos" / f"{nome_base}_resumo.json"
     salvar_csv(csv_path, linhas_todas)
     salvar_resumo(resumo_path, resumos)
 

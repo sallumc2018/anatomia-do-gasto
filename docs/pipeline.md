@@ -130,7 +130,7 @@ Os coletores abaixo preservam fontes oficiais e geram saídas internas, mas não
 - `baixar_fns_repasses.py`: repasses FNS/FAF por município.
 - `baixar_transferencias_estaduais_sp.py`: repasses estaduais Sefaz-SP.
 - `baixar_transferegov_sorocaba.py`: recortes Transferegov/SICONV filtrados para Sorocaba.
-- `baixar_pncp_sorocaba.py`: PNCP com checkpoint; permanece parcial até cobertura confiável.
+- `baixar_pncp_sorocaba.py`: PNCP com checkpoint; permanece parcial até cobertura confiável. Quando executado com `--dataset`, `--modalidade`, granularidade não mensal ou limites de probe, inclui esse escopo no nome dos CSVs/resumos internos para evitar sobrescrita. Respostas transitórias do PNCP (`429`, `5xx`) não são congeladas como raw permanente; a próxima coleta pode tentar novamente. O parâmetro `--pausa` também espaça janelas para reduzir rate limit.
 - `baixar_saae_dados_abertos.py`, `baixar_urbes_transparencia.py`, `baixar_funserv.py` e `baixar_tce_sorocaba.py`: inventário/coleta oficial de autarquias e controle externo.
 
 Esses dados só viram publicação após normalização, validação local e cópia explícita para `data/public`.
