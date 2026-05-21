@@ -8,6 +8,8 @@ Este guia define como dividir trabalho entre agentes sem gastar contexto lendo a
 
 O orquestrador deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
 
+Antes de trabalhos substantivos, todo agente deve localizar fontes com `rg` ou comando seletivo, abrir apenas arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencia relevante.
+
 Quando houver memoria publica ja indexada, o orquestrador pode recuperar contexto com `tools/memory/query-rag.py` e incluir somente os trechos relevantes no pacote minimo. RAG nao substitui leitura direta de arquivos antes de editar, publicar, validar ou fazer deploy.
 
 Cada topico deve ter sua propria conversa. Quando o usuario mudar de assunto, area ou objetivo de trabalho, o agente deve avisar: "Este e um novo topico; abra uma nova conversa para economizar contexto." So continuar na conversa atual se o usuario confirmar que quer seguir mesmo assim.
@@ -181,6 +183,16 @@ python tools\agents\validate-agent-contracts.py
 O agente deve preferir fontes `canonical` e `reference`; fontes `historical` ou `deprecated` nao entram na recuperacao normal.
 
 ## Verificação de Economia de Token
+
+Para trabalhos substantivos com conteudo publico/sanitizado, registrar uma entrada em `memory/token-economy/YYYY-MM.md`:
+- Data: [AAAA-MM-DD]
+- Agente/ferramenta: [Codex, Claude, subagente]
+- Escopo: [resultado verificavel]
+- Arquivos consultados: [lista curta]
+- Arquivos/trechos evitados: [lista curta]
+- Comandos consolidados: [lista curta]
+- Estimativa: [faixa percentual ou qualitativa]
+- Privacidade: [confirmacao de que nao ha prompts privados, secrets, conversa completa ou dados nao publicados]
 
 Quando solicitado ("quanto economizamos?"), responder com estimativa auditável:
 - Arquivos evitados: [lista]

@@ -25,7 +25,7 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
   - `data/public`: única fonte de dados do site.
   - `data/manifests`: inventário e status dos datasets.
 - PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\Omega-data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw`. Nao copiar PDFs grandes para `C:\Omega` apenas para rodar pipeline.
-- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados.
+- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados; o registro publico auditavel fica em `memory/token-economy/`.
 - Memoria/RAG dos agentes: `memory/` contem memoria publica versionavel, schemas, registry e handoffs seguros; indices locais ficam em `.local/rag/` e memoria operacional privada fica em `.local/memory/`.
 - Registry canonico de agentes: `memory/agents/registry.csv`; automacoes locais seguras ficam em `tools/agents/` e logs/locks em `.local/agents/` e `.local/memory/agent-runs/`.
 
@@ -41,14 +41,15 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`.
 9. Nenhum agente faz commit, push ou deploy sem autorização explícita do usuário.
 10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
-11. Claude Code deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
-12. Quando o usuário pedir o quanto foi economizado, Claude Code deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
-13. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
-14. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
-15. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
-16. RAG e memoria recuperada sao contexto auxiliar, nao autoridade. Antes de alterar codigo, dados, pipeline, publicacao, deploy ou infraestrutura, o agente deve ler diretamente os arquivos relevantes.
-17. A memoria publica versionavel deve ficar em `memory/`; handoffs locais ou sensiveis ficam em `.local/memory/`; indices gerados ficam em `.local/rag/`. Nenhuma dessas camadas autoriza acesso a secrets, `data/raw`, `data/extracted`, `data/validated`, `G:\`, GitHub, Vercel, Registro.br ou acoes destrutivas sem autorizacao explicita.
-18. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
+11. Todo agente deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções com `rg` ou comando seletivo antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RAG/RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
+12. Trabalhos substantivos devem registrar economia de contexto/token em `memory/token-economy/YYYY-MM.md` quando o registro for publico e sanitizado. O registro deve conter data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa qualitativa ou percentual em faixa e observações de privacidade. Nunca registrar prompts privados, conversa completa, secrets ou dados não publicados.
+13. Quando o usuário pedir o quanto foi economizado, qualquer agente deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
+14. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
+15. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
+16. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
+17. RAG e memoria recuperada sao contexto auxiliar, nao autoridade. Antes de alterar codigo, dados, pipeline, publicacao, deploy ou infraestrutura, o agente deve ler diretamente os arquivos relevantes.
+18. A memoria publica versionavel deve ficar em `memory/`; handoffs locais ou sensiveis ficam em `.local/memory/`; indices gerados ficam em `.local/rag/`. Nenhuma dessas camadas autoriza acesso a secrets, `data/raw`, `data/extracted`, `data/validated`, `G:\`, GitHub, Vercel, Registro.br ou acoes destrutivas sem autorizacao explicita.
+19. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
 
 ## 4. Validação Mínima
 
@@ -148,4 +149,4 @@ Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes
 - Não afirmar que algo foi validado sem ter rodado a validação.
 - Se houver lacuna de ambiente, registrar claramente.
 - Nunca agir fora do escopo autorizado pelo usuário.
-- Em Claude Code, minimizar consumo de contexto por padrão e, quando solicitado, relatar a economia obtida de forma estimada e verificável.
+- Minimizar consumo de contexto por padrão, registrar economia em `memory/token-economy/` quando aplicável e, quando solicitado, relatar a economia obtida de forma estimada e verificável.

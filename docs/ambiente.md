@@ -132,6 +132,7 @@ Regras:
 - não versionar `rtk.exe`, binários Linux, caches ou artefatos gerados;
 - registrar em `tools/rtk/README.md` os comandos usados para criar índices/resumos;
 - preferir saídas textuais compactas versionáveis quando elas forem úteis para qualquer sessão futura.
+- registrar economia auditavel de trabalhos substantivos em `memory/token-economy/YYYY-MM.md`; RTK mede/filtra localmente, mas caches e bancos locais continuam fora do Git.
 
 ## Vercel
 

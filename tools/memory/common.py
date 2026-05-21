@@ -132,6 +132,10 @@ def is_forbidden_path(path_value: str) -> str | None:
             return f"forbidden data layer: {prefix}"
     filename = Path(lower).name
     for pattern in FORBIDDEN_PATTERNS:
+        if pattern == "token" and (
+            lower == "memory/token-economy" or lower.startswith("memory/token-economy/")
+        ):
+            continue
         if pattern in filename or pattern in lower:
             return f"forbidden sensitive pattern: {pattern}"
     return None

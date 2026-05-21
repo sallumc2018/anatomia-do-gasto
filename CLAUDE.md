@@ -66,9 +66,13 @@ Protocolo:
 
 Nao trazer para este repositorio conteudo privado, credenciais, registros operacionais internos ou arquivos pessoais.
 
+Antes de trabalhos substantivos, opere em economia de contexto/token: localize fontes com `rg` ou comando seletivo, abra apenas os arquivos e trechos necessarios, evite reler documentacao ja estabilizada e consolide comandos quando isso nao esconder evidencia relevante.
+
 Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta. Nao repasse historico completo quando diff, trecho ou resumo rastreavel bastar.
 
 Para contexto ja documentado, use a memoria publica em `memory/` via `tools/memory/query-rag.py` quando isso reduzir contexto. RAG e auxiliar: antes de editar, publicar dados, rodar pipeline, fazer deploy ou mexer em infraestrutura, leia diretamente os arquivos relevantes. Handoffs publicos reutilizaveis ficam em `memory/handoffs/YYYY-MM/`; handoffs locais ou sensiveis ficam em `.local/memory/handoffs/YYYY-MM/`.
+
+Quando houver economia auditavel e o conteudo for publico/sanitizado, registre em `memory/token-economy/YYYY-MM.md`: data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa em faixa ou qualitativa e observacao de privacidade. Nunca registre prompts privados, conversa completa, secrets ou dados nao publicados.
 
 Ao alterar memoria, agentes, handoffs ou RAG, rode:
 

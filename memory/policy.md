@@ -9,6 +9,7 @@ The public memory layer may index and store only:
 - public docs in `docs/`;
 - public data manifests in `data/manifests/`;
 - public, sanitized handoffs in `memory/handoffs/`;
+- public, sanitized token-economy logs in `memory/token-economy/`;
 - safe catalog or summary files that describe `data/public` without copying
   large datasets wholesale.
 
@@ -19,6 +20,7 @@ The public memory layer must not index or store:
 - `.git`, `.vercel`, `.local`, `tmp`, `node_modules`, `.next`, caches;
 - `G:\` or other external operator drives;
 - private operational notes or full chat transcripts.
+- private prompts, full chat transcripts, secrets, or unpublished data in token-economy logs.
 
 ## Authority
 
@@ -39,6 +41,7 @@ Allowed without human approval:
 - local index rebuilds under `.local/rag/`;
 - local handoff drafting under `.local/memory/`;
 - public handoff writing when the content is sanitized and non-sensitive.
+- public token-economy logging when the content is sanitized, concise, and non-sensitive.
 
 Requires explicit human approval:
 
@@ -68,3 +71,14 @@ Each handoff must include status:
 - `expired`
 
 Agents should retrieve only `active` handoffs by default.
+
+## Token Economy Logs
+
+Persistent token-economy logs must be concise and auditable. Public logs go to
+`memory/token-economy/YYYY-MM.md` and must include only metadata: date,
+agent/tool, scope, consulted files, avoided files or sections, consolidated
+commands, qualitative or range-based estimate, and privacy notes.
+
+Never store prompts, full chat transcripts, secrets, unpublished data, raw
+outputs, local caches, RTK databases, or private operational details in these
+logs.

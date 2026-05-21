@@ -55,12 +55,15 @@ rtk gain --history  # histórico por comando
 rtk discover        # oportunidades não aproveitadas no histórico do Claude Code
 ```
 
+`rtk gain` ajuda a medir e auditar economia local, mas o registro versionado do projeto e o Markdown sanitizado em `memory/token-economy/YYYY-MM.md`. Nao versionar caches, bancos locais ou outputs brutos do RTK.
+
 ## Regras De Uso
 
 1. Instalar o binário localmente em cada ambiente (WSL e Windows separados).
 2. Não usar outputs do RTK como substituto de leitura de arquivos — RTK filtra, não interpreta.
 3. Salvar apenas artefatos textuais pequenos e auditáveis quando úteis para sessões futuras.
 4. Não versionar: `rtk.exe`, binários Linux, caches, bancos locais.
+5. Para trabalhos substantivos, registrar uma entrada sanitizada em `memory/token-economy/YYYY-MM.md` quando houver economia auditavel.
 
 ## Artefatos Permitidos No Git
 

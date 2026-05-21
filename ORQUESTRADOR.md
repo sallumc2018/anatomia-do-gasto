@@ -8,6 +8,8 @@ Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. To
 
 O orquestrador monta o menor contexto suficiente para cada agente.
 
+Antes de qualquer trabalho substantivo, o agente deve localizar fontes com `rg` ou comando seletivo, abrir somente arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencias relevantes.
+
 Quando houver ganho real de contexto, o orquestrador pode consultar a memoria publica local antes de despachar:
 
 ```powershell
@@ -32,6 +34,8 @@ Nunca repassa:
 - memoria operacional privada de `.local/memory/` para memoria publica versionada.
 
 Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avisar para abrir uma nova conversa antes de continuar.
+
+Economia auditavel de contexto/token deve ser registrada em `memory/token-economy/YYYY-MM.md` quando o conteudo for publico e sanitizado. O registro deve citar arquivos consultados, arquivos ou trechos evitados, comandos consolidados e estimativa qualitativa ou em faixa; nunca incluir prompts privados, conversa completa, secrets ou dados nao publicados.
 
 ## 2. Gatilho Padrao
 
