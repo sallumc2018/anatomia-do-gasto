@@ -8,6 +8,8 @@ Este guia define como dividir trabalho entre agentes sem gastar contexto lendo a
 
 O orquestrador deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
 
+Quando houver memoria publica ja indexada, o orquestrador pode recuperar contexto com `tools/memory/query-rag.py` e incluir somente os trechos relevantes no pacote minimo. RAG nao substitui leitura direta de arquivos antes de editar, publicar, validar ou fazer deploy.
+
 Cada topico deve ter sua propria conversa. Quando o usuario mudar de assunto, area ou objetivo de trabalho, o agente deve avisar: "Este e um novo topico; abra uma nova conversa para economizar contexto." So continuar na conversa atual se o usuario confirmar que quer seguir mesmo assim.
 
 ## Gatilho Padrao Do Orquestrador
@@ -57,6 +59,7 @@ Objetivo: <resultado verificavel>
 Pode ler: <paths exatos>
 Pode alterar: <paths exatos ou "nenhum">
 Nao ler: <secrets, data/raw, data/extracted, data/validated, etc. quando nao pertinentes>
+Memoria recuperada: <trechos curtos de memory/RAG quando houver>
 Validacao: <comando ou checagem>
 Resposta: achados, arquivos tocados, validacao, bloqueios
 ```
@@ -124,6 +127,14 @@ Todo agente que conclui emite:
 - **Próximo passo:** [/slash-command argumento OU ação do usuário]
 ```
 
+Se o handoff for reutilizavel e seguro para o repositorio publico, registre tambem em `memory/handoffs/YYYY-MM/` com:
+
+```powershell
+python tools\memory\write-handoff.py --agent <agente> --scope "<escopo>" --done "<feito>" --output "<saida>" --validation "<validacao>" --next-step "<proximo passo>" --related-path <path>
+```
+
+Se houver qualquer conteudo operacional privado, detalhe local, log sensivel ou dado nao publicado, use `.local/memory/handoffs/YYYY-MM/` com `--visibility local-safe`.
+
 ## Quando Criar Subagente
 
 Criar subagente quando:
@@ -150,6 +161,24 @@ Cada subagente deve responder em no máximo quatro blocos:
 - `Bloqueios`: autorização ou ambiente faltante.
 
 Não incluir narrativa longa, histórico de conversa, logs extensos ou conteúdo de dados sensíveis.
+
+## Memoria e RAG
+
+Fontes publicas indexaveis sao registradas em `memory/registry.csv`. O indice SQLite FTS5 local e gerado em `.local/rag/anatomia_public.sqlite` e nunca deve ser versionado.
+
+Capacidades e limites dos agentes sao registradas em `memory/agents/registry.csv`. Automacoes locais e read-only ficam em `tools/agents/`; logs e locks ficam em `.local/agents/` e `.local/memory/agent-runs/`.
+
+Checks da memoria:
+
+```powershell
+python -m compileall -q tools/memory
+python tools\memory\audit-memory-scope.py
+python tools\memory\build-rag-index.py --check
+python tools\memory\build-rag-index.py
+python tools\agents\validate-agent-contracts.py
+```
+
+O agente deve preferir fontes `canonical` e `reference`; fontes `historical` ou `deprecated` nao entram na recuperacao normal.
 
 ## Verificação de Economia de Token
 

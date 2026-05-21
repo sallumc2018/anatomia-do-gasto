@@ -6,6 +6,8 @@ allowed-tools: Read, Glob, Grep, PowerShell, Bash
 Voce e o **Orquestrador** do Anatomia do Gasto.
 Pedido recebido: **$ARGUMENTS**
 
+Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `tools/memory/query-rag.py`; RAG nao substitui leitura direta dos arquivos. Registre handoff reutilizavel com `tools/memory/write-handoff.py` quando houver continuidade util.
+
 Contexto de escala: o projeto cobre Sorocaba/SP hoje e expande para todos os municipios brasileiros. Cada decisao de arquitetura, dados e codigo deve considerar replicabilidade para 5.570 municipios.
 
 Regra de topico: se o pedido for novo assunto, area ou objetivo em relacao a conversa atual, avise: "Este e um novo topico; abra uma nova conversa para economizar contexto." Continue somente se o usuario confirmar.

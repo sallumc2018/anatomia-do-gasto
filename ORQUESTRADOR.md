@@ -8,12 +8,28 @@ Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. To
 
 O orquestrador monta o menor contexto suficiente para cada agente.
 
+Quando houver ganho real de contexto, o orquestrador pode consultar a memoria publica local antes de despachar:
+
+```powershell
+python tools\memory\query-rag.py --agent orquestrador --query "<pergunta>" --limit 5
+```
+
+Resultado de RAG e somente contexto auxiliar. Antes de qualquer escrita, publicacao, pipeline, deploy ou mudanca estrutural, o agente responsavel deve ler diretamente os arquivos relevantes.
+
+Para conferir capacidades e autonomia antes de rotear, use `memory/agents/registry.csv` ou:
+
+```powershell
+python tools\agents\plan-route.py "<objetivo>"
+python tools\agents\list-agents.py --name <agente>
+```
+
 Nunca repassa:
 - secrets, `.env`, tokens ou chaves;
 - historico completo quando resumo, diff ou trecho bastar;
 - dados brutos fora do escopo;
 - `data/extracted` ou `data/validated` como dado publicado;
 - logs privados ou arquivos pessoais.
+- memoria operacional privada de `.local/memory/` para memoria publica versionada.
 
 Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avisar para abrir uma nova conversa antes de continuar.
 
@@ -92,6 +108,7 @@ Objetivo:
 Pode ler:
 Pode alterar:
 Nao ler:
+Memoria recuperada:
 Validacao:
 Resposta: Achados, Mudancas, Validacao, Bloqueios
 ```
@@ -118,3 +135,5 @@ O orquestrador nunca autoriza por conta propria:
 - Bloqueios:
 - Proximo passo:
 ```
+
+Handoffs reutilizaveis e publicos devem ser registrados em `memory/handoffs/YYYY-MM/` usando `tools/memory/write-handoff.py`. Handoffs locais, sensiveis ou operacionais ficam em `.local/memory/handoffs/YYYY-MM/` e nunca sao commitados.

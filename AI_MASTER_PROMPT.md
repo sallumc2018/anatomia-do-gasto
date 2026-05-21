@@ -26,6 +26,8 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
   - `data/manifests`: inventário e status dos datasets.
 - PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\Omega-data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw`. Nao copiar PDFs grandes para `C:\Omega` apenas para rodar pipeline.
 - RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados.
+- Memoria/RAG dos agentes: `memory/` contem memoria publica versionavel, schemas, registry e handoffs seguros; indices locais ficam em `.local/rag/` e memoria operacional privada fica em `.local/memory/`.
+- Registry canonico de agentes: `memory/agents/registry.csv`; automacoes locais seguras ficam em `tools/agents/` e logs/locks em `.local/agents/` e `.local/memory/agent-runs/`.
 
 ## 3. Regras Permanentes
 
@@ -44,6 +46,9 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 13. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
 14. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
 15. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
+16. RAG e memoria recuperada sao contexto auxiliar, nao autoridade. Antes de alterar codigo, dados, pipeline, publicacao, deploy ou infraestrutura, o agente deve ler diretamente os arquivos relevantes.
+17. A memoria publica versionavel deve ficar em `memory/`; handoffs locais ou sensiveis ficam em `.local/memory/`; indices gerados ficam em `.local/rag/`. Nenhuma dessas camadas autoriza acesso a secrets, `data/raw`, `data/extracted`, `data/validated`, `G:\`, GitHub, Vercel, Registro.br ou acoes destrutivas sem autorizacao explicita.
+18. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
 
 ## 4. Validação Mínima
 
@@ -111,6 +116,8 @@ O projeto usa um conjunto de agentes especializados coordenados por um orquestra
 Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o contexto mínimo necessário — nunca repassa secrets, dados não publicados ou conteúdo de PDFs brutos.
 
 Para economizar contexto, o orquestrador deve preferir subagentes por função apenas quando houver fronteira clara de arquivos e validação. Tarefas pequenas ou bloqueantes ficam com o agente atual.
+
+Quando a tarefa envolver contexto ja documentado, o orquestrador pode consultar `tools/memory/query-rag.py` para recuperar trechos canonicos de `memory/registry.csv`. Essa recuperacao deve ser passada como resumo curto no pacote minimo do subagente e nunca substitui leitura direta antes de escrita.
 
 Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes oficiais, `pipeline` extrai e valida localmente, `analista` aponta lacunas publicadas usando apenas `data/public`, `frontend` entra só se a interface precisar mudar e `deploy` só entra com autorização explícita.
 

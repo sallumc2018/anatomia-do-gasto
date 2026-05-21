@@ -13,11 +13,17 @@ node_modules/
 .venv/
 venv/
 .local/
+.local/agents/
+.local/memory/
+.local/rag/
 .vercel/
 
 # Internal data layers: production may only receive data/public
+data/raw
 data/raw/
+data/extracted
 data/extracted/
+data/validated
 data/validated/
 data/manifests/*_local.csv
 

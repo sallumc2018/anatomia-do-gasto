@@ -68,6 +68,18 @@ Nao trazer para este repositorio conteudo privado, credenciais, registros operac
 
 Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta. Nao repasse historico completo quando diff, trecho ou resumo rastreavel bastar.
 
+Para contexto ja documentado, use a memoria publica em `memory/` via `tools/memory/query-rag.py` quando isso reduzir contexto. RAG e auxiliar: antes de editar, publicar dados, rodar pipeline, fazer deploy ou mexer em infraestrutura, leia diretamente os arquivos relevantes. Handoffs publicos reutilizaveis ficam em `memory/handoffs/YYYY-MM/`; handoffs locais ou sensiveis ficam em `.local/memory/handoffs/YYYY-MM/`.
+
+Ao alterar memoria, agentes, handoffs ou RAG, rode:
+
+```powershell
+python -m compileall -q tools/memory
+python -m compileall -q tools/agents
+python tools/memory/audit-memory-scope.py
+python tools/memory/build-rag-index.py --check
+python tools/agents/validate-agent-contracts.py
+```
+
 Se o usuario disser "Chame o orquestrador, preciso completar os dados faltantes agora", acione o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/orquestrador.md`.
 
 Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avise para abrir uma nova conversa antes de continuar.

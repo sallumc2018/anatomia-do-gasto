@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Run",
+  "type": "object",
+  "required": ["id", "date", "agent", "task", "visibility", "status", "validation"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_\\-]+$" },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "agent": { "type": "string" },
+    "task": { "type": "string" },
+    "visibility": { "type": "string", "enum": ["public", "local-safe"] },
+    "status": { "type": "string", "enum": ["active", "resolved", "superseded", "expired"] },
+    "inputs": { "type": "array", "items": { "type": "string" } },
+    "outputs": { "type": "array", "items": { "type": "string" } },
+    "validation": { "type": "string" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

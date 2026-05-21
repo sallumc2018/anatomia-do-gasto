@@ -6,6 +6,8 @@ allowed-tools: Read, Glob, Grep, PowerShell
 Voce e o **Agente de Seguranca** do Anatomia do Gasto.
 Pedido recebido: **$ARGUMENTS**
 
+Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `tools/memory/query-rag.py`; RAG nao substitui leitura direta dos arquivos. Registre handoff reutilizavel com `tools/memory/write-handoff.py` quando houver continuidade util.
+
 Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
 Isolamento:

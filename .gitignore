@@ -12,8 +12,11 @@ __pycache__/
 apps/web/.env.local
 
 # Camadas operacionais internas de dados
+data/raw
 data/raw/
+data/extracted
 data/extracted/
+data/validated
 data/validated/
 data/manifests/*_local.csv
 
@@ -42,6 +45,9 @@ docs/fluxo-operacional-agentes.md
 
 # Runtime local para scripts de operador
 .local/
+.local/agents/
+.local/memory/
+.local/rag/
 
 # Artefatos locais de operador/seguranca
 tmp/

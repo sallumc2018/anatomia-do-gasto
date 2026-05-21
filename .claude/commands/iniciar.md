@@ -5,6 +5,8 @@ allowed-tools: Read, Glob, PowerShell, Bash
 
 Voce esta iniciando uma sessao no projeto **Anatomia do Gasto**.
 
+Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `tools/memory/query-rag.py`; RAG nao substitui leitura direta dos arquivos. Registre handoff reutilizavel com `tools/memory/write-handoff.py` quando houver continuidade util.
+
 Regra de topico: se o usuario trouxer novo assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
 Objetivo: apresentar status consolidado sem reler arquivos longos.

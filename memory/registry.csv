@@ -1,0 +1,21 @@
+id,path,type,visibility,authority,allowed_agents,tags,index,ttl_days,status,notes
+ai_master_prompt,AI_MASTER_PROMPT.md,instruction,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;deploy;tablet;engenheiro;seguranca;monitor;onboarding;playwright;dba;codex;claude","agents;rules;architecture",yes,,active,Primary project constitution for agents.
+orquestrador,ORQUESTRADOR.md,instruction,public,canonical,"orquestrador;codex;claude","agents;routing;handoff",yes,,active,Shared routing contract.
+codex,CODEX.md,instruction,public,canonical,"codex;engenheiro;orquestrador","agents;codex;rules",yes,,active,Codex-specific rules.
+claude,CLAUDE.md,instruction,public,canonical,"claude;orquestrador","agents;claude;rules",yes,,active,Claude-specific rules.
+agents,AGENTS.md,instruction,public,reference,"orquestrador;codex;claude;engenheiro","agents;repo",yes,,active,Public repository agent rules.
+agent_context,docs/agentes-contexto.md,doc,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;deploy;tablet;engenheiro;seguranca;monitor;onboarding;playwright;dba;codex;claude","agents;context;handoff",yes,,active,Subagent context and budget rules.
+architecture,docs/arquitetura.md,doc,public,canonical,"orquestrador;pipeline;frontend;engenheiro;codex;claude","architecture;data-flow",yes,,active,System architecture.
+pipeline_doc,docs/pipeline.md,doc,public,canonical,"orquestrador;dados;pipeline;qa;analista;engenheiro;codex;claude","pipeline;publication;data",yes,,active,Pipeline and publication rules.
+environment,docs/ambiente.md,doc,public,reference,"orquestrador;deploy;tablet;seguranca;engenheiro;codex;claude","environment;local;rtk",yes,,active,Local environment rules.
+strategy,docs/estrategia.md,doc,public,reference,"orquestrador;analista;frontend;engenheiro;codex;claude","strategy;product",yes,,active,Project strategy.
+security,docs/seguranca.md,doc,public,canonical,"orquestrador;seguranca;deploy;tablet;engenheiro;codex;claude","security;publication",yes,,active,Security and publication context.
+publication_policy,docs/politica-publicacao-dados.md,doc,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;deploy;seguranca;codex;claude","publication;data;policy",yes,,active,Data publication policy.
+municipal_portals,docs/portais-municipios.md,doc,public,reference,"orquestrador;dados;onboarding;playwright;pipeline;codex;claude","sources;portals;municipios",yes,,active,Known municipal sources.
+sorocaba_roadmap,docs/roadmap-sorocaba-100.md,doc,public,reference,"orquestrador;dados;pipeline;qa;analista;frontend;monitor;codex;claude","roadmap;sorocaba;coverage",yes,,active,Sorocaba coverage roadmap.
+manifest_readme,data/manifests/README.md,manifest,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;monitor;codex;claude","manifests;data;publication",yes,,active,Manifest contract.
+datasets_manifest,data/manifests/datasets.csv,manifest,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;monitor;codex;claude","datasets;publication;coverage",yes,,active,Published dataset registry.
+fontes_sorocaba,data/manifests/inventario_fontes_sorocaba.csv,manifest,public,reference,"orquestrador;dados;pipeline;qa;analista;monitor;codex;claude","sources;sorocaba",yes,,active,Sorocaba source inventory.
+fontes_execucao_sorocaba,data/manifests/fontes_execucao_sorocaba.csv,manifest,public,reference,"orquestrador;dados;pipeline;qa;analista;monitor;codex;claude","sources;execucao;sorocaba",yes,,active,Execution source inventory.
+handoffs_public,memory/handoffs,handoff,public,reference,"orquestrador;dados;pipeline;qa;analista;frontend;deploy;tablet;engenheiro;seguranca;monitor;onboarding;playwright;dba;codex;claude","handoff;memory",yes,180,active,Sanitized public handoffs only.
+agents_registry,memory/agents,doc,public,canonical,"orquestrador;dados;pipeline;qa;analista;frontend;deploy;tablet;engenheiro;seguranca;monitor;onboarding;playwright;dba;codex;claude","agents;registry;automation",yes,,active,Canonical agent capability and autonomy registry.
