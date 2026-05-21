@@ -1052,3 +1052,69 @@ export function loadFornecedores(year: number, municipio = "sorocaba"): Forneced
   if (!fs.existsSync(filePath)) return []
   return parseFornecedoresCSV(fs.readFileSync(filePath, "utf-8"), year)
 }
+
+// ─── Emendas Impositivas (CEPA) ───────────────────────────────────────────────
+
+export interface EmendaParlamentarRow {
+  nome_parlamentar: string
+  qtd_emendas: number
+  valor: number
+  empenhado: number
+  liquidado: number
+  pago: number
+}
+
+export interface EmendaAnoRow {
+  ano: number
+  qtd_emendas: number
+  valor: number
+  empenhado: number
+  liquidado: number
+  pago: number
+}
+
+function getEmendasDir(municipio = "sorocaba"): string {
+  return path.join(DATA_PUBLIC_ROOT, municipio, "emendas", "saida")
+}
+
+export function loadEmendasPorParlamentar(municipio = "sorocaba"): EmendaParlamentarRow[] {
+  const filePath = path.join(getEmendasDir(municipio), "emendas_cepa_por_parlamentar_sorocaba.csv")
+  if (!fs.existsSync(filePath)) return []
+  const lines = fs.readFileSync(filePath, "utf-8").split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "" : "")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      nome_parlamentar: g(f, col("nome_parlamentar")).trim(),
+      qtd_emendas:      parseInt(g(f, col("qtd_emendas"))) || 0,
+      valor:            parseFloat(g(f, col("valor"))) || 0,
+      empenhado:        parseFloat(g(f, col("empenhado"))) || 0,
+      liquidado:        parseFloat(g(f, col("liquidado"))) || 0,
+      pago:             parseFloat(g(f, col("pago"))) || 0,
+    }
+  }).filter((r) => r.nome_parlamentar)
+}
+
+export function loadEmendasPorAno(municipio = "sorocaba"): EmendaAnoRow[] {
+  const filePath = path.join(getEmendasDir(municipio), "emendas_cepa_por_ano_sorocaba.csv")
+  if (!fs.existsSync(filePath)) return []
+  const lines = fs.readFileSync(filePath, "utf-8").split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  const g = (f: string[], i: number) => (i >= 0 ? f[i] ?? "" : "")
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano:         parseInt(g(f, col("ano"))) || 0,
+      qtd_emendas: parseInt(g(f, col("qtd_emendas"))) || 0,
+      valor:       parseFloat(g(f, col("valor"))) || 0,
+      empenhado:   parseFloat(g(f, col("empenhado"))) || 0,
+      liquidado:   parseFloat(g(f, col("liquidado"))) || 0,
+      pago:        parseFloat(g(f, col("pago"))) || 0,
+    }
+  }).filter((r) => r.ano > 0).sort((a, b) => a.ano - b.ano)
+}

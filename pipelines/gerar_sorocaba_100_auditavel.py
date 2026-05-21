@@ -13,6 +13,7 @@ INVENTARIO = MANIFESTS_DIR / "inventario_fontes_sorocaba.csv"
 SAIDA_MANIFEST = MANIFESTS_DIR / "sorocaba_100_auditavel.csv"
 SAIDA_LAI = ROOT / "docs" / "lai-sorocaba-100.md"
 SAIDA_OPERACAO = ROOT / "docs" / "sorocaba-100-operacao.md"
+EXECUCAO_LOG = MANIFESTS_DIR / "sorocaba_100_execucao_2026-05-21.csv"
 
 PERIODO_ALVO = "2020-2026"
 DATA_REFERENCIA = date.today().isoformat()
@@ -288,10 +289,27 @@ def automacao_para(row: dict[str, str]) -> Automacao:
     )
 
 
+def coleta_detectada(row: dict[str, str]) -> str:
+    orgao = row["orgao"]
+    area = row["area"]
+    tipo = row["tipo_dado"]
+    if orgao == "Camara" and area == "emendas" and tipo == "emendas_impositivas":
+        marker = ROOT / "data" / "extracted" / "sorocaba" / "cepa" / "saida" / "cepa_manifest_coleta.json"
+        if marker.exists():
+            return marker.relative_to(ROOT).as_posix()
+    if orgao in {"TCE_SP", "AUDESP"}:
+        marker = ROOT / "data" / "extracted" / "sorocaba" / "tce" / "resumo_coleta_tce_sorocaba.json"
+        if marker.exists():
+            return marker.relative_to(ROOT).as_posix()
+    return ""
+
+
 def status_auditavel(row: dict[str, str], automacao: Automacao) -> str:
     status = row["status"].strip()
     if status == "publicado":
         return "publicado"
+    if coleta_detectada(row):
+        return "coletado_pendente_validacao"
     if status == "parcial":
         return "parcial"
     if automacao.script == "a_criar":
@@ -337,6 +355,9 @@ def precisa_lai(status: str, row: dict[str, str], automacao: Automacao) -> str:
 
 
 def evidencia(row: dict[str, str]) -> str:
+    detectada = coleta_detectada(row)
+    if detectada:
+        return f"coleta operacional detectada em {detectada}; ainda nao publicada"
     if row["status"] == "publicado":
         return "data/public e data/manifests/datasets.csv"
     if row["status"] == "parcial":
@@ -470,6 +491,10 @@ def escrever_operacao(rows: list[dict[str, str]]) -> None:
         f"- Manifesto auditavel: `data/manifests/{SAIDA_MANIFEST.name}`",
         f"- Pedidos LAI preparados: `docs/{SAIDA_LAI.name}`",
         "- Fonte base: `data/manifests/inventario_fontes_sorocaba.csv`",
+    ]
+    if EXECUCAO_LOG.exists():
+        linhas.append(f"- Log de execucao inicial: `data/manifests/{EXECUCAO_LOG.name}`")
+    linhas.extend([
         "",
         "## Resumo",
         "",
@@ -494,7 +519,7 @@ def escrever_operacao(rows: list[dict[str, str]]) -> None:
         "",
         "## Frentes criticas nao publicadas",
         "",
-    ]
+    ])
     for row in criticas:
         linhas.append(
             f"- {row['orgao']} / {row['area']} / {row['tipo_dado']}: "

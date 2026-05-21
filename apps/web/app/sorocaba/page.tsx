@@ -97,6 +97,11 @@ const MAIS_AREAS = [
     href: "/sorocaba/camara-municipal",
   },
   {
+    titulo: "Vereadores e emendas",
+    descricao: "Emendas impositivas por vereador: quanto cada um indicou e quanto foi efetivamente pago.",
+    href: "/sorocaba/emendas",
+  },
+  {
     titulo: "Fornecedores",
     descricao: "Ranking de destinatários de recursos públicos: empresas, entidades e folha de pagamento.",
     href: "/sorocaba/fornecedores",

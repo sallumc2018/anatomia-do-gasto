@@ -11,11 +11,12 @@ autorizacao explicita.
 - Manifesto auditavel: `data/manifests/sorocaba_100_auditavel.csv`
 - Pedidos LAI preparados: `docs/lai-sorocaba-100.md`
 - Fonte base: `data/manifests/inventario_fontes_sorocaba.csv`
+- Log de execucao inicial: `data/manifests/sorocaba_100_execucao_2026-05-21.csv`
 
 ## Resumo
 
 - Fontes inventariadas: 55
-- Status auditavel: {'lai_necessario': 21, 'parcial': 32, 'publicado': 2}
+- Status auditavel: {'coletado_pendente_validacao': 3, 'lai_necessario': 20, 'parcial': 30, 'publicado': 2}
 - Prioridades: {'alta': 28, 'baixa': 1, 'critica': 17, 'media': 9}
 - Frentes criticas nao publicadas: 17
 
@@ -44,7 +45,7 @@ autorizacao explicita.
 - Portal_Transparencia_Federal / transferencias / transferencias_para_sorocaba: parcial; pipelines/baixar_transferencias_federais.py; coletar_por_ente_e_cnpj
 - PNCP / compras / licitacoes_contratos_atas: parcial; pipelines/baixar_pncp_sorocaba.py; coletar_por_cnpj_e_termos
 - Camara / contratos / contratos_despesas_gabinete: parcial; pipelines/baixar_camara_playwright.py; inventariar_contratos_e_despesas
-- Camara / emendas / emendas_impositivas: parcial; pipelines/baixar_cepa_emendas.py; mapear_autor_destino_empenho_pagamento
+- Camara / emendas / emendas_impositivas: coletado_pendente_validacao; pipelines/baixar_cepa_emendas.py; mapear_autor_destino_empenho_pagamento
 - Urbes / transporte / relacao_mensal_despesas: parcial; pipelines/baixar_urbes_transparencia.py; baixar_e_extrair
 - Urbes / transporte / remuneracao_transporte_publico: parcial; pipelines/baixar_urbes_playwright.py; extrair_series
 - Urbes / transporte / contratos_concessao_transporte: parcial; pipelines/baixar_urbes_playwright.py; baixar_contratos_e_aditivos

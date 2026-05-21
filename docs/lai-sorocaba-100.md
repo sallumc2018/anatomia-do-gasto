@@ -653,28 +653,6 @@ ou nao seja mantida por este orgao, solicito indicacao expressa do motivo e
 do orgao responsavel pela guarda do dado.
 ```
 
-## TCE_SP - controle - contas_e_pareceres
-
-- Prioridade: alta
-- Periodo: 2020-2026
-- Fonte inicial: https://www.tce.sp.gov.br/
-- Dado solicitado: contas_e_pareceres (controle)
-- Formato desejado: html_pdf em formato aberto quando disponivel
-- Evidencia local: inventario_fontes_sorocaba.csv; fonte oficial ainda pendente de coleta ou prova de indisponibilidade
-- Bloqueio atual: Processos do portal legado podem exigir browser ou LAI.
-- Proximo passo apos resposta: inventariar_processos_sorocaba
-
-Texto especifico:
-
-```text
-Solicito os dados de contas_e_pareceres relativos a controle de Sorocaba/SP,
-com cobertura de 2020 a 2026, contendo no minimo identificador do registro,
-data ou competencia, valor, orgao/unidade responsavel, classificacao aplicavel,
-fonte original e eventuais documentos vinculados. Caso a informacao nao exista
-ou nao seja mantida por este orgao, solicito indicacao expressa do motivo e
-do orgao responsavel pela guarda do dado.
-```
-
 ## Camara - pessoal - subsidios_e_remuneracao
 
 - Prioridade: alta
@@ -748,7 +726,7 @@ do orgao responsavel pela guarda do dado.
 - Fonte inicial: https://servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas
 - Dado solicitado: emendas_impositivas (emendas)
 - Formato desejado: html em formato aberto quando disponivel
-- Evidencia local: inventario_fontes_sorocaba.csv; fonte oficial ainda pendente de coleta ou prova de indisponibilidade
+- Evidencia local: coleta operacional detectada em data/extracted/sorocaba/cepa/saida/cepa_manifest_coleta.json; ainda nao publicada
 - Bloqueio atual: Coleta interna existente precisa validacao semantica antes de publicar.
 - Proximo passo apos resposta: mapear_autor_destino_empenho_pagamento
 

@@ -95,8 +95,12 @@ def _fetch_pagina(endpoint: str, params: dict, chave: str, timeout: int = 30) ->
             pass
         if e.code == 403:
             sys.exit(
-                f"403 Proibido — chave API ausente, invalida ou nao ativada ainda.\n"
-                f"Aguarde ate 24h apos o cadastro e tente novamente.\nURL: {url}\n{corpo}"
+                f"403 Proibido. A chave pode estar valida e o endpoint inexistente:\n"
+                f"a api-de-dados responde 403 (nao 404) para rotas que nao existem.\n"
+                f"Confirme o caminho na spec oficial (/v3/api-docs). Endpoints de\n"
+                f"transferencias por municipio nesta API: /despesas/recursos-recebidos\n"
+                f"(mesAnoInicio, mesAnoFim, codigoIBGE) ou /coronavirus/transferencias.\n"
+                f"Se a chave fosse o problema, o retorno seria 401.\nURL: {url}\n{corpo}"
             )
         if e.code == 404:
             return []

@@ -70,6 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/sorocaba/receita",                mtime: receitaMtime,      freq: "monthly", priority: 0.9 },
     { route: "/sorocaba/saude-fiscal",           mtime: fiscalMtime,       freq: "monthly", priority: 0.9 },
     { route: "/sorocaba/camara-municipal",       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
+    { route: "/sorocaba/emendas",                mtime: SITE_UPDATED,      freq: "monthly", priority: 0.8 },
     { route: "/sorocaba/pacto-federativo",       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.6 },
     { route: "/sorocaba/fornecedores",           mtime: fornecedoresMtime, freq: "monthly", priority: 0.9 },
     { route: "/sorocaba/lacunas",                mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
