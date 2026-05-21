@@ -45,7 +45,7 @@ Estado reconciliado para o deploy público de 2026-05-20: a base publicada já �
 | Câmara - gabinete | Despesas de gabinete publicadas 2020-2026; contratos e emendas seguem pendentes | `data/public/sorocaba/camara/gabinete` |
 | Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
 | Fontes oficiais | 55 itens inventariados | `data/manifests/inventario_fontes_sorocaba.csv` |
-| Auditoria de cobertura | 156 arquivos CSV publicados em `data/public/sorocaba`; camadas internas continuam fora do Git | `docs/auditoria-cobertura-sorocaba.md` |
+| Auditoria de cobertura | 156 arquivos CSV publicados em `data/public/sorocaba`; camadas internas continuam fora do Git | `data/manifests/datasets.csv` |
 | Théo | Guia local determinístico criado; IA externa ainda não implementada | botão global no site e bloco `/#theo` |
 
 ## Mapa das trilhas
@@ -66,9 +66,9 @@ Checklist:
 - [ ] Balancetes mensais de receita da Prefeitura.
 - [ ] Registro analítico da receita orçamentária.
 - [ ] Transferências federais por Portal da Transparência Federal.
-- [ ] FNS/SUS por repasse.
+- [x] FNS/SUS por repasse coletado internamente 2020-2026; pendente validação/publicação.
 - [ ] FNDE/SIOPE por programa.
-- [ ] ICMS/IPVA e repasses estaduais.
+- [x] ICMS/IPVA e repasses estaduais coletados internamente 2020-2026; pendente validação/publicação.
 - [ ] Página consolidada: "De onde vem o dinheiro".
 - [ ] Théo responde: "Quanto entrou em Sorocaba em um ano?".
 
@@ -145,7 +145,7 @@ Checklist:
 
 - [ ] Inventariar contratos da Prefeitura.
 - [ ] Inventariar licitações da Prefeitura.
-- [ ] Coletar PNCP por CNPJ/órgão/termos.
+- [ ] Coletar PNCP por CNPJ/órgão/termos. Parcial interno: atas extraídas; compras/contratos seguem sem snapshot confiável.
 - [ ] Cruzar contrato com empenho, liquidação e pagamento.
 - [ ] Separar contrato ativo, encerrado, aditado e cancelado.
 - [ ] Página: "Contratos".
@@ -195,7 +195,7 @@ Checklist:
 - [x] Despesas de gabinete 2020-2026 publicadas.
 - [ ] Orçamento e execução detalhada da Câmara.
 - [ ] Contratos da Câmara.
-- [ ] Emendas impositivas por vereador.
+- [x] Emendas impositivas por vereador coletadas internamente via CEPA; pendente validação/publicação.
 - [ ] Cruzar emenda com empenho, liquidação e pagamento.
 - [ ] Página: "Vereadores e emendas".
 - [ ] Théo responde: "O que meu vereador fez com dinheiro público?".
@@ -215,11 +215,11 @@ Critério de pronto:
 
 Checklist:
 
-- [ ] Urbes: relação mensal de despesas.
-- [ ] Urbes: contratos de transporte.
-- [ ] Urbes: remuneração do transporte público.
-- [ ] SAAE: receitas, despesas, contratos e obras.
-- [ ] FUNSERV: balanços, avaliação atuarial, investimentos e despesas.
+- [x] Urbes: relação mensal de despesas inventariada/coletada internamente; pendente normalização.
+- [x] Urbes: contratos de transporte inventariados/coletados internamente; pendente normalização.
+- [x] Urbes: remuneração do transporte público inventariada/coletada internamente; pendente normalização.
+- [x] SAAE: receitas, despesas, contratos e obras amostrados no TDAPortal; pendente normalização semântica.
+- [x] FUNSERV: balanços, avaliação atuarial, investimentos e despesas inventariados; pendente normalização.
 - [ ] AGEM: verificar se há dado diretamente ligado a Sorocaba.
 - [ ] Páginas específicas ou cards dentro de "Serviços".
 
@@ -238,7 +238,7 @@ Perguntas que precisa responder:
 
 Checklist:
 
-- [ ] TCE-SP: contas, pareceres e alertas.
+- [x] TCE-SP: contas e alertas inventariados/coletados internamente; processos seguem pendentes por automação do portal legado.
 - [ ] AUDESP: dados enviados ao Tribunal.
 - [ ] SICONFI: RREO/RGF/DCA/MSC.
 - [ ] SIOPS e SIOPE como validação setorial.

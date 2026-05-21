@@ -85,21 +85,23 @@ Receita e saúde fiscal (SICONFI):
 
 Execução financeira detalhada:
 
-- `conta_corrente_fornecedor_sorocaba_YYYY.csv`
+- `fornecedores_agregado_sorocaba_YYYY.csv`
+- `restos_agregado_sorocaba_YYYY.csv`
 - `despesa_orcamentaria_sorocaba_YYYY.csv`
+- `empenho_sorocaba_YYYY.csv`
 
 ## Educação 2020-2025
 
 Os CSVs de educação 2020-2023 foram validados contra os PDFs oficiais locais e publicados junto com 2024-2025. A cópia em `data/extracted/sorocaba/educacao/saida` continua preservada como saída mecânica do extrator; o site lê somente `data/public/sorocaba/educacao/saida`.
 
-## Rastro De Execução 2020 E 2024
+## Rastro De Execução 2020-2025
 
 Os primeiros dados de rastro usam os livros oficiais da Secretaria da Fazenda:
 
 - `Livro Conta Corrente de Fornecedor`
 - `Livro Registro Analitico da Despesa Orçamentária`
 
-Eles ficam em `data/raw/sorocaba/execucao/livros_contabeis/YYYY` e geram CSVs em `data/extracted/sorocaba/execucao/saida`. Nesta fase, os dados não estão publicados no site. A verificação local inicial é:
+Eles ficam no acervo bruto operacional e geram CSVs internos antes da publicação. A série publicada em `data/public` cobre fornecedores agregados, restos a pagar, despesa orçamentária e empenhos de 2020 a 2025. A verificação local inicial é:
 
 ```powershell
 python pipelines\testes\verificar_rastro_execucao.py --ano 2020 --ano 2024
@@ -107,7 +109,7 @@ python pipelines\testes\verificar_rastro_execucao.py --ano 2020 --ano 2024
 
 O rastro extraído cobre fornecedor, código do fornecedor, nota de empenho, documento de despesa, valor pago, órgão, unidade, natureza da despesa e programa de trabalho. Campos como conta bancária individual, ordenador, fiscal do contrato, unidade física final e comprovante bancário só podem entrar se aparecerem em fonte oficial específica.
 
-Na listagem oficial consultada, 2020 e 2024 tinham os dois livros essenciais em tamanho pequeno. Para 2021-2023, pelo menos um dos livros essenciais estava acima de 900 MB; esses anos exigem estratégia separada antes de baixar e extrair. O livro anual de 2025 ainda não apareceu na listagem consultada.
+Na listagem oficial consultada, alguns anos tinham PDFs grandes; por isso os brutos grandes ficam no acervo externo configurado por `ANATOMIA_RAW_ROOT`. A rastreabilidade pública fica nos manifests e em `data/public`; camadas internas não são lidas pelo site.
 
 O inventário público dessa camada fica em `data/manifests/fontes_execucao_sorocaba.csv`, com:
 
@@ -119,6 +121,19 @@ O inventário público dessa camada fica em `data/manifests/fontes_execucao_soro
 - validação local aplicável.
 
 Isso permite auditoria externa do rastro de execução sem transformar `data/extracted/sorocaba/execucao/saida` em publicação automática.
+
+## Coletores Internos Em Andamento
+
+Os coletores abaixo preservam fontes oficiais e geram saídas internas, mas não publicam automaticamente:
+
+- `baixar_cepa_emendas.py`: emendas CEPA, dotações e eventos.
+- `baixar_fns_repasses.py`: repasses FNS/FAF por município.
+- `baixar_transferencias_estaduais_sp.py`: repasses estaduais Sefaz-SP.
+- `baixar_transferegov_sorocaba.py`: recortes Transferegov/SICONV filtrados para Sorocaba.
+- `baixar_pncp_sorocaba.py`: PNCP com checkpoint; permanece parcial até cobertura confiável.
+- `baixar_saae_dados_abertos.py`, `baixar_urbes_transparencia.py`, `baixar_funserv.py` e `baixar_tce_sorocaba.py`: inventário/coleta oficial de autarquias e controle externo.
+
+Esses dados só viram publicação após normalização, validação local e cópia explícita para `data/public`.
 
 ## Gate De Publicacao
 

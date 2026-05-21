@@ -141,7 +141,7 @@ Configuração esperada:
 - Branch: `main`
 - Root Directory: `apps/web`
 - Build Command: `npm run build` (o script usa `next build --webpack`; `npm run dev` continua em `next dev`/Turbopack local)
-- Install Command: `npm install`
+- Install Command: `npm ci --ignore-scripts`
 
 O site lê somente `data/public`, que deve estar commitado depois da validação local.
 

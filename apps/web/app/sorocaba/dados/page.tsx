@@ -73,31 +73,47 @@ const AREA_LABEL: Record<string, string> = {
   "camara/gabinete": "Camara - despesas de gabinete",
 }
 
+function areaLabel(areaKey: string, tipo: string): string {
+  const base = AREA_LABEL[areaKey] ?? areaKey.replace(/\//g, " / ")
+  if (!tipo) return base
+  const tipoLabel = tipo.replace(/-/g, " ")
+  return `${base} - ${tipoLabel}`
+}
+
 const PUBLIC_DATASETS = [
-  ["saude", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - saude.", "despesas_saude_sorocaba_{ano}.csv"],
-  ["saude", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base ASPS - saude.", "receitas_base_saude_sorocaba_{ano}.csv"],
-  ["educacao", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - educacao.", "despesas_educacao_sorocaba_{ano}.csv"],
-  ["educacao", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base FUNDEB - educacao.", "receitas_base_educacao_sorocaba_{ano}.csv"],
-  ["seguranca", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas por subfuncao - DCA Anexo I-E.", "despesas_seguranca_sorocaba_{ano}.csv"],
-  ["seguranca", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6.", "rreo_seguranca_sorocaba_{ano}.csv"],
-  ["transporte", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 funcao 26.", "rreo_transporte_sorocaba_{ano}.csv"],
-  ["transporte", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas DCA Anexo I-E funcao 26.", "dca_transporte_sorocaba_{ano}.csv"],
-  ["executivo", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento municipal por funcao.", "despesas_executivo_sorocaba_{ano}.csv"],
-  ["receita", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas municipais por categoria.", "receitas_sorocaba_{ano}.csv"],
-  ["fiscal", "2020-2025", "SICONFI / Tesouro Nacional", "Divida, pessoal, RCL e demonstrativos fiscais complementares.", "divida_sorocaba_{ano}.csv"],
-  ["fornecedores", "2020-2025", "Portal de Transparencia Sorocaba", "Conta-corrente agregada por destinatario (excl. movimentacoes internas). Serie completa 2020-2025.", "fornecedores_agregado_sorocaba_{ano}.csv"],
-  ["restos", "2020-2025", "Portal de Transparencia Sorocaba", "Restos a pagar agregados por fornecedor - movimentos de liquidacao e cancelamento de restos pendentes. Serie completa 2020-2025.", "restos_agregado_sorocaba_{ano}.csv"],
-  ["despesa", "2020-2025", "Portal de Transparencia Sorocaba", "Registro analitico de despesa orcamentaria por empenho - liga nota de empenho, fornecedor e classificacao orcamentaria. Serie completa 2020-2025.", "despesa_orcamentaria_sorocaba_{ano}.csv"],
-  ["empenho", "2020-2025", "Portal de Transparencia Sorocaba", "Registro de empenhos por nota - classificacao orcamentaria, fornecedor, objeto e valor empenhado. Enriquecido com nome do fornecedor via conta corrente. Serie completa 2020-2025.", "empenho_sorocaba_{ano}.csv"],
-  ["loa", "2022-2026", "Portal de Transparencia Sorocaba", "Priorizacoes da audiencia publica da LOA por area tematica e regiao. Dados extraidos dos Relatorios de Audiencia Publica (PDFs de imagem). 2022 contem ranking de eixos (140 participantes); 2023 contem tabela global + breakdowns regionais (200 formularios); 2024 e 2025 contem prioridades por regiao (414 e 277 propostas resp.); 2026 usa eixo estrategico. Coluna qualidade_dado indica 'exato' (valor legivel no grafico) ou 'est' (estimado visualmente).", "audiencia_loa_sorocaba_{ano}.csv"],
-  ["camara/gabinete", "2020-2026", "Portal Camara Municipal de Sorocaba", "Despesas mensais dos gabinetes dos vereadores por categoria. Publicado em subarea camara/gabinete para manter separacao da Camara Municipal.", "despesas_gabinete_camara_sorocaba_{ano}.csv"],
+  ["saude", "despesas", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - saude", "despesas_saude_sorocaba_{ano}.csv"],
+  ["saude", "receitas", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base ASPS - saude", "receitas_base_saude_sorocaba_{ano}.csv"],
+  ["educacao", "despesas", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - educacao", "despesas_educacao_sorocaba_{ano}.csv"],
+  ["educacao", "receitas", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base FUNDEB - educacao", "receitas_base_educacao_sorocaba_{ano}.csv"],
+  ["seguranca", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas por subfuncao - DCA Anexo I-E", "despesas_seguranca_sorocaba_{ano}.csv"],
+  ["seguranca", "orcamento", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA", "rreo_seguranca_sorocaba_{ano}.csv"],
+  ["transporte", "orcamento rreo", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA", "rreo_transporte_sorocaba_{ano}.csv"],
+  ["transporte", "orcamento dca", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas DCA Anexo I-E funcao 26 empenhado, liquidado e pago", "dca_transporte_sorocaba_{ano}.csv"],
+  ["executivo", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento municipal por funcao - RREO Anexo 02 bimestre 6", "despesas_executivo_sorocaba_{ano}.csv"],
+  ["receita", "receitas", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas municipais por categoria - RREO Anexo 01 bimestre 6", "receitas_sorocaba_{ano}.csv"],
+  ["fiscal", "pessoal", "2020-2025", "SICONFI / Tesouro Nacional", "Despesa com pessoal e RCL ajustada - RGF Anexo 01", "pessoal_sorocaba_{ano}.csv"],
+  ["fiscal", "divida", "2020-2025", "SICONFI / Tesouro Nacional", "Divida consolidada e limite de endividamento - RGF Anexo 02", "divida_sorocaba_{ano}.csv"],
+  ["fiscal", "rcl", "2020-2025", "SICONFI / Tesouro Nacional", "Composicao das receitas correntes - RREO Anexo 03", "rcl_sorocaba_{ano}.csv"],
+  ["fiscal", "rcl capital", "2020-2025", "SICONFI / Tesouro Nacional", "Composicao das receitas de capital - RREO Anexo 03", "rcl_capital_sorocaba_{ano}.csv"],
+  ["fiscal", "divida detalhada", "2020-2025", "SICONFI / Tesouro Nacional", "Detalhamento da divida consolidada e limites - RGF Anexo 02", "divida_detalhada_sorocaba_{ano}.csv"],
+  ["fiscal", "natureza despesa", "2020-2025", "SICONFI / Tesouro Nacional", "Resumo fiscal por natureza da despesa", "natureza_despesa_sorocaba_{ano}.csv"],
+  ["fiscal", "rpps", "2020-2025", "SICONFI / Tesouro Nacional", "Indicadores previdenciarios e RPPS", "rpps_sorocaba_{ano}.csv"],
+  ["saude", "receitas detalhamento", "2020-2025", "Portal de Transparencia Sorocaba / SICONFI", "Detalhamento auxiliar das receitas de saude", "receitas_detalhamento_sorocaba_{ano}.csv"],
+  ["saude", "rreo despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas de saude no RREO", "rreo_despesas_saude_sorocaba_{ano}.csv"],
+  ["saude", "rreo receitas sus", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas SUS no RREO", "rreo_receitas_sus_sorocaba_{ano}.csv"],
+  ["despesa", "registro analitico", "2020-2025", "Portal de Transparencia Sorocaba", "Registro Analitico da Despesa por fornecedor, natureza e empenho", "despesa_orcamentaria_sorocaba_{ano}.csv"],
+  ["empenho", "registro empenho", "2020-2025", "Portal de Transparencia Sorocaba", "Livro Registro de Empenho por natureza da despesa e fornecedor", "empenho_sorocaba_{ano}.csv"],
+  ["fornecedores", "conta corrente", "2020-2025", "Portal de Transparencia Sorocaba", "Conta Corrente de Fornecedor agregada por ano", "fornecedores_agregado_sorocaba_{ano}.csv"],
+  ["restos", "restos a pagar", "2020-2025", "Portal de Transparencia Sorocaba", "Restos a Pagar agregados por fornecedor", "restos_agregado_sorocaba_{ano}.csv"],
+  ["loa", "audiencia publica", "2022-2026", "Portal de Transparencia Sorocaba", "Priorizacoes da audiencia publica da LOA por area tematica e regiao", "audiencia_loa_sorocaba_{ano}.csv"],
+  ["camara/gabinete", "despesas gabinete", "2020-2026", "Portal Camara Municipal de Sorocaba", "Despesas mensais dos gabinetes dos vereadores por categoria", "despesas_gabinete_camara_sorocaba_{ano}.csv"],
 ] as const
 
 function getDatasets(): DatasetRow[] {
   const publicRoot = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
-  return PUBLIC_DATASETS.map(([areaKey, anosStr, fonte, observacao, arquivoPadrao]) => {
-    const downloadLinks: DownloadLink[] = expandYears(anosStr)
+  return PUBLIC_DATASETS.map(([areaKey, tipo, anos, fonte, observacao, arquivoPadrao]) => {
+    const downloadLinks: DownloadLink[] = expandYears(anos)
       .map((ano) => ({
         ano,
         filename: arquivoPadrao.replace("{ano}", ano),
@@ -110,8 +126,8 @@ function getDatasets(): DatasetRow[] {
 
     return {
       municipio: "Sorocaba/SP",
-      area: AREA_LABEL[areaKey] ?? areaKey,
-      anos: anosStr,
+      area: areaLabel(areaKey, tipo),
+      anos,
       status: "public",
       fonte,
       observacao,
