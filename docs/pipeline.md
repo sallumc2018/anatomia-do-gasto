@@ -139,6 +139,14 @@ Esses dados só viram publicação após normalização, validação local e có
 
 `pipelines\publicar_dados.py` consulta `data/manifests/datasets.csv` antes de copiar qualquer CSV. Somente linhas com `Origem_Dir=public` podem ser publicadas por esse script. Linhas `validated`, `extracted` ou `public_aux` exigem fluxo especifico e autorizacao explicita.
 
+## Catalogo De Formatos De Extracao
+
+O manifesto `data/manifests/extratores_formatos.csv` registra formatos ja conhecidos por documento, ano, sinais de deteccao, extrator, saida esperada e validacao.
+
+Esse catalogo reduz custo de agentes e pipeline: documento + ano deve apontar para formato -> extrator -> validacao, sem redescobrir layouts ja mapeados.
+
+O catalogo e auxiliar. Antes de alterar extrator, publicar dados ou mexer em camadas de dados, leia diretamente o script e a validacao correspondente.
+
 Antes de release, rode:
 
 ```powershell

@@ -4,6 +4,7 @@ import csv
 import hashlib
 import os
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -193,3 +194,9 @@ def relative(path: Path) -> str:
 def ensure_local_dirs() -> None:
     (ROOT / ".local" / "rag").mkdir(parents=True, exist_ok=True)
     (ROOT / ".local" / "memory" / "handoffs").mkdir(parents=True, exist_ok=True)
+
+
+def configure_utf8_stdio() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")

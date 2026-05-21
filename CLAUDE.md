@@ -68,11 +68,23 @@ Nao trazer para este repositorio conteudo privado, credenciais, registros operac
 
 Antes de trabalhos substantivos, opere em economia de contexto/token: localize fontes com `rg` ou comando seletivo, abra apenas os arquivos e trechos necessarios, evite reler documentacao ja estabilizada e consolide comandos quando isso nao esconder evidencia relevante.
 
+Para iniciar um topico substantivo com contexto minimo, rode:
+
+```powershell
+python tools/agents/start-topic.py "<objetivo>" --rag-limit 3
+```
+
 Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta. Nao repasse historico completo quando diff, trecho ou resumo rastreavel bastar.
 
 Para contexto ja documentado, use a memoria publica em `memory/` via `tools/memory/query-rag.py` quando isso reduzir contexto. RAG e auxiliar: antes de editar, publicar dados, rodar pipeline, fazer deploy ou mexer em infraestrutura, leia diretamente os arquivos relevantes. Handoffs publicos reutilizaveis ficam em `memory/handoffs/YYYY-MM/`; handoffs locais ou sensiveis ficam em `.local/memory/handoffs/YYYY-MM/`.
 
 Quando houver economia auditavel e o conteudo for publico/sanitizado, registre em `memory/token-economy/YYYY-MM.md`: data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa em faixa ou qualitativa e observacao de privacidade. Nunca registre prompts privados, conversa completa, secrets ou dados nao publicados.
+
+Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao finalizar, inclua rodape: `Fim de trabalho substantivo: sim`; `Handoff recomendado: sim/nao - motivo curto`; `Modelo: adequado/recomendar troca - motivo curto`; `Economia de contexto: baixa/media/alta; base auditavel; estimativa em faixa ou qualitativa`.
+
+Essa regra e portavel para qualquer projeto. Quando nao houver `memory/token-economy/`, registre a economia no mecanismo equivalente do projeto, no handoff, ou apenas no rodape da resposta.
+
+Protocolo de modelo: use a menor capacidade suficiente. Recomende `/model` para modelo forte quando a tarefa exigir arquitetura, refatoracao ampla, bugs ambiguos, seguranca, dados sensiveis/metodologicos, decisoes permanentes ou conflitos. Recomende modelo economico/rapido para triagem, leitura seletiva, comandos simples, diffs pequenos e documentacao objetiva. Nao troque silenciosamente o modelo principal salvo API segura da plataforma; quando houver subagentes com modelo/tier explicito, roteie subtarefas isoladas para o modelo adequado.
 
 Ao alterar memoria, agentes, handoffs ou RAG, rode:
 
@@ -81,9 +93,13 @@ python -m compileall -q tools/memory
 python -m compileall -q tools/agents
 python tools/memory/audit-memory-scope.py
 python tools/memory/build-rag-index.py --check
+python tools/memory/write-token-economy.py --check
 python tools/agents/validate-agent-contracts.py
+python tools/agents/check-scope-gates.py
 ```
 
-Se o usuario disser "Chame o orquestrador, preciso completar os dados faltantes agora", acione o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/orquestrador.md`.
+Para validacao consolidada por area, use `python tools/agents/validate-area.py --area memory|agents|scope|pipeline|frontend|publication`.
+
+Se o usuario disser "Chame o orquestrador, preciso completar os dados faltantes agora", acione o fluxo composto `dados -> pipeline -> qa -> analista -> frontend? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/orquestrador.md`.
 
 Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avise para abrir uma nova conversa antes de continuar.

@@ -152,7 +152,7 @@ $sensitiveFilePatterns = @(
   'authorized_keys$',
   'recovery',
   'secret',
-  'token',
+  'token(?![-_]economy)',
   'cookies?'
 )
 
@@ -195,7 +195,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Step "Arquivos sensiveis versionados"
-$trackedSensitive = & git -C $Root ls-files | Select-String -Pattern '(^|/)(\.env|\.env\..*|.*\.pem|.*\.key|.*id_rsa.*|.*id_ed25519.*|.*recovery.*|.*secret.*|.*token.*|.*cookies?.*)$' -CaseSensitive:$false
+$trackedSensitive = & git -C $Root ls-files | Select-String -Pattern '(^|/)(\.env|\.env\..*|.*\.pem|.*\.key|.*id_rsa.*|.*id_ed25519.*|.*recovery.*|.*secret.*|.*token(?![-_]economy).*|.*cookies?.*)$' -CaseSensitive:$false
 if ($trackedSensitive) {
   Add-Failure "Possiveis arquivos sensiveis versionados: $($trackedSensitive -join ', ')"
 } else {

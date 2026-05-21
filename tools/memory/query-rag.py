@@ -8,7 +8,7 @@ import sqlite3
 import sys
 from collections import Counter
 
-from common import ACTIVE_AUTHORITIES, ACTIVE_STATUSES, INDEX_DB
+from common import ACTIVE_AUTHORITIES, ACTIVE_STATUSES, INDEX_DB, configure_utf8_stdio
 
 
 def fts_query(text: str, operator: str = "AND") -> str:
@@ -71,6 +71,7 @@ def cosine(query_vector: dict[str, float], query_norm: float, vector_json: str, 
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description="Query the local public RAG index.")
     parser.add_argument("--agent", required=True)
     parser.add_argument("--query", required=True)

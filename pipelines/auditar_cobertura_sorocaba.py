@@ -10,8 +10,6 @@ import hashlib
 import json
 from pathlib import Path
 
-import fitz
-
 from paths import DATA_DIR, ROOT
 
 
@@ -103,6 +101,8 @@ def perfil_json(path: Path) -> dict[str, str | int]:
 
 
 def perfil_pdf(path: Path) -> dict[str, str | int]:
+    import fitz
+
     with fitz.open(path) as doc:
         paginas = doc.page_count
         paginas_com_texto = 0
@@ -137,42 +137,63 @@ def status_publicacao(path: Path) -> str:
     return "controle"
 
 
-def auditar(calcular_hash: bool) -> list[dict[str, str | int]]:
+def auditar(calcular_hash: bool, camadas: set[str]) -> list[dict[str, str | int]]:
     registros = []
-    for path in sorted(DATA_DIR.rglob("*")):
-        if not path.is_file():
+    for nome_camada in CAMADAS:
+        if nome_camada not in camadas:
             continue
-        rel = path.relative_to(ROOT).as_posix()
-        ext = path.suffix.lower().lstrip(".")
-        registro: dict[str, str | int] = {
-            "arquivo": rel,
-            "camada": camada(path),
-            "tema": tema(path),
-            "ano": ano_do_nome(path),
-            "extensao": ext,
-            "bytes": path.stat().st_size,
-            "sha256": sha256(path) if calcular_hash else "",
-            "status_publicacao": status_publicacao(path),
-            "linhas": "",
-            "colunas": "",
-            "nomes_colunas": "",
-            "colunas_com_vazios": "",
-            "paginas_pdf": "",
-            "paginas_pdf_com_texto": "",
-            "palavras_amostra_10_paginas": "",
-            "observacao": "",
-        }
-        try:
-            if ext == "csv":
-                registro.update(perfil_csv(path))
-            elif ext == "json":
-                registro.update(perfil_json(path))
-            elif ext == "pdf":
-                registro.update(perfil_pdf(path))
-        except Exception as exc:
-            registro["observacao"] = f"erro_perfil: {type(exc).__name__}: {exc}"
-        registros.append(registro)
+        raiz_camada = DATA_DIR / nome_camada
+        if not raiz_camada.exists():
+            continue
+        for path in sorted(raiz_camada.rglob("*")):
+            if not path.is_file():
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            ext = path.suffix.lower().lstrip(".")
+            registro: dict[str, str | int] = {
+                "arquivo": rel,
+                "camada": camada(path),
+                "tema": tema(path),
+                "ano": ano_do_nome(path),
+                "extensao": ext,
+                "bytes": path.stat().st_size,
+                "sha256": sha256(path) if calcular_hash else "",
+                "status_publicacao": status_publicacao(path),
+                "linhas": "",
+                "colunas": "",
+                "nomes_colunas": "",
+                "colunas_com_vazios": "",
+                "paginas_pdf": "",
+                "paginas_pdf_com_texto": "",
+                "palavras_amostra_10_paginas": "",
+                "observacao": "",
+            }
+            try:
+                if ext == "csv":
+                    registro.update(perfil_csv(path))
+                elif ext == "json":
+                    registro.update(perfil_json(path))
+                elif ext == "pdf":
+                    registro.update(perfil_pdf(path))
+            except Exception as exc:
+                registro["observacao"] = f"erro_perfil: {type(exc).__name__}: {exc}"
+            registros.append(registro)
     return registros
+
+
+def normalizar_camadas(valores: list[str] | None) -> set[str]:
+    if not valores:
+        return set(CAMADAS)
+
+    normalizadas: set[str] = set()
+    for valor in valores:
+        partes = [parte.strip() for parte in valor.split(",") if parte.strip()]
+        for parte in partes:
+            if parte not in CAMADAS:
+                opcoes = ", ".join(CAMADAS)
+                raise ValueError(f"Camada invalida: {parte}. Opcoes: {opcoes}")
+            normalizadas.add(parte)
+    return normalizadas
 
 
 def main() -> None:
@@ -181,10 +202,16 @@ def main() -> None:
         "--saida",
         default=str(DATA_DIR / "manifests" / "auditoria_cobertura_sorocaba.csv"),
     )
+    parser.add_argument(
+        "--camada",
+        action="append",
+        help="Camada a auditar. Pode repetir ou usar lista separada por virgula.",
+    )
     parser.add_argument("--sem-hash", action="store_true")
     args = parser.parse_args()
 
-    registros = auditar(calcular_hash=not args.sem_hash)
+    camadas = normalizar_camadas(args.camada)
+    registros = auditar(calcular_hash=not args.sem_hash, camadas=camadas)
     destino = Path(args.saida)
     destino.parent.mkdir(parents=True, exist_ok=True)
     campos = [
@@ -211,6 +238,7 @@ def main() -> None:
         writer.writerows(registros)
 
     print(f"Arquivos auditados: {len(registros)}")
+    print(f"Camadas auditadas: {', '.join(c for c in CAMADAS if c in camadas)}")
     print(f"Saida: {destino}")
 
 

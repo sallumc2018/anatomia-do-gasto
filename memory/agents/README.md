@@ -16,6 +16,8 @@ Generated run logs and locks do not belong here. They live under:
 
 ```powershell
 python tools/agents/validate-agent-contracts.py
+python tools/agents/check-scope-gates.py
 python tools/agents/list-agents.py
 python tools/agents/plan-route.py "completar dados faltantes sorocaba"
+python tools/agents/start-topic.py "completar dados faltantes sorocaba" --rag-limit 1
 ```

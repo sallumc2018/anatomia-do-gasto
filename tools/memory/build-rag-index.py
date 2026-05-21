@@ -13,6 +13,7 @@ from common import (
     ACTIVE_AUTHORITIES,
     ACTIVE_STATUSES,
     INDEX_DB,
+    configure_utf8_stdio,
     ensure_local_dirs,
     iter_entry_files,
     read_registry,
@@ -282,6 +283,7 @@ def write_vectors(conn: sqlite3.Connection, chunks: list[tuple[str, str]]) -> No
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description="Build local public RAG index.")
     parser.add_argument("--check", action="store_true", help="Check FTS5 support and registry readability only.")
     args = parser.parse_args()

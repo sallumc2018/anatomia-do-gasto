@@ -10,29 +10,59 @@ O orquestrador deve criar ou acionar subagentes apenas quando a tarefa puder ser
 
 Antes de trabalhos substantivos, todo agente deve localizar fontes com `rg` ou comando seletivo, abrir apenas arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencia relevante.
 
+Trabalho substantivo e qualquer tarefa que envolva leitura/edicao de multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, uso de subagente, investigacao de bug, pipeline, frontend, deploy, seguranca ou decisao que oriente trabalhos futuros. Nao e substantivo: resposta curta, explicacao conceitual, comando simples, confirmacao, status rapido ou ajuste textual isolado sem validacao.
+
 Quando houver memoria publica ja indexada, o orquestrador pode recuperar contexto com `tools/memory/query-rag.py` e incluir somente os trechos relevantes no pacote minimo. RAG nao substitui leitura direta de arquivos antes de editar, publicar, validar ou fazer deploy.
 
 Cada topico deve ter sua propria conversa. Quando o usuario mudar de assunto, area ou objetivo de trabalho, o agente deve avisar: "Este e um novo topico; abra uma nova conversa para economizar contexto." So continuar na conversa atual se o usuario confirmar que quer seguir mesmo assim.
+
+## Protocolo Otimizado
+
+Inicio read-only de qualquer topico substantivo:
+
+```powershell
+python tools\agents\start-topic.py "<objetivo>" --rag-limit 3
+```
+
+Pedido recomendado para usuario ou handoff entre agentes:
+
+```text
+Novo topico: <area>. Objetivo: <resultado>. Pode editar: <paths>. Nao pode: <gates>. Validacao: <comandos>. Entrega: diff + validacao + handoff curto.
+```
+
+Gates e validacoes locais por area:
+
+```powershell
+python tools\agents\check-scope-gates.py
+python tools\agents\validate-area.py --area memory
+python tools\agents\validate-area.py --area agents
+python tools\agents\validate-area.py --area pipeline
+python tools\agents\validate-area.py --area frontend
+python tools\agents\validate-area.py --area publication
+```
+
+`check-scope-gates.py` falha se o frontend referenciar `data/raw`, `data/extracted` ou `data/validated`, se um arquivo marcado como nao publicavel em `data/manifests/datasets.csv` aparecer em `data/public`, ou se automacoes locais de agentes/memoria contiverem comandos de release/instalacao sem gate humano.
 
 ## Gatilho Padrao Do Orquestrador
 
 Quando o usuario disser algo como **"Chame o orquestrador, preciso completar os dados faltantes agora"**, Codex e Claude devem tratar isso como pedido composto de dados e executar o roteamento abaixo com contexto minimo.
 
-Objetivo padrao: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente e preparar handoff. Publicacao em `data/public`, commit, push e deploy continuam exigindo autorizacao explicita.
+Objetivo padrao: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff. Publicacao em `data/public`, commit, push e deploy continuam exigindo autorizacao explicita.
 
 Fluxo padrao:
 
 1. `orquestrador`: classifica area/anos faltantes e monta pacotes pequenos por agente.
 2. `dados`: confere inventario e baixa fontes oficiais ausentes para `data/raw`.
 3. `pipeline`: processa as fontes baixadas para `data/extracted` e, quando autorizado, usa `data/validated` como etapa local de validacao.
-4. `analista`: le apenas `data/public` para apontar lacunas publicadas e impactos de leitura cidada.
-5. `frontend`: so entra se a mudanca exigir pagina, componente ou loader do site.
-6. `deploy`: so entra depois de autorizacao explicita para commit/push/deploy.
+4. `qa`: valida integridade pre-publicacao ou reconciliacao read-only de `data/public` quando o escopo for publicacao/cobertura.
+5. `analista`: le apenas `data/public` para apontar lacunas publicadas e impactos de leitura cidada.
+6. `frontend`: so entra se a mudanca exigir pagina, componente ou loader do site.
+7. `deploy`: so entra depois de autorizacao explicita para commit/push/deploy.
 
 Pacote minimo para esse gatilho:
 
 ```text
-Agente: <dados|pipeline|analista|frontend|deploy>
+Agente: <dados|pipeline|qa|analista|frontend|deploy>
 Objetivo: completar dados faltantes de <area> <anos>
 Pode ler: paths estritamente necessarios
 Pode alterar: somente o destino normal do agente
@@ -56,7 +86,7 @@ Todo subagente deve receber:
 Modelo:
 
 ```text
-Agente: <frontend|pipeline|dados|analista|seguranca|tablet|engenheiro|deploy>
+Agente: <frontend|pipeline|qa|dados|analista|seguranca|tablet|engenheiro|deploy>
 Objetivo: <resultado verificavel>
 Pode ler: <paths exatos>
 Pode alterar: <paths exatos ou "nenhum">
@@ -71,7 +101,8 @@ Resposta: achados, arquivos tocados, validacao, bloqueios
 | Agente | Leitura normal | Escrita normal | Validacao |
 |---|---|---|---|
 | `frontend` | `apps/web`, docs de UI, `data/public` necessario | `apps/web` | `npm run lint`, `npm run build`, checagem local de rotas |
-| `pipeline` | `pipelines`, paths de entrada, manifest relevante | `pipelines`, `data/extracted`, `data/validated` quando autorizado | `python -m py_compile`, teste especifico |
+| `pipeline` | `pipelines`, paths de entrada, manifest relevante; `data/public` em auditoria de cobertura | `pipelines`, `data/extracted`, `data/manifests` para auditorias, `data/validated` quando autorizado | `python -m py_compile`, teste especifico |
+| `qa` | `data/extracted`, `data/validated`, `data/manifests`; `data/public` em QA de publicacao/cobertura | nenhum | `verificar_publicacao.py --strict`, relatorio PASS/FAIL |
 | `dados` | fonte oficial, manifest de coleta, destino operacional | `data/raw`, manifest de fontes | conferencia de download e checksum quando houver |
 | `analista` | `data/public`, docs de metodologia, manifest publico | docs ou texto analitico autorizado | checagem de fonte, escopo e periodo |
 | `seguranca` | `.gitignore`, `CLAUDE.md`, docs de seguranca, `tools/security` | docs e scripts de seguranca | `check-site-local.ps1`, triagem supply-chain |
@@ -84,6 +115,8 @@ Resposta: achados, arquivos tocados, validacao, bloqueios
 - `frontend` nao le `data/raw`, `data/extracted` ou `data/validated`.
 - `analista` trabalha com `data/public` e manifests; nao usa dado interno como fato publicado.
 - `pipeline` pode citar `data/raw`, `data/extracted` e `data/validated`, mas nao publica para `data/public` sem decisao explicita.
+- `pipeline` deve usar filtros de camada quando o pacote minimo proibir `data/raw`, `data/extracted` ou `data/validated`.
+- `qa` pode ler `data/public` somente para validar publicacao/cobertura em modo read-only; nunca escreve dados.
 - `dados` nao recebe conteudo bruto de PDFs quando nome, URL, path e checksum bastarem.
 - `seguranca` nunca recebe secrets; valida nomes, paths e regras.
 - `tablet` nao recebe chaves, tokens, fingerprints privados ou dumps pessoais.
@@ -114,6 +147,7 @@ Permitido:
 
 Proibido:
 - `pipeline` + `analista` (pipeline escreve o que analista leria)
+- `pipeline` + `qa` no mesmo escopo
 - `deploy` + qualquer outro (gate de publicação)
 - `engenheiro` + `frontend` (podem editar os mesmos arquivos)
 
@@ -164,6 +198,36 @@ Cada subagente deve responder em no máximo quatro blocos:
 
 Não incluir narrativa longa, histórico de conversa, logs extensos ou conteúdo de dados sensíveis.
 
+## Rodape De Encerramento
+
+Ao fim de todo trabalho substantivo, qualquer agente deve encerrar a resposta com:
+
+```text
+Fim de trabalho substantivo: sim.
+Handoff recomendado: <sim/nao> - <motivo curto>.
+Modelo: <adequado|recomendar troca para modelo economico|recomendar troca para modelo forte> - <motivo curto>.
+Economia de contexto: <baixa/media/alta>; base: <evidencia auditavel>; estimativa: <faixa ou qualitativo>.
+```
+
+Recomendar handoff/nova conversa quando:
+- o trabalho substantivo terminou e o proximo pedido muda de tema, area ou objetivo;
+- o chat ja estiver grande;
+- houve mudanca em regras, dados, pipeline, frontend, deploy ou agentes;
+- continuar exigiria reler historico em vez de consultar docs, logs ou handoffs versionados.
+
+Esta regra e portavel para qualquer projeto. Quando nao houver `memory/token-economy/`, registrar a economia no mecanismo equivalente do projeto, no handoff, ou apenas no rodape da resposta.
+
+## Protocolo De Modelo
+
+Todo agente deve usar a menor capacidade suficiente para maximizar produtividade e economia de tokens ao mesmo tempo.
+
+- Usar ou recomendar modelo economico/rapido para leitura seletiva, triagem, comandos simples, diffs pequenos e documentacao objetiva.
+- Usar ou recomendar modelo forte para arquitetura, refatoracao ampla, bugs ambiguos, seguranca, dados sensiveis/metodologicos, decisoes permanentes e conflitos.
+- Depois da etapa dificil, recomendar voltar a modelo economico se a proxima etapa for mecanica, repetitiva ou facilmente verificavel.
+- Nao trocar silenciosamente o modelo principal da conversa, salvo quando a ferramenta/plataforma expuser API segura para isso.
+- Quando houver subagentes com modelo/tier explicito, rotear subtarefas isoladas para o modelo adequado e manter pacote minimo de contexto.
+- Se o chat estiver grande, recomendar handoff/nova conversa antes de recomendar `/model`.
+
 ## Memoria e RAG
 
 Fontes publicas indexaveis sao registradas em `memory/registry.csv`. O indice SQLite FTS5 local e gerado em `.local/rag/anatomia_public.sqlite` e nunca deve ser versionado.
@@ -177,7 +241,9 @@ python -m compileall -q tools/memory
 python tools\memory\audit-memory-scope.py
 python tools\memory\build-rag-index.py --check
 python tools\memory\build-rag-index.py
+python tools\memory\write-token-economy.py --check
 python tools\agents\validate-agent-contracts.py
+python tools\agents\check-scope-gates.py
 ```
 
 O agente deve preferir fontes `canonical` e `reference`; fontes `historical` ou `deprecated` nao entram na recuperacao normal.
@@ -193,6 +259,12 @@ Para trabalhos substantivos com conteudo publico/sanitizado, registrar uma entra
 - Comandos consolidados: [lista curta]
 - Estimativa: [faixa percentual ou qualitativa]
 - Privacidade: [confirmacao de que nao ha prompts privados, secrets, conversa completa ou dados nao publicados]
+
+Preferir o escritor validado quando o registro for publico:
+
+```powershell
+python tools\memory\write-token-economy.py --agent Codex --scope "<escopo>" --consulted "<arquivos>" --avoided "<trechos evitados>" --commands "<comandos>" --estimate "<faixa ou qualitativo>"
+```
 
 Quando solicitado ("quanto economizamos?"), responder com estimativa auditável:
 - Arquivos evitados: [lista]

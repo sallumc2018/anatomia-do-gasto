@@ -15,6 +15,13 @@ Matriz gerada:
 python pipelines\auditar_cobertura_sorocaba.py
 ```
 
+Para reconciliar somente publicacao e manifests, sem ler `data/raw`,
+`data/extracted` ou `data/validated`:
+
+```powershell
+python pipelines\auditar_cobertura_sorocaba.py --camada public --camada manifests --sem-hash
+```
+
 Saida:
 
 - `data/manifests/auditoria_cobertura_sorocaba.csv`

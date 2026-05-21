@@ -44,7 +44,7 @@ Estado reconciliado para o deploy público de 2026-05-20: a base publicada já �
 | LOA - audiências públicas | Publicado 2022-2026 | `data/public/sorocaba/loa` |
 | Câmara - gabinete | Despesas de gabinete publicadas 2020-2026; contratos e emendas seguem pendentes | `data/public/sorocaba/camara/gabinete` |
 | Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
-| Fontes oficiais | 55 itens inventariados | `data/manifests/inventario_fontes_sorocaba.csv` |
+| Fontes oficiais | 55 itens inventariados; fechamento auditável gerado em 2026-05-21 | `data/manifests/inventario_fontes_sorocaba.csv` e `data/manifests/sorocaba_100_auditavel.csv` |
 | Auditoria de cobertura | 156 arquivos CSV publicados em `data/public/sorocaba`; camadas internas continuam fora do Git | `data/manifests/datasets.csv` |
 | Théo | Guia local determinístico criado; IA externa ainda não implementada | botão global no site e bloco `/#theo` |
 
@@ -254,6 +254,7 @@ Critério de pronto:
 ### Fase 1 — preservar
 
 - [x] Inventário de fontes oficiais.
+- [x] Manifesto Sorocaba 100 auditável com status, método de acesso, comando de coleta e gate de publicação.
 - [x] Manifesto de arquivos grandes.
 - [x] Downloader com proteção contra arquivo grande.
 - [x] Download em streaming para `.part`.
@@ -297,9 +298,9 @@ Critério de pronto:
 
 ### Fase 5 — cobrar lacunas
 
-- [ ] Gerar lista de dados não localizados.
-- [ ] Preparar pedidos e-SIC/LAI.
-- [ ] Preparar pedidos à Câmara, Urbes, SAAE e FUNSERV.
+- [x] Gerar lista de dados não localizados.
+- [x] Preparar pedidos e-SIC/LAI.
+- [x] Preparar pedidos à Câmara, Urbes, SAAE e FUNSERV.
 - [ ] Registrar data de consulta e resposta.
 - [x] Publicar página "Lacunas conhecidas".
 

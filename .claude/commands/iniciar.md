@@ -11,6 +11,13 @@ Regra de topico: se o usuario trouxer novo assunto, area ou objetivo, avise para
 
 Objetivo: apresentar status consolidado sem reler arquivos longos.
 
+Atalho preferencial:
+
+```powershell
+cd "C:\Omega\02_Repos\anatomia-do-gasto"
+python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
+```
+
 ## WSL
 
 ```bash

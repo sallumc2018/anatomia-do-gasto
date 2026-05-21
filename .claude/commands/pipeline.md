@@ -1,5 +1,5 @@
 ---
-description: Engenheiro de dados - extrai fontes brutas para data/extracted e valida localmente
+description: Engenheiro de dados - extrai fontes, gera auditorias/manifests e valida localmente
 allowed-tools: Read, Glob, PowerShell
 ---
 
@@ -11,9 +11,10 @@ Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `
 Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
 Isolamento:
-- Pode ler: `data/raw/` do escopo, scripts especificos em `pipelines/`, manifestos relevantes.
-- Pode alterar: `data/extracted/` e scripts de pipeline do escopo. `data/validated/` apenas com autorizacao explicita como etapa local de validacao.
-- Nao ler: `apps/`, `.env`, secrets. Nao publicar em `data/public` sem autorizacao explicita.
+- Pode ler em modo extracao: `data/raw/` do escopo, scripts especificos em `pipelines/`, manifestos relevantes.
+- Pode ler em modo auditoria de publicacao/cobertura: `data/public/`, `data/manifests/` e scripts especificos em `pipelines/`.
+- Pode alterar: `data/extracted/`, scripts de pipeline do escopo e manifests de auditoria em `data/manifests/`. `data/validated/` apenas com autorizacao explicita como etapa local de validacao.
+- Nao ler: `apps/`, `.env`, secrets. Se o pacote minimo proibir `data/raw`, `data/extracted` ou `data/validated`, respeitar esse limite e usar filtros de camada. Nao publicar em `data/public` sem autorizacao explicita.
 - Budget: < 5 K tokens. Leia somente o script relevante e a saida do processo.
 
 Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`.
@@ -22,6 +23,8 @@ Formato esperado: `<municipio> <area> <ano ou faixa>`, por exemplo `sorocaba sau
 
 Raiz: `C:\Omega\02_Repos\anatomia-do-gasto`
 Fluxo: `data/raw/<municipio>` -> `data/extracted/<municipio>` -> `data/validated/<municipio>` autorizado -> `data/public/<municipio>` autorizado.
+
+Fluxo de auditoria de cobertura publicada: `data/public` + `data/manifests` -> `data/manifests/auditoria_*.csv` -> `/qa`.
 
 ## Passo 1 - Identificar script correto
 
@@ -39,7 +42,15 @@ Escolha o script especifico da area (`extrator_receita.py`, `extrator_executivo.
 Get-ChildItem "data\raw" -Recurse -File | Select-Object FullName, Length | Sort-Object FullName
 ```
 
-Se faltar fonte bruta, parar e encaminhar para `/dados <area> <anos>`.
+Se for extracao e faltar fonte bruta, parar e encaminhar para `/dados <area> <anos>`.
+
+Se for auditoria de cobertura/publicacao, nao exigir `data/raw`. Respeite o pacote minimo. Para regenerar auditoria de cobertura de Sorocaba sem ler camadas internas, use filtro de camadas:
+
+```powershell
+python pipelines\auditar_cobertura_sorocaba.py --camada public --camada manifests --sem-hash
+```
+
+Esse comando pode alterar `data/manifests/auditoria_cobertura_sorocaba.csv`, mas nao altera `data/public`.
 
 ## Passo 3 - Executar e validar
 
@@ -51,13 +62,24 @@ Rode o script especifico com `--help` antes quando houver duvida de argumentos. 
 
 Se existir validador especifico (`validar_*`, `diagnosticar_*`, `auditar_*`), rode-o. Divergencia interrompe publicacao.
 
+Para auditoria de cobertura/publicacao, validar tambem:
+
+```powershell
+python pipelines\testes\verificar_publicacao.py --strict
+```
+
+E reportar separadamente:
+- total de arquivos em `data/public`;
+- total de CSVs em `data/public`;
+- total de JSONs auxiliares em `data/public`.
+
 ## Handoff
 
 ```text
-## Handoff - Pipeline -> Usuario ou Analista
+## Handoff - Pipeline -> QA, Usuario ou Analista
 - Feito: extracao/processamento de [area] [anos]
 - Saida: [paths em data/extracted ou data/validated autorizado]
 - Validacao: [py_compile + validador especifico]
 - Bloqueios: [divergencias, fonte faltante, autorizacao para publicar]
-- Proximo passo: revisar -> autorizar copia para data/public OU /analista [area] [anos]
+- Proximo passo: /qa [escopo] OU revisar -> autorizar copia para data/public OU /analista [area] [anos]
 ```

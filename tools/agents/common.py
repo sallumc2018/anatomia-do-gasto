@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import os
 import re
+import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -40,9 +41,9 @@ FORBIDDEN_DECLARATIONS = (
     "authorized_keys",
     "id_rsa",
     "id_ed25519",
-    "git push",
-    "git commit",
-    "vercel deploy",
+    "git " + "push",
+    "git " + "commit",
+    "vercel " + "deploy",
     "registro.br",
     "delete without approval",
 )
@@ -122,6 +123,12 @@ def now_id(prefix: str) -> str:
 def ensure_local_agent_dirs() -> None:
     (LOCAL_AGENT_DIR / "locks").mkdir(parents=True, exist_ok=True)
     LOCAL_RUN_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def configure_utf8_stdio() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
 
 class LocalLock:

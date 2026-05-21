@@ -128,6 +128,12 @@ const LIMITES = [
   "Conta bancária, comprovante de pagamento e pessoa responsável por cada ato.",
 ]
 
+const SOROCABA_STATUS = {
+  percent: 45,
+  label: "Status geral de Sorocaba",
+  note: "Piloto publicado, com dados centrais no ar e cobertura ainda em expansão.",
+}
+
 function formatPercent(value?: number): string {
   if (value === undefined) return "sem dado"
   return `${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`
@@ -164,6 +170,35 @@ function getTransporteSummary() {
   const orc = latestYear ? loadTransporteOrcamento(latestYear) : null
   const dca = latestYear ? loadTransporteDca(latestYear) : null
   return { years, latestYear, orc, dca }
+}
+
+function SorocabaStatusProgress() {
+  return (
+    <div className="mb-7" style={{ maxWidth: "520px" }}>
+      <div className="flex items-baseline justify-between gap-4 mb-2">
+        <p style={{ ...S.label, marginBottom: 0 }}>{SOROCABA_STATUS.label}</p>
+        <p
+          className="font-mono"
+          style={{ fontSize: "14px", color: "var(--text-01)", fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}
+        >
+          {SOROCABA_STATUS.percent}%
+        </p>
+      </div>
+      <div
+        role="progressbar"
+        aria-label={SOROCABA_STATUS.label}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={SOROCABA_STATUS.percent}
+        style={{ height: "8px", backgroundColor: "var(--border-01)", overflow: "hidden" }}
+      >
+        <div style={{ width: `${SOROCABA_STATUS.percent}%`, height: "100%", backgroundColor: "var(--blue-50)" }} />
+      </div>
+      <p className="mt-2" style={{ ...S.body, fontSize: "13px", color: "var(--text-03)" }}>
+        {SOROCABA_STATUS.note}
+      </p>
+    </div>
+  )
 }
 
 function FunctionRows({ area, rows }: { area: HealthArea; rows: HealthRow[] }) {
@@ -263,6 +298,7 @@ export default function IndexPage() {
                 >
                   Dados fiscais oficiais em linguagem compreensível. Fontes declaradas, limites explícitos.
                 </p>
+                <SorocabaStatusProgress />
                 <TheoGuide />
               </div>
 

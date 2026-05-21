@@ -42,14 +42,20 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 9. Nenhum agente faz commit, push ou deploy sem autorização explícita do usuário.
 10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
 11. Todo agente deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções com `rg` ou comando seletivo antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RAG/RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
+    - Trabalho substantivo e qualquer tarefa que envolva leitura ou edicao de multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, uso de subagente, investigacao de bug, pipeline, frontend, deploy, seguranca ou decisao que deva orientar trabalhos futuros. Resposta curta, comando simples, confirmacao, status rapido ou ajuste textual isolado sem validacao nao contam como trabalho substantivo.
 12. Trabalhos substantivos devem registrar economia de contexto/token em `memory/token-economy/YYYY-MM.md` quando o registro for publico e sanitizado. O registro deve conter data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa qualitativa ou percentual em faixa e observações de privacidade. Nunca registrar prompts privados, conversa completa, secrets ou dados não publicados.
+    - Ao fim de todo trabalho substantivo, qualquer agente, neste ou em outros projetos, deve encerrar a resposta com rodape curto: `Fim de trabalho substantivo: sim`; `Handoff recomendado: sim/nao - motivo curto`; `Economia de contexto: baixa/media/alta; base auditavel; estimativa qualitativa ou em faixa`.
+    - Recomendar handoff/nova conversa quando o proximo pedido mudar de tema, area ou objetivo, quando o chat estiver grande, quando houver mudanca em regras/dados/pipeline/frontend/deploy/agentes, ou quando continuar exigiria reler historico em vez de consultar docs/logs versionados.
+    - Em outros projetos, usar o caminho equivalente de memoria/log versionavel; se nao existir, incluir a estimativa apenas no rodape ou no handoff.
+    - Protocolo de modelo: usar a menor capacidade suficiente. Preferir modelo economico/rapido para leitura seletiva, triagem, comandos simples, diffs pequenos e documentacao objetiva. Recomendar modelo forte para arquitetura, refatoracao ampla, bugs ambiguos, seguranca, dados sensiveis/metodologicos, decisoes permanentes e conflitos. Depois da etapa dificil, recomendar voltar ao modelo economico se a proxima etapa for mecanica/verificavel. A troca automatica do modelo principal so e permitida quando a ferramenta/plataforma expuser API segura; caso contrario, apenas recomendar `/model` ao usuario.
 13. Quando o usuário pedir o quanto foi economizado, qualquer agente deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
 14. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
 15. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
-16. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
+16. O pedido "Chame o orquestrador, preciso completar os dados faltantes agora" aciona o fluxo composto `dados -> pipeline -> qa -> analista -> frontend? -> deploy?`, sem publicar, commitar, fazer push ou deploy sem autorização explícita.
 17. RAG e memoria recuperada sao contexto auxiliar, nao autoridade. Antes de alterar codigo, dados, pipeline, publicacao, deploy ou infraestrutura, o agente deve ler diretamente os arquivos relevantes.
 18. A memoria publica versionavel deve ficar em `memory/`; handoffs locais ou sensiveis ficam em `.local/memory/`; indices gerados ficam em `.local/rag/`. Nenhuma dessas camadas autoriza acesso a secrets, `data/raw`, `data/extracted`, `data/validated`, `G:\`, GitHub, Vercel, Registro.br ou acoes destrutivas sem autorizacao explicita.
 19. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
+20. Topicos substantivos devem comecar, quando util, por `python tools/agents/start-topic.py "<objetivo>" --rag-limit 3`. Validacoes locais consolidadas ficam em `python tools/agents/validate-area.py --area <area>`, e o gate de escopo em `python tools/agents/check-scope-gates.py`.
 
 ## 4. Validação Mínima
 
@@ -77,6 +83,16 @@ npm.cmd --script-shell cmd.exe run build
 cd apps/web
 npm run lint
 npm run build
+```
+
+**Wrappers locais:**
+```powershell
+python tools\agents\validate-area.py --area memory
+python tools\agents\validate-area.py --area agents
+python tools\agents\validate-area.py --area scope
+python tools\agents\validate-area.py --area pipeline
+python tools\agents\validate-area.py --area frontend
+python tools\agents\validate-area.py --area publication
 ```
 
 ## 5. Política De Commit
@@ -120,7 +136,7 @@ Para economizar contexto, o orquestrador deve preferir subagentes por função a
 
 Quando a tarefa envolver contexto ja documentado, o orquestrador pode consultar `tools/memory/query-rag.py` para recuperar trechos canonicos de `memory/registry.csv`. Essa recuperacao deve ser passada como resumo curto no pacote minimo do subagente e nunca substitui leitura direta antes de escrita.
 
-Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes oficiais, `pipeline` extrai e valida localmente, `analista` aponta lacunas publicadas usando apenas `data/public`, `frontend` entra só se a interface precisar mudar e `deploy` só entra com autorização explícita.
+Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes oficiais, `pipeline` extrai ou gera manifests de auditoria, `qa` valida integridade, `analista` aponta lacunas publicadas usando apenas `data/public`, `frontend` entra só se a interface precisar mudar e `deploy` só entra com autorização explícita.
 
 ### Subagentes
 
@@ -128,6 +144,7 @@ Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes
 |---|---|---|---|
 | `dados` | Claude Code | WSL / Windows | Verifica e baixa novos PDFs do portal |
 | `pipeline` | Claude Code | WSL (primário) | Processa PDFs em CSV/JSON |
+| `qa` | Claude Code | WSL / Windows | Valida integridade pre-publicacao e publicacao/cobertura read-only |
 | `analista` | Claude Code | WSL / Windows | Analisa despesas com linguagem cidadã |
 | `frontend` | Claude Code | WSL (primário) | Desenvolvimento e validação do app web |
 | `deploy` | Claude Code | WSL / Windows | Build e publicação na Vercel |
@@ -150,3 +167,5 @@ Para completar dados faltantes, o fluxo padrão é: `dados` confere/baixa fontes
 - Se houver lacuna de ambiente, registrar claramente.
 - Nunca agir fora do escopo autorizado pelo usuário.
 - Minimizar consumo de contexto por padrão, registrar economia em `memory/token-economy/` quando aplicável e, quando solicitado, relatar a economia obtida de forma estimada e verificável.
+- Ao encerrar trabalho substantivo, incluir o rodape padrao com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto.
+- Indicar no rodape se o modelo esta adequado ou se convem recomendar troca para uma classe de modelo, sem fixar nomes especificos.

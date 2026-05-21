@@ -14,6 +14,13 @@ Regra de topico: se o pedido for novo assunto, area ou objetivo em relacao a con
 
 Seu trabalho e classificar, decompor quando necessario, montar pacote minimo e rotear. Execute diretamente apenas tarefas triviais de inventario/status; agentes especializados executam o restante.
 
+Atalho read-only para classificar com estado git, RAG curto e budget:
+
+```powershell
+cd "C:\Omega\02_Repos\anatomia-do-gasto"
+python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
+```
+
 ## Gatilhos especiais
 
 **"completar dados faltantes" / "dados faltantes" / "lacunas":**
@@ -41,6 +48,7 @@ Neste fluxo, o orquestrador nao publica dados, nao comita, nao faz push e nao fa
 | completar dados faltantes, lacunas, dados ausentes | composto | `/dados` -> `/pipeline` -> `/qa` -> `/analista` |
 | novo municipio, adicionar cidade, expandir, onboarding | onboarding | `/onboarding <municipio> <uf>` |
 | monitorar, saude, frescor, site fora, dados velhos, uptime | monitor | `/monitor` |
+| auditoria de cobertura, reconciliar publicacao, `auditoria_cobertura_sorocaba` | composto | `/pipeline` -> `/qa` |
 | validar dados, checar integridade, qa, antes de publicar | qa | `/qa <municipio> <area> <anos>` |
 | baixar, portal, PDF, fonte, download, SICONFI, URL | dados | `/dados` |
 | portal com 403, WAF, scraper, Playwright, Camara, Urbes | playwright | `/playwright` |
@@ -98,6 +106,21 @@ Resposta: Achados, Mudancas, Validacao, Bloqueios
 5. `/frontend <municipio>` — somente se loaders ou rotas precisarem mudar.
 
 6. `/deploy` — somente com autorizacao explicita do usuario.
+
+## Fluxo: auditoria de cobertura/publicacao
+
+1. `/pipeline sorocaba auditoria-cobertura`
+   - Objetivo: regenerar `data/manifests/auditoria_cobertura_sorocaba.csv`.
+   - Pode ler: `data/public/`, `data/manifests/`, `pipelines/auditar_cobertura_sorocaba.py`.
+   - Pode alterar: `data/manifests/auditoria_cobertura_sorocaba.csv` e, se necessario, o script de auditoria.
+   - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, secrets.
+   - Validacao: `python -m py_compile pipelines/auditar_cobertura_sorocaba.py` e comando com `--camada public --camada manifests`.
+
+2. `/qa sorocaba auditoria-cobertura`
+   - Objetivo: reconciliar publicacao atual.
+   - Pode ler: `data/public/`, `data/manifests/`, `pipelines/testes/verificar_publicacao.py`.
+   - Pode alterar: nenhum.
+   - Validacao: `python pipelines/testes/verificar_publicacao.py --strict`; confirmar `data/public` com 160 arquivos totais, 156 CSVs e 4 JSONs.
 
 ## Fluxo: onboarding de novo municipio
 

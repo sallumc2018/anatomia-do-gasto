@@ -131,7 +131,7 @@ def data_id() -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
 
-def carregar_json_url(url: str, timeout: int = 60) -> tuple[Any, bytes, int]:
+def carregar_json_url(url: str, timeout: int = 60, tentativas: int = 3) -> tuple[Any, bytes, int]:
     req = urllib.request.Request(
         url,
         headers={
@@ -140,9 +140,20 @@ def carregar_json_url(url: str, timeout: int = 60) -> tuple[Any, bytes, int]:
             "User-Agent": USER_AGENT,
         },
     )
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        raw = resp.read()
-        return json.loads(raw.decode("utf-8")), raw, resp.status
+    ultimo_erro: Exception | None = None
+    for tentativa in range(1, tentativas + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                raw = resp.read()
+                return json.loads(raw.decode("utf-8")), raw, resp.status
+        except urllib.error.HTTPError:
+            raise
+        except urllib.error.URLError as exc:
+            ultimo_erro = exc
+            if tentativa == tentativas:
+                raise
+            time.sleep(1.5 * tentativa)
+    raise RuntimeError(f"falha inesperada ao carregar {url}: {ultimo_erro}")
 
 
 def salvar_json(path: Path, dados: Any) -> bytes:
@@ -419,6 +430,16 @@ def main() -> None:
                 "erro": str(exc),
             }
             print(f"  {idx}/{len(selecionadas)} id={id_emenda}: HTTP {exc.code}")
+            manifest["requests"].append(meta)
+            continue
+        except urllib.error.URLError as exc:
+            meta = {
+                "url": f"{BASE_URL}/{id_emenda}",
+                "path": "",
+                "status": "erro_rede",
+                "erro": str(exc),
+            }
+            print(f"  {idx}/{len(selecionadas)} id={id_emenda}: erro de rede")
             manifest["requests"].append(meta)
             continue
         detalhes.append(detalhe)

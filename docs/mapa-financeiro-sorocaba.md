@@ -61,7 +61,12 @@ Evitar qualquer forma que acrescente qualificador administrativo ou urbano antes
 
 ## Inventário de coleta obrigatória
 
-Fila operacional: `data/manifests/inventario_fontes_sorocaba.csv`.
+Fila operacional:
+
+- inventario base: `data/manifests/inventario_fontes_sorocaba.csv`;
+- fechamento auditavel 2020-2026: `data/manifests/sorocaba_100_auditavel.csv`;
+- operacao e gates: `docs/sorocaba-100-operacao.md`;
+- pedidos LAI preparados: `docs/lai-sorocaba-100.md`.
 
 | Grupo | Fonte | URL inicial | Dados esperados | Periodicidade alvo |
 |---|---|---|---|---|

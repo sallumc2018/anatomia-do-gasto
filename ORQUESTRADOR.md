@@ -21,9 +21,12 @@ Resultado de RAG e somente contexto auxiliar. Antes de qualquer escrita, publica
 Para conferir capacidades e autonomia antes de rotear, use `memory/agents/registry.csv` ou:
 
 ```powershell
+python tools\agents\start-topic.py "<objetivo>" --rag-limit 3
 python tools\agents\plan-route.py "<objetivo>"
 python tools\agents\list-agents.py --name <agente>
 ```
+
+`start-topic.py` e read-only: roda `git status -sb`, roteamento, RAG curto e sugere budget de contexto. Depois de trabalho substantivo, use `tools\agents\validate-area.py --area <area>` para validar o escopo alterado e `tools\memory\write-token-economy.py` para registrar economia publica sanitizada.
 
 Nunca repassa:
 - secrets, `.env`, tokens ou chaves;
@@ -37,15 +40,19 @@ Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area o
 
 Economia auditavel de contexto/token deve ser registrada em `memory/token-economy/YYYY-MM.md` quando o conteudo for publico e sanitizado. O registro deve citar arquivos consultados, arquivos ou trechos evitados, comandos consolidados e estimativa qualitativa ou em faixa; nunca incluir prompts privados, conversa completa, secrets ou dados nao publicados.
 
+Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao encerrar, todo agente deve incluir rodape com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto. Esta regra e portavel para qualquer projeto; se nao houver `memory/token-economy/`, usar o mecanismo equivalente, o handoff ou o rodape da resposta.
+
+Protocolo de modelo: o orquestrador recomenda e roteia, mas nao troca silenciosamente o modelo principal salvo API segura da ferramenta/plataforma. Se a tarefa exigir mais raciocinio que execucao, recomendar `/model` para modelo forte. Se for grande mas separavel, preferir subagentes com pacote minimo e modelo/tier adequado quando disponivel. Se o chat estiver grande, recomendar handoff/nova conversa antes de sugerir troca de modelo. Ao terminar a parte dificil, recomendar voltar a modelo economico quando a proxima etapa for mecanica/verificavel.
+
 ## 2. Gatilho Padrao
 
 Quando o usuario disser **"Chame o orquestrador, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
 
 ```text
-orquestrador -> dados -> pipeline -> analista -> frontend? -> deploy?
+orquestrador -> dados -> pipeline -> qa -> analista -> frontend? -> deploy?
 ```
 
-Objetivo: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente e preparar handoff.
+Objetivo: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff.
 
 Limites:
 - `data/public` so muda com autorizacao explicita.
@@ -56,9 +63,11 @@ Limites:
 
 | Sinais | Agente |
 |---|---|
-| completar dados faltantes, lacunas de dados, dados ausentes | fluxo composto: `dados` -> `pipeline` -> `analista` |
+| completar dados faltantes, lacunas de dados, dados ausentes | fluxo composto: `dados` -> `pipeline` -> `qa` -> `analista` |
+| auditoria de cobertura, reconciliar publicacao, `auditoria_cobertura_sorocaba` | `pipeline` -> `qa` |
 | baixar, portal, PDF, fonte nova, URL, download, SICONFI | `dados` |
 | processar, extrair, CSV, JSON, pipeline, converter PDF | `pipeline` |
+| validar dados, QA, integridade, verificar publicacao | `qa` |
 | analisar, percentual, execucao, comparar, relatorio, cifra | `analista` |
 | pagina, componente, visual, layout, Next.js, TypeScript, UI | `frontend` |
 | publicar, Vercel, deploy, build, producao, push main | `deploy` |
@@ -73,7 +82,7 @@ Regra de desempate: WSL para codigo; Windows para hardware/ADB; `engenheiro` par
 Ordem normal:
 
 ```text
-dados -> pipeline -> analista
+dados -> pipeline -> qa -> analista
 dados -> pipeline -> frontend -> deploy
 analista -> frontend
 frontend -> deploy
@@ -86,6 +95,7 @@ Paralelismo permitido:
 
 Nunca em paralelo:
 - `pipeline` + `analista` quando o analista depender da saida do pipeline;
+- `pipeline` + `qa` no mesmo escopo;
 - `deploy` + qualquer outro;
 - `engenheiro` + `frontend` nos mesmos paths.
 
@@ -94,7 +104,8 @@ Nunca em paralelo:
 | Agente | Pode ler | Pode alterar | Nao ler |
 |---|---|---|---|
 | `dados` | `data/raw` como inventario, `data/manifests`, URLs oficiais | `data/raw`, manifestos de coleta autorizados | `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
-| `pipeline` | `data/raw` do escopo, scripts especificos em `pipelines`, manifestos relevantes | `data/extracted`; `data/validated` quando autorizado | `apps`, `.env`, secrets; nunca publicar em `data/public` sem autorizacao |
+| `pipeline` | `data/raw` do escopo em extracao; `data/public` e `data/manifests` em auditorias de cobertura/publicacao; scripts especificos em `pipelines` | `data/extracted`; `data/manifests` para auditorias; `data/validated` quando autorizado | `apps`, `.env`, secrets; nunca publicar em `data/public` sem autorizacao; respeitar filtro se pacote proibir camadas internas |
+| `qa` | `data/extracted`, `data/validated`, `data/manifests`; `data/public` em QA de publicacao/cobertura | nenhum | `data/raw`, `apps`, `.env`, secrets; nunca escrever dados |
 | `analista` | `data/public`, `data/manifests`, docs publicos | nenhum por padrao | `data/raw`, `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
 | `frontend` | `apps/web`, `data/public`, `data/manifests` | `apps/web` | `data/raw`, `data/extracted`, `data/validated`, `.env`, secrets |
 | `deploy` | estado git, build, `apps/web/package.json` | nada por padrao | dados brutos, `.env`, secrets |
