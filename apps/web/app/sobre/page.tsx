@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
-import { calcularCobertura } from "@/lib/lacunas"
+import { calcularCobertura, calcularTotalRegistros } from "@/lib/lacunas"
 import { APRENDIZADO } from "@/lib/aprendizado"
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ const VOLUNTARIOS = [
     descricao: "Escalar a plataforma para novos municípios — a arquitetura já foi projetada para isso.",
   },
   {
-    perfil: "Red Hat Hacker",
+    perfil: "Especialista em segurança",
     descricao: "Fortalecer a segurança do sistema e dos dados publicados à medida que o projeto cresce.",
   },
   {
@@ -60,6 +60,7 @@ const VOLUNTARIOS = [
 
 export default function SobrePage() {
   const { percent } = calcularCobertura()
+  const totalRegistros = Math.floor(calcularTotalRegistros() / 1_000)
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -99,9 +100,10 @@ export default function SobrePage() {
             <p className="uppercase font-semibold mb-8" style={S.label}>O primeiro tropeço</p>
             <div style={{ borderLeft: "2px solid var(--border-02)", paddingLeft: "24px", maxWidth: "640px" }}>
               <p style={{ ...S.body, fontStyle: "italic", color: "var(--text-01)" }}>
-                A primeira barreira não foi escrever código — foi aprender a integrar o Claude Desktop ao VS Code
-                e, depois, o Codex. Quem tem base técnica sabe o que isso significa: a dificuldade não era a lógica,
-                era o ecossistema novo. Quando aquilo funcionou, soube que o resto era questão de tempo.
+                A primeira barreira não foi escrever código — foi montar o ambiente: conectar ferramentas que
+                ainda não conversavam entre si e entender a ordem certa de cada etapa. Qualquer pessoa que já
+                construiu algo do zero vai reconhecer esse momento. Quando tudo encaixou, ficou claro que o
+                resto era questão de tempo e disciplina.
               </p>
             </div>
           </div>
@@ -118,7 +120,7 @@ export default function SobrePage() {
               {[
                 { valor: `${percent}%`,    rotulo: "Cobertura de dados",     detalhe: "Sorocaba/SP" },
                 { valor: "156",            rotulo: "Datasets publicados",    detalhe: "13 áreas temáticas" },
-                { valor: "259 mil+",       rotulo: "Registros disponíveis",  detalhe: "Séries históricas" },
+                { valor: `${totalRegistros} mil+`, rotulo: "Registros disponíveis",  detalhe: "Séries históricas" },
                 { valor: "2020–2025",      rotulo: "Anos cobertos",          detalhe: "Série completa" },
               ].map((stat, i) => (
                 <div
@@ -224,12 +226,6 @@ export default function SobrePage() {
                   style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: "14px", color: "var(--blue-40)", textDecoration: "underline" }}
                 >
                   contato@anatomiadogasto.ong.br
-                </a>
-                <a
-                  href="mailto:sallumc@gmail.com"
-                  style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: "14px", color: "var(--blue-40)", textDecoration: "underline" }}
-                >
-                  sallumc@gmail.com
                 </a>
               </div>
             </div>

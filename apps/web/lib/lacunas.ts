@@ -22,6 +22,7 @@ export interface Lacuna {
   dimensao: Dimensao
   anosPossiveis: number
   anosCobertos: number
+  registros?: number
 }
 
 const STATUS_SCORE: Record<Status, number | null> = {
@@ -120,6 +121,10 @@ export function calcularCobertura(): { percent: number; dimensoes: CoberturaDime
   return { percent: Math.round(total * 100), dimensoes }
 }
 
+export function calcularTotalRegistros(): number {
+  return LACUNAS.reduce((acc, l) => acc + (l.registros ?? 0), 0)
+}
+
 export const LACUNAS: Lacuna[] = [
   // ── Fornecedores ──────────────────────────────────────────────────────────
   {
@@ -149,6 +154,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 4_384,
   },
   // ── Contratos e licitações ─────────────────────────────────────────────────
   {
@@ -160,6 +166,7 @@ export const LACUNAS: Lacuna[] = [
     fonte: "Portal Nacional de Contratações Públicas (PNCP)",
     url: "https://www.gov.br/pncp/pt-br",
     proximo_passo: "Expandir para contratos (API retorna empty) e monitorar novos anos.",
+    registros: 294,
     observacao: "Publicado em 2026-05-22: 294 registros únicos (136 compras/2023, 47 atas/2024, 111 atas/2025). Arquivo: data/public/sorocaba/contratos/saida/pncp_sorocaba_2022_2026.csv. Sorocaba não estava no PNCP em 2022 (HTTP 403 confirmado); anosPossiveis corrigido para 3.",
     dimensao: "contratos",
     anosPossiveis: 3,
@@ -223,6 +230,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 203_231,
   },
   {
     area: "Despesa",
@@ -237,6 +245,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 134_392,
   },
   // ── Orçamento ──────────────────────────────────────────────────────────────
   {
@@ -281,6 +290,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "camara",
     anosPossiveis: 6,
     anosCobertos: 4,
+    registros: 17_498,
   },
   {
     area: "Câmara Municipal",
@@ -309,6 +319,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "camara",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 24_417,
   },
   {
     area: "Câmara Municipal",
@@ -353,6 +364,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 76_402,
   },
   // ── FUNSERV ────────────────────────────────────────────────────────────────
   {
@@ -382,6 +394,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 9_154,
   },
   // ── Empresas municipais ───────────────────────────────────────────────────
   {
@@ -397,6 +410,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 46_504,
   },
   // ── Consórcios ─────────────────────────────────────────────────────────────
   {
@@ -427,6 +441,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "transferencias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 2_706,
   },
   // ── Transferências estaduais ───────────────────────────────────────────────
   {
@@ -442,6 +457,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "transferencias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 84,
   },
   // ── Subvenções a entidades ─────────────────────────────────────────────────
   {
@@ -457,6 +473,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "transferencias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 10_981,
   },
   // ── Pessoal ────────────────────────────────────────────────────────────────
   {
@@ -477,16 +494,17 @@ export const LACUNAS: Lacuna[] = [
   {
     area: "Precatórios",
     dado: "Dívidas judiciais da Prefeitura (precatórios e RPVs)",
-    status: "lacuna",
+    status: "parcial",
     prioridade: "média",
     anos: "2020–2026",
-    fonte: "TJ-SP + Portal de Transparência de Sorocaba",
+    fonte: "Portal de Transparência de Sorocaba (Mapas Orçamentários TRT15/TRT3/TRF3/DEPRE)",
     url: "https://fazenda.sorocaba.sp.gov.br/transparencia",
-    proximo_passo: "Verificar se o portal municipal publica quadro de precatórios; consultar TJ-SP e CNJ para listagem de precatórios municipais.",
-    observacao: "Precatórios podem representar passivo relevante não visível no orçamento corrente. CNJ mantém painel de precatórios municipais.",
+    proximo_passo: "TRT_2025 é PDF escaneado — necessita OCR para completar 2025. Considerar extração via Tesseract ou AWS Textract.",
+    observacao: "Publicado em 2026-05-22: 1.358 precatórios, R$336.8M total, 16 PDFs extraídos via pdfplumber/fitz. Arquivo: data/public/sorocaba/contratos/saida/precatorios_sorocaba_2020_2025.csv. Bloqueio: MAPA_PRECATORIOS_TRT_2025.pdf é escaneado.",
     dimensao: "contratos",
     anosPossiveis: 6,
-    anosCobertos: 0,
+    anosCobertos: 6,
+    registros: 1_358,
   },
   // ── Patrimônio imobiliário ─────────────────────────────────────────────────
   {
@@ -517,6 +535,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "controle_externo",
     anosPossiveis: 6,
     anosCobertos: 1,
+    registros: 4,
   },
   {
     area: "Controle externo",
@@ -546,5 +565,6 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "controle_externo",
     anosPossiveis: 6,
     anosCobertos: 6,
+    registros: 11_466,
   },
 ]
