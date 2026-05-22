@@ -20,6 +20,7 @@ import {
   type HealthArea,
   type HealthRow,
 } from "@/lib/data"
+import { calcularCobertura } from "@/lib/lacunas"
 
 const S = {
   container: { maxWidth: "1312px" } as React.CSSProperties,
@@ -129,7 +130,7 @@ const LIMITES = [
 ]
 
 const SOROCABA_STATUS = {
-  percent: 45,
+  percent: calcularCobertura().percent,
   label: "Status geral de Sorocaba",
   note: "Piloto publicado, com dados centrais no ar e cobertura ainda em expansão.",
 }

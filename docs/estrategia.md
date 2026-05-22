@@ -53,3 +53,7 @@ Instrumentação de eventos no site Next.js:
 - Retorno ao site
 
 Ver `docs/pipeline.md` e `docs/arquitetura.md` para contexto técnico.
+
+## Indicadores e Acompanhamento
+
+KPIs oficiais, metas por trimestre e ritual de revisão mensal em `docs/kpis.md`.

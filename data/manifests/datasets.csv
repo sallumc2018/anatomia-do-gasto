@@ -1,37 +1,46 @@
-Area,Tipo,Descricao,Anos,Fonte,Sistema,Frequencia,Arquivo_Padrao,Origem_Dir
-saude,despesas,Despesas por funcao - saude,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,despesas_saude_sorocaba_{ano}.csv,public
-saude,receitas,Receitas base ASPS - saude,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,receitas_base_saude_sorocaba_{ano}.csv,public
-educacao,despesas,Despesas por funcao - educacao,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,despesas_educacao_sorocaba_{ano}.csv,public
-educacao,receitas,Receitas base FUNDEB - educacao,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,receitas_base_educacao_sorocaba_{ano}.csv,public
-seguranca,despesas,Despesas por subfuncao - DCA Anexo I-E,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_seguranca_sorocaba_{ano}.csv,public
-seguranca,orcamento,Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_seguranca_sorocaba_{ano}.csv,public
-transporte,orcamento-rreo,Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA - subfuncao unica sem discriminacao de servico vs obras,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_transporte_sorocaba_{ano}.csv,public
-transporte,orcamento-dca,Despesas DCA Anexo I-E funcao 26 empenhado+liquidado+pago - subfuncao unica sem discriminacao,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,dca_transporte_sorocaba_{ano}.csv,public
-transporte,contratos-pncp,Contratos publicos transporte PNCP filtrado por palavras-chave - requer curadoria manual - cobertura parcial a partir de 2022,2022-2025,PNCP / Compras.gov,API federal,anual,contratos_transporte_sorocaba_{ano}.csv,validated
-executivo,despesas,Orcamento municipal por funcao - RREO Anexo 02 bimestre 6 incluindo exceto intra e intra,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_executivo_sorocaba_{ano}.csv,public
-receita,receitas,Receitas municipais por categoria - RREO Anexo 01 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,receitas_sorocaba_{ano}.csv,public
-fiscal,pessoal,Despesa com pessoal e RCL ajustada - RGF Anexo 01 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,pessoal_sorocaba_{ano}.csv,public
-fiscal,divida,Divida consolidada e limite de endividamento - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_sorocaba_{ano}.csv,public
-fiscal,rcl,Composicao das receitas correntes - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_sorocaba_{ano}.csv,public
-fiscal,rcl-capital,Composicao das receitas de capital - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_capital_sorocaba_{ano}.csv,public
-fiscal,divida-detalhada,Detalhamento da divida consolidada e limites - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_detalhada_sorocaba_{ano}.csv,public
-fiscal,natureza-despesa,Resumo fiscal por natureza da despesa,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,natureza_despesa_sorocaba_{ano}.csv,public
-fiscal,rpps,Indicadores previdenciarios e RPPS,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rpps_sorocaba_{ano}.csv,public
-saude,receitas-detalhamento,Detalhamento auxiliar das receitas de saude,2020-2025,Portal de Transparencia Sorocaba / SICONFI,PDF municipal e API federal,quadrimestral,receitas_detalhamento_sorocaba_{ano}.csv,public
-saude,rreo-despesas,Despesas de saude no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_despesas_saude_sorocaba_{ano}.csv,public
-saude,rreo-receitas-sus,Receitas SUS no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_receitas_sus_sorocaba_{ano}.csv,public
-despesa,registro-analitico,Registro Analitico da Despesa por fornecedor natureza e empenho - Livro Contabil de Sorocaba,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,despesa_orcamentaria_sorocaba_{ano}.csv,public
-empenho,registro-empenho,Livro Registro de Empenho por natureza da despesa e fornecedor,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,empenho_sorocaba_{ano}.csv,public
-fornecedores,conta-corrente,Conta Corrente de Fornecedor agregado por ano - pagamentos por fornecedor e natureza,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,fornecedores_agregado_sorocaba_{ano}.csv,public
-restos,restos-a-pagar,Restos a Pagar agregado por fornecedor - Livro Conta Corrente de Restos a Pagar,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,restos_agregado_sorocaba_{ano}.csv,public
-transferencias_federais,analitico,Transferencias da Uniao para Sorocaba - registro analitico por competencia tipo e orgao concedente,2020-2025,Portal da Transparencia Federal,API federal,mensal,transferencias_federais_sorocaba_{ano}.csv,extracted
-transferencias_federais,agregado,Transferencias da Uniao para Sorocaba - agregado por tipo e orgao concedente,2020-2025,Portal da Transparencia Federal,API federal,mensal,transferencias_federais_agregado_sorocaba_{ano}.csv,validated
-loa,audiencia-publica,Priorizacoes da audiencia publica da LOA por area tematica e regiao - dados extraidos dos Relatorios de Audiencia Publica publicados pela Prefeitura de Sorocaba,2022-2026,Portal de Transparencia Sorocaba,PDF municipal,anual,audiencia_loa_sorocaba_{ano}.csv,public
-agentes,poder-publico,Lista estruturada de agentes e instituicoes do poder publico local,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,poder_publico_sorocaba.json,public_aux
-auditoria,agentes,Perfis publicos de agentes politicos em escopo de auditoria,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,agentes.json,public_aux
-auditoria,emendas,Emendas parlamentares em escopo de auditoria; vazio quando nao ha dado validado publicado,2025-2028,Fontes oficiais legislativas,JSON manual auditavel,sob demanda,emendas.json,public_aux
-auditoria,ranking,Ranking de auditoria; vazio enquanto nao houver metodologia aplicada com dados reais validados,2025-2028,Metodologia interna + fontes oficiais,JSON manual auditavel,sob demanda,ranking.json,public_aux
-camara/gabinete,despesas-gabinete,Despesas mensais dos gabinetes dos vereadores por categoria - Camara Municipal de Sorocaba,2020-2026,Portal Camara Municipal de Sorocaba,PDF municipal (porta 3115),mensal,despesas_gabinete_camara_sorocaba_{ano}.csv,public
-emendas,lista,Emendas impositivas (uma linha por emenda) - parlamentar destino valor e execucao; cobertura efetiva a partir de 2022,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_sorocaba_2020_2026.csv,public
-emendas,por-parlamentar,Emendas impositivas agregadas por parlamentar - indicado empenhado liquidado e pago,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_por_parlamentar_sorocaba.csv,public
-emendas,por-ano,Emendas impositivas agregadas por ano de exercicio,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_por_ano_sorocaba.csv,public
+municipio,Area,Tipo,Descricao,Anos,Fonte,Sistema,Frequencia,Arquivo_Padrao,Origem_Dir
+sorocaba,saude,despesas,Despesas por funcao - saude,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,despesas_saude_sorocaba_{ano}.csv,public
+sorocaba,saude,receitas,Receitas base ASPS - saude,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,receitas_base_saude_sorocaba_{ano}.csv,public
+sorocaba,educacao,despesas,Despesas por funcao - educacao,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,despesas_educacao_sorocaba_{ano}.csv,public
+sorocaba,educacao,receitas,Receitas base FUNDEB - educacao,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,quadrimestral,receitas_base_educacao_sorocaba_{ano}.csv,public
+sorocaba,seguranca,despesas,Despesas por subfuncao - DCA Anexo I-E,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_seguranca_sorocaba_{ano}.csv,public
+sorocaba,seguranca,orcamento,Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_seguranca_sorocaba_{ano}.csv,public
+sorocaba,transporte,orcamento-rreo,Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA - subfuncao unica sem discriminacao de servico vs obras,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_transporte_sorocaba_{ano}.csv,public
+sorocaba,transporte,orcamento-dca,Despesas DCA Anexo I-E funcao 26 empenhado+liquidado+pago - subfuncao unica sem discriminacao,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,dca_transporte_sorocaba_{ano}.csv,public
+sorocaba,transporte,contratos-pncp,Contratos publicos transporte PNCP filtrado por palavras-chave - requer curadoria manual - cobertura parcial a partir de 2022,2022-2025,PNCP / Compras.gov,API federal,anual,contratos_transporte_sorocaba_{ano}.csv,validated
+sorocaba,executivo,despesas,Orcamento municipal por funcao - RREO Anexo 02 bimestre 6 incluindo exceto intra e intra,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_executivo_sorocaba_{ano}.csv,public
+sorocaba,receita,receitas,Receitas municipais por categoria - RREO Anexo 01 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,receitas_sorocaba_{ano}.csv,public
+sorocaba,fiscal,pessoal,Despesa com pessoal e RCL ajustada - RGF Anexo 01 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,pessoal_sorocaba_{ano}.csv,public
+sorocaba,fiscal,divida,Divida consolidada e limite de endividamento - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_sorocaba_{ano}.csv,public
+sorocaba,fiscal,rcl,Composicao das receitas correntes - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_sorocaba_{ano}.csv,public
+sorocaba,fiscal,rcl-capital,Composicao das receitas de capital - RREO Anexo 03 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_capital_sorocaba_{ano}.csv,public
+sorocaba,fiscal,divida-detalhada,Detalhamento da divida consolidada e limites - RGF Anexo 02 terceiro quadrimestre,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_detalhada_sorocaba_{ano}.csv,public
+sorocaba,fiscal,natureza-despesa,Resumo fiscal por natureza da despesa,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,natureza_despesa_sorocaba_{ano}.csv,public
+sorocaba,fiscal,rpps,Indicadores previdenciarios e RPPS,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rpps_sorocaba_{ano}.csv,public
+sorocaba,saude,receitas-detalhamento,Detalhamento auxiliar das receitas de saude,2020-2025,Portal de Transparencia Sorocaba / SICONFI,PDF municipal e API federal,quadrimestral,receitas_detalhamento_sorocaba_{ano}.csv,public
+sorocaba,saude,rreo-despesas,Despesas de saude no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_despesas_saude_sorocaba_{ano}.csv,public
+sorocaba,saude,rreo-receitas-sus,Receitas SUS no RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,bimestral,rreo_receitas_sus_sorocaba_{ano}.csv,public
+sorocaba,despesa,registro-analitico,Registro Analitico da Despesa por fornecedor natureza e empenho - Livro Contabil de Sorocaba,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,despesa_orcamentaria_sorocaba_{ano}.csv,public
+sorocaba,empenho,registro-empenho,Livro Registro de Empenho por natureza da despesa e fornecedor,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,empenho_sorocaba_{ano}.csv,public
+sorocaba,fornecedores,conta-corrente,Conta Corrente de Fornecedor agregado por ano - pagamentos por fornecedor e natureza,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,fornecedores_agregado_sorocaba_{ano}.csv,public
+sorocaba,restos,restos-a-pagar,Restos a Pagar agregado por fornecedor - Livro Conta Corrente de Restos a Pagar,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,restos_agregado_sorocaba_{ano}.csv,public
+sorocaba,transferencias_federais,analitico,Transferencias da Uniao para Sorocaba - registro analitico por competencia tipo e orgao concedente,2020-2025,Portal da Transparencia Federal,API federal,mensal,transferencias_federais_sorocaba_{ano}.csv,extracted
+sorocaba,transferencias_federais,agregado,Transferencias da Uniao para Sorocaba - agregado por tipo e orgao concedente,2020-2025,Portal da Transparencia Federal,API federal,mensal,transferencias_federais_agregado_sorocaba_{ano}.csv,validated
+sorocaba,loa,audiencia-publica,Priorizacoes da audiencia publica da LOA por area tematica e regiao - dados extraidos dos Relatorios de Audiencia Publica publicados pela Prefeitura de Sorocaba,2022-2026,Portal de Transparencia Sorocaba,PDF municipal,anual,audiencia_loa_sorocaba_{ano}.csv,public
+sorocaba,agentes,poder-publico,Lista estruturada de agentes e instituicoes do poder publico local,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,poder_publico_sorocaba.json,public_aux
+sorocaba,auditoria,agentes,Perfis publicos de agentes politicos em escopo de auditoria,2025-2028,Fontes oficiais municipais e legislativas,JSON manual auditavel,sob demanda,agentes.json,public_aux
+sorocaba,auditoria,emendas,Emendas parlamentares em escopo de auditoria; vazio quando nao ha dado validado publicado,2025-2028,Fontes oficiais legislativas,JSON manual auditavel,sob demanda,emendas.json,public_aux
+sorocaba,auditoria,ranking,Ranking de auditoria; vazio enquanto nao houver metodologia aplicada com dados reais validados,2025-2028,Metodologia interna + fontes oficiais,JSON manual auditavel,sob demanda,ranking.json,public_aux
+sorocaba,camara/gabinete,despesas-gabinete,Despesas mensais dos gabinetes dos vereadores por categoria - Camara Municipal de Sorocaba,2020-2026,Portal Camara Municipal de Sorocaba,PDF municipal (porta 3115),mensal,despesas_gabinete_camara_sorocaba_{ano}.csv,public
+sorocaba,emendas,lista,Emendas impositivas (uma linha por emenda) - parlamentar destino valor e execucao; cobertura efetiva a partir de 2022,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_sorocaba_2020_2026.csv,public
+sorocaba,emendas,por-parlamentar,Emendas impositivas agregadas por parlamentar - indicado empenhado liquidado e pago,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_por_parlamentar_sorocaba.csv,public
+sorocaba,emendas,por-ano,Emendas impositivas agregadas por ano de exercicio,2020-2026,CEPA Sorocaba (Agencia de Noticias),API publica CEPA,continua,emendas_cepa_por_ano_sorocaba.csv,public
+sorocaba,contratos,pncp-completo,Contratos publicos publicados no PNCP - serie historica todos os contratos,2022-2026,PNCP / Compras.gov,API federal,anual,pncp_sorocaba_2022_2026.csv,public
+sorocaba,controle_externo,alertas-sdg,Alertas SDG do TCE-SP para Sorocaba - registro por bimestre e inciso,2025-2025,TCE-SP / Tribunal de Contas do Estado de Sao Paulo,PDF oficial,bimestral,alertas_sdg_{ano}_sorocaba.csv,public
+sorocaba,transferencias,convenios-federais,Convenios federais com a Prefeitura de Sorocaba - registro analitico por convenio,2020-2025,Portal da Transparencia Federal / Transferegov,API federal,anual,convenios_federais_sorocaba.csv,public
+sorocaba,transferencias,convenios-por-orgao,Convenios federais agregados por orgao concedente,2020-2025,Portal da Transparencia Federal / Transferegov,API federal,anual,convenios_por_orgao_sorocaba.csv,public
+sorocaba,transferencias,subvencoes-osc,Subvencoes sociais a OSCs - registro analitico de empenhos por entidade beneficiaria,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,subvencoes_osc_sorocaba.csv,public
+sorocaba,transferencias,subvencoes-por-entidade,Subvencoes sociais agregadas por entidade beneficiaria e ano,2020-2025,Portal de Transparencia Sorocaba,PDF municipal,anual,subvencoes_por_entidade_sorocaba.csv,public
+sorocaba,transferencias,estaduais-resumo,Transferencias estaduais para Sorocaba - resumo por categoria RREO Anexo 01 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,transferencias_estaduais_resumo_sorocaba.csv,public
+sorocaba,transferencias,estaduais-analitico,Transferencias estaduais para Sorocaba - registro analitico por transferencia e orgao repassador SP,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,transferencias_estaduais_sp_sorocaba.csv,public
+sorocaba,fiscal,funserv-rpps,Dados previdenciarios do FUNSERV - fundo municipal RPPS de Sorocaba,2020-2025,FUNSERV / Portal Transparencia Sorocaba,PDF municipal,anual,funserv_rpps_sorocaba.csv,public

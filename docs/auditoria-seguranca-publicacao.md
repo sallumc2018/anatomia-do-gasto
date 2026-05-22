@@ -151,14 +151,10 @@ Essa camada aumenta muito a descobribilidade de dados financeiros detalhados. Me
 
 `raw -> extracted -> validated -> public`
 
-## Decisoes Ainda Pendentes
+## Decisoes Encerradas (2026-05-22)
 
-1. `data/raw` ficara no repositorio publico?
-2. `data/extracted` ficara no repositorio publico?
-3. `data/validated` ficara no repositorio publico?
-4. Se alguma dessas camadas permanecer publica, qual a justificativa institucional documentada?
-5. Quando a auditoria externa precisar de prova adicional, vamos publicar:
-   - o arquivo inteiro;
-   - um manifesto;
-   - hashes;
-   - ou uma amostra controlada?
+1. `data/raw` ficara no repositorio publico? **Nao.**
+2. `data/extracted` ficara no repositorio publico? **Nao.**
+3. `data/validated` ficara no repositorio publico? **Nao.**
+4. Justificativa institucional: as tres camadas sao operacionais internas. O `.gitignore` e a prova tecnica dessa postura; nenhum arquivo dessas camadas esta rastreado no repositorio publico.
+5. Quando a auditoria externa precisar de prova adicional: **manifesto + hash**. O arquivo inteiro nao sera publicado salvo excecao documentada conforme a Regra de Excecao da `politica-publicacao-dados.md`.
