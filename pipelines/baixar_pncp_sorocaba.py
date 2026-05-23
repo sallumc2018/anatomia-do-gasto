@@ -37,11 +37,11 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
-from paths import EXTRACTED_DIR, RAW_DIR
+from paths import CFG, EXTRACTED_DIR, RAW_DIR
 
 
 CNPJ_SOROCABA = "46634044000174"
-IBGE_SOROCABA = "3552205"
+IBGE_SOROCABA = CFG["ibge"]
 PNCP_HOST = "https://pncp.gov.br"
 TAMANHO_PAGINA_PADRAO = 10
 HTTP_TRANSITORIOS = {429, 500, 502, 503, 504}

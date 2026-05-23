@@ -48,9 +48,9 @@ import os
 import re
 import sys
 import urllib.request
-from paths import as_str, SEGURANCA_RAW_DIR, SEGURANCA_EXTRACTED_DIR
+from paths import CFG, as_str, SEGURANCA_RAW_DIR, SEGURANCA_EXTRACTED_DIR
 
-IBGE_SOROCABA = 3552205
+IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 BIMESTRE = 6
 

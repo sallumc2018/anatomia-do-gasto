@@ -54,9 +54,9 @@ import sys
 import time
 import urllib.request
 import urllib.parse
-from paths import as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
+from paths import CFG, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
 
-IBGE_SOROCABA = "3552205"
+IBGE_SOROCABA = CFG["ibge"]
 PNCP_BASE = "https://pncp.gov.br/api/consulta/v1/contratos"
 
 # Palavras-chave para filtrar contratos de transporte

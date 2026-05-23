@@ -20,9 +20,9 @@ import os
 import sys
 import urllib.request
 
-from paths import as_str, EXECUTIVO_EXTRACTED_DIR
+from paths import CFG, as_str, EXECUTIVO_EXTRACTED_DIR
 
-IBGE_SOROCABA = 3552205
+IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 
 # 28 funções orçamentárias oficiais (Portaria SOF 42/1999 e atualizações)

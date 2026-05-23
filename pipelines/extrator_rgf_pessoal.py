@@ -20,9 +20,9 @@ import os
 import sys
 import urllib.request
 
-from paths import as_str, FISCAL_EXTRACTED_DIR
+from paths import CFG, as_str, FISCAL_EXTRACTED_DIR
 
-IBGE_SOROCABA = 3552205
+IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf"
 
 COL_TOTAL_12M = "TOTAL (ÚLTIMOS 12 MESES) (a)"

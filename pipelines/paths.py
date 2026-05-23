@@ -5,6 +5,20 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
+
+MUNICIPIOS = {
+    "sorocaba": {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba"},
+    "paulinia": {"ibge": "3536505", "uf": "SP", "nome": "Paulinia"},
+}
+
+if MUNICIPIO not in MUNICIPIOS:
+    raise ValueError(
+        f"MUNICIPIO={MUNICIPIO!r} nao registrado em pipelines/paths.py. "
+        "Adicione uma entrada em MUNICIPIOS com ibge, uf e nome."
+    )
+
+CFG = MUNICIPIOS[MUNICIPIO]
+
 RAW_BASE_DIR = Path(os.getenv("ANATOMIA_RAW_ROOT") or DATA_DIR / "raw")
 
 RAW_DIR = RAW_BASE_DIR / MUNICIPIO

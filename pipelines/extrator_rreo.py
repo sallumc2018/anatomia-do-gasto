@@ -22,12 +22,12 @@ import json
 import os
 import sys
 import urllib.request
-from paths import as_str, SAUDE_EXTRACTED_DIR
+from paths import CFG, as_str, SAUDE_EXTRACTED_DIR
 
 DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(os.path.join(DIRETORIO_SCRIPT, '..'))
 
-IBGE_SOROCABA = 3552205
+IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 COLUNA_TOTAL = "TOTAL (ÚLTIMOS 12 MESES)"
 

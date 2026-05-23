@@ -29,10 +29,10 @@ from html.parser import HTMLParser
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from paths import EXTRACTED_DIR, RAW_DIR
+from paths import CFG, EXTRACTED_DIR, RAW_DIR
 
 FONTE_DOWNLOADS = "https://portalfns.saude.gov.br/downloads/"
-IBGE_SOROCABA = "3552205"
+IBGE_SOROCABA = CFG["ibge"]
 MUNICIPIO_SOROCABA = "SOROCABA"
 UF_SOROCABA = "SP"
 ANOS_PADRAO = range(2020, 2027)

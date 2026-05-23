@@ -26,7 +26,7 @@ import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 
-from paths import EXTRACTED_DIR, RAW_DIR
+from paths import CFG, EXTRACTED_DIR, RAW_DIR
 
 BASE_URL = "http://repositorio.dados.gov.br/seges/detru/"
 DOC_URL = "https://www.gov.br/transferegov/pt-br/ferramentas-gestao/dados-abertos/download-dados"
@@ -34,7 +34,7 @@ DOC_URL = "https://www.gov.br/transferegov/pt-br/ferramentas-gestao/dados-aberto
 CNPJ_SOROCABA = "46634044000174"
 MUNICIPIO_SOROCABA = "SOROCABA"
 UF_SOROCABA = "SP"
-IBGE_SOROCABA = "3552205"
+IBGE_SOROCABA = CFG["ibge"]
 
 DATASETS_ESSENCIAIS = {
     "proponentes": "siconv_proponentes.csv.zip",

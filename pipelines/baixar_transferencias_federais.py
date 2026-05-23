@@ -22,9 +22,9 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from paths import TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_RAW_DIR
+from paths import CFG, TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_RAW_DIR
 
-IBGE_SOROCABA = "3552205"
+IBGE_SOROCABA = CFG["ibge"]
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
 QUANTIDADE_POR_PAGINA = 500
 DELAY_ENTRE_PAGINAS = 0.5

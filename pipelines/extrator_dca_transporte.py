@@ -38,9 +38,9 @@ import json
 import os
 import sys
 import urllib.request
-from paths import as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
+from paths import CFG, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
 
-IBGE_SOROCABA = 3552205
+IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca"
 CONTA_TRANSPORTE = "26 - Transporte"
 
