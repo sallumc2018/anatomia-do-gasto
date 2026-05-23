@@ -4,6 +4,14 @@ Extrai PDFs em que o Registro Analitico da Despesa sai com texto verticalizado.
 Alguns livros contabeis grandes de Sorocaba retornam texto em colunas quando
 lidos pelo PyMuPDF. Este extrator usa coordenadas das palavras para reconstruir
 as linhas de movimento. Saida em data/extracted; nao publicar sem validacao.
+
+Formatos suportados:
+- v2021 (A4 595x842): paginas analiticas com data DD/MM na zona y=720-735 +
+  paginas analiticas SEM data (campo "data" ausente no PDF, registros com data="").
+  O PDF de 2021 contem tres tipos de pagina: (a) analiticas com data [878 pags],
+  (b) analiticas sem data [1646 pags — capturadas a partir do fix de 2026-05-23],
+  (c) indice FOLHA [557 pags — ignoradas]. Total extraido: ~32k registros.
+- v2022 (A4 595x842): paginas analiticas com data DD/MM na zona y=695-710.
 """
 import argparse
 import csv
@@ -19,6 +27,7 @@ DATA_RE = re.compile(r"^\d{2}/\d{2}$")
 VALOR_RE = re.compile(r"^-?\d{1,3}(?:\.\d{3})*,\d{2}$")
 NATUREZA_RE = re.compile(r"^\d\.\d\.\d{2}\.\d{2}\.\d{2}$")
 PROGRAMA_RE = re.compile(r"^\d{2}\.\d{3}\.\d{4}-\d\.\d{3}$")
+DOC_RE = re.compile(r"^\d{5}$")
 
 # Faixas y por versao de formato (coordenadas PyMuPDF, eixo y invertido em landscape)
 ZONAS: dict[str, dict[str, tuple[float, float]]] = {
@@ -129,6 +138,24 @@ def extrair_pagina(
         if y_data_min <= y0 <= y_data_max and DATA_RE.match(text)
     ]
 
+    # Páginas analíticas sem data: o campo "data" está vazio mas todos os demais
+    # campos estão presentes. Identificadas por: sem datas + sem "FOLHA" + com
+    # valores na zona paga_no_dia. Usamos o campo documento como âncora de coluna.
+    tem_folha = any(text == "FOLHA" for _x0, _y0, _x1, _y1, text, *_ in words)
+    if not datas and not tem_folha:
+        y_doc_min, y_doc_max = zonas["documento"]
+        y_val_min, y_val_max = zonas["paga_no_dia"]
+        tem_valor = any(
+            y_val_min <= y0 <= y_val_max and VALOR_RE.match(text)
+            for _x0, y0, _x1, _y1, text, *_ in words
+        )
+        if tem_valor:
+            datas = [
+                (x0, "")
+                for x0, y0, _x1, _y1, text, *_ in words
+                if y_doc_min <= y0 <= y_doc_max and DOC_RE.match(text)
+            ]
+
     if ultimo_contexto_linha is None:
         ultimo_contexto_linha = {
             "documento": "",
@@ -189,7 +216,7 @@ def extrair_pagina(
             "unidade_despesa": contexto["unidade_despesa"],
             "natureza_despesa": contexto["natureza_despesa"],
             "programa_trabalho": contexto["programa_trabalho"],
-            "data": f"{data}/{ano}",
+            "data": f"{data}/{ano}" if data else "",
             "documento_despesa": documento,
             "nota_empenho": empenho,
             "fornecedor_nome": fornecedor_nome,

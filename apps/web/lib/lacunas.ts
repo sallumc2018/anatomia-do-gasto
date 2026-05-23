@@ -241,11 +241,11 @@ export const LACUNAS: Lacuna[] = [
     fonte: "Portal de Transparência de Sorocaba",
     url: "https://fazenda.sorocaba.sp.gov.br/transparencia",
     proximo_passo: "Publicado. Série completa 2020–2025 disponível.",
-    observacao: "PDFs baixados e extraídos em 2026-05-17: 63.167 registros (2022) e 71.225 registros (2023). Sanidade: >99,8% válidos em ambos os anos.",
+    observacao: "PDFs baixados e extraídos: 37.133 (2020), 32.373 (2021), 63.167 (2022), 71.225 (2023), 47.597 (2024), 48.691 (2025). O 2021 foi corrigido em 2026-05-23: o PDF A4 contém 1.646 páginas analíticas sem campo data (campo vazio) que o extrator original ignorava; após correção, 32.373 registros vs 9.365 antes.",
     dimensao: "executivo",
     anosPossiveis: 6,
     anosCobertos: 6,
-    registros: 134_392,
+    registros: 300_186,
   },
   // ── Orçamento ──────────────────────────────────────────────────────────────
   {
