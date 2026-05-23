@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import fs from "fs"
+import path from "path"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -6,6 +8,52 @@ import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+
+const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
+
+function parseBrFloat(s: string): number {
+  return parseFloat(s.replace(/"/g, "").trim().replace(/\./g, "").replace(",", ".")) || 0
+}
+
+function parseCsvLine(line: string): string[] {
+  const fields: string[] = []
+  let cur = ""
+  let inQ = false
+  for (const c of line) {
+    if (c === '"') { inQ = !inQ; continue }
+    if (c === "," && !inQ) { fields.push(cur); cur = ""; continue }
+    cur += c
+  }
+  fields.push(cur)
+  return fields
+}
+
+interface CamaraTceRow { ano: number; evento: string; total: number; count: number }
+
+function loadCamaraTce(): CamaraTceRow[] {
+  const fp = path.join(DATA_ROOT, "sorocaba", "camara", "saida", "camara_despesas_tce_2020_2025.csv")
+  if (!fs.existsSync(fp)) return []
+  const lines = fs.readFileSync(fp, "utf-8").split("\n")
+  // header: ano,mes,orgao,evento,nr_empenho,id_fornecedor,nm_fornecedor,dt_emissao_despesa,vl_despesa
+  const byKey: Record<string, CamaraTceRow> = {}
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim()
+    if (!line) continue
+    const f = parseCsvLine(line)
+    if (f.length < 9) continue
+    const ano = parseInt(f[0])
+    const evento = f[3]?.trim() ?? ""
+    const vl = parseBrFloat(f[8] ?? "0")
+    if (isNaN(ano) || !evento) continue
+    const key = `${ano}-${evento}`
+    if (!byKey[key]) byKey[key] = { ano, evento, total: 0, count: 0 }
+    byKey[key].total += vl
+    byKey[key].count++
+  }
+  return Object.values(byKey).sort((a, b) =>
+    a.ano !== b.ano ? a.ano - b.ano : a.evento.localeCompare(b.evento)
+  )
+}
 
 export const metadata: Metadata = {
   title: "Câmara Municipal de Sorocaba",
@@ -135,6 +183,7 @@ function formatMillions(value: number): string {
 }
 
 export default function CamaraMunicipalPage() {
+  const tceRows = loadCamaraTce()
   const dados = getPoderPublicoSorocaba()
   const grupoVereadores = dados.grupos.find((g) => g.id === "vereadores")
   const vereadores = grupoVereadores?.pessoas ?? []
@@ -568,6 +617,49 @@ export default function CamaraMunicipalPage() {
             </div>
           </div>
         </section>
+
+        {/* Despesas TCE · execução contábil */}
+        {tceRows.length > 0 && (
+          <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
+            <div className="mx-auto px-6 py-12" style={S.container}>
+              <p className="uppercase font-semibold mb-3" style={S.label}>Execução contábil · TCE-SP</p>
+              <p style={{ ...S.body, maxWidth: "640px", marginBottom: "8px" }}>
+                Despesas da Câmara Municipal declaradas ao TCE-SP, por ano e evento contábil
+                (Empenhado, Liquidado, Pago), 2020–2025.
+                Total de {tceRows.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros.
+              </p>
+              <p style={{ ...S.caption, marginBottom: "24px" }}>
+                Fonte: TCE-SP — dados de execução orçamentária declarados pela Câmara Municipal
+              </p>
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
+                  <thead>
+                    <tr style={S.borderBottom}>
+                      <th style={{ fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--text-04)", fontWeight: 600, padding: "10px 12px", textAlign: "left" }}>Ano</th>
+                      <th style={{ fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--text-04)", fontWeight: 600, padding: "10px 12px", textAlign: "left" }}>Evento</th>
+                      <th style={{ fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--text-04)", fontWeight: 600, padding: "10px 12px", textAlign: "right" }}>Registros</th>
+                      <th style={{ fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--text-04)", fontWeight: 600, padding: "10px 12px", textAlign: "right" }}>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tceRows.map((r) => (
+                      <tr key={`${r.ano}-${r.evento}`} style={S.borderBottom}>
+                        <td style={{ fontSize: "14px", color: "var(--text-01)", padding: "10px 12px", fontWeight: 500 }}>{r.ano}</td>
+                        <td style={{ fontSize: "14px", color: "var(--text-02)", padding: "10px 12px" }}>{r.evento}</td>
+                        <td style={{ fontSize: "14px", color: "var(--text-02)", padding: "10px 12px", textAlign: "right" }}>
+                          {r.count.toLocaleString("pt-BR")}
+                        </td>
+                        <td style={{ fontSize: "14px", color: "var(--text-02)", padding: "10px 12px", textAlign: "right", fontVariantNumeric: "tabular-nums", fontFamily: "var(--font-ibm-plex-mono)" }}>
+                          {formatMillions(r.total)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Produção legislativa */}
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
