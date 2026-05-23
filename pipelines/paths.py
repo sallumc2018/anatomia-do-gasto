@@ -58,5 +58,11 @@ TRANSFERENCIAS_VALIDATED_DIR = VALIDATED_DIR / "transferencias_federais"
 TRANSFERENCIAS_PUBLIC_DIR = PUBLIC_DIR / "transferencias_federais"
 
 
+CONTRATOS_RAW_DIR = RAW_DIR / "contratos"
+CONTRATOS_EXTRACTED_DIR = EXTRACTED_DIR / "contratos"
+CONTRATOS_VALIDATED_DIR = VALIDATED_DIR / "contratos"
+CONTRATOS_PUBLIC_DIR = PUBLIC_DIR / "contratos"
+
+
 def as_str(path: Path) -> str:
     return str(path.resolve())
