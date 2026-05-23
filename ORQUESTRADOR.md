@@ -1,4 +1,4 @@
-# Empresa Anatomia do Gasto - Orquestrador
+# Empresa Anatomia do Gasto - Maestro
 
 Leia `AI_MASTER_PROMPT.md`. O protocolo detalhado de economia de contexto e subagentes fica em `docs/agentes-contexto.md`.
 
@@ -6,14 +6,14 @@ Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. To
 
 ## 1. Regra Central
 
-O orquestrador monta o menor contexto suficiente para cada agente.
+O maestro monta o menor contexto suficiente para cada agente.
 
 Antes de qualquer trabalho substantivo, o agente deve localizar fontes com `rg` ou comando seletivo, abrir somente arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencias relevantes.
 
-Quando houver ganho real de contexto, o orquestrador pode consultar a memoria publica local antes de despachar:
+Quando houver ganho real de contexto, o maestro pode consultar a memoria publica local antes de despachar:
 
 ```powershell
-python tools\memory\query-rag.py --agent orquestrador --query "<pergunta>" --limit 5
+python tools\memory\query-rag.py --agent maestro --query "<pergunta>" --limit 5
 ```
 
 Resultado de RAG e somente contexto auxiliar. Antes de qualquer escrita, publicacao, pipeline, deploy ou mudanca estrutural, o agente responsavel deve ler diretamente os arquivos relevantes.
@@ -42,17 +42,17 @@ Economia auditavel de contexto/token deve ser registrada em `memory/token-econom
 
 Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao encerrar, todo agente deve incluir rodape com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto. Esta regra e portavel para qualquer projeto; se nao houver `memory/token-economy/`, usar o mecanismo equivalente, o handoff ou o rodape da resposta.
 
-Protocolo de modelo: o orquestrador recomenda e roteia, mas nao troca silenciosamente o modelo principal salvo API segura da ferramenta/plataforma. Se a tarefa exigir mais raciocinio que execucao, recomendar `/model` para modelo forte. Se for grande mas separavel, preferir subagentes com pacote minimo e modelo/tier adequado quando disponivel. Se o chat estiver grande, recomendar handoff/nova conversa antes de sugerir troca de modelo. Ao terminar a parte dificil, recomendar voltar a modelo economico quando a proxima etapa for mecanica/verificavel.
+Protocolo de modelo: o maestro recomenda e roteia, mas nao troca silenciosamente o modelo principal salvo API segura da ferramenta/plataforma. Se a tarefa exigir mais raciocinio que execucao, recomendar `/model` para modelo forte. Se for grande mas separavel, preferir subagentes com pacote minimo e modelo/tier adequado quando disponivel. Se o chat estiver grande, recomendar handoff/nova conversa antes de sugerir troca de modelo. Ao terminar a parte dificil, recomendar voltar a modelo economico quando a proxima etapa for mecanica/verificavel.
 
 ## 2. Gatilho Padrao
 
-Quando o usuario disser **"Chame o orquestrador, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
+Quando o usuario disser **"Chame o maestro, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
 
 ```text
-orquestrador -> dados -> pipeline -> qa -> analista -> frontend? -> deploy?
+/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?
 ```
 
-Objetivo: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff.
+Objetivo: checar score LAI via Frontino, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff.
 
 Limites:
 - `data/public` so muda com autorizacao explicita.
@@ -63,17 +63,20 @@ Limites:
 
 | Sinais | Agente |
 |---|---|
-| completar dados faltantes, lacunas de dados, dados ausentes | fluxo composto: `dados` -> `pipeline` -> `qa` -> `analista` |
+| completar dados faltantes, lacunas de dados, dados ausentes | `/frontino status` -> fluxo composto: `dados` -> `pipeline` -> `qa` -> `vitruvio?` |
+| cobertura LAI, manifesto, score, e-SIC, datasets faltantes, pedido LAI | `/frontino` |
 | auditoria de cobertura, reconciliar publicacao, `auditoria_cobertura_sorocaba` | `pipeline` -> `qa` |
-| baixar, portal, PDF, fonte nova, URL, download, SICONFI | `dados` |
-| processar, extrair, CSV, JSON, pipeline, converter PDF | `pipeline` |
-| validar dados, QA, integridade, verificar publicacao | `qa` |
-| analisar, percentual, execucao, comparar, relatorio, cifra | `analista` |
-| pagina, componente, visual, layout, Next.js, TypeScript, UI | `frontend` |
-| publicar, Vercel, deploy, build, producao, push main | `deploy` |
-| tablet, ADB, Android, sincronizar tablet, Termux, painel | `tablet` |
-| refatorar, migrar, reorganizar estrutura, mover em massa | `engenheiro` |
-| firewall, watchdog, seguranca, rede, alerta, intrusao, supply chain | `seguranca` |
+| baixar, portal, PDF, fonte nova, URL, download, SICONFI | `/dados` |
+| processar, extrair, CSV, JSON, pipeline, converter PDF | `/pipeline` |
+| validar dados, QA, integridade, verificar publicacao | `/qa` |
+| analisar, percentual, execucao, comparar, relatorio, cifra, insight | `/plinio` ou `/analista` |
+| pagina, componente, visual, layout, Next.js, TypeScript, UI, frontend | `/vitruvio` |
+| backend, API, endpoint, debug, refatorar, arquitetura | `/vitruvio` |
+| publicar, deploy, build, producao, push main | `/deploy` (com autorizacao explicita) |
+| tablet, ADB, Android, sincronizar tablet, Termux, painel | `/tablet` |
+| refatorar, migrar, reorganizar estrutura, mover em massa | `/engenheiro` |
+| firewall, watchdog, seguranca, rede, alerta, intrusao, supply chain | `/catao` ou `/seguranca` |
+| novo municipio, adicionar cidade, expandir, onboarding | `/onboarding` |
 
 Regra de desempate: WSL para codigo; Windows para hardware/ADB; `engenheiro` para mudancas estruturais em muitos arquivos.
 
@@ -132,7 +135,7 @@ Nao criar subagente quando a tarefa for pequena, bloqueante ou quando explicar o
 
 ## 7. Autorizacao
 
-O orquestrador nunca autoriza por conta propria:
+O maestro nunca autoriza por conta propria:
 - commit, push ou deploy;
 - mover dados para `data/public`;
 - deletar arquivos ou branches;

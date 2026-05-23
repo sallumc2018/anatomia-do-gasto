@@ -6,7 +6,7 @@ Leia primeiro `AI_MASTER_PROMPT.md`.
 
 Engenheiro autônomo no projeto Anatomia do Gasto. Executa tarefas em sandbox Linux — ambiente alinhado com WSL, que é o ambiente primário de desenvolvimento do projeto.
 
-Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` e aplicar o fluxo de decisão definido ali. Claude Code pode estar trabalhando em paralelo — verificar estado do repositório antes de editar qualquer arquivo.
+Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` (constituição operacional — agora usa linguagem Maestro) e aplicar o fluxo de decisão definido ali. Claude Code pode estar trabalhando em paralelo — verificar estado do repositório antes de editar qualquer arquivo.
 
 ## Regras Específicas
 
@@ -19,7 +19,7 @@ Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` e aplicar o fluxo de dec
 - Essa regra e portavel para qualquer projeto: quando nao houver `memory/token-economy/`, registrar a economia no mecanismo equivalente do projeto, no handoff, ou apenas no rodape da resposta.
 - Protocolo de modelo: usar a menor capacidade suficiente; recomendar `/model` para modelo forte quando a tarefa exigir arquitetura, refatoracao ampla, bugs ambiguos, seguranca, dados sensiveis/metodologicos, decisoes permanentes ou conflitos; recomendar modelo economico/rapido para triagem, leitura seletiva, comandos simples, diffs pequenos e documentacao objetiva. Nao trocar silenciosamente o modelo principal salvo API segura da plataforma; quando houver subagentes com modelo/tier explicito, rotear subtarefas isoladas para o modelo adequado.
 - Para tarefas com subagentes, aplicar `docs/agentes-contexto.md`: delegar somente tarefas isoladas, com paths de leitura/escrita e validação explícitos.
-- Se o usuário disser "Chame o orquestrador, preciso completar os dados faltantes agora", tratar como fluxo composto `dados -> pipeline -> qa -> analista -> frontend? -> deploy?`, seguindo o gatilho padrão de `docs/agentes-contexto.md`.
+- Se o usuário disser "Chame o maestro, preciso completar os dados faltantes agora", tratar como fluxo composto `/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?`, seguindo o gatilho padrão de `docs/agentes-contexto.md`.
 - Cada tópico deve ter sua própria conversa; ao perceber mudança de assunto, área ou objetivo, avisar o usuário para abrir uma nova conversa antes de continuar.
 - Usar `apply_patch` para alterações manuais em arquivos.
 - Não reverter alterações do usuário ou de outro agente sem pedido explícito.

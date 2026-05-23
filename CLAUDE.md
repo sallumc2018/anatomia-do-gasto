@@ -100,6 +100,6 @@ python tools/agents/check-scope-gates.py
 
 Para validacao consolidada por area, use `python tools/agents/validate-area.py --area memory|agents|scope|pipeline|frontend|publication`.
 
-Se o usuario disser "Chame o orquestrador, preciso completar os dados faltantes agora", acione o fluxo composto `dados -> pipeline -> qa -> analista -> frontend? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/orquestrador.md`.
+Se o usuario disser "Chame o maestro, preciso completar os dados faltantes agora", acione o fluxo composto `/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/maestro.md`.
 
 Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avise para abrir uma nova conversa antes de continuar.

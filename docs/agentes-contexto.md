@@ -1,18 +1,18 @@
 # Agentes e Economia de Contexto
 
-> Referenciado por `CLAUDE.md` e `ORQUESTRADOR.md`. Leia este arquivo em vez de re-ler o orquestrador inteiro.
+> Referenciado por `CLAUDE.md` e `ORQUESTRADOR.md`. Leia este arquivo em vez de re-ler o maestro inteiro.
 
 Este guia define como dividir trabalho entre agentes sem gastar contexto lendo arquivos irrelevantes.
 
 ## Principio
 
-O orquestrador deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
+O maestro deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
 
 Antes de trabalhos substantivos, todo agente deve localizar fontes com `rg` ou comando seletivo, abrir apenas arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencia relevante.
 
 Trabalho substantivo e qualquer tarefa que envolva leitura/edicao de multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, uso de subagente, investigacao de bug, pipeline, frontend, deploy, seguranca ou decisao que oriente trabalhos futuros. Nao e substantivo: resposta curta, explicacao conceitual, comando simples, confirmacao, status rapido ou ajuste textual isolado sem validacao.
 
-Quando houver memoria publica ja indexada, o orquestrador pode recuperar contexto com `tools/memory/query-rag.py` e incluir somente os trechos relevantes no pacote minimo. RAG nao substitui leitura direta de arquivos antes de editar, publicar, validar ou fazer deploy.
+Quando houver memoria publica ja indexada, o maestro pode recuperar contexto com `tools/memory/query-rag.py` e incluir somente os trechos relevantes no pacote minimo. RAG nao substitui leitura direta de arquivos antes de editar, publicar, validar ou fazer deploy.
 
 Cada topico deve ter sua propria conversa. Quando o usuario mudar de assunto, area ou objetivo de trabalho, o agente deve avisar: "Este e um novo topico; abra uma nova conversa para economizar contexto." So continuar na conversa atual se o usuario confirmar que quer seguir mesmo assim.
 
@@ -43,20 +43,20 @@ python tools\agents\validate-area.py --area publication
 
 `check-scope-gates.py` falha se o frontend referenciar `data/raw`, `data/extracted` ou `data/validated`, se um arquivo marcado como nao publicavel em `data/manifests/datasets.csv` aparecer em `data/public`, ou se automacoes locais de agentes/memoria contiverem comandos de release/instalacao sem gate humano.
 
-## Gatilho Padrao Do Orquestrador
+## Gatilho Padrao Do Maestro
 
-Quando o usuario disser algo como **"Chame o orquestrador, preciso completar os dados faltantes agora"**, Codex e Claude devem tratar isso como pedido composto de dados e executar o roteamento abaixo com contexto minimo.
+Quando o usuario disser algo como **"Chame o maestro, preciso completar os dados faltantes agora"**, Codex e Claude devem tratar isso como pedido composto de dados e executar o roteamento abaixo com contexto minimo.
 
-Objetivo padrao: identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff. Publicacao em `data/public`, commit, push e deploy continuam exigindo autorizacao explicita.
+Objetivo padrao: checar score LAI, identificar lacunas em `data/public` e `data/manifests`, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff. Publicacao em `data/public`, commit, push e deploy continuam exigindo autorizacao explicita.
 
 Fluxo padrao:
 
-1. `orquestrador`: classifica area/anos faltantes e monta pacotes pequenos por agente.
+1. `/frontino status`: verifica score LAI + fila de acao por fase.
 2. `dados`: confere inventario e baixa fontes oficiais ausentes para `data/raw`.
 3. `pipeline`: processa as fontes baixadas para `data/extracted` e, quando autorizado, usa `data/validated` como etapa local de validacao.
 4. `qa`: valida integridade pre-publicacao ou reconciliacao read-only de `data/public` quando o escopo for publicacao/cobertura.
-5. `analista`: le apenas `data/public` para apontar lacunas publicadas e impactos de leitura cidada.
-6. `frontend`: so entra se a mudanca exigir pagina, componente ou loader do site.
+5. `plinio` (alias `analista`): le apenas `data/public` para apontar lacunas publicadas e impactos de leitura cidada.
+6. `vitruvio`: so entra se a mudanca exigir pagina, componente, loader ou qualquer alteracao tecnica no site.
 7. `deploy`: so entra depois de autorizacao explicita para commit/push/deploy.
 
 Pacote minimo para esse gatilho:
@@ -107,7 +107,7 @@ Resposta: achados, arquivos tocados, validacao, bloqueios
 | `analista` | `data/public`, docs de metodologia, manifest publico | docs ou texto analitico autorizado | checagem de fonte, escopo e periodo |
 | `seguranca` | `.gitignore`, `CLAUDE.md`, docs de seguranca, `tools/security` | docs e scripts de seguranca | `check-site-local.ps1`, triagem supply-chain |
 | `tablet` | `tools/tablet`, `docs/ambiente.md`, `docs/seguranca.md` | `tools/tablet`, docs relacionadas | checagem ADB/SSH quando autorizada |
-| `engenheiro` | paths afetados pela refatoracao, `CODEX.md`, `ORQUESTRADOR.md` | escopo explicitamente definido | testes do modulo alterado |
+| `engenheiro` | paths afetados pela refatoracao, `CODEX.md`, `ORQUESTRADOR.md` (constituicao operacional) | escopo explicitamente definido | testes do modulo alterado |
 | `deploy` | estado de build e autorizacao humana | nenhum por padrao | build local, depois autorizacao para push/deploy |
 
 ## Regras De Isolamento
@@ -128,7 +128,8 @@ Metas a respeitar. Se a tarefa exigir mais, avisar o usuário antes de continuar
 
 | Agente         | Budget alvo  | Motivo                                      |
 |----------------|-------------|---------------------------------------------|
-| `orquestrador` | < 500 tok   | Só classifica e despacha — não executa      |
+| `maestro`      | < 500 tok   | Só classifica e despacha — não executa      |
+| `frontino`     | < 3 K tok   | Lê manifesto, calcula score, roteia coleta  |
 | `dados`        | < 3 K tok   | Checa arquivos + portal, sem análise        |
 | `pipeline`     | < 5 K tok   | Roda script, lê output, reporta             |
 | `analista`     | < 8 K tok   | Lê ~3 CSVs, calcula, formata relatório      |

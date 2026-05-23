@@ -26,27 +26,38 @@ Transformar todo dado financeiro oficial, rastreável e legalmente publicável s
 
 ## Onde estamos
 
-Estado reconciliado para o deploy público de 2026-05-20: a base publicada já é suficiente para um MVP auditável, mas Sorocaba ainda não está 100%. As lacunas restantes continuam bloqueando o início do próximo município.
+Estado reconciliado em 2026-05-23. Score LAI: **71.1%** (55 datasets inventariados; 39 cobertos). A base publicada é suficiente para um MVP auditável — lacunas restantes documentadas e priorizadas no manifesto `sorocaba_100_auditavel.csv`.
 
 | Frente | Estado atual | Evidência |
 |---|---|---|
-| Saúde | Publicado 2020-2025 | `data/public/sorocaba/saude` |
+| Saúde | Publicado 2020-2025 + repasses FNS/FAF 2020-2026 | `data/public/sorocaba/saude` |
 | Educação | Publicado 2020-2025 | `data/public/sorocaba/educacao` |
 | Segurança | Publicado 2020-2025 | `data/public/sorocaba/seguranca` |
 | Transporte | Publicado 2020-2025, com limitação de subfunção | `data/public/sorocaba/transporte` |
 | Orçamento por função | Publicado 2020-2025 | `data/public/sorocaba/executivo` |
 | Receita agregada | Publicado 2020-2025 | `data/public/sorocaba/receita` |
-| Saúde fiscal | Publicado 2020-2025 | `data/public/sorocaba/fiscal` |
-| Despesa orçamentária | Publicado 2020-2025 | `data/public/sorocaba/despesa` |
+| Saúde fiscal / DCA | Publicado 2020-2025 + DCA SICONFI 2020-2025 (balanço patrimonial) | `data/public/sorocaba/fiscal` |
+| Despesa orçamentária | Publicado 2020-2025 (bug 2021 corrigido em 2026-05-23) | `data/public/sorocaba/despesa` |
 | Empenhos | Publicado 2020-2025 | `data/public/sorocaba/empenho` |
 | Fornecedores agregados | Publicado 2020-2025 | `data/public/sorocaba/fornecedores` |
 | Restos a pagar agregados | Publicado 2020-2025 | `data/public/sorocaba/restos` |
-| LOA - audiências públicas | Publicado 2022-2026 | `data/public/sorocaba/loa` |
-| Câmara - gabinete | Despesas de gabinete publicadas 2020-2026; contratos e emendas seguem pendentes | `data/public/sorocaba/camara/gabinete` |
+| LOA - audiências públicas | Publicado 2022-2026 (2020-2021 inexistentes) | `data/public/sorocaba/loa` |
+| Câmara - gabinete | Publicado 2020-2026 (1.578 registros) | `data/public/sorocaba/camara/gabinete` |
+| Câmara - TCE-SP | Publicado 2020-2025 via API TCE-SP (24.417 registros, R$1,23B) | `data/public/sorocaba/camara` |
+| Emendas impositivas | Publicado 2020-2026 via CEPA (3.627 emendas, 49 vereadores, R$263,9M indicado) | `data/public/sorocaba/emendas` |
+| Transferências federais | Publicado 2020-2025 via TCE-SP; Transferegov pendente | `data/public/sorocaba/transferencias` |
+| Controle externo | Publicado 2020-2025 via TCE-SP | `data/public/sorocaba/controle-externo` |
+| Autarquias (FUNSERV/SAAE) | Publicado 2020-2025 via API TCE-SP | `data/public/sorocaba/autarquias` |
 | Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
-| Fontes oficiais | 55 itens inventariados; fechamento auditável gerado em 2026-05-21 | `data/manifests/inventario_fontes_sorocaba.csv` e `data/manifests/sorocaba_100_auditavel.csv` |
-| Auditoria de cobertura | 156 arquivos CSV publicados em `data/public/sorocaba`; camadas internas continuam fora do Git | `data/manifests/datasets.csv` |
+| Fontes oficiais | 55 itens inventariados; score 71.1% em 2026-05-22 | `data/manifests/inventario_fontes_sorocaba.csv` e `data/manifests/sorocaba_100_auditavel.csv` |
+| Auditoria de cobertura | Manifesto auditável ativo; gaps priorizados por fase (API / Playwright / LAI) | `data/manifests/datasets.csv` |
 | Théo | Guia local determinístico criado; IA externa ainda não implementada | botão global no site e bloco `/#theo` |
+
+**Gaps ativos (priorizados):**
+- Transferências via Transferegov — bug de endpoint corrigido; coleta pendente
+- Contratos PNCP — API com timeout intermitente
+- Câmara realizado 2020-2021 — requer pedido LAI formal
+- LOA 2020-2021 — confirmado inexistente (declarado em `/lacunas`)
 
 ## Mapa das trilhas
 
