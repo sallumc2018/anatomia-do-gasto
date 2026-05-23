@@ -56,6 +56,7 @@ const nextConfig: NextConfig = {
       { source: "/receita",                       destination: "/sorocaba/receita",                       permanent: perm },
       { source: "/saude-fiscal",                  destination: "/sorocaba/saude-fiscal",                  permanent: perm },
       { source: "/camara-municipal",              destination: "/sorocaba/camara-municipal",              permanent: perm },
+      { source: "/emendas",                       destination: "/sorocaba/emendas",                       permanent: perm },
       { source: "/fornecedores",                  destination: "/sorocaba/fornecedores",                  permanent: perm },
       { source: "/pacto-federativo",              destination: "/sorocaba/pacto-federativo",              permanent: perm },
       { source: "/lacunas",                       destination: "/sorocaba/lacunas",                       permanent: perm },

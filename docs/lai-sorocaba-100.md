@@ -1,6 +1,6 @@
 # Pedidos LAI - Sorocaba 100
 
-Data de referencia: 2026-05-21.
+Data de referencia: 2026-05-23.
 
 Este arquivo prepara pedidos de acesso a informacao para fontes que ainda nao
 possuem prova completa de disponibilidade publica no projeto. Ele nao registra
@@ -712,28 +712,6 @@ Texto especifico:
 
 ```text
 Solicito os dados de projetos_leis_votacoes relativos a legislativo de Sorocaba/SP,
-com cobertura de 2020 a 2026, contendo no minimo identificador do registro,
-data ou competencia, valor, orgao/unidade responsavel, classificacao aplicavel,
-fonte original e eventuais documentos vinculados. Caso a informacao nao exista
-ou nao seja mantida por este orgao, solicito indicacao expressa do motivo e
-do orgao responsavel pela guarda do dado.
-```
-
-## Camara - emendas - emendas_impositivas
-
-- Prioridade: critica
-- Periodo: 2020-2026
-- Fonte inicial: https://servicos.sorocaba.sp.gov.br/cepa_publico/#/emendas
-- Dado solicitado: emendas_impositivas (emendas)
-- Formato desejado: html em formato aberto quando disponivel
-- Evidencia local: coleta operacional detectada em data/extracted/sorocaba/cepa/saida/cepa_manifest_coleta.json; ainda nao publicada
-- Bloqueio atual: Coleta interna existente precisa validacao semantica antes de publicar.
-- Proximo passo apos resposta: mapear_autor_destino_empenho_pagamento
-
-Texto especifico:
-
-```text
-Solicito os dados de emendas_impositivas relativos a emendas de Sorocaba/SP,
 com cobertura de 2020 a 2026, contendo no minimo identificador do registro,
 data ou competencia, valor, orgao/unidade responsavel, classificacao aplicavel,
 fonte original e eventuais documentos vinculados. Caso a informacao nao exista
