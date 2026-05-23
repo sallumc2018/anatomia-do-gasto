@@ -72,3 +72,14 @@ Se um auditor puder verificar:
 - e o arquivo final publicado;
 
 entao o projeto consegue oferecer transparencia forte sem publicar indiscriminadamente as camadas internas.
+
+## Estado Atual
+
+<!-- AUTO:coverage-start -->
+**Cobertura atual:**
+
+- **Cidades:** Paulinia, Sorocaba
+- **Datasets publicados:** 38
+- **Datasets em validação:** 2
+- **Atualizado em:** 2026-05-23
+<!-- AUTO:coverage-end -->

@@ -19,3 +19,14 @@ A auditoria cobre a cadeia completa de remuneração e destinação de recursos 
 - [Lacunas e impossibilidades](06-lacunas.md)
 
 > **Nota:** Nenhum valor monetário definitivo é apresentado nesta documentação, pois os dados são atualizados periodicamente. Aqui descrevem-se os campos, fluxos e validações.
+
+## Estado da Auditoria
+
+<!-- AUTO:coverage-start -->
+**Cobertura atual:**
+
+- **Cidades:** Paulinia, Sorocaba
+- **Datasets publicados:** 38
+- **Datasets em validação:** 2
+- **Atualizado em:** 2026-05-23
+<!-- AUTO:coverage-end -->
