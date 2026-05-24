@@ -1,0 +1,34 @@
+{
+  "_note": "Overrides manuais para datasets_status.json — têm precedência sobre detecção automática de arquivos. Editar aqui quando o status não é derivável da presença de arquivos (ex: em_coleta = dados em raw mas não publicados ainda).",
+  "datasets": {
+    "urbes-despesas-contratos": {
+      "status": "em_coleta",
+      "anosCobertos": 6
+    },
+    "obras-publicas": {
+      "status": "lacuna",
+      "anosCobertos": 0,
+      "registros": null
+    },
+    "receita-analitica": {
+      "status": "lacuna",
+      "anosCobertos": 0
+    },
+    "controle-externo-pareceres": {
+      "status": "parcial",
+      "anosCobertos": 1
+    },
+    "controle-externo-contas": {
+      "status": "parcial",
+      "anosCobertos": 6
+    },
+    "camara-gabinete": {
+      "status": "parcial",
+      "anosCobertos": 7
+    },
+    "precatorios": {
+      "status": "parcial",
+      "anosCobertos": 6
+    }
+  }
+}

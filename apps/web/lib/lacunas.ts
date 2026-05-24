@@ -1,3 +1,8 @@
+import _statusData from './datasets_status.json'
+
+type DynEntry = { status: Status; anosCobertos: number; registros?: number | null }
+const STATUS_MAP = _statusData.datasets as Record<string, DynEntry>
+
 export type Dimensao =
   | "executivo"
   | "contratos"
@@ -23,6 +28,7 @@ export interface Lacuna {
   anosPossiveis: number
   anosCobertos: number
   registros?: number
+  id?: string
 }
 
 const STATUS_SCORE: Record<Status, number | null> = {
@@ -125,7 +131,21 @@ export function calcularTotalRegistros(): number {
   return LACUNAS.reduce((acc, l) => acc + (l.registros ?? 0), 0)
 }
 
-export const LACUNAS: Lacuna[] = [
+function applyStatus(lacunas: Lacuna[]): Lacuna[] {
+  return lacunas.map(l => {
+    if (!l.id) return l
+    const dyn = STATUS_MAP[l.id]
+    if (!dyn) return l
+    return {
+      ...l,
+      status: dyn.status,
+      anosCobertos: dyn.anosCobertos,
+      ...(dyn.registros != null ? { registros: dyn.registros } : {}),
+    }
+  })
+}
+
+const _RAW: Lacuna[] = [
   // ── Fornecedores ──────────────────────────────────────────────────────────
   {
     area: "Fornecedores",
@@ -140,6 +160,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 6,
     anosCobertos: 6,
+    id: "fornecedores-conta-corrente",
   },
   {
     area: "Fornecedores",
@@ -155,6 +176,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 4_384,
+    id: "fornecedores-restos-pagar",
   },
   // ── Contratos e licitações ─────────────────────────────────────────────────
   {
@@ -171,6 +193,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 3,
     anosCobertos: 3,
+    id: "contratos-pncp",
   },
   {
     area: "Contratos e licitações",
@@ -185,6 +208,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 2,
     anosCobertos: 0,
+    id: "contratos-pre2022",
   },
   // ── Obras públicas ─────────────────────────────────────────────────────────
   {
@@ -200,6 +224,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "contratos",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "obras-publicas",
   },
   // ── Receita ────────────────────────────────────────────────────────────────
   {
@@ -215,6 +240,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "receita-analitica",
   },
   // ── Despesa ────────────────────────────────────────────────────────────────
   {
@@ -231,6 +257,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 203_231,
+    id: "despesa-empenhos",
   },
   {
     area: "Despesa",
@@ -246,6 +273,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 300_186,
+    id: "despesa-orcamentaria",
   },
   // ── Orçamento ──────────────────────────────────────────────────────────────
   {
@@ -261,6 +289,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 5,
     anosCobertos: 5,
+    id: "orcamento-loa-audiencia",
   },
   {
     area: "Orçamento",
@@ -275,6 +304,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 0,
     anosCobertos: 0,
+    id: "orcamento-loa-2020-2021",
   },
   // ── Câmara Municipal ───────────────────────────────────────────────────────
   {
@@ -291,6 +321,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 4,
     registros: 17_498,
+    id: "camara-emendas",
   },
   {
     area: "Câmara Municipal",
@@ -305,6 +336,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "camara",
     anosPossiveis: 7,
     anosCobertos: 7,
+    id: "camara-gabinete",
   },
   {
     area: "Câmara Municipal",
@@ -320,6 +352,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 24_417,
+    id: "camara-execucao",
   },
   {
     area: "Câmara Municipal",
@@ -334,6 +367,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "camara",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "camara-contratos",
   },
   // ── Urbes ──────────────────────────────────────────────────────────────────
   {
@@ -349,6 +383,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    id: "urbes-despesas-contratos",
   },
   // ── SAAE ───────────────────────────────────────────────────────────────────
   {
@@ -365,6 +400,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 76_402,
+    id: "saae-despesas-receitas",
   },
   // ── FUNSERV ────────────────────────────────────────────────────────────────
   {
@@ -380,6 +416,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
+    id: "funserv-rpps",
   },
   {
     area: "FUNSERV",
@@ -395,6 +432,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 9_154,
+    id: "funserv-saude",
   },
   // ── Empresas municipais ───────────────────────────────────────────────────
   {
@@ -411,6 +449,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 46_504,
+    id: "empresas-municipais",
   },
   // ── Consórcios ─────────────────────────────────────────────────────────────
   {
@@ -426,6 +465,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "consorcios-intermunicipais",
   },
   // ── Transferências federais ────────────────────────────────────────────────
   {
@@ -442,6 +482,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 2_706,
+    id: "transferencias-federais",
   },
   // ── Transferências estaduais ───────────────────────────────────────────────
   {
@@ -458,6 +499,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 84,
+    id: "transferencias-estaduais",
   },
   // ── Subvenções a entidades ─────────────────────────────────────────────────
   {
@@ -474,6 +516,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 10_981,
+    id: "subvencoes-osc",
   },
   // ── Pessoal ────────────────────────────────────────────────────────────────
   {
@@ -489,6 +532,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "pessoal-remuneracao",
   },
   // ── Precatórios ────────────────────────────────────────────────────────────
   {
@@ -505,6 +549,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 1_358,
+    id: "precatorios",
   },
   // ── Patrimônio imobiliário ─────────────────────────────────────────────────
   {
@@ -520,6 +565,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "executivo",
     anosPossiveis: 6,
     anosCobertos: 0,
+    id: "patrimonio-imoveis",
   },
   // ── Controle externo ───────────────────────────────────────────────────────
   {
@@ -536,6 +582,7 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 1,
     registros: 4,
+    id: "controle-externo-pareceres",
   },
   {
     area: "Controle externo",
@@ -550,6 +597,7 @@ export const LACUNAS: Lacuna[] = [
     dimensao: "controle_externo",
     anosPossiveis: 6,
     anosCobertos: 6,
+    id: "controle-externo-contas",
   },
   // ── SICONFI ────────────────────────────────────────────────────────────────
   {
@@ -566,5 +614,8 @@ export const LACUNAS: Lacuna[] = [
     anosPossiveis: 6,
     anosCobertos: 6,
     registros: 11_466,
+    id: "siconfi-dca",
   },
 ]
+
+export const LACUNAS: Lacuna[] = applyStatus(_RAW)
