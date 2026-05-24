@@ -25,6 +25,7 @@ const MAIS_NAV = [
   { href: "/sorocaba/pacto-federativo", label: "Federativo" },
   { href: "/sorocaba/emendas", label: "Emendas" },
   { href: "/sorocaba/lacunas", label: "Lacunas" },
+  { href: "/sorocaba/acesso-a-informacao", label: "LAI" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre" },
 ]
