@@ -255,3 +255,44 @@ As análises acima cobrem o que está publicado em `data/public/sorocaba/`. Há 
 - **Destaque:** 3 alertas merecem atenção imediata — transporte (+543%), passivo atuarial (+577%) e urbanismo (-21%)
 - **Bloqueios:** 9 áreas com dados ausentes (ver tabela de lacunas acima)
 - **Próximo passo:** /frontino pedidos — acompanhar respostas dos e-SIC para fechar as lacunas; quando Urbes e FUNSERV responderem, /plinio sorocaba transporte e /plinio sorocaba previdencia para análise aprofundada
+
+---
+
+## Handoff — Plínio → Equipe
+
+**Data de produção:** 2026-05-24
+**Status:** análise completa de todas as 7 áreas publicadas em data/public/sorocaba/ — receita, saúde, educação, transporte, previdência, administração/câmara e segurança/urbanismo — com série histórica 2020–2025.
+
+### Top 3 insights que merecem atenção prioritária
+
+1. **Passivo previdenciário: R$ 8,9 bilhões (+577% em 5 anos).** O FUNSERV acumula uma dívida futura com aposentados equivalente a quase 2 anos da receita total do município. Esse valor não entra nos limites da LRF mas representa risco fiscal concreto. Sem o laudo atuarial completo (e-SIC 12-13), não é possível distinguir se o crescimento é metodológico ou real — o que por si só já é um alerta.
+
+2. **Transporte: crescimento de 543% sem explicação pública.** De R$ 98 milhões em 2020 para R$ 630 milhões em 2025, o gasto com transporte virou a terceira maior função do orçamento. Nenhum dado publicado explica esse salto: os contratos da Urbes, os subsídios à operadora e os investimentos viários ainda estão fora do projeto (e-SIC 07-09). É a maior lacuna de transparência identificada.
+
+3. **Urbanismo: queda de 21% em termos absolutos.** Enquanto o orçamento total quase dobrou, os gastos com calçadas, praças, iluminação e manutenção viária caíram de R$ 248 mi para R$ 196 mi. A participação no orçamento despencou de 8,8% para 3,6%. Sorocaba está crescendo financeiramente e desinvestindo no espaço público — uma contradição que precisa de investigação e comunicação cidadã.
+
+### Áreas com dados ausentes — dependem de e-SIC
+
+| Área | Pedidos e-SIC | O que falta |
+|---|---|---|
+| Urbes — transporte público | 07, 08, 09 | Contratos, subsídios, remuneração da operadora |
+| FUNSERV — previdência | 12, 13 | Balanço do fundo, laudo atuarial, cobertura das reservas |
+| SAAE — saneamento | 10, 11 | Balanço da autarquia, contratos de obras, tarifas |
+| Câmara Municipal | 06, 26, 27 | Subsídios de vereadores, contratos, despesas de gabinete |
+| Contratos e licitações (geral) | 05, 23 | Volume contratado por fornecedor e modalidade |
+| Obras públicas | 04 | Endereço, valor e estado de execução por obra |
+| Remuneração de servidores | 25 | Tabela nominal ou por cargo/faixa salarial |
+| LOA / LDO / PPA detalhados | 14, 15, 16 | Planejamento plurianual e metas fiscais |
+
+### Próximo passo
+
+Quando novos dados chegarem via e-SIC, invocar:
+
+```
+/plinio sorocaba transporte <anos>     # após resposta dos pedidos 07-09 (Urbes)
+/plinio sorocaba previdencia <anos>    # após resposta dos pedidos 12-13 (FUNSERV)
+/plinio sorocaba saneamento <anos>     # após resposta dos pedidos 10-11 (SAAE)
+/plinio sorocaba camara <anos>         # após resposta dos pedidos 06, 26, 27
+```
+
+Invocar `/frontino pedidos` para monitorar o prazo e o status das respostas dos e-SIC em aberto.
