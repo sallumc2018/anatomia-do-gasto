@@ -231,6 +231,18 @@ def abrir_csv_do_zip(zip_path: Path):
 
 
 def detectar_dialeto_e_encoding(amostra: bytes) -> tuple[str, csv.Dialect]:
+    # BOM UTF-8 explícito: forçar utf-8-sig para garantir stripping do BOM.
+    # Arquivos Windows podem ter BOM + conteúdo latin-1; TextIOWrapper com
+    # utf-8-sig + errors='replace' strip o BOM e aceita bytes inválidos.
+    if amostra.startswith(b"\xef\xbb\xbf"):
+        texto = amostra[3:-4].decode("utf-8", errors="replace")
+        try:
+            dialeto = csv.Sniffer().sniff(texto, delimiters=";,")
+        except csv.Error:
+            dialeto = csv.excel
+            dialeto.delimiter = ";"
+        return "utf-8-sig", dialeto
+
     for encoding in ("utf-8-sig", "latin-1"):
         try:
             texto = amostra[:-4].decode(encoding)
