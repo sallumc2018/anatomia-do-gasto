@@ -1,11 +1,21 @@
 {
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-Item *)",
+      "Bash(rtk gain*)",
+      "mcp__claude_ai_Gmail__search_threads"
+    ]
+  },
   "hooks": {
     "UserPromptSubmit": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "git status --short"
+            "command": "if (Test-Path .git) { git status --short }"
           }
         ]
       }
