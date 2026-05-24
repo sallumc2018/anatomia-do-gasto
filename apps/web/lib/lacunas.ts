@@ -339,16 +339,16 @@ export const LACUNAS: Lacuna[] = [
   {
     area: "Urbes",
     dado: "Despesas mensais, contratos e remuneração do transporte público",
-    status: "lacuna",
+    status: "em_coleta",
     prioridade: "crítica",
     anos: "2020–2026",
     fonte: "Portal de Transparência da Urbes",
     url: "https://www.urbes.com.br/transparencia/index",
-    proximo_passo: "Normalizar os documentos inventariados por categoria e validar totais antes de qualquer publicação.",
-    observacao: "Inventário e downloads oficiais avançaram em 2026-05-20, incluindo despesas, balancetes, RH, remuneração do transporte e contratos. Ainda não há dataset validado em data/public.",
+    proximo_passo: "Rodar pipeline de extração de texto nos PDFs baixados, normalizar para CSV e validar totais antes de publicar.",
+    observacao: "369 arquivos / 1,76 GB baixados em 2026-05-23 via Playwright: contratos_transporte (39), contratos_receitas (91), contratos_outros (47), relacao_mensal_despesas (17), remuneracao_transporte_publico (2). Dados cobrem 2020–2025. Normalização e QA pendentes.",
     dimensao: "autarquias",
     anosPossiveis: 6,
-    anosCobertos: 0,
+    anosCobertos: 6,
   },
   // ── SAAE ───────────────────────────────────────────────────────────────────
   {
