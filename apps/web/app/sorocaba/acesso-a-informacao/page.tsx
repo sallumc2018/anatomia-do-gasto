@@ -74,8 +74,8 @@ const PASSOS = [
   },
   {
     n: "2",
-    titulo: "Clique em "Acesso à Informação – LAI"",
-    detalhe: "Na tela inicial, localize a seção dedicada à Lei de Acesso à Informação e selecione "Pedido de Acesso à Informação".",
+    titulo: 'Clique em "Acesso à Informação – LAI"',
+    detalhe: 'Na tela inicial, localize a seção dedicada à Lei de Acesso à Informação e selecione "Pedido de Acesso à Informação".',
   },
   {
     n: "3",

@@ -186,14 +186,14 @@ export const PEDIDOS_LAI: PedidoLAI[] = [
     id: 21,
     orgao: "Prefeitura de Sorocaba",
     descricao: "Aplicação de recursos em saúde — relatórios da LRF (2020–2026)",
-    status: "pendente",
+    status: "publicado",
     prioridade: "alta",
   },
   {
     id: 22,
     orgao: "Prefeitura de Sorocaba",
     descricao: "Aplicação de recursos em educação — relatórios da LRF (2020–2026)",
-    status: "pendente",
+    status: "publicado",
     prioridade: "alta",
   },
   {
@@ -289,8 +289,44 @@ export const PEDIDOS_LAI: PedidoLAI[] = [
     status: "pendente",
     prioridade: "baixa",
   },
+  // === FEDERAL (36–40) — dados de portais federais ===
+  {
+    id: 36,
+    orgao: "Tesouro Nacional (SICONFI)",
+    descricao: "Matriz de saldos contábeis mensal — livro razão digital enviado ao Tesouro Nacional (2020–2026)",
+    status: "pendente",
+    prioridade: "crítica",
+  },
+  {
+    id: 37,
+    orgao: "FNDE (SIOPE)",
+    descricao: "Receitas e despesas em educação — dados do SIOPE para validação independente (2020–2026)",
+    status: "pendente",
+    prioridade: "alta",
+  },
+  {
+    id: 38,
+    orgao: "FNDE",
+    descricao: "Repasses federais em educação — PNAE, PDDE, PNATE e FUNDEB enviados a Sorocaba (2020–2026)",
+    status: "pendente",
+    prioridade: "alta",
+  },
+  {
+    id: 39,
+    orgao: "Controladoria-Geral da União (CGU)",
+    descricao: "Transferências federais recebidas por Sorocaba — constitucionais, legais e voluntárias (2020–2026)",
+    status: "pendente",
+    prioridade: "crítica",
+  },
+  {
+    id: 40,
+    orgao: "Governo Federal (PNCP)",
+    descricao: "Licitações, contratos e atas registrados no Portal Nacional de Contratações Públicas (2022–2026)",
+    status: "pendente",
+    prioridade: "crítica",
+  },
 ]
 
 export const TOTAL_PEDIDOS = PEDIDOS_LAI.length
-export const PROTOCOLADOS = PEDIDOS_LAI.filter((p) => p.status !== "pendente").length
+export const PROTOCOLADOS = PEDIDOS_LAI.filter((p) => p.status === "protocolado" || p.status === "respondido" || p.status === "recurso").length
 export const RESPONDIDOS = PEDIDOS_LAI.filter((p) => p.status === "respondido" || p.status === "publicado").length
