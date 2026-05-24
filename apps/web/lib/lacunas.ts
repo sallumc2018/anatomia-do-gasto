@@ -131,6 +131,10 @@ export function calcularTotalRegistros(): number {
   return LACUNAS.reduce((acc, l) => acc + (l.registros ?? 0), 0)
 }
 
+export function calcularDatasetsPublicados(): number {
+  return Object.values(STATUS_MAP).filter(d => d.status === "publicado").length
+}
+
 function applyStatus(lacunas: Lacuna[]): Lacuna[] {
   return lacunas.map(l => {
     if (!l.id) return l

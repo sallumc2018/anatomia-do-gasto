@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
-import { calcularCobertura, calcularTotalRegistros } from "@/lib/lacunas"
+import { calcularCobertura, calcularTotalRegistros, calcularDatasetsPublicados } from "@/lib/lacunas"
 import { APRENDIZADO } from "@/lib/aprendizado"
 
 export const metadata: Metadata = {
@@ -61,6 +61,7 @@ const VOLUNTARIOS = [
 export default function SobrePage() {
   const { percent } = calcularCobertura()
   const totalRegistros = Math.floor(calcularTotalRegistros() / 1_000)
+  const datasetsPublicados = calcularDatasetsPublicados()
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -119,7 +120,7 @@ export default function SobrePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0" style={S.borderTop}>
               {[
                 { valor: `${percent}%`,    rotulo: "Cobertura de dados",     detalhe: "Sorocaba/SP" },
-                { valor: "156",            rotulo: "Datasets publicados",    detalhe: "13 áreas temáticas" },
+                { valor: `${datasetsPublicados}`,  rotulo: "Datasets publicados",    detalhe: "13 áreas temáticas" },
                 { valor: `${totalRegistros} mil+`, rotulo: "Registros disponíveis",  detalhe: "Séries históricas" },
                 { valor: "2020–2025",      rotulo: "Anos cobertos",          detalhe: "Série completa" },
               ].map((stat, i) => (

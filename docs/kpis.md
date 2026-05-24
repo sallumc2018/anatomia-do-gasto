@@ -31,13 +31,13 @@ Página pública: `/sorocaba/lacunas`.
 
 | Indicador | Hoje (mai/2026) | Meta set/2026 | Meta dez/2026 |
 |-----------|-----------------|---------------|---------------|
-| **Score global** | ~39% | 55% | 70% |
-| Executivo (peso 30%) | ~71% | 85% | 95% |
-| Contratos/fornecedores (peso 20%) | ~43% | 60% | 75% |
-| Câmara Municipal (peso 10%) | ~67% | 80% | 90% |
-| Autarquias/fundações (peso 15%) | 0% | 20% | 40% |
-| Transferências (peso 15%) | ~7% | 30% | 50% |
-| Controle externo (peso 10%) | ~17% | 30% | 50% |
+| **Score global** | ~59% | 70% | 80% |
+| Executivo (peso 30%) | ~85% | 90% | 95% |
+| Contratos/fornecedores (peso 20%) | ~55% | 70% | 80% |
+| Câmara Municipal (peso 10%) | ~80% | 85% | 90% |
+| Autarquias/fundações (peso 15%) | ~40% | 55% | 70% |
+| Transferências (peso 15%) | ~50% | 65% | 75% |
+| Controle externo (peso 10%) | ~30% | 45% | 60% |
 
 **Próximos blocos de maior impacto no score:**
 1. Transferências federais (+2pp) — pipeline pronto, aguarda chave API
@@ -108,4 +108,4 @@ Rastreados manualmente pelo mantenedor.
 
 ---
 
-*Criado em 2026-05-22. Próxima revisão: 2026-05-30 (última sexta de maio).*
+*Criado em 2026-05-22. Atualizado em 2026-05-24. Próxima revisão: 2026-05-30 (última sexta de maio).*

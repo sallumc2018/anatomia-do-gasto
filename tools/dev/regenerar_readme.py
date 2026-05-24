@@ -76,6 +76,7 @@ def get_last_commit_date() -> str:
             cwd=ROOT,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=5
         )
         if result.returncode == 0:
@@ -92,6 +93,7 @@ def get_last_commits(n: int = 5) -> str:
             cwd=ROOT,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=5
         )
         if result.returncode == 0:
@@ -106,10 +108,17 @@ def generate_coverage_section() -> str:
     municipios = read_municipios()
     public, validated = read_datasets_csv()
 
+    public_dir = ROOT / "data" / "public"
+    cidades_publicadas = [
+        municipios[k]["nome"]
+        for k in sorted(municipios.keys())
+        if (public_dir / k).exists() and any((public_dir / k).iterdir())
+    ]
+
     lines = [
         "**Cobertura atual:**",
         "",
-        f"- **Cidades:** {', '.join(municipios[k]['nome'] for k in sorted(municipios.keys()))}",
+        f"- **Cidades:** {', '.join(cidades_publicadas) if cidades_publicadas else 'Nenhuma'}",
         f"- **Datasets publicados:** {public}",
         f"- **Datasets em validação:** {validated}",
         f"- **Atualizado em:** {get_last_commit_date()}",

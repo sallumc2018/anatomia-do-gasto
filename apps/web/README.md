@@ -40,8 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 <!-- AUTO:coverage-start -->
 **Cobertura atual:**
 
-- **Cidades:** Paulinia, Sorocaba
-- **Datasets publicados:** 38
+- **Cidades:** Sorocaba
+- **Datasets publicados:** 51
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-23
+- **Atualizado em:** 2026-05-24
 <!-- AUTO:coverage-end -->

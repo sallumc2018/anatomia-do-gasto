@@ -9,10 +9,10 @@ Site oficial: https://www.anatomiadogasto.ong.br
 <!-- AUTO:coverage-start -->
 **Cobertura atual:**
 
-- **Cidades:** Paulinia, Sorocaba
-- **Datasets publicados:** 38
+- **Cidades:** Sorocaba
+- **Datasets publicados:** 51
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-23
+- **Atualizado em:** 2026-05-24
 <!-- AUTO:coverage-end -->
 
 O projeto não realiza auditoria jurídica nem emite juízo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificação independente.
@@ -118,14 +118,14 @@ Manifests ficam em `data/manifests`. Cada dataset publicável deve registrar fon
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- 0578a7b data(transferencias): publica transferencias federais TCE-SP 2020-2025
-- 97da94b feat(frontend): pÃ¡ginas autarquias, controle-externo + nav emendas + cÃ¢mara TCE
-- 0b229c2 refactor(pipelines): registro central MUNICIPIOS habilita multi-municipio
-- d580e1c fix(pipeline): corrige subextraÃ§Ã£o despesa_orcamentaria_2021 (+22k registros)
-- 3eb4e60 chore(manifests): emendas marcadas publicado + redirect /emendas adicionado
-- fac7f46 feat(sorocaba): contratos legados 2020-2021 -- licitacoes (1078) + obras (69) + precatorios
-- af6018b fix(sobre): email pessoal removido, registros dinamicos, jargao humanizado
-- 3ada240 feat(sobre): substituir pÃ¡gina /sobre com conteÃºdo do fundador e feed de aprendizado
-- 039ffb9 docs(handoffs): despacho 71%->80% -- urbes, obras, controle-externo, consorcios
-- 6c1512d feat(sorocaba): cobertura 39%->71.1% -- 15 datasets, 13 pipelines
+- c09b6f9 chore: adiciona playwright ao requirements e corrige hook UserPromptSubmit
+- 4328119 security(ci): pin actions por SHA e restringir permissions a read
+- 288da6a feat(lai): fechar lista de pedidos LAI — 35→40 pedidos, 2 publicados
+- 51b0681 feat(lai): página diário cidadão LAI + lib de pedidos e-SIC
+- 937726c feat(pncp): extrai contratos+atas+compras Sorocaba 2022-2025 via Playwright
+- 2b3c659 docs(sessao): registra documentacao tecnica, LAI e analise cidada
+- e808f36 fix(transferegov): corrige BOM UTF-8 que quebrava cascade de IDs
+- 6931e46 feat(pipeline+lai+analise): fecha Blocos II e III das Clausulas Petras
+- 25041b7 feat(lacunas): arquitetura dinâmica de métricas — JSON gerado por script
+- b88c47a chore(cobertura): atualiza status Urbes para em_coleta e manifesto LAI
 <!-- AUTO:activity-end -->
