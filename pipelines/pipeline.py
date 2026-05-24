@@ -2,7 +2,7 @@
 Executa o pipeline completo de saúde e educação para um ou mais anos:
   1. Baixar PDFs do portal (saúde + educação)
   2. Extrair dados para CSV
-  3. Verificar integridade dos dados de saúde
+  3. Verificar integridade (RREO saúde, educação, saúde) imediatamente após cada extração
   4. Gerar HTML
 
 Uso:
@@ -20,16 +20,18 @@ SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 PYTHON      = sys.executable
 
 ETAPAS = [
-    ('Download',          'baixar_pdfs.py'),
-    ('Extracao',          'extrator_saude.py'),
-    ('RREO',              'extrator_rreo.py'),
-    ('BaixarRREO',        'baixar_rreo_sus.py'),
-    ('ExtracaoRREO',      'extrator_rreo_sus.py'),
-    ('DownloadEducacao',  'baixar_pdfs_educacao.py'),
-    ('ExtracaoEducacao',  'extrator_educacao.py'),
-    ('Verificacao',       os.path.join('testes', 'verificar_dados.py')),
-    ('HTML',              'gerar_html.py'),
-    ('Index',             'gerar_index.py'),
+    ('Download',             'baixar_pdfs.py'),
+    ('Extracao',             'extrator_saude.py'),
+    ('RREO',                 'extrator_rreo.py'),
+    ('BaixarRREO',           'baixar_rreo_sus.py'),
+    ('ExtracaoRREO',         'extrator_rreo_sus.py'),
+    ('VerificacaoRREO',      os.path.join('testes', 'verificar_dados_rreo_saude.py')),
+    ('DownloadEducacao',     'baixar_pdfs_educacao.py'),
+    ('ExtracaoEducacao',     'extrator_educacao.py'),
+    ('VerificacaoEducacao',  os.path.join('testes', 'verificar_dados_educacao.py')),
+    ('VerificacaoSaude',     os.path.join('testes', 'verificar_dados.py')),
+    ('HTML',                 'gerar_html.py'),
+    ('Index',                'gerar_index.py'),
 ]
 
 ETAPAS_DOWNLOAD = {'Download', 'BaixarRREO', 'DownloadEducacao'}

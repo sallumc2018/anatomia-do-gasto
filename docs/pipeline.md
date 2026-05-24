@@ -40,6 +40,32 @@ Linux/WSL:
 ./.venv/bin/python pipelines/testes/verificar_publicacao.py
 ```
 
+## Etapa Plínio — Interpretação Cidadã
+
+Após QA aprovado e antes de executar `publicar_dados.py`, invocar Plínio para gerar a narrativa cidadã dos dados. Essa etapa fecha o Bloco III do pipeline e garante que cada publicação venha acompanhada de interpretação acessível.
+
+**Quando invocar:** após `verificar_publicacao.py --strict` passar sem erros, para cada área ou município com dados novos ou atualizados.
+
+```
+/plinio <municipio> <area> <anos>
+/plinio sorocaba saude 2020-2025
+/plinio sorocaba educacao 2025
+/plinio sorocaba todas-as-areas
+```
+
+**O que Plínio deve produzir:** resumo em linguagem cidadã com valor total do período, comparação entre anos e ao menos um insight relevante. Arquivo salvo em `docs/plinio-<municipio>-<area>.md`.
+
+Exemplo de saídas esperadas:
+
+```
+docs/plinio-sorocaba-saude.md
+docs/plinio-sorocaba-educacao.md
+docs/plinio-sorocaba-transporte.md
+docs/plinio-sorocaba-todas-as-areas.md
+```
+
+A etapa Plínio não bloqueia os scripts tecnicamente — `publicar_dados.py` pode ser executado mesmo sem o doc. A regra de processo é: para toda área nova publicada, o doc correspondente deve existir em `docs/` antes do próximo deploy.
+
 ## Publicação
 
 Depois de validar localmente:
