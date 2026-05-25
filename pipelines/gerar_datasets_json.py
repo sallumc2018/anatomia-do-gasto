@@ -91,7 +91,7 @@ CATALOGO = {
     },
     "camara-emendas": {
         "arquivo": "emendas/saida/emendas_cepa_sorocaba_2020_2026.csv",
-        "anos_cobertos_fixo": 4,  # CEPA disponível apenas 2022–2025
+        "anos_cobertos_fixo": 6,  # CEPA 2020–2025 (2020-2021: 2 regs cada; efetivo 2022+)
     },
     "camara-gabinete": {
         "glob_padrao": "camara/gabinete/saida/despesas_gabinete_camara_sorocaba_{ano}.csv",
@@ -107,7 +107,7 @@ CATALOGO = {
         "anos": [],
     },
     "urbes-despesas-contratos": {
-        # 369 PDFs em data/raw, normalização pendente — override para "em_coleta"
+        # Lei 8890 despesas mensais publicadas (75 regs 2020-2026); override para "parcial"
         "glob_padrao": "transporte/saida/urbes_*.csv",
         "anos": [],
     },

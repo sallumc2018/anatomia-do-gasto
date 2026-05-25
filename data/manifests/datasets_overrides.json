@@ -1,14 +1,17 @@
 {
   "_note": "Overrides manuais para datasets_status.json — têm precedência sobre detecção automática de arquivos. Editar aqui quando o status não é derivável da presença de arquivos (ex: em_coleta = dados em raw mas não publicados ainda).",
   "datasets": {
+    "orcamento-loa-2020-2021": {
+      "status": "inexistente",
+      "anosCobertos": 0
+    },
     "urbes-despesas-contratos": {
-      "status": "em_coleta",
+      "status": "parcial",
       "anosCobertos": 6
     },
     "obras-publicas": {
-      "status": "lacuna",
-      "anosCobertos": 0,
-      "registros": null
+      "status": "parcial",
+      "anosCobertos": 6
     },
     "receita-analitica": {
       "status": "lacuna",
@@ -23,7 +26,7 @@
       "anosCobertos": 6
     },
     "camara-gabinete": {
-      "status": "parcial",
+      "status": "publicado",
       "anosCobertos": 7
     },
     "precatorios": {

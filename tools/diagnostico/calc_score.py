@@ -11,8 +11,8 @@ items = [
   ('contratos','publicado',6,6),  # fornecedores
   ('contratos','publicado',6,6),  # restos
   ('contratos','publicado',3,3),  # PNCP 3/3 anos (Sorocaba entrou 2023)
-  ('contratos','lacuna',2,0),     # pre-2022
-  ('contratos','lacuna',6,0),     # obras
+  ('contratos','publicado',2,2),  # pre-2022 (licitacoes_sorocaba_2020_2021.csv, 1078 regs)
+  ('contratos','parcial',6,6),    # obras (obras_sorocaba.csv, 69 regs ativos 2020-2026; incompleto)
   ('contratos','publicado',6,6),  # empenhos
   ('contratos','parcial',6,6),    # precatórios (1358 regs, R$336.8M, TRT15/TRT3/TRF3/DEPRE 2020-2026, TRT_2025 scanned)
   # LACUNAS executivo
@@ -23,13 +23,13 @@ items = [
   ('executivo','lacuna',6,0),     # pessoal
   ('executivo','lacuna',6,0),     # patrimônio
   # LACUNAS camara
-  ('camara','publicado',6,4),     # emendas 4/6
-  ('camara','parcial',7,7),       # gabinete
+  ('camara','publicado',6,6),     # emendas 6/6 (2020-2025 no cepa; 2020-2021 com 2 regs cada)
+  ('camara','publicado',7,7),     # gabinete (7 CSVs publicados 2020-2026)
   ('camara','publicado',6,6),     # camara despesas TCE 2020-2025 (24.417 registros)
   ('camara','lacuna',6,0),        # contratos camara
   # LACUNAS autarquias
   ('autarquias','publicado',6,6),    # SAAE despesas+receitas TCE 6/6
-  ('autarquias','lacuna',6,0),       # Urbes
+  ('autarquias','parcial',6,6),       # Urbes Lei 8890 despesas mensais (75 regs, 2020-2026; sem contratos/licitações)
   ('autarquias','publicado',6,6),    # FUNSERV RPPS 6/6 anos
   ('autarquias','publicado',6,6),    # FUNSERV Saude (9.154 registros, R$3,27B)
   ('autarquias','publicado',6,6),    # Empresas municipais (EDUSS+PT)

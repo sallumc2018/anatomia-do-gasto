@@ -1,6 +1,6 @@
 {
   "_note": "Gerado por pipelines/gerar_datasets_json.py — não editar manualmente",
-  "_generated": "2026-05-24",
+  "_generated": "2026-05-25",
   "datasets": {
     "fornecedores-conta-corrente": {
       "status": "publicado",
@@ -15,7 +15,7 @@
     "contratos-pncp": {
       "status": "publicado",
       "anosCobertos": 3,
-      "registros": 295
+      "registros": 2102
     },
     "contratos-pre2022": {
       "status": "publicado",
@@ -23,9 +23,9 @@
       "registros": 1080
     },
     "obras-publicas": {
-      "status": "lacuna",
-      "anosCobertos": 0,
-      "registros": null
+      "status": "parcial",
+      "anosCobertos": 6,
+      "registros": 69
     },
     "receita-analitica": {
       "status": "lacuna",
@@ -48,16 +48,16 @@
       "registros": 164
     },
     "orcamento-loa-2020-2021": {
-      "status": "lacuna",
+      "status": "inexistente",
       "anosCobertos": 0
     },
     "camara-emendas": {
       "status": "publicado",
-      "anosCobertos": 4,
+      "anosCobertos": 6,
       "registros": 3635
     },
     "camara-gabinete": {
-      "status": "parcial",
+      "status": "publicado",
       "anosCobertos": 7,
       "registros": 1578
     },
@@ -71,8 +71,9 @@
       "anosCobertos": 0
     },
     "urbes-despesas-contratos": {
-      "status": "em_coleta",
-      "anosCobertos": 6
+      "status": "parcial",
+      "anosCobertos": 6,
+      "registros": 75
     },
     "saae-despesas-receitas": {
       "status": "publicado",
