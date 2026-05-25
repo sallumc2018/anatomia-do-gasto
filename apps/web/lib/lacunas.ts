@@ -1,4 +1,4 @@
-import _statusData from './datasets_status.json'
+﻿import _statusData from './datasets_status.json'
 
 type DynEntry = { status: Status; anosCobertos: number; registros?: number | null }
 const STATUS_MAP = _statusData.datasets as Record<string, DynEntry>
@@ -351,7 +351,7 @@ const _RAW: Lacuna[] = [
     fonte: "Portal de Transparência TCE-SP",
     url: "https://transparencia.tce.sp.gov.br",
     proximo_passo: "Cruzar com emendas por vereador e construir visão de gasto por programa/função.",
-    observacao: "Publicado em 2026-05-22: 24.417 registros com empenho, liquidação, pagamento, anulações e reforços. Câmara gastou R$50–81M/ano (empenhos) em 2020-2025; total acumulado R$1,23B. Arquivo: data/public/sorocaba/camara/saida/camara_despesas_tce_2020_2025.csv.",
+    observacao: "Publicado em 2026-05-22: 24.417 registros com empenho, liquidação, pagamento, anulações e reforços. Câmara gastou R$50–81M/ano (empenhos) em 2020-2025; total acumulado R$1,23B. Arquivo: data/public/sorocaba/camara/saida/camara_despesas_tce_2020_2026.csv.",
     dimensao: "camara",
     anosPossiveis: 6,
     anosCobertos: 6,
@@ -431,7 +431,7 @@ const _RAW: Lacuna[] = [
     fonte: "Portal de Transparência TCE-SP",
     url: "https://transparencia.tce.sp.gov.br",
     proximo_passo: "Complementar com receitas (contribuições dos servidores) e cruzar com beneficiários e prestadores de saúde.",
-    observacao: "Publicado em 2026-05-22: 9.154 registros de despesas do FUNSERV Assistência Médica 2020–2025. Gasto cresceu de R$121M (2020) para R$199M/ano (2025); total acumulado R$3,27B. Entidade distinta do FUNSERV Previdência (RPPS). Arquivo: data/public/sorocaba/autarquias/saida/funserv_saude_tce_2020_2025.csv.",
+    observacao: "Publicado em 2026-05-22: 9.154 registros de despesas do FUNSERV Assistência Médica 2020–2025. Gasto cresceu de R$121M (2020) para R$199M/ano (2025); total acumulado R$3,27B. Entidade distinta do FUNSERV Previdência (RPPS). Arquivo: data/public/sorocaba/autarquias/saida/funserv_saude_tce_2020_2026.csv.",
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,
@@ -448,7 +448,7 @@ const _RAW: Lacuna[] = [
     fonte: "Portal de Transparência TCE-SP",
     url: "https://transparencia.tce.sp.gov.br",
     proximo_passo: "Complementar com receitas e contratos. Adicionar Urbes quando disponível no TCE-SP.",
-    observacao: "Publicado em 2026-05-22: 46.504 registros (EDUSS R$1,2B + Parque Tecnológico R$155M) 2020-2025. Arquivo: empresas_municipais_tce_2020_2025.csv em data/public/sorocaba/autarquias/saida/.",
+    observacao: "Publicado em 2026-05-22: 46.504 registros (EDUSS R$1,2B + Parque Tecnológico R$155M) 2020-2025. Arquivo: empresas_municipais_tce_2020_2026.csv em data/public/sorocaba/autarquias/saida/.",
     dimensao: "autarquias",
     anosPossiveis: 6,
     anosCobertos: 6,

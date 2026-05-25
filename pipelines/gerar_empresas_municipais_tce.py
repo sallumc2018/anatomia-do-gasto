@@ -1,11 +1,11 @@
-"""
+﻿"""
 Baixa e publica despesas das empresas municipais de Sorocaba via API TCE-SP.
 
 Entidades: EDUSS (Empresa de Desenvolvimento Urbano e Social) e
            Empresa Municipal Parque Tecnológico de Sorocaba.
 
 Entrada:  API https://transparencia.tce.sp.gov.br/api/json/despesas/sorocaba/{ano}/{mes}
-Saída:    data/public/sorocaba/autarquias/saida/empresas_municipais_tce_2020_2025.csv
+Saída:    data/public/sorocaba/autarquias/saida/empresas_municipais_tce_2020_2026.csv
 
 Fonte: Portal de Transparência TCE-SP — https://transparencia.tce.sp.gov.br
 """
@@ -25,7 +25,7 @@ ORGAOS_ALVO = {
     "EMPRESA DE DESENVOLVIMENTO URBANO E SOCIAL DE SOROCABA",
     "EMPRESA MUNICIPAL PARQUE TECNOLÓGICO DE SOROCABA",
 }
-ANOS = list(range(2020, 2026))
+ANOS = list(range(2020, 2027))
 MESES = list(range(1, 13))
 DELAY = 0.25
 
@@ -89,7 +89,7 @@ def main() -> None:
             print(f"    {org[:50]}: R$ {v:,.0f}")
         todos.extend(ano_registros)
 
-    out = PUBLIC / "empresas_municipais_tce_2020_2025.csv"
+    out = PUBLIC / "empresas_municipais_tce_2020_2026.csv"
     with out.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=CAMPOS)
         w.writeheader()
@@ -97,7 +97,7 @@ def main() -> None:
 
     total_geral = sum(br2f(r["vl_despesa"]) for r in todos)
     print(f"\nPublicado: {len(todos)} registros -> {out}")
-    print(f"Total geral 2020-2025: R$ {total_geral:,.0f}")
+    print(f"Total geral 2020-2026: R$ {total_geral:,.0f}")
 
 
 if __name__ == "__main__":

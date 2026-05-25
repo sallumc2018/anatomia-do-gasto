@@ -1,11 +1,11 @@
-"""
+﻿"""
 Baixa e publica despesas do FUNSERV Assistência Médica de Sorocaba via API TCE-SP.
 
 O FUNSERV - ASSISTÊNCIA MÉDICA é o fundo de saúde do funcionalismo municipal de
 Sorocaba, entidade distinta do FUNSERV - PREVIDÊNCIA (RPPS). Ambos reportam ao TCE-SP.
 
 Entrada:  API https://transparencia.tce.sp.gov.br/api/json/despesas/sorocaba/{ano}/{mes}
-Saída:    data/public/sorocaba/autarquias/saida/funserv_saude_tce_2020_2025.csv
+Saída:    data/public/sorocaba/autarquias/saida/funserv_saude_tce_2020_2026.csv
 
 Fonte: Portal de Transparência TCE-SP — https://transparencia.tce.sp.gov.br
 """
@@ -22,7 +22,7 @@ PUBLIC.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "https://transparencia.tce.sp.gov.br/api/json/despesas/sorocaba"
 ORGAO_SAUDE = "FUNSERV. - ASSISTÊNCIA MÉDICA"
-ANOS = list(range(2020, 2026))
+ANOS = list(range(2020, 2027))
 MESES = list(range(1, 13))
 DELAY = 0.25
 
@@ -87,7 +87,7 @@ def main() -> None:
             print(f"    {ev}: R$ {v:,.0f}")
         todos.extend(ano_registros)
 
-    out = PUBLIC / "funserv_saude_tce_2020_2025.csv"
+    out = PUBLIC / "funserv_saude_tce_2020_2026.csv"
     with out.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=CAMPOS)
         w.writeheader()
@@ -95,7 +95,7 @@ def main() -> None:
 
     total_geral = sum(br2f(r["vl_despesa"]) for r in todos)
     print(f"\nPublicado: {len(todos)} registros -> {out}")
-    print(f"Total geral 2020-2025: R$ {total_geral:,.0f}")
+    print(f"Total geral 2020-2026: R$ {total_geral:,.0f}")
 
 
 if __name__ == "__main__":

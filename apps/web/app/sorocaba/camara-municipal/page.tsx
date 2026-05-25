@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
@@ -31,7 +31,7 @@ function parseCsvLine(line: string): string[] {
 interface CamaraTceRow { ano: number; evento: string; total: number; count: number }
 
 function loadCamaraTce(): CamaraTceRow[] {
-  const fp = path.join(DATA_ROOT, "sorocaba", "camara", "saida", "camara_despesas_tce_2020_2025.csv")
+  const fp = path.join(DATA_ROOT, "sorocaba", "camara", "saida", "camara_despesas_tce_2020_2026.csv")
   if (!fs.existsSync(fp)) return []
   const lines = fs.readFileSync(fp, "utf-8").split("\n")
   // header: ano,mes,orgao,evento,nr_empenho,id_fornecedor,nm_fornecedor,dt_emissao_despesa,vl_despesa
@@ -625,7 +625,7 @@ export default function CamaraMunicipalPage() {
               <p className="uppercase font-semibold mb-3" style={S.label}>Execução contábil · TCE-SP</p>
               <p style={{ ...S.body, maxWidth: "640px", marginBottom: "8px" }}>
                 Despesas da Câmara Municipal declaradas ao TCE-SP, por ano e evento contábil
-                (Empenhado, Liquidado, Pago), 2020–2025.
+                (Empenhado, Liquidado, Pago), 2020–2026.
                 Total de {tceRows.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros.
               </p>
               <p style={{ ...S.caption, marginBottom: "24px" }}>
@@ -724,7 +724,7 @@ export default function CamaraMunicipalPage() {
                 {
                   titulo: "SICONFI — RREO Anexo 02 · Tesouro Nacional",
                   url: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2002",
-                  nota: "Fonte oficial — despesa liquidada da função Legislativa 2020–2025 via API pública SICONFI (IBGE 3552205). Inclui parcelas exceto e intra-orçamentárias.",
+                  nota: "Fonte oficial — despesa liquidada da função Legislativa 2020–2026 via API pública SICONFI (IBGE 3552205). Inclui parcelas exceto e intra-orçamentárias.",
                 },
                 {
                   titulo: "Jornal Cruzeiro — reajuste de subsídios aprovado em 10 segundos",

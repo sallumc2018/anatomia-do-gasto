@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
@@ -9,7 +9,7 @@ import { formatMillions } from "@/lib/data"
 export const metadata: Metadata = {
   title: "Autarquias e Empresas Municipais · Sorocaba",
   description:
-    "SAAE, Funserv e empresas municipais de Sorocaba: despesas e receitas 2020–2025. Fonte: TCE-SP.",
+    "SAAE, Funserv e empresas municipais de Sorocaba: despesas e receitas 2020–2026. Fonte: TCE-SP.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/autarquias" },
 }
 
@@ -117,8 +117,8 @@ function AnoTable({ rows, valueLabel }: { rows: AnoTotal[]; valueLabel: string }
 export default function AutarquiasPage() {
   const saaeDesp     = aggregateTransacoes("saae_despesas_tce_2020_2026.csv")
   const saaeRec      = aggregateTransacoes("saae_receitas_tce_2020_2026.csv")
-  const funservDesp  = aggregateTransacoes("funserv_saude_tce_2020_2025.csv")
-  const empresasDesp = aggregateTransacoes("empresas_municipais_tce_2020_2025.csv")
+  const funservDesp  = aggregateTransacoes("funserv_saude_tce_2020_2026.csv")
+  const empresasDesp = aggregateTransacoes("empresas_municipais_tce_2020_2026.csv")
   const rpps         = loadRpps()
 
   const totalSaaeDesp    = saaeDesp.reduce((s, r) => s + r.total, 0)
@@ -147,7 +147,7 @@ export default function AutarquiasPage() {
               <p style={{ ...S.body, maxWidth: "640px", marginBottom: "16px" }}>
                 A Prefeitura de Sorocaba controla autarquias e empresas públicas que executam serviços
                 essenciais: saneamento básico (SAAE), saúde dos servidores (Funserv) e desenvolvimento
-                urbano e social. Os dados cobrem despesas e receitas de 2020 a 2025 extraídos das
+                urbano e social. Os dados cobrem despesas e receitas de 2020 a 2026 extraídos das
                 declarações enviadas ao TCE-SP.
               </p>
               <div
@@ -157,7 +157,7 @@ export default function AutarquiasPage() {
                 <p style={S.caption}>
                   <strong style={{ color: "var(--text-02)" }}>Fonte:</strong> TCE-SP — execução orçamentária
                   declarada pelas entidades.{" "}
-                  <strong style={{ color: "var(--text-02)" }}>Período:</strong> 2020–2025.{" "}
+                  <strong style={{ color: "var(--text-02)" }}>Período:</strong> 2020–2026.{" "}
                   <strong style={{ color: "var(--text-02)" }}>Total de registros:</strong>{" "}
                   {totalRegistros.toLocaleString("pt-BR")}. Dado ausente não é zero.
                 </p>
@@ -174,8 +174,8 @@ export default function AutarquiasPage() {
               style={{ borderTop: "1px solid var(--border-01)", borderLeft: "1px solid var(--border-01)" }}
             >
               {[
-                { label: "SAAE · despesas 2020–2025",       valor: formatMillions(totalSaaeDesp),  nota: `${saaeDesp.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
-                { label: "SAAE · receitas 2020–2025",       valor: formatMillions(totalSaaeRec),   nota: `${saaeRec.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
+                { label: "SAAE · despesas 2020–2026",       valor: formatMillions(totalSaaeDesp),  nota: `${saaeDesp.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
+                { label: "SAAE · receitas 2020–2026",       valor: formatMillions(totalSaaeRec),   nota: `${saaeRec.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
                 { label: "Funserv Saúde · despesas",        valor: formatMillions(totalFunserv),   nota: `${funservDesp.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
                 { label: "Empresas municipais · despesas",  valor: formatMillions(totalEmpresas),  nota: `${empresasDesp.reduce((s, r) => s + r.count, 0).toLocaleString("pt-BR")} registros` },
               ].map((c) => (
@@ -199,7 +199,7 @@ export default function AutarquiasPage() {
             <p className="uppercase font-semibold mb-3" style={S.label}>SAAE · Serviço Autônomo de Água e Esgoto</p>
             <p style={{ ...S.body, maxWidth: "640px", marginBottom: "24px" }}>
               Autarquia municipal responsável pelo abastecimento de água e esgotamento sanitário.
-              Dados de despesas e receitas declarados ao TCE-SP, 2020–2025.
+              Dados de despesas e receitas declarados ao TCE-SP, 2020–2026.
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
@@ -271,7 +271,7 @@ export default function AutarquiasPage() {
             <p className="uppercase font-semibold mb-3" style={S.label}>Empresas Municipais</p>
             <p style={{ ...S.body, maxWidth: "640px", marginBottom: "24px" }}>
               Empresas públicas e de economia mista ligadas à Prefeitura — incluindo a Empresa de
-              Desenvolvimento Urbano e Social de Sorocaba. Despesas declaradas ao TCE-SP, 2020–2025.
+              Desenvolvimento Urbano e Social de Sorocaba. Despesas declaradas ao TCE-SP, 2020–2026.
             </p>
             <div style={{ maxWidth: "560px" }}>
               <AnoTable rows={empresasDesp} valueLabel="Total despesas" />
