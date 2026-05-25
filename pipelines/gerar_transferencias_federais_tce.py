@@ -23,7 +23,7 @@ PUBLIC.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "https://transparencia.tce.sp.gov.br/api/json/receitas/sorocaba"
 ORGAO_PREF = "PREFEITURA MUNICIPAL DE SOROCABA"
-ANOS = list(range(2020, 2026))
+ANOS = list(range(2020, 2027))
 MESES = list(range(1, 13))
 DELAY = 0.25
 
@@ -102,7 +102,7 @@ def main() -> None:
 
     total_geral = sum(br2f(r["vl_arrecadacao"]) for r in todos)
     print(f"Publicado: {len(todos)} registros -> {out}")
-    print(f"Total transferências federais 2020-2025: R$ {total_geral:,.0f}")
+    print(f"Total transferências federais 2020-2026: R$ {total_geral:,.0f}")
 
     # Mostrar principais categorias
     from collections import defaultdict

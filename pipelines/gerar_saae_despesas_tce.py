@@ -6,7 +6,7 @@ para todos os órgãos municipais, incluindo autarquias como o SAAE.
 
 Entrada:  API https://transparencia.tce.sp.gov.br/api/json/despesas/sorocaba/{ano}/{mes}
 Saída:    data/public/sorocaba/autarquias/saida/saae_despesas_tce_{ano}.csv
-          data/public/sorocaba/autarquias/saida/saae_despesas_tce_2020_2025.csv
+          data/public/sorocaba/autarquias/saida/saae_despesas_tce_2020_2026.csv
 
 Fonte: Portal de Transparência TCE-SP — https://transparencia.tce.sp.gov.br
 """
@@ -23,7 +23,7 @@ PUBLIC.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "https://transparencia.tce.sp.gov.br/api/json/despesas/sorocaba"
 ORGAO_SAAE = "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA"
-ANOS = list(range(2020, 2026))
+ANOS = list(range(2020, 2027))
 MESES = list(range(1, 13))
 DELAY = 0.3
 
@@ -87,7 +87,7 @@ def main() -> None:
             w.writerows(ano_registros)
         todos.extend(ano_registros)
 
-    out = PUBLIC / "saae_despesas_tce_2020_2025.csv"
+    out = PUBLIC / "saae_despesas_tce_2020_2026.csv"
     with out.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=CAMPOS)
         w.writeheader()
@@ -97,7 +97,7 @@ def main() -> None:
         return float(v.replace(".", "").replace(",", ".")) if v else 0.0
     total_geral = sum(br2f(r["vl_despesa"]) for r in todos)
     print(f"Publicado: {len(todos)} registros -> {out}")
-    print(f"Total geral SAAE 2020-2025: R$ {total_geral:,.0f}")
+    print(f"Total geral SAAE 2020-2026: R$ {total_geral:,.0f}")
 
 
 if __name__ == "__main__":

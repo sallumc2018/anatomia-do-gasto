@@ -115,8 +115,8 @@ function AnoTable({ rows, valueLabel }: { rows: AnoTotal[]; valueLabel: string }
 }
 
 export default function AutarquiasPage() {
-  const saaeDesp     = aggregateTransacoes("saae_despesas_tce_2020_2025.csv")
-  const saaeRec      = aggregateTransacoes("saae_receitas_tce_2020_2025.csv")
+  const saaeDesp     = aggregateTransacoes("saae_despesas_tce_2020_2026.csv")
+  const saaeRec      = aggregateTransacoes("saae_receitas_tce_2020_2026.csv")
   const funservDesp  = aggregateTransacoes("funserv_saude_tce_2020_2025.csv")
   const empresasDesp = aggregateTransacoes("empresas_municipais_tce_2020_2025.csv")
   const rpps         = loadRpps()
