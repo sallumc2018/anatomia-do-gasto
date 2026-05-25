@@ -1,11 +1,16 @@
 """
-Coleta transferencias da Uniao para Sorocaba via API do Portal da Transparencia Federal.
+Coleta convênios (transferências voluntárias federais) para Sorocaba
+via API do Portal da Transparência Federal — endpoint /convenios.
 
-Requer a variavel de ambiente PORTAL_TRANSPARENCIA_KEY (chave de API registrada em
-https://portaldatransparencia.gov.br/api-de-dados/cadastrar-email).
+O endpoint /transferencias-municipios exige nível de acesso acima do básico
+(retorna 403 com chave de email cadastrado). O endpoint /convenios cobre
+convênios, contratos de repasse e termos de fomento da União ao município.
+
+Para transferências constitucionais (FPM, SUS, FNDE/FUNDEB) ver:
+  gerar_transferencias_federais_tce.py — fonte TCE-SP
 
 Saida:
-  data/raw/sorocaba/transferencias_federais/paginas/{ano}/pagina_{n:04d}.json
+  data/raw/sorocaba/transferencias_federais/paginas/pagina_{n:04d}.json
   data/extracted/sorocaba/transferencias_federais/saida/transferencias_federais_sorocaba_{ano}.csv
 
 Uso:
@@ -26,8 +31,8 @@ from paths import CFG, TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_RAW_DIR
 
 IBGE_SOROCABA = CFG["ibge"]
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
-QUANTIDADE_POR_PAGINA = 500
-DELAY_ENTRE_PAGINAS = 0.5
+ENDPOINT = "convenios"
+DELAY_ENTRE_PAGINAS = 0.3
 
 CAMPOS_CSV = [
     "ano",
@@ -51,7 +56,6 @@ CAMPOS_CSV = [
 
 def _chave_api() -> str:
     chave = os.environ.get("PORTAL_TRANSPARENCIA_KEY") or (
-        # Tambem tenta a variavel de ambiente de nivel User no Windows
         __import__("subprocess").run(
             ["powershell", "-Command",
              '[System.Environment]::GetEnvironmentVariable("PORTAL_TRANSPARENCIA_KEY","User")'],
@@ -68,20 +72,13 @@ def _chave_api() -> str:
     return chave
 
 
-def _fetch_pagina(endpoint: str, params: dict, chave: str, timeout: int = 30) -> list:
-    query = "&".join(f"{k}={v}" for k, v in params.items())
-    url = f"{BASE_URL}/{endpoint}?{query}"
+def _fetch_pagina(pagina: int, chave: str, timeout: int = 30) -> list:
+    url = f"{BASE_URL}/{ENDPOINT}?codigoIBGE={IBGE_SOROCABA}&pagina={pagina}&quantidade=500"
     req = urllib.request.Request(
         url,
         headers={
             "chave-api-dados": chave,
             "Accept": "application/json",
-            "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
         },
     )
     try:
@@ -95,20 +92,12 @@ def _fetch_pagina(endpoint: str, params: dict, chave: str, timeout: int = 30) ->
             pass
         if e.code == 403:
             sys.exit(
-                f"403 Proibido. A chave pode estar valida e o endpoint inexistente:\n"
-                f"a api-de-dados responde 403 (nao 404) para rotas que nao existem.\n"
-                f"Confirme o caminho na spec oficial (/v3/api-docs). Endpoints de\n"
-                f"transferencias por municipio nesta API: /despesas/recursos-recebidos\n"
-                f"(mesAnoInicio, mesAnoFim, codigoIBGE) ou /coronavirus/transferencias.\n"
-                f"Se a chave fosse o problema, o retorno seria 401.\nURL: {url}\n{corpo}"
+                f"403 Proibido. A chave nao tem acesso ao endpoint /{ENDPOINT}.\n"
+                f"Verifique o nivel em portaldatransparencia.gov.br/api-de-dados.\n"
+                f"URL: {url}\n{corpo}"
             )
         if e.code == 404:
             return []
-        if e.code == 405:
-            sys.exit(
-                f"405 Method Not Allowed — endpoint ou parametros incompativeis.\n"
-                f"URL: {url}\n{corpo}"
-            )
         raise urllib.error.HTTPError(url, e.code, e.reason, e.headers, None)
     except urllib.error.URLError as e:
         print(f"  Erro de rede: {e}  (URL: {url})")
@@ -116,70 +105,57 @@ def _fetch_pagina(endpoint: str, params: dict, chave: str, timeout: int = 30) ->
 
 
 def _linha_para_csv(item: dict, ano: int) -> dict:
-    municipio = item.get("municipio") or {}
-    tipo = item.get("tipoTransferencia") or item.get("tipo") or {}
-    modalidade = item.get("modalidadeTransferencia") or {}
-    orgao = item.get("orgaoSuperior") or item.get("unidadeGestoraResponsavel") or {}
+    municipio = item.get("municipioConvenente") or {}
+    orgao = item.get("orgao") or {}
+    orgao_maximo = orgao.get("orgaoMaximo") or {}
     unidade = item.get("unidadeGestora") or {}
-    funcao = item.get("funcao") or {}
-    acao = item.get("acao") or {}
+    subfuncao = item.get("subfuncao") or {}
+    funcao = subfuncao.get("funcao") or {}
+    dim = item.get("dimConvenio") or {}
+    tipo_instr = item.get("tipoInstrumento") or {}
 
-    competencia = (
-        item.get("competenciaTransferencia")
-        or item.get("competencia")
-        or str(ano)
-    )
+    competencia = (item.get("dataInicioVigencia") or "")[:7]
 
     return {
         "ano": ano,
         "competencia": competencia,
-        "tipo_transferencia": (
-            tipo.get("descricao") if isinstance(tipo, dict) else str(tipo)
-        ),
-        "modalidade_transferencia": (
-            modalidade.get("descricao") if isinstance(modalidade, dict) else str(modalidade)
-        ),
-        "orgao_superior_codigo": orgao.get("codigoSIAFI") or orgao.get("codigo") or "",
-        "orgao_superior_nome": orgao.get("nome") or "",
-        "unidade_gestora_codigo": unidade.get("codigoSIAFI") or unidade.get("codigo") or "",
+        "tipo_transferencia": tipo_instr.get("descricao") or "Convênio",
+        "modalidade_transferencia": item.get("situacao") or "",
+        "orgao_superior_codigo": orgao_maximo.get("codigo") or orgao.get("codigoSIAFI") or "",
+        "orgao_superior_nome": orgao_maximo.get("nome") or orgao.get("nome") or "",
+        "unidade_gestora_codigo": unidade.get("codigo") or "",
         "unidade_gestora_nome": unidade.get("nome") or "",
-        "funcao_id": funcao.get("id") or funcao.get("codigo") or "",
-        "funcao_descricao": funcao.get("descricao") or "",
-        "acao_id": acao.get("id") or acao.get("codigo") or "",
-        "acao_descricao": acao.get("descricao") or "",
-        "valor_transferido": item.get("valorTransferido") or item.get("valor") or 0,
+        "funcao_id": funcao.get("codigoFuncao") or "",
+        "funcao_descricao": funcao.get("descricaoFuncao") or "",
+        "acao_id": dim.get("codigo") or dim.get("numero") or "",
+        "acao_descricao": dim.get("objeto") or "",
+        "valor_transferido": item.get("valorLiberado") or 0,
         "municipio_ibge": municipio.get("codigoIBGE") or IBGE_SOROCABA,
         "municipio_nome": municipio.get("nomeIBGE") or "SOROCABA",
-        "fonte_api": f"{BASE_URL}/transferencias-municipios",
+        "fonte_api": f"{BASE_URL}/{ENDPOINT}",
     }
 
 
-def _salvar_pagina_raw(pagina_dir: Path, numero: int, dados: list) -> None:
-    pagina_dir.mkdir(parents=True, exist_ok=True)
-    destino = pagina_dir / f"pagina_{numero:04d}.json"
+def _salvar_pagina_raw(paginas_dir: Path, numero: int, dados: list) -> None:
+    paginas_dir.mkdir(parents=True, exist_ok=True)
+    destino = paginas_dir / f"pagina_{numero:04d}.json"
     destino.write_text(json.dumps(dados, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def coletar_ano(ano: int, chave: str, forcar: bool) -> list[dict]:
-    paginas_dir = TRANSFERENCIAS_RAW_DIR / "paginas" / str(ano)
-    registros: list[dict] = []
+def coletar_todos(chave: str, forcar: bool) -> list[dict]:
+    """Baixa todos os convênios de Sorocaba (API não suporta filtro por ano)."""
+    paginas_dir = TRANSFERENCIAS_RAW_DIR / "paginas"
+    todos: list[dict] = []
     pagina = 1
 
-    print(f"\n=== {ano} ===")
-
+    print("Coletando convênios federais para Sorocaba...")
     while True:
         destino_raw = paginas_dir / f"pagina_{pagina:04d}.json"
         if destino_raw.exists() and not forcar:
             dados = json.loads(destino_raw.read_text(encoding="utf-8"))
             print(f"  p{pagina}: {len(dados)} registros (cache)")
         else:
-            params = {
-                "codigoIbge": IBGE_SOROCABA,
-                "ano": ano,
-                "pagina": pagina,
-                "quantidade": QUANTIDADE_POR_PAGINA,
-            }
-            dados = _fetch_pagina("transferencias-municipios", params, chave)
+            dados = _fetch_pagina(pagina, chave)
             print(f"  p{pagina}: {len(dados)} registros")
             _salvar_pagina_raw(paginas_dir, pagina, dados)
             if pagina > 1:
@@ -188,13 +164,11 @@ def coletar_ano(ano: int, chave: str, forcar: bool) -> list[dict]:
         if not dados:
             break
 
-        registros.extend(_linha_para_csv(item, ano) for item in dados)
-
-        if len(dados) < QUANTIDADE_POR_PAGINA:
-            break
+        todos.extend(dados)
         pagina += 1
 
-    return registros
+    print(f"  Total bruto: {len(todos)} convênios")
+    return todos
 
 
 def salvar_csv(registros: list[dict], ano: int) -> Path:
@@ -209,27 +183,39 @@ def salvar_csv(registros: list[dict], ano: int) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Coleta transferencias federais para Sorocaba via Portal da Transparencia"
+        description="Coleta convênios federais para Sorocaba via Portal da Transparência"
     )
     parser.add_argument("--ano", type=int, action="append", required=True,
-                        help="Ano a coletar (pode repetir para multiplos anos)")
+                        help="Ano a filtrar (pode repetir para múltiplos anos)")
     parser.add_argument("--forcar", action="store_true",
-                        help="Rebaixa paginas ja salvas em cache")
+                        help="Rebaixa páginas já salvas em cache")
     args = parser.parse_args()
 
     chave = _chave_api()
 
+    todos = coletar_todos(chave, args.forcar)
+
     for ano in sorted(set(args.ano)):
-        registros = coletar_ano(ano, chave, args.forcar)
-        if not registros:
-            print(f"  Nenhum registro encontrado para {ano}.")
+        # Filtra por dataInicioVigencia (ano de assinatura do convênio)
+        vistos: set[int] = set()
+        do_ano: list[dict] = []
+        for item in todos:
+            if (item.get("dataInicioVigencia") or "")[:4] == str(ano) and item["id"] not in vistos:
+                vistos.add(item["id"])
+                do_ano.append(item)
+
+        print(f"\n=== {ano} ===")
+        if not do_ano:
+            print(f"  Nenhum convênio encontrado para {ano}.")
             continue
+
+        registros = [_linha_para_csv(item, ano) for item in do_ano]
         destino = salvar_csv(registros, ano)
         total = sum(float(r["valor_transferido"]) for r in registros if r["valor_transferido"])
-        print(f"  Total: {len(registros)} transferencias, R$ {total:,.2f}")
+        print(f"  Total: {len(registros)} convênios, R$ {total:,.2f}")
         print(f"  CSV: {destino}")
 
-    print("\nConcluido.")
+    print("\nConcluído.")
 
 
 if __name__ == "__main__":
