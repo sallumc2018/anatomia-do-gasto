@@ -79,6 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/contato",                         mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/metodologia",                     mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/sobre",                           mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
+    { route: "/voluntarios",                     mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/politica-de-dados",               mtime: SITE_UPDATED,      freq: "monthly", priority: 0.6 },
     { route: "/politica-de-neutralidade",        mtime: SITE_UPDATED,      freq: "monthly", priority: 0.6 },
     { route: "/termos",                          mtime: SITE_UPDATED,      freq: "monthly", priority: 0.6 },

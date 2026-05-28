@@ -73,6 +73,17 @@ Se um auditor puder verificar:
 
 entao o projeto consegue oferecer transparencia forte sem publicar indiscriminadamente as camadas internas.
 
+## Benchmark E Expansao Municipal
+
+Manifestos auxiliares criados para a fase de benchmark:
+
+- `benchmark_targets.csv`: lista sites, portais e iniciativas comparadoras a medir.
+- `benchmark_http_latest.csv`: saida gerada por `tools/benchmark/measure-http.ps1`; mede apenas HTTP simples, nao Lighthouse.
+- `municipios_pipeline.csv`: fila publica de municipios e estado de cobertura.
+- `paulinia_seed_sources.csv`: fontes oficiais iniciais para inventario de Paulinia.
+
+Esses arquivos nao publicam dados novos no site. Eles registram meta, escopo e evidencia de medicao.
+
 ## Classificacao De Publicacao E UI
 
 `publication_classification.csv` classifica cada linha de `datasets.csv` em uma destas classes:

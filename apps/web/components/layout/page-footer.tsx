@@ -32,6 +32,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
       { label: "contato@anatomiadogasto.ong.br", href: "mailto:contato@anatomiadogasto.ong.br" },
       { label: "Página de contato", href: "/contato", internal: true },
       { label: "Sobre o projeto", href: "/sobre", internal: true },
+      { label: "Como ajudar (Voluntariado)", href: "/voluntarios", internal: true },
       { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
       { label: "Issues e erros nos dados", href: "https://github.com/sallumc2018/anatomia-do-gasto/issues" },
     ],

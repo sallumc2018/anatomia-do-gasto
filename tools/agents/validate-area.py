@@ -40,6 +40,9 @@ COMMANDS: dict[str, list[dict]] = {
     "scope": [
         {"command": ["python", "tools/agents/check-scope-gates.py"], "cwd": ROOT},
     ],
+    "review": [
+        {"command": ["python", "tools/agents/check-peer-review-readiness.py"], "cwd": ROOT},
+    ],
     "pipeline": [
         {
             "command": [
@@ -66,7 +69,7 @@ def get_commands(area: str) -> list[dict]:
         return COMMANDS["scope"] + [frontend_command("lint"), frontend_command("build")]
     if area == "all":
         commands: list[dict] = []
-        for item in ("memory", "agents", "scope", "pipeline", "frontend"):
+        for item in ("memory", "agents", "scope", "review", "pipeline", "frontend"):
             commands.extend(get_commands(item))
         return commands
     return COMMANDS[area]

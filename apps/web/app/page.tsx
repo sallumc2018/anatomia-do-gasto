@@ -224,6 +224,7 @@ export default function IndexPage() {
               {[
                 { href: "/sobre", label: "Sobre a ONG" },
                 { href: "/metodologia", label: "Metodologia e fontes" },
+                { href: "/voluntarios", label: "Como ajudar (Voluntariado)" },
                 { href: "/contato", label: "Contato" },
               ].map((link) => (
                 <Link

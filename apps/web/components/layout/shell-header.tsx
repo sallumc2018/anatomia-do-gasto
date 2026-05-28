@@ -42,6 +42,7 @@ const MAIS_NAV = [
   { href: "/sorocaba/acesso-a-informacao", label: "LAI" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre" },
+  { href: "/voluntarios", label: "Voluntariado" },
 ]
 
 const ALL_NAV = [...MAIN_NAV, ...MAIS_NAV]

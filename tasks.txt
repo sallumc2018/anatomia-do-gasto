@@ -1,0 +1,123 @@
+# Anatomia do Gasto - tasks publicas
+
+## 2026-05-28 - Benchmark como meta auditavel
+
+Meta: buscar nota perfeita sem inventar evidencia. O selo de benchmark so pode ser publicado quando cada nota tiver fonte, data, ferramenta, URL medida e commit/deploy associado.
+
+Prioridade imediata:
+
+1. Fechar Sorocaba como referencia auditavel antes de expandir narrativa publica.
+2. Iniciar Paulinia por inventario de fontes oficiais, sem copiar premissas de Sorocaba.
+3. Medir o site contra comparadores publicos por criterios reproduziveis.
+4. Separar tres coisas no UI:
+   - meta;
+   - medicao real;
+   - lacuna ainda nao medida.
+
+Arquivos canonicos criados para isso:
+
+- `docs/benchmark-publico.md`
+- `data/manifests/benchmark_targets.csv`
+- `data/manifests/municipios_pipeline.csv`
+- `data/manifests/paulinia_seed_sources.csv`
+- `tools/benchmark/measure-http.ps1`
+
+Regra: nao usar scores hardcoded como "Lighthouse 98", "A+" ou "melhor que portais oficiais" sem uma medicao armazenada e auditavel.
+
+## 2026-05-28 - Antigravity: sandbox oficial
+
+O sandbox depreciado `C:\Users\user\.gemini\antigravity\scratch\ong-sandbox` nao deve ser usado como fonte de codigo publicavel.
+
+Sandbox oficial do Antigravity:
+
+`C:\Users\user\.gemini\antigravity\scratch\anatomia-do-gasto-github`
+
+Antes de novas alteracoes, sincronizar com `origin/main` e confirmar que o HEAD bate com o repositorio oficial em:
+
+`C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto`
+
+## 2026-05-28 - Validacao Maestro das ideias do Gemini
+
+Status: as ideias sao boas como direcao de produto, mas o texto atual do Gemini no `C:\Omega\tasks.txt` mistura meta, sandbox e fato publicado. Antes de promover para o repositorio oficial, aplicar a triagem abaixo.
+
+### Promover como ideia
+
+1. Documentacao de dados em `/api/dados`.
+   - Bom: melhora descoberta dos CSVs publicos.
+   - Gate: links precisam apontar apenas para arquivos existentes em `data/public`.
+
+2. Canal de auditoria cidada em `/auditoria/reportar`.
+   - Bom: cria fluxo civico para divergencias.
+   - Gate: deve ser estatico ou usar e-mail sem coletar dado pessoal sensivel; nada de acusacao automatica.
+
+3. Sala de imprensa em `/imprensa`.
+   - Bom: permite boletins factuais.
+   - Gate: todo boletim precisa citar fonte, periodo, escopo e limitacao.
+
+4. Selo de benchmark global.
+   - Bom: UI forte para a meta de excelencia.
+   - Gate: deve consumir manifestos medidos; nunca scores hardcoded.
+
+5. Arquitetura multi-municipios.
+   - Bom: necessario para Paulinia e expansao.
+   - Gate: nao refatorar `/app/sorocaba` para `/app/[municipio]` de uma vez; criar primeiro camada de dados/rotas compatível e manter URLs atuais.
+
+6. Comparativo intermunicipal.
+   - Bom: e a direcao correta para Sorocaba x Paulinia.
+   - Gate: so comparar indicadores com mesma fonte/metodologia entre municipios.
+
+### Corrigir antes de publicar
+
+- "Grau A+ / 98%+ simulado" nao e publicavel. Trocar por "meta Lighthouse 100" ate existir JSON/relatorio medido.
+- "3.5 estrelas Tim Berners-Lee" precisa de metodologia propria e evidencia por dataset antes de aparecer na UI.
+- "Governanca GitHub A+" precisa ser substituido por checks concretos: lint, build, scope, publication, deploy.
+- "Fase 1 concluida" nao procede para producao: os recursos citados existem no `ong-sandbox`, nao no repositorio oficial.
+- "Porta 3000 ativa" e "HUD 3030 ativo" sao estado local, nao informacao publica versionavel.
+
+### Estado verificado pelo Maestro/Codex
+
+- Repositorio oficial: nao tem `apps/web/app/api/dados/page.tsx`, `apps/web/app/auditoria/reportar/page.tsx`, `apps/web/app/imprensa/page.tsx` nem `apps/web/components/ui/benchmark-seal.tsx`.
+- Sandbox oficial Antigravity: tambem nao tem esses arquivos e esta atrasado em relacao a `origin/main`.
+- Sandbox depreciado `ong-sandbox`: tem esses arquivos, mas nao deve ser fonte direta sem reconciliacao manual.
+
+Proximo passo recomendado: portar seletivamente do `ong-sandbox` para o repositorio oficial apenas depois de revisar conteudo, remover claims simulados e adaptar o selo para `data/manifests/benchmark_http_latest.csv` e futuros resultados Lighthouse reais.
+
+## 2026-05-28 - Estrutura interna com padrao de revisao por pares
+
+Meta: a organizacao interna precisa ser tao auditavel quanto o repositorio publico no GitHub.
+
+Decisao:
+
+- Criar checklist publico de revisao por pares em `docs/revisao-pares-github.md`.
+- Criar template de Pull Request em `.github/PULL_REQUEST_TEMPLATE.md`.
+- Criar gate local `python tools/agents/validate-area.py --area review`.
+- Tratar tasks, manifests, memoria, benchmark e proveniencia como artefatos que um revisor externo consegue entender sem ler conversas privadas.
+
+Regra: se uma ideia so existe em sandbox, terminal local ou conversa, ela ainda nao esta pronta para avaliacao por pares. Ela precisa virar doc, manifest, validacao ou diff pequeno antes de entrar em PR.
+
+## 2026-05-28 - GitHub como fonte publica de confianca
+
+Estado:
+
+- Repositorio publico: `https://github.com/sallumc2018/anatomia-do-gasto`.
+- Branch padrao: `main`.
+- Licenca: MIT.
+- `HEAD` local e `origin/main` estavam alinhados em `7530af1` antes desta leva de alteracoes locais.
+
+Melhoria aplicada:
+
+- Criar workflow `.github/workflows/quality-gates.yml`.
+- Criar `.github/dependabot.yml` para GitHub Actions e npm em `apps/web`.
+- Manter actions com permissoes minimas (`contents: read`) e actions pinadas por SHA.
+
+Proxima regra: antes de chamar avaliacao publica no GitHub, garantir que o commit mais recente tenha quality gates verdes.
+
+## 2026-05-28 - Melhores Práticas GitHub para Voluntariado Cívico
+
+Meta: estabelecer o repositório público como um ambiente receptivo, fácil de configurar e seguro para novos contribuidores de código aberto.
+
+Ações de Engenharia Comunitária:
+1. Criar Issues amigáveis com etiquetas `good first issue` para tarefas isoladas de frontend na página `/voluntarios`.
+2. Criar templates de Pull Request e Issues no diretório `.github/` para orientar o envio de dados e código sem ruídos.
+3. Adicionar uma seção "Tecnologias Utilizadas" no README.md principal com links rápidos para a documentação do Next.js e Python 3.12.
+4. Manter o CLI de setup rápido atualizado para garantir que `npm install` e `npm run dev` rodem sem dependências globais extras.

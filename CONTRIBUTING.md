@@ -64,6 +64,9 @@ Quando as Câmaras 2 (validação jurídica) e 3 (praça pública) forem impleme
 - Novas funcionalidades incluem documentação mínima (comentários, atualização de README ou docs/).
 - Mudanças no pipeline de dados devem ser testadas com pelo menos um ano real.
 - O PR não introduz dependências desnecessárias.
+- Mudanças com dados, benchmark, agentes ou governança devem seguir [`docs/revisao-pares-github.md`](docs/revisao-pares-github.md).
+- Quando aplicável, rode `python tools/agents/validate-area.py --area review` antes de abrir o PR.
+- O GitHub Actions executa gates de memória, agentes, escopo, publicação, revisão por pares, lint e build.
 
 ---
 

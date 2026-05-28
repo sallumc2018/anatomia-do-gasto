@@ -4,10 +4,14 @@ Este documento descreve a visão de evolução do projeto em fases. As datas sã
 
 ---
 
-## Fase 1: Fundação (Maio–Julho 2026)
+## Fase 1: Fundação e benchmark (Maio–Julho 2026)
 
-**Objetivo:** Pipeline de dados sólido para saúde e educação em Sorocaba.
+**Objetivo:** fechar Sorocaba como referência auditável e criar benchmark público reproduzível.
 
+- [ ] Manter Sorocaba como município principal até fechar as lacunas de maior impacto.
+- [ ] Medir rotas principais com benchmark HTTP e Lighthouse/PageSpeed quando disponível.
+- [ ] Publicar apenas notas de benchmark com evidência armazenada.
+- [ ] Criar trilha inicial de Paulínia por inventário de fontes oficiais.
 - [ ] Verificar integridade dos dados de saúde 2020–2023.
 - [ ] Executar verificação de integridade para educação 2024–2025.
 - [ ] Implementar script de coleta de remuneração e emendas de agentes políticos (trilha de auditoria).
@@ -32,8 +36,9 @@ Este documento descreve a visão de evolução do projeto em fases. As datas sã
 
 ## Fase 3: Expansão (2027)
 
-**Objetivo:** Sair de Sorocaba e ganhar escala.
+**Objetivo:** Sair de Sorocaba com metodologia já testada em Paulínia e ganhar escala.
 
+- [ ] Consolidar Paulínia como segundo município piloto.
 - [ ] Adicionar 3 novos municípios (pipeline modular).
 - [ ] Implementar agente de IA para narrativas automáticas (LLM traduzindo dados para linguagem cidadã).
 - [ ] Radar de gastos dos representantes — MVP para vereadores de Sorocaba.
