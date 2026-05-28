@@ -176,7 +176,12 @@ O catalogo e auxiliar. Antes de alterar extrator, publicar dados ou mexer em cam
 Antes de release, rode:
 
 ```powershell
-python pipelines\testes\verificar_publicacao.py --strict
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\release\check-local-release.ps1
 ```
 
-Esse teste deve falhar se um arquivo marcado como nao publicavel aparecer em `data/public`.
+Esse wrapper consolida `git diff --check`, supply-chain npm read-only, geracao do mindmap,
+validacoes de agentes/memoria/escopo/publicacao, integridade de dados, lint e build.
+Se ainda nao houver autorizacao para scripts npm, use `-SkipFrontend`.
+
+O gate de publicacao deve falhar se um arquivo marcado como nao publicavel aparecer em
+`data/public`, se algum dataset nao tiver classificacao de UI ou se o mindmap gerado estiver defasado.

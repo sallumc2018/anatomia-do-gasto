@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { MINDMAP_NODES, type GeneratedMindNode } from "@/lib/generated/mindmap-data"
 
 type NodeGroup = "root" | "dinheiro" | "servicos" | "controle"
 type ViewMode = "neural" | "blueprint"
@@ -36,192 +37,33 @@ type MindNode = {
   href?: string
   linkLabel?: string
   color: string
+  sourceCount: number
+  policy: {
+    publicavel: number
+    publicavelComCautela: number
+    naoDestacarNaUi: number
+  }
 }
 
-const NODES: MindNode[] = [
-  {
-    id: "sorocaba",
-    parentId: null,
-    label: "Sorocaba/SP",
-    group: "root",
-    icon: Network,
-    summary: "Município piloto da ONG",
-    detail:
-      "Mapa cidadão das trilhas já publicadas: orçamento, serviços, Câmara, contratos, transferências, autarquias e controle externo.",
-    value: "data/public",
-    href: "/sorocaba",
-    linkLabel: "Abrir painel de Sorocaba",
-    color: "var(--theme-accent)",
-  },
-  {
-    id: "executivo",
-    parentId: "sorocaba",
-    label: "Executivo",
-    group: "dinheiro",
-    icon: Building2,
-    summary: "Despesa, receita e execução",
-    detail:
-      "Trilha central do dinheiro municipal: receitas, despesas por função, empenhos, fornecedores e restos a pagar publicados.",
-    value: "2020-2025",
-    href: "/sorocaba/executivo",
-    linkLabel: "Ver Executivo",
-    color: "var(--blue-40)",
-  },
-  {
-    id: "receita",
-    parentId: "executivo",
-    label: "Receita",
-    group: "dinheiro",
-    icon: Coins,
-    summary: "Entradas do município",
-    detail:
-      "Receitas municipais publicadas a partir de fontes fiscais e relatórios oficiais, com limites descritos nos manifestos.",
-    value: "publicado",
-    href: "/sorocaba/receita",
-    linkLabel: "Ver receita",
-    color: "var(--support-success)",
-  },
-  {
-    id: "fornecedores",
-    parentId: "executivo",
-    label: "Fornecedores",
-    group: "dinheiro",
-    icon: Landmark,
-    summary: "Pagamentos agregados",
-    detail:
-      "Conta corrente de fornecedores agregada por ano. A página explica que não é contrato nem nota de empenho individual.",
-    value: "2020-2025",
-    href: "/sorocaba/fornecedores",
-    linkLabel: "Ver fornecedores",
-    color: "var(--blue-60)",
-  },
-  {
-    id: "servicos",
-    parentId: "sorocaba",
-    label: "Serviços públicos",
-    group: "servicos",
-    icon: HeartPulse,
-    summary: "Saúde, educação, segurança e transporte",
-    detail:
-      "Painéis temáticos traduzem a execução orçamentária em linguagem cidadã, sempre lendo dados já publicados.",
-    value: "4 áreas",
-    href: "/sorocaba/saude",
-    linkLabel: "Começar pela saúde",
-    color: "var(--theme-accent-hover)",
-  },
-  {
-    id: "saude",
-    parentId: "servicos",
-    label: "Saúde",
-    group: "servicos",
-    icon: HeartPulse,
-    summary: "ASPS, RREO, SUS e FNS",
-    detail:
-      "Despesas e receitas de saúde publicadas para análise cidadã, incluindo bases auxiliares como RREO e repasses federais.",
-    value: "publicado",
-    href: "/sorocaba/saude",
-    linkLabel: "Ver saúde",
-    color: "var(--support-error)",
-  },
-  {
-    id: "educacao",
-    parentId: "servicos",
-    label: "Educação",
-    group: "servicos",
-    icon: GraduationCap,
-    summary: "Aplicação em ensino",
-    detail:
-      "Despesas e receitas-base de educação publicadas com a mesma regra: fonte declarada, período e limitações explícitas.",
-    value: "publicado",
-    href: "/sorocaba/educacao",
-    linkLabel: "Ver educação",
-    color: "var(--blue-40)",
-  },
-  {
-    id: "seguranca",
-    parentId: "servicos",
-    label: "Segurança",
-    group: "servicos",
-    icon: Shield,
-    summary: "Função segurança pública",
-    detail:
-      "Dados fiscais de segurança pública publicados a partir de bases oficiais, sem transformar lacunas em zero.",
-    value: "publicado",
-    href: "/sorocaba/seguranca",
-    linkLabel: "Ver segurança",
-    color: "var(--support-warning)",
-  },
-  {
-    id: "transporte",
-    parentId: "servicos",
-    label: "Transporte",
-    group: "servicos",
-    icon: Bus,
-    summary: "Transporte e Urbes",
-    detail:
-      "A trilha combina orçamento de transporte 2020-2025 e dados publicados da Urbes até 2026.",
-    value: "2020-2026 parcial",
-    href: "/sorocaba/transporte",
-    linkLabel: "Ver transporte",
-    color: "var(--border-focus)",
-  },
-  {
-    id: "controle",
-    parentId: "sorocaba",
-    label: "Controle",
-    group: "controle",
-    icon: ShieldCheck,
-    summary: "Câmara, contratos, emendas e LAI",
-    detail:
-      "A camada de controle reúne Legislativo, contratos, transferências, emendas, lacunas e pedidos de informação.",
-    value: "auditoria",
-    href: "/sorocaba/lacunas",
-    linkLabel: "Ver lacunas",
-    color: "var(--support-success)",
-  },
-  {
-    id: "camara",
-    parentId: "controle",
-    label: "Câmara",
-    group: "controle",
-    icon: Landmark,
-    summary: "Legislativo municipal",
-    detail:
-      "A trilha inclui despesas da Câmara e gabinete, além de emendas publicadas; cada base mantém seu próprio período no manifesto.",
-    value: "2020-2026 parcial",
-    href: "/sorocaba/camara-municipal",
-    linkLabel: "Ver Câmara",
-    color: "var(--blue-30)",
-  },
-  {
-    id: "contratos",
-    parentId: "controle",
-    label: "Contratos",
-    group: "controle",
-    icon: FileCheck2,
-    summary: "PNCP, obras e precatórios",
-    detail:
-      "Há dados publicados de PNCP, licitações históricas, obras e precatórios, com cobertura parcial explicitada no manifesto.",
-    value: "parcial",
-    href: "/sorocaba/lacunas",
-    linkLabel: "Ver cobertura",
-    color: "var(--theme-accent)",
-  },
-  {
-    id: "fluxo",
-    parentId: "controle",
-    label: "Fluxo de publicação",
-    group: "controle",
-    icon: Workflow,
-    summary: "Como o dado chega ao site",
-    detail:
-      "Mostra o gate institucional: fonte oficial, camadas internas de trabalho e somente depois data/public.",
-    value: "metodologia",
-    href: "/fluxo",
-    linkLabel: "Ver fluxo",
-    color: "var(--support-success)",
-  },
-]
+const ICONS: Record<GeneratedMindNode["icon"], LucideIcon> = {
+  ArrowRight,
+  Building2,
+  Bus,
+  Coins,
+  FileCheck2,
+  GraduationCap,
+  HeartPulse,
+  Landmark,
+  Network,
+  Shield,
+  ShieldCheck,
+  Workflow,
+}
+
+const NODES: MindNode[] = MINDMAP_NODES.map((node) => ({
+  ...node,
+  icon: ICONS[node.icon],
+}))
 
 const COORDS_NEURAL: Record<string, { x: number; y: number }> = {
   sorocaba: { x: 500, y: 300 },
@@ -502,6 +344,34 @@ export default function MapaInterativoPage() {
               </p>
               <p className="mt-1 font-mono text-sm text-[var(--text-01)]">{activeNode.value}</p>
             </div>
+
+            {activeNode.sourceCount > 0 && (
+              <div className="mt-3 rounded border border-[var(--border-01)] bg-[var(--bg-base)] px-3 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--text-04)]">
+                  política de UI
+                </p>
+                <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                  <span className="rounded border border-[var(--border-01)] px-2 py-2">
+                    <span className="block font-mono text-sm text-[var(--text-01)]">
+                      {activeNode.policy.publicavel}
+                    </span>
+                    <span className="text-[10px] text-[var(--text-04)]">publicável</span>
+                  </span>
+                  <span className="rounded border border-[var(--border-01)] px-2 py-2">
+                    <span className="block font-mono text-sm text-[var(--text-01)]">
+                      {activeNode.policy.publicavelComCautela}
+                    </span>
+                    <span className="text-[10px] text-[var(--text-04)]">cautela</span>
+                  </span>
+                  <span className="rounded border border-[var(--border-01)] px-2 py-2">
+                    <span className="block font-mono text-sm text-[var(--text-01)]">
+                      {activeNode.policy.naoDestacarNaUi}
+                    </span>
+                    <span className="text-[10px] text-[var(--text-04)]">agregar</span>
+                  </span>
+                </div>
+              </div>
+            )}
 
             <p className="mt-5 text-sm leading-6 text-[var(--text-02)]">{activeNode.detail}</p>
 

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import sys
 from pathlib import Path
 
 
@@ -49,7 +50,7 @@ def build_message(gaps: list[tuple[str, str]]) -> str:
     friendly_name = FRIENDLY_NAMES.get(selected_gap, selected_gap.replace("-", " ").title())
     return (
         "Lacuna de transparencia registrada no manifesto: "
-        f"{friendly_name} (status: {status}). "
+        f"o portal ainda não disponibilizou {friendly_name} (status: {status}). "
         "Requer validacao local e fonte oficial antes de publicacao."
     )
 
@@ -64,4 +65,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())

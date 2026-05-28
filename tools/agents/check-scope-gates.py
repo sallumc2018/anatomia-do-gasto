@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from common import ROOT, configure_utf8_stdio
 
 FRONTEND_ROOT = ROOT / "apps" / "web"
 MANIFEST = ROOT / "data" / "manifests" / "datasets.csv"
+CLASSIFICATION = ROOT / "data" / "manifests" / "publication_classification.csv"
 PUBLIC_SOROCABA = ROOT / "data" / "public" / "sorocaba"
 
 TEXT_EXTENSIONS = {
@@ -110,6 +112,61 @@ def scan_unpublishable_public_files() -> list[str]:
     return errors
 
 
+def scan_publication_classification() -> list[str]:
+    errors: list[str] = []
+    if not MANIFEST.exists():
+        return [f"manifest missing: {rel(MANIFEST)}"]
+    if not CLASSIFICATION.exists():
+        return [f"classification missing: {rel(CLASSIFICATION)}"]
+
+    with MANIFEST.open("r", encoding="utf-8-sig", newline="") as handle:
+        manifest_rows = list(csv.DictReader(handle))
+    with CLASSIFICATION.open("r", encoding="utf-8-sig", newline="") as handle:
+        classification_rows = list(csv.DictReader(handle))
+
+    manifest_keys = {
+        (row["municipio"], row["Area"], row["Tipo"], row["Arquivo_Padrao"]) for row in manifest_rows
+    }
+    classification_keys = {
+        (row["municipio"], row["area"], row["tipo"], row["arquivo_padrao"]) for row in classification_rows
+    }
+    for item in sorted(manifest_keys - classification_keys):
+        errors.append(f"publication classification missing for {item}")
+    for item in sorted(classification_keys - manifest_keys):
+        errors.append(f"publication classification has extra row {item}")
+
+    allowed_classes = {"publicavel", "publicavel_com_cautela", "nao_destacar_na_ui"}
+    allowed_ui = {
+        "pode_resumir",
+        "resumir_sem_pessoa",
+        "mostrar_cobertura_parcial",
+        "agregar_sem_perfil_pessoal",
+        "nao_exibir_ate_promocao",
+    }
+    for row in classification_rows:
+        if row.get("classe") not in allowed_classes:
+            errors.append(f"invalid publication class {row.get('classe')} in {rel(CLASSIFICATION)}")
+        if row.get("ui_policy") not in allowed_ui:
+            errors.append(f"invalid ui_policy {row.get('ui_policy')} in {rel(CLASSIFICATION)}")
+    return errors
+
+
+def scan_generated_public_ui() -> list[str]:
+    completed = subprocess.run(
+        [sys.executable, "tools/frontend/generate-mindmap-data.py", "--check"],
+        cwd=ROOT,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode == 0:
+        return []
+    output = (completed.stdout or completed.stderr).strip()
+    return [output or "generated mindmap data is stale"]
+
+
 def scan_risky_local_automations() -> list[str]:
     errors: list[str] = []
     for root in (ROOT / "tools" / "agents", ROOT / "tools" / "memory"):
@@ -130,6 +187,8 @@ def main() -> int:
     errors: list[str] = []
     errors.extend(scan_frontend_references())
     errors.extend(scan_unpublishable_public_files())
+    errors.extend(scan_publication_classification())
+    errors.extend(scan_generated_public_ui())
     errors.extend(scan_risky_local_automations())
 
     if errors:
@@ -141,6 +200,8 @@ def main() -> int:
     print("Scope gates: OK")
     print("- frontend does not reference data/raw, data/extracted or data/validated")
     print("- manifest rows marked extracted/validated are not present in data/public")
+    print("- publication classification covers every dataset manifest row")
+    print("- generated public mindmap data is up to date")
     print("- local agent/memory automations do not contain release or package-install commands")
     return 0
 

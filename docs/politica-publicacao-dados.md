@@ -108,6 +108,29 @@ Para cada dataset publicado, um auditor externo deve conseguir verificar, sem de
 
 Essa prova deve estar em `data/manifests`.
 
+## Classificacao LAI/LGPD Para UI
+
+Todo registro em `data/manifests/datasets.csv` deve ter uma linha correspondente em
+`data/manifests/publication_classification.csv`.
+
+Classes aceitas:
+
+- `publicavel`: dado publico institucional ou agregado, adequado para resumo de cobertura.
+- `publicavel_com_cautela`: dado publicavel, mas com tema ou objeto que exige linguagem neutra e agregacao.
+- `nao_destacar_na_ui`: dado que pode permanecer transparente, mas nao deve virar perfil individual, ranking nominal ou chamada editorial.
+
+Politicas de UI aceitas:
+
+- `pode_resumir`: pode aparecer em mapas, cards e resumos de cobertura.
+- `resumir_sem_pessoa`: pode ser resumido sem destacar pessoa natural ou caso individual.
+- `mostrar_cobertura_parcial`: pode aparecer como cobertura parcial, com limites claros.
+- `agregar_sem_perfil_pessoal`: manter transparencia do gasto, mas sem perfil individual.
+- `nao_exibir_ate_promocao`: nao usar no site enquanto nao estiver promovido para `data/public`.
+
+Essa classificacao nao revoga a LAI nem oculta gasto publico. Ela evita que a UI amplifique
+dado pessoal sensivel, judicializacao, saude, credores ou fornecedores individuais como se
+fossem acusacao, suspeita ou inferencia de conduta.
+
 ## Estado Atual
 
 No momento desta politica:

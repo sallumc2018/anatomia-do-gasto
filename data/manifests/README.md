@@ -73,6 +73,20 @@ Se um auditor puder verificar:
 
 entao o projeto consegue oferecer transparencia forte sem publicar indiscriminadamente as camadas internas.
 
+## Classificacao De Publicacao E UI
+
+`publication_classification.csv` classifica cada linha de `datasets.csv` em uma destas classes:
+
+- `publicavel`
+- `publicavel_com_cautela`
+- `nao_destacar_na_ui`
+
+A classificacao orienta a interface publica. Ela nao remove transparencia: evita apenas que
+dados pessoais, saude, judicializacao, credores, fornecedores ou nomes em documentos oficiais
+sejam destacados como perfil individual, ranking nominal ou inferencia de conduta.
+
+O gate `python tools\agents\check-scope-gates.py` falha quando algum dataset nao tem classificacao.
+
 ## Estado Atual
 
 <!-- AUTO:coverage-start -->

@@ -55,7 +55,15 @@ python tools\agents\validate-area.py --area frontend
 python tools\agents\validate-area.py --area publication
 ```
 
-`check-scope-gates.py` falha se o frontend referenciar `data/raw`, `data/extracted` ou `data/validated`, se um arquivo marcado como nao publicavel em `data/manifests/datasets.csv` aparecer em `data/public`, ou se automacoes locais de agentes/memoria contiverem comandos de release/instalacao sem gate humano.
+`check-scope-gates.py` falha se o frontend referenciar `data/raw`, `data/extracted` ou `data/validated`, se um arquivo marcado como nao publicavel em `data/manifests/datasets.csv` aparecer em `data/public`, se algum dataset nao tiver classificacao LAI/LGPD de UI, se o mindmap gerado estiver defasado, ou se automacoes locais de agentes/memoria contiverem comandos de release/instalacao sem gate humano.
+
+Para uma checagem local completa antes de commit/push/deploy autorizado:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\release\check-local-release.ps1
+```
+
+Use `-SkipFrontend` quando ainda nao houver autorizacao para rodar `npm run lint` e `npm run build`.
 
 ## Gatilho Padrao Do Maestro
 
