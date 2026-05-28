@@ -171,6 +171,52 @@ export default function IndexPage() {
           </div>
         </section>
 
+        {/* Mapas de navegação cívica */}
+        <section style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <p style={{ ...S.label, marginBottom: "24px" }}>Explore o projeto</p>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2"
+              style={{ borderTop: "1px solid var(--border-01)", borderLeft: "1px solid var(--border-01)" }}
+            >
+              {[
+                {
+                  href: "/mapa-interativo",
+                  title: "Mindmap da Anatomia do Gasto",
+                  text: "Navegue pelas trilhas públicas de Sorocaba: dinheiro, serviços, Câmara, contratos e controle social.",
+                },
+                {
+                  href: "/fluxo",
+                  title: "Fluxo de publicação",
+                  text: "Entenda como uma fonte oficial vira dado público e por que o site só lê data/public.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="tile-link"
+                  style={{
+                    borderRight: "1px solid var(--border-01)",
+                    borderBottom: "1px solid var(--border-01)",
+                    minHeight: "172px",
+                    padding: "28px",
+                  }}
+                >
+                  <h2 className="font-semibold" style={{ fontSize: "20px", color: "var(--text-01)" }}>
+                    {item.title}
+                  </h2>
+                  <p className="mt-3" style={{ ...S.body, color: "var(--text-03)", fontSize: "13px" }}>
+                    {item.text}
+                  </p>
+                  <p className="mt-5" style={{ fontSize: "14px", color: "var(--blue-50)" }}>
+                    Abrir →
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Links de contexto */}
         <section style={{ backgroundColor: "var(--bg-base)" }}>
           <div className="mx-auto px-6 py-10" style={S.container}>

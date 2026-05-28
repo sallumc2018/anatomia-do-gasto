@@ -74,6 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/sorocaba/pacto-federativo",       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.6 },
     { route: "/sorocaba/fornecedores",           mtime: fornecedoresMtime, freq: "monthly", priority: 0.9 },
     { route: "/sorocaba/lacunas",                mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
+    { route: "/mapa-interativo",                 mtime: SITE_UPDATED,      freq: "monthly", priority: 0.8 },
+    { route: "/fluxo",                           mtime: SITE_UPDATED,      freq: "monthly", priority: 0.8 },
     { route: "/contato",                         mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/metodologia",                     mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/sobre",                           mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },

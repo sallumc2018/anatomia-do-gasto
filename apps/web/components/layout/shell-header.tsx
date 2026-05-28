@@ -33,6 +33,8 @@ const MAIS_NAV = [
   { href: "/sorocaba/educacao", label: "Educação" },
   { href: "/sorocaba/seguranca", label: "Segurança" },
   { href: "/sorocaba/transporte", label: "Transporte" },
+  { href: "/mapa-interativo", label: "Mindmap" },
+  { href: "/fluxo", label: "Fluxo" },
   { href: "/sorocaba/auditoria", label: "Agentes" },
   { href: "/sorocaba/pacto-federativo", label: "Federativo" },
   { href: "/sorocaba/emendas", label: "Emendas" },
