@@ -26,7 +26,7 @@ A auditoria cobre a cadeia completa de remuneração e destinação de recursos 
 **Cobertura atual:**
 
 - **Cidades:** Sorocaba
-- **Datasets publicados:** 51
+- **Datasets publicados:** 59
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-24
+- **Atualizado em:** 2026-05-28
 <!-- AUTO:coverage-end -->

@@ -106,5 +106,5 @@ O gate `python tools\agents\check-scope-gates.py` falha quando algum dataset nao
 - **Cidades:** Sorocaba
 - **Datasets publicados:** 59
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-27
+- **Atualizado em:** 2026-05-28
 <!-- AUTO:coverage-end -->

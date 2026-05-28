@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 **Cobertura atual:**
 
 - **Cidades:** Sorocaba
-- **Datasets publicados:** 51
+- **Datasets publicados:** 59
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-24
+- **Atualizado em:** 2026-05-28
 <!-- AUTO:coverage-end -->

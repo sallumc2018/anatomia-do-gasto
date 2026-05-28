@@ -10,9 +10,9 @@ Site oficial: https://www.anatomiadogasto.ong.br
 **Cobertura atual:**
 
 - **Cidades:** Sorocaba
-- **Datasets publicados:** 51
+- **Datasets publicados:** 59
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-24
+- **Atualizado em:** 2026-05-28
 <!-- AUTO:coverage-end -->
 
 O projeto não realiza auditoria jurídica nem emite juízo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificação independente.
@@ -125,14 +125,14 @@ Manifests ficam em `data/manifests`. Cada dataset publicável deve registrar fon
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- c09b6f9 chore: adiciona playwright ao requirements e corrige hook UserPromptSubmit
-- 4328119 security(ci): pin actions por SHA e restringir permissions a read
-- 288da6a feat(lai): fechar lista de pedidos LAI — 35→40 pedidos, 2 publicados
-- 51b0681 feat(lai): página diário cidadão LAI + lib de pedidos e-SIC
-- 937726c feat(pncp): extrai contratos+atas+compras Sorocaba 2022-2025 via Playwright
-- 2b3c659 docs(sessao): registra documentacao tecnica, LAI e analise cidada
-- e808f36 fix(transferegov): corrige BOM UTF-8 que quebrava cascade de IDs
-- 6931e46 feat(pipeline+lai+analise): fecha Blocos II e III das Clausulas Petras
-- 25041b7 feat(lacunas): arquitetura dinâmica de métricas — JSON gerado por script
-- b88c47a chore(cobertura): atualiza status Urbes para em_coleta e manifesto LAI
+- e371060 [Codex] enable GitHub Actions gates
+- a0080cc [Codex] add GitHub onboarding templates
+- 76d81aa chore: add review gates and volunteer entrypoint
+- 7530af1 feat: add publication classification and release checks
+- 9ab9f16 feat: add publication flow and interactive mindmap
+- 2366358 chore: align agent symbiosis and local tooling
+- 3ae4309 Record Vercel deployment cancellation pattern
+- 560e361 Polish frontend and tablet monitor workflow
+- 7743bf5 Align Sorocaba coverage and Maestro governance
+- 24d02c9 feat(transferencias): corrige endpoint Portal Transparencia e publica convenios federais
 <!-- AUTO:activity-end -->
