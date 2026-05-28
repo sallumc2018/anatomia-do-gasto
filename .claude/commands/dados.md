@@ -19,12 +19,12 @@ Isolamento:
 Formato esperado: `<area> <ano ou faixa>`, por exemplo `saude 2025`, `educacao 2024`, `receita 2020-2025`, `fiscal todos`.
 Se faltar area ou ano, pergunte antes de baixar.
 
-Raiz: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto`
+Raiz: `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto`
 
 ## Passo 1 - Inventario minimo
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 Get-ChildItem "data\raw" -Recurse -File | Select-Object FullName, Length, LastWriteTime | Sort-Object FullName
 Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 ```

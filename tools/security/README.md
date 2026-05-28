@@ -4,18 +4,18 @@ Scripts read-only para monitorar o estado minimo de seguranca do projeto no Wind
 
 ## Arquivos gerados
 
-- `C:\Omega\tmp\omega-security-status.txt`: status resumido do watchdog.
-- `C:\Omega\tmp\omega-security-last-check.txt`: saida da ultima auditoria.
-- `C:\Omega\tmp\omega-security-watch.log`: historico do watchdog.
-- `C:\Omega\tmp\omega-codex-status.txt`: resumo curto para agentes.
-- `C:\Omega\tmp\omega-codex-trigger.txt`: ultimo alerta ativo para Codex/Claude.
-- `C:\Omega\tmp\omega-security-triggers\`: historico de triggers para agentes.
-- `C:\Omega\tmp\omega-security-alerts\`: fila/historico de notificacoes externas.
-- `C:\Omega\tmp\omega-security-events.jsonl`: log estruturado Nós vs Terceiros.
-- `C:\Omega\tmp\omega-pc-status.txt`: status legivel do PC.
-- `C:\Omega\tmp\omega-pc-status.json`: status estruturado do PC.
+- `C:/Omega/tmp/omega-security-status.txt`: status resumido do watchdog.
+- `C:/Omega/tmp/omega-security-last-check.txt`: saida da ultima auditoria.
+- `C:/Omega/tmp/omega-security-watch.log`: historico do watchdog.
+- `C:/Omega/tmp/omega-codex-status.txt`: resumo curto para agentes.
+- `C:/Omega/tmp/omega-codex-trigger.txt`: ultimo alerta ativo para Codex/Claude.
+- `C:/Omega/tmp/omega-security-triggers/`: historico de triggers para agentes.
+- `C:/Omega/tmp/omega-security-alerts/`: fila/historico de notificacoes externas.
+- `C:/Omega/tmp/omega-security-events.jsonl`: log estruturado Nós vs Terceiros.
+- `C:/Omega/tmp/omega-pc-status.txt`: status legivel do PC.
+- `C:/Omega/tmp/omega-pc-status.json`: status estruturado do PC.
 
-`C:\Omega\tmp` e operacional local, mas nao deve ser versionado. Alertas importantes devem ser revisados e, se necessario, movidos para area operacional privada fora do repositorio.
+`C:/Omega/tmp` e operacional local, mas nao deve ser versionado. Alertas importantes devem ser revisados e, se necessario, movidos para area operacional privada fora do repositorio.
 
 ## Classes de eventos
 
@@ -72,7 +72,7 @@ Padrao recomendado: email SMTP com credencial local criptografada pelo Windows D
 powershell -ExecutionPolicy Bypass -File tools\security\create-alert-email-credential.ps1
 ```
 
-2. Editar `C:\Omega\03_Ferramentas\infra\omega-security-alerts.json`:
+2. Editar `C:/Omega/03_Ferramentas/infra/omega-security-alerts.json`:
 
 ```json
 {
@@ -87,7 +87,7 @@ powershell -ExecutionPolicy Bypass -File tools\security\create-alert-email-crede
 
 3. Para Gmail, use senha de app, nao a senha normal da conta.
 
-O arquivo `C:\Omega\Sensivel\infra\secrets\omega-security-smtp.credential.xml` nao deve ser copiado para o repositorio. Ele so descriptografa no mesmo usuario Windows que o criou.
+O arquivo `C:/Omega/Sensivel/infra/secrets/omega-security-smtp.credential.xml` nao deve ser copiado para o repositorio. Ele so descriptografa no mesmo usuario Windows que o criou.
 
 ## WhatsApp
 

@@ -7,7 +7,7 @@ Este projeto deve funcionar com a mesma estrutura no Windows, no WSL/Linux, no G
 Clone recomendado:
 
 ```powershell
-cd C:\projetos
+cd C:/projetos
 git clone https://github.com/sallumc2018/anatomia-do-gasto.git
 cd anatomia-do-gasto
 ```
@@ -32,37 +32,37 @@ Use `npm.cmd` no PowerShell para evitar conflito com `npm.ps1` quando a Executio
 Infraestrutura local persistente recomendada para a operacao do tablet:
 
 ```text
-C:\Omega\03_Ferramentas\infra\
+C:/Omega/03_Ferramentas/infra/
   adb\
   usb_driver\
   android-adb-home\
   logs\
     tablet\
 
-C:\Omega\Sensivel\infra\
+C:/Omega/Sensivel/infra/
   secrets\
 ```
 
 No workspace Omega reorganizado, a infraestrutura equivalente pode estar em:
 
 ```text
-C:\Omega\Sistema\Ferramentas_WSL_e_Binarios\infra\
+C:/Omega/Sistema/Ferramentas_WSL_e_Binarios/infra/
   adb\
   android-adb-home\
   omega-tablet-ssh.json
 
-C:\Omega\Sistema\Sensivel_Chaves_e_Credenciais\infra\
+C:/Omega/Sistema/Sensivel_Chaves_e_Credenciais/infra/
   secrets\
 ```
 
 Os scripts de tablet aceitam `-Adb` e priorizam o caminho reorganizado quando existir.
 
-`C:\tmp` deve ser tratado como area descartavel. O projeto deve usar `C:\Omega\tmp` para status operacional local que precisa ser lido por agentes, watchdog ou tablet.
+`C:/tmp` deve ser tratado como area descartavel. O projeto deve usar `C:/Omega/tmp` para status operacional local que precisa ser lido por agentes, watchdog ou tablet.
 
-O watchdog local de seguranca usa `C:\Omega\tmp` para status operacional, `C:\Omega\03_Ferramentas\infra` para configuracoes operacionais locais e `C:\Omega\Sensivel\infra\secrets` para segredos:
+O watchdog local de seguranca usa `C:/Omega/tmp` para status operacional, `C:/Omega/03_Ferramentas/infra` para configuracoes operacionais locais e `C:/Omega/Sensivel/infra/secrets` para segredos:
 
 ```text
-C:\Omega\tmp\
+C:/Omega/tmp\
   omega-security-status.txt
   omega-security-last-check.txt
   omega-security-watch.log
@@ -72,18 +72,18 @@ C:\Omega\tmp\
   omega-pc-status.txt
   omega-pc-status.json
 
-C:\Omega\03_Ferramentas\infra\
+C:/Omega/03_Ferramentas/infra/
   omega-security-alerts.json
   omega-tablet-ssh.json
 
-C:\Omega\Sensivel\infra\
+C:/Omega/Sensivel/infra/
   secrets\
     omega-security-smtp.credential.xml
     omega-tablet-status-ed25519
     omega-tablet-known_hosts
 ```
 
-Arquivos em `C:\Omega\Sensivel\infra\secrets` nunca devem ser copiados para o repositorio.
+Arquivos em `C:/Omega/Sensivel/infra/secrets` nunca devem ser copiados para o repositorio.
 
 PDFs grandes e acervos brutos devem permanecer fora do disco C. No Windows, use `G:\Meu Drive` como acervo operacional e aponte o pipeline para ele:
 
@@ -91,7 +91,7 @@ PDFs grandes e acervos brutos devem permanecer fora do disco C. No Windows, use 
 $env:ANATOMIA_RAW_ROOT = "G:\Meu Drive\Omega-data\raw"
 ```
 
-Com essa variavel, `pipelines/paths.py` resolve `data/raw` para `G:\Meu Drive\Omega-data\raw\<municipio>`. Nao copie PDFs grandes para `C:\Omega` nem para `data/raw` dentro do checkout em C:.
+Com essa variavel, `pipelines/paths.py` resolve `data/raw` para `G:\Meu Drive\Omega-data\raw\<municipio>`. Nao copie PDFs grandes para `C:/Omega` nem para `data/raw` dentro do checkout em C:.
 
 Para sincronizar o WSL com o estado atual do GitHub (quando necessário):
 

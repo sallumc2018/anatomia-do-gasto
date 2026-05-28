@@ -21,7 +21,7 @@ Seu trabalho e classificar, decompor quando necessario, montar pacote minimo, ro
 Atalho read-only para classificar com estado git, RAG curto e budget:
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
 ```
 
@@ -121,7 +121,7 @@ Se o pedido exceder o nivel vigente, escalar para o usuario com motivo curto.
 ## Passo 2 - Verificar estado do repo
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 git status --short | Select-Object -First 30
 ```
 

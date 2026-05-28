@@ -9,14 +9,14 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 | Ambiente | Papel | Path |
 |---|---|---|
 | WSL/Linux | Desenvolvimento principal — Python, Node, Codex, RTK, Claude Code CLI | `/mnt/c/Omega/02_Repos/anatomia-do-gasto` |
-| Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto` |
+| Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto` |
 | GitHub | Fonte da verdade entre todos os ambientes | `sallumc2018/anatomia-do-gasto` |
 | Vercel | Deploy de produção via CLI (`vercel deploy --prod --yes`); integração GitHub não é usada | Root Directory `apps/web` |
 | Tablet Android | Terminal portátil — leitura de docs e dados públicos | `/sdcard/AnatomiaDrive` via ADB |
 
 - App web: `apps/web`.
 - Pipeline Python: `pipelines`.
-- Infraestrutura local Windows: `C:\Omega\03_Ferramentas\infra\` (ADB, drivers USB, logs de tablet); secrets locais ficam fora do repo em `C:\Omega\Sensivel\infra\secrets\`.
+- Infraestrutura local Windows: `C:/Omega/03_Ferramentas/infra/` (ADB, drivers USB, logs de tablet); secrets locais ficam fora do repo em `C:/Omega/Sensivel/infra/secrets/`.
 - Sincronização WSL: `tools/dev/sync-wsl-mirror.ps1`.
 - Dados:
   - `data/raw`: fontes brutas.
@@ -24,8 +24,8 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
   - `data/validated`: dados aprovados localmente.
   - `data/public`: única fonte de dados do site.
   - `data/manifests`: inventário e status dos datasets.
-- PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\Omega-data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw`. Nao copiar PDFs grandes para `C:\Omega` apenas para rodar pipeline.
-- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:\ferramentas\rtk\rtk.exe` (Windows). Binários e caches não são versionados; o registro publico auditavel fica em `memory/token-economy/`.
+- PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\Omega-data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw`. Nao copiar PDFs grandes para `C:/Omega` apenas para rodar pipeline.
+- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:/ferramentas/rtk/rtk.exe` (Windows). Binários e caches não são versionados; o registro publico auditavel fica em `memory/token-economy/`.
 - Memoria/RAG dos agentes: `memory/` contem memoria publica versionavel, schemas, registry e handoffs seguros; indices locais ficam em `.local/rag/` e memoria operacional privada fica em `.local/memory/`.
 - Registry canonico de agentes: `memory/agents/registry.csv`; automacoes locais seguras ficam em `tools/agents/` e logs/locks em `.local/agents/` e `.local/memory/agent-runs/`.
 - Aprendizado do Maestro: contrato em `memory/agents/maestro-learning.md` e log publico sanitizado em `memory/agents/maestro-learning-log.csv`. Licoes sao candidatas ate promocao explicita em comando, registry ou docs com validacao local.

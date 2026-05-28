@@ -1,4 +1,4 @@
-# Handoff — Orquestrador → /pipeline
+﻿# Handoff — Orquestrador → /pipeline
 # Tarefa: Obras públicas + Contratos 2020-2021 + Precatórios
 
 **Data:** 2026-05-22
@@ -141,7 +141,7 @@ for f in ['obras_pncp_sorocaba_2023_2026.csv', 'contratos_portal_sorocaba_2020_2
 "
 ```
 
-Após publicar: `python c:\tmp\calc_score.py` — contratos deve subir de 57.1%.
+Após publicar: `python c:/tmp/calc_score.py` — contratos deve subir de 57.1%.
 
 ---
 

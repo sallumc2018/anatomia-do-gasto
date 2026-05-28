@@ -95,13 +95,13 @@ Após a correção de uma vulnerabilidade, o mantenedor publicará um aviso no r
 
 ## Infraestrutura Local Do Tablet
 
-- O estado local do ADB no Windows deve ficar em `C:\Omega\03_Ferramentas\infra\android-adb-home`, não em `C:\tmp`, para não ser apagado por rotinas de limpeza.
-- Logs e inventários do tablet devem ficar em área persistente fora de `C:\tmp`, preferencialmente `C:\Omega\03_Ferramentas\infra\logs\tablet`.
-- `C:\tmp` deve ser tratado como área descartável e nunca como armazenamento persistente de pareamentos ADB ou artefatos operacionais do tablet.
-- O watchdog local de segurança fica em `tools/security/` e escreve status temporário em `C:\Omega\tmp\omega-security-*`.
-- Alertas do watchdog podem ser enviados por email SMTP usando configuração local em `C:\Omega\03_Ferramentas\infra\omega-security-alerts.json` e credencial criptografada por usuário Windows em `C:\Omega\Sensivel\infra\secrets\`. Esses arquivos não pertencem ao repositório.
+- O estado local do ADB no Windows deve ficar em `C:/Omega/03_Ferramentas/infra/android-adb-home`, não em `C:/tmp`, para não ser apagado por rotinas de limpeza.
+- Logs e inventários do tablet devem ficar em área persistente fora de `C:/tmp`, preferencialmente `C:/Omega/03_Ferramentas/infra/logs/tablet`.
+- `C:/tmp` deve ser tratado como área descartável e nunca como armazenamento persistente de pareamentos ADB ou artefatos operacionais do tablet.
+- O watchdog local de segurança fica em `tools/security/` e escreve status temporário em `C:/Omega/tmp/omega-security-*`.
+- Alertas do watchdog podem ser enviados por email SMTP usando configuração local em `C:/Omega/03_Ferramentas/infra/omega-security-alerts.json` e credencial criptografada por usuário Windows em `C:/Omega/Sensivel/infra/secrets/`. Esses arquivos não pertencem ao repositório.
 - O tablet pode receber cópia read-only do status do PC e do watchdog por `tools/tablet/update-tablet-status.ps1`, em `/sdcard/AnatomiaTerminal/`.
-- Sem USB, o tablet deve receber status por SSH/SCP no Termux, com chave dedicada e fingerprint do host fixada em `C:\Omega\03_Ferramentas\infra\omega-tablet-ssh.json`. Não usar automação de tela nem sessão web para transportar status operacional.
+- Sem USB, o tablet deve receber status por SSH/SCP no Termux, com chave dedicada e fingerprint do host fixada em `C:/Omega/03_Ferramentas/infra/omega-tablet-ssh.json`. Não usar automação de tela nem sessão web para transportar status operacional.
 
 ## Pentest 2026-05-17 — Resultados e Riscos Aceitos
 

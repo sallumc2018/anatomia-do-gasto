@@ -1,4 +1,4 @@
-# Handoff — Orquestrador → /pipeline
+﻿# Handoff — Orquestrador → /pipeline
 # Tarefa: Publicar dados da Urbes (transporte público de Sorocaba)
 
 **Data:** 2026-05-22
@@ -102,7 +102,7 @@ assert df['valor'].isna().mean() < 0.05, "muitos nulos em valor"
 print(f"OK: {len(df)} registros, anos {sorted(df['ano'].unique())}")
 ```
 
-Após publicar, rodar `python c:\tmp\calc_score.py` — deve subir acima de 71.1%.
+Após publicar, rodar `python c:/tmp/calc_score.py` — deve subir acima de 71.1%.
 
 ---
 

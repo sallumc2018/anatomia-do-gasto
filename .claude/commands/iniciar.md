@@ -14,7 +14,7 @@ Objetivo: apresentar status consolidado sem reler arquivos longos.
 Atalho preferencial:
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
 ```
 
@@ -32,9 +32,9 @@ git branch --show-current
 ## Windows
 
 ```powershell
-$repo = "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
-$adb = "C:\Omega\03_Ferramentas\infra\adb\adb.exe"
-$infra = "C:\Omega\03_Ferramentas\infra"
+$repo = "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
+$adb = "C:/Omega/03_Ferramentas/infra/adb/adb.exe"
+$infra = "C:/Omega/03_Ferramentas/infra"
 $venvOk = Test-Path "$repo\.venv"
 $nodeOk = Test-Path "$repo\apps\web\node_modules"
 $adbOk = Test-Path $adb
@@ -45,7 +45,7 @@ Write-Host "Windows - .venv: $venvOk | node_modules: $nodeOk | ADB: $adbOk | inf
 ## Dados publicados
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 Get-ChildItem "data\public" -Recurse -File | Group-Object DirectoryName | Select-Object Count, Name
 Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 ```
@@ -55,7 +55,7 @@ Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 Se `$adbOk` for verdadeiro:
 
 ```powershell
-& "C:\Omega\03_Ferramentas\infra\adb\adb.exe" devices -l
+& "C:/Omega/03_Ferramentas/infra/adb/adb.exe" devices -l
 ```
 
 ## Saida

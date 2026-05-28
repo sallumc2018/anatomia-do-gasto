@@ -9,7 +9,7 @@ Scripts para transformar um tablet Android simples em terminal de status e armaz
 - O painel visual roda no Termux por `~/bin/status-tablet`.
 - A sincronizacao de arquivos publicos pode usar ADB quando o tablet estiver em USB.
 - O status operacional pode usar SSH/SCP pelo Wi-Fi com chave dedicada e host key pinada.
-- A infraestrutura persistente do Android no Windows deve ficar em `C:\Omega\03_Ferramentas\infra`; secrets ficam em `C:\Omega\Sensivel\infra\secrets`; status local fica em `C:\Omega\tmp`.
+- A infraestrutura persistente do Android no Windows deve ficar em `C:/Omega/03_Ferramentas/infra`; secrets ficam em `C:/Omega/Sensivel/infra/secrets`; status local fica em `C:/Omega/tmp`.
 
 ## Comandos
 
@@ -36,11 +36,11 @@ powershell -ExecutionPolicy Bypass -File tools\tablet\debloat-tablet.ps1
 
 - Os scripts nao contem senhas, tokens, chaves ADB ou chaves SSH.
 - `pm uninstall --user 0` remove apps apenas para o usuario atual; nao apaga a particao de sistema.
-- Antes do debloat, a lista de pacotes e salva em `C:\Omega\03_Ferramentas\infra\logs\tablet\packages\`.
+- Antes do debloat, a lista de pacotes e salva em `C:/Omega/03_Ferramentas/infra\logs\tablet\packages\`.
 - Para restaurar um pacote removido:
 
 ```powershell
-C:\Omega\03_Ferramentas\infra\adb\adb.exe shell cmd package install-existing nome.do.pacote
+C:/Omega/03_Ferramentas/infra\adb\adb.exe shell cmd package install-existing nome.do.pacote
 ```
 
 ## O que vai para o tablet
@@ -72,7 +72,7 @@ Para atualizar manualmente o painel operacional no tablet:
 powershell -ExecutionPolicy Bypass -File tools\tablet\update-tablet-status.ps1
 ```
 
-Esse comando gera o status do PC em `C:\Omega\tmp\omega-pc-status.txt` e espelha status, logs e alertas do watchdog para `/sdcard/AnatomiaTerminal/`.
+Esse comando gera o status do PC em `C:/Omega/tmp\omega-pc-status.txt` e espelha status, logs e alertas do watchdog para `/sdcard/AnatomiaTerminal/`.
 
 Quando o SSH/Termux nao estiver disponivel, use o sincronizador ADB para manter o tablet atualizado enquanto estiver conectado por USB:
 
@@ -80,7 +80,7 @@ Quando o SSH/Termux nao estiver disponivel, use o sincronizador ADB para manter 
 powershell -ExecutionPolicy Bypass -File tools\tablet\start-tablet-adb-status-loop.ps1 -IntervalSeconds 15
 ```
 
-O loop ADB grava `C:\Omega\tmp\omega-tablet-adb-sync-loop.pid` e `C:\Omega\tmp\omega-tablet-adb-sync-loop.log`. Ele atualiza `pc-status`, `security-status`, bateria e logs no tablet sem abrir porta de rede.
+O loop ADB grava `C:/Omega/tmp\omega-tablet-adb-sync-loop.pid` e `C:/Omega/tmp\omega-tablet-adb-sync-loop.log`. Ele atualiza `pc-status`, `security-status`, bateria e logs no tablet sem abrir porta de rede.
 
 Por padrao, `update-tablet-status.ps1` sincroniza apenas o estado corrente. Para copiar tambem historicos volumosos de alertas/triggers de seguranca em uma execucao manual, use `-IncludeSecurityArchives`; nao use essa opcao no loop continuo.
 
@@ -90,9 +90,9 @@ Para visualizar o monitor em tempo quase real no Firefox do tablet, sem expor po
 powershell -ExecutionPolicy Bypass -File tools\tablet\start-tablet-web-monitor.ps1
 ```
 
-Esse comando cria `C:\Omega\tmp\omega-monitor.html`, serve `C:\Omega\tmp` em `127.0.0.1:8765`, aplica `adb reverse tcp:8765 tcp:8765` e abre o Firefox/Fennec no tablet. A pagina atualiza a cada 3 segundos.
+Esse comando cria `C:/Omega/tmp\omega-monitor.html`, serve `C:/Omega/tmp` em `127.0.0.1:8765`, aplica `adb reverse tcp:8765 tcp:8765` e abre o Firefox/Fennec no tablet. A pagina atualiza a cada 3 segundos.
 
-No modo USB padrao, `127.0.0.1` fica acessivel ao tablet via `adb reverse` e nao expoe a porta na rede local. No modo Wi-Fi, informe explicitamente `-BindAddress` com o IP do PC e use `-MonitorRoot` apontando para um diretorio dedicado e sanitizado; o script recusa servir `C:\Omega\tmp` inteiro por Wi-Fi.
+No modo USB padrao, `127.0.0.1` fica acessivel ao tablet via `adb reverse` e nao expoe a porta na rede local. No modo Wi-Fi, informe explicitamente `-BindAddress` com o IP do PC e use `-MonitorRoot` apontando para um diretorio dedicado e sanitizado; o script recusa servir `C:/Omega/tmp` inteiro por Wi-Fi.
 
 Para mostrar no tablet as mudancas que o Maestro Watch percebe no repositorio, inicie tambem:
 
@@ -100,7 +100,7 @@ Para mostrar no tablet as mudancas que o Maestro Watch percebe no repositorio, i
 powershell -ExecutionPolicy Bypass -File tools\agents\start-maestro-watch.ps1
 ```
 
-Esse watcher escreve o resumo local em `.local\agents\worktree-watch-current.json` e espelha somente o status publico/sanitizado em `C:\Omega\tmp\omega-worktree-watch.json`, que o monitor web le automaticamente.
+Esse watcher escreve o resumo local em `.local\agents\worktree-watch-current.json` e espelha somente o status publico/sanitizado em `C:/Omega/tmp\omega-worktree-watch.json`, que o monitor web le automaticamente.
 
 Para evitar acumulo de abas e consumo de RAM no tablet, nao reexecute esse comando em loop. Quando chamado manualmente, ele encerra o processo do Firefox/Fennec e abre novamente apenas a URL do monitor.
 
@@ -121,7 +121,7 @@ Para operacao continua sem USB, o caminho principal deve ser Wi-Fi, nao Bluetoot
 - Wi-Fi permite HTTP local, SSH/SFTP, verificacao de host key, maior throughput e menor latencia.
 - Bluetooth deve ficar apenas como contingencia manual, porque e mais lento, menos confiavel para automacao e pior para dashboard em tempo real.
 - O desenho recomendado e: PC serve o monitor em porta local restrita ao IP do tablet; tablet abre no Firefox; atualizacoes operacionais usam SSH/SFTP com chave dedicada e fingerprint pinada quando Termux estiver disponivel.
-- Para Wi-Fi, nunca use `C:\Omega\tmp` como raiz servida. Crie um diretorio publico/sanitizado e libere firewall apenas para o IP do tablet.
+- Para Wi-Fi, nunca use `C:/Omega/tmp` como raiz servida. Crie um diretorio publico/sanitizado e libere firewall apenas para o IP do tablet.
 - Enquanto Termux/SSH nao estiver disponivel, ADB/USB permanece como modo de manutencao e recuperacao.
 
 Fullscreen real: o modo atual com Firefox normal pode esconder barras do sistema via Android, mas ainda pode exibir a interface do navegador. Para kiosk/fullscreen de verdade, use uma destas opcoes:
@@ -149,10 +149,10 @@ O sincronizador SSH deve ser iniciado por `tools\tablet\start-tablet-status-sync
 
 Para evitar interceptacao no caminho PC-tablet, use SSH com:
 
-- chave Ed25519 dedicada em `C:\Omega\Sensivel\infra\secrets\omega-tablet-status-ed25519`;
+- chave Ed25519 dedicada em `C:/Omega/Sensivel/infra/secrets\omega-tablet-status-ed25519`;
 - `StrictHostKeyChecking=yes`;
-- `UserKnownHostsFile=C:\Omega\Sensivel\infra\secrets\omega-tablet-known_hosts`;
-- fingerprint Ed25519 do Termux registrada em `C:\Omega\03_Ferramentas\infra\omega-tablet-ssh.json`.
+- `UserKnownHostsFile=C:/Omega/Sensivel/infra/secrets\omega-tablet-known_hosts`;
+- fingerprint Ed25519 do Termux registrada em `C:/Omega/03_Ferramentas/infra\omega-tablet-ssh.json`.
 
 Fluxo:
 
@@ -175,7 +175,7 @@ PC_PUBLIC_KEY='cole_a_chave_publica_gerada_pelo_PC' sh termux-bootstrap.sh
 ssh-keygen -lf $PREFIX/etc/ssh/ssh_host_ed25519_key.pub
 ```
 
-4. No PC, editar `C:\Omega\03_Ferramentas\infra\omega-tablet-ssh.json` com IP, usuario Termux e fingerprint.
+4. No PC, editar `C:/Omega/03_Ferramentas/infra\omega-tablet-ssh.json` com IP, usuario Termux e fingerprint.
 5. Atualizar status:
 
 ```powershell

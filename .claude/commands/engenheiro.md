@@ -21,7 +21,7 @@ Isolamento:
 ## Passo 1 - Mapear escopo
 
 ```powershell
-cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
+cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
 git status -sb
 rg "<SIMBOLO_OU_PATH>" .
 ```

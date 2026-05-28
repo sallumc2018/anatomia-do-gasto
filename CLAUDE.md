@@ -37,7 +37,7 @@ Nunca commitar:
 - Nao usar nomes reais em dados ficticios.
 - Mock deve ser explicitamente marcado como ficticio.
 - Nao publicar estatistica sem fonte.
-- PDFs grandes do acervo bruto devem permanecer fora de `C:\Omega`, preferencialmente em `G:\Meu Drive\Omega-data\raw`; use `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw` para apontar o pipeline para esse acervo externo.
+- PDFs grandes do acervo bruto devem permanecer fora de `C:/Omega`, preferencialmente em `G:\Meu Drive\Omega-data\raw`; use `ANATOMIA_RAW_ROOT=G:\Meu Drive\Omega-data\raw` para apontar o pipeline para esse acervo externo.
 
 ## Fluxo obrigatorio
 

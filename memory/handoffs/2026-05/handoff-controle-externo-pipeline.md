@@ -1,4 +1,4 @@
-# Handoff — Orquestrador → /pipeline
+﻿# Handoff — Orquestrador → /pipeline
 # Tarefa: Controle externo — Alertas TCE-SP 2020-2024 + Câmara contratos
 
 **Data:** 2026-05-22
@@ -106,7 +106,7 @@ anosCobertos: 6,        // era 0
 ## Validação
 
 ```bash
-python c:\tmp\calc_score.py
+python c:/tmp/calc_score.py
 # Esperado: controle_externo sobe de 52.8% para >80%
 # camara sobe de 63.3% para >75%
 # Score total deve subir de 71.1% para ~74-75%

@@ -95,4 +95,4 @@ Referencia Sorocaba (historica):
 - Proximo passo: /pipeline [area] [anos] ou autorizacao para publicar
 ```
 
-Raiz: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto`
+Raiz: `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto`

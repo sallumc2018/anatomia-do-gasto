@@ -142,7 +142,7 @@ Nunca em paralelo:
 | `deploy` | estado git, build, `apps/web/package.json` | nada por padrao | dados brutos, `.env`, secrets |
 | `engenheiro` | paths explicitamente autorizados | paths explicitamente autorizados | dados, `.env`, secrets fora do escopo |
 | `tablet` | `tools/tablet`, docs de ambiente/seguranca | `tools/tablet` e docs quando solicitado | dados brutos, `.env`, chaves privadas; pode sincronizar `data/public`/manifestos sem analisar conteudo |
-| `seguranca` | `tools/security`, docs de seguranca, logs em `C:\Omega\tmp`; package/loaders quando check exigir | `tools/security` e docs quando solicitado | dados brutos, `.env`, secrets |
+| `seguranca` | `tools/security`, docs de seguranca, logs em `C:/Omega/tmp`; package/loaders quando check exigir | `tools/security` e docs quando solicitado | dados brutos, `.env`, secrets |
 
 ## 6. Pacote Minimo
 

@@ -257,7 +257,7 @@ https://fazenda.sorocaba.sp.gov.br/transparencia/
   - fornecedor baixado e extraído: 69.089 registros
   - despesa orçamentária baixada: 941.441.883 bytes
   - SHA256: `c078dbf866ec82883834026c8682e9b80f7fc972a70940d55fd560edf68a00f4`
-  - cópia de acervo: `C:\Omega\04_Acervo_Dados\Sorocaba\raw\execucao\livros_contabeis\livro_registro_analitico_despesa_orcamentaria_2021.pdf`
+  - cópia de acervo: `C:/Omega/04_Acervo_Dados/Sorocaba/raw/execucao/livros_contabeis/livro_registro_analitico_despesa_orcamentaria_2021.pdf`
   - despesa orçamentária extraída com parser vertical: 9.365 registros
   - cobertura do PDF: 9.365/9.365 candidatos de data
   - registros com campos de identificação herdados da tabela visual: 4.875

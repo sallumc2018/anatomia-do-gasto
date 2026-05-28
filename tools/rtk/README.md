@@ -28,13 +28,13 @@ rtk gain    # deve mostrar analytics de economia
 
 ```powershell
 # Estrutura esperada:
-# C:\ferramentas\rtk\rtk.exe
+# C:/ferramentas/rtk/rtk.exe
 
 # Verificar se está no PATH:
 rtk --version
 
 # Se não estiver no PATH, adicionar manualmente:
-$env:PATH += ";C:\ferramentas\rtk"
+$env:PATH += ";C:/ferramentas/rtk"
 ```
 
 ## Como Funciona
