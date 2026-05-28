@@ -6,7 +6,7 @@ import { calcularCobertura, calcularTotalRegistros, calcularDatasetsPublicados }
 
 export const metadata: Metadata = {
   title: "Sobre — Anatomia do Gasto",
-  description: "ONG independente que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
+  description: "Projeto civico independente que organiza dados fiscais publicos em linguagem cidada, com fonte declarada, limites explicitos e rastreabilidade completa.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sobre" },
 }
 
@@ -80,7 +80,7 @@ const COMO_FUNCIONA = [
 const VOLUNTARIOS = [
   {
     perfil: "Advogado",
-    descricao: "Formalizar a ONG (CNPJ, estatuto) e revisar o que podemos publicar sob a ótica da LAI e da LGPD.",
+    descricao: "Apoiar a formalizacao institucional futura (CNPJ, estatuto) e revisar o que podemos publicar sob a otica da LAI e da LGPD.",
   },
   {
     perfil: "Dev Full Stack",
@@ -115,7 +115,7 @@ export default function SobrePage() {
                 Tornar o gasto público compreensível para qualquer cidadão
               </h1>
               <p style={{ ...S.body, marginBottom: "20px" }}>
-                O Anatomia do Gasto é uma ONG independente que organiza dados fiscais oficiais
+                O Anatomia do Gasto é um projeto civico independente que organiza dados fiscais oficiais
                 de municípios brasileiros em linguagem acessível — com fonte declarada,
                 limites explícitos e rastreabilidade completa.
               </p>

@@ -4,8 +4,8 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Colaboração e Voluntariado — Anatomia do Gasto",
-  description: "Faça parte do Anatomia do Gasto. Ajude a decifrar as contas públicas e tornar os gastos municipais compreensíveis para qualquer cidadão.",
+  title: "Colaboracao open-source — Anatomia do Gasto",
+  description: "Contribua com o Anatomia do Gasto. Ajude a decifrar contas publicas e tornar gastos municipais compreensiveis para qualquer cidadao.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/voluntarios" },
 }
 
@@ -101,7 +101,8 @@ export default function VoluntariosPage() {
                 do orçamento municipal seja acessível e de fácil compreensão para qualquer pessoa.
               </p>
               <p style={S.body}>
-                Para colaborar, não é necessária burocracia ou formalizações contratuais.
+                Neste momento, a colaboração é open-source e não cria vínculo formal de voluntariado.
+                Para contribuir, não é necessária burocracia ou formalizações contratuais.
                 O projeto adota o modelo de código aberto (Open Source) para garantir que qualquer desenvolvedor,
                 designer, jornalista ou cidadão possa fazer uma contribuição real e auditável imediatamente.
               </p>
@@ -193,9 +194,9 @@ export default function VoluntariosPage() {
                 </a>
               </div>
               <p style={S.body}>
-                Também é possível conferir mais detalhes sobre a organização na página{" "}
-                <Link href="/sobre" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>
-                  Sobre a ONG
+                Também é possível conferir mais detalhes sobre o status institucional na página{" "}
+                <Link href="/institucional" style={{ color: "var(--blue-40)", textDecoration: "underline" }}>
+                  Institucional
                 </Link>.
               </p>
             </div>

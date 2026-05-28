@@ -52,7 +52,7 @@ export default function IndexPage() {
             "@type": "Organization",
             "name": "Anatomia do Gasto",
             "url": "https://www.anatomiadogasto.ong.br",
-            "description": "ONG brasileira que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
+            "description": "Projeto civico brasileiro que organiza dados fiscais publicos em linguagem cidada, com fonte declarada, limites explicitos e rastreabilidade completa.",
             "email": "contato@anatomiadogasto.ong.br",
             "sameAs": ["https://github.com/sallumc2018/anatomia-do-gasto"],
           }),
@@ -85,7 +85,7 @@ export default function IndexPage() {
                 maxWidth: "560px",
               }}
             >
-              ONG independente que organiza contas municipais com fonte declarada,
+              Projeto civico independente que organiza contas municipais com fonte declarada,
               limites explícitos e rastreabilidade completa — sem vínculo com partidos ou governos.
             </p>
           </div>
@@ -181,6 +181,16 @@ export default function IndexPage() {
             >
               {[
                 {
+                  href: "/institucional",
+                  title: "Base institucional",
+                  text: "Veja o status pre-CNPJ, os limites publicos e as regras de colaboracao enquanto o projeto se estrutura.",
+                },
+                {
+                  href: "/api/dados",
+                  title: "Catalogo de dados publicados",
+                  text: "Consulte os arquivos CSV realmente disponiveis na camada publica do projeto.",
+                },
+                {
                   href: "/mapa-interativo",
                   title: "Mindmap da Anatomia do Gasto",
                   text: "Navegue pelas trilhas públicas de Sorocaba: dinheiro, serviços, Câmara, contratos e controle social.",
@@ -222,9 +232,11 @@ export default function IndexPage() {
           <div className="mx-auto px-6 py-10" style={S.container}>
             <div className="flex flex-wrap gap-6">
               {[
-                { href: "/sobre", label: "Sobre a ONG" },
+                { href: "/institucional", label: "Institucional" },
+                { href: "/sobre", label: "Sobre o projeto" },
                 { href: "/metodologia", label: "Metodologia e fontes" },
-                { href: "/voluntarios", label: "Como ajudar (Voluntariado)" },
+                { href: "/auditoria/reportar", label: "Reportar divergencia" },
+                { href: "/voluntarios", label: "Como contribuir" },
                 { href: "/contato", label: "Contato" },
               ].map((link) => (
                 <Link

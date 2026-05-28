@@ -33,16 +33,20 @@ const MAIS_NAV = [
   { href: "/sorocaba/educacao", label: "Educação" },
   { href: "/sorocaba/seguranca", label: "Segurança" },
   { href: "/sorocaba/transporte", label: "Transporte" },
-  { href: "/mapa-interativo", label: "Mindmap" },
-  { href: "/fluxo", label: "Fluxo" },
   { href: "/sorocaba/auditoria", label: "Agentes" },
   { href: "/sorocaba/pacto-federativo", label: "Federativo" },
+  { href: "/sorocaba/controle-externo", label: "Controle Externo" },
   { href: "/sorocaba/emendas", label: "Emendas" },
   { href: "/sorocaba/lacunas", label: "Lacunas" },
   { href: "/sorocaba/acesso-a-informacao", label: "LAI" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/sobre", label: "Sobre" },
-  { href: "/voluntarios", label: "Voluntariado" },
+  { href: "/institucional", label: "Institucional" },
+  { href: "/auditoria/reportar", label: "Reportar dados" },
+  { href: "/api/dados", label: "Catálogo API" },
+  { href: "/voluntarios", label: "Como contribuir" },
+  { href: "/fluxo", label: "Fluxograma" },
+  { href: "/mapa-interativo", label: "Mapa Interativo" },
 ]
 
 const ALL_NAV = [...MAIN_NAV, ...MAIS_NAV]

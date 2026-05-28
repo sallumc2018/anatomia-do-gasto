@@ -129,3 +129,50 @@ Ações de Engenharia Comunitária:
 - Ideia 3 aplicada: README recebeu secao "Tecnologias Utilizadas" com links para Next.js, React e Python 3.12.
 - Ideia 4 ajustada: trocar `npm install` por `npm ci --ignore-scripts` enquanto o runbook de seguranca npm estiver ativo.
 - Labels GitHub `dados` e `melhoria` criados para apoiar os templates; `bug` e `good first issue` ja existiam.
+
+## 2026-05-28 - Institucional antes de voluntariado formal
+
+Decisao Maestro/Codex:
+
+- Antes de abrir chamada publica de voluntariado formal, publicar uma base institucional honesta sobre o projeto ainda em formacao.
+- Enquanto nao houver comunicacao publica de CNPJ ativo no site, usar "colaboracao open-source" e "contribuicao ao projeto", nao promessa de vinculo voluntario formal.
+- Criar o canal `/auditoria/reportar` como fluxo civico de divergencias, sem coleta propria de dados pessoais e sem acusacoes automaticas.
+- Criar `/api/dados` como catalogo dos CSVs realmente disponiveis em `data/public`, consumindo o manifesto de datasets e conferindo arquivo existente antes de listar link.
+
+Status local:
+
+- Implementado localmente: `/institucional`, `/auditoria/reportar`, `/api/dados`, links de home/footer/sitemap e ajustes de texto em `/sobre` e `/voluntarios`.
+- Validado: `validate-area scope` OK; triagem npm supply-chain local OK; `npm run lint` OK; `npm run build` OK.
+- Observacao: o build tambem compilou paginas novas do Antigravity em Sorocaba, mas os graficos emitiram avisos de container Recharts sem dimensao; portanto essa leva de Sorocaba ainda nao esta pronta para publicacao sem revisao.
+
+## 2026-05-28 - Triagem das ideias Antigravity/Gemini em Sorocaba
+
+Regra: Antigravity/Gemini pode gerar ideias e UI rapido no sandbox, mas o repositorio oficial so recebe versao validada pelo Maestro/Codex.
+
+Ideias aproveitaveis:
+
+1. Graficos DCA/SICONFI em controle externo.
+   - Aproveitar a visualizacao e a tabela.
+   - Reescrever tom: trocar "colapso", "gravissimo", "desmoronou" e conclusoes sobre causas por descricao neutra de variacao informada na DCA.
+   - Valores devem ser derivados dos dados carregados, nao hardcoded no texto.
+
+2. Pagina de transferencias.
+   - Aproveitar a direcao de produto: entidades, tipos de repasse e anos.
+   - Conferir escala monetaria antes de publicar valores; ha indicio de valor em centavos no CSV.
+   - Trocar linguagem editorial por "maiores valores por entidade" e declarar fonte/periodo.
+
+3. Dashboard da Camara por gabinete.
+   - Nao publicar ranking nominal de vereadores como esta.
+   - `data/manifests/publication_classification.csv` marca `camara/gabinete` como `nao_destacar_na_ui` e `agregar_sem_perfil_pessoal`.
+   - Se aproveitado, deve ser agregado, sem perfil pessoal e sem "lider/economico" por pessoa.
+
+4. Campanha de voluntariado.
+   - Aproveitar apenas a cautela juridica: parcerias, horas complementares, certificados e voluntariado formal devem esperar estrutura institucional.
+   - Nao publicar como campanha enquanto o status juridico nao estiver resolvido.
+
+Bloqueios antes de commit/push/deploy dessa parte:
+
+- Neutralizar texto potencialmente ofensivo ou acusatorio.
+- Corrigir avisos de Recharts no build.
+- Confirmar todos os links criados no header existem ou remover links de rotas nao implementadas.
+- Separar commit institucional/API/auditoria do commit experimental de Sorocaba.

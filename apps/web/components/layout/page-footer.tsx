@@ -23,6 +23,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
       { label: "SICONFI - Tesouro Nacional", href: "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca" },
       { label: "Metodologia completa", href: "/metodologia", internal: true },
       { label: "Fontes de dados", href: "/fontes", internal: true },
+      { label: "Catálogo de dados", href: "/api/dados", internal: true },
       { label: "Glossário", href: "/glossario", internal: true },
     ],
   },
@@ -31,8 +32,10 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "contato@anatomiadogasto.ong.br", href: "mailto:contato@anatomiadogasto.ong.br" },
       { label: "Página de contato", href: "/contato", internal: true },
+      { label: "Institucional", href: "/institucional", internal: true },
       { label: "Sobre o projeto", href: "/sobre", internal: true },
-      { label: "Como ajudar (Voluntariado)", href: "/voluntarios", internal: true },
+      { label: "Como contribuir", href: "/voluntarios", internal: true },
+      { label: "Reportar divergência", href: "/auditoria/reportar", internal: true },
       { label: "Código-fonte", href: "https://github.com/sallumc2018/anatomia-do-gasto" },
       { label: "Issues e erros nos dados", href: "https://github.com/sallumc2018/anatomia-do-gasto/issues" },
     ],
@@ -42,7 +45,7 @@ const COLS: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: "Política de Dados", href: "/politica-de-dados", internal: true },
       { label: "Termos de Uso", href: "/termos", internal: true },
-      { label: "Sem afiliação política · Sem fins lucrativos" },
+      { label: "Projeto cívico em formação · Sem afiliação política" },
     ],
   },
 ]
