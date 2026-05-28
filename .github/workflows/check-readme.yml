@@ -1,6 +1,7 @@
 name: Check README Sections
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
