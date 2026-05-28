@@ -16,7 +16,7 @@ Isolamento:
 - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `.env`, secrets.
 - Budget: < 12 K tokens. Leia apenas arquivos afetados e imports diretos.
 
-Raiz do frontend: `C:\Omega\02_Repos\anatomia-do-gasto\apps\web`
+Raiz do frontend: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\apps\web`
 Stack: Next.js + TypeScript + Recharts.
 
 Antes de instalar dependencias ou rodar scripts com lifecycle hooks, leia `docs/seguranca-dependencias-npm.md`. Durante a campanha Mini Shai-Hulud, nao rode `npm install`, `npm update`, `npm audit fix` ou `npx` sem autorizacao explicita.
@@ -37,7 +37,7 @@ Antes de instalar dependencias ou rodar scripts com lifecycle hooks, leia `docs/
 ## Passo 3 - Validar
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto\apps\web"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\apps\web"
 npm.cmd --script-shell cmd.exe run lint
 npm.cmd --script-shell cmd.exe run build
 ```

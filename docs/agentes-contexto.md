@@ -8,6 +8,12 @@ Este guia define como dividir trabalho entre agentes sem gastar contexto lendo a
 
 O maestro deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
 
+O Maestro agora e aprendiz de roteamento, nao executor. Ele pode registrar licoes candidatas sobre rotas, pacotes minimos e sinais de validacao em `memory/agents/maestro-learning-log.csv`, seguindo `memory/agents/maestro-learning.md`. Candidatas nao sao politica ate serem promovidas por mudanca explicita de comando, registry ou documentacao e validacao local.
+
+A autonomia do Maestro depende do nivel de confianca em `memory/agents/maestro-confidence-state.csv`, interpretado por `memory/agents/maestro-confidence-levels.csv`. No nivel inicial C2, ele pode decidir rotas read-only, pacote minimo e registros publicos sanitizados; qualquer execucao, gate humano, promocao de politica ou conflito de paths deve ser escalado.
+
+Falhas, erros, barreiras e correcoes reutilizaveis devem ser registradas em `memory/knowledge/problems.csv` e `memory/knowledge/solutions.csv`, sempre como conteudo publico e sanitizado.
+
 Antes de trabalhos substantivos, todo agente deve localizar fontes com `rg` ou comando seletivo, abrir apenas arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencia relevante.
 
 Trabalho substantivo e qualquer tarefa que envolva leitura/edicao de multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, uso de subagente, investigacao de bug, pipeline, frontend, deploy, seguranca ou decisao que oriente trabalhos futuros. Nao e substantivo: resposta curta, explicacao conceitual, comando simples, confirmacao, status rapido ou ajuste textual isolado sem validacao.
@@ -23,6 +29,14 @@ Inicio read-only de qualquer topico substantivo:
 ```powershell
 python tools\agents\start-topic.py "<objetivo>" --rag-limit 3
 ```
+
+Para objetivos amplos, ambiguos ou reutilizaveis, use primeiro:
+
+```powershell
+/goal <objetivo>
+```
+
+`/goal` e slash command local, nao skill. Ele define sucesso, nao-objetivos, gates, rota inicial, pacote minimo, validacao e sinal de aprendizado.
 
 Pedido recomendado para usuario ou handoff entre agentes:
 
@@ -207,6 +221,7 @@ Ao fim de todo trabalho substantivo, qualquer agente deve encerrar a resposta co
 Fim de trabalho substantivo: sim.
 Handoff recomendado: <sim/nao> - <motivo curto>.
 Modelo: <adequado|recomendar troca para modelo economico|recomendar troca para modelo forte> - <motivo curto>.
+Proveniencia: <id publico em memory/provenance/changes.csv ou local>.
 Economia de contexto: <baixa/media/alta>; base: <evidencia auditavel>; estimativa: <faixa ou qualitativo>.
 ```
 

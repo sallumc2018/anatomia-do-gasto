@@ -79,7 +79,7 @@ entao o projeto consegue oferecer transparencia forte sem publicar indiscriminad
 **Cobertura atual:**
 
 - **Cidades:** Sorocaba
-- **Datasets publicados:** 51
+- **Datasets publicados:** 59
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-24
+- **Atualizado em:** 2026-05-27
 <!-- AUTO:coverage-end -->

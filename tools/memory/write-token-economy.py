@@ -73,6 +73,7 @@ def footer(args: argparse.Namespace) -> str:
             "Fim de trabalho substantivo: sim.",
             f"Handoff recomendado: {args.handoff_recommended} - {args.handoff_reason}.",
             f"Modelo: {args.model} - {args.model_reason}.",
+            f"Proveniencia: {args.provenance}.",
             f"Economia de contexto: {args.economy_level}; base: {base}; estimativa: {args.estimate}.",
         ]
     )
@@ -95,6 +96,7 @@ def main() -> int:
     parser.add_argument("--handoff-reason", default="continuidade registrada em docs e ferramentas")
     parser.add_argument("--model", default="adequado")
     parser.add_argument("--model-reason", default="tarefa mecanica e validavel localmente")
+    parser.add_argument("--provenance", default="registrar separadamente em memory/provenance")
     parser.add_argument("--date")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()

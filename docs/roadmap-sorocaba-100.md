@@ -26,7 +26,7 @@ Transformar todo dado financeiro oficial, rastreável e legalmente publicável s
 
 ## Onde estamos
 
-Estado reconciliado em 2026-05-23. Score LAI: **71.1%** (55 datasets inventariados; 39 cobertos). A base publicada é suficiente para um MVP auditável — lacunas restantes documentadas e priorizadas no manifesto `sorocaba_100_auditavel.csv`.
+Estado reconciliado em 2026-05-27. Score ponderado do site: **79.7%** bruto, exibido como **80%** por arredondamento em `apps/web/lib/lacunas.ts`. O manifesto Sorocaba 100 auditavel permanece com **55 fontes** inventariadas: 4 publicadas, 19 parciais, 12 coletadas pendentes de validacao e 20 com LAI necessario. A base publicada e suficiente para um MVP auditavel; lacunas restantes seguem documentadas e priorizadas no manifesto `data/manifests/sorocaba_100_auditavel.csv`.
 
 | Frente | Estado atual | Evidência |
 |---|---|---|
@@ -49,7 +49,7 @@ Estado reconciliado em 2026-05-23. Score LAI: **71.1%** (55 datasets inventariad
 | Controle externo | Publicado 2020-2025 via TCE-SP | `data/public/sorocaba/controle-externo` |
 | Autarquias (FUNSERV/SAAE) | Publicado 2020-2025 via API TCE-SP | `data/public/sorocaba/autarquias` |
 | Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
-| Fontes oficiais | 55 itens inventariados; score 71.1% em 2026-05-22 | `data/manifests/inventario_fontes_sorocaba.csv` e `data/manifests/sorocaba_100_auditavel.csv` |
+| Fontes oficiais | 55 itens inventariados; score ponderado 79.7% em 2026-05-27; manifesto auditavel com 4 publicados, 19 parciais, 12 coletados pendentes de validacao e 20 LAI necessario | `data/manifests/inventario_fontes_sorocaba.csv`, `data/manifests/sorocaba_100_auditavel.csv` e `tools/diagnostico/calc_score.py` |
 | Auditoria de cobertura | Manifesto auditável ativo; gaps priorizados por fase (API / Playwright / LAI) | `data/manifests/datasets.csv` |
 | Théo | Guia local determinístico criado; IA externa ainda não implementada | botão global no site e bloco `/#theo` |
 

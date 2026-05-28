@@ -24,7 +24,7 @@ Argumentos comuns:
 - `<municipio> <area> <anos>`: ex `campinas saude 2024`, `sorocaba cobertura`.
 - Sem argumento: perguntar municipio/area/ano antes de continuar.
 
-Raiz dos dados publicados: `C:\Omega\02_Repos\anatomia-do-gasto\data\public\<municipio>`
+Raiz dos dados publicados: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\data\public\<municipio>`
 
 ## Regras de analise
 

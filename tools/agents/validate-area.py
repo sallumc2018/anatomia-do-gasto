@@ -22,12 +22,18 @@ COMMANDS: dict[str, list[dict]] = {
     "memory": [
         {"command": ["python", "-m", "compileall", "-q", "tools/memory"], "cwd": ROOT},
         {"command": ["python", "tools/memory/audit-memory-scope.py"], "cwd": ROOT},
+        {"command": ["python", "tools/memory/validate-knowledge-base.py"], "cwd": ROOT},
+        {"command": ["python", "tools/memory/validate-provenance-log.py"], "cwd": ROOT},
         {"command": ["python", "tools/memory/build-rag-index.py", "--check"], "cwd": ROOT},
         {"command": ["python", "tools/memory/write-token-economy.py", "--check"], "cwd": ROOT},
+        {"command": ["python", "tools/memory/write-provenance.py", "--check"], "cwd": ROOT},
     ],
     "agents": [
         {"command": ["python", "-m", "compileall", "-q", "tools/agents"], "cwd": ROOT},
         {"command": ["python", "tools/agents/validate-agent-contracts.py"], "cwd": ROOT},
+        {"command": ["python", "tools/agents/validate-maestro-learning.py"], "cwd": ROOT},
+        {"command": ["python", "tools/agents/eval-maestro-training.py"], "cwd": ROOT},
+        {"command": ["python", "tools/agents/watch-worktree.py", "--once", "--source-label", "validation"], "cwd": ROOT},
         {"command": ["python", "tools/agents/plan-route.py", "completar dados faltantes sorocaba"], "cwd": ROOT},
         {"command": ["python", "tools/agents/start-topic.py", "validar automacoes locais", "--rag-limit", "1"], "cwd": ROOT},
     ],

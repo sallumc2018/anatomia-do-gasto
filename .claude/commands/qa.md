@@ -31,7 +31,7 @@ Caso contrario, usar modo pre-publicacao.
 ## Passo 2A - Publicacao/Cobertura Read-only
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
 python pipelines\testes\verificar_publicacao.py --strict
 $total = (Get-ChildItem "data\public" -Recurse -File | Measure-Object).Count
 $csv = (Get-ChildItem "data\public" -Recurse -File -Filter "*.csv" | Measure-Object).Count
@@ -51,7 +51,7 @@ Se o manifesto de auditoria foi regenerado, conferir se ele contem somente as ca
 ## Passo 2B - Pre-publicacao: localizar arquivos validados
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
 Get-ChildItem "data\validated\<municipio>\<area>" -Recurse -File | Select-Object Name, Length, LastWriteTime
 ```
 

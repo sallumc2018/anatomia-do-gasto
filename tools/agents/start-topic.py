@@ -11,7 +11,9 @@ from common import ROOT, configure_utf8_stdio
 
 
 BUDGETS = {
-    "orquestrador": "< 500 tok",
+    "maestro": "< 800 tok",
+    "orquestrador": "< 800 tok",
+    "goal": "< 800 tok",
     "dados": "< 3 K tok",
     "pipeline": "< 5 K tok",
     "qa": "< 4 K tok",

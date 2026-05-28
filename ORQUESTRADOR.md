@@ -6,7 +6,7 @@ Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. To
 
 ## 1. Regra Central
 
-O maestro monta o menor contexto suficiente para cada agente.
+O maestro monta o menor contexto suficiente para cada agente e aprende com resultados de roteamento sem deixar de ser dispatcher puro.
 
 Antes de qualquer trabalho substantivo, o agente deve localizar fontes com `rg` ou comando seletivo, abrir somente arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencias relevantes.
 
@@ -28,6 +28,25 @@ python tools\agents\list-agents.py --name <agente>
 
 `start-topic.py` e read-only: roda `git status -sb`, roteamento, RAG curto e sugere budget de contexto. Depois de trabalho substantivo, use `tools\agents\validate-area.py --area <area>` para validar o escopo alterado e `tools\memory\write-token-economy.py` para registrar economia publica sanitizada.
 
+Toda alteracao tambem deve deixar assinatura em `memory/provenance/changes.csv`: actor/agente, ferramenta, modelo ou familia de modelo, ambiente, escopo, paths alterados, resumo, validacao e privacidade. Se o detalhe for sensivel ou operacional, registrar apenas resumo publico sanitizado e manter o detalhe em `.local/memory/`.
+
+Para pedidos amplos ou reutilizaveis, use `/goal` antes do despacho. `/goal` e um slash command local, nao uma skill do Codex: ele define objetivo verificavel, nao-objetivos, gates, pacote minimo, validacao e sinal de aprendizado.
+
+O ciclo aprendiz do Maestro fica em `memory/agents/maestro-learning.md` e `memory/agents/maestro-learning-log.csv`. Licoes registradas sao candidatas: elas so viram regra depois de atualizar comando, registry ou docs e rodar `python tools\agents\validate-area.py --area agents`.
+
+A autonomia do Maestro e limitada por confianca. Os niveis ficam em `memory/agents/maestro-confidence-levels.csv`; o nivel ativo fica em `memory/agents/maestro-confidence-state.csv`. O nivel inicial e C2: o Maestro pode decidir rotas read-only, pacote minimo e registros publicos sanitizados, mas deve escalar execucao, escrita fora de memoria, mudanca de politica e todos os gates humanos.
+
+A trilha de treino do Maestro fica em `memory/training/maestro/` e e validada por `python tools\agents\eval-maestro-training.py`. Esse eval e evidencia para promocao, nao promocao automatica.
+
+Para o Maestro perceber mudancas externas sem novo pedido, um watcher local precisa estar rodando. Use `python tools\agents\watch-worktree.py --baseline --source-label "Antigravity/Gemini" --bell` em terminal visivel ou `tools\agents\start-maestro-watch.ps1` em segundo plano. O watcher escreve apenas em `.local/` e nao autoriza nenhuma acao.
+
+Falhas, erros, barreiras e correcoes reutilizaveis devem ser registradas nas bases publicas sanitizadas:
+
+```text
+memory/knowledge/problems.csv
+memory/knowledge/solutions.csv
+```
+
 Nunca repassa:
 - secrets, `.env`, tokens ou chaves;
 - historico completo quando resumo, diff ou trecho bastar;
@@ -42,9 +61,17 @@ Economia auditavel de contexto/token deve ser registrada em `memory/token-econom
 
 Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao encerrar, todo agente deve incluir rodape com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto. Esta regra e portavel para qualquer projeto; se nao houver `memory/token-economy/`, usar o mecanismo equivalente, o handoff ou o rodape da resposta.
 
+O rodape de trabalhos com alteracao deve incluir tambem `Proveniencia: <id ou local>`, apontando para a linha publica em `memory/provenance/changes.csv` ou para memoria local quando o detalhe nao puder ser publico.
+
 Protocolo de modelo: o maestro recomenda e roteia, mas nao troca silenciosamente o modelo principal salvo API segura da ferramenta/plataforma. Se a tarefa exigir mais raciocinio que execucao, recomendar `/model` para modelo forte. Se for grande mas separavel, preferir subagentes com pacote minimo e modelo/tier adequado quando disponivel. Se o chat estiver grande, recomendar handoff/nova conversa antes de sugerir troca de modelo. Ao terminar a parte dificil, recomendar voltar a modelo economico quando a proxima etapa for mecanica/verificavel.
 
 ## 2. Gatilho Padrao
+
+Quando o usuario disser **"/goal"**, **"isso e um goal"** ou trouxer um objetivo amplo sem criterio de sucesso claro, tratar como definicao de objetivo antes de rotear:
+
+```text
+/goal <objetivo> -> maestro roteia com pacote minimo -> observar resultado -> registrar candidata se houver licao
+```
 
 Quando o usuario disser **"Chame o maestro, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
 
@@ -63,6 +90,7 @@ Limites:
 
 | Sinais | Agente |
 |---|---|
+| objetivo amplo, `/goal`, criterio de sucesso, transformar intencao em plano verificavel | `/goal` -> `maestro` |
 | completar dados faltantes, lacunas de dados, dados ausentes | `/frontino status` -> fluxo composto: `dados` -> `pipeline` -> `qa` -> `vitruvio?` |
 | cobertura LAI, manifesto, score, e-SIC, datasets faltantes, pedido LAI | `/frontino` |
 | auditoria de cobertura, reconciliar publicacao, `auditoria_cobertura_sorocaba` | `pipeline` -> `qa` |
@@ -151,6 +179,8 @@ O maestro nunca autoriza por conta propria:
 - Saida:
 - Validacao:
 - Bloqueios:
+- Aprendizado:
+- Problemas/Solucoes:
 - Proximo passo:
 ```
 

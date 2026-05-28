@@ -15,6 +15,7 @@ Isolamento:
 - Pode alterar: `data/raw/` (apenas PDFs/dados baixados), `pipelines/baixar_*playwright*.py` (criar ou editar).
 - Nao ler: `data/extracted/`, `data/public/`, `apps/`, `.env`, secrets.
 - Nao rodar: `npm install/update/audit fix` (worm ativo maio/2026).
+- Nao instalar dependencias Python nem navegadores (`pip install`, `playwright install`) sem autorizacao explicita do usuario.
 - Budget: objetivo e validacao. Nao analisar conteudo de PDFs baixados.
 
 Uso tipico: `<portal> <documento> <anos>`, por exemplo `camara loa 2020-2025`, `urbes contratos 2023`.
@@ -25,7 +26,7 @@ Uso tipico: `<portal> <documento> <anos>`, por exemplo `camara loa 2020-2025`, `
 python -c "from playwright.sync_api import sync_playwright; print('playwright ok')" 2>&1
 ```
 
-Se falhar, instalar:
+Se falhar, pare e peça autorizacao explicita antes de instalar:
 ```bash
 pip install playwright && playwright install chromium
 ```
@@ -94,4 +95,4 @@ Referencia Sorocaba (historica):
 - Proximo passo: /pipeline [area] [anos] ou autorizacao para publicar
 ```
 
-Raiz: `C:\Omega\02_Repos\anatomia-do-gasto`
+Raiz: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto`

@@ -11,6 +11,9 @@ traceability without exposing operational secrets or unpublished data.
 
 - Durable decisions that should guide future agents.
 - Public handoffs that do not include private operational details.
+- Sanitized problem and solution records in `memory/knowledge`.
+- Sanitized model and tool signatures for changes in `memory/provenance`.
+- Candidate Maestro routing lessons in `memory/agents`.
 - Retrieval registry entries for public documentation, manifests, and safe
   catalogs.
 - Schemas that define how agent memory is written and validated.
@@ -24,6 +27,17 @@ traceability without exposing operational secrets or unpublished data.
 - `data/raw`, `data/extracted`, or `data/validated`.
 - Local status, logs, caches, generated indexes, or temporary work.
 - Full conversation history when a short traceable summary is enough.
+
+## Change Signatures
+
+Every project change made by an agent, AI model, editor automation, or helper
+script must be traceable in `memory/provenance/changes.csv` when a public
+sanitized record is safe. The row must identify the actor, tool, model, scope,
+changed paths, validation, and privacy status.
+
+If the detailed trace would expose private operational details, record only a
+sanitized public summary here and keep the detailed local trace under
+`.local/memory/`.
 
 ## Local Memory
 

@@ -74,13 +74,19 @@ Para iniciar um topico substantivo com contexto minimo, rode:
 python tools/agents/start-topic.py "<objetivo>" --rag-limit 3
 ```
 
+Para objetivos amplos ou reutilizaveis, `/goal` e um slash command/protocolo local, nao uma skill. Use-o para definir objetivo verificavel, nao-objetivos, gates, rota inicial, pacote minimo, validacao e sinal de aprendizado antes do Maestro rotear.
+
+Registre falhas, erros, barreiras e correcoes reutilizaveis em `memory/knowledge/problems.csv` e `memory/knowledge/solutions.csv`, sempre como conteudo publico e sanitizado.
+
+Registre toda alteracao em `memory/provenance/changes.csv` com actor/agente, ferramenta, modelo ou familia de modelo, ambiente, escopo, paths alterados, resumo, validacao e privacidade. Para trabalho sensivel ou operacional, registre apenas resumo publico sanitizado e mantenha detalhes fora do Git em `.local/memory/`.
+
 Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta. Nao repasse historico completo quando diff, trecho ou resumo rastreavel bastar.
 
 Para contexto ja documentado, use a memoria publica em `memory/` via `tools/memory/query-rag.py` quando isso reduzir contexto. RAG e auxiliar: antes de editar, publicar dados, rodar pipeline, fazer deploy ou mexer em infraestrutura, leia diretamente os arquivos relevantes. Handoffs publicos reutilizaveis ficam em `memory/handoffs/YYYY-MM/`; handoffs locais ou sensiveis ficam em `.local/memory/handoffs/YYYY-MM/`.
 
 Quando houver economia auditavel e o conteudo for publico/sanitizado, registre em `memory/token-economy/YYYY-MM.md`: data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa em faixa ou qualitativa e observacao de privacidade. Nunca registre prompts privados, conversa completa, secrets ou dados nao publicados.
 
-Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao finalizar, inclua rodape: `Fim de trabalho substantivo: sim`; `Handoff recomendado: sim/nao - motivo curto`; `Modelo: adequado/recomendar troca - motivo curto`; `Economia de contexto: baixa/media/alta; base auditavel; estimativa em faixa ou qualitativa`.
+Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao finalizar, inclua rodape: `Fim de trabalho substantivo: sim`; `Handoff recomendado: sim/nao - motivo curto`; `Modelo: adequado/recomendar troca - motivo curto`; `Proveniencia: <id ou local>`; `Economia de contexto: baixa/media/alta; base auditavel; estimativa em faixa ou qualitativa`.
 
 Essa regra e portavel para qualquer projeto. Quando nao houver `memory/token-economy/`, registre a economia no mecanismo equivalente do projeto, no handoff, ou apenas no rodape da resposta.
 
@@ -92,9 +98,13 @@ Ao alterar memoria, agentes, handoffs ou RAG, rode:
 python -m compileall -q tools/memory
 python -m compileall -q tools/agents
 python tools/memory/audit-memory-scope.py
+python tools/memory/validate-knowledge-base.py
+python tools/memory/validate-provenance-log.py
 python tools/memory/build-rag-index.py --check
 python tools/memory/write-token-economy.py --check
+python tools/memory/write-provenance.py --check
 python tools/agents/validate-agent-contracts.py
+python tools/agents/validate-maestro-learning.py
 python tools/agents/check-scope-gates.py
 ```
 

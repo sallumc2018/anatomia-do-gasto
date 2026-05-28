@@ -26,7 +26,7 @@ Argumentos:
 ## Checks preferenciais
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
 powershell -ExecutionPolicy Bypass -File "tools\security\check-npm-supply-chain.ps1"
 powershell -ExecutionPolicy Bypass -File "tools\security\check-site-local.ps1" -SkipBuild
 ```

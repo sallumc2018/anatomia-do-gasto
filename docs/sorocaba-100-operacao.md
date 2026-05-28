@@ -16,7 +16,7 @@ autorizacao explicita.
 ## Resumo
 
 - Fontes inventariadas: 55
-- Status auditavel: {'coletado_pendente_validacao': 2, 'lai_necessario': 20, 'parcial': 30, 'publicado': 3}
+- Status auditavel: {'coletado_pendente_validacao': 12, 'lai_necessario': 20, 'parcial': 19, 'publicado': 4}
 - Prioridades: {'alta': 28, 'baixa': 1, 'critica': 17, 'media': 9}
 - Frentes criticas nao publicadas: 16
 

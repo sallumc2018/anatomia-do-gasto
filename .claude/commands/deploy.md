@@ -35,7 +35,7 @@ Se qualquer resposta for "nao" ou "incerto", parar.
 Antes de rodar scripts npm, conferir `docs/seguranca-dependencias-npm.md`.
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
 git status -sb
 git log --oneline -5
 cd "apps\web"

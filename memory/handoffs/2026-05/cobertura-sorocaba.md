@@ -1,9 +1,9 @@
 # Handoff — Cobertura de dados de Sorocaba
 
 **Data:** 2026-05-22  
-**Score atual:** ~71.1% (calculado dinamicamente em `lib/lacunas.ts`)  
+**Score atual:** 79.7% bruto, exibido como 80% no site por arredondamento em `apps/web/lib/lacunas.ts`  
 **Score anterior (início de sessão):** ~39%  
-**Ganho total:** +32.1 pp em duas sessões contínuas  
+**Ganho total:** +40.7 pp desde o inicio registrado (~39%)  
 **Fonte da verdade:** `apps/web/lib/lacunas.ts` — array `LACUNAS` + `COBERTURA_PUBLICADOS`
 
 ---
@@ -23,11 +23,11 @@
 | Dimensão                        | Peso | Score atual |
 |---------------------------------|------|-------------|
 | Executivo — orçamento e execução| 30%  | 76.9%       |
-| Contratos, obras e fornecedores | 20%  | 57.1%       |
-| Câmara Municipal                | 10%  | 63.3%       |
+| Contratos, obras e fornecedores | 20%  | 85.7%       |
+| Camara Municipal                | 10%  | 80.0%       |
 | Transferências e convênios      | 15%  | 100.0%      |
 | Controle externo                | 10%  | 52.8%       |
-| Autarquias e fundações          | 15%  | 66.7%       |
+| Autarquias e fundacoes          | 15%  | 75.0%       |
 
 ---
 
@@ -107,11 +107,11 @@
 - Pessoal individual (remuneração) — portal requer autenticação
 - Patrimônio imobiliário público — via LAI
 
-### Contratos, obras e fornecedores (20%) → ~57% coberto
+### Contratos, obras e fornecedores (20%) → ~86% coberto
 **Publicados:** conta-corrente de fornecedores 2020–2025, empenhos 2020–2025, restos a pagar 2020–2025, PNCP compras/atas 2023–2025 (294 registros).  
 **Lacunas:** contratos pré-2022, obras, precatórios
 
-### Câmara Municipal (10%) → ~63% coberto ↑
+### Câmara Municipal (10%) → ~80% coberto
 **Publicados:** vereadores/subsídio, emendas 2022-2025, despesas execução 2020-2025 (24.417 reg, R$1,23B).  
 **Parcial:** gabinete (despesas mensais já publicadas, mas sem cruzamento por vereador).  
 **Lacunas:** contratos e licitações da Câmara; emendas 2020–2021
@@ -122,7 +122,7 @@
 - **Auditoria — indicadores proxy** — publicado via RREO/RGF (parcial 6/6)
 - SICONFI MSC mensal — **não disponível via API (404)**
 
-### Autarquias e fundações (15%) → ~67% coberto ↑
+### Autarquias e fundações (15%) → ~75% coberto
 - **SAAE** ✅ — 75.272 despesas + 1.130 receitas 2020-2025 via TCE-SP
 - **FUNSERV RPPS** ✅ — previdência (contribuições, aposentadorias) via SICONFI
 - **FUNSERV Saúde** ✅ — 9.154 despesas assistência médica 2020-2025 via TCE-SP (R$3,27B)
@@ -137,7 +137,7 @@
 
 ---
 
-## Próximos passos por impacto no score (a partir de 71.1%)
+## Proximos passos por impacto no score (a partir de 79.7%)
 
 | Bloco | Impacto estimado | Dificuldade |
 |-------|---------|-------------|
@@ -149,7 +149,7 @@
 | Contratos pré-2022 | +0.3pp | Média — fonte legada |
 | Emendas câmara 2020-2021 | +0.3pp | Alta — não está no CEPA |
 
-**Para chegar a 75%:** receita analítica mensal (PDF) + TCE pareceres + patrimônio + pessoal.
+**Proxima meta sugerida:** 85% com receita analitica mensal, TCE pareceres, patrimonio e pessoal, respeitando LAI e gates de publicacao.
 
 ---
 
@@ -166,7 +166,7 @@
 ## Como simular o score
 
 ```bash
-python c:\tmp\calc_score.py
+python tools\diagnostico\calc_score.py
 ```
 
 ## Como atualizar o score

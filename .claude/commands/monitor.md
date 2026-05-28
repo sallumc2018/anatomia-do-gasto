@@ -26,7 +26,7 @@ Argumentos:
 ## Passo 1 - Frescor dos dados por municipio
 
 ```powershell
-cd "C:\Omega\02_Repos\anatomia-do-gasto"
+cd "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto"
 Get-ChildItem "data\public" -Directory | ForEach-Object {
   $mun = $_.Name
   $arquivos = (Get-ChildItem $_.FullName -Recurse -File)

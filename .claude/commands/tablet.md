@@ -18,7 +18,7 @@ Isolamento:
 - Budget: < 2 K tokens.
 
 Infra local:
-- Repo: `C:\Omega\02_Repos\anatomia-do-gasto`
+- Repo: `C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto`
 - ADB: `C:\Omega\03_Ferramentas\infra\adb\adb.exe`
 - Dados no tablet: `/sdcard/AnatomiaDrive`
 - Secrets locais ficam fora do repo em `C:\Omega\Sensivel\infra\secrets\`.
@@ -33,9 +33,9 @@ Argumentos:
 ## Comandos
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Omega\02_Repos\anatomia-do-gasto\tools\tablet\check-tablet.ps1"
-powershell -ExecutionPolicy Bypass -File "C:\Omega\02_Repos\anatomia-do-gasto\tools\tablet\sync-anatomia-tablet.ps1"
-powershell -ExecutionPolicy Bypass -File "C:\Omega\02_Repos\anatomia-do-gasto\tools\tablet\start-tablet-panel.ps1"
+powershell -ExecutionPolicy Bypass -File "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\tools\tablet\check-tablet.ps1"
+powershell -ExecutionPolicy Bypass -File "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\tools\tablet\sync-anatomia-tablet.ps1"
+powershell -ExecutionPolicy Bypass -File "C:\Omega\Profissional\Repositorios_Git_Projetos\anatomia-do-gasto\tools\tablet\start-tablet-panel.ps1"
 ```
 
 Debloat e alteracoes destrutivas exigem listar impacto e pedir confirmacao antes.
