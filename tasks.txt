@@ -121,3 +121,11 @@ Ações de Engenharia Comunitária:
 2. Criar templates de Pull Request e Issues no diretório `.github/` para orientar o envio de dados e código sem ruídos.
 3. Adicionar uma seção "Tecnologias Utilizadas" no README.md principal com links rápidos para a documentação do Next.js e Python 3.12.
 4. Manter o CLI de setup rápido atualizado para garantir que `npm install` e `npm run dev` rodem sem dependências globais extras.
+
+### Validacao Maestro/Codex
+
+- Ideia 1 aprovada, mas ainda e acao remota: criar issues publicas `good first issue` so depois de labels/templates prontos.
+- Ideia 2 aplicada: PR template ja existia; issue templates adicionados para bug, dados, melhoria e tarefa de voluntario.
+- Ideia 3 aplicada: README recebeu secao "Tecnologias Utilizadas" com links para Next.js, React e Python 3.12.
+- Ideia 4 ajustada: trocar `npm install` por `npm ci --ignore-scripts` enquanto o runbook de seguranca npm estiver ativo.
+- Labels GitHub `dados` e `melhoria` criados para apoiar os templates; `bug` e `good first issue` ja existiam.

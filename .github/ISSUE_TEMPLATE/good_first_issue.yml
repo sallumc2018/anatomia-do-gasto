@@ -1,0 +1,39 @@
+name: Tarefa para voluntarios
+description: Template para mantenedores criarem tarefas pequenas e revisaveis.
+title: "voluntarios: "
+labels:
+  - good first issue
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Este template ajuda a transformar trabalho em uma tarefa pequena, publica e revisavel para novos contribuidores.
+  - type: textarea
+    id: task
+    attributes:
+      label: Tarefa
+      description: Descreva uma entrega pequena, com inicio e fim claros.
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Arquivos ou rotas provaveis
+      description: Liste os caminhos esperados para orientar o contribuidor.
+      placeholder: "Exemplo: apps/web/app/voluntarios/page.tsx"
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceite
+      description: Liste como o revisor deve decidir se a tarefa foi concluida.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validacao local esperada
+      placeholder: "Exemplo: npm.cmd --script-shell cmd.exe run lint"
+    validations:
+      required: true

@@ -121,7 +121,7 @@ Web:
 
 ```bash
 cd apps/web
-npm install
+npm ci --ignore-scripts
 npm run dev
 ```
 

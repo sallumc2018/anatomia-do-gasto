@@ -1,0 +1,43 @@
+name: Bug report
+description: Reporte um erro reproduzivel no site, pipeline ou documentacao.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a melhorar o Anatomia do Gasto. Descreva apenas fatos observados e, quando possivel, inclua links ou prints sem dados sensiveis.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: O que aconteceu?
+      description: Explique o erro de forma objetiva.
+      placeholder: "Exemplo: a pagina /sorocaba nao carrega o grafico de Educacao."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Como reproduzir?
+      description: Liste os passos para outra pessoa verificar.
+      placeholder: |
+        1. Acesse ...
+        2. Clique em ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+      description: O que deveria acontecer?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia
+      description: Inclua URL, ambiente, navegador, logs ou prints publicaveis. Nao cole secrets, tokens, cookies ou dados pessoais.
+    validations:
+      required: false

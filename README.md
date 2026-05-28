@@ -67,6 +67,13 @@ O site nunca deve ler `data/extracted` diretamente.
 
 Veja [docs/ambiente.md](docs/ambiente.md).
 
+## Tecnologias Utilizadas
+
+- [Next.js](https://nextjs.org/docs): site publico em `apps/web`.
+- [React](https://react.dev/learn) e TypeScript: interface cidada e componentes do frontend.
+- [Python 3.12](https://docs.python.org/3.12/): pipelines de coleta, validacao e publicacao de dados.
+- CSV/JSON versionados: dados publicos ficam em `data/public` e manifests em `data/manifests`.
+
 Resumo Windows:
 
 ```powershell
@@ -74,7 +81,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 
 cd apps\web
-npm.cmd install
+npm.cmd ci --ignore-scripts
 npm.cmd run dev
 ```
 
@@ -85,7 +92,7 @@ python3 -m venv .venv
 ./.venv/bin/python -m pip install -r requirements.txt
 
 cd apps/web
-npm install
+npm ci --ignore-scripts
 npm run dev
 ```
 
@@ -105,7 +112,7 @@ A Vercel deve usar:
 
 - Root Directory: `apps/web`
 - Build Command: `npm run build`
-- Install Command: `npm install`
+- Install Command: `npm ci --ignore-scripts`
 
 Dados só devem ser commitados em `data/public` depois de validação local.
 

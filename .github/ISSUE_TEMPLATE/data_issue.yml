@@ -1,0 +1,60 @@
+name: Correcao ou fonte de dados
+description: Reporte uma divergencia em dado publicado ou sugira uma fonte oficial.
+title: "dados: "
+labels:
+  - dados
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template para tratar dados com cuidado. O projeto nao transforma inferencia em acusacao e todo dado publico precisa de fonte, periodo, escopo e limitacao.
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Tipo
+      options:
+        - Dado publicado possivelmente incorreto
+        - Fonte oficial nova
+        - Lacuna de cobertura
+        - Duvida metodologica
+    validations:
+      required: true
+  - type: input
+    id: municipality
+    attributes:
+      label: Municipio ou escopo
+      placeholder: "Exemplo: Sorocaba/SP, Paulinia/SP, federal"
+    validations:
+      required: true
+  - type: input
+    id: area-period
+    attributes:
+      label: Area e periodo
+      placeholder: "Exemplo: Saude, 2024"
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Fonte oficial
+      description: Inclua URL, nome do orgao, data de acesso e, se houver, identificador do documento.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Descricao factual
+      description: Descreva a divergencia ou proposta sem acusar pessoas ou inferir intencao.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmacoes
+      options:
+        - label: A fonte informada e publica ou obtida por canal legal de transparencia.
+          required: true
+        - label: A issue nao inclui senhas, tokens, cookies, dados pessoais sensiveis ou material privado.
+          required: true
+        - label: O texto evita acusacoes e separa fato observado de interpretacao.
+          required: true

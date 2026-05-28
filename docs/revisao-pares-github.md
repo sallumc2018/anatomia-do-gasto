@@ -27,6 +27,7 @@ Quando o trabalho nasceu em sandbox, Antigravity, VS Code, Codex, Claude, Gemini
 Antes de abrir PR ou fazer commit direto em `main`, verificar:
 
 - O diff e pequeno o suficiente para revisao humana.
+- A issue ou PR usa o template publico aplicavel quando a mudanca veio de contribuicao externa.
 - O motivo da mudanca esta documentado no PR, issue, task ou doc.
 - Arquivos de dados publicados continuam restritos a `data/public`.
 - `data/extracted` e `data/validated` nao foram tratados como publicacao.

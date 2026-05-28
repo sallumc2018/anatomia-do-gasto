@@ -12,7 +12,7 @@ Todas as interações neste projeto são regidas pelo nosso [Código de Conduta]
 
 ### 1. Reportar Problemas
 
-Encontrou um bug, dado incorreto ou melhoria? [Abra uma issue](https://github.com/sallumc2018/anatomia-do-gasto/issues).
+Encontrou um bug, dado incorreto ou melhoria? [Abra uma issue](https://github.com/sallumc2018/anatomia-do-gasto/issues) usando o template apropriado.
 
 Inclua:
 - Descrição clara do problema.
@@ -33,7 +33,7 @@ Use o template de issue para propor:
 2. **Clone** seu fork localmente.
 3. Crie uma **branch** descritiva: `feat/nova-visualizacao` ou `fix/correcao-csv-2023`.
 4. Faça as alterações.
-5. **Teste** localmente (veja [README.md](README.md#4-como-executar)).
+5. **Teste** localmente (veja [README.md](README.md#ambiente)).
 6. Siga o estilo do projeto:
    - **Python:** PEP 8.
    - **TypeScript/React:** ESLint configurado em `apps/web`.
