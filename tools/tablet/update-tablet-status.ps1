@@ -1,8 +1,9 @@
 param(
-  [string]$Repo = "C:\Omega\02_Repos\anatomia-do-gasto",
+  [string]$Repo = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path,
   [string]$Adb = "",
   [string]$AdbHome = "C:\Omega\03_Ferramentas\infra\android-adb-home",
-  [string]$PcStatusRoot = (Join-Path $Repo ".local\state")
+  [string]$PcStatusRoot = (Join-Path $Repo ".local\state"),
+  [switch]$IncludeSecurityArchives
 )
 
 $ErrorActionPreference = "Stop"
@@ -12,6 +13,7 @@ function Resolve-AdbPath {
 
   $candidates = @(
     $Preferred,
+    "C:\Omega\Sistema\Ferramentas_WSL_e_Binarios\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\adb_root_legacy\adb.exe"
   ) | Where-Object { $_ }
@@ -61,11 +63,11 @@ foreach ($file in $files) {
   }
 }
 
-if (Test-Path -LiteralPath "C:\Omega\tmp\omega-security-alerts") {
+if ($IncludeSecurityArchives -and (Test-Path -LiteralPath "C:\Omega\tmp\omega-security-alerts")) {
   & $Adb push "C:\Omega\tmp\omega-security-alerts" "/sdcard/AnatomiaTerminal/security/" | Out-Null
 }
 
-if (Test-Path -LiteralPath "C:\Omega\tmp\omega-security-triggers") {
+if ($IncludeSecurityArchives -and (Test-Path -LiteralPath "C:\Omega\tmp\omega-security-triggers")) {
   & $Adb push "C:\Omega\tmp\omega-security-triggers" "/sdcard/AnatomiaTerminal/security/" | Out-Null
 }
 

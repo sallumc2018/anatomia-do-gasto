@@ -43,6 +43,20 @@ C:\Omega\Sensivel\infra\
   secrets\
 ```
 
+No workspace Omega reorganizado, a infraestrutura equivalente pode estar em:
+
+```text
+C:\Omega\Sistema\Ferramentas_WSL_e_Binarios\infra\
+  adb\
+  android-adb-home\
+  omega-tablet-ssh.json
+
+C:\Omega\Sistema\Sensivel_Chaves_e_Credenciais\infra\
+  secrets\
+```
+
+Os scripts de tablet aceitam `-Adb` e priorizam o caminho reorganizado quando existir.
+
 `C:\tmp` deve ser tratado como area descartavel. O projeto deve usar `C:\Omega\tmp` para status operacional local que precisa ser lido por agentes, watchdog ou tablet.
 
 O watchdog local de seguranca usa `C:\Omega\tmp` para status operacional, `C:\Omega\03_Ferramentas\infra` para configuracoes operacionais locais e `C:\Omega\Sensivel\infra\secrets` para segredos:

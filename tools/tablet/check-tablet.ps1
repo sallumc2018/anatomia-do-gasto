@@ -10,6 +10,7 @@ function Resolve-AdbPath {
 
   $candidates = @(
     $Preferred,
+    "C:\Omega\Sistema\Ferramentas_WSL_e_Binarios\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\adb_root_legacy\adb.exe"
   ) | Where-Object { $_ }

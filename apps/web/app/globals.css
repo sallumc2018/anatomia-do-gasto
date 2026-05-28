@@ -1,13 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-:root {
-  --header-h: 48px; /* altura do header sticky no desktop */
+:root, [data-theme="carbon"] {
+  --header-h: 48px;
 
-  --font-ibm-plex-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
-  --font-ibm-plex-mono: Consolas, "Courier New", monospace;
-
-  /* Carbon Gray-100 — dark theme aplicado globalmente, sem toggle */
+  /* Carbon Gray */
   --bg-base:     #161616;
   --bg-elevated: #262626;
   --bg-raised:   #393939;
@@ -25,15 +22,134 @@
   --border-03:    #6f6f6f;
   --border-focus: #4589ff;
 
-  --blue-60: #0f62fe;
-  --blue-50: #4589ff;
-  --blue-40: #78a9ff;
-  --blue-30: #a6c8ff;
+  --theme-accent: #0f62fe;
+  --theme-accent-hover: #4589ff;
+  --radius: 2px;
+  --header-bg: rgba(22, 22, 22, 0.85);
+  --theme-glow: 0px 0px 8px rgba(15, 98, 254, 0.3);
 
   --support-error:   #ff8389;
   --support-success: #42be65;
   --support-warning: #f1c21b;
+}
 
+[data-theme="emerald"] {
+  --bg-base:     #051510;
+  --bg-elevated: #0b221a;
+  --bg-raised:   #123227;
+  --bg-high:     #1e4c3d;
+
+  --text-01: #e6f7f2;
+  --text-02: #aad6cb;
+  --text-03: #75ad9f;
+  --text-04: #488072;
+  --text-on-color: #ffffff;
+  --text-inverse:  #051510;
+
+  --border-01:    #163b2f;
+  --border-02:    #225847;
+  --border-03:    #37826b;
+  --border-focus: #34d399;
+
+  --theme-accent: #10b981;
+  --theme-accent-hover: #34d399;
+  --radius: 12px;
+  --header-bg: rgba(5, 21, 16, 0.8);
+  --theme-glow: 0px 0px 12px rgba(16, 185, 129, 0.4);
+
+  --support-error:   #fca5a5;
+  --support-success: #34d399;
+  --support-warning: #fcd34d;
+}
+
+[data-theme="royal"] {
+  --bg-base:     #0b0416;
+  --bg-elevated: #150c26;
+  --bg-raised:   #23143c;
+  --bg-high:     #352058;
+
+  --text-01: #f3effa;
+  --text-02: #d1c1eb;
+  --text-03: #9b81c6;
+  --text-04: #6b5294;
+  --text-on-color: #ffffff;
+  --text-inverse:  #0b0416;
+
+  --border-01:    #2e1b4e;
+  --border-02:    #422970;
+  --border-03:    #6742a9;
+  --border-focus: #c084fc;
+
+  --theme-accent: #a855f7;
+  --theme-accent-hover: #c084fc;
+  --radius: 16px;
+  --header-bg: rgba(11, 4, 22, 0.75);
+  --theme-glow: 0px 0px 16px rgba(168, 85, 247, 0.5);
+
+  --support-error:   #fda4af;
+  --support-success: #c084fc;
+  --support-warning: #fde047;
+}
+
+[data-theme="crimson"] {
+  --bg-base:     #120306;
+  --bg-elevated: #20090d;
+  --bg-raised:   #2f1016;
+  --bg-high:     #4a1c24;
+
+  --text-01: #faeff1;
+  --text-02: #ebc1c7;
+  --text-03: #c9828d;
+  --text-04: #97535e;
+  --text-on-color: #ffffff;
+  --text-inverse:  #120306;
+
+  --border-01:    #3e171f;
+  --border-02:    #5a232f;
+  --border-03:    #8d3c4c;
+  --border-focus: #f43f5e;
+
+  --theme-accent: #e11d48;
+  --theme-accent-hover: #f43f5e;
+  --radius: 10px;
+  --header-bg: rgba(18, 3, 6, 0.85);
+  --theme-glow: 0px 0px 14px rgba(225, 29, 72, 0.4);
+
+  --support-error:   #fecdd3;
+  --support-success: #fb7185;
+  --support-warning: #fde047;
+}
+
+[data-theme="light"] {
+  --bg-base:     #ffffff;
+  --bg-elevated: #f8fafc;
+  --bg-raised:   #f1f5f9;
+  --bg-high:     #e2e8f0;
+
+  --text-01: #0f172a;
+  --text-02: #334155;
+  --text-03: #64748b;
+  --text-04: #94a3b8;
+  --text-on-color: #ffffff;
+  --text-inverse:  #ffffff;
+
+  --border-01:    #e2e8f0;
+  --border-02:    #cbd5e1;
+  --border-03:    #94a3b8;
+  --border-focus: #3b82f6;
+
+  --theme-accent: #2563eb;
+  --theme-accent-hover: #3b82f6;
+  --radius: 8px;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --theme-glow: 0px 4px 12px rgba(37, 99, 235, 0.15);
+
+  --support-error:   #ef4444;
+  --support-success: #10b981;
+  --support-warning: #f59e0b;
+}
+
+:root {
   /* Mapeamento para Tailwind/Shadcn */
   --background:         var(--bg-base);
   --foreground:         var(--text-01);
@@ -43,9 +159,18 @@
   --muted-foreground:   var(--text-03);
   --border:             var(--border-01);
   --ring:               var(--border-focus);
-  --primary:            var(--blue-60);
+  --primary:            var(--theme-accent);
   --primary-foreground: var(--text-on-color);
-  --radius: 2px;
+
+  /* Compatibilidade com componentes existentes */
+  --blue-30: var(--text-on-color);
+  --blue-40: var(--theme-accent-hover);
+  --blue-50: var(--theme-accent);
+  --blue-60: var(--theme-accent);
+  --blue-80: var(--bg-raised);
+  --green-30: var(--text-on-color);
+  --green-80: var(--support-success);
+  --font-ibm-plex-mono: var(--font-mono);
 }
 
 @theme inline {
@@ -57,14 +182,14 @@
   --color-muted-foreground:   var(--text-03);
   --color-border:             var(--border-01);
   --color-ring:               var(--border-focus);
-  --color-primary:            var(--blue-60);
+  --color-primary:            var(--theme-accent);
   --color-primary-foreground: var(--text-on-color);
-  --radius-sm: 1px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-xl: 4px;
-  --font-sans: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-ibm-plex-mono);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --font-sans: "Outfit", "Inter", system-ui, sans-serif;
+  --font-mono: Consolas, "Courier New", monospace;
 }
 
 html {
@@ -76,7 +201,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-ibm-plex-sans);
+  font-family: var(--font-outfit), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

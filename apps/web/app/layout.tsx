@@ -1,7 +1,21 @@
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
+import { Outfit, Inter } from "next/font/google"
 import TheoFloatingButton from "@/components/layout/theo-floating-button"
 import "./globals.css"
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.anatomiadogasto.ong.br"),
@@ -59,8 +73,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className="h-full">
-      <body className="min-h-full flex flex-col antialiased">
+    <html
+      lang="pt-BR"
+      data-theme="carbon"
+      className={`${outfit.variable} ${inter.variable} h-full`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col antialiased bg-[var(--bg-base)] text-[var(--text-01)] transition-colors duration-300">
         <a href="#conteudo" className="skip-link">
           Ir para o conteúdo
         </a>

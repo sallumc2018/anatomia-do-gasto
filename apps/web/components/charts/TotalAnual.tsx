@@ -22,16 +22,16 @@ export function TotalAnual({ data }: Props) {
   return (
     <ResponsiveContainer width="100%" height={220}>
       <LineChart data={data} margin={{ top: 8, right: 24, left: 0, bottom: 0 }}>
-        <CartesianGrid vertical={false} stroke="#393939" />
+        <CartesianGrid vertical={false} stroke="var(--border-01)" />
         <XAxis
           dataKey="year"
-          tick={{ fill: "#a8a8a8", fontSize: 13, fontFamily: "IBM Plex Mono, monospace" }}
-          axisLine={{ stroke: "#393939" }}
+          tick={{ fill: "var(--text-03)", fontSize: 13, fontFamily: "inherit" }}
+          axisLine={{ stroke: "var(--border-01)" }}
           tickLine={false}
         />
         <YAxis
           tickFormatter={fmtM}
-          tick={{ fill: "#8d8d8d", fontSize: 11, fontFamily: "IBM Plex Mono, monospace" }}
+          tick={{ fill: "var(--text-04)", fontSize: 11, fontFamily: "inherit" }}
           axisLine={false}
           tickLine={false}
           width={52}
@@ -44,25 +44,25 @@ export function TotalAnual({ data }: Props) {
             "Total liquidado",
           ]}
           contentStyle={{
-            backgroundColor: "#262626",
-            border: "1px solid #393939",
-            borderRadius: 0,
+            backgroundColor: "var(--bg-elevated)",
+            border: "1px solid var(--border-01)",
+            borderRadius: "var(--radius)",
             fontSize: "12px",
-            fontFamily: "IBM Plex Mono, monospace",
-            color: "#f4f4f4",
+            fontFamily: "inherit",
+            color: "var(--text-01)",
             padding: "8px 12px",
           }}
-          itemStyle={{ color: "#c6c6c6" }}
-          labelStyle={{ color: "#f4f4f4", marginBottom: "4px", fontWeight: 600 }}
-          cursor={{ stroke: "#525252", strokeWidth: 1 }}
+          itemStyle={{ color: "var(--text-02)" }}
+          labelStyle={{ color: "var(--text-01)", marginBottom: "4px", fontWeight: 600 }}
+          cursor={{ stroke: "var(--bg-high)", strokeWidth: 1 }}
         />
         <Line
           type="monotone"
           dataKey="total"
-          stroke="#78a9ff"
+          stroke="var(--theme-accent)"
           strokeWidth={2}
-          dot={<Dot r={4} fill="#78a9ff" stroke="#161616" strokeWidth={2} />}
-          activeDot={{ r: 5, fill: "#78a9ff", stroke: "#161616", strokeWidth: 2 }}
+          dot={<Dot r={4} fill="var(--theme-accent)" stroke="var(--bg-base)" strokeWidth={2} />}
+          activeDot={{ r: 5, fill: "var(--theme-accent-hover)", stroke: "var(--bg-base)", strokeWidth: 2 }}
         />
       </LineChart>
     </ResponsiveContainer>

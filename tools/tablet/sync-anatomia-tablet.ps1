@@ -1,5 +1,5 @@
 param(
-  [string]$Repo = "C:\Omega\02_Repos\anatomia-do-gasto",
+  [string]$Repo = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path,
   [string]$Work = "C:\Omega\tmp\anatomia-tablet",
   [string]$Zip = "C:\Omega\tmp\anatomia-do-gasto-publico.zip",
   [string]$Adb = "",
@@ -13,6 +13,7 @@ function Resolve-AdbPath {
 
   $candidates = @(
     $Preferred,
+    "C:\Omega\Sistema\Ferramentas_WSL_e_Binarios\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\infra\adb\adb.exe",
     "C:\Omega\03_Ferramentas\adb_root_legacy\adb.exe"
   ) | Where-Object { $_ }
