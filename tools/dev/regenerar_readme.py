@@ -136,7 +136,7 @@ def generate_activity_section() -> str:
     ]
     return "\n".join(lines)
 
-def update_readme(filepath: Path) -> bool:
+def update_readme(filepath: Path, include_activity: bool = True) -> bool:
     """
     Update AUTO sections in a README file.
     Returns True if file was modified, False otherwise.
@@ -161,7 +161,7 @@ def update_readme(filepath: Path) -> bool:
         new_body = ""
         if tag_name == "coverage":
             new_body = generate_coverage_section()
-        elif tag_name == "activity":
+        elif tag_name == "activity" and include_activity:
             new_body = generate_activity_section()
 
         if new_body:
@@ -190,9 +190,13 @@ def process_readmes(check_mode: bool = False) -> bool:
     ]
 
     any_modified = False
+    # Activity depends on `git log`, so it changes on every commit that would
+    # fix it. CI checks only stable AUTO sections to avoid a self-invalidating
+    # README gate.
+    include_activity = not check_mode
     for readme in readme_files:
         if readme.exists():
-            modified = update_readme(readme)
+            modified = update_readme(readme, include_activity=include_activity)
             if modified:
                 status = "WOULD UPDATE" if check_mode else "UPDATED"
                 print(f"{status}: {readme.relative_to(ROOT)}")
