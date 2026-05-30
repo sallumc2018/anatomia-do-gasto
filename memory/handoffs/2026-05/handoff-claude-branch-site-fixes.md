@@ -7,18 +7,39 @@
 ## Contexto
 Auditei o site inteiro (números vs fonte oficial). Veredito: todo número de destaque confere; deploy ao vivo da `/sorocaba/saude` confirmado correto. Apliquei correções pequenas e fiz commits `[Claude]` — mas eles foram parar no branch do Codex (`codex/institutional-audit-data-catalog`), porque o branch `claude/*` ainda não existia.
 
-## ⚠️ AÇÃO NECESSÁRIA: consolidar commits [Claude] no branch Claude
-Ao separar o trabalho Claude para o branch dedicado, **incluir estes commits** (todos em `codex/institutional-audit-data-catalog`, já pushados):
+## ⚠️ MAPA DEFINITIVO DE ATRIBUIÇÃO — 17 commits à frente do `main` (30/mai)
+> **TODOS têm `git author = Sallum`** (identidade git = usuário). O agente está SÓ no prefixo da mensagem — e a convenção VAZOU: vários commits Claude ficaram sem `[Claude]`. Atribuição abaixo confirmada pelo usuário/conteúdo. **NÃO reescrever histórico** (branch compartilhado e pushado) — usar este mapa para cherry-pick/consolidação.
 
-- `09689eb` — notas de limitação do crédito de fornecedores 2022-2023 em `/metodologia` (LIMITACOES) + `/sorocaba/fornecedores`. (meu, hoje)
-- `8661004` — câmara: corpo dinâmico (hero/números-chave/custo derivam de `LOA_SERIE[0]`, alinha com a metadata) + controle-externo: paleta vermelho→âmbar. (meu, hoje)
-- `f666615` — metadata dinâmico em câmara e executivo (`generateMetadata`) + editorial controle-externo + arredondamento câmara + fix alias `camara/page.tsx` (reexporta `generateMetadata`, senão build quebra).
-- `1d75b5e` — `[Claude]` Théo: 4 rotas + camada de comunicação (outra sessão Claude; tocou os mesmos arquivos — cherry-pick precisa considerar).
+### CLAUDE (13) → consolidar no branch `claude/*`
+| SHA | prefixo | descrição |
+|---|---|---|
+| `3a654d6` | [Claude] | handoff (esta sessão de auditoria) |
+| `09689eb` | [Claude] | notas de limitação crédito fornecedores 22/23 (/metodologia + /fornecedores) |
+| `8661004` | [Claude] | câmara: corpo dinâmico (`LOA_SERIE[0]`) + controle-externo: paleta âmbar |
+| `f666615` | — (sem prefixo!) | metadata dinâmica câmara/executivo + editorial controle-externo + arredondamento + fix alias `camara/page.tsx` |
+| `7d64a4f` | — | página `/fluxo-financeiro` (Sankey) — confirmado Claude |
+| `baf1c4f` | — | `/fluxo-financeiro` no header + sitemap — confirmado Claude |
+| `e907512` | — | seções AUTO dos READMEs — confirmado Claude |
+| `5ae3878` | — | `STATUS.md` + `DECISIONS.md` — confirmado Claude |
+| `29393df` | — | `/sorocaba/transferencias` no header — **inferido Claude (confirmar)** |
+| `25381cc` | [Claude] | sandbox: perguntas rápidas + cores dos cards (outra sessão) |
+| `2502af4` | [Claude] | governança: hooks de segurança + Théo training (outra sessão) |
+| `91c41d7` | [Claude] | dados Sorocaba: SICONFI fiscal + SAAE (outra sessão) |
+| `1d75b5e` | [Claude] | Théo: 4 rotas + camada de comunicação (outra sessão) |
 
-Arquivos tocados: `apps/web/app/sorocaba/{camara-municipal,camara,controle-externo,executivo}/page.tsx`.
-**Validação:** `tsc --noEmit` E `next build --webpack` passam (EXIT=0). câmara/controle-externo prerenderizam Static; Tailwind âmbar compila.
+### CODEX (4) → permanecem no fluxo do Codex / main
+| SHA | prefixo | descrição |
+|---|---|---|
+| `fa98b7e` | — | pncp: formato Playwright no consolidador — confirmado Codex |
+| `8e1b300` | [Codex] | publish SAAE and Camara QA data |
+| `2b5f111` | [Codex] | governance triage readiness |
+| `93ab00d` | — | institutional audit + data catalog pages (base do branch) — **inferido Codex (confirmar)** |
 
-Obs: cherry-pick desses commits direto sobre `main` pode dar conflito (os 3 se interlaçam nos mesmos arquivos + `main` está 15 commits atrás). Mais seguro: levar o conjunto coerente.
+**A confirmar com o usuário:** `29393df` (transferencias→header, inferido Claude pelo padrão dos outros header-adds) e `93ab00d` (institutional audit, inferido Codex pelo nome do branch).
+
+**Validação do trabalho de site (Claude):** `tsc --noEmit` E `next build --webpack` passam (EXIT=0). Arquivos: `apps/web/app/{metodologia,sorocaba/camara-municipal,sorocaba/camara,sorocaba/controle-externo,sorocaba/executivo,sorocaba/fornecedores}/page.tsx`.
+
+**Cuidado na consolidação:** Claude e Codex se **interlaçam cronologicamente** (não são blocos contíguos) e `main` está 15 commits atrás. Cherry-pick seletivo sobre branch novo a partir do `main` pode conflitar. `git log --grep="\[Claude\]"` NÃO basta (perde os 5 sem prefixo: f666615, 7d64a4f, baf1c4f, e907512, 5ae3878) — usar este mapa.
 
 ## Deploy — SEGURADO (não fazer ainda)
 Produção builda do `main` (ver [[reference_deploy_vercel]]); `main` está **15 commits atrás** do codex branch e **não tem** nenhum desses fixes. Deployar agora = inócuo (main velho) ou publicaria WIP do Codex. Aguardar a estratégia de branch + merge a `main`. Não urgente: a `/sorocaba/saude` (linkada nos posts já publicados) já está correta em produção.
