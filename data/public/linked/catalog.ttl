@@ -1,0 +1,2631 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+
+<https://www.anatomiadogasto.ong.br/id/catalog/anatomia-do-gasto> a dcat:Catalog ;
+  dcterms:title "Catalogo publico Anatomia do Gasto" ;
+  dcterms:modified "2026-05-29" ;
+  dcat:dataset
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/despesas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/receitas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/educacao/despesas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/educacao/receitas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/seguranca/despesas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/seguranca/orcamento> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/orcamento-rreo> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/orcamento-dca> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/executivo/despesas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/receita/receitas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/pessoal> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/divida> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rcl> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rcl-capital> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/divida-detalhada> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/natureza-despesa> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rpps> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/receitas-detalhamento> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/rreo-despesas> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/rreo-receitas-sus> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/despesa/registro-analitico> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/empenho/registro-empenho> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fornecedores/conta-corrente> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/restos/restos-a-pagar> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/loa/audiencia-publica> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara-gabinete/despesas-gabinete> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/lista> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/por-parlamentar> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/por-ano> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/pncp-completo> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo/alertas-sdg> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/convenios-federais> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/convenios-por-orgao> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/instrumentos-consolidado> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/subvencoes-osc> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/subvencoes-por-entidade> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/federais-portal> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/estaduais-resumo> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/estaduais-analitico> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-rpps> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/tce-empresas-municipais-2020-2025> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/tce-empresas-municipais> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-saude-tce-2020-2025> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-saude-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-serie-2020-2025> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-serie-2020-2025> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara/tce-despesas-serie-2020-2025> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara/tce-despesas-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/licitacoes-historico> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/obras> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/precatorios> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo/dca-siconfi-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/fns-repasses> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/federais-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/urbes-lei8890> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-saae-pessoal/saae-pessoal-cargos-amostra> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-saae-pessoal/saae-folha-totais> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara-documentos_orcamentarios/documentos-orcamentarios> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-pessoal-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-divida-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-divida-detalhada-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-rcl-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-rcl-capital-serie> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/dca-balanco-orcamentario> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/dca-demonstrativo-variacao> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-metas-fiscais> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-pessoal-siconfi> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-receita-orcamentaria> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-receitas-previdenciarias> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-restos-siconfi> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-saude-siconfi> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/alertas-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/contas-anuais-inventario> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/fontes-tce-inventario> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/links-relevantes-tce> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/amostras-api-transparencia> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/inventario-transparencia> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/resumo-transparencia> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-outros-ocr-indice> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-receitas-ocr-indice> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-transporte-ocr-indice> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/apr> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/atuarial-texto> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/governanca-texto> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/balanco-previdenciario-texto> ,
+    <https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/balanco-saude-texto> .
+
+<https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> a schema:Organization ;
+  schema:name "Anatomia do Gasto" ;
+  schema:url <https://www.anatomiadogasto.ong.br> .
+
+<https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> a schema:AdministrativeArea ;
+  schema:name "Sorocaba" ;
+  schema:identifier "IBGE:3552205" ;
+  schema:sameAs <https://www.wikidata.org/wiki/Q1018709> .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/despesas> a dcat:Dataset ;
+  dcterms:title "Despesas por funcao - saude" ;
+  dcterms:identifier "sorocaba:saude:despesas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2020.csv> ;
+  schema:sha256 "c213ca7510408228982791c1d4448a64dfcb5cfb8692aa0f567f4fec620d46c2" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2021.csv> ;
+  schema:sha256 "2e026f4f2ce482b9e1edf4f4dba7f5ab69b1a6e740d11fe3ccc53eed91654f23" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2022.csv> ;
+  schema:sha256 "d8dd5c9dca8982c65547148719087ee8cac48c0b37dfca8c1c63a410ddcc2eee" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2023.csv> ;
+  schema:sha256 "8c9f651419096a20e8100537cf2cdc77dd802874217b0d5dc894ec7c2af93cf9" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2024.csv> ;
+  schema:sha256 "178da38993d131d370ba042e5d46f8ce6fc023ddd39c2dd28137ee4921e9a661" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_saude_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesas_saude_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/despesas_saude_sorocaba_2025.csv> ;
+  schema:sha256 "0d892613f34704bebe04d8896d4f866de262bc1507f2572b0b00feca6333261a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/receitas> a dcat:Dataset ;
+  dcterms:title "Receitas base ASPS - saude" ;
+  dcterms:identifier "sorocaba:saude:receitas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2020.csv> ;
+  schema:sha256 "abb2c0eba4e58dd0e145234476a81b85b32a16fdcd64154cbc475be03633ee6d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2021.csv> ;
+  schema:sha256 "92fe08d857a020c0390d97038d8b30b4177b674543434174328c9490f30290ac" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2022.csv> ;
+  schema:sha256 "620d2a22b740087afa2b9053854272d57cc4d588f6d43ea7033a32e921f2f908" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2023.csv> ;
+  schema:sha256 "929a152b73f36c5a322f0782789a20abec8be923816fa4cbc14453aa75c7aa6a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2024.csv> ;
+  schema:sha256 "ecbbee44b4bede2a25013bdc0a68181c2b04b7d3460d0adb345b04eaa91f2ea8" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_saude_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "receitas_base_saude_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_base_saude_sorocaba_2025.csv> ;
+  schema:sha256 "bfbc30e4023299ab15aac75bca34befafbe1743bfd82d05fbaba58967287ea9b" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/educacao/despesas> a dcat:Dataset ;
+  dcterms:title "Despesas por funcao - educacao" ;
+  dcterms:identifier "sorocaba:educacao:despesas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "educacao" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2020.csv> ;
+  schema:sha256 "52b592558e8eb7eb817b97ad0f110129ef095ae65280dccc41a749f136571713" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2021.csv> ;
+  schema:sha256 "f7fd20574f2cc50060894a3bb64687913c3e1ac06a44b333d8489dba4c6715ef" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2022.csv> ;
+  schema:sha256 "3cb3278fc868b8c6c68a8406190f5271936037440729587e66ac72f492054951" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2023.csv> ;
+  schema:sha256 "72409e929d4ac297ff3b5a52a868dae2747121b912dd2e16f0c4b37d5c0d8a70" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2024.csv> ;
+  schema:sha256 "18f5ae504c9be300ab76b680cecc41e9242b658e40b80f7b04ae6ac59828cc51" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_educacao_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesas_educacao_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2025.csv> ;
+  schema:sha256 "7ab84f34053b70da2d903b539401c7dd54b287b46c28f92b2dabc0d08c089cca" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/educacao/receitas> a dcat:Dataset ;
+  dcterms:title "Receitas base FUNDEB - educacao" ;
+  dcterms:identifier "sorocaba:educacao:receitas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "educacao" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2020.csv> ;
+  schema:sha256 "a05e7d4e7b3862858ad64dc1e78c1891e66ae3e3c2792bb1873cf435a7a43cc5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2021.csv> ;
+  schema:sha256 "e3c515c13d6e105bb48f6dea933dd05708a58e678549c0d52c491bc6fe849715" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2022.csv> ;
+  schema:sha256 "20528e74be96692a7eb8e6a5aa7886412dc88240e5b7d0619f9a517d3581fa12" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2023.csv> ;
+  schema:sha256 "e9993e9835d8bf3880586663a34ba54fc1bb07ad82afcc580d4aa941ea580efb" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2024.csv> ;
+  schema:sha256 "a947662b4e46ac082235aecb0765d4903d5063bd79060085f9dca67a6c8aedec" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_base_educacao_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "receitas_base_educacao_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/receitas_base_educacao_sorocaba_2025.csv> ;
+  schema:sha256 "050720ff0fe726828d5a26d0d6242788847ee4eb3203aaf1eb6b5422a9c29ef7" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/seguranca/despesas> a dcat:Dataset ;
+  dcterms:title "Despesas por subfuncao - DCA Anexo I-E" ;
+  dcterms:identifier "sorocaba:seguranca:despesas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "seguranca" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2020.csv> ;
+  schema:sha256 "85479fb2d4ce88e7867b5d0fc5d1730df6c318538031dbf6410cee0d10c9b57e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2021.csv> ;
+  schema:sha256 "b7972544a2fd3183f264dee7a562511c255d27ce731efba01ade4ea675a2800e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2022.csv> ;
+  schema:sha256 "80c734a980a312493362936c4364aa4c55439d88947bf47003ae2f667bcf31b2" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2023.csv> ;
+  schema:sha256 "bcd187e78d3d65c0e0ced1a0373e5f3573c00fee708fb8007e457529de84533b" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2024.csv> ;
+  schema:sha256 "07ac86a33c7ec3eb7c99495d9d777e2f46ec3207893cbbb674b0979497d93958" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_seguranca_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesas_seguranca_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2025.csv> ;
+  schema:sha256 "bc896d2dcadbf138325303ab8bc4987f039599c7f107da2439c0505c5f054237" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/seguranca/orcamento> a dcat:Dataset ;
+  dcterms:title "Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA" ;
+  dcterms:identifier "sorocaba:seguranca:orcamento" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "seguranca" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2020.csv> ;
+  schema:sha256 "73ce7853f6df057e329edc9df1e850d094af16b754d9139b3ed1beae32ff628a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2021.csv> ;
+  schema:sha256 "029a2898ab195a51ab5c8d33c3155fcba5c0e9f0bf89597fd3705cf5031833dc" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2022.csv> ;
+  schema:sha256 "3f615bfd590bbb35eaadf278bea9e1f53e5ff5cacdaa0a62880404bc54426215" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2023.csv> ;
+  schema:sha256 "9270d27348711a5661ad8193ad0bd06f0ee94110bd6069c35d296b5970feaac7" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2024.csv> ;
+  schema:sha256 "919bf91a407b8374af7d2bc36a07468ccdf47264cecacfbca29658c66d18dcb5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_seguranca_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rreo_seguranca_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2025.csv> ;
+  schema:sha256 "236746502b8c2088589552c256c50feed37bb92306d7da844d1f2d64d4088f5f" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/orcamento-rreo> a dcat:Dataset ;
+  dcterms:title "Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA - subfuncao unica sem discriminacao de servico vs obras" ;
+  dcterms:identifier "sorocaba:transporte:orcamento-rreo" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transporte" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2020.csv> ;
+  schema:sha256 "3049807ca4f2d64033986011a1c7aa0542e4a473c31ea85476010e8a51d33b79" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2021.csv> ;
+  schema:sha256 "0a44df7027641d7b259ed8bfd6dbe3e89ed20e025b5b51a8bacf3e59cafb96d5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2022.csv> ;
+  schema:sha256 "97fab49a753b355bdf8ed587f11fdb1383b27199332a2962d5c667153490805e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2023.csv> ;
+  schema:sha256 "edceed7014e266f508c1d2e104867fe3be6fcb1e9eaabcc57fb18a4a00f251b1" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2024.csv> ;
+  schema:sha256 "bb29f325cfbed493bbce4936f6a2b817e85b079c73e068e8eb2dd6e5d61ed95d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_transporte_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rreo_transporte_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/rreo_transporte_sorocaba_2025.csv> ;
+  schema:sha256 "496f246486d69d898335e3036f5b7950ac44ae8979ffa3f3f74720feb2a3e951" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/orcamento-dca> a dcat:Dataset ;
+  dcterms:title "Despesas DCA Anexo I-E funcao 26 empenhado+liquidado+pago - subfuncao unica sem discriminacao" ;
+  dcterms:identifier "sorocaba:transporte:orcamento-dca" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transporte" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2020.csv> ;
+  schema:sha256 "544a881353d202414353676a553ce44296d644ea117debec3b7f366adfd3016a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2021.csv> ;
+  schema:sha256 "f81150772ef7854760ff89e4fcc48313df85809d8cf30fd436bddfa03efea66c" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2022.csv> ;
+  schema:sha256 "26e05de459831b4d1ce3961764bcd580b153d4c2822fcea6a13ec06835818eb5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2023.csv> ;
+  schema:sha256 "f6c9c0d2475cddf0bd00b67344c52162aa9fd061bc0bd1634e0845a74b8be2b4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2024.csv> ;
+  schema:sha256 "144b92e18412a6d4f4d53d934b6b7c32e8aab5bdf2249c81cb7625babd64ecc1" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_transporte_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "dca_transporte_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2025.csv> ;
+  schema:sha256 "931a75f877b750912ef5243f6b2dde4b4fdca350e54fe343cf596f977674e686" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/executivo/despesas> a dcat:Dataset ;
+  dcterms:title "Orcamento municipal por funcao - RREO Anexo 02 bimestre 6 incluindo exceto intra e intra" ;
+  dcterms:identifier "sorocaba:executivo:despesas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "executivo" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2020.csv> ;
+  schema:sha256 "cebd5adea5564267bf7237d87e2506e93af210bd6e20f1413684db2eaf227cd1" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2021.csv> ;
+  schema:sha256 "7f6755a7d62c04bd80d6bcffa4159acec8d780c1b5308b07475970668cbe0e85" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2022.csv> ;
+  schema:sha256 "6d195e28a9cad1626491ec06de82075e429a71ac236b2cc0d3dd9d910fcd0d3e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2023.csv> ;
+  schema:sha256 "6b5104b4b27a06a37202bd19c1a2dd3a1e03ddf315b83c227211922161f2b1f4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2024.csv> ;
+  schema:sha256 "4c688d0a98752378fb6aa729c781a4688acaee804625efda4bbcaf56c902950d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_executivo_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesas_executivo_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/executivo/saida/despesas_executivo_sorocaba_2025.csv> ;
+  schema:sha256 "ac9477e180f5705b2d1d5ba16fae62a0a1194d81e9562f57a3a786b9c219bb13" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/receita/receitas> a dcat:Dataset ;
+  dcterms:title "Receitas municipais por categoria - RREO Anexo 01 bimestre 6" ;
+  dcterms:identifier "sorocaba:receita:receitas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "receita" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2020.csv> ;
+  schema:sha256 "b1ff5114b1bee955b64a1fceb984acdb0850d86824998e56b8e93310836267ff" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2021.csv> ;
+  schema:sha256 "48b37734b5c735e025ceac7bd508a925c8b726cc470f9e4777355d55673992cb" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2022.csv> ;
+  schema:sha256 "79e53bc3a4893b1932d405fc99e56778291b124fe4f6fd3b281ecae1dfc76a40" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2023.csv> ;
+  schema:sha256 "dda85078239beb2fba565d59bbacebd6783f1452d71a3566c32c231a7743993a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2024.csv> ;
+  schema:sha256 "3fca9b95791b5e57a0faf28de0c3447e739bb92922e0c3f41c69a62e8db5ee1d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "receitas_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2025.csv> ;
+  schema:sha256 "2ef306fd2a135ba845f0622bc93c0252049e28b004b81a640d4c44bdf606dc79" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/pessoal> a dcat:Dataset ;
+  dcterms:title "Despesa com pessoal e RCL ajustada - RGF Anexo 01 terceiro quadrimestre" ;
+  dcterms:identifier "sorocaba:fiscal:pessoal" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2020.csv> ;
+  schema:sha256 "6870256356c87f15604384bbcf29ed8de91b2dae1b8f12ee9fcef2734b5a8577" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2021.csv> ;
+  schema:sha256 "092d9cdbd7acbea9b0bc568eea10e5c0ba0c9b06e30f5acbfc0c09d94e49c4e4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2022.csv> ;
+  schema:sha256 "5b9290b13c3e9faf7fcfdfc18233716a54a05d128308c8424a64cc9848d47253" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2023.csv> ;
+  schema:sha256 "058348b46c250d6eb558867554731132addc3200612c37bd4b25334281901d4a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2024.csv> ;
+  schema:sha256 "7e01cf3b8e0d22e8806a4fd6664b767487d16d344c6f1d8817637773d67eec9d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pessoal_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "pessoal_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2025.csv> ;
+  schema:sha256 "8c8c266e0a9a8799fe0b40d13ceb1e8ee7bd00eb7843e6cfb694fd6f32c22d74" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/divida> a dcat:Dataset ;
+  dcterms:title "Divida consolidada e limite de endividamento - RGF Anexo 02 terceiro quadrimestre" ;
+  dcterms:identifier "sorocaba:fiscal:divida" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2020.csv> ;
+  schema:sha256 "7f408f7e91bb9d615f08aa0b7e4fd7228eac9c2f718a39bf7b0524290a2c791a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2021.csv> ;
+  schema:sha256 "266841f58b31092bf3e213bf386a907a5bf99dfdbbdc75eb66b1ed0f47f6f9e6" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2022.csv> ;
+  schema:sha256 "80f44c270b360895a75ea2897fd99e16abfbe1c93ea5add1c5cbeb7966fc0f78" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2023.csv> ;
+  schema:sha256 "a8782cb1824d76dcdd5098ca99e5355db98497c90bfed414add076eba4791bb0" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2024.csv> ;
+  schema:sha256 "f07fa3593423c41d92c82e7ef8a3ecdfce1c59b807a8b1a82fc54d9ac955d96f" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "divida_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_sorocaba_2025.csv> ;
+  schema:sha256 "2b54571406755c63f04d139b3e319217fafd90bdb3cc5005e07022ac995037b1" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rcl> a dcat:Dataset ;
+  dcterms:title "Composicao das receitas correntes - RREO Anexo 03 bimestre 6" ;
+  dcterms:identifier "sorocaba:fiscal:rcl" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2020.csv> ;
+  schema:sha256 "ca8cac038cbc67afcf7604b10dfd799d1567e91a0f086dc9e028fdec26d90258" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2021.csv> ;
+  schema:sha256 "c6f8d134b77a211ac26484f4beec666096dcc671a46d73f78cb3f99a0724d167" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2022.csv> ;
+  schema:sha256 "4f1a56c404f53f6086f54c6c97059364813f7103b736942af5c02bf8cc504010" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2023.csv> ;
+  schema:sha256 "5d72826125297e16e9fceec8aeef594dda0e2d97d758e72439db51fafe0ec307" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2024.csv> ;
+  schema:sha256 "f5f1673c79ded0370f9c460849ff15821bbad3522192063181acfc55301e264d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rcl_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_sorocaba_2025.csv> ;
+  schema:sha256 "3ad6f0ff65ebe4b53d7cc746c7a9ad21da3ecfaa18b35abbfd47e1cb3a1bcad5" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rcl-capital> a dcat:Dataset ;
+  dcterms:title "Composicao das receitas de capital - RREO Anexo 03 bimestre 6" ;
+  dcterms:identifier "sorocaba:fiscal:rcl-capital" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2020.csv> ;
+  schema:sha256 "340a63c5b5dfbd0c18d867bbe94af02b5ff748eddc0429e9e8087c975c3f7a04" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2021.csv> ;
+  schema:sha256 "4aa6d87913e29975282162e5a1e15e156b21cc60eb603f1d498951947efe9e5e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2022.csv> ;
+  schema:sha256 "b1f8128443fbea2b0ed4eaeedfafd5eae665c659133fb6c4305fe17b5c2e1c9c" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2023.csv> ;
+  schema:sha256 "ddb23279b713cfc6ff0c4b44973167d6024d597718f64e893d2759f1b18e0d9d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2024.csv> ;
+  schema:sha256 "d915cfb259943484ca1a228b7105e8b91a30acd62ff5312d596a77d3c58a6d54" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rcl_capital_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rcl_capital_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rcl_capital_sorocaba_2025.csv> ;
+  schema:sha256 "ebfcd9aaf685fdaccca4121f0ea9315c6dd2beb39381940473b776d7c12b8bc8" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/divida-detalhada> a dcat:Dataset ;
+  dcterms:title "Detalhamento da divida consolidada e limites - RGF Anexo 02 terceiro quadrimestre" ;
+  dcterms:identifier "sorocaba:fiscal:divida-detalhada" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2020.csv> ;
+  schema:sha256 "ccc4f6e9a5ca0c52a7f99fc2496c6855ff2f95e6c5ad21c760eeb18084eb7d32" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2021.csv> ;
+  schema:sha256 "5e219733edba299ab10c09abcc9ab80cd12503f5a20ae42adb0e780772ca69c2" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2022.csv> ;
+  schema:sha256 "a0666b321f358c746ed43c6926321be863efdca7c1a0e7723ede699dc041e1c1" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2023.csv> ;
+  schema:sha256 "02fd61f79030a697ca9a3503dc5b5393614fb9da91667944e3501b51146c8325" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2024.csv> ;
+  schema:sha256 "344c4bee31e91c40125cd6fc9af33204302feabfdf06c7d00201509b08080d84" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/divida_detalhada_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "divida_detalhada_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2025.csv> ;
+  schema:sha256 "26b19cdbc2a84bdea8482cf0142ce581a8b55c20a49dbbc0bef67cc1f20e6dd3" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/natureza-despesa> a dcat:Dataset ;
+  dcterms:title "Resumo fiscal por natureza da despesa" ;
+  dcterms:identifier "sorocaba:fiscal:natureza-despesa" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2020.csv> ;
+  schema:sha256 "47fc6ce4f390d229bffd8577c0ebf6ea820762e44f6e5fdd1943691ccb073b4d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2021.csv> ;
+  schema:sha256 "b1bc828d820efda57af2b7e29e72b1999cffc2c6c0078a38c75d10ae2c230734" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2022.csv> ;
+  schema:sha256 "ea9357da76c2e3fa0a4536798d507223121532e8f249102049b7dec1702b52a2" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2023.csv> ;
+  schema:sha256 "843edd203571c4de2e3bfbd2184eef607e2699198ec85b9440d9d967fda3468a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2024.csv> ;
+  schema:sha256 "3b177ed4bde3ea20f19c4a2f8ee1601bbf92d36d862fbfa532e9963d56568db4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/natureza_despesa_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "natureza_despesa_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/natureza_despesa_sorocaba_2025.csv> ;
+  schema:sha256 "40b8371d0ee83981f38ec0cf8e1a03a698a1e43294b10747fe97da6c64a06d19" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rpps> a dcat:Dataset ;
+  dcterms:title "Indicadores previdenciarios e RPPS" ;
+  dcterms:identifier "sorocaba:fiscal:rpps" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2020.csv> ;
+  schema:sha256 "65c5a451e0312c8f104a4557aca19d2030ebb7e8725464b02bf692298497ba4d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2021.csv> ;
+  schema:sha256 "286c94be372ffc1fc6706816b5372859c896c51dfdf9a77f359a98a1d67cdce5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2022.csv> ;
+  schema:sha256 "3b5edbc32365f086b001f30183e56ec1803dac1113dbccedcb59661b8dac3eda" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2023.csv> ;
+  schema:sha256 "b8278bd47dff7e4ee92220b33853ba19f634d1dcfeb82c9b15c9e3b3b62858d6" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2024.csv> ;
+  schema:sha256 "d7831fb1ad194e62f1e63d7853a09431dad2fca888e06fb35cb9d11f06b42fa6" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rpps_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rpps_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rpps_sorocaba_2025.csv> ;
+  schema:sha256 "23fb6bbcc9308ed3ae1da232f80bb6b42ac5fc30ee1f8f3f9e0a66570507d0f2" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/receitas-detalhamento> a dcat:Dataset ;
+  dcterms:title "Detalhamento auxiliar das receitas de saude" ;
+  dcterms:identifier "sorocaba:saude:receitas-detalhamento" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba / SICONFI" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2020.csv> ;
+  schema:sha256 "3030388606e099584a3e42d34a83710b0acc70db777a65ef14c0ed8f6b0a7ad9" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2021.csv> ;
+  schema:sha256 "fe5b706926900a1d5d959d19c824adc999a8ceb4ecd38e32081cb928050eca54" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2022.csv> ;
+  schema:sha256 "b6f0cd0c8d39661da5b273ea9f442c80534b8956810920926df0d48779f36dc4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2023.csv> ;
+  schema:sha256 "935abc7309a62d683119ccf8b2f797087e276d33fcdd92dc1d8daa122071276a" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2024.csv> ;
+  schema:sha256 "fd5df7c737f0b59ba57298d50959885cb7df060c74234fbc2a04ee4fc9b1185c" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/receitas_detalhamento_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "receitas_detalhamento_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2025.csv> ;
+  schema:sha256 "3b4d0e5e0b4d490b4615d5206f3565f322595b56cd164f9dba5efe5e8aecf400" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/rreo-despesas> a dcat:Dataset ;
+  dcterms:title "Despesas de saude no RREO" ;
+  dcterms:identifier "sorocaba:saude:rreo-despesas" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2020.csv> ;
+  schema:sha256 "012630f34ad67b610c1b899c8663734d45331b465243a2342e8c30fb1627361d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2021.csv> ;
+  schema:sha256 "b4f8d79a8a2a387d84a1c921ed5515df55615d1db343227cc5ba84e3cc5e5de3" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2022.csv> ;
+  schema:sha256 "3a2f88fddecf45043af4b18d8fbbe8cd2546838cdbb874c27db2bcbac36a219e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2023.csv> ;
+  schema:sha256 "13816fe79325d5f1a4bd56008f85096472dd68fbc2a6bf51cb7b73af695e30f9" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2024.csv> ;
+  schema:sha256 "7a87debc80da6119dbafdf57035824895dc8e8d195dead42d1490fa8f236c658" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_despesas_saude_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rreo_despesas_saude_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2025.csv> ;
+  schema:sha256 "7b2d44744a2842a94c1c81d2f9b3c559d65cedf4bdba2607a9c4032f661accb0" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/rreo-receitas-sus> a dcat:Dataset ;
+  dcterms:title "Receitas SUS no RREO" ;
+  dcterms:identifier "sorocaba:saude:rreo-receitas-sus" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2020.csv> ;
+  schema:sha256 "f310f1ed9385552f8baf00d72be0c3f4779c0da60f4e35edbc0b105633c398b4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2021.csv> ;
+  schema:sha256 "47866f288303bcf9b2d780526913b67964334111db9110d96d7fbbf7a9db3dca" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2022.csv> ;
+  schema:sha256 "c149131a2ff5256da7c7af699e6fc9e9478c406905569282582ecb8fe82b7384" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2023.csv> ;
+  schema:sha256 "3084e94c418ecb9e38702f335256398ad5660bf19bd7d65a1bf33027b6089ede" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2024.csv> ;
+  schema:sha256 "b521ca86981f48d28fab0e2d19dcc007e9fc9caf94bcd4d3ac837d4a6fb06927" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_sus_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_sus_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/rreo_receitas_sus_sorocaba_2025.csv> ;
+  schema:sha256 "d4c8d4c45aab91c0b17bd3a2de97c9191754a204008af2746ef962af6ebee934" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/despesa/registro-analitico> a dcat:Dataset ;
+  dcterms:title "Registro Analitico da Despesa por fornecedor natureza e empenho - Livro Contabil de Sorocaba" ;
+  dcterms:identifier "sorocaba:despesa:registro-analitico" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "despesa" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2020.csv> ;
+  schema:sha256 "b659679d8306c7bb1df81c4df0ded44dcfa75906a2f4f2b0a945a93f114b6eac" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2021.csv> ;
+  schema:sha256 "b906d5d518cf23175edfa77a482b78f9a4599e74d188f1c53f462b3640b70948" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2022.csv> ;
+  schema:sha256 "e83eae88671fac186de6e1d361d93ee714c4bfb519cbe466499c1ca263661691" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2023.csv> ;
+  schema:sha256 "c391aa1fac06f6c9477287533bd236353c8639f373e585938e081e90c2d0b518" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2024.csv> ;
+  schema:sha256 "1d502a3c7f34930f0efd65f9120a37961125e0c6e5e62f4950699577b39b3616" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesa_orcamentaria_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesa_orcamentaria_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2025.csv> ;
+  schema:sha256 "7698199abbc554b53ae3f51bddcd6e89d9f4cdf70c10b18005e123ad3cd5beb3" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/empenho/registro-empenho> a dcat:Dataset ;
+  dcterms:title "Livro Registro de Empenho por natureza da despesa e fornecedor" ;
+  dcterms:identifier "sorocaba:empenho:registro-empenho" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "empenho" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2020.csv> ;
+  schema:sha256 "b33c4a7393dc8122f197758c57ea468a79070bbe806643db23504771134868a8" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2021.csv> ;
+  schema:sha256 "29dbcf7334e47105db88b87c83163d7208e86283ff44139dd76f1aa929ae7e4b" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2022.csv> ;
+  schema:sha256 "dfcb4b3e5db1ea2c0c550553e0125eae576cf69c1c2e6965789352efcb7d1fbd" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2023.csv> ;
+  schema:sha256 "8e50d32e5d629abc9ad89a190934143bc263753a396d7df63f79dbdaadbd0937" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2024.csv> ;
+  schema:sha256 "9a822b0fd1e50e8d5aefc6bf54231013b4f50e70597544a15fef5bf7c7fb7587" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empenho_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "empenho_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/empenho/saida/empenho_sorocaba_2025.csv> ;
+  schema:sha256 "42c6eb978c523150dd2ccb6efcf2d41d7358641bd879ea574713882da2e9df1d" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fornecedores/conta-corrente> a dcat:Dataset ;
+  dcterms:title "Conta Corrente de Fornecedor agregado por ano - pagamentos por fornecedor e natureza" ;
+  dcterms:identifier "sorocaba:fornecedores:conta-corrente" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fornecedores" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2020.csv> ;
+  schema:sha256 "4af50b600c3493caef3ec2a3d4bccfc87846387ea7ac778c568ef486bf1d95da" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2021.csv> ;
+  schema:sha256 "3eec516d708c0eea97989980570d20d1cd08404b60adf3ce947b15bbe0427816" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2022.csv> ;
+  schema:sha256 "1d4fa7ea2d16a6764e9caa1e2c1ae7d5943052b2691f231f39894c33e3c203f2" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2023.csv> ;
+  schema:sha256 "1fa126e8622a719f4a691ba7f0670870ae0985d8a405ffa7097182a27875526f" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2024.csv> ;
+  schema:sha256 "f998ecdf340a5379424b5686c2938abc53cb0547d475af74161ac35348969af4" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fornecedores_agregado_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "fornecedores_agregado_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2025.csv> ;
+  schema:sha256 "f6e4408ee7094d5768f29c141d0ccc362edffc8f715be2812e2d7950ac702379" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/restos/restos-a-pagar> a dcat:Dataset ;
+  dcterms:title "Restos a Pagar agregado por fornecedor - Livro Conta Corrente de Restos a Pagar" ;
+  dcterms:identifier "sorocaba:restos:restos-a-pagar" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "restos" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2020.csv> ;
+  schema:sha256 "0f728def638b6a5f55f844105e326003bb7702d9fa576281f61f01b3dadfd7f0" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2021.csv> ;
+  schema:sha256 "b745cb4d659972e883535be4f89814a70749e000d5a88752a6773a4ce5ebbeef" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2022.csv> ;
+  schema:sha256 "df983d9474580a1d51c3799c38d10a75c21fd17136af005deefe1306d6bc52c7" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2023.csv> ;
+  schema:sha256 "4379afee9df2fd12f925614d6ab3cf8057af893cc31990d148d08b9f27361b4d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2024.csv> ;
+  schema:sha256 "4688dedde7fc7538def940ca98be1b08c3220bd14d082d3bd26fd2d1fbd5ec82" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/restos_agregado_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "restos_agregado_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/restos/saida/restos_agregado_sorocaba_2025.csv> ;
+  schema:sha256 "baf54ee843ab98e8687b7de1f3adf6620855f395838df085891170de281c455d" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/loa/audiencia-publica> a dcat:Dataset ;
+  dcterms:title "Priorizacoes da audiencia publica da LOA por area tematica e regiao - dados extraidos dos Relatorios de Audiencia Publica publicados pela Prefeitura de Sorocaba" ;
+  dcterms:identifier "sorocaba:loa:audiencia-publica" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2022-2026" ;
+  dcat:theme "loa" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2025> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "audiencia_loa_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/loa/saida/audiencia_loa_sorocaba_2022.csv> ;
+  schema:sha256 "8476e71163c08b9213c9a60c298f6bc74cb9eab4e5be4fb2f8deabfb896d3adb" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "audiencia_loa_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/loa/saida/audiencia_loa_sorocaba_2023.csv> ;
+  schema:sha256 "792c0514199dd12919c90dc73cd064d9e3df0d4708b817336a24f5d458a6812c" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "audiencia_loa_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/loa/saida/audiencia_loa_sorocaba_2024.csv> ;
+  schema:sha256 "237208bbebe3ef2f815c171a8860ee57e10bea696813e20c7120e32a07cb9a1e" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "audiencia_loa_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/loa/saida/audiencia_loa_sorocaba_2025.csv> ;
+  schema:sha256 "1cee77a7fc49c5c94aff7c9e6926dc63b281ff648cab9b12eb7af50921306247" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/audiencia_loa_sorocaba_2026> a dcat:Distribution ;
+  dcterms:title "audiencia_loa_sorocaba_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/loa/saida/audiencia_loa_sorocaba_2026.csv> ;
+  schema:sha256 "68559f4fafe2a3c056c87e82043a703a0be33350604bb7d019cf27885712eb50" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara-gabinete/despesas-gabinete> a dcat:Dataset ;
+  dcterms:title "Despesas mensais dos gabinetes dos vereadores por categoria - Camara Municipal de Sorocaba" ;
+  dcterms:identifier "sorocaba:camara-gabinete:despesas-gabinete" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal Camara Municipal de Sorocaba" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "camara/gabinete" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2025> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2020> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2020.csv> ;
+  schema:sha256 "0bd04f405e3340b3ccc303f8a08680b47b9dcd773f2a64a86110f0f5ea7e07fa" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2021> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2021.csv> ;
+  schema:sha256 "7811b1fe54c25caaaafe3abbd4f562312fbe7df5fcd91a7ed2282f8f0f1566b8" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2022> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2022.csv> ;
+  schema:sha256 "3e7c40bb9b4c91d2f7e49e2aa0a62fa9eeaa029b92ac404f1d7fffb3ba4a1247" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2023> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2023.csv> ;
+  schema:sha256 "004d2832820f1215717d27d2dfda390b42f36337e516f7066ecebdae8f3158e0" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2024> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2024.csv> ;
+  schema:sha256 "f13564960386c228188e153263cffc2ddffc8d3b7d3b80493f2efa5ec8ee0f77" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2025> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2025.csv> ;
+  schema:sha256 "431effcd3007a24dface22b764cf096c0a3fa3b189690aa3828013560c736129" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/despesas_gabinete_camara_sorocaba_2026> a dcat:Distribution ;
+  dcterms:title "despesas_gabinete_camara_sorocaba_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2026.csv> ;
+  schema:sha256 "627942ef3765c8f8670a731ab69490fa691afc1d8fbb420e05046182b9d56a3b" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/lista> a dcat:Dataset ;
+  dcterms:title "Emendas impositivas (uma linha por emenda) - parlamentar destino valor e execucao; cobertura efetiva a partir de 2022" ;
+  dcterms:identifier "sorocaba:emendas:lista" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "CEPA Sorocaba (Agencia de Noticias)" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "emendas" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_sorocaba_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_sorocaba_2020_2026> a dcat:Distribution ;
+  dcterms:title "emendas_cepa_sorocaba_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/emendas/saida/emendas_cepa_sorocaba_2020_2026.csv> ;
+  schema:sha256 "929444a5afc6ddcb6311b59e80480ca164dee688209627deb13076f33637f5f2" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/por-parlamentar> a dcat:Dataset ;
+  dcterms:title "Emendas impositivas agregadas por parlamentar - indicado empenhado liquidado e pago" ;
+  dcterms:identifier "sorocaba:emendas:por-parlamentar" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "CEPA Sorocaba (Agencia de Noticias)" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "emendas" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_por_parlamentar_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_por_parlamentar_sorocaba> a dcat:Distribution ;
+  dcterms:title "emendas_cepa_por_parlamentar_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/emendas/saida/emendas_cepa_por_parlamentar_sorocaba.csv> ;
+  schema:sha256 "c1f9b21c46aad0aa062e06f117aab97d9c9be214bc90129a6b90a618ccb0d5f2" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/emendas/por-ano> a dcat:Dataset ;
+  dcterms:title "Emendas impositivas agregadas por ano de exercicio" ;
+  dcterms:identifier "sorocaba:emendas:por-ano" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "CEPA Sorocaba (Agencia de Noticias)" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "emendas" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_por_ano_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/emendas_cepa_por_ano_sorocaba> a dcat:Distribution ;
+  dcterms:title "emendas_cepa_por_ano_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/emendas/saida/emendas_cepa_por_ano_sorocaba.csv> ;
+  schema:sha256 "37bf8ef755c827c2ae79adb7e1cfaff2349d9a5ccfc7a30444a83254dceb6890" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/pncp-completo> a dcat:Dataset ;
+  dcterms:title "Contratos publicos publicados no PNCP - serie historica todos os contratos" ;
+  dcterms:identifier "sorocaba:contratos:pncp-completo" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "PNCP / Compras.gov" ;
+  dcterms:temporal "2022-2026" ;
+  dcat:theme "contratos" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pncp_sorocaba_2022_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/pncp_sorocaba_2022_2026> a dcat:Distribution ;
+  dcterms:title "pncp_sorocaba_2022_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/contratos/saida/pncp_sorocaba_2022_2026.csv> ;
+  schema:sha256 "47b11f7b9bf24264a9edf2571e1b2f9e0b534f63cc26a3667c2caf866096cfba" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo/alertas-sdg> a dcat:Dataset ;
+  dcterms:title "Alertas SDG do TCE-SP para Sorocaba - registro por bimestre e inciso" ;
+  dcterms:identifier "sorocaba:controle_externo:alertas-sdg" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2025-2025" ;
+  dcat:theme "controle_externo" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/alertas_sdg_2025_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/alertas_sdg_2025_sorocaba> a dcat:Distribution ;
+  dcterms:title "alertas_sdg_2025_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/saida/alertas_sdg_2025_sorocaba.csv> ;
+  schema:sha256 "034d91474971b9aa51bb05ecdf8129a5c838357e3be50816c7aca203b985cb89" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/convenios-federais> a dcat:Dataset ;
+  dcterms:title "Convenios federais com a Prefeitura de Sorocaba - registro analitico por convenio" ;
+  dcterms:identifier "sorocaba:transferencias:convenios-federais" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal da Transparencia Federal / Transferegov" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/convenios_federais_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/convenios_federais_sorocaba> a dcat:Distribution ;
+  dcterms:title "convenios_federais_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/convenios_federais_sorocaba.csv> ;
+  schema:sha256 "f38c8561422a585249b3b371fb02855cfa96b419a25be68ae248fa396b0c0d9a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/convenios-por-orgao> a dcat:Dataset ;
+  dcterms:title "Convenios federais agregados por orgao concedente" ;
+  dcterms:identifier "sorocaba:transferencias:convenios-por-orgao" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal da Transparencia Federal / Transferegov" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/convenios_por_orgao_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/convenios_por_orgao_sorocaba> a dcat:Distribution ;
+  dcterms:title "convenios_por_orgao_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/convenios_por_orgao_sorocaba.csv> ;
+  schema:sha256 "9933c38c437292de388a18a6c7e4d0c83e22554d0a91f4210fd4feebd5c5c641" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/instrumentos-consolidado> a dcat:Dataset ;
+  dcterms:title "Instrumentos federais consolidados vinculados a Sorocaba" ;
+  dcterms:identifier "sorocaba:transferencias:instrumentos-consolidado" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal da Transparencia Federal / Transferegov" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/instrumentos_consolidado_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/instrumentos_consolidado_sorocaba> a dcat:Distribution ;
+  dcterms:title "instrumentos_consolidado_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/instrumentos_consolidado_sorocaba.csv> ;
+  schema:sha256 "f00271f7d1352ef07b92cb7a2d2f9c9ed8e1a57ff3ba1e779f978e2a1a4c8aec" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/subvencoes-osc> a dcat:Dataset ;
+  dcterms:title "Subvencoes sociais a OSCs - registro analitico de empenhos por entidade beneficiaria" ;
+  dcterms:identifier "sorocaba:transferencias:subvencoes-osc" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/subvencoes_osc_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/subvencoes_osc_sorocaba> a dcat:Distribution ;
+  dcterms:title "subvencoes_osc_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/subvencoes_osc_sorocaba.csv> ;
+  schema:sha256 "5933055bab35cd3cec81f4f71a7658eaf2d295d9199237fa9749cca19a224482" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/subvencoes-por-entidade> a dcat:Dataset ;
+  dcterms:title "Subvencoes sociais agregadas por entidade beneficiaria e ano" ;
+  dcterms:identifier "sorocaba:transferencias:subvencoes-por-entidade" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/subvencoes_por_entidade_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/subvencoes_por_entidade_sorocaba> a dcat:Distribution ;
+  dcterms:title "subvencoes_por_entidade_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/subvencoes_por_entidade_sorocaba.csv> ;
+  schema:sha256 "941e2020d9d26634f96bffd52b622b9671902bf152310eaebd8da34607de52d5" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/federais-portal> a dcat:Dataset ;
+  dcterms:title "Transferencias federais para Sorocaba - consolidado do Portal da Transparencia Federal" ;
+  dcterms:identifier "sorocaba:transferencias:federais-portal" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal da Transparencia Federal" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_federais_portal_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_federais_portal_sorocaba> a dcat:Distribution ;
+  dcterms:title "transferencias_federais_portal_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/transferencias_federais_portal_sorocaba.csv> ;
+  schema:sha256 "99cee56d1e8cd5ccd0855b6c5d4c6babb9620c220a89eb35ac61decc2980a99b" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/estaduais-resumo> a dcat:Dataset ;
+  dcterms:title "Transferencias estaduais para Sorocaba - resumo por categoria RREO Anexo 01 bimestre 6" ;
+  dcterms:identifier "sorocaba:transferencias:estaduais-resumo" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_estaduais_resumo_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_estaduais_resumo_sorocaba> a dcat:Distribution ;
+  dcterms:title "transferencias_estaduais_resumo_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/transferencias_estaduais_resumo_sorocaba.csv> ;
+  schema:sha256 "9f7a5819e1164be7604313d1af852d39513c93f3245d8562fda3a25571f779cb" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/estaduais-analitico> a dcat:Dataset ;
+  dcterms:title "Transferencias estaduais para Sorocaba - registro analitico por transferencia e orgao repassador SP" ;
+  dcterms:identifier "sorocaba:transferencias:estaduais-analitico" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_estaduais_sp_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_estaduais_sp_sorocaba> a dcat:Distribution ;
+  dcterms:title "transferencias_estaduais_sp_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/transferencias_estaduais_sp_sorocaba.csv> ;
+  schema:sha256 "108bbec3d2e7c8cbe2872b404af0977147ae3575a730b4551c15107cef6e7975" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-rpps> a dcat:Dataset ;
+  dcterms:title "Dados previdenciarios do FUNSERV - fundo municipal RPPS de Sorocaba" ;
+  dcterms:identifier "sorocaba:autarquias:funserv-rpps" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV / Portal Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_rpps_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_rpps_sorocaba> a dcat:Distribution ;
+  dcterms:title "funserv_rpps_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/funserv_rpps_sorocaba.csv> ;
+  schema:sha256 "3696a75f8573d5863df7f7ab69aae5ff4a30dd7c160f2333ddd823f97876a048" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/tce-empresas-municipais-2020-2025> a dcat:Dataset ;
+  dcterms:title "Despesas das empresas municipais de Sorocaba - serie historica 2020-2025 preservada" ;
+  dcterms:identifier "sorocaba:autarquias:tce-empresas-municipais-2020-2025" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empresas_municipais_tce_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empresas_municipais_tce_2020_2025> a dcat:Distribution ;
+  dcterms:title "empresas_municipais_tce_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/empresas_municipais_tce_2020_2025.csv> ;
+  schema:sha256 "5cf65b04063dd7bc0a391cc69d6d048d5e447a552230c7534951eb38269fa931" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/tce-empresas-municipais> a dcat:Dataset ;
+  dcterms:title "Despesas das empresas municipais de Sorocaba - prestacao de contas ao TCE-SP" ;
+  dcterms:identifier "sorocaba:autarquias:tce-empresas-municipais" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empresas_municipais_tce_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/empresas_municipais_tce_2020_2026> a dcat:Distribution ;
+  dcterms:title "empresas_municipais_tce_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/empresas_municipais_tce_2020_2026.csv> ;
+  schema:sha256 "9b75587e2bb058eb19b7234319da9ccf6f39aedd7e0732d67ae2644885994360" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-saude-tce-2020-2025> a dcat:Dataset ;
+  dcterms:title "Execucao financeira do FUNSERV area saude - serie historica 2020-2025 preservada" ;
+  dcterms:identifier "sorocaba:autarquias:funserv-saude-tce-2020-2025" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_saude_tce_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_saude_tce_2020_2025> a dcat:Distribution ;
+  dcterms:title "funserv_saude_tce_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/funserv_saude_tce_2020_2025.csv> ;
+  schema:sha256 "d189a480eaba635229125cda7ceab4df7d66c80be5c59fe018213043e0049de9" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/funserv-saude-tce> a dcat:Dataset ;
+  dcterms:title "Execucao financeira do FUNSERV area saude - prestacao de contas ao TCE-SP" ;
+  dcterms:identifier "sorocaba:autarquias:funserv-saude-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_saude_tce_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_saude_tce_2020_2026> a dcat:Distribution ;
+  dcterms:title "funserv_saude_tce_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/funserv_saude_tce_2020_2026.csv> ;
+  schema:sha256 "ca414f76ae3a45be71c71267699cbe6669166c609896560afc7d250baf3a3bfe" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-tce> a dcat:Dataset ;
+  dcterms:title "Despesas do SAAE Sorocaba por funcao e natureza - prestacao de contas ao TCE-SP" ;
+  dcterms:identifier "sorocaba:autarquias:saae-despesas-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2025> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2020.csv> ;
+  schema:sha256 "229246da6882ac043fefbdcc10d24b12d6ad6c02795aa09ce213f3984ec484e5" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2021> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2021.csv> ;
+  schema:sha256 "e1dd4f45b7348fc7f429245d94b3e3baefc52535fa192ae2c13de4939e062fc7" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2022> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2022.csv> ;
+  schema:sha256 "e1c0bc46529148bb0745661fb2a76b4d42987ecbf3dba7568f828d631a30c8fd" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2023> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2023.csv> ;
+  schema:sha256 "c88d8b672395b2190b024646a86bfedbd1dec8f77e8e1e027ae5a926ca6770fa" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2024> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2024.csv> ;
+  schema:sha256 "7a9848bcdf7cd0b22d039406c0322273277bb971be5e10e01ccdb6c6011056cd" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2025> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2025.csv> ;
+  schema:sha256 "b53f025f5d60b5cfd5e2d032557032310d62327b5f70593825aedd9d12648422" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2026> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2026.csv> ;
+  schema:sha256 "b341cd9c0d6f250f4a00985a94b2bc8211bb968cd6680beb0c79dd59a761e7ec" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-serie-2020-2025> a dcat:Dataset ;
+  dcterms:title "Despesas SAAE serie historica consolidada 2020-2025 preservada" ;
+  dcterms:identifier "sorocaba:autarquias:saae-despesas-serie-2020-2025" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020_2025> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2020_2025.csv> ;
+  schema:sha256 "660c8aaf5a1a4b72b51c8f15a2df6c9003e66d8b04a500b2b8e2fdd2ebd38b8f" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-despesas-serie> a dcat:Dataset ;
+  dcterms:title "Despesas SAAE serie historica consolidada 2020-2026" ;
+  dcterms:identifier "sorocaba:autarquias:saae-despesas-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_despesas_tce_2020_2026> a dcat:Distribution ;
+  dcterms:title "saae_despesas_tce_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_despesas_tce_2020_2026.csv> ;
+  schema:sha256 "974c4f3522401689a4dc915c2b8f2dba35a9505eb048a5e3df8cf7ed24260f8a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-tce> a dcat:Dataset ;
+  dcterms:title "Receitas do SAAE Sorocaba por categoria - prestacao de contas ao TCE-SP" ;
+  dcterms:identifier "sorocaba:autarquias:saae-receitas-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2021> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2022> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2023> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2024> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2025> ,
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2020.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2020.csv> ;
+  schema:sha256 "c55d02c6395d14dd0b6911da5edd9bf55babbf9c36b237cdd1a904071223747d" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2021> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2021.csv> ;
+  schema:sha256 "68ce797ca66e2adc78b1e2228a74b0f17a398485b6e3a4543d03b774a82dd75b" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2022> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2022.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2022.csv> ;
+  schema:sha256 "02e5839210294517f6b61232d3b72ca5e8878bef989961c1386589e546ffb48b" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2023> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2023.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2023.csv> ;
+  schema:sha256 "11283541620bb1407b24700fa15e6efaa362a566dacb3f8c8677a9217f056917" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2024> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2024.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2024.csv> ;
+  schema:sha256 "c6696c53189c8c3792915f0bf5ee0b27e008919e72135ad1b740616182d94b46" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2025> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2025.csv> ;
+  schema:sha256 "993f9a30dab5c5d08e3d7e7a3fb8934dead7e5646a970a25694c9d72a6584483" .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2026> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2026.csv> ;
+  schema:sha256 "65548fadc2052380c49e7662a1da5a82b5314febe3ccc13314ac492e49449c72" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-serie-2020-2025> a dcat:Dataset ;
+  dcterms:title "Receitas SAAE serie historica consolidada 2020-2025 preservada" ;
+  dcterms:identifier "sorocaba:autarquias:saae-receitas-serie-2020-2025" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020_2025> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2020_2025.csv> ;
+  schema:sha256 "423cb2a58a8fa5ae29dc9da28fc7df594f6a321a0dece95e6e52f10a8637846c" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias/saae-receitas-serie> a dcat:Dataset ;
+  dcterms:title "Receitas SAAE serie historica consolidada 2020-2026" ;
+  dcterms:identifier "sorocaba:autarquias:saae-receitas-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_receitas_tce_2020_2026> a dcat:Distribution ;
+  dcterms:title "saae_receitas_tce_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saida/saae_receitas_tce_2020_2026.csv> ;
+  schema:sha256 "798871316800da41fb6342a93d7ecba850f138ea10b2306c7fc3e42984c7b05b" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara/tce-despesas-serie-2020-2025> a dcat:Dataset ;
+  dcterms:title "Despesas da Camara Municipal de Sorocaba serie historica 2020-2025 preservada" ;
+  dcterms:identifier "sorocaba:camara:tce-despesas-serie-2020-2025" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "camara" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_despesas_tce_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_despesas_tce_2020_2025> a dcat:Distribution ;
+  dcterms:title "camara_despesas_tce_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/saida/camara_despesas_tce_2020_2025.csv> ;
+  schema:sha256 "d53894e1013b631bab7aa638d1a994dc770480ce45bcaae8cbcef844f7e84b2a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara/tce-despesas-serie> a dcat:Dataset ;
+  dcterms:title "Despesas da Camara Municipal de Sorocaba serie historica - prestacao de contas ao TCE-SP" ;
+  dcterms:identifier "sorocaba:camara:tce-despesas-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "camara" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_despesas_tce_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_despesas_tce_2020_2026> a dcat:Distribution ;
+  dcterms:title "camara_despesas_tce_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/saida/camara_despesas_tce_2020_2026.csv> ;
+  schema:sha256 "60fa1f673a1af4f5c5f66e7b6619509ae79c091ec5beb7c0a93293495d341851" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/licitacoes-historico> a dcat:Dataset ;
+  dcterms:title "Licitacoes e contratos 2020-2021 - dados pre-PNCP extraidos do portal municipal" ;
+  dcterms:identifier "sorocaba:contratos:licitacoes-historico" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2021" ;
+  dcat:theme "contratos" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/licitacoes_sorocaba_2020_2021> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/licitacoes_sorocaba_2020_2021> a dcat:Distribution ;
+  dcterms:title "licitacoes_sorocaba_2020_2021.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/contratos/saida/licitacoes_sorocaba_2020_2021.csv> ;
+  schema:sha256 "e1ff5c0fcd338818cebaa4c3250f093ceb742a9eaaafa47d64b9f727b5c0ae9c" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/obras> a dcat:Dataset ;
+  dcterms:title "Obras publicas municipais - registro por contrato e execucao fisica" ;
+  dcterms:identifier "sorocaba:contratos:obras" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "contratos" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/obras_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/obras_sorocaba> a dcat:Distribution ;
+  dcterms:title "obras_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/contratos/saida/obras_sorocaba.csv> ;
+  schema:sha256 "9d06fe42e42de636510dcf081a9c1f79565db20cd39cec9c54dca4172304983d" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/contratos/precatorios> a dcat:Dataset ;
+  dcterms:title "Precatorios e RPV - valores e status de pagamento" ;
+  dcterms:identifier "sorocaba:contratos:precatorios" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Portal de Transparencia Sorocaba" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "contratos" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/precatorios_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/precatorios_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "precatorios_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/contratos/saida/precatorios_sorocaba_2020_2025.csv> ;
+  schema:sha256 "218cc171cf867510d6e39d2e7d74d872886a65bcf9821b1fbe3fad1a82f9fce3" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo/dca-siconfi-serie> a dcat:Dataset ;
+  dcterms:title "DCA SICONFI Sorocaba serie historica 2020-2025 - despesas por funcao e natureza" ;
+  dcterms:identifier "sorocaba:controle_externo:dca-siconfi-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "controle_externo" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_siconfi_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_siconfi_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "dca_siconfi_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/saida/dca_siconfi_sorocaba_2020_2025.csv> ;
+  schema:sha256 "107687175eae1658cf1722ed790a588e93c0de84b604f8f67bd3dbbe87e38c7c" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/saude/fns-repasses> a dcat:Dataset ;
+  dcterms:title "Repasses do Fundo Nacional de Saude e FAF para Sorocaba" ;
+  dcterms:identifier "sorocaba:saude:fns-repasses" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Ministerio da Saude / FNS" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "saude" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fns_repasses_sorocaba_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/fns_repasses_sorocaba_2020_2026> a dcat:Distribution ;
+  dcterms:title "fns_repasses_sorocaba_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/saude/saida/fns_repasses_sorocaba_2020_2026.csv> ;
+  schema:sha256 "e7291cc8b4e5c8fd3de4365ec8a132fd489fa4f4b628eb056e1eec4a1eb00dbf" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transferencias/federais-tce> a dcat:Dataset ;
+  dcterms:title "Transferencias federais para Sorocaba - base consolidada TCE-SP" ;
+  dcterms:identifier "sorocaba:transferencias:federais-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Tribunal de Contas do Estado de Sao Paulo" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "transferencias" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_federais_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/transferencias_federais_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "transferencias_federais_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transferencias/saida/transferencias_federais_tce_sorocaba.csv> ;
+  schema:sha256 "4ab787622b625b156b1e96f2b14a3c85ed31c2f8df628a97c97281815a14cb77" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte/urbes-lei8890> a dcat:Dataset ;
+  dcterms:title "Despesas da Urbes relacionadas a Lei 8890 - serie consolidada" ;
+  dcterms:identifier "sorocaba:transporte:urbes-lei8890" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "transporte" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_despesas_lei8890_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_despesas_lei8890_2020_2026> a dcat:Distribution ;
+  dcterms:title "urbes_despesas_lei8890_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/urbes_despesas_lei8890_2020_2026.csv> ;
+  schema:sha256 "b7e15ec3b9fb34bcce86e6a8d470a4420cc3f4f247e9a2787fcbde732204fb28" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-saae-pessoal/saae-pessoal-cargos-amostra> a dcat:Dataset ;
+  dcterms:title "Lotacao do SAAE por cargo em amostra exibida pelo portal sem identificadores pessoais" ;
+  dcterms:identifier "sorocaba:autarquias-saae-pessoal:saae-pessoal-cargos-amostra" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SAAE Sorocaba / Portal da Transparencia TDAPortal" ;
+  dcterms:temporal "2026-2026" ;
+  dcat:theme "autarquias/saae/pessoal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_pessoal_cargos_amostra_sorocaba_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_pessoal_cargos_amostra_sorocaba_2026> a dcat:Distribution ;
+  dcterms:title "saae_pessoal_cargos_amostra_sorocaba_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saae/pessoal/saida/saae_pessoal_cargos_amostra_sorocaba_2026.csv> ;
+  schema:sha256 "b198c84ef3d94752ee512ce4d5bf72730e710760503ff8919ed4d21f837d5654" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-saae-pessoal/saae-folha-totais> a dcat:Dataset ;
+  dcterms:title "Totais agregados da folha do SAAE por tipo de folha sem identificadores pessoais" ;
+  dcterms:identifier "sorocaba:autarquias-saae-pessoal:saae-folha-totais" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SAAE Sorocaba / Portal da Transparencia TDAPortal" ;
+  dcterms:temporal "2026-2026" ;
+  dcat:theme "autarquias/saae/pessoal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_folha_totais_sorocaba_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/saae_folha_totais_sorocaba_2026> a dcat:Distribution ;
+  dcterms:title "saae_folha_totais_sorocaba_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/saae/pessoal/saida/saae_folha_totais_sorocaba_2026.csv> ;
+  schema:sha256 "49d558c33d04616fed92517e68f04ecbc0ae6818cadc9166e48380f1e4122895" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/camara-documentos_orcamentarios/documentos-orcamentarios> a dcat:Dataset ;
+  dcterms:title "Inventario/texto de atas de audiencias publicas e documentos legislativos da Camara relacionados a LDO, metas fiscais, LRF, PPA e prestacao de contas; nao substitui as LDOs/metas oficiais da Prefeitura/Executivo." ;
+  dcterms:identifier "sorocaba:camara-documentos_orcamentarios:documentos-orcamentarios" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Camara Municipal de Sorocaba" ;
+  dcterms:temporal "2017-2027" ;
+  dcat:theme "camara/documentos_orcamentarios" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_documentos_orcamentarios_sorocaba_2017_2027> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/camara_documentos_orcamentarios_sorocaba_2017_2027> a dcat:Distribution ;
+  dcterms:title "camara_documentos_orcamentarios_sorocaba_2017_2027.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/camara/documentos_orcamentarios/saida/camara_documentos_orcamentarios_sorocaba_2017_2027.csv> ;
+  schema:sha256 "838dee090101fa7b63983de637bf14eedd26f7924617f10d1acde730f031074a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-pessoal-serie> a dcat:Dataset ;
+  dcterms:title "Despesa com pessoal e RCL ajustada - serie RGF Anexo 01 terceiro quadrimestre 2020-2025" ;
+  dcterms:identifier "sorocaba:fiscal:rgf-pessoal-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_pessoal_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_pessoal_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rgf_pessoal_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rgf_pessoal_sorocaba_2020_2025.csv> ;
+  schema:sha256 "2243b6e8325c1fb6729e46ef35e8a809b26c1c26f185debb52333b1be6676c58" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-divida-serie> a dcat:Dataset ;
+  dcterms:title "Divida consolidada e limites - serie RGF Anexo 02 terceiro quadrimestre 2020-2025" ;
+  dcterms:identifier "sorocaba:fiscal:rgf-divida-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_divida_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_divida_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rgf_divida_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rgf_divida_sorocaba_2020_2025.csv> ;
+  schema:sha256 "ff206675da339d9397a17e227465b5e8532f8e6a0d7554334354f9bc36c60752" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rgf-divida-detalhada-serie> a dcat:Dataset ;
+  dcterms:title "Detalhamento da divida consolidada - serie RGF Anexo 02 terceiro quadrimestre 2020-2025" ;
+  dcterms:identifier "sorocaba:fiscal:rgf-divida-detalhada-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_divida_detalhada_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_divida_detalhada_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rgf_divida_detalhada_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rgf_divida_detalhada_sorocaba_2020_2025.csv> ;
+  schema:sha256 "24073c2e44d3c7b4d284c0d46780fce0ff2b54f41721dfc2454a431e0cb89ce1" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-rcl-serie> a dcat:Dataset ;
+  dcterms:title "Receitas correntes - serie RREO Anexo 03 sexto bimestre 2020-2025" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-rcl-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_rcl_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_rcl_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rgf_rcl_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rgf_rcl_sorocaba_2020_2025.csv> ;
+  schema:sha256 "a7e939426c59eef128575b05b8b618a4c95ad6c28bc78f7aef6820efdc544a0f" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-rcl-capital-serie> a dcat:Dataset ;
+  dcterms:title "Receitas de capital - serie RREO Anexo 03 sexto bimestre 2020-2025" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-rcl-capital-serie" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_rcl_capital_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rgf_rcl_capital_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rgf_rcl_capital_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rgf_rcl_capital_sorocaba_2020_2025.csv> ;
+  schema:sha256 "e406be029e1feae8c5db79541b2e4566da63dc19d2261a7022dbbfa5cacb77c0" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/dca-balanco-orcamentario> a dcat:Dataset ;
+  dcterms:title "DCA SICONFI - balanco orcamentario detalhado" ;
+  dcterms:identifier "sorocaba:fiscal:dca-balanco-orcamentario" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_balanco_orcamentario_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_balanco_orcamentario_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "dca_balanco_orcamentario_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/dca_balanco_orcamentario_sorocaba_2020_2025.csv> ;
+  schema:sha256 "2fa9a2db9efcc476a3b3a173f808c129df64f95b860a220596700dae4b0c5692" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/dca-demonstrativo-variacao> a dcat:Dataset ;
+  dcterms:title "DCA SICONFI - demonstrativo das variacoes patrimoniais" ;
+  dcterms:identifier "sorocaba:fiscal:dca-demonstrativo-variacao" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_demonstrativo_variacao_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/dca_demonstrativo_variacao_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "dca_demonstrativo_variacao_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/dca_demonstrativo_variacao_sorocaba_2020_2025.csv> ;
+  schema:sha256 "bb24eef386c3a234ef310f424d93dd5cdf591dd83d5e423e4bd696fc9a296b54" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-metas-fiscais> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - metas fiscais detalhadas" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-metas-fiscais" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_metas_fiscais_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_metas_fiscais_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_metas_fiscais_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_metas_fiscais_sorocaba_2020_2025.csv> ;
+  schema:sha256 "05ba145830331f2dacc3e4f7f8910aaf49049c26397cb32c82b79e7a0dd849a1" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-pessoal-siconfi> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - despesa com pessoal" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-pessoal-siconfi" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_pessoal_siconfi_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_pessoal_siconfi_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_pessoal_siconfi_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_pessoal_siconfi_sorocaba_2020_2025.csv> ;
+  schema:sha256 "37453dc4ec6a475cb4f97814a9c6af6d217a61d1bcd7633acecc7eaad3077b4a" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-receita-orcamentaria> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - receita orcamentaria detalhada" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-receita-orcamentaria" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receita_orcamentaria_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receita_orcamentaria_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_receita_orcamentaria_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_receita_orcamentaria_sorocaba_2020_2025.csv> ;
+  schema:sha256 "2b5758576c15ce1060c768afb221d581ce9fe39f3aa8763f3bfa4bbaf44a6d2d" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-receitas-previdenciarias> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - receitas previdenciarias" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-receitas-previdenciarias" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_previdenciarias_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_receitas_previdenciarias_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_receitas_previdenciarias_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_receitas_previdenciarias_sorocaba_2020_2025.csv> ;
+  schema:sha256 "6ccb1006759fe345278e393312ccdbf311a7aae5e869ecd5653a9386e3613d0f" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-restos-siconfi> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - restos a pagar" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-restos-siconfi" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_restos_siconfi_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_restos_siconfi_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_restos_siconfi_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_restos_siconfi_sorocaba_2020_2025.csv> ;
+  schema:sha256 "34f870a44d24b744e996ae51abe4f7fd1df4ccf5ef65061219e60b9935520730" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/fiscal/rreo-saude-siconfi> a dcat:Dataset ;
+  dcterms:title "RREO SICONFI - saude detalhada" ;
+  dcterms:identifier "sorocaba:fiscal:rreo-saude-siconfi" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "SICONFI / Tesouro Nacional" ;
+  dcterms:temporal "2020-2025" ;
+  dcat:theme "fiscal" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_saude_siconfi_sorocaba_2020_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/rreo_saude_siconfi_sorocaba_2020_2025> a dcat:Distribution ;
+  dcterms:title "rreo_saude_siconfi_sorocaba_2020_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/rreo_saude_siconfi_sorocaba_2020_2025.csv> ;
+  schema:sha256 "97198db6ecc5735d48c00f1d3a3fdec1fc67b927bbb61ba166278ce2bab44bfe" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/alertas-tce> a dcat:Dataset ;
+  dcterms:title "Alertas TCE-SP filtrados para Sorocaba" ;
+  dcterms:identifier "sorocaba:controle_externo-tce:alertas-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Portal da Transparencia Municipal" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "controle_externo/tce" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/alertas_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/alertas_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "alertas_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/tce/saida/alertas_tce_sorocaba.csv> ;
+  schema:sha256 "a88d08ffae967c259282e177c0f4db4c42e695f8ef0b4ee0b80528bc481588f5" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/contas-anuais-inventario> a dcat:Dataset ;
+  dcterms:title "Inventario de PDFs de contas anuais TCE-SP" ;
+  dcterms:identifier "sorocaba:controle_externo-tce:contas-anuais-inventario" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "controle_externo/tce" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_pdfs_contas_anuais_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_pdfs_contas_anuais_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "inventario_pdfs_contas_anuais_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/tce/saida/inventario_pdfs_contas_anuais_tce_sorocaba.csv> ;
+  schema:sha256 "fb6b231195c0b909562b30242821601e722146bb517af6e67c1448c999ebc356" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/fontes-tce-inventario> a dcat:Dataset ;
+  dcterms:title "Inventario de fontes oficiais TCE-SP usadas na coleta" ;
+  dcterms:identifier "sorocaba:controle_externo-tce:fontes-tce-inventario" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "controle_externo/tce" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_fontes_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_fontes_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "inventario_fontes_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/tce/saida/inventario_fontes_tce_sorocaba.csv> ;
+  schema:sha256 "aa34333084168c12693420d19f8a57978046782498e25e2ea23e4eaf7264c8b3" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/links-relevantes-tce> a dcat:Dataset ;
+  dcterms:title "Links oficiais relevantes do TCE-SP" ;
+  dcterms:identifier "sorocaba:controle_externo-tce:links-relevantes-tce" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "controle_externo/tce" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/links_relevantes_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/links_relevantes_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "links_relevantes_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/tce/saida/links_relevantes_tce_sorocaba.csv> ;
+  schema:sha256 "277498ef77f0619cb3291e0257843ae30204f7c38e7d8089521878a0b92148c1" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/controle_externo-tce/amostras-api-transparencia> a dcat:Dataset ;
+  dcterms:title "Amostras de endpoints da API de transparencia do TCE-SP" ;
+  dcterms:identifier "sorocaba:controle_externo-tce:amostras-api-transparencia" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "TCE-SP / Portal da Transparencia Municipal" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "controle_externo/tce" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/amostras_api_transparencia_tce_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/amostras_api_transparencia_tce_sorocaba> a dcat:Distribution ;
+  dcterms:title "amostras_api_transparencia_tce_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/controle_externo/tce/saida/amostras_api_transparencia_tce_sorocaba.csv> ;
+  schema:sha256 "0f2604309fca2b9aa850941a8e1ca60be1e1115708265ce641eb91b7bd21b229" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/inventario-transparencia> a dcat:Dataset ;
+  dcterms:title "Inventario de documentos de transparencia da Urbes" ;
+  dcterms:identifier "sorocaba:transporte-urbes:inventario-transparencia" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "transporte/urbes" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_urbes_transparencia_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/inventario_urbes_transparencia_sorocaba> a dcat:Distribution ;
+  dcterms:title "inventario_urbes_transparencia_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/urbes/saida/inventario_urbes_transparencia_sorocaba.csv> ;
+  schema:sha256 "ea68a1f199f86ddf7cb3989f8fea6b1a575c52f59c2691d3c63cade521358ce8" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/resumo-transparencia> a dcat:Dataset ;
+  dcterms:title "Resumo da coleta de transparencia da Urbes" ;
+  dcterms:identifier "sorocaba:transporte-urbes:resumo-transparencia" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "transporte/urbes" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/resumo_urbes_transparencia_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/resumo_urbes_transparencia_sorocaba> a dcat:Distribution ;
+  dcterms:title "resumo_urbes_transparencia_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/urbes/saida/resumo_urbes_transparencia_sorocaba.csv> ;
+  schema:sha256 "9b04846c077725133c9327e0c53874736df1429c68374e73d61bd3f6b8444ad7" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-outros-ocr-indice> a dcat:Dataset ;
+  dcterms:title "Indice OCR de contratos Urbes - outros contratos, campos parciais" ;
+  dcterms:identifier "sorocaba:transporte-urbes:contratos-outros-ocr-indice" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "transporte/urbes" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_outros_ocr_indice_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_outros_ocr_indice_sorocaba> a dcat:Distribution ;
+  dcterms:title "urbes_contratos_outros_ocr_indice_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/urbes/saida/urbes_contratos_outros_ocr_indice_sorocaba.csv> ;
+  schema:sha256 "2907125947d625cb5c47aae1dc39e4df306b8553633ab4b687af0110db7f97a2" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-receitas-ocr-indice> a dcat:Dataset ;
+  dcterms:title "Indice OCR de contratos Urbes - receitas, campos parciais" ;
+  dcterms:identifier "sorocaba:transporte-urbes:contratos-receitas-ocr-indice" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "transporte/urbes" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_receitas_ocr_indice_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_receitas_ocr_indice_sorocaba> a dcat:Distribution ;
+  dcterms:title "urbes_contratos_receitas_ocr_indice_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/urbes/saida/urbes_contratos_receitas_ocr_indice_sorocaba.csv> ;
+  schema:sha256 "a96cc653b44f49f02cce40ac7aefc15db36897d57b3d10d363958c10060cc8b1" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/transporte-urbes/contratos-transporte-ocr-indice> a dcat:Dataset ;
+  dcterms:title "Indice OCR de contratos Urbes - transporte, campos parciais" ;
+  dcterms:identifier "sorocaba:transporte-urbes:contratos-transporte-ocr-indice" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "Urbes Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2026" ;
+  dcat:theme "transporte/urbes" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_transporte_ocr_indice_sorocaba> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/urbes_contratos_transporte_ocr_indice_sorocaba> a dcat:Distribution ;
+  dcterms:title "urbes_contratos_transporte_ocr_indice_sorocaba.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/urbes/saida/urbes_contratos_transporte_ocr_indice_sorocaba.csv> ;
+  schema:sha256 "90be1c51dab60e6dcbe1655237ef599a6d5bbd394f1017bd08c590b8304f1202" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/apr> a dcat:Dataset ;
+  dcterms:title "APR FUNSERV - autorizacoes de aplicacao e resgate com valores extraidos" ;
+  dcterms:identifier "sorocaba:autarquias-funserv:apr" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2020-2026" ;
+  dcat:theme "autarquias/funserv" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_apr_sorocaba_2020_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_apr_sorocaba_2020_2026> a dcat:Distribution ;
+  dcterms:title "funserv_apr_sorocaba_2020_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/funserv/saida/funserv_apr_sorocaba_2020_2026.csv> ;
+  schema:sha256 "0f632bd6745133317f4b9602f32d34fcca132d6765fd2c136535bbb107ca497b" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/atuarial-texto> a dcat:Dataset ;
+  dcterms:title "FUNSERV - avaliacoes atuariais com texto extraido" ;
+  dcterms:identifier "sorocaba:autarquias-funserv:atuarial-texto" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2015-2025" ;
+  dcat:theme "autarquias/funserv" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_atuarial_sorocaba_2015_2025> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_atuarial_sorocaba_2015_2025> a dcat:Distribution ;
+  dcterms:title "funserv_atuarial_sorocaba_2015_2025.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/funserv/saida/funserv_atuarial_sorocaba_2015_2025.csv> ;
+  schema:sha256 "b08cc8a8bf151d2a2602d3a9836131e6296ae4d9774e5583f9f99de1639cf6b0" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/governanca-texto> a dcat:Dataset ;
+  dcterms:title "FUNSERV - documentos de governanca com texto extraido" ;
+  dcterms:identifier "sorocaba:autarquias-funserv:governanca-texto" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2019-2026" ;
+  dcat:theme "autarquias/funserv" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_governanca_sorocaba_2019_2026> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_governanca_sorocaba_2019_2026> a dcat:Distribution ;
+  dcterms:title "funserv_governanca_sorocaba_2019_2026.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/funserv/saida/funserv_governanca_sorocaba_2019_2026.csv> ;
+  schema:sha256 "8f99d18bc89465c842614b0835398e88b378be9e66aa8c2f3f1036f5680f813e" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/balanco-previdenciario-texto> a dcat:Dataset ;
+  dcterms:title "FUNSERV - balancos previdenciarios historicos com texto extraido" ;
+  dcterms:identifier "sorocaba:autarquias-funserv:balanco-previdenciario-texto" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2011-2018" ;
+  dcat:theme "autarquias/funserv" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_balanco_previdenciario_ate_2018> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_balanco_previdenciario_ate_2018> a dcat:Distribution ;
+  dcterms:title "funserv_balanco_previdenciario_ate_2018.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/funserv/saida/funserv_balanco_previdenciario_ate_2018.csv> ;
+  schema:sha256 "d764cf077a451472673749ade3af240e31b7d48559e39002b64b836e23cb8779" .
+
+<https://www.anatomiadogasto.ong.br/id/dataset/sorocaba/autarquias-funserv/balanco-saude-texto> a dcat:Dataset ;
+  dcterms:title "FUNSERV - balancos saude historicos com texto extraido" ;
+  dcterms:identifier "sorocaba:autarquias-funserv:balanco-saude-texto" ;
+  dcterms:spatial <https://www.anatomiadogasto.ong.br/id/municipio/sorocaba> ;
+  dcterms:publisher <https://www.anatomiadogasto.ong.br/id/organization/anatomia-do-gasto> ;
+  dcterms:source "FUNSERV Sorocaba / Portal da Transparencia" ;
+  dcterms:temporal "2011-2018" ;
+  dcat:theme "autarquias/funserv" ;
+  dcat:distribution
+    <https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_balanco_saude_ate_2018> .
+
+<https://www.anatomiadogasto.ong.br/id/distribution/sorocaba/funserv_balanco_saude_ate_2018> a dcat:Distribution ;
+  dcterms:title "funserv_balanco_saude_ate_2018.csv" ;
+  dcat:mediaType "text/csv" ;
+  dcat:downloadURL <https://www.anatomiadogasto.ong.br/api/dados/sorocaba/autarquias/funserv/saida/funserv_balanco_saude_ate_2018.csv> ;
+  schema:sha256 "9cbf0a8f2a6edf9fe3f7aa5907a01c5a45426d0f18b884bf3491f30df24f66fb" .
