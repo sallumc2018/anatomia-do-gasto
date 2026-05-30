@@ -43,7 +43,7 @@ Estado reconciliado em 2026-05-27. Score ponderado do site: **79.7%** bruto, exi
 | Restos a pagar agregados | Publicado 2020-2025 | `data/public/sorocaba/restos` |
 | LOA - audiências públicas | Publicado 2022-2026 (2020-2021 inexistentes) | `data/public/sorocaba/loa` |
 | Câmara - gabinete | Publicado 2020-2026 (1.578 registros) | `data/public/sorocaba/camara/gabinete` |
-| Câmara - TCE-SP e documentos orçamentários | Publicado 2020-2026 via TCE-SP; inventário/texto LDO/LRF/PPA/metas/prestação publicado em 2026-05-29 | `data/public/sorocaba/camara` |
+| Câmara - TCE-SP e documentos relacionados ao orçamento | Publicado 2020-2026 via TCE-SP; inventario/texto de atas de audiencias publicas e documentos legislativos relacionados a LDO/LRF/PPA/metas/prestacao publicado em 2026-05-29. LDO/metas oficiais completas seguem como responsabilidade da Prefeitura/Executivo. | `data/public/sorocaba/camara` |
 | Emendas impositivas | Publicado 2020-2026 via CEPA (3.627 emendas, 49 vereadores, R$263,9M indicado) | `data/public/sorocaba/emendas` |
 | Transferências federais | Publicado 2020-2025 via TCE-SP; Transferegov pendente | `data/public/sorocaba/transferencias` |
 | Controle externo | Publicado 2020-2025 via TCE-SP | `data/public/sorocaba/controle-externo` |

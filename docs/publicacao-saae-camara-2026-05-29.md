@@ -10,7 +10,7 @@ Gate autorizado pelo usuario em 2026-05-29 para promover dados de SAAE e Camara 
 | --- | --- | --- | --- |
 | SAAE | `data/public/sorocaba/autarquias/saae/pessoal/saida/saae_folha_totais_sorocaba_2026.csv` | `data/extracted/sorocaba/saae/tdaportal/20260529_091316/pessoal/tabela_45.csv` | Totais agregados por tipo de folha; sem nomes ou matriculas. |
 | SAAE | `data/public/sorocaba/autarquias/saae/pessoal/saida/saae_pessoal_cargos_amostra_sorocaba_2026.csv` | `data/extracted/sorocaba/saae/tdaportal/20260529_091316/pessoal/tabela_32.csv` | Amostra exibida pelo portal: 100 de 139 linhas; total informado pelo portal mantido separadamente. |
-| Camara | `data/public/sorocaba/camara/documentos_orcamentarios/saida/camara_documentos_orcamentarios_sorocaba_2017_2027.csv` | `data/extracted/sorocaba/camara/{ldo,lrf,metas,ppa,prestacao}/camara_*_sorocaba.csv` | Inventario/texto de PDFs oficiais com status de qualidade por documento. |
+| Camara | `data/public/sorocaba/camara/documentos_orcamentarios/saida/camara_documentos_orcamentarios_sorocaba_2017_2027.csv` | `data/extracted/sorocaba/camara/{ldo,lrf,metas,ppa,prestacao}/camara_*_sorocaba.csv` | Inventario/texto de atas de audiencias publicas e documentos legislativos relacionados. Os registros LDO/metas da Camara nao substituem as LDOs/metas oficiais completas da Prefeitura/Executivo. |
 
 ## QA
 
