@@ -147,11 +147,11 @@ export default function ControleExternoPage() {
               </div>
               <div className="flex-1">
                 <h2 className="text-lg font-bold text-red-500 mb-2 uppercase tracking-wide">
-                  Alerta Fiscal: Colapso do Saldo Patrimonial Líquido
+                  Balanço patrimonial: patrimônio líquido negativo (2024–2025)
                 </h2>
                 <p style={{ ...S.body, fontSize: "14px", color: "var(--text-01)", marginBottom: "8px" }}>
-                  A prestação de contas oficial enviada ao governo federal (SICONFI) revela um gravíssimo declínio nas contas
-                  públicas de Sorocaba/SP. O saldo patrimonial líquido (Ativos menos Passivos) desmoronou para valores negativos históricos:
+                  A prestação de contas oficial enviada ao governo federal (SICONFI) registra patrimônio líquido negativo no
+                  balanço de Sorocaba/SP a partir de 2024 — as obrigações de longo prazo provisionadas passaram a superar, no balanço, os bens e direitos do município:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
                   <div className="p-4 rounded border border-red-500/30 bg-red-950/30">
@@ -164,8 +164,9 @@ export default function ControleExternoPage() {
                   </div>
                 </div>
                 <p style={{ ...S.caption, color: "var(--text-03)" }}>
-                  Este déficit indica que as obrigações e dívidas acumuladas a longo prazo (como passivos atuariais e empréstimos)
-                  superam amplamente todos os bens e direitos do município.
+                  Este resultado reflete o reconhecimento de obrigações de longo prazo (como passivos atuariais e empréstimos):
+                  o Passivo Não Circulante mais que triplicou em 2024. É uma medida patrimonial de longo prazo — não, por si só,
+                  um indicador de incapacidade de pagar despesas correntes no curto prazo. Os dados de 2025 podem ser preliminares até o fechamento do DCA.
                 </p>
               </div>
             </div>
@@ -196,7 +197,7 @@ export default function ControleExternoPage() {
                           <th style={{ ...S.th, padding: "8px 6px" }}>Ano</th>
                           <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Ativo</th>
                           <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Passivo + PL</th>
-                          <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Saldo Líquido</th>
+                          <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Patrimônio Líquido</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -57,11 +57,14 @@ function loadCamaraTce(): CamaraTceRow[] {
   )
 }
 
-export const metadata: Metadata = {
-  title: "Câmara Municipal de Sorocaba",
-  description:
-    "25 vereadores da 19ª Legislatura, composição por partido, subsídios e custo institucional. LOA 2024: R$ 88,6 milhões. O que está mapeado e o que ainda falta.",
-  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/camara-municipal" },
+export async function generateMetadata(): Promise<Metadata> {
+  const loa = LOA_SERIE[0]
+  const loaMi = (loa.fixado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  return {
+    title: "Câmara Municipal de Sorocaba",
+    description: `25 vereadores da 19ª Legislatura, composição por partido, subsídios e custo institucional. LOA ${loa.ano}: R$ ${loaMi} milhões. O que está mapeado e o que ainda falta.`,
+    alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/camara-municipal" },
+  }
 }
 
 const S = {
@@ -739,7 +742,7 @@ export default function CamaraMunicipalPage() {
                 {
                   titulo: "LOAs 2020–2025 · Prefeitura de Sorocaba (PDFs oficiais)",
                   url: "https://www.sorocaba.sp.gov.br/transparencia/prestacao-de-contas/lei-orcamentaria-anual/",
-                  nota: "Fonte oficial — LOA fixada para a Câmara (Função Legislativa): 2020 R$60,2mi · 2021 R$59,9mi · 2022 R$69,2mi · 2023 R$78,9mi · 2024 R$88,5mi · 2025 R$96,4mi",
+                  nota: "Fonte oficial — LOA fixada para a Câmara (Função Legislativa): 2020 R$60,22mi · 2021 R$59,99mi · 2022 R$69,21mi · 2023 R$78,96mi · 2024 R$88,58mi · 2025 R$96,37mi",
                 },
                 {
                   titulo: "SICONFI — RREO Anexo 02 · Tesouro Nacional",

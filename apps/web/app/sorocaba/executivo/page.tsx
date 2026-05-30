@@ -13,11 +13,18 @@ import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
 
-export const metadata: Metadata = {
-  title: "Orçamento Municipal de Sorocaba",
-  description:
-    "Como Sorocaba distribuiu R$ 5,4 bilhões em 2025 entre educação, saúde, transporte, previdência e todas as funções orçamentárias. Série histórica 2020–2025. Fonte: SICONFI/Tesouro Nacional.",
-  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/executivo" },
+export async function generateMetadata(): Promise<Metadata> {
+  const anos = getAvailableYearsExecutivo()
+  const ultimo = anos[0] ?? 2025
+  const primeiro = anos.length ? Math.min(...anos) : 2020
+  const rows = anos[0] ? loadExecutivoData(anos[0]) : []
+  const total = rows.find((r) => r.funcao === "TOTAL")?.liquidado ?? 0
+  const totalBi = (total / 1e9).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  return {
+    title: "Orçamento Municipal de Sorocaba",
+    description: `Como Sorocaba distribuiu R$ ${totalBi} bilhões em ${ultimo} entre educação, saúde, transporte, previdência e todas as funções orçamentárias. Série histórica ${primeiro}–${ultimo}. Fonte: SICONFI/Tesouro Nacional.`,
+    alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/executivo" },
+  }
 }
 
 const S = {
