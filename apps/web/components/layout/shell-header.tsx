@@ -45,6 +45,7 @@ const MAIS_NAV = [
   { href: "/auditoria/reportar", label: "Reportar dados" },
   { href: "/api/dados", label: "Catálogo API" },
   { href: "/voluntarios", label: "Como contribuir" },
+  { href: "/sorocaba/transferencias", label: "Transferências" },
   { href: "/fluxo-financeiro", label: "Fluxo Financeiro" },
   { href: "/fluxo", label: "Fluxograma" },
   { href: "/mapa-interativo", label: "Mapa Interativo" },
