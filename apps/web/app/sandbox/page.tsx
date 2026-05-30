@@ -28,13 +28,14 @@ const CHIPS_SUGERIDOS = [
 
 export default function SandboxPage() {
   const [selectedQuery, setSelectedQuery] = useState("")
+  const [trigger, setTrigger] = useState(0)
 
   function handleChipClick(queryText: string) {
+    // Mantém a query setada (a resposta permanece na tela). O contador 'trigger'
+    // muda a key do TheoGuide, permitindo reprocessar mesmo o mesmo chip — sem
+    // zerar a resposta (o reset por timeout fazia a janela abrir e fechar).
     setSelectedQuery(queryText)
-    // Pequeno timeout para permitir que se clique no mesmo chip múltiplas vezes
-    setTimeout(() => {
-      setSelectedQuery("")
-    }, 100)
+    setTrigger((t) => t + 1)
   }
 
   return (
@@ -100,7 +101,7 @@ export default function SandboxPage() {
                   </div>
 
                   {/* Componente do Théo passando a query selecionada via chips */}
-                  <TheoGuide initialQuery={selectedQuery} />
+                  <TheoGuide key={trigger} initialQuery={selectedQuery} />
                 </div>
 
                 {/* Chips de Perguntas Sugeridas */}
@@ -109,11 +110,11 @@ export default function SandboxPage() {
                     Experimente Perguntas Rápidas de Treinamento:
                   </span>
                   <div className="flex flex-wrap gap-2.5">
-                    {CHIPS_SUGERIDOS.map((chip, index) => {
+                    {CHIPS_SUGERIDOS.map((chip) => {
                       const Icon = chip.icon
                       return (
                         <button
-                          key={index}
+                          key={chip.text}
                           onClick={() => handleChipClick(chip.query)}
                           className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-full border border-[var(--border-01)] bg-[var(--bg-elevated)] text-[var(--text-02)] hover:text-[var(--text-01)] hover:border-[var(--border-02)] hover:bg-[var(--bg-raised)] transition-all duration-150 cursor-pointer shadow-sm"
                         >
