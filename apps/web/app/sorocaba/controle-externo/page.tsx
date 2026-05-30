@@ -137,16 +137,16 @@ export default function ControleExternoPage() {
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-8" style={S.container}>
             <div
-              className="p-6 rounded-lg border-2 border-red-500 bg-red-950/20 flex flex-col md:flex-row gap-6 items-start"
+              className="p-6 rounded-lg border-2 border-amber-500 bg-amber-950/20 flex flex-col md:flex-row gap-6 items-start"
               style={{ borderLeftWidth: "8px" }}
             >
-              <div className="p-3 bg-red-500/10 rounded-full text-red-500 flex-shrink-0">
+              <div className="p-3 bg-amber-500/10 rounded-full text-amber-600 flex-shrink-0">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
               <div className="flex-1">
-                <h2 className="text-lg font-bold text-red-500 mb-2 uppercase tracking-wide">
+                <h2 className="text-lg font-bold text-amber-600 mb-2 uppercase tracking-wide">
                   Balanço patrimonial: patrimônio líquido negativo (2024–2025)
                 </h2>
                 <p style={{ ...S.body, fontSize: "14px", color: "var(--text-01)", marginBottom: "8px" }}>
@@ -154,13 +154,13 @@ export default function ControleExternoPage() {
                   balanço de Sorocaba/SP a partir de 2024 — as obrigações de longo prazo provisionadas passaram a superar, no balanço, os bens e direitos do município:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
-                  <div className="p-4 rounded border border-red-500/30 bg-red-950/30">
-                    <p className="text-xs uppercase tracking-wider text-red-400 font-semibold">Exercício 2024</p>
-                    <p className="text-2xl font-mono font-bold text-red-500">-R$ 1,22 Bilhão</p>
+                  <div className="p-4 rounded border border-amber-500/30 bg-amber-950/30">
+                    <p className="text-xs uppercase tracking-wider text-amber-600 font-semibold">Exercício 2024</p>
+                    <p className="text-2xl font-mono font-bold text-amber-600">-R$ 1,22 Bilhão</p>
                   </div>
-                  <div className="p-4 rounded border border-red-500/30 bg-red-950/30">
-                    <p className="text-xs uppercase tracking-wider text-red-400 font-semibold">Exercício 2025</p>
-                    <p className="text-2xl font-mono font-bold text-red-500">-R$ 2,44 Bilhões</p>
+                  <div className="p-4 rounded border border-amber-500/30 bg-amber-950/30">
+                    <p className="text-xs uppercase tracking-wider text-amber-600 font-semibold">Exercício 2025</p>
+                    <p className="text-2xl font-mono font-bold text-amber-600">-R$ 2,44 Bilhões</p>
                   </div>
                 </div>
                 <p style={{ ...S.caption, color: "var(--text-03)" }}>

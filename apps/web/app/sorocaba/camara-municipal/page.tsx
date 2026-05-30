@@ -202,8 +202,7 @@ export default function CamaraMunicipalPage() {
   const totalMensalSubsidios = vereadores.reduce((sum, v) => sum + (v.remuneracao?.valor_bruto_mensal ?? 0), 0)
   const totalAnualSubsidios = totalMensalSubsidios * 12
 
-  const LOA_2024 = 88_584_000
-  const pctSubsidiosLOA = ((totalAnualSubsidios / LOA_2024) * 100).toFixed(2)
+  const pctSubsidiosLOA = ((totalAnualSubsidios / LOA_SERIE[0]!.fixado) * 100).toFixed(2)
 
   const vereadoras = vereadores.filter((v) => v.cargo === "Vereadora")
 
@@ -223,7 +222,10 @@ export default function CamaraMunicipalPage() {
     .map((s) => ({ ano: String(s.ano), fixado: s.fixado, liquidado: s.executado }))
 
   const loa2020 = LOA_SERIE.find((s) => s.ano === 2020)!
-  const loaAtual = LOA_SERIE[0]! // 2025
+  const loaAtual = LOA_SERIE[0]! // ano mais recente
+  const loaLei = loaAtual.fonte.match(/Lei [\d.]+\/\d{4}/)?.[0] ?? ""
+  const loaFixMi = (loaAtual.fixado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  const loaExecMi = (loaAtual.executado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
   const varLOA = ((loaAtual.fixado - loa2020.fixado) / loa2020.fixado * 100)
   const seriesComExec = LOA_SERIE.filter((s) => s.executado > 0)
   const avgExecRate = seriesComExec.length > 0
@@ -265,9 +267,9 @@ export default function CamaraMunicipalPage() {
                 A Câmara Municipal legisla sobre assuntos locais, aprova a Lei Orçamentária Anual
                 e fiscaliza a Prefeitura. Esta página mostra a composição dos {vereadores.length} vereadores,
                 os subsídios brutos oficiais e o custo institucional parcialmente mapeado.
-                O orçamento total da câmara em 2024 foi de{" "}
-                <strong style={{ color: "var(--text-01)" }}>R$ 88,6 milhões</strong> fixados na LOA
-                (Lei 12.941/2023) e R$ 66,1 milhões executados — os subsídios representam cerca de {pctSubsidiosLOA}% da LOA.
+                O orçamento total da câmara em {loaAtual.ano} foi de{" "}
+                <strong style={{ color: "var(--text-01)" }}>R$ {loaFixMi} milhões</strong> fixados na LOA
+                {loaLei ? ` (${loaLei})` : ""} e R$ {loaExecMi} milhões executados — os subsídios representam cerca de {pctSubsidiosLOA}% da LOA.
               </p>
               <p style={S.caption}>
                 Dados de LOA e despesa realizada: PDFs oficiais das LOAs municipais + SICONFI/Tesouro Nacional · Subsídios: Câmara Municipal
@@ -282,7 +284,7 @@ export default function CamaraMunicipalPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { label: "Vereadores", valor: String(vereadores.length), nota: "19ª Legislatura · 2025–2028" },
-                { label: "LOA câmara 2024", valor: "R$ 88,6 mi", nota: "Lei 12.941/2023 · executado: R$ 66,1 mi" },
+                { label: `LOA câmara ${loaAtual.ano}`, valor: `R$ ${loaFixMi} mi`, nota: `${loaLei}${loaLei ? " · " : ""}executado: R$ ${loaExecMi} mi` },
                 { label: "Subsídios / ano", valor: formatMillions(totalAnualSubsidios), nota: "Valor anual · subsídios brutos oficiais 2026" },
                 { label: "Partidos", valor: String(partidosOrdenados.length), nota: `${vereadoras.length} vereadoras · ${Math.round((vereadoras.length / vereadores.length) * 100)}% da câmara` },
               ].map((item) => (
@@ -342,8 +344,8 @@ export default function CamaraMunicipalPage() {
                 <p className="uppercase font-semibold mb-4" style={S.label}>Custo institucional parcial</p>
                 <h2 style={S.h2}>O subsídio é menos de 7% do orçamento total</h2>
                 <p style={{ ...S.body, marginBottom: "16px" }}>
-                  A LOA 2024 fixou R$ 88,6 milhões para a Câmara Municipal (Lei 12.941/2023) —
-                  gasto efetivo (liquidado): R$ 66,1 milhões (SICONFI RREO 2024).
+                  A LOA {loaAtual.ano} fixou R$ {loaFixMi} milhões para a Câmara Municipal{loaLei ? ` (${loaLei})` : ""} —
+                  gasto efetivo (liquidado): R$ {loaExecMi} milhões (SICONFI RREO {loaAtual.ano}).
                   Os subsídios dos {vereadores.length} vereadores somam {formatMillions(totalAnualSubsidios)}/ano
                   ({pctSubsidiosLOA}% da LOA).
                   O limite constitucional (art. 29-A) é de 4,5% da receita tributária municipal
@@ -394,7 +396,7 @@ export default function CamaraMunicipalPage() {
                   </div>
                   <p className="pt-4" style={S.caption}>
                     Exclui: servidores concursados, contratos de custeio, manutenção, tecnologia e infraestrutura.
-                    LOA 2024 (Lei 12.941/2023): R$ 88,6 mi · Gasto efetivo 2024 (SICONFI): R$ 66,1 mi.
+                    LOA {loaAtual.ano}{loaLei ? ` (${loaLei})` : ""}: R$ {loaFixMi} mi · Gasto efetivo {loaAtual.ano} (SICONFI): R$ {loaExecMi} mi.
                   </p>
                 </div>
               </div>
