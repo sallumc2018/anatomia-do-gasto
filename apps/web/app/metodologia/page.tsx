@@ -135,6 +135,7 @@ const LIMITACOES = [
   "Os valores são acumulados por quadrimestre (Jan–Abr, Jan–Ago, Jan–Dez), não incrementais. O 3º quad representa o total anual.",
   "Outras subfunções de saúde (saúde do trabalhador, saúde mental) são agrupadas como 'Outras subfunções' no RREO, sem detalhamento.",
   "Saúde indireta (benefícios e previdência de servidores da saúde) não é incluída nas despesas ASPS.",
+  "Conta-corrente de fornecedores 2022–2023: a coluna de crédito ficou muito abaixo do débito (provável sub-captura na extração da fonte), diferente dos demais anos em que crédito e débito se equilibram. Os valores de transferência exibidos (débitos) são confiáveis; a coluna de crédito desses dois anos no arquivo aberto deve ser usada com ressalva. Reextração pendente.",
 ]
 
 export default function MetodologiaPage() {

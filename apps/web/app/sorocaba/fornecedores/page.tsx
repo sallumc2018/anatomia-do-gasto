@@ -118,6 +118,12 @@ export default function FornecedoresPage() {
                 Dados extraídos do Livro de Conta-Corrente de Fornecedores publicado no Portal de
                 Transparência de Sorocaba. Código IBGE: 3552205.
               </p>
+              <p style={{ maxWidth: "640px", color: "var(--text-04)", fontSize: "13px", lineHeight: "20px", marginTop: "10px" }}>
+                Nota de dados: nos arquivos abertos de 2022 e 2023, a coluna de crédito da conta-corrente
+                ficou muito abaixo do débito (provável sub-captura na extração da fonte). Os valores de
+                transferência mostrados aqui (débitos) são confiáveis e consistentes com os demais anos;
+                a coluna de crédito desses dois anos deve ser usada com ressalva. Reextração pendente.
+              </p>
             </div>
           </div>
         </section>
