@@ -47,6 +47,7 @@ const MAIS_NAV = [
   { href: "/voluntarios", label: "Como contribuir" },
   { href: "/fluxo", label: "Fluxograma" },
   { href: "/mapa-interativo", label: "Mapa Interativo" },
+  { href: "/sandbox", label: "Sandbox do Théo" },
 ]
 
 const ALL_NAV = [...MAIN_NAV, ...MAIS_NAV]

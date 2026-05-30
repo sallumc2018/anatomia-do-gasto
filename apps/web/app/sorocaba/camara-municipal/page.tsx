@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next"
+import type { Metadata } from "next"
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
@@ -8,6 +8,8 @@ import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { loadCabinetExpenses, getAvailableYearsCabinet, type CabinetExpenseRow } from "@/lib/data"
+import { CabinetExpensesDashboard } from "./CabinetExpensesDashboard"
 
 const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
 
@@ -184,6 +186,11 @@ function formatMillions(value: number): string {
 
 export default function CamaraMunicipalPage() {
   const tceRows = loadCamaraTce()
+  const cabinetYears = getAvailableYearsCabinet("sorocaba")
+  const cabinetExpensesByYear = cabinetYears.reduce<Record<number, CabinetExpenseRow[]>>((acc, yr) => {
+    acc[yr] = loadCabinetExpenses(yr, "sorocaba")
+    return acc
+  }, {})
   const dados = getPoderPublicoSorocaba()
   const grupoVereadores = dados.grupos.find((g) => g.id === "vereadores")
   const vereadores = grupoVereadores?.pessoas ?? []
@@ -392,7 +399,20 @@ export default function CamaraMunicipalPage() {
           </div>
         </section>
 
-        {/* Série histórica */}
+        {/* Despesas de Gabinete (Verba de Reembolso) */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <div className="mb-8">
+              <p className="uppercase font-semibold" style={S.label}>Gastos de Gabinete</p>
+              <h2 style={S.h2}>Como os vereadores utilizam a verba indenizatória</h2>
+              <p style={{ ...S.body, maxWidth: "720px" }}>
+                Cada gabinete dispõe de uma cota de reembolso para despesas de representação, postagem, combustível e aluguel de equipamentos.
+                Abaixo, explore o ranking de gastos e audite os valores consolidados.
+              </p>
+            </div>
+            <CabinetExpensesDashboard expensesByYear={cabinetExpensesByYear} availableYears={cabinetYears} />
+          </div>
+        </section>
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
             <p className="uppercase font-semibold mb-8" style={S.label}>Série histórica · 2020–2025</p>

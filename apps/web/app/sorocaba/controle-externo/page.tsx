@@ -4,6 +4,8 @@ import path from "path"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { loadDcaSiconfi } from "@/lib/data"
+import { DcaCharts } from "./DcaCharts"
 
 export const metadata: Metadata = {
   title: "Controle Externo · TCE-SP e SICONFI",
@@ -84,26 +86,6 @@ function loadAlertasSdg(): AlertaSdg[] {
   }).filter((r) => r.comunicado)
 }
 
-interface DcaYear { exercicio: number; count: number }
-
-function loadDcaCoverage(): DcaYear[] {
-  const fp = path.join(CE_DIR, "dca_siconfi_sorocaba_2020_2025.csv")
-  if (!fs.existsSync(fp)) return []
-  const lines = fs.readFileSync(fp, "utf-8").split("\n")
-  const byYear: Record<number, number> = {}
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i].trim()
-    if (!line) continue
-    const c1 = line.indexOf(",")
-    if (c1 === -1) continue
-    const yr = parseInt(line.slice(0, c1))
-    if (!isNaN(yr) && yr >= 2015 && yr <= 2030) byYear[yr] = (byYear[yr] ?? 0) + 1
-  }
-  return Object.entries(byYear)
-    .map(([yr, count]) => ({ exercicio: parseInt(yr), count }))
-    .sort((a, b) => a.exercicio - b.exercicio)
-}
-
 const BIMESTRE_LABEL: Record<string, string> = {
   "1": "1º Bimestre", "2": "2º Bimestre", "3": "3º Bimestre",
   "4": "4º Bimestre", "5": "5º Bimestre", "6": "6º Bimestre",
@@ -111,8 +93,17 @@ const BIMESTRE_LABEL: Record<string, string> = {
 
 export default function ControleExternoPage() {
   const alertas = loadAlertasSdg()
-  const dca     = loadDcaCoverage()
-  const totalDca = dca.reduce((s, r) => s + r.count, 0)
+
+  // Load and aggregate DCA SICONFI Data
+  const dcaRows = loadDcaSiconfi("sorocaba")
+  const years = Array.from(new Set(dcaRows.map((r) => r.exercicio))).sort()
+  const dcaAggregated = years.map((year) => {
+    const yearRows = dcaRows.filter((r) => r.exercicio === year)
+    const ativo = yearRows.find((r) => r.cod_conta === "P1.0.0.0.0.00.00")?.valor ?? 0
+    const passivo = yearRows.find((r) => r.cod_conta === "P2.0.0.0.0.00.00")?.valor ?? 0
+    const saldoPatrimonial = yearRows.find((r) => r.cod_conta === "SaldoPatrimonial")?.valor ?? 0
+    return { year, ativo, passivo, saldoPatrimonial }
+  })
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -122,23 +113,129 @@ export default function ControleExternoPage() {
         {/* Hero */}
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>
-            <div className="mobile-hero-inset" style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
+            <div className="mobile-hero-inset" style={{ borderLeft: "4px solid var(--theme-accent)", paddingLeft: "24px" }}>
               <p className="uppercase font-semibold mb-4" style={S.label}>Controle Externo</p>
               <h1
                 className="font-light mb-6"
                 style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "760px" }}
               >
-                O que o TCE-SP e o SICONFI dizem sobre as contas de Sorocaba
+                O que o SICONFI e o TCE-SP dizem sobre as contas de Sorocaba
               </h1>
               <p style={{ ...S.body, maxWidth: "640px", marginBottom: "16px" }}>
-                O Tribunal de Contas do Estado de SP fiscaliza a gestão municipal e emite alertas quando
-                identifica irregularidades ou descumprimento de limites legais. Esta página reúne os
-                alertas formais (SDG) dirigidos à Prefeitura de Sorocaba e a cobertura das Declarações
-                das Contas Anuais (DCA) enviadas ao SICONFI — base federal de prestação de contas.
+                Acompanhe o estado patrimonial consolidado enviado à União (SICONFI) e os alertas formais emitidos
+                pelo Tribunal de Contas do Estado de São Paulo (TCE-SP). Os dados revelam as reais pressões fiscais
+                do município.
               </p>
               <p style={S.caption}>
-                Fontes: TCE-SP (comunicados SDG) · SICONFI/Tesouro Nacional (DCA 2020–2025)
+                Fontes: SICONFI/Tesouro Nacional (DCA 2020–2025) · TCE-SP (comunicados SDG)
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Critical Fiscal Alert (ShieldAlert) */}
+        <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-8" style={S.container}>
+            <div
+              className="p-6 rounded-lg border-2 border-red-500 bg-red-950/20 flex flex-col md:flex-row gap-6 items-start"
+              style={{ borderLeftWidth: "8px" }}
+            >
+              <div className="p-3 bg-red-500/10 rounded-full text-red-500 flex-shrink-0">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-lg font-bold text-red-500 mb-2 uppercase tracking-wide">
+                  Alerta Fiscal: Colapso do Saldo Patrimonial Líquido
+                </h2>
+                <p style={{ ...S.body, fontSize: "14px", color: "var(--text-01)", marginBottom: "8px" }}>
+                  A prestação de contas oficial enviada ao governo federal (SICONFI) revela um gravíssimo declínio nas contas
+                  públicas de Sorocaba/SP. O saldo patrimonial líquido (Ativos menos Passivos) desmoronou para valores negativos históricos:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                  <div className="p-4 rounded border border-red-500/30 bg-red-950/30">
+                    <p className="text-xs uppercase tracking-wider text-red-400 font-semibold">Exercício 2024</p>
+                    <p className="text-2xl font-mono font-bold text-red-500">-R$ 1,22 Bilhão</p>
+                  </div>
+                  <div className="p-4 rounded border border-red-500/30 bg-red-950/30">
+                    <p className="text-xs uppercase tracking-wider text-red-400 font-semibold">Exercício 2025</p>
+                    <p className="text-2xl font-mono font-bold text-red-500">-R$ 2,44 Bilhões</p>
+                  </div>
+                </div>
+                <p style={{ ...S.caption, color: "var(--text-03)" }}>
+                  Este déficit indica que as obrigações e dívidas acumuladas a longo prazo (como passivos atuariais e empréstimos)
+                  superam amplamente todos os bens e direitos do município.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* DCA SICONFI Charts & Data */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <p className="uppercase font-semibold mb-3" style={S.label}>Dados Contábeis Consolidados</p>
+            <p style={{ ...S.body, maxWidth: "640px", marginBottom: "24px" }}>
+              Gráficos interativos elaborados a partir do processamento das Declarações das Contas Anuais (DCA) oficiais do município.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7">
+                <DcaCharts data={dcaAggregated} />
+              </div>
+              <div className="lg:col-span-5 flex flex-col gap-6">
+                <div className="p-6 rounded-lg border border-[var(--border-01)] bg-[var(--bg-base)]">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[var(--text-01)]">
+                    Tabela de Balanço Patrimonial (R$ Reais)
+                  </h3>
+                  <div style={{ overflowX: "auto" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                      <thead>
+                        <tr style={S.borderBottom}>
+                          <th style={{ ...S.th, padding: "8px 6px" }}>Ano</th>
+                          <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Ativo</th>
+                          <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Passivo + PL</th>
+                          <th style={{ ...S.th, padding: "8px 6px", textAlign: "right" }}>Saldo Líquido</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {dcaAggregated.map((r) => (
+                          <tr key={r.year} style={S.borderBottom}>
+                            <td style={{ ...S.td, padding: "10px 6px", fontWeight: 600 }}>{r.year}</td>
+                            <td style={{ ...S.td, padding: "10px 6px", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)" }}>
+                              {(r.ativo / 1e9).toFixed(2)}B
+                            </td>
+                            <td style={{ ...S.td, padding: "10px 6px", textAlign: "right", fontFamily: "var(--font-ibm-plex-mono)" }}>
+                              {(r.passivo / 1e9).toFixed(2)}B
+                            </td>
+                            <td style={{
+                              ...S.td,
+                              padding: "10px 6px",
+                              textAlign: "right",
+                              fontFamily: "var(--font-ibm-plex-mono)",
+                              fontWeight: "bold",
+                              color: r.saldoPatrimonial < 0 ? "rgb(239 68 68)" : "rgb(34 197 94)"
+                            }}>
+                              {(r.saldoPatrimonial / 1e9).toFixed(2)}B
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-lg border border-[var(--border-01)] bg-[var(--bg-base)]">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-[var(--text-01)]">
+                    Metodologia de Análise
+                  </h3>
+                  <p style={{ ...S.body, fontSize: "13px", color: "var(--text-03)" }}>
+                    Os valores são obtidos diretamente do Anexo I-AB da DCA de Sorocaba, extraindo os saldos em 31 de dezembro de cada exercício financeiro.
+                    O saldo negativo recorrente a partir de 2024 evidencia uma vulnerabilidade estrutural profunda ligada ao endividamento e à previdência (IPESP).
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -151,8 +248,7 @@ export default function ControleExternoPage() {
             </p>
             <p style={{ ...S.body, maxWidth: "640px", marginBottom: "24px" }}>
               O SDG (Seção de Dados Gerenciais) do TCE-SP emite comunicados formais quando o município
-              descumpre limites constitucionais — gastos com pessoal, saúde, educação, dívida.
-              O comunicado nomeia o responsável e indica os incisos infringidos.
+              descumpre limites constitucionais ou da Lei de Responsabilidade Fiscal.
             </p>
             {alertas.length === 0 ? (
               <p style={{ ...S.body, color: "var(--text-04)" }}>Nenhum alerta mapeado no período.</p>
@@ -201,75 +297,6 @@ export default function ControleExternoPage() {
                     ))}
                   </tbody>
                 </table>
-              </div>
-            )}
-            {alertas.some((a) => a.observacao) && (
-              <div className="mt-4">
-                {alertas.filter((a) => a.observacao).map((a, i) => (
-                  <p key={i} style={{ ...S.caption, marginTop: "4px" }}>
-                    <strong style={{ color: "var(--text-03)" }}>{a.comunicado}:</strong> {a.observacao}
-                  </p>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* DCA SICONFI */}
-        <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
-          <div className="mx-auto px-6 py-12" style={S.container}>
-            <p className="uppercase font-semibold mb-3" style={S.label}>DCA SICONFI · Declaração das Contas Anuais</p>
-            <p style={{ ...S.body, maxWidth: "640px", marginBottom: "24px" }}>
-              A DCA é a prestação de contas anual que cada município envia ao Tesouro Nacional via
-              SICONFI. Inclui balanço patrimonial, demonstração das variações patrimoniais e outros
-              anexos contábeis. A cobertura abaixo indica os exercícios disponíveis na base local.
-            </p>
-            {dca.length === 0 ? (
-              <p style={{ ...S.body, color: "var(--text-04)" }}>Dados DCA não encontrados.</p>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                  <div style={S.borderTop}>
-                    {dca.map((r) => (
-                      <div key={r.exercicio} className="flex items-center justify-between py-4" style={S.borderBottom}>
-                        <span className="font-mono font-semibold" style={{ fontSize: "15px", color: "var(--text-01)" }}>
-                          {r.exercicio}
-                        </span>
-                        <span style={{ ...S.caption, color: "var(--text-03)" }}>
-                          {r.count.toLocaleString("pt-BR")} registros contábeis
-                        </span>
-                      </div>
-                    ))}
-                    <p className="pt-4" style={S.caption}>
-                      Total: {totalDca.toLocaleString("pt-BR")} registros · {dca.length} exercícios
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="p-6"
-                    style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}
-                  >
-                    <p className="uppercase font-semibold mb-3" style={S.label}>O que é a DCA</p>
-                    <ul className="flex flex-col gap-2">
-                      {[
-                        "Balanço Patrimonial (Ativo, Passivo, PL)",
-                        "Demonstração das Variações Patrimoniais (DVP)",
-                        "Demonstração dos Fluxos de Caixa (DFC)",
-                        "Notas Explicativas e Anexos LRF",
-                        "Comparação com exercício anterior — mesmos anexos",
-                      ].map((item) => (
-                        <li key={item} className="flex gap-3 items-start">
-                          <span style={{ color: "var(--text-04)", flexShrink: 0, marginTop: "2px" }}>—</span>
-                          <p style={{ ...S.body, fontSize: "13px", color: "var(--text-03)" }}>{item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-4" style={S.caption}>
-                      Fonte oficial: SICONFI — Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro
-                    </p>
-                  </div>
-                </div>
               </div>
             )}
           </div>

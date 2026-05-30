@@ -1,3 +1,5 @@
+import { FeedbackClareza } from "./feedback-clareza"
+
 interface Props {
   titulo?: string
   items: string[]
@@ -32,6 +34,7 @@ export function DadoQueMostra({ titulo = "O que os dados mostram", items }: Prop
           </li>
         ))}
       </ul>
+      <FeedbackClareza />
     </div>
   )
 }

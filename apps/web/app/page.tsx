@@ -163,10 +163,21 @@ export default function IndexPage() {
         {/* Théo em destaque */}
         <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
-            <p style={{ ...S.label, marginBottom: "8px", color: "var(--blue-40)" }}>Guia de dados · Sorocaba</p>
-            <p style={{ ...S.body, color: "var(--text-03)", marginBottom: "24px", maxWidth: "480px" }}>
-              Tem dúvidas sobre os dados de Sorocaba? O Théo responde em linguagem simples e aponta para a página certa.
-            </p>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+              <div>
+                <p style={{ ...S.label, marginBottom: "8px", color: "var(--blue-40)" }}>Guia de dados · Sorocaba</p>
+                <p style={{ ...S.body, color: "var(--text-03)", margin: 0, maxWidth: "540px" }}>
+                  Tem dúvidas sobre os dados de Sorocaba? O Théo responde em linguagem simples e aponta para a página certa.
+                </p>
+              </div>
+              <Link
+                href="/sandbox"
+                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 border border-[var(--border-01)] bg-[var(--bg-raised)] text-[var(--text-01)] hover:bg-[var(--bg-high)] hover:border-[var(--border-02)] transition-all duration-150 rounded-md self-start md:self-center"
+                style={{ textDecoration: "none" }}
+              >
+                Abrir Laboratório Sandbox do Théo →
+              </Link>
+            </div>
             <TheoGuide />
           </div>
         </section>

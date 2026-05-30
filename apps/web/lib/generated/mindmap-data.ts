@@ -40,15 +40,15 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 62 trilhas publicadas em 21 areas. A interface resume cobertura sem usar camadas internas.",
-    "value": "2017-2027 parcial",
+    "detail": "Mapa cidadão gerado a partir de 90 trilhas publicadas em 24 areas. A interface resume cobertura sem usar camadas internas.",
+    "value": "2011-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 62,
+    "sourceCount": 90,
     "policy": {
-      "publicavel": 39,
-      "publicavelComCautela": 15,
+      "publicavel": 57,
+      "publicavelComCautela": 25,
       "naoDestacarNaUi": 8
     }
   },
@@ -59,15 +59,15 @@ export const MINDMAP_NODES = [
     "group": "dinheiro",
     "icon": "Building2",
     "summary": "Despesa, receita e execução",
-    "detail": "13 trilhas publicadas; 5 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "26 trilhas publicadas; 2 com cautela editorial; 5 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2025",
     "href": "/sorocaba/executivo",
     "linkLabel": "Ver Executivo",
     "color": "var(--blue-40)",
-    "sourceCount": 13,
+    "sourceCount": 26,
     "policy": {
-      "publicavel": 8,
-      "publicavelComCautela": 0,
+      "publicavel": 19,
+      "publicavelComCautela": 2,
       "naoDestacarNaUi": 5
     }
   },
