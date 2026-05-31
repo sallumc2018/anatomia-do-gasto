@@ -11,7 +11,7 @@ import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { loadCabinetExpenses, getAvailableYearsCabinet, type CabinetExpenseRow } from "@/lib/data"
 import { CabinetExpensesDashboard } from "./CabinetExpensesDashboard"
 
-const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
+const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
 function parseBrFloat(s: string): number {
   return parseFloat(s.replace(/"/g, "").trim().replace(/\./g, "").replace(",", ".")) || 0

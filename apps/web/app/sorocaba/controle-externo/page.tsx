@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/controle-externo" },
 }
 
-const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
+const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 const CE_DIR = path.join(DATA_ROOT, "sorocaba", "controle_externo", "saida")
 
 const S = {

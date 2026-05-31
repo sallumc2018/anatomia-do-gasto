@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/autarquias" },
 }
 
-const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
+const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 const AUTARQUIAS = path.join(DATA_ROOT, "sorocaba", "autarquias", "saida")
 
 const S = {
