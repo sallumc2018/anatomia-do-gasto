@@ -12,7 +12,7 @@ Paulínia: coleta SICONFI concluída (81 CSVs). Próximo: TCE-SP + prefeitura + 
 - `shell-header`: "Fluxo Financeiro" adicionado ao menu Mais
 - Sitemap: `/fluxo-financeiro` incluído (prioridade 0.85)
 - Commits pushados ao GitHub + deploys Vercel via CLI
-- **Paulínia (2026-05-31)**: 17 pipelines parametrizados para multi-município; 81 CSVs extraídos do SICONFI (receita, despesa, pessoal, dívida, RPPS, segurança, transporte, saúde, transferências federais, 2020-2025)
+- **Paulínia (2026-05-31)**: 17 pipelines parametrizados para multi-município; 89 CSVs extraídos (SICONFI + FNS + transferências federais), período 2020-2025; `paulinia_100_auditavel.csv` atualizado com status real de cada fonte
 
 ## 🔄 Em andamento
 - `camara-municipal/page.tsx` — outro chat varrendo dados inválidos no site inteiro
@@ -28,6 +28,16 @@ Paulínia: coleta SICONFI concluída (81 CSVs). Próximo: TCE-SP + prefeitura + 
 - Hierarquia nacional no `/mapa-interativo` — só quando Paulínia estiver no ar
 - Théo v2: humanização do guia de aprendizado
 
+## 📊 Paulínia — cross-validação SICONFI (2026-05-31)
+> Dados íntegros. Números internamente consistentes entre extratores. Destaques editoriais:
+- **Pessoal 2020: 59.5% da RCL** — acima do limite LRF (54%). Provável causa da rejeição de contas pelo TCE-SP
+- Pessoal voltou a subir: 50.1% (2024), 52.3% (2025) — tendência preocupante
+- Receita cresceu 110% em 5 anos: R$1.4B (2020) → R$3.0B (2025) — REPLAN/Petrobras
+- Dívida baixa e declinante: 25% (2020) → 8% (2024) — problema não é dívida, é gasto corrente
+- RPPS superávit consistente em todos os anos
+- Transferências federais 2020 ausentes na API — verificar se gap real ou indisponível
+- `gerar_qa_manifest.py` opera sobre `data/public/` — só rodar após promover para public
+
 ## 🚫 Blockers conhecidos
 - `npm install/update/audit fix` — PROIBIDO (worm ativo no GitHub, mai/2026)
 - Vercel: usar `vercel deploy --prod --yes` (integração GitHub cancela deploys)
@@ -41,4 +51,4 @@ Paulínia: coleta SICONFI concluída (81 CSVs). Próximo: TCE-SP + prefeitura + 
 | Município | Estado | Status |
 |---|---|---|
 | Sorocaba | SP | ✅ publicado |
-| Paulínia | SP | 🔄 SICONFI extraído (81 CSVs) — TCE/prefeitura/câmara pendentes |
+| Paulínia | SP | 🔄 89 CSVs extraídos (SICONFI+FNS+transf.fed.) — TCE/prefeitura/câmara/sefaz_sp/CNPJ pendentes |
