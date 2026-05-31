@@ -44,6 +44,12 @@
 - **OBRIGATÓRIO: todo commit DEVE ter prefixo `[Claude]` ou `[Codex]`.** O `git author` é sempre `Sallum` (identidade git = usuário), então o prefixo da mensagem é a ÚNICA forma de atribuir autoria. Reforçado em 30/mai/2026: 5 commits Claude ficaram sem prefixo no branch `institutional-audit`, impossibilitando atribuição por `git log --grep` — exigiu mapa manual. Sem prefixo = autoria ambígua = retrabalho.
 - Enforçado por hook `commit-msg` em `.githooks/`. Ativar uma vez por clone: `git config core.hooksPath .githooks`.
 
+**Modelos (economia) — REGRA DO PORTÃO**
+- **Nada vai para `data/public` sem validação em sessão Opus** (cruzar cada número com a fonte oficial). Sessões Sonnet/extração escrevem SÓ em `data/raw` e `data/extracted`; não publicam nem flipam status de dataset.
+- **Sonnet** = coleta e extração mecânica de padrão conhecido (download, pdfplumber, API). **Opus** = portão de validação (`extracted → validated → public`), reconciliação entre fontes, julgamento (privacidade/LGPD, definições), texto público (rege-se pelo Protocolo Sallum — CER) e coordenação multi-agente.
+- Motivo: a credibilidade depende de número 100% conferível — erro que chega em `data/public` vira público. Coleta é reversível; publicação não.
+- Troca de modelo = **nova sessão** (nunca mid-session), abrindo já no modelo certo com resumo do alvo.
+
 **npm**
 - Nunca rodar `npm install / update / audit fix`. Worm ativo (mai/2026).
 - Pacotes auditados limpos: `context7@2.3.0`, `sequential-thinking`.
