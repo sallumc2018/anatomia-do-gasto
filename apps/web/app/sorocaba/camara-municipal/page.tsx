@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next"
+import type { Metadata } from "next"
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
@@ -8,8 +8,10 @@ import { TrackedExternalLink } from "@/components/analytics/tracked-link"
 import { getPoderPublicoSorocaba } from "@/lib/agentes"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { loadCabinetExpenses, getAvailableYearsCabinet, type CabinetExpenseRow } from "@/lib/data"
+import { CabinetExpensesDashboard } from "./CabinetExpensesDashboard"
 
-const DATA_ROOT = path.join(process.cwd(), "..", "..", "data", "public")
+const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
 function parseBrFloat(s: string): number {
   return parseFloat(s.replace(/"/g, "").trim().replace(/\./g, "").replace(",", ".")) || 0
@@ -55,11 +57,14 @@ function loadCamaraTce(): CamaraTceRow[] {
   )
 }
 
-export const metadata: Metadata = {
-  title: "Câmara Municipal de Sorocaba",
-  description:
-    "25 vereadores da 19ª Legislatura, composição por partido, subsídios e custo institucional. LOA 2024: R$ 88,6 milhões. O que está mapeado e o que ainda falta.",
-  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/camara-municipal" },
+export async function generateMetadata(): Promise<Metadata> {
+  const loa = LOA_SERIE[0]
+  const loaMi = (loa.fixado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  return {
+    title: "Câmara Municipal de Sorocaba",
+    description: `25 vereadores da 19ª Legislatura, composição por partido, subsídios e custo institucional. LOA ${loa.ano}: R$ ${loaMi} milhões. O que está mapeado e o que ainda falta.`,
+    alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/camara-municipal" },
+  }
 }
 
 const S = {
@@ -184,6 +189,11 @@ function formatMillions(value: number): string {
 
 export default function CamaraMunicipalPage() {
   const tceRows = loadCamaraTce()
+  const cabinetYears = getAvailableYearsCabinet("sorocaba")
+  const cabinetExpensesByYear = cabinetYears.reduce<Record<number, CabinetExpenseRow[]>>((acc, yr) => {
+    acc[yr] = loadCabinetExpenses(yr, "sorocaba")
+    return acc
+  }, {})
   const dados = getPoderPublicoSorocaba()
   const grupoVereadores = dados.grupos.find((g) => g.id === "vereadores")
   const vereadores = grupoVereadores?.pessoas ?? []
@@ -192,8 +202,7 @@ export default function CamaraMunicipalPage() {
   const totalMensalSubsidios = vereadores.reduce((sum, v) => sum + (v.remuneracao?.valor_bruto_mensal ?? 0), 0)
   const totalAnualSubsidios = totalMensalSubsidios * 12
 
-  const LOA_2024 = 88_584_000
-  const pctSubsidiosLOA = ((totalAnualSubsidios / LOA_2024) * 100).toFixed(2)
+  const pctSubsidiosLOA = ((totalAnualSubsidios / LOA_SERIE[0]!.fixado) * 100).toFixed(2)
 
   const vereadoras = vereadores.filter((v) => v.cargo === "Vereadora")
 
@@ -213,7 +222,10 @@ export default function CamaraMunicipalPage() {
     .map((s) => ({ ano: String(s.ano), fixado: s.fixado, liquidado: s.executado }))
 
   const loa2020 = LOA_SERIE.find((s) => s.ano === 2020)!
-  const loaAtual = LOA_SERIE[0]! // 2025
+  const loaAtual = LOA_SERIE[0]! // ano mais recente
+  const loaLei = loaAtual.fonte.match(/Lei [\d.]+\/\d{4}/)?.[0] ?? ""
+  const loaFixMi = (loaAtual.fixado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  const loaExecMi = (loaAtual.executado / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
   const varLOA = ((loaAtual.fixado - loa2020.fixado) / loa2020.fixado * 100)
   const seriesComExec = LOA_SERIE.filter((s) => s.executado > 0)
   const avgExecRate = seriesComExec.length > 0
@@ -255,9 +267,9 @@ export default function CamaraMunicipalPage() {
                 A Câmara Municipal legisla sobre assuntos locais, aprova a Lei Orçamentária Anual
                 e fiscaliza a Prefeitura. Esta página mostra a composição dos {vereadores.length} vereadores,
                 os subsídios brutos oficiais e o custo institucional parcialmente mapeado.
-                O orçamento total da câmara em 2024 foi de{" "}
-                <strong style={{ color: "var(--text-01)" }}>R$ 88,6 milhões</strong> fixados na LOA
-                (Lei 12.941/2023) e R$ 66,1 milhões executados — os subsídios representam cerca de {pctSubsidiosLOA}% da LOA.
+                O orçamento total da câmara em {loaAtual.ano} foi de{" "}
+                <strong style={{ color: "var(--text-01)" }}>R$ {loaFixMi} milhões</strong> fixados na LOA
+                {loaLei ? ` (${loaLei})` : ""} e R$ {loaExecMi} milhões executados — os subsídios representam cerca de {pctSubsidiosLOA}% da LOA.
               </p>
               <p style={S.caption}>
                 Dados de LOA e despesa realizada: PDFs oficiais das LOAs municipais + SICONFI/Tesouro Nacional · Subsídios: Câmara Municipal
@@ -272,7 +284,7 @@ export default function CamaraMunicipalPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { label: "Vereadores", valor: String(vereadores.length), nota: "19ª Legislatura · 2025–2028" },
-                { label: "LOA câmara 2024", valor: "R$ 88,6 mi", nota: "Lei 12.941/2023 · executado: R$ 66,1 mi" },
+                { label: `LOA câmara ${loaAtual.ano}`, valor: `R$ ${loaFixMi} mi`, nota: `${loaLei}${loaLei ? " · " : ""}executado: R$ ${loaExecMi} mi` },
                 { label: "Subsídios / ano", valor: formatMillions(totalAnualSubsidios), nota: "Valor anual · subsídios brutos oficiais 2026" },
                 { label: "Partidos", valor: String(partidosOrdenados.length), nota: `${vereadoras.length} vereadoras · ${Math.round((vereadoras.length / vereadores.length) * 100)}% da câmara` },
               ].map((item) => (
@@ -332,8 +344,8 @@ export default function CamaraMunicipalPage() {
                 <p className="uppercase font-semibold mb-4" style={S.label}>Custo institucional parcial</p>
                 <h2 style={S.h2}>O subsídio é menos de 7% do orçamento total</h2>
                 <p style={{ ...S.body, marginBottom: "16px" }}>
-                  A LOA 2024 fixou R$ 88,6 milhões para a Câmara Municipal (Lei 12.941/2023) —
-                  gasto efetivo (liquidado): R$ 66,1 milhões (SICONFI RREO 2024).
+                  A LOA {loaAtual.ano} fixou R$ {loaFixMi} milhões para a Câmara Municipal{loaLei ? ` (${loaLei})` : ""} —
+                  gasto efetivo (liquidado): R$ {loaExecMi} milhões (SICONFI RREO {loaAtual.ano}).
                   Os subsídios dos {vereadores.length} vereadores somam {formatMillions(totalAnualSubsidios)}/ano
                   ({pctSubsidiosLOA}% da LOA).
                   O limite constitucional (art. 29-A) é de 4,5% da receita tributária municipal
@@ -384,7 +396,7 @@ export default function CamaraMunicipalPage() {
                   </div>
                   <p className="pt-4" style={S.caption}>
                     Exclui: servidores concursados, contratos de custeio, manutenção, tecnologia e infraestrutura.
-                    LOA 2024 (Lei 12.941/2023): R$ 88,6 mi · Gasto efetivo 2024 (SICONFI): R$ 66,1 mi.
+                    LOA {loaAtual.ano}{loaLei ? ` (${loaLei})` : ""}: R$ {loaFixMi} mi · Gasto efetivo {loaAtual.ano} (SICONFI): R$ {loaExecMi} mi.
                   </p>
                 </div>
               </div>
@@ -392,7 +404,20 @@ export default function CamaraMunicipalPage() {
           </div>
         </section>
 
-        {/* Série histórica */}
+        {/* Despesas de Gabinete (Verba de Reembolso) */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <div className="mb-8">
+              <p className="uppercase font-semibold" style={S.label}>Gastos de Gabinete</p>
+              <h2 style={S.h2}>Como os vereadores utilizam a verba indenizatória</h2>
+              <p style={{ ...S.body, maxWidth: "720px" }}>
+                Cada gabinete dispõe de uma cota de reembolso para despesas de representação, postagem, combustível e aluguel de equipamentos.
+                Abaixo, explore o ranking de gastos e audite os valores consolidados.
+              </p>
+            </div>
+            <CabinetExpensesDashboard expensesByYear={cabinetExpensesByYear} availableYears={cabinetYears} />
+          </div>
+        </section>
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
             <p className="uppercase font-semibold mb-8" style={S.label}>Série histórica · 2020–2025</p>
@@ -719,7 +744,7 @@ export default function CamaraMunicipalPage() {
                 {
                   titulo: "LOAs 2020–2025 · Prefeitura de Sorocaba (PDFs oficiais)",
                   url: "https://www.sorocaba.sp.gov.br/transparencia/prestacao-de-contas/lei-orcamentaria-anual/",
-                  nota: "Fonte oficial — LOA fixada para a Câmara (Função Legislativa): 2020 R$60,2mi · 2021 R$59,9mi · 2022 R$69,2mi · 2023 R$78,9mi · 2024 R$88,5mi · 2025 R$96,4mi",
+                  nota: "Fonte oficial — LOA fixada para a Câmara (Função Legislativa): 2020 R$60,22mi · 2021 R$59,99mi · 2022 R$69,21mi · 2023 R$78,96mi · 2024 R$88,58mi · 2025 R$96,37mi",
                 },
                 {
                   titulo: "SICONFI — RREO Anexo 02 · Tesouro Nacional",

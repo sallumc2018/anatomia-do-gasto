@@ -10,9 +10,9 @@ Site oficial: https://www.anatomiadogasto.ong.br
 **Cobertura atual:**
 
 - **Cidades:** Sorocaba
-- **Datasets publicados:** 59
+- **Datasets publicados:** 90
 - **Datasets em validação:** 2
-- **Atualizado em:** 2026-05-28
+- **Atualizado em:** 2026-05-30
 <!-- AUTO:coverage-end -->
 
 O projeto não realiza auditoria jurídica nem emite juízo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificação independente.
@@ -125,14 +125,14 @@ Manifests ficam em `data/manifests`. Cada dataset publicável deve registrar fon
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- e371060 [Codex] enable GitHub Actions gates
-- a0080cc [Codex] add GitHub onboarding templates
-- 76d81aa chore: add review gates and volunteer entrypoint
-- 7530af1 feat: add publication classification and release checks
-- 9ab9f16 feat: add publication flow and interactive mindmap
-- 2366358 chore: align agent symbiosis and local tooling
-- 3ae4309 Record Vercel deployment cancellation pattern
-- 560e361 Polish frontend and tablet monitor workflow
-- 7743bf5 Align Sorocaba coverage and Maestro governance
-- 24d02c9 feat(transferencias): corrige endpoint Portal Transparencia e publica convenios federais
+- 5ae3878 docs: adiciona STATUS.md e DECISIONS.md como fonte única de verdade multi-IA
+- baf1c4f chore: adiciona /fluxo-financeiro ao header e sitemap
+- 7d64a4f feat: adiciona página /fluxo-financeiro com Sankey de rastro do dinheiro público
+- 25381cc [Claude] fix: perguntas rápidas do sandbox + cores dos cards de área
+- 2502af4 [Claude] Governança: hooks de segurança (pip/winget/publicação) + memory + Théo training
+- 91c41d7 [Claude] Dados Sorocaba: SICONFI fiscal + SAAE/Câmara + Urbes OCR + manifests
+- 1d75b5e [Claude] Théo: 4 rotas novas + aviso "em treinamento" + camada de compreensão
+- 8e1b300 [Codex] publish SAAE and Camara QA data
+- 2b5f111 [Codex] document governance triage readiness
+- 93ab00d Add institutional audit and data catalog pages
 <!-- AUTO:activity-end -->

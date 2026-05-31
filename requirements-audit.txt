@@ -1,0 +1,38 @@
+# requirements-audit.txt — Pacotes aprovados para uso no Anatomia do Gasto
+# Formato pip verificavel: package==version --hash=sha256:HASH
+#
+# REGRA: nenhum pip install no repo principal sem entrada aqui primeiro.
+# Para adicionar: seguir docs/seguranca-pacotes.md > Fluxo de aprovação.
+# Para instalar: python -m pip install --require-hashes -r requirements-audit.txt
+# Observacao: hash de Pillow abaixo e especifico para Windows CPython 3.12 amd64.
+
+# --- Aprovados em 2026-05-29 ---
+# Auditor: Catão (Claude Opus 4.8) | Método: inspeção estática do wheel + metadados PyPI
+# Risco avaliado: BAIXO — ambos usam subprocess EXCLUSIVAMENTE para chamar binários externos
+#   (tesseract e pdftoppm). Sem rede, sem eval/exec, sem import dinâmico.
+
+pytesseract==0.3.13 \
+    --hash=sha256:7a99c6c2ac598360693d83a416e36e0b33a67638bb9d77fdcac094a3589d4b34
+pdf2image==1.17.0 \
+    --hash=sha256:ecdd58d7afb810dffe21ef2b1bbc057ef434dabbac6c33778a38a3f7744a27e2
+
+# Dependências transitivas aprovadas:
+packaging==26.2 \
+    --hash=sha256:5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e
+Pillow==12.2.0 \
+    --hash=sha256:7f84204dee22a783350679a0333981df803dac21a0190d706a50475e361c93f5
+
+# Metadados de aprovação:
+# pytesseract==0.3.13  aprovado:2026-05-29  auditor:catao  risco:baixo  nota:wrapper-subprocess-tesseract-apenas
+# pdf2image==1.17.0    aprovado:2026-05-29  auditor:catao  risco:baixo  nota:wrapper-subprocess-pdftoppm-apenas
+# packaging==26.2      aprovado:2026-05-29  auditor:catao  risco:baixo  nota:dependencia-pytesseract-utilitario-parsing-versoes
+# Pillow==12.2.0       aprovado:2026-05-29  auditor:catao  risco:medio  nota:dependencia-imagem-necessaria-para-ocr-windows-cp312-amd64
+
+# Binários externos aprovados (instalados via winget, fora do pip):
+# Tesseract-OCR==5.4.0  instalado:2026-05-29  via:winget UB-Mannheim.TesseractOCR  risco:baixo  nota:binario-C++-projeto-consolidado-Univ-Mannheim
+# Poppler==25.07.0      instalado:2026-05-29  via:winget oschwartz10612.Poppler     risco:baixo  nota:binario-C++-utilitario-PDF-consolidado
+
+# Language packs Tesseract (baixados de github.com/tesseract-ocr/tessdata):
+# por.traineddata  15.3 MB  instalado:2026-05-29  em:C:\Users\user\tessdata\
+# eng.traineddata  23.5 MB  instalado:2026-05-29  em:C:\Users\user\tessdata\
+# TESSDATA_PREFIX = C:\Users\user\tessdata (definir em scripts que usam OCR)

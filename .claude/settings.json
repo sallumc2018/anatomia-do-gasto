@@ -19,6 +19,49 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -File tools/hooks/check_pip_install.ps1",
+            "statusMessage": "Verificando pip vs requirements-audit.txt"
+          },
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -File tools/hooks/check_winget_install.ps1",
+            "statusMessage": "Verificando winget vs requirements-audit.txt"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -File tools/hooks/remind_public_qa.ps1"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -File tools/hooks/check_public_on_stop.ps1",
+            "async": true,
+            "asyncRewake": true,
+            "rewakeSummary": "verificar_publicacao detectou problema"
+          }
+        ]
+      }
     ]
   }
 }

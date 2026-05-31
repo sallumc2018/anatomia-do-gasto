@@ -11,7 +11,16 @@ export async function GET(
   const { slug } = await params
 
   const filename = slug[slug.length - 1] ?? ""
-  if (!filename.endsWith(".csv")) {
+  const contentTypes: Record<string, string> = {
+    ".csv": "text/csv; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".jsonld": "application/ld+json; charset=utf-8",
+    ".ttl": "text/turtle; charset=utf-8",
+  }
+  const ext = path.extname(filename).toLowerCase()
+  const contentType = contentTypes[ext]
+
+  if (!contentType) {
     return NextResponse.json({ error: "Not found" }, { status: 404 })
   }
 
@@ -28,7 +37,7 @@ export async function GET(
   const content = fs.readFileSync(resolved)
   return new NextResponse(content, {
     headers: {
-      "Content-Type": "text/csv; charset=utf-8",
+      "Content-Type": contentType,
       "Content-Disposition": `attachment; filename="${filename}"`,
       "Cache-Control": "public, max-age=86400",
     },

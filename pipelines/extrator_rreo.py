@@ -22,7 +22,7 @@ import json
 import os
 import sys
 import urllib.request
-from paths import CFG, as_str, SAUDE_EXTRACTED_DIR
+from paths import CFG, MUNICIPIO, as_str, SAUDE_EXTRACTED_DIR
 
 DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(os.path.join(DIRETORIO_SCRIPT, '..'))
@@ -76,7 +76,7 @@ def extrair_detalhamento(items, fonte_url):
 def salvar_csv(ano, detalhamento):
     saida_dir = as_str(SAUDE_EXTRACTED_DIR / "saida")
     os.makedirs(saida_dir, exist_ok=True)
-    caminho = os.path.join(saida_dir, f'receitas_detalhamento_sorocaba_{ano}.csv')
+    caminho = os.path.join(saida_dir, f'receitas_detalhamento_{MUNICIPIO}_{ano}.csv')
     with open(caminho, 'w', newline='', encoding='utf-8-sig') as f:
         writer = csv.DictWriter(f, fieldnames=['Categoria', 'Conta', 'Valor', 'Fonte_URL'])
         writer.writeheader()

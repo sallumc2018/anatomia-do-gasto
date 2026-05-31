@@ -101,6 +101,10 @@ CATALOGO = {
         "arquivo": "camara/saida/camara_despesas_tce_2020_2025.csv",
         "anos_cobertos_fixo": 6,
     },
+    "camara-documentos-orcamentarios": {
+        "arquivo": "camara/documentos_orcamentarios/saida/camara_documentos_orcamentarios_sorocaba_2017_2027.csv",
+        "anos_cobertos_fixo": 4,
+    },
     "camara-contratos": {
         # Não há arquivo ainda — override forçará "lacuna"
         "glob_padrao": "camara/saida/contratos_camara_*.csv",
@@ -114,6 +118,10 @@ CATALOGO = {
     "saae-despesas-receitas": {
         "arquivo": "autarquias/saida/saae_despesas_tce_2020_2025.csv",
         "anos_cobertos_fixo": 6,
+    },
+    "saae-pessoal-rh": {
+        "arquivo": "autarquias/saae/pessoal/saida/saae_pessoal_cargos_amostra_sorocaba_2026.csv",
+        "anos_cobertos_fixo": 1,
     },
     "funserv-rpps": {
         "arquivo": "autarquias/saida/funserv_rpps_sorocaba.csv",
@@ -174,8 +182,8 @@ CATALOGO = {
 def contar_linhas(caminho: Path) -> int:
     """Conta linhas de dados (exclui cabeçalho) de um CSV."""
     try:
-        with open(caminho, encoding="utf-8-sig") as f:
-            return sum(1 for _ in f) - 1  # desconta cabeçalho
+        with open(caminho, encoding="utf-8-sig", newline="") as f:
+            return sum(1 for _ in csv.DictReader(f))
     except Exception:
         return 0
 

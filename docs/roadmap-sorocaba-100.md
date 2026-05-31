@@ -43,11 +43,11 @@ Estado reconciliado em 2026-05-27. Score ponderado do site: **79.7%** bruto, exi
 | Restos a pagar agregados | Publicado 2020-2025 | `data/public/sorocaba/restos` |
 | LOA - audiências públicas | Publicado 2022-2026 (2020-2021 inexistentes) | `data/public/sorocaba/loa` |
 | Câmara - gabinete | Publicado 2020-2026 (1.578 registros) | `data/public/sorocaba/camara/gabinete` |
-| Câmara - TCE-SP | Publicado 2020-2025 via API TCE-SP (24.417 registros, R$1,23B) | `data/public/sorocaba/camara` |
+| Câmara - TCE-SP e documentos relacionados ao orçamento | Publicado 2020-2026 via TCE-SP; inventario/texto de atas de audiencias publicas e documentos legislativos relacionados a LDO/LRF/PPA/metas/prestacao publicado em 2026-05-29. LDO/metas oficiais completas seguem como responsabilidade da Prefeitura/Executivo. | `data/public/sorocaba/camara` |
 | Emendas impositivas | Publicado 2020-2026 via CEPA (3.627 emendas, 49 vereadores, R$263,9M indicado) | `data/public/sorocaba/emendas` |
 | Transferências federais | Publicado 2020-2025 via TCE-SP; Transferegov pendente | `data/public/sorocaba/transferencias` |
 | Controle externo | Publicado 2020-2025 via TCE-SP | `data/public/sorocaba/controle-externo` |
-| Autarquias (FUNSERV/SAAE) | Publicado 2020-2025 via API TCE-SP | `data/public/sorocaba/autarquias` |
+| Autarquias (FUNSERV/SAAE) | SAAE receitas/despesas publicado 2020-2026 via TCE-SP; SAAE pessoal agregado publicado parcialmente em 2026-05-29 | `data/public/sorocaba/autarquias` |
 | Arquivos grandes | Acervo bruto operacional mantido fora do repo em `G:\Meu Drive\Omega-data\raw` | `docs/pipeline.md` |
 | Fontes oficiais | 55 itens inventariados; score ponderado 79.7% em 2026-05-27; manifesto auditavel com 4 publicados, 19 parciais, 12 coletados pendentes de validacao e 20 LAI necessario | `data/manifests/inventario_fontes_sorocaba.csv`, `data/manifests/sorocaba_100_auditavel.csv` e `tools/diagnostico/calc_score.py` |
 | Auditoria de cobertura | Manifesto auditável ativo; gaps priorizados por fase (API / Playwright / LAI) | `data/manifests/datasets.csv` |
@@ -204,7 +204,8 @@ Checklist:
 - [x] Página inicial da Câmara.
 - [x] Subsídios principais mapeados.
 - [x] Despesas de gabinete 2020-2026 publicadas.
-- [ ] Orçamento e execução detalhada da Câmara.
+- [x] Documentos orçamentários da Câmara publicados como inventário/texto com status de qualidade.
+- [ ] Normalização numérica do orçamento e execução detalhada da Câmara.
 - [ ] Contratos da Câmara.
 - [x] Emendas impositivas por vereador coletadas internamente via CEPA; pendente validação/publicação.
 - [ ] Cruzar emenda com empenho, liquidação e pagamento.
@@ -229,6 +230,7 @@ Checklist:
 - [x] Urbes: relação mensal de despesas inventariada/coletada internamente; pendente normalização.
 - [x] Urbes: contratos de transporte inventariados/coletados internamente; pendente normalização.
 - [x] Urbes: remuneração do transporte público inventariada/coletada internamente; pendente normalização.
+- [x] SAAE: receitas/despesas TCE publicadas; pessoal agregado publicado parcialmente sem identificadores pessoais.
 - [x] SAAE: receitas, despesas, contratos e obras amostrados no TDAPortal; pendente normalização semântica.
 - [x] FUNSERV: balanços, avaliação atuarial, investimentos e despesas inventariados; pendente normalização.
 - [ ] AGEM: verificar se há dado diretamente ligado a Sorocaba.

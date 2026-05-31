@@ -54,6 +54,26 @@ powershell -ExecutionPolicy Bypass -File tools\agents\start-maestro-watch.ps1 -S
 | **Plinio** | Analise - dados publicados em linguagem cidada | `/plinio` ou `/analista` |
 | **Frontino** | Cobertura LAI - manifesto, score, e-SIC, roteamento de coleta | `/frontino` ou `/cobertura` |
 
+## Agente em Treinamento (sob tutela do Maestro)
+
+| Agente | Dominio | Invocar | Nivel |
+|--------|---------|---------|-------|
+| **Theo** | Guia deterministico do site - ONG, transparencia, LAI, navegacao, GitHub | `/theo` | C0 (log-only) |
+
+Theo NAO esta no Quarteto porque seu nivel ainda eh C0. O Maestro treina Theo executando ciclos periodicos:
+
+```powershell
+python tools/agents/eval-theo-training.py
+python tools/agents/train-theo.py --cycle
+python tools/agents/train-theo.py --summary
+```
+
+Cada ciclo gera candidatos sanitizados em `memory/agents/theo-learning-log.csv`. **Nunca promover candidato a politica sem revisao humana** (editar `apps/web/components/theo/theo-guide.tsx`). Promocao C0->C1 exige 5 sinais validados + aprovacao humana; ver `memory/training/theo/promotion-criteria.md`.
+
+Quando o pedido do usuario for sobre ONG/transparencia/LAI/navegacao do site/GitHub: rotear para `/theo` para classificar a pergunta, ou rodar ciclo de treino se for acumular sinais.
+
+Escopo de Theo: estrito em [memory/training/theo/scope.md](memory/training/theo/scope.md). Off-scope (politica, servidor nominal, processo judicial, aconselhamento, interpretacao analitica) deve ser declinado.
+
 ---
 
 ## Gatilhos especiais
@@ -105,6 +125,8 @@ Se o pedido exceder o nivel vigente, escalar para o usuario com motivo curto.
 | firewall, watchdog, seguranca, npm, MCP, alerta, intrusao | `/catao` |
 | analisar, percentual, execucao, comparar, relatorio, cifra, insight | `/plinio` |
 | cobertura LAI, manifesto, 100%, score, e-SIC, pedido LAI, datasets faltantes | `/frontino` |
+| pergunta de cidadao sobre ONG, missao, voluntariado, GitHub, LAI, navegacao no site | `/theo` (treinar/rotear; C0 = log-only) |
+| treinar Theo, ciclo de treino guia, candidatos de keyword/rota | `/theo` -> ciclo de treino |
 | completar dados faltantes, lacunas, dados ausentes | composto - ver fluxo abaixo |
 | baixar, portal, PDF, fonte, download, SICONFI, URL | `/dados` |
 | portal com 403, WAF, scraper, Playwright, Camara, Urbes | `/playwright` |

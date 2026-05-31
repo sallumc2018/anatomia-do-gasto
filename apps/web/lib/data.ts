@@ -1118,3 +1118,235 @@ export function loadEmendasPorAno(municipio = "sorocaba"): EmendaAnoRow[] {
     }
   }).filter((r) => r.ano > 0).sort((a, b) => a.ano - b.ano)
 }
+
+// ─── DCA SICONFI Balances ────────────────────────────────────────────────────
+
+export interface DcaSiconfiRow {
+  exercicio: number
+  anexo: string
+  cod_conta: string
+  conta: string
+  coluna: string
+  valor: number
+  instituicao: string
+  uf: string
+}
+
+export function loadDcaSiconfi(municipio = "sorocaba"): DcaSiconfiRow[] {
+  const dir = path.join(DATA_PUBLIC_ROOT, municipio, "controle_externo", "saida")
+  const filePath = path.join(dir, `dca_siconfi_${municipio}_2020_2025.csv`)
+  if (!fs.existsSync(filePath)) return []
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      exercicio: parseInt(f[col("exercicio")] ?? "0") || 0,
+      anexo: f[col("anexo")] ?? "",
+      cod_conta: f[col("cod_conta")] ?? "",
+      conta: f[col("conta")] ?? "",
+      coluna: f[col("coluna")] ?? "",
+      valor: parseFloat(f[col("valor")] ?? "0") || 0,
+      instituicao: f[col("instituicao")] ?? "",
+      uf: f[col("uf")] ?? "",
+    }
+  })
+}
+
+// ─── Legislative Cabinet Expenses ───────────────────────────────────────────
+
+export interface CabinetExpenseRow {
+  ano: number
+  mes: number
+  vereador: string
+  aluguel_maquina: number
+  combustivel: number
+  material_escritorio: number
+  postagem: number
+  total: number
+  reembolso: number
+}
+
+export function getAvailableYearsCabinet(municipio = "sorocaba"): number[] {
+  const dir = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "gabinete", "saida")
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(new RegExp(`^despesas_gabinete_camara_${municipio}_(\\d{4})\\.csv$`)))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
+export function loadCabinetExpenses(year: number, municipio = "sorocaba"): CabinetExpenseRow[] {
+  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "gabinete", "saida", `despesas_gabinete_camara_${municipio}_${year}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano: parseInt(f[col("ano")] ?? "0") || year,
+      mes: parseInt(f[col("mes")] ?? "0") || 0,
+      vereador: f[col("vereador")]?.trim() ?? "",
+      aluguel_maquina: parseFloat(f[col("aluguel_maquina")] ?? "0") || 0,
+      combustivel: parseFloat(f[col("combustivel")] ?? "0") || 0,
+      material_escritorio: parseFloat(f[col("material_escritorio")] ?? "0") || 0,
+      postagem: parseFloat(f[col("postagem")] ?? "0") || 0,
+      total: parseFloat(f[col("total")] ?? "0") || 0,
+      reembolso: parseFloat(f[col("reembolso")] ?? "0") || 0,
+    }
+  })
+}
+
+export interface CamaraDespesaTceRow {
+  ano: number
+  mes: number
+  orgao: string
+  evento: string
+  nr_empenho: string
+  id_fornecedor: string
+  nm_fornecedor: string
+  dt_emissao_despesa: string
+  vl_despesa: number
+}
+
+export function loadCamaraDespesasTce(municipio = "sorocaba"): CamaraDespesaTceRow[] {
+  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "saida", `camara_despesas_tce_2020_2026.csv`)
+  if (!fs.existsSync(filePath)) {
+    const fallbackPath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "saida", `camara_despesas_tce_2020_2025.csv`)
+    if (!fs.existsSync(fallbackPath)) return []
+    return parseCamaraTceFile(fallbackPath)
+  }
+  return parseCamaraTceFile(filePath)
+}
+
+function parseCamaraTceFile(filePath: string): CamaraDespesaTceRow[] {
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano: parseInt(f[col("ano")] ?? "0") || 0,
+      mes: parseInt(f[col("mes")] ?? "0") || 0,
+      orgao: f[col("orgao")]?.trim() ?? "",
+      evento: f[col("evento")]?.trim() ?? "",
+      nr_empenho: f[col("nr_empenho")]?.trim() ?? "",
+      id_fornecedor: f[col("id_fornecedor")]?.trim() ?? "",
+      nm_fornecedor: f[col("nm_fornecedor")]?.trim() ?? "",
+      dt_emissao_despesa: f[col("dt_emissao_despesa")]?.trim() ?? "",
+      vl_despesa: parseBrNumber(f[col("vl_despesa")] ?? "0") || 0,
+    }
+  })
+}
+
+// ─── OSC Subventions ─────────────────────────────────────────────────────────
+
+export interface SubvencaoEntidadeRow {
+  fornecedor_nome: string
+  ano: number
+  total_empenhos: number
+  valor_total: number
+}
+
+export function loadSubvencoesPorEntidade(municipio = "sorocaba"): SubvencaoEntidadeRow[] {
+  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `subvencoes_por_entidade_${municipio}.csv`)
+  if (!fs.existsSync(filePath)) {
+    const fallbackPath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `subvencoes_por_entidade_sorocaba.csv`)
+    if (!fs.existsSync(fallbackPath)) return []
+    return parseSubvencoesFile(fallbackPath)
+  }
+  return parseSubvencoesFile(filePath)
+}
+
+function parseSubvencoesFile(filePath: string): SubvencaoEntidadeRow[] {
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      fornecedor_nome: f[col("fornecedor_nome")]?.trim() ?? "",
+      ano: parseInt(f[col("ano")] ?? "0") || 0,
+      total_empenhos: parseInt(f[col("total_empenhos")] ?? "0") || 0,
+      valor_total: parseFloat(f[col("valor_total")] ?? "0") || 0,
+    }
+  })
+}
+
+export interface ConvenioFederalRow {
+  ano: number
+  competencia: string
+  tipo_transferencia: string
+  modalidade_transferencia: string
+  orgao_superior_nome: string
+  unidade_gestora_nome: string
+  funcao_descricao: string
+  acao_descricao: string
+  valor_transferido: number
+}
+
+export function loadConveniosFederais(municipio = "sorocaba"): ConvenioFederalRow[] {
+  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `transferencias_federais_portal_${municipio}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano: parseInt(f[col("ano")] ?? "0") || 0,
+      competencia: f[col("competencia")] ?? "",
+      tipo_transferencia: f[col("tipo_transferencia")] ?? "",
+      modalidade_transferencia: f[col("modalidade_transferencia")] ?? "",
+      orgao_superior_nome: f[col("orgao_superior_nome")] ?? "",
+      unidade_gestora_nome: f[col("unidade_gestora_nome")] ?? "",
+      funcao_descricao: f[col("funcao_descricao")] ?? "",
+      acao_descricao: f[col("acao_descricao")] ?? "",
+      valor_transferido: parseFloat(f[col("valor_transferido")] ?? "0") || 0,
+    }
+  })
+}
+
+export interface StateTransferResumoRow {
+  ano: number
+  categoria: string
+  previsto_inicial: number
+  previsto_atualizado: number
+  arrecadado_bimestre: number
+  arrecadado_acumulado: number
+}
+
+export function loadStateTransferResumo(municipio = "sorocaba"): StateTransferResumoRow[] {
+  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `transferencias_estaduais_resumo_${municipio}.csv`)
+  if (!fs.existsSync(filePath)) return []
+  const content = fs.readFileSync(filePath, "utf-8")
+  const lines = content.split("\n").filter(Boolean)
+  if (lines.length < 2) return []
+  const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase())
+  const col = (name: string) => headers.indexOf(name)
+  return lines.slice(1).map((line) => {
+    const f = splitCsvLine(line)
+    return {
+      ano: parseInt(f[col("ano")] ?? "0") || 0,
+      categoria: f[col("categoria")] ?? "",
+      previsto_inicial: parseFloat(f[col("previsto_inicial")] ?? "0") || 0,
+      previsto_atualizado: parseFloat(f[col("previsto_atualizado")] ?? "0") || 0,
+      arrecadado_bimestre: parseFloat(f[col("arrecadado_bimestre")] ?? "0") || 0,
+      arrecadado_acumulado: parseFloat(f[col("arrecadado_acumulado")] ?? "0") || 0,
+    }
+  })
+}

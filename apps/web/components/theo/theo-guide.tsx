@@ -436,6 +436,233 @@ const THEO_ROUTES: TheoRoute[] = [
     source: "Metodologia pública e datasets em data/public.",
     limitation: "Se uma fonte não estiver publicada ou documentada, a resposta deve declarar lacuna.",
   },
+  {
+    id: "missao-ong",
+    title: "Qual é o propósito e a missão da ONG?",
+    answer:
+      "O Anatomia do Gasto é um projeto cívico independente e apartidário que tem como missão transformar o 'bosque de números' dos portais de transparência públicos em caminhos nítidos que qualquer cidadão comum consiga compreender, sem precisar ser especialista em contabilidade pública. Focamos em expor de forma clara como o dinheiro entra nos cofres municipais e para onde ele vai, começando por Saúde e Educação em Sorocaba/SP e expandindo para todo o Brasil.",
+    answerSimple:
+      "A nossa missão é explicar de forma simples, para qualquer pessoa, como o dinheiro dos impostos entra e sai da prefeitura. Queremos transformar números complicados de contabilidade pública em informações fáceis de entender, começando por Saúde e Educação em Sorocaba/SP, de forma independente de governos ou partidos políticos.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "ong", "missao", "proposito", "objetivo", "finalidade", "por que criar", "meta", "visao", "valores", "ideal",
+      "apartidario", "independente", "quem mantem", "proposito da ong", "quem financia", "quem e o dono",
+    ],
+    links: [
+      { href: "/sobre", label: "Sobre o projeto" },
+      { href: "/institucional", label: "Estrutura institucional" },
+      { href: "/voluntarios", label: "Como contribuir" },
+    ],
+    source: "Diretrizes estratégicas publicadas em docs/estrategia.md.",
+    limitation: "O projeto é mantido de forma cívica e independente, sem fins lucrativos.",
+  },
+  {
+    id: "tecnologia-site",
+    title: "Como este site foi desenvolvido e qual é a stack tecnológica?",
+    answer:
+      "O ecossistema técnico do Anatomia do Gasto é dividido em duas frentes: o portal web frontend é construído em Next.js (com TypeScript, React, Tailwind CSS e gráficos interativos em Recharts) para garantir alta performance, acessibilidade e excelente SEO. O pipeline de engenharia de dados, ingestão, limpeza e validação de fontes brutas é desenvolvido em Python (utilizando pandas, pdfplumber para extração de PDFs municipais e scripts customizados de qualidade).",
+    answerSimple:
+      "Este site é feito com Next.js (um framework de React) com TypeScript e Tailwind CSS para a parte visual e os gráficos. Para coletar e organizar as contas públicas dos arquivos da prefeitura, usamos scripts de Python com bibliotecas de manipulação de dados como o pandas.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "tecnologia", "stack", "linguagem", "framework", "como foi construido", "desenvolvimento", "next.js", "react",
+      "typescript", "tailwind", "python", "pdfplumber", "pandas", "recharts", "como o site funciona", "codigo fonte",
+    ],
+    links: [
+      { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
+      { href: "/metodologia", label: "Metodologia de dados" },
+    ],
+    source: "Arquitetura técnica documentada em docs/arquitetura.md.",
+    limitation: "O repositório do portal é público, porém dados não auditados e credenciais são restritos.",
+  },
+  {
+    id: "estrutura-workspace",
+    title: "Como funciona a organização de arquivos e o workspace Omega?",
+    answer:
+      "O ambiente local de desenvolvimento (chamado de Omega) é dividido em três camadas semânticas para manter o SSD leve e seguro: 1. Pessoal (área reservada a diários e estudos privados); 2. Profissional (repositórios git como 'anatomia-do-gasto', dados da ONG e escrita pública); 3. Sistema (infraestrutura, utilitários locais e governança). O projeto utiliza links de junção física (Directory Junctions) para integrar o SSD local veloz à nuvem de arquivamento pesado de 5 TB, permitindo acessar gigabytes de PDFs contábeis com latência zero e sem sobrecarregar o disco local.",
+    answerSimple:
+      "Nosso workspace de trabalho local chama-se Omega e é dividido em três áreas organizadas: Pessoal, Profissional (onde programamos o site e guardamos as análises da ONG) e Sistema. Usamos atalhos especiais de junção de pastas para conectar o nosso disco local de alta velocidade com um arquivo pesado de 5 TB na nuvem, onde ficam os PDFs de auditoria.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "workspace", "pastas", "arquivos", "diretorios", "organizacao", "omega", "pessoal", "profissional", "sistema",
+      "ssd", "drive g", "nuvem", "junctions", "directory junctions", "sincronizacao", "estrutura de pastas",
+    ],
+    links: [
+      { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "Ver repositório" },
+      { href: "/sorocaba/dados", label: "Datasets publicados" },
+    ],
+    source: "Manual de organização de workspace em MAPA_OPERACIONAL_OMEGA.md.",
+    limitation: "Mídias de auditoria pesadas ficam fora do Git e residem exclusivamente no arquivamento da nuvem.",
+  },
+  {
+    id: "roadmap-proximos",
+    title: "O que o projeto está construindo nos próximos meses (Roadmap)?",
+    answer:
+      "A nossa prioridade estratégica de 90 dias é provar a adoção e utilidade real do portal antes de expandir a cobertura geográfica. Isso envolve: 1. Instrumentação robusta de analytics (cliques em fontes, buscas); 2. Garantia de 100% de confiabilidade e cobertura nas trilhas de Saúde e Educação de Sorocaba/SP; 3. Produção de relatórios quinzenais cívicos baseados nas análises; 4. Atração de usuários-alvo (jornalistas, assessores, conselhos de direitos). No roadmap futuro, as lacunas declaradas de Contratos, Obras Públicas e Autarquias serão curadas e publicadas.",
+    answerSimple:
+      "Em vez de tentar cobrir várias cidades de uma vez, nosso foco para os próximos meses é deixar os dados de Saúde e Educação de Sorocaba 100% perfeitos, auditados e fáceis de usar. Também estamos criando análises quinzenais e trazendo jornalistas e conselhos locais para usar a ferramenta. Depois, começaremos a cobrir contratos e obras públicas.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "roadmap", "futuro", "construindo", "proximos passos", "planos", "90 dias", "proximos meses", "expansao",
+      "novidades", "metas", "planejamento", "sorocaba 100", "onde o projeto quer chegar", "o que falta fazer",
+    ],
+    links: [
+      { href: "/sorocaba/lacunas", label: "Ver lacunas declaradas" },
+      { href: "/sobre", label: "Sobre a missão" },
+    ],
+    source: "Plano estratégico em docs/roadmap.md e docs/estrategia.md.",
+    limitation: "Os prazos são estimados com base na capacidade de trabalho voluntário cívico.",
+  },
+  {
+    id: "voluntariado",
+    title: "Como posso ser voluntário e ajudar o projeto?",
+    answer:
+      "Qualquer pessoa pode contribuir com a infraestrutura cívica! As principais frentes são: 1. Desenvolvimento (Next.js, Tailwind, Python) no nosso GitHub; 2. Análise de Dados e Auditoria (cruzar bases de dados municipais e encontrar achados relevantes); 3. Produção de Conteúdo e Divulgação (explicar as descobertas em formato de pauta cívica). O projeto opera com total segurança jurídica de acordo com a Lei do Voluntariado no Brasil (Lei nº 9.608/1998), com termos formais de adesão para proteger ambas as partes.",
+    answerSimple:
+      "Você pode nos ajudar de três formas: programando no site, analisando dados públicos de gastos para achar informações curiosas, ou escrevendo textos explicativos sobre o orçamento municipal. Para a segurança de todos, seguimos a Lei do Voluntariado, com um termo de adesão que formaliza a colaboração sem vínculo empregatício.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "voluntario", "voluntariado", "ajudar", "contribuir", "participar", "apoiar", "fazer parte", "trabalhar junto",
+      "lei do voluntariado", "como ajudar", "colaborar", "quero ser voluntario", "contribuicao", "github contribuir",
+    ],
+    links: [
+      { href: "/voluntarios", label: "Página de voluntários" },
+      { href: "/contato", label: "Formulário de contato" },
+      { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
+    ],
+    source: "Estratégia de engajamento em docs/sorocaba-100-operacao.md.",
+    limitation: "O trabalho voluntário é de adesão espontânea e sem qualquer remuneração financeira.",
+  },
+  {
+    id: "sandbox-theo",
+    title: "O que é este Sandbox do Théo?",
+    answer:
+      "O Sandbox do Théo é um laboratório interativo de testes e simulação do nosso assistente cívico virtual. Projetamos este ambiente focado para demonstrar todo o conhecimento que o Théo possui sobre o ecossistema da ONG: desde o nosso propósito fundamental e a stack de programação do site, até a engenharia de arquivos locais (Omega), o roadmap de desenvolvimento e o funcionamento da nossa IA interna.",
+    answerSimple:
+      "O Sandbox é o espaço de testes oficial do Théo. Criamos essa página especial para que você possa conversar com ele sobre a própria estrutura da nossa ONG, o código-fonte do site, as pastas do computador e as metas para o futuro do projeto.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "sandbox", "teste", "ambiente de teste", "treinamento", "laboratorio", "brincar", "simulacao", "o que e a pagina",
+      "sandbox do theo", "theo sandbox", "perguntar para o theo", "guia de testes",
+    ],
+    links: [
+      { href: "/sandbox", label: "Reiniciar sandbox" },
+      { href: "/", label: "Página inicial" },
+    ],
+    source: "Documentação da interface do sandbox de simulação.",
+    limitation: "O sandbox roda localmente no navegador por meio de uma base de conhecimento semântica estruturada.",
+  },
+  {
+    id: "agentes-maestro",
+    title: "O que são os Agentes Inteligentes e o Maestro do projeto?",
+    answer:
+      "O desenvolvimento do projeto e a curadoria de dados contam com o apoio de um ecossistema de Agentes Inteligentes de IA coordenados por um despachante central chamado Maestro (que gerencia o contexto mínimo). Há subagentes especializados, como o Frontino (para score e-SIC e LAI), o Plínio (para análise cidadã de planilhas), o Vitrúvio (desenvolvedor full-stack) e o Catão (watchdog de segurança). Todo o sistema é governado por regras rígidas de economia de tokens e as alterações no projeto são assinadas de forma auditável e pública em changes.csv.",
+    answerSimple:
+      "Para ajudar a programar o site e ler a papelada do governo, nós usamos agentes de inteligência artificial coordenados por um chefe chamado 'Maestro'. Cada agente tem uma tarefa: um cuida de segurança, outro de gráficos, outro de analisar dados. Para economizar custos, eles operam com limites de memória rígidos e registram cada linha de código alterada de forma transparente.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "agentes", "maestro", "ia", "inteligencia artificial", "bot", "automatizacao", "frontino", "plinio", "vitruvio",
+      "subagentes", "rag", "economia de token", "tokens", "changes.csv", "maestro learning", "orquestrador", "codex",
+    ],
+    links: [
+      { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
+      { href: "/sorocaba/auditoria", label: "Página de auditoria" },
+    ],
+    source: "Arquitetura operacional documentada em AI_MASTER_PROMPT.md e ORQUESTRADOR.md.",
+    limitation: "Os agentes possuem autonomia estritamente controlada e dependem de aprovação humana para commits ou deploys.",
+  },
+  {
+    id: "lai",
+    title: "Como faço um pedido pela Lei de Acesso à Informação?",
+    answer:
+      "A Lei de Acesso à Informação (LAI, Lei 12.527/2011) garante que qualquer pessoa peça dados públicos sem justificar o motivo, de graça. O pedido é feito pelo e-SIC do órgão — na Prefeitura de Sorocaba, pelo portal de transparência, ou pelo Fala.BR no nível federal. O órgão tem 20 dias para responder, prorrogáveis por mais 10; se negarem ou não responderem, cabe recurso. Nesta seção explicamos o passo a passo e mostramos os pedidos que nós mesmos já protocolamos.",
+    answerSimple:
+      "A LAI é a lei que deixa qualquer cidadão pedir informação pública de graça, sem dizer por quê. Você faz o pedido pelo site de transparência do órgão (o sistema chama e-SIC) ou pelo Fala.BR. Eles têm 20 dias para responder (pode esticar mais 10). Se negarem, dá para recorrer. A gente mesmo já fez vários pedidos assim — e mostra quais aqui.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "lai", "lei de acesso", "acesso a informacao", "acesso à informação", "e-sic", "esic", "fala.br",
+      "pedido de informacao", "como pedir", "como fazer pedido", "prazo da lai", "prazo do pedido", "prazo lai",
+      "recorrer", "negativa", "recurso lai", "custo do pedido", "custo lai", "e gratis", "12527",
+      "transparencia passiva", "solicitar dado", "pedir dado", "pedir informacao",
+    ],
+    links: [
+      { href: "/sorocaba/acesso-a-informacao", label: "Acesso à informação" },
+      { href: "/sorocaba/lacunas", label: "Lacunas e pedidos" },
+    ],
+    source: "Lei 12.527/2011 e pedidos e-SIC registrados pelo projeto.",
+    limitation: "Orientação geral; prazos e canais podem variar conforme o órgão.",
+  },
+  {
+    id: "transparencia-controle-social",
+    title: "O que é transparência pública e controle social?",
+    answer:
+      "Transparência pública tem dois lados: a ativa, quando o governo publica dados por conta própria (portais e relatórios), e a passiva, quando você pede e ele responde, via LAI. Controle social é o papel da sociedade civil — cidadãos, ONGs, jornalistas — de acompanhar e fiscalizar o uso do dinheiro público. Este projeto existe justamente para tornar esse controle mais fácil.",
+    answerSimple:
+      "Transparência ativa é quando o governo já publica os dados sozinho. Transparência passiva é quando você precisa pedir (pela LAI). Controle social é o nome do papel que você, como cidadão, tem de acompanhar e cobrar o uso do dinheiro público. É pra isso que a gente existe: deixar isso fácil.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "transparencia", "transparencia publica", "transparencia ativa", "transparencia passiva",
+      "controle social", "sociedade civil", "fiscalizar", "fiscalizacao", "papel do cidadao",
+      "participacao popular", "accountability", "o que e transparencia", "prestacao de contas",
+    ],
+    links: [
+      { href: "/sobre", label: "Sobre o projeto" },
+      { href: "/sorocaba/acesso-a-informacao", label: "Acesso à informação" },
+    ],
+    source: "Conceitos da LC 131/2009 (Lei da Transparência) e da LAI.",
+    limitation: "Conteúdo educativo; não substitui a leitura da legislação oficial.",
+  },
+  {
+    id: "remuneracao",
+    title: "Quanto ganha o prefeito ou os servidores?",
+    answer:
+      "A remuneração nominal de servidores e agentes públicos de Sorocaba ainda não está publicada aqui. O dado existe no portal de transparência da Prefeitura, mas em formato que ainda não conseguimos extrair de modo confiável e auditável — por isso está marcado como lacuna e foi incluído nos nossos pedidos de informação. Assim que tivermos a série tratada, ela aparece aqui.",
+    answerSimple:
+      "Ainda não temos publicado quanto ganha o prefeito ou cada servidor. Esse dado está no portal da Prefeitura, mas num formato difícil de extrair com segurança — então marcamos como lacuna e já pedimos oficialmente. Quando conseguirmos, mostramos aqui.",
+    status: "Lacuna",
+    confidence: "Alta",
+    keywords: [
+      "quanto ganha", "salario", "salário", "remuneracao", "remuneração", "vencimento", "folha de pagamento",
+      "quanto ganha o prefeito", "salario do prefeito", "salario servidor", "salario do vereador",
+      "subsidio", "holerite", "contracheque", "quanto ganha vereador", "quanto ganha servidor",
+    ],
+    links: [
+      { href: "/sorocaba/lacunas", label: "Lacunas conhecidas" },
+      { href: "/sorocaba/acesso-a-informacao", label: "Acesso à informação" },
+    ],
+    source: "Pendência registrada nas lacunas e nos pedidos e-SIC do projeto.",
+    limitation: "Remuneração nominal ainda não publicada de forma auditável.",
+  },
+  {
+    id: "apartidarismo",
+    title: "O projeto é de algum partido ou do governo?",
+    answer:
+      "Não. O Anatomia do Gasto é um projeto independente, apartidário e sem vínculo com nenhum governo, candidato ou partido. Não recebemos recursos públicos nem fazemos campanha por ninguém. Mostramos os dados oficiais como eles são, sem opinião sobre quem está certo ou errado — a leitura política de quem governa fica com você.",
+    answerSimple:
+      "Não. A gente não é de partido nenhum, nem do governo. É um projeto independente, feito por cidadãos. Não recebemos dinheiro público e não defendemos nenhum político. Só mostramos os dados oficiais; a conclusão é sua.",
+    status: "Disponível",
+    confidence: "Alta",
+    keywords: [
+      "partido", "apartidario", "apartidário", "politico", "esquerda", "direita", "do governo",
+      "oposicao", "candidato", "eleicao", "eleição", "quem ganhou", "ideologia", "tendencia",
+      "neutralidade", "imparcial", "vies", "viés", "a ong e de quem", "quem esta por tras",
+    ],
+    links: [
+      { href: "/politica-de-neutralidade", label: "Política de neutralidade" },
+      { href: "/sobre", label: "Sobre o projeto" },
+    ],
+    source: "Política de neutralidade declarada do projeto.",
+    limitation: "Não comentamos disputas eleitorais nem fazemos juízo político.",
+  },
 ]
 
 const FALLBACK_ROUTE = (() => {
@@ -475,9 +702,16 @@ function findBestMatch(query: string): RouteMatch {
   return best
 }
 
-export default function TheoGuide() {
-  const [query, setQuery] = useState("")
-  const [submittedQuery, setSubmittedQuery] = useState("")
+export default function TheoGuide({ initialQuery = "" }: { initialQuery?: string }) {
+  const [prevInitialQuery, setPrevInitialQuery] = useState(initialQuery)
+  const [query, setQuery] = useState(initialQuery)
+  const [submittedQuery, setSubmittedQuery] = useState(initialQuery)
+
+  if (initialQuery !== prevInitialQuery) {
+    setPrevInitialQuery(initialQuery)
+    setQuery(initialQuery)
+    setSubmittedQuery(initialQuery)
+  }
 
   const result = useMemo(
     () => (submittedQuery ? findBestMatch(submittedQuery) : null),
@@ -508,12 +742,29 @@ export default function TheoGuide() {
             id="theo-question"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Pergunte sobre o orçamento de Sorocaba…"
+            placeholder="Pergunte sobre Sorocaba ou sobre a nossa ONG…"
             aria-label="Pergunte ao Théo"
           />
           <button type="submit" aria-label="Enviar pergunta">→</button>
         </div>
       </form>
+
+      <p
+        role="note"
+        style={{
+          margin: "10px 0 0",
+          padding: "8px 12px",
+          fontSize: "12px",
+          lineHeight: "18px",
+          color: "var(--text-03)",
+          backgroundColor: "var(--bg-raised)",
+          border: "1px solid var(--border-02)",
+          borderRadius: "6px",
+        }}
+      >
+        🛈 O Théo ainda está <strong>em treinamento</strong>. Ele é um guia em construção e responde a um conjunto
+        limitado de perguntas — se não encontrar o que você procura, tente outras palavras ou navegue pelo site.
+      </p>
 
       {answer && (
         <div className="theo-chat__answer" role="region" aria-live="polite" aria-label="Resposta">

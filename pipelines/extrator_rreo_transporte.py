@@ -51,7 +51,7 @@ import os
 import re
 import sys
 import urllib.request
-from paths import CFG, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
+from paths import CFG, MUNICIPIO, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
 
 IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
@@ -211,7 +211,7 @@ def salvar_csv(resultado: dict) -> str:
     saida_dir = as_str(TRANSPORTE_EXTRACTED_DIR / "saida")
     os.makedirs(saida_dir, exist_ok=True)
     ano = resultado["ano"]
-    caminho = os.path.join(saida_dir, f"rreo_transporte_sorocaba_{ano}.csv")
+    caminho = os.path.join(saida_dir, f"rreo_transporte_{MUNICIPIO}_{ano}.csv")
     campos = [
         "Ano", "Dotacao_Inicial", "Dotacao_Atualizada",
         "Empenhado", "Intra_Empenhado",

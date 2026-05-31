@@ -129,3 +129,198 @@ Ações de Engenharia Comunitária:
 - Ideia 3 aplicada: README recebeu secao "Tecnologias Utilizadas" com links para Next.js, React e Python 3.12.
 - Ideia 4 ajustada: trocar `npm install` por `npm ci --ignore-scripts` enquanto o runbook de seguranca npm estiver ativo.
 - Labels GitHub `dados` e `melhoria` criados para apoiar os templates; `bug` e `good first issue` ja existiam.
+
+## 2026-05-28 - Institucional antes de voluntariado formal
+
+Decisao Maestro/Codex:
+
+- Antes de abrir chamada publica de voluntariado formal, publicar uma base institucional honesta sobre o projeto ainda em formacao.
+- Enquanto nao houver comunicacao publica de CNPJ ativo no site, usar "colaboracao open-source" e "contribuicao ao projeto", nao promessa de vinculo voluntario formal.
+- Criar o canal `/auditoria/reportar` como fluxo civico de divergencias, sem coleta propria de dados pessoais e sem acusacoes automaticas.
+- Criar `/api/dados` como catalogo dos CSVs realmente disponiveis em `data/public`, consumindo o manifesto de datasets e conferindo arquivo existente antes de listar link.
+
+Status local:
+
+- Implementado localmente: `/institucional`, `/auditoria/reportar`, `/api/dados`, links de home/footer/sitemap e ajustes de texto em `/sobre` e `/voluntarios`.
+- Validado: `validate-area scope` OK; triagem npm supply-chain local OK; `npm run lint` OK; `npm run build` OK.
+- Observacao: o build tambem compilou paginas novas do Antigravity em Sorocaba, mas os graficos emitiram avisos de container Recharts sem dimensao; portanto essa leva de Sorocaba ainda nao esta pronta para publicacao sem revisao.
+
+## 2026-05-28 - Triagem das ideias Antigravity/Gemini em Sorocaba
+
+Regra: Antigravity/Gemini pode gerar ideias e UI rapido no sandbox, mas o repositorio oficial so recebe versao validada pelo Maestro/Codex.
+
+Ideias aproveitaveis:
+
+1. Graficos DCA/SICONFI em controle externo.
+   - Aproveitar a visualizacao e a tabela.
+   - Reescrever tom: trocar "colapso", "gravissimo", "desmoronou" e conclusoes sobre causas por descricao neutra de variacao informada na DCA.
+   - Valores devem ser derivados dos dados carregados, nao hardcoded no texto.
+
+2. Pagina de transferencias.
+   - Aproveitar a direcao de produto: entidades, tipos de repasse e anos.
+   - Conferir escala monetaria antes de publicar valores; ha indicio de valor em centavos no CSV.
+   - Trocar linguagem editorial por "maiores valores por entidade" e declarar fonte/periodo.
+
+3. Dashboard da Camara por gabinete.
+   - Nao publicar ranking nominal de vereadores como esta.
+   - `data/manifests/publication_classification.csv` marca `camara/gabinete` como `nao_destacar_na_ui` e `agregar_sem_perfil_pessoal`.
+   - Se aproveitado, deve ser agregado, sem perfil pessoal e sem "lider/economico" por pessoa.
+
+4. Campanha de voluntariado.
+   - Aproveitar apenas a cautela juridica: parcerias, horas complementares, certificados e voluntariado formal devem esperar estrutura institucional.
+   - Nao publicar como campanha enquanto o status juridico nao estiver resolvido.
+
+Bloqueios antes de commit/push/deploy dessa parte:
+
+- Neutralizar texto potencialmente ofensivo ou acusatorio.
+- Corrigir avisos de Recharts no build.
+- Confirmar todos os links criados no header existem ou remover links de rotas nao implementadas.
+- Separar commit institucional/API/auditoria do commit experimental de Sorocaba.
+
+## 2026-05-29 - Separacao do turno noturno: util vs ruido
+
+Objetivo: transformar o trabalho noturno em pacotes revisaveis, sem apagar evidencias locais e sem publicar nada automaticamente.
+
+Estado observado:
+
+- Branch atual: `codex/institutional-audit-data-catalog`.
+- Branch remota alinhada com o ultimo commit `93ab00d`.
+- Working tree ainda contem 10 arquivos versionados modificados e 23 arquivos novos nao rastreados.
+- Ha uma divergencia de horario entre `git log`, `memory/provenance/changes.csv` e timestamps locais; usar diffs e arquivos como fonte principal antes de afirmar sequencia exata.
+- `git diff --check` apontou whitespace em `apps/web/app/page.tsx:173`; corrigir antes de qualquer validacao final.
+
+### Aproveitar como progresso
+
+1. Institucional, auditoria cidada e catalogo de dados publicos.
+   - Ja existe commit na branch `codex/institutional-audit-data-catalog`.
+   - Manter como pacote separado de frontend experimental de Sorocaba.
+
+2. Infraestrutura de aprendizado do Theo.
+   - Aproveitar a ideia de agente aprendiz deterministico com `C0` log-only.
+   - Manter `memory/agents/theo-*`, `memory/training/theo/*`, `.claude/commands/theo.md` e scripts de treino como pacote proprio.
+   - Gate: Theo nao promove automaticamente mudanca em `apps/web/components/theo/theo-guide.tsx`.
+
+3. Handoffs Codex/Claude/Maestro.
+   - Aproveitar como caixa postal publica sanitizada.
+   - Gate: revisar se cada handoff e publico, conciso e nao contem prompt privado ou detalhe operacional sensivel.
+
+4. Ideias de visualizacao de dados de Sorocaba.
+   - Aproveitar como hipotese de produto: DCA/SICONFI, transferencias e Camara.
+   - Gate: reimplementar de forma neutra, derivada de `data/public` e coerente com `data/manifests/publication_classification.csv`.
+
+5. Campanha de recrutamento.
+   - Aproveitar como rascunho interno publico, com cautela juridica.
+   - Gate: nao publicar campanha formal de voluntariado antes da base institucional/CNPJ estar clara.
+
+### Revisar antes de promover
+
+1. `apps/web/app/sorocaba/controle-externo/page.tsx`
+   - Remover linguagem como "colapso", "gravissimo", "desmoronou" e causalidade forte.
+   - Remover valores hardcoded do texto; calcular a partir do dataset carregado.
+   - Declarar fonte, periodo, escopo e limitacao em tom descritivo.
+
+2. `apps/web/app/sorocaba/transferencias/*`
+   - Conferir escala monetaria: ha indicio de `valor_total` em centavos.
+   - Nao publicar KPI sem confirmar unidade e metodologia.
+   - Garantir link no header/sitemap somente quando a rota estiver revisada.
+
+3. `apps/web/app/sorocaba/camara-municipal/CabinetExpensesDashboard.tsx`
+   - Nao publicar ranking nominal de vereadores.
+   - Usar agregacao sem perfil pessoal, pois `camara/gabinete` esta classificado como `nao_destacar_na_ui` / `agregar_sem_perfil_pessoal`.
+   - Trocar labels como "lider de gastos" e "mais economico" por metricas agregadas.
+
+4. `apps/web/components/theo/theo-guide.tsx` e `apps/web/app/sandbox/page.tsx`
+   - Separar candidatos de treino da base de producao.
+   - Corrigir vazamentos de escopo antes de expor como guia publico.
+   - Conferir encoding/textos exibidos no sandbox antes de build final.
+
+5. `memory/provenance/changes.csv`
+   - Reconciliar entradas com horarios inconsistentes ou no futuro relativo ao relogio local.
+   - Manter a sequencia de IDs, mas nao usar horario isolado como prova de ordem de execucao.
+
+### Tratar como ruido ou local-only
+
+- `task.md` na raiz do repo: checklist temporario; nao e arquivo oficial de tarefas.
+- `C:\Omega\tasks.txt` e `C:\Omega\task.md`: notas globais/sandbox, nao fonte canonica do repo.
+- Mudanca em `C:\Omega\.claude\settings.json`: detalhe operacional local; nao deve entrar no Git.
+- Claims hardcoded, linguagem alarmista, benchmark sem evidencia medida, ranking nominal e estado de porta/dev server: nao publicar.
+
+### Plano de pacotes para commit futuro
+
+1. `governance-theo-training`: memoria, comando `/theo`, scripts de treino, handoffs e validadores. Sem frontend de producao.
+2. `theo-sandbox-ui`: sandbox e ajustes em `theo-guide.tsx`, somente depois de revisar escopo, encoding e promocao humana.
+3. `sorocaba-dca-controle-externo`: DCA/SICONFI neutro, sem texto acusatorio e sem valores hardcoded.
+4. `sorocaba-transferencias`: pagina e graficos apos confirmar unidade monetaria e metodologia.
+5. `sorocaba-camara-agregada`: Camara sem ranking nominal, obedecendo `publication_classification.csv`.
+6. `campanha-colaboracao-open-source`: docs de recrutamento somente como rascunho/colaboracao, sem promessa de voluntariado formal.
+
+Gates antes de qualquer commit/push/deploy:
+
+- `git diff --check`
+- `python tools/agents/validate-area.py --area memory`
+- `python tools/agents/validate-area.py --area agents` quando mexer em Theo/Maestro
+- `python tools/agents/validate-area.py --area scope`
+- `python tools/agents/validate-area.py --area publication`
+- `cd apps\web; npm.cmd --script-shell cmd.exe run lint`
+- `cd apps\web; npm.cmd --script-shell cmd.exe run build`
+- Revisao manual de claims civicos antes de qualquer deploy.
+
+## 2026-05-29 - Regua para Gemini/Antigravity e ecossistema Google
+
+Decisao: Gemini/Antigravity deve ser usado como radar de produto, SEO, UX, Chrome/Lighthouse e estruturacao de conteudo; nao como autoridade final de dados, deploy, seguranca, governanca ou publicacao.
+
+Vantagens aproveitaveis:
+
+1. Revisar SEO tecnico e crawlabilidade: sitemap, robots, canonical, titles, descriptions, heading structure e links internos.
+2. Propor melhorias de Core Web Vitals, Lighthouse, acessibilidade e experiencia mobile/Chrome.
+3. Sugerir conteudo mais encontravel: FAQ, glossario, paginas de metodologia, breadcrumbs e trilhas por assunto.
+4. Sugerir dados estruturados JSON-LD/schema.org para organizacao, breadcrumbs, datasets e FAQs, sempre com revisao.
+5. Pensar com mentalidade Search Console: cobertura de indexacao, consultas, paginas canonicas, snippets e problemas de rastreamento.
+6. Prototipar rapidamente fluxos visuais e ideias de produto para posterior filtragem pelo Maestro/Codex.
+
+Limites:
+
+- Ser da Google nao cria atalho de SEO nem favorecimento em busca.
+- Sugestoes precisam ser validadas por Search Console, Lighthouse real, sitemap, logs e conteudo auditavel.
+- Nenhum score, benchmark, deploy, dado publicado ou workflow remoto deve ser aceito sem evidencia reproduzivel.
+
+Nivel de confianca operacional:
+
+- Alto: ideacao, UX, SEO tecnico, prototipos e descoberta de oportunidades.
+- Medio: implementacao apos diff pequeno e validacao local.
+- Baixo sem revisao: GitHub Actions, scrapers, secrets, CI/CD, publicacao em `data/public`, CDN, commits automaticos e claims factuais.
+
+## 2026-05-29 - Validacao da blindagem local e GitHub Actions propostos pelo Gemini
+
+Veredito da blindagem local:
+
+- Validado: `.gitignore` recebeu entradas para `walkthrough.md`, `task.md` e `ideas.md`.
+- Validado: `git check-ignore -v walkthrough.md task.md ideas.md` confirmou que esses nomes sao ignorados dentro do repositorio.
+- Validado parcialmente: `C:\Omega\walkthrough.md` existe e `C:\Omega\Sistema\Core_Diretrizes_e_Organizacao\OMEGA_HISTORICO_INTERACOES_ANTIGRAVITY.md` existe.
+- Invalidado como afirmacao absoluta: nao ha prova de que `C:\Omega\walkthrough.md` seja "unico arquivo mestre ativo"; tambem existem `C:\Omega\tasks.txt`, `C:\Omega\task.md` e `C:\Omega\ideas.md`.
+- Invalidado como "100% blindado": `.gitignore` protege o repo contra esses nomes quando nao rastreados, mas nao protege arquivos fora do repo, arquivos ja rastreados, outros nomes sensiveis, nem publicacao manual indevida.
+- Pendente: migracao `tasks.txt` -> `tasks.md` ainda nao foi observada no repo oficial; `git ls-files` mostra `tasks.txt` como arquivo versionado.
+
+Veredito do workflow `.github/workflows/sorocaba-pipeline.yml`:
+
+- Rejeitado como pronto para producao.
+- Motivos:
+  - ativa `schedule` direto, antes de um piloto `workflow_dispatch`;
+  - instala dependencias e Playwright em runner remoto sem gate de seguranca especifico;
+  - executa pipeline e escreve em `data/public`;
+  - tenta publicar em Cloudflare R2/CDN;
+  - tenta commit e push automaticos de datasets;
+  - nao declara `permissions` minimas;
+  - nao limita concorrencia;
+  - mistura coleta, processamento, publicacao e deploy de dados no mesmo job;
+  - viola a regra do projeto de que publicacao em `data/public`, commit, push e deploy exigem autorizacao explicita.
+
+Forma aceitavel para uma versao piloto:
+
+1. `workflow_dispatch` apenas, sem `schedule`.
+2. Um scraper piloto ou um check read-only.
+3. `permissions: contents: read`.
+4. Sem secrets, sem CDN, sem commit, sem push, sem `data/public`.
+5. Saida como artifact/relatorio de auditoria.
+6. Concurrency control e timeout.
+7. Validacao local antes de qualquer promocao para cron.

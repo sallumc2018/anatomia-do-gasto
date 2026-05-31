@@ -1,0 +1,20 @@
+#!/bin/sh
+# Exige prefixo de agente [Claude] ou [Codex] na primeira linha da mensagem.
+# Motivo: o git author é sempre o usuário (Sallum); o prefixo é a ÚNICA forma
+# de atribuir autoria entre agentes. Ver DECISIONS.md > Ecossistema / IAs.
+# Ativar (uma vez por clone):  git config core.hooksPath .githooks
+
+first_line=$(head -n 1 "$1")
+
+case "$first_line" in
+  "[Claude]"*|"[Codex]"*) exit 0 ;;
+  "Merge "*|"Revert "*|"fixup!"*|"squash!"*) exit 0 ;;
+  *)
+    echo "------------------------------------------------------------" >&2
+    echo "ERRO: a mensagem do commit deve comecar com [Claude] ou [Codex]." >&2
+    echo "  Primeira linha recebida: $first_line" >&2
+    echo "  Ex.: git commit -m \"[Claude] descricao curta\"" >&2
+    echo "  Ver DECISIONS.md > Ecossistema / IAs." >&2
+    echo "------------------------------------------------------------" >&2
+    exit 1 ;;
+esac

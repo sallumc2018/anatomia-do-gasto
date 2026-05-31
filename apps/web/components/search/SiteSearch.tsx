@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { SEARCH_INDEX } from "@/lib/search-index"
+import { trackEvent } from "@/lib/analytics"
 
 function SearchIcon() {
   return (
@@ -26,6 +27,20 @@ export function SiteSearch() {
         e.keywords.some((k) => k.toLowerCase().includes(query.toLowerCase()))
       ).slice(0, 7)
     : []
+
+  // Findability: registra (anonimo, debounce 1s) quando uma busca settada nao acha nada.
+  // Envia SO a flag "site-search" para o Vercel — NUNCA o termo digitado (esse e texto do cidadao).
+  const lastZeroRef = useRef("")
+  useEffect(() => {
+    if (query.length < 2) return
+    const t = setTimeout(() => {
+      if (results.length === 0 && query !== lastZeroRef.current) {
+        lastZeroRef.current = query
+        trackEvent.buscaZero("site-search")
+      }
+    }, 1000)
+    return () => clearTimeout(t)
+  }, [query, results.length])
 
   function openSearch() {
     setOpen(true)

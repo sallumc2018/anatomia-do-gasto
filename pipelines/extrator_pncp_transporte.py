@@ -54,7 +54,7 @@ import sys
 import time
 import urllib.request
 import urllib.parse
-from paths import CFG, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
+from paths import CFG, MUNICIPIO, as_str, TRANSPORTE_RAW_DIR, TRANSPORTE_EXTRACTED_DIR
 
 IBGE_SOROCABA = CFG["ibge"]
 PNCP_BASE = "https://pncp.gov.br/api/consulta/v1/contratos"
@@ -200,7 +200,7 @@ def normalizar_item(item: dict, fonte_url: str) -> dict:
 def salvar_csv(rows: list, ano: int) -> str:
     saida_dir = as_str(TRANSPORTE_EXTRACTED_DIR / "saida")
     os.makedirs(saida_dir, exist_ok=True)
-    caminho = os.path.join(saida_dir, f"contratos_transporte_sorocaba_{ano}.csv")
+    caminho = os.path.join(saida_dir, f"contratos_transporte_{MUNICIPIO}_{ano}.csv")
     with open(caminho, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=CAMPOS_CSV)
         writer.writeheader()

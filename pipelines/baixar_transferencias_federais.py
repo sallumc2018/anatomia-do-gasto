@@ -27,7 +27,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from paths import CFG, TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_RAW_DIR
+from paths import CFG, MUNICIPIO, TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_RAW_DIR
 
 IBGE_SOROCABA = CFG["ibge"]
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
@@ -172,7 +172,7 @@ def coletar_todos(chave: str, forcar: bool) -> list[dict]:
 
 
 def salvar_csv(registros: list[dict], ano: int) -> Path:
-    destino = TRANSFERENCIAS_EXTRACTED_DIR / "saida" / f"transferencias_federais_sorocaba_{ano}.csv"
+    destino = TRANSFERENCIAS_EXTRACTED_DIR / "saida" / f"transferencias_federais_{MUNICIPIO}_{ano}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
     with destino.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CAMPOS_CSV)

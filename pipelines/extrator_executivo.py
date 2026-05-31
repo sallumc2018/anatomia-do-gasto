@@ -20,7 +20,7 @@ import os
 import sys
 import urllib.request
 
-from paths import CFG, as_str, EXECUTIVO_EXTRACTED_DIR
+from paths import CFG, MUNICIPIO, as_str, EXECUTIVO_EXTRACTED_DIR
 
 IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
@@ -126,7 +126,7 @@ def salvar_csv(ano, acc, fonte_url):
     os.makedirs(saida_dir, exist_ok=True)
 
     funcoes_presentes = sorted(acc.keys())
-    caminho = os.path.join(saida_dir, f"despesas_executivo_sorocaba_{ano}.csv")
+    caminho = os.path.join(saida_dir, f"despesas_executivo_{MUNICIPIO}_{ano}.csv")
 
     campos = [
         "Funcao",
