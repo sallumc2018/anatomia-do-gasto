@@ -27,10 +27,16 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
-from paths import EXTRACTED_DIR, RAW_DIR as MUNICIPIO_RAW_DIR
+from paths import CFG, MUNICIPIO, EXTRACTED_DIR, RAW_DIR as MUNICIPIO_RAW_DIR
 
-MUNICIPIO_CODIGO = "6695"
-MUNICIPIO_NOME = "Sorocaba"
+if not CFG.get("sefaz_sp"):
+    raise SystemExit(
+        f"MUNICIPIO={MUNICIPIO!r} nao tem 'sefaz_sp' configurado em paths.py. "
+        "Descubra o codigo Sefaz-SP no portal fazenda.sp.gov.br e adicione ao MUNICIPIOS."
+    )
+
+MUNICIPIO_CODIGO = CFG["sefaz_sp"]
+MUNICIPIO_NOME = CFG["nome"]
 FONTE_URL = "https://www.fazenda.sp.gov.br/RepasseConsulta/Consulta/repasse.aspx"
 RAW_DIR = MUNICIPIO_RAW_DIR / "transferencias_estaduais_sp"
 EXTRACTED_SAIDA_DIR = EXTRACTED_DIR / "transferencias_estaduais" / "saida"
@@ -301,7 +307,7 @@ def coletar_ano(ano: int, forcar: bool) -> tuple[Path, Path, int]:
 
     registros = extrair_linhas(conteudo, ano, data_coleta_utc)
     destino_csv = (
-        EXTRACTED_SAIDA_DIR / f"transferencias_estaduais_sp_sorocaba_{ano}.csv"
+        EXTRACTED_SAIDA_DIR / f"transferencias_estaduais_sp_{MUNICIPIO}_{ano}.csv"
     )
     salvar_csv(registros, destino_csv)
     print(f"{ano}: {len(registros)} linhas ({origem}) -> {destino_csv}")
@@ -334,7 +340,7 @@ def main() -> None:
             csv.DictReader(
                 (
                     EXTRACTED_SAIDA_DIR
-                    / f"transferencias_estaduais_sp_sorocaba_{ano}.csv"
+                    / f"transferencias_estaduais_sp_{MUNICIPIO}_{ano}.csv"
                 ).open(encoding="utf-8")
             )
         )
@@ -346,7 +352,7 @@ def main() -> None:
     if len(anos) > 1:
         destino_consolidado = (
             EXTRACTED_SAIDA_DIR
-            / f"transferencias_estaduais_sp_sorocaba_{anos[0]}_{anos[-1]}.csv"
+            / f"transferencias_estaduais_sp_{MUNICIPIO}_{anos[0]}_{anos[-1]}.csv"
         )
         salvar_csv(todos_registros, destino_consolidado)
         print(f"consolidado: {len(todos_registros)} linhas -> {destino_consolidado}")

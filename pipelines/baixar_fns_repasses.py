@@ -29,12 +29,12 @@ from html.parser import HTMLParser
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from paths import CFG, EXTRACTED_DIR, RAW_DIR
+from paths import CFG, MUNICIPIO, EXTRACTED_DIR, RAW_DIR
 
 FONTE_DOWNLOADS = "https://portalfns.saude.gov.br/downloads/"
 IBGE_SOROCABA = CFG["ibge"]
-MUNICIPIO_SOROCABA = "SOROCABA"
-UF_SOROCABA = "SP"
+MUNICIPIO_SOROCABA = CFG["nome"].upper()
+UF_SOROCABA = CFG["uf"].upper()
 ANOS_PADRAO = range(2020, 2027)
 
 FNS_RAW_DIR = RAW_DIR / "fns" / "repasses_faf_com_populacao"
@@ -161,7 +161,7 @@ def resolver_arquivo(item: dict) -> dict:
 
 
 def salvar_inventario(itens: list[dict]) -> Path:
-    destino = FNS_EXTRACTED_DIR / "inventario_fns_repasses_faf_sorocaba.csv"
+    destino = FNS_EXTRACTED_DIR / f"inventario_fns_repasses_faf_{MUNICIPIO}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
     with destino.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=INVENTARIO_CAMPOS)
@@ -329,7 +329,7 @@ def filtrar_sorocaba(campos: list[str], rows: list[dict[str, str]]) -> list[dict
 
 
 def salvar_extraido(item: dict, caminho: Path, campos: list[str], rows: list[dict[str, str]]) -> Path:
-    destino = FNS_EXTRACTED_DIR / f"fns_repasses_faf_com_populacao_sorocaba_{item['ano']}.csv"
+    destino = FNS_EXTRACTED_DIR / f"fns_repasses_faf_com_populacao_{MUNICIPIO}_{item['ano']}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
     campos_saida = METADADOS_CAMPOS + campos
     with destino.open("w", encoding="utf-8", newline="") as f:

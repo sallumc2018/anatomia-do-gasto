@@ -21,7 +21,7 @@ import os
 import sys
 import urllib.request
 
-from paths import CFG, as_str, FISCAL_EXTRACTED_DIR
+from paths import CFG, MUNICIPIO, as_str, FISCAL_EXTRACTED_DIR
 
 IBGE_SOROCABA = int(CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf"
@@ -60,7 +60,7 @@ def g(acc: dict, cod: str) -> float:
 def salvar_csv(ano: int, acc: dict, fonte_url: str):
     saida_dir = as_str(FISCAL_EXTRACTED_DIR / "saida")
     os.makedirs(saida_dir, exist_ok=True)
-    caminho = os.path.join(saida_dir, f"divida_sorocaba_{ano}.csv")
+    caminho = os.path.join(saida_dir, f"divida_{MUNICIPIO}_{ano}.csv")
 
     dc_bruta        = g(acc, "DividaConsolidada")
     dc_contratual   = g(acc, "DividaContratual")

@@ -7,8 +7,8 @@ DATA_DIR = ROOT / "data"
 MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
 
 MUNICIPIOS = {
-    "sorocaba": {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba"},
-    "paulinia": {"ibge": "3536505", "uf": "SP", "nome": "Paulinia"},
+    "sorocaba": {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba", "sefaz_sp": "6695", "cnpj_prefeitura": "46634044000174"},
+    "paulinia": {"ibge": "3536505", "uf": "SP", "nome": "Paulinia", "sefaz_sp": None, "cnpj_prefeitura": None},
 }
 
 if MUNICIPIO not in MUNICIPIOS:
