@@ -42,6 +42,7 @@
 - Barramento: filesystem + git. Codex commita ativamente com prefixo `[Codex]`.
 - Claude commita com prefixo `[Claude]`. Handoffs via `memory/handoffs/`.
 - **OBRIGATÓRIO: todo commit DEVE ter prefixo `[Claude]` ou `[Codex]`.** O `git author` é sempre `Sallum` (identidade git = usuário), então o prefixo da mensagem é a ÚNICA forma de atribuir autoria. Reforçado em 30/mai/2026: 5 commits Claude ficaram sem prefixo no branch `institutional-audit`, impossibilitando atribuição por `git log --grep` — exigiu mapa manual. Sem prefixo = autoria ambígua = retrabalho.
+- Enforçado por hook `commit-msg` em `.githooks/`. Ativar uma vez por clone: `git config core.hooksPath .githooks`.
 
 **npm**
 - Nunca rodar `npm install / update / audit fix`. Worm ativo (mai/2026).

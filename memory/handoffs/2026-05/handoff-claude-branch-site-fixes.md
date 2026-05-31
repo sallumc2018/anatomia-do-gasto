@@ -8,9 +8,9 @@
 Auditei o site inteiro (números vs fonte oficial). Veredito: todo número de destaque confere; deploy ao vivo da `/sorocaba/saude` confirmado correto. Apliquei correções pequenas e fiz commits `[Claude]` — mas eles foram parar no branch do Codex (`codex/institutional-audit-data-catalog`), porque o branch `claude/*` ainda não existia.
 
 ## ⚠️ MAPA DEFINITIVO DE ATRIBUIÇÃO — 17 commits à frente do `main` (30/mai)
-> **TODOS têm `git author = Sallum`** (identidade git = usuário). O agente está SÓ no prefixo da mensagem — e a convenção VAZOU: vários commits Claude ficaram sem `[Claude]`. Atribuição abaixo confirmada pelo usuário/conteúdo. **NÃO reescrever histórico** (branch compartilhado e pushado) — usar este mapa para cherry-pick/consolidação.
+> **TODOS têm `git author = Sallum`** — o agente está SÓ no prefixo da mensagem (convenção vazou). **Resolvido pela regra de data (usuário, 30/mai):** **28/mai = Codex** (Claude indisponível), **30/mai = Claude** (Codex encerrado), **29/mai = pelo prefixo** (ambos ativos). **NÃO reescrever histórico** (branch compartilhado e pushado) — usar este mapa.
 
-### CLAUDE (13) → consolidar no branch `claude/*`
+### CLAUDE (14) → consolidar no branch `claude/*`
 | SHA | prefixo | descrição |
 |---|---|---|
 | `3a654d6` | [Claude] | handoff (esta sessão de auditoria) |
@@ -21,21 +21,23 @@ Auditei o site inteiro (números vs fonte oficial). Veredito: todo número de de
 | `baf1c4f` | — | `/fluxo-financeiro` no header + sitemap — confirmado Claude |
 | `e907512` | — | seções AUTO dos READMEs — confirmado Claude |
 | `5ae3878` | — | `STATUS.md` + `DECISIONS.md` — confirmado Claude |
-| `29393df` | — | `/sorocaba/transferencias` no header — **inferido Claude (confirmar)** |
+| `29393df` | — | `/sorocaba/transferencias` no header (30/mai → Claude) |
+| `fa98b7e` | — | pncp: formato Playwright no consolidador (30/mai → **commit Claude**; trabalho-origem Codex) |
 | `25381cc` | [Claude] | sandbox: perguntas rápidas + cores dos cards (outra sessão) |
 | `2502af4` | [Claude] | governança: hooks de segurança + Théo training (outra sessão) |
 | `91c41d7` | [Claude] | dados Sorocaba: SICONFI fiscal + SAAE (outra sessão) |
 | `1d75b5e` | [Claude] | Théo: 4 rotas + camada de comunicação (outra sessão) |
 
-### CODEX (4) → permanecem no fluxo do Codex / main
+### CODEX (3) → permanecem no fluxo do Codex / main
 | SHA | prefixo | descrição |
 |---|---|---|
-| `fa98b7e` | — | pncp: formato Playwright no consolidador — confirmado Codex |
 | `8e1b300` | [Codex] | publish SAAE and Camara QA data |
 | `2b5f111` | [Codex] | governance triage readiness |
-| `93ab00d` | — | institutional audit + data catalog pages (base do branch) — **inferido Codex (confirmar)** |
+| `93ab00d` | — | institutional audit + data catalog pages, base do branch (28/mai → Codex) |
 
-**A confirmar com o usuário:** `29393df` (transferencias→header, inferido Claude pelo padrão dos outros header-adds) e `93ab00d` (institutional audit, inferido Codex pelo nome do branch).
+**Resolvido (30/mai):** 29393df=Claude e 93ab00d=Codex pela regra de data. Único ponto em aberto: `fa98b7e` — o *commit* é Claude (30/mai), mas o *trabalho* de PNCP é do Codex; decidir no merge a quem creditar.
+
+**Enforcement daqui pra frente:** hook `commit-msg` em `.githooks/` rejeita commit sem prefixo `[Claude]`/`[Codex]`. Ativar por clone: `git config core.hooksPath .githooks`.
 
 **Validação do trabalho de site (Claude):** `tsc --noEmit` E `next build --webpack` passam (EXIT=0). Arquivos: `apps/web/app/{metodologia,sorocaba/camara-municipal,sorocaba/camara,sorocaba/controle-externo,sorocaba/executivo,sorocaba/fornecedores}/page.tsx`.
 
