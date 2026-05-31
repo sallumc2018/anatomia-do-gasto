@@ -19,16 +19,26 @@ Arquivos de partida:
 | TCE-SP Despesas | Despesa municipal 2020-2026 | A verificar |
 | Camara - Despesas | Execucao legislativa | A verificar |
 | Camara - Portal SMARAPD | Transparencia legislativa auxiliar | A verificar |
-| SICONFI | RREO, RGF e DCA pelo IBGE 3536505 | A verificar |
-| PNCP | Contratos, licitacoes e atas | A verificar |
+| SICONFI | RREO, RGF e DCA pelo IBGE 3536505 | ✅ EXTRAÍDO (81 CSVs, 2020-2025) |
+| PNCP | Contratos, licitacoes e atas | 🔄 Parcial (PNCP API 403; transporte 2022 OK via API) |
 
 ## Ordem de trabalho
 
-1. Parametrizar extratores federais/estaduais existentes para municipio `paulinia` e IBGE `3536505`.
-2. Testar TCE-SP receitas/despesas antes de qualquer scraper municipal.
+1. ✅ Parametrizar extratores federais/estaduais existentes para municipio `paulinia` e IBGE `3536505`.
+   - 17 pipelines adaptados; 81 CSVs em data/extracted/paulinia (2026-05-31)
+   - Cobertura: receita, despesa executivo, pessoal, divida, RPPS, seguranca, transporte, saude, transferencias federais
+2. Testar TCE-SP receitas/despesas (adaptar baixar_tce_sorocaba.py → baixar_tce_paulinia.py).
 3. Inventariar portais proprios da Prefeitura e Camara.
-4. Criar `data/extracted/paulinia` apenas com saidas mecanicas auditaveis.
-5. Promover para `data/public/paulinia` somente apos QA e manifestos.
+4. data/extracted/paulinia ja existe com saidas mecanicas auditaveis do SICONFI.
+5. Promover para data/public/paulinia somente apos QA completo e manifestos.
+
+## Pendencias tecnicas
+
+- `sefaz_sp` de Paulinia: None em paths.py — descobrir no portal fazenda.sp.gov.br
+- `cnpj_prefeitura` de Paulinia: None em paths.py — necessario para PNCP
+- Script TCE-SP para Paulinia: adaptar baixar_tce_sorocaba.py (mesma API, slug URL diferente)
+- Script prefeitura Paulinia: novo, a partir de inventario do portal dados-abertos
+- Script camara Paulinia: novo, portal SMARAPD (transparencia-cmpaulinia.smarapd.com.br)
 
 ## Regra de publicacao
 

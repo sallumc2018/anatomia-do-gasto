@@ -1,9 +1,9 @@
 # STATUS — Anatomia do Gasto
 > Fonte única de verdade. Lido por Claude, Codex, Gemini e qualquer IDE.
-> Atualizar a cada sessão. Data: 2026-05-30
+> Atualizar a cada sessão. Data: 2026-05-31
 
 ## Sprint ativo
-Fechar cobertura do site Sorocaba + estrutura nacional de navegação.
+Paulínia: coleta SICONFI concluída (81 CSVs). Próximo: TCE-SP + prefeitura + câmara.
 
 ## ✅ Concluído (mai/2026)
 - `/fluxo-financeiro` — Sankey do rastro do dinheiro público (RREO 2024), com seletor de município
@@ -12,16 +12,18 @@ Fechar cobertura do site Sorocaba + estrutura nacional de navegação.
 - `shell-header`: "Fluxo Financeiro" adicionado ao menu Mais
 - Sitemap: `/fluxo-financeiro` incluído (prioridade 0.85)
 - Commits pushados ao GitHub + deploys Vercel via CLI
+- **Paulínia (2026-05-31)**: 17 pipelines parametrizados para multi-município; 81 CSVs extraídos do SICONFI (receita, despesa, pessoal, dívida, RPPS, segurança, transporte, saúde, transferências federais, 2020-2025)
 
 ## 🔄 Em andamento
 - `camara-municipal/page.tsx` — outro chat varrendo dados inválidos no site inteiro
 - Pipeline decoupling: duto de Sorocaba → repo `crawlers-ong` (em progresso)
 - GitHub Actions para coleta diária PNCP (em progresso)
+- **Paulínia**: TCE-SP receita/despesa + prefeitura portal + câmara SMARAPD (próxima sessão, Opus)
 
 ## ⬜ Pendente
 - Build/lint local sem erros (validar após mudanças de hoje)
 - READMEs: 14 arquivos em 3 repos, ~5 desatualizados
-- `/sorocaba/transferencias`: link no header (shell-header `MAIS_NAV`)
+- ~~`/sorocaba/transferencias`: link no header~~ ✅ já estava no `MAIS_NAV` (linha 48)
 - Cloudflare R2: CDN de dados para o Vercel
 - Hierarquia nacional no `/mapa-interativo` — só quando Paulínia estiver no ar
 - Théo v2: humanização do guia de aprendizado
@@ -32,9 +34,11 @@ Fechar cobertura do site Sorocaba + estrutura nacional de navegação.
 - PNCP `/api/consulta/v1/` — 403; workaround: `/api/search/?q=CNPJ&status=todos&tam_pagina=500` via Playwright
 - OOM após downloads grandes: reiniciar antes de pipeline pesado
 - PowerShell heredoc: `@'...'@` com `'@` em coluna 0
+- Paulínia `sefaz_sp` (código Sefaz-SP): ainda None em paths.py — descobrir no portal fazenda.sp.gov.br antes de rodar baixar_transferencias_estaduais_sp.py
+- Paulínia `cnpj_prefeitura`: ainda None em paths.py — necessário para PNCP
 
 ## Municípios
 | Município | Estado | Status |
 |---|---|---|
 | Sorocaba | SP | ✅ publicado |
-| Paulínia | SP | 🔄 em coleta |
+| Paulínia | SP | 🔄 SICONFI extraído (81 CSVs) — TCE/prefeitura/câmara pendentes |
