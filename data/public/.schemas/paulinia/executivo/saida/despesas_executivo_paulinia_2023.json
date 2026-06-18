@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_paulinia_2023.csv",
+  "caminho_relativo": "data/public/paulinia/executivo/saida/despesas_executivo_paulinia_2023.csv",
+  "tamanho_bytes": 4852,
+  "linhas_dados": 19,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "226539000.00",
+      "Dotacao_Atualizada": "230604008.53",
+      "Empenhado": "185322874.19",
+      "Liquidado": "174923106.79",
+      "Exceto_Intra_Liquidado": "167299738.20",
+      "Intra_Liquidado": "7623368.59",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "67161000.00",
+      "Dotacao_Atualizada": "50251772.94",
+      "Empenhado": "49515457.53",
+      "Liquidado": "46841770.46",
+      "Exceto_Intra_Liquidado": "45597290.23",
+      "Intra_Liquidado": "1244480.23",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comércio e Serviços",
+      "Dotacao_Inicial": "3708000.00",
+      "Dotacao_Atualizada": "12923931.44",
+      "Empenhado": "12836136.33",
+      "Liquidado": "4570677.02",
+      "Exceto_Intra_Liquidado": "4472792.09",
+      "Intra_Liquidado": "97884.93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.576118"
+}

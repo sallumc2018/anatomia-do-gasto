@@ -1,0 +1,79 @@
+{
+  "arquivo": "dca_balanco_orcamentario_sorocaba_2020_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/fiscal/saida/dca_balanco_orcamentario_sorocaba_2020_2025.csv",
+  "tamanho_bytes": 203466,
+  "linhas_dados": 1078,
+  "colunas": [
+    "exercicio",
+    "instituicao",
+    "cod_ibge",
+    "uf",
+    "anexo",
+    "rotulo",
+    "coluna",
+    "cod_conta",
+    "conta",
+    "valor",
+    "populacao",
+    "ano"
+  ],
+  "tipos": {
+    "exercicio": "integer",
+    "instituicao": "string",
+    "cod_ibge": "integer",
+    "uf": "string",
+    "anexo": "string",
+    "rotulo": "string",
+    "coluna": "date/datetime",
+    "cod_conta": "string",
+    "conta": "string",
+    "valor": "float/numeric",
+    "populacao": "integer",
+    "ano": "integer"
+  },
+  "amostra": [
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-AB",
+      "rotulo": "Padrão",
+      "coluna": "31/12/2020",
+      "cod_conta": "P1.0.0.0.0.00.00",
+      "conta": "1.0.0.0.0.00.00 - Ativo",
+      "valor": "5517693316.54",
+      "populacao": "679378",
+      "ano": "2020"
+    },
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-AB",
+      "rotulo": "Padrão",
+      "coluna": "31/12/2020",
+      "cod_conta": "P1.1.0.0.0.00.00",
+      "conta": "1.1.0.0.0.00.00 - Ativo Circulante",
+      "valor": "1850797775.03",
+      "populacao": "679378",
+      "ano": "2020"
+    },
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-AB",
+      "rotulo": "Padrão",
+      "coluna": "31/12/2020",
+      "cod_conta": "P1.1.1.0.0.00.00",
+      "conta": "1.1.1.0.0.00.00 - Caixa e Equivalentes de Caixa",
+      "valor": "250705069.27",
+      "populacao": "679378",
+      "ano": "2020"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.156260"
+}

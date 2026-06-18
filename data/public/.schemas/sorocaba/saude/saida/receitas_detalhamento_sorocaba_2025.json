@@ -1,0 +1,39 @@
+{
+  "arquivo": "receitas_detalhamento_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/saude/saida/receitas_detalhamento_sorocaba_2025.csv",
+  "tamanho_bytes": 1752,
+  "linhas_dados": 9,
+  "colunas": [
+    "﻿Categoria",
+    "Conta",
+    "Valor",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Conta": "string",
+    "Valor": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "IPTU",
+      "Valor": "293734996.22",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2003"
+    },
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "ISS",
+      "Valor": "895343053.36",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2003"
+    },
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "ITBI",
+      "Valor": "134549123.45",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2003"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.832712"
+}

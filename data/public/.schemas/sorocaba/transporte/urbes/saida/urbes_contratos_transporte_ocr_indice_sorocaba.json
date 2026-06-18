@@ -1,0 +1,64 @@
+{
+  "arquivo": "urbes_contratos_transporte_ocr_indice_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/urbes/saida/urbes_contratos_transporte_ocr_indice_sorocaba.csv",
+  "tamanho_bytes": 4293,
+  "linhas_dados": 51,
+  "colunas": [
+    "subpasta",
+    "arquivo",
+    "paginas_ocr",
+    "chars",
+    "status_ocr",
+    "numero_contrato",
+    "cnpj",
+    "valor",
+    "data_assinatura"
+  ],
+  "tipos": {
+    "subpasta": "string",
+    "arquivo": "string",
+    "paginas_ocr": "integer",
+    "chars": "integer",
+    "status_ocr": "string",
+    "numero_contrato": "string",
+    "cnpj": "string",
+    "valor": "string",
+    "data_assinatura": "string"
+  },
+  "amostra": [
+    {
+      "subpasta": "contratos_transporte",
+      "arquivo": "002-aditivo.pdf",
+      "paginas_ocr": "3",
+      "chars": "6318",
+      "status_ocr": "ok",
+      "numero_contrato": "",
+      "cnpj": "46.634.044/0001-74",
+      "valor": "11,523",
+      "data_assinatura": "6 de julho de 2020"
+    },
+    {
+      "subpasta": "contratos_transporte",
+      "arquivo": "01-contrato.pdf",
+      "paginas_ocr": "3",
+      "chars": "7146",
+      "status_ocr": "ok",
+      "numero_contrato": "",
+      "cnpj": "46.634.044/0001-74",
+      "valor": "",
+      "data_assinatura": ""
+    },
+    {
+      "subpasta": "contratos_transporte",
+      "arquivo": "02-aditivo.pdf",
+      "paginas_ocr": "3",
+      "chars": "6124",
+      "status_ocr": "ok",
+      "numero_contrato": "",
+      "cnpj": "46.634.044/0001-74",
+      "valor": "",
+      "data_assinatura": "06 de setembro de 2019"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.953879"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/receita/saida/receitas_paulinia_2024.csv",
+  "tamanho_bytes": 4428,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "2552112696.00",
+      "Previsto_Atualizado": "2552112696.00",
+      "Arrecadado_Bimestre": "492373519.72",
+      "Arrecadado_Acumulado": "2995488773.44",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "2383750696.00",
+      "Previsto_Atualizado": "2383750696.00",
+      "Arrecadado_Bimestre": "477521910.59",
+      "Arrecadado_Acumulado": "2816300010.17",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "2382130696.00",
+      "Previsto_Atualizado": "2382130696.00",
+      "Arrecadado_Bimestre": "477281060.59",
+      "Arrecadado_Acumulado": "2814604276.17",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.885005"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "funserv_rpps_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/funserv_rpps_sorocaba.csv",
+  "tamanho_bytes": 1542,
+  "linhas_dados": 6,
+  "colunas": [
+    "ano",
+    "contribuicoes_segurados",
+    "contribuicoes_patronal",
+    "total_receitas_rpps",
+    "aposentadorias",
+    "total_despesas_rpps",
+    "resultado_rpps",
+    "fonte_url"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "contribuicoes_segurados": "float/numeric",
+    "contribuicoes_patronal": "float/numeric",
+    "total_receitas_rpps": "float/numeric",
+    "aposentadorias": "float/numeric",
+    "total_despesas_rpps": "float/numeric",
+    "resultado_rpps": "float/numeric",
+    "fonte_url": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "contribuicoes_segurados": "39619633.20",
+      "contribuicoes_patronal": "78639439.71",
+      "total_receitas_rpps": "176695512.96",
+      "aposentadorias": "7472566.59",
+      "total_despesas_rpps": "9013882.35",
+      "resultado_rpps": "167681630.61",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2004"
+    },
+    {
+      "ano": "2021",
+      "contribuicoes_segurados": "37806116.94",
+      "contribuicoes_patronal": "81142986.35",
+      "total_receitas_rpps": "166806787.94",
+      "aposentadorias": "10357293.20",
+      "total_despesas_rpps": "12288034.91",
+      "resultado_rpps": "154518753.03",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2004"
+    },
+    {
+      "ano": "2022",
+      "contribuicoes_segurados": "62348426.96",
+      "contribuicoes_patronal": "99869790.47",
+      "total_receitas_rpps": "262853899.69",
+      "aposentadorias": "15607455.53",
+      "total_despesas_rpps": "18565756.16",
+      "resultado_rpps": "244288143.53",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.696049"
+}

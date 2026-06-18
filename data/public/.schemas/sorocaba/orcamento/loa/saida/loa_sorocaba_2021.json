@@ -1,0 +1,74 @@
+{
+  "arquivo": "loa_sorocaba_2021.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2021.csv",
+  "tamanho_bytes": 3774,
+  "linhas_dados": 47,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "integer",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "2790117690.17",
+      "seguridade": "279237326.29",
+      "total": "3067417016.46",
+      "lei_numero": "12.272",
+      "data_lei": "21 DE DEZEMBRO DE 2020",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2021",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "SECR. DE IGUALDADE E ASSISTÊNCIA SOCIAL",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "249000.24",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2021",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "SECR. DA EDUCAÇÃO",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "583705687.3",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.932635"
+}

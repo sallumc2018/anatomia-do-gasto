@@ -1,0 +1,64 @@
+{
+  "arquivo": "saae_despesas_tce_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/saae_despesas_tce_2025.csv",
+  "tamanho_bytes": 2287256,
+  "linhas_dados": 13425,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "131-2025",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 04965146000122",
+      "nm_fornecedor": "ROCHAFORTE TRANSPORTES E SERVICOS EIRELI",
+      "dt_emissao_despesa": "02/01/2025",
+      "vl_despesa": "659316,77"
+    },
+    {
+      "ano": "2025",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "71-2025",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 19216165000123",
+      "nm_fornecedor": "CONSENSO - SOL. EM TECNOL. DA INFORMACAO LTDA",
+      "dt_emissao_despesa": "02/01/2025",
+      "vl_despesa": "335797,67"
+    },
+    {
+      "ano": "2025",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "119-2025",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 80696479000181",
+      "nm_fornecedor": "PROJESAN SANEAMENTO AMBIENTAL LTDA.",
+      "dt_emissao_despesa": "02/01/2025",
+      "vl_despesa": "860749,37"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.669678"
+}

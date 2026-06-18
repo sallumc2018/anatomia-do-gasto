@@ -1,0 +1,19 @@
+patterns:
+  - rule_name: hardcoded_api_key
+    substrings: ["PORTAL_TRANSPARENCIA_KEY=", "ANTHROPIC_API_KEY=", "sk-ant-"]
+    reminder: "Chave de API hardcoded. Carregue credenciais via variável de ambiente ou secrets manager."
+
+  - rule_name: data_raw_exposure
+    regex: "data[/\\\\]raw[/\\\\]"
+    paths: ["**/app/api/**", "**/pages/api/**"]
+    reminder: "Rota de API referenciando data/raw/. Apenas data/public/ deve ser exposto via API."
+
+  - rule_name: data_extracted_exposure
+    regex: "data[/\\\\]extracted[/\\\\]"
+    paths: ["**/app/api/**", "**/pages/api/**"]
+    reminder: "Rota de API referenciando data/extracted/. Apenas data/public/ deve ser exposto via API."
+
+  - rule_name: unvalidated_ano_param
+    regex: "request\\.(?:query|params)\\.ano(?!.*(?:parseInt|Number|isNaN|allowedAnos|validAnos))"
+    paths: ["**/app/api/**"]
+    reminder: "Parâmetro 'ano' usado sem validação numérica. Validar contra lista de anos permitidos antes de usar em paths de arquivo."

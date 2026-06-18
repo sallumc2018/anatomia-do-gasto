@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2023.csv",
+  "tamanho_bytes": 678447,
+  "linhas_dados": 4782,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "fornecedor_codigo": "17682",
+      "fornecedor_nome": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "classificacao_inicial": "movimentacao_interna",
+      "movimentos": "21947",
+      "credito_num": "361181013.2900013",
+      "debito_num": "1088242772.4399984",
+      "saldo_final_num": "-185084839.55",
+      "primeira_data": "01/02/2023",
+      "ultima_data": "31/10/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2023.pdf"
+    },
+    {
+      "ano": "2023",
+      "fornecedor_codigo": "53252",
+      "fornecedor_nome": "CITY TRANSPORTES URBANO GLOBAL LTDA",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "646",
+      "credito_num": "3203238.2299999995",
+      "debito_num": "129236452.3199999",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/02/2023",
+      "ultima_data": "31/10/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2023.pdf"
+    },
+    {
+      "ano": "2023",
+      "fornecedor_codigo": "48497",
+      "fornecedor_nome": "BRT SOROCABA CONCESS.DE SERV.PUBL.SPE S.A.",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "751",
+      "credito_num": "7235158.340000001",
+      "debito_num": "124000963.37000017",
+      "saldo_final_num": "1715429.27",
+      "primeira_data": "01/02/2023",
+      "ultima_data": "31/10/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2023.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.333174"
+}

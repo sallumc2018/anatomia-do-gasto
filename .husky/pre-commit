@@ -1,0 +1,95 @@
+#!/bin/sh
+# pre-commit hook — three layers:
+# 1. lint-staged (ESLint for TS/TSX)
+# 2. Private file path scan
+# 3. Secret/token pattern scan in staged diff
+
+set -e
+
+# ── Layer 1: lint-staged ────────────────────────────────────────────────────
+npx lint-staged
+
+# ── Layer 2: private path scan ──────────────────────────────────────────────
+STAGED_FILES=$(git diff --cached --name-only)
+
+PRIVATE_PATH_PATTERN='(dados-pessoais|laudos|diario-pessoal|credentials\.json|recovery.codes|\.pem$|\.key$|id_rsa|id_ed25519|authorized_keys|omega-security-|omega-tablet-)'
+
+PRIVATE_HITS=$(echo "$STAGED_FILES" | grep -iE "$PRIVATE_PATH_PATTERN" || true)
+if [ -n "$PRIVATE_HITS" ]; then
+  echo ""
+  echo "❌  Commit rejeitado: caminhos privados detectados:"
+  echo "$PRIVATE_HITS" | sed 's/^/    /'
+  echo ""
+  echo "    Esses arquivos NUNCA devem entrar em repositórios públicos."
+  echo "    Remova com: git restore --staged <arquivo>"
+  echo ""
+  exit 1
+fi
+
+# Reject .env files (any variant)
+ENV_HITS=$(echo "$STAGED_FILES" | grep -E '(^|/)\.env($|\.[a-zA-Z])' | grep -v '\.env\.(example|sample|template)$' || true)
+if [ -n "$ENV_HITS" ]; then
+  echo ""
+  echo "❌  Commit rejeitado: arquivo .env detectado:"
+  echo "$ENV_HITS" | sed 's/^/    /'
+  echo ""
+  exit 1
+fi
+
+# ── Layer 3: secret pattern scan (staged diff additions only) ───────────────
+# Checks only lines being added (+), not context or deletions
+STAGED_ADDITIONS=$(git diff --cached -U0 | grep '^+' | grep -v '^+++' || true)
+
+SECRET_PATTERNS='(ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{82}|sk-[A-Za-z0-9]{48}|AKIA[0-9A-Z]{16}|eyJ[A-Za-z0-9_-]{20,}\.eyJ[A-Za-z0-9_-]{20,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY)'
+
+SECRET_HITS=$(echo "$STAGED_ADDITIONS" | grep -oE "$SECRET_PATTERNS" || true)
+if [ -n "$SECRET_HITS" ]; then
+  echo ""
+  echo "❌  Commit rejeitado: padrão de token/chave detectado no diff."
+  echo "    Remova os segredos antes de commitar."
+  echo ""
+  exit 1
+fi
+
+# Warn on generic high-entropy password assignments (soft check — not blocking)
+SOFT_PATTERN='(password|senha|token|secret|api_key)\s*[=:]\s*["\x27][^"\x27 ]{12,}'
+SOFT_HITS=$(echo "$STAGED_ADDITIONS" | grep -iE "$SOFT_PATTERN" | grep -v '#\|//\|test\|example\|placeholder\|dummy\|fake' || true)
+if [ -n "$SOFT_HITS" ]; then
+  echo ""
+  echo "⚠️   Aviso: possíveis segredos hardcoded detectados (não bloqueante):"
+  echo "$SOFT_HITS" | head -5 | sed 's/^/    /'
+  echo ""
+  echo "    Verifique se são valores reais antes de prosseguir."
+  echo ""
+fi
+
+# ── Layer 3.5: CPF scan em data/public (LGPD) ───────────────────────────────
+# Bloqueia regressão de CPF de pessoa física nos arquivos públicos (CSV e JSON).
+# Pipelines leem de data/raw|extracted (com CPF completo); a publicação DEVE
+# passar pelo saneador. Ver pipelines/sanear_cpf_publicos.py e relatório SEC-1.
+if echo "$STAGED_FILES" | grep -qE '^data/public/.*\.(csv|json)$'; then
+  if command -v python3 >/dev/null 2>&1; then
+    python3 pipelines/sanear_cpf_publicos.py --gate
+  fi
+fi
+
+# ── Layer 4: README auto sections check ─────────────────────────────────────
+# Ensures README files are up to date before committing
+if command -v python3 >/dev/null 2>&1; then
+  python3 tools/dev/regenerar_readme.py --check
+elif command -v python >/dev/null 2>&1; then
+  python tools/dev/regenerar_readme.py --check
+fi
+
+# ── Layer 5: gate de caminhos/segredos/deleção (check-commit-gate.py) ───────
+# Consolidação 2026-06-15 (.githooks → .husky canônico): traz para o caminho
+# ativo o enforce que antes vivia só em .githooks — barra `git add -f` de caminho
+# proibido (data/raw|extracted|validated, .env, .pem, chaves, .local, .vercel,
+# *_local.csv), deleção em data/public e segredos via check-secrets.py.
+# Ver DECISIONS.md / docs/pipeline-commit-publicacao.md.
+if command -v python3 >/dev/null 2>&1; then
+  python3 tools/agents/check-commit-gate.py --staged
+elif command -v python >/dev/null 2>&1; then
+  python tools/agents/check-commit-gate.py --staged
+fi
+

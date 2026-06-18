@@ -1,0 +1,90 @@
+name: Pipeline Agendada Automática
+
+on:
+  schedule:
+    # Roda todos os dias às 03:00 UTC (00:00 Horário de Brasília)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      anos:
+        description: "Anos a coletar (separados por espaço)"
+        required: false
+        default: "2023 2024 2025 2026"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-pipeline
+  cancel-in-progress: false
+
+jobs:
+  executar-pipeline:
+    name: Executar raspadores e atualizar dados
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar o uv (Astral)
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "requirements*.txt"
+
+      - name: 3. Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 4. Instalar o Just (Runner de Tarefas)
+        uses: taiki-e/install-action@just
+
+      - name: 5. Instalar dependências e Playwright Chromium
+        run: |
+          just install-deps
+          uv run playwright install --with-deps chromium
+
+      - name: 6. Executar Pipeline de Coleta PNCP (Sorocaba e Paulínia)
+        run: |
+          ANOS="${{ github.event.inputs.anos }}"
+          if [ -z "$ANOS" ]; then ANOS="2023 2024 2025 2026"; fi
+          for CIDADE in sorocaba paulinia; do
+            echo "::group::Coleta PNCP para $CIDADE"
+            export MUNICIPIO=$CIDADE
+            uv run pipelines/baixar_pncp_playwright.py --tipo todos --anos $ANOS
+            uv run pipelines/gerar_pncp_publicacao.py
+            echo "::endgroup::"
+          done
+
+      - name: 7. Gerar Catálogos e Esquemas de Diagnóstico Leves
+        run: |
+          just update-catalog
+          uv run pipelines/gerar_esquema_diagnostico.py
+
+      - name: "8. Opcional: Upload de Parquet para Cloudflare R2"
+        env:
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          if [ -n "$R2_SECRET_ACCESS_KEY" ]; then
+            echo "Iniciando upload dos datasets consolidados para o Cloudflare R2..."
+            just upload-r2
+          else
+            echo "Credenciais do R2 não configuradas nos GitHub Secrets. Pulando etapa de upload."
+          fi
+
+      - name: 9. Salvar mudanças no repositório (Git Push)
+        run: |
+          git config --global user.name "Omega Automated Pipeline"
+          git config --global user.email "pipeline@anatomiadogasto.ong.br"
+          git add data/manifests/datasets_status*.json apps/web/lib/datasets_status*.json data/public/.schemas/
+          if git diff --cached --quiet; then
+            echo "Nenhuma atualização de dados ou esquemas para commitar."
+          else
+            git commit -m "data(automatic): atualização agendada dos manifestos e esquemas de dados"
+            git push
+          fi

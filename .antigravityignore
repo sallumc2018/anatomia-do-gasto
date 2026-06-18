@@ -1,0 +1,29 @@
+# Ignorar dependências
+node_modules/
+apps/web/node_modules/
+apps/web/.next/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar pastas de dados pesados e temporários
+data/raw/
+data/extracted/
+data/validated/
+tmp/
+.local/
+.vercel/
+
+# Ignorar arquivos de log e backups
+*.log
+*.bak
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Ignorar arquivos operacionais locais do Maestro
+walkthrough.md
+task.md
+ideas.md

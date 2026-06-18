@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sorocaba_2024.csv",
+  "caminho_relativo": "data/public/sorocaba/fiscal/saida/rpps_sorocaba_2024.csv",
+  "tamanho_bytes": 372,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Contribuicoes_Segurados": "145699161.89",
+      "Contribuicoes_Patronal": "170870195.52",
+      "Total_Receitas_RPPS": "410921398.32",
+      "Aposentadorias": "421478046.16",
+      "Total_Despesas_RPPS": "472304332.80",
+      "Resultado_RPPS": "-61382934.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.203313"
+}

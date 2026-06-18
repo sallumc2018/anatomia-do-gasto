@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk gain*)",
+      "mcp__claude_ai_Gmail__search_threads"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 tools/hooks/autonomous_rag.py"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git rev-parse --git-dir >/dev/null 2>&1 && git status --short || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 tools/hooks/check_pip_install.py",
+            "statusMessage": "Verificando pip vs requirements-audit.txt"
+          },
+          {
+            "type": "command",
+            "command": "python3 tools/hooks/check_winget_install.py",
+            "statusMessage": "Verificando winget vs requirements-audit.txt"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 tools/hooks/remind_public_qa.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 tools/hooks/check_public_on_stop.py",
+            "async": true,
+            "asyncRewake": true,
+            "rewakeSummary": "verificar_publicacao detectou problema"
+          }
+        ]
+      }
+    ]
+  }
+}

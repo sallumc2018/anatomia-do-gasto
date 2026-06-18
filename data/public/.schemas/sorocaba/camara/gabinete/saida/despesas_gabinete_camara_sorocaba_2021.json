@@ -1,0 +1,64 @@
+{
+  "arquivo": "despesas_gabinete_camara_sorocaba_2021.csv",
+  "caminho_relativo": "data/public/sorocaba/camara/gabinete/saida/despesas_gabinete_camara_sorocaba_2021.csv",
+  "tamanho_bytes": 15082,
+  "linhas_dados": 247,
+  "colunas": [
+    "ano",
+    "mes",
+    "vereador",
+    "aluguel_maquina",
+    "combustivel",
+    "material_escritorio",
+    "postagem",
+    "total",
+    "reembolso"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "vereador": "string",
+    "aluguel_maquina": "float/numeric",
+    "combustivel": "float/numeric",
+    "material_escritorio": "float/numeric",
+    "postagem": "float/numeric",
+    "total": "float/numeric",
+    "reembolso": "empty"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "mes": "1",
+      "vereador": "ANSELMO ROLIM NETO ¹",
+      "aluguel_maquina": "14.09",
+      "combustivel": "",
+      "material_escritorio": "",
+      "postagem": "",
+      "total": "14.09",
+      "reembolso": ""
+    },
+    {
+      "ano": "2021",
+      "mes": "1",
+      "vereador": "ANTÔNIO CARLOS SILVANO JUNIOR ²",
+      "aluguel_maquina": "217.64",
+      "combustivel": "",
+      "material_escritorio": "9.37",
+      "postagem": "",
+      "total": "227.01",
+      "reembolso": ""
+    },
+    {
+      "ano": "2021",
+      "mes": "1",
+      "vereador": "CRISTIANO ANUNCIAÇÃO DOS PASSOS ³",
+      "aluguel_maquina": "130.86",
+      "combustivel": "193.11",
+      "material_escritorio": "162.75",
+      "postagem": "486.72",
+      "total": "",
+      "reembolso": ""
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.929641"
+}

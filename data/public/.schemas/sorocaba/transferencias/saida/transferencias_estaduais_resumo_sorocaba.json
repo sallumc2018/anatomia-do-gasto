@@ -1,0 +1,54 @@
+{
+  "arquivo": "transferencias_estaduais_resumo_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transferencias/saida/transferencias_estaduais_resumo_sorocaba.csv",
+  "tamanho_bytes": 1547,
+  "linhas_dados": 6,
+  "colunas": [
+    "ano",
+    "categoria",
+    "previsto_inicial",
+    "previsto_atualizado",
+    "arrecadado_bimestre",
+    "arrecadado_acumulado",
+    "fonte_url"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "categoria": "string",
+    "previsto_inicial": "float/numeric",
+    "previsto_atualizado": "float/numeric",
+    "arrecadado_bimestre": "float/numeric",
+    "arrecadado_acumulado": "float/numeric",
+    "fonte_url": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "categoria": "Transferências dos Estados",
+      "previsto_inicial": "627785734.16",
+      "previsto_atualizado": "585493522.39",
+      "arrecadado_bimestre": "104197596.21",
+      "arrecadado_acumulado": "585493522.39",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "ano": "2021",
+      "categoria": "Transferências dos Estados",
+      "previsto_inicial": "607510085.06",
+      "previsto_atualizado": "704934498.47",
+      "arrecadado_bimestre": "119950847.89",
+      "arrecadado_acumulado": "704934498.47",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "ano": "2022",
+      "categoria": "Transferências dos Estados",
+      "previsto_inicial": "722271429.20",
+      "previsto_atualizado": "787188273.46",
+      "arrecadado_bimestre": "117051786.33",
+      "arrecadado_acumulado": "787188273.46",
+      "fonte_url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.060657"
+}

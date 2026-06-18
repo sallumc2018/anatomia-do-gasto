@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sorocaba_2020.csv",
+  "caminho_relativo": "data/public/sorocaba/seguranca/saida/rreo_seguranca_sorocaba_2020.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Dotacao_Inicial": "38.097.000,00",
+      "Dotacao_Atualizada": "42.251.099,16",
+      "Empenhado": "41.506.486,69",
+      "Intra_Empenhado": "9.029.358,17",
+      "Liquidado": "41.042.751,25",
+      "Intra_Liquidado": "9.029.358,17",
+      "Pct_Orcamento": "1,5009",
+      "Total_Municipal_Empenhado": "2.765.521.720,92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3552205"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.082652"
+}

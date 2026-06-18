@@ -1,0 +1,64 @@
+{
+  "arquivo": "urbes_despesas_mensais_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/urbes/saida/urbes_despesas_mensais_sorocaba.csv",
+  "tamanho_bytes": 32451,
+  "linhas_dados": 204,
+  "colunas": [
+    "municipio",
+    "orgao",
+    "ano",
+    "mes",
+    "mes_nome",
+    "total_mensal",
+    "arquivo_origem",
+    "fonte",
+    "tipo"
+  ],
+  "tipos": {
+    "municipio": "string",
+    "orgao": "string",
+    "ano": "integer",
+    "mes": "integer",
+    "mes_nome": "string",
+    "total_mensal": "float/numeric",
+    "arquivo_origem": "string",
+    "fonte": "string",
+    "tipo": "string"
+  },
+  "amostra": [
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano": "2010",
+      "mes": "1",
+      "mes_nome": "Jan",
+      "total_mensal": "9223.84",
+      "arquivo_origem": "relacao_mensal_despesas_2010_desp_2010.pdf",
+      "fonte": "https://www.urbes.com.br/transparencia",
+      "tipo": "relacao_mensal_despesas_lei8890"
+    },
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano": "2010",
+      "mes": "2",
+      "mes_nome": "Fev",
+      "total_mensal": "12803.06",
+      "arquivo_origem": "relacao_mensal_despesas_2010_desp_2010.pdf",
+      "fonte": "https://www.urbes.com.br/transparencia",
+      "tipo": "relacao_mensal_despesas_lei8890"
+    },
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano": "2010",
+      "mes": "3",
+      "mes_nome": "Mar",
+      "total_mensal": "14417.65",
+      "arquivo_origem": "relacao_mensal_despesas_2010_desp_2010.pdf",
+      "fonte": "https://www.urbes.com.br/transparencia",
+      "tipo": "relacao_mensal_despesas_lei8890"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.955404"
+}

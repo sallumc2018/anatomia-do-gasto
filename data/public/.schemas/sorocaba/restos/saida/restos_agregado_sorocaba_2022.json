@@ -1,0 +1,79 @@
+{
+  "arquivo": "restos_agregado_sorocaba_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/restos/saida/restos_agregado_sorocaba_2022.csv",
+  "tamanho_bytes": 97036,
+  "linhas_dados": 663,
+  "colunas": [
+    "ano",
+    "ano_restos",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "ano_restos": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "ano_restos": "2021",
+      "fornecedor_codigo": "55646",
+      "fornecedor_nome": "LTDA COMERCIAL LIMP AMARAL",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "2",
+      "credito_num": "0.0",
+      "debito_num": "6996000.0",
+      "saldo_final_num": "0.0",
+      "primeira_data": "28/01/2022",
+      "ultima_data": "28/01/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2022.pdf"
+    },
+    {
+      "ano": "2022",
+      "ano_restos": "2021",
+      "fornecedor_codigo": "50853",
+      "fornecedor_nome": "LTDA CONSTRUCAO E JOFEGE",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "12",
+      "credito_num": "0.0",
+      "debito_num": "6103219.31",
+      "saldo_final_num": "0.0",
+      "primeira_data": "03/06/2022",
+      "ultima_data": "29/04/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2022.pdf"
+    },
+    {
+      "ano": "2022",
+      "ano_restos": "2021",
+      "fornecedor_codigo": "32336",
+      "fornecedor_nome": "(ESTAT.NOVOS) SEG.SOCIAL FUND.DE",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "31",
+      "credito_num": "0.0",
+      "debito_num": "5407756.160000001",
+      "saldo_final_num": "0.0",
+      "primeira_data": "04/01/2022",
+      "ultima_data": "04/01/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2022.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.034636"
+}

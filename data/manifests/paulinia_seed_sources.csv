@@ -1,0 +1,8 @@
+municipio,uf,orgao,area,tipo_dado,url,metodo_acesso,status_inicial,proximo_passo,observacao
+Paulinia,SP,Prefeitura,dados_abertos,catalogo,https://www.paulinia.sp.gov.br/portal/dados-abertos,portal_html,a_verificar,Inventariar datasets e formatos,Pagina oficial de dados abertos encontrada em 2026-05-28.
+Paulinia,SP,TCE-SP,receita,receitas_2025,https://transparencia.tce.sp.gov.br/municipio/paulinia/2025/receitas,portal_html_api,a_verificar,Verificar API JSON do TCE-SP para serie 2020-2025,Fonte independente inicial para receitas.
+Paulinia,SP,TCE-SP,despesa,despesas_2025,https://transparencia.tce.sp.gov.br/municipio/paulinia/2025/despesas,portal_html_api,a_verificar,Verificar API JSON do TCE-SP para serie 2020-2025,Fonte independente inicial para despesas.
+Paulinia,SP,Camara,despesa,despesas_legislativo,https://www.camarapaulinia.sp.gov.br/despesas/,portal_html,a_verificar,Inventariar formato e periodicidade,Fonte legislativa inicial.
+Paulinia,SP,Camara,transparencia,portal_transparencia,https://transparencia-cmpaulinia.smarapd.com.br/#/,portal_html,a_verificar,Verificar navegacao e exportacao,Portal citado pela Camara em noticia institucional.
+Paulinia,SP,SICONFI,fiscal,rreo_rgf_dca,https://apidatalake.tesouro.gov.br/ords/siconfi/,api_publica,a_verificar,Testar ente pelo codigo IBGE 3536505,Fonte federal para anexos fiscais.
+Paulinia,SP,PNCP,compras,contratos_licitacoes_atas,https://pncp.gov.br/app/editais,api_publica,a_verificar,Identificar CNPJs e orgaos compradores,Fonte nacional para contratacoes publicas.

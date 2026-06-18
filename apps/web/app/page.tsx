@@ -1,0 +1,283 @@
+import React from "react"
+import Link from "next/link"
+import ShellHeader from "@/components/layout/shell-header"
+import PageFooter from "@/components/layout/page-footer"
+import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
+import TheoGuide from "@/components/theo/theo-guide"
+
+const S = {
+  container: { maxWidth: "1312px" } as React.CSSProperties,
+  label: {
+    fontSize: "11px",
+    letterSpacing: "0.08em",
+    color: "var(--text-03)",
+    fontWeight: 700,
+    textTransform: "uppercase" as const,
+  },
+  body: {
+    fontSize: "14px",
+    lineHeight: "22px",
+    color: "var(--text-02)",
+  } as React.CSSProperties,
+}
+
+const CIDADES = [
+  {
+    nome: "Sorocaba",
+    uf: "SP",
+    descricao: "730 mil hab. · Município piloto com cobertura auditável em expansão para 2020–2025.",
+    status: "Disponível",
+    href: "/sorocaba",
+    ativo: true,
+  },
+  {
+    nome: "Paulínia",
+    uf: "SP",
+    descricao: "115 mil hab. · Orçamento, receitas, saúde fiscal, segurança e transporte (2020–2025).",
+    status: "Disponível",
+    href: "/paulinia",
+    ativo: true,
+  },
+  {
+    nome: "São Paulo",
+    uf: "SP",
+    descricao: "11,4 mi hab. · Maior orçamento municipal do país. Orçamento, receitas, saúde fiscal, segurança e transporte (2020–2025).",
+    status: "Disponível",
+    href: "/sao-paulo",
+    ativo: true,
+  },
+]
+
+export default function IndexPage() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <ShellHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Anatomia do Gasto",
+            "url": "https://www.anatomiadogasto.ong.br",
+            "description": "Projeto cívico brasileiro que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
+            "email": "contato@anatomiadogasto.ong.br",
+            "sameAs": ["https://github.com/sallumc2018/anatomia-do-gasto"],
+          }),
+        }}
+      />
+      <AvisoMaturidade />
+      <main id="conteudo" className="flex-1">
+
+        {/* Hero */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>
+            <p style={S.label}>Anatomia do Gasto</p>
+            <h1
+              className="font-semibold mt-3"
+              style={{
+                fontSize: "clamp(26px, 3.5vw, 42px)",
+                lineHeight: "1.12",
+                color: "var(--text-01)",
+                marginBottom: "16px",
+              }}
+            >
+              Dados fiscais públicos em linguagem cidadã
+            </h1>
+            <p
+              style={{
+                ...S.body,
+                fontSize: "15px",
+                lineHeight: "24px",
+                color: "var(--text-03)",
+                maxWidth: "560px",
+              }}
+            >
+              Projeto cívico independente que organiza contas municipais com fonte declarada,
+              limites explícitos e rastreabilidade completa — sem vínculo com partidos ou governos.
+            </p>
+          </div>
+        </section>
+
+        {/* Seletor de municípios */}
+        <section style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <p style={{ ...S.label, marginBottom: "24px" }}>Municípios cobertos</p>
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              style={{ borderTop: "1px solid var(--border-01)", borderLeft: "1px solid var(--border-01)" }}
+            >
+              {CIDADES.map((cidade) => {
+                const inner = (
+                  <>
+                    <p
+                      style={{
+                        ...S.label,
+                        color: cidade.ativo ? "var(--blue-40)" : "var(--text-04)",
+                      }}
+                    >
+                      {cidade.status}
+                    </p>
+                    <h2
+                      className="font-semibold mt-3"
+                      style={{
+                        fontSize: "22px",
+                        color: cidade.ativo ? "var(--text-01)" : "var(--text-04)",
+                      }}
+                    >
+                      {cidade.nome}{" "}
+                      <span style={{ fontWeight: 300, fontSize: "18px" }}>{cidade.uf}</span>
+                    </h2>
+                    <p className="mt-2" style={{ ...S.body, color: "var(--text-03)", fontSize: "13px" }}>
+                      {cidade.descricao}
+                    </p>
+                    {cidade.ativo && (
+                      <p className="mt-5" style={{ fontSize: "14px", color: "var(--blue-50)" }}>
+                        Ver dados →
+                      </p>
+                    )}
+                  </>
+                )
+
+                const cardStyle: React.CSSProperties = {
+                  borderRight: "1px solid var(--border-01)",
+                  borderBottom: "1px solid var(--border-01)",
+                  minHeight: "180px",
+                  padding: "32px",
+                }
+
+                return cidade.ativo ? (
+                  <Link
+                    key={cidade.nome}
+                    href={cidade.href!}
+                    className="tile-link"
+                    style={cardStyle}
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div
+                    key={cidade.nome}
+                    style={{ ...cardStyle, opacity: 0.55, cursor: "default" }}
+                  >
+                    {inner}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Théo em destaque */}
+        <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+              <div>
+                <p style={{ ...S.label, marginBottom: "8px", color: "var(--blue-40)" }}>Guia de dados · Sorocaba</p>
+                <p style={{ ...S.body, color: "var(--text-03)", margin: 0, maxWidth: "540px" }}>
+                  Tem dúvidas sobre os dados de Sorocaba? O Théo responde em linguagem simples e aponta para a página certa.
+                </p>
+              </div>
+              <Link
+                href="/sandbox"
+                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 border border-[var(--border-01)] bg-[var(--bg-raised)] text-[var(--text-01)] hover:bg-[var(--bg-high)] hover:border-[var(--border-02)] transition-all duration-150 rounded-md self-start md:self-center"
+                style={{ textDecoration: "none" }}
+              >
+                Abrir Laboratório Sandbox do Théo →
+              </Link>
+            </div>
+            <TheoGuide />
+          </div>
+        </section>
+
+        {/* Mapas de navegação cívica */}
+        <section style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
+          <div className="mx-auto px-6 py-12" style={S.container}>
+            <p style={{ ...S.label, marginBottom: "24px" }}>Explore o projeto</p>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2"
+              style={{ borderTop: "1px solid var(--border-01)", borderLeft: "1px solid var(--border-01)" }}
+            >
+              {[
+                {
+                  href: "/institucional",
+                  title: "Base institucional",
+                  text: "Veja o status pré-CNPJ, os limites públicos e as regras de colaboração enquanto o projeto se estrutura.",
+                },
+                {
+                  href: "/api/dados",
+                  title: "Catálogo de dados publicados",
+                  text: "Consulte os arquivos CSV realmente disponíveis na camada pública do projeto.",
+                },
+                {
+                  href: "/mapa-interativo",
+                  title: "Mindmap da Anatomia do Gasto",
+                  text: "Navegue pelas trilhas públicas de Sorocaba: dinheiro, serviços, Câmara, contratos e controle social.",
+                },
+                {
+                  href: "/como-citar",
+                  title: "Como citar e verificar",
+                  text: "Use o projeto como fonte cívica independente, preservando a fonte oficial original e os limites metodológicos.",
+                },
+                {
+                  href: "/fluxo",
+                  title: "Fluxo de publicação",
+                  text: "Entenda como uma fonte oficial vira dado público e por que o site só lê data/public.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="tile-link"
+                  style={{
+                    borderRight: "1px solid var(--border-01)",
+                    borderBottom: "1px solid var(--border-01)",
+                    minHeight: "172px",
+                    padding: "28px",
+                  }}
+                >
+                  <h2 className="font-semibold" style={{ fontSize: "20px", color: "var(--text-01)" }}>
+                    {item.title}
+                  </h2>
+                  <p className="mt-3" style={{ ...S.body, color: "var(--text-03)", fontSize: "13px" }}>
+                    {item.text}
+                  </p>
+                  <p className="mt-5" style={{ fontSize: "14px", color: "var(--blue-50)" }}>
+                    Abrir →
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Links de contexto */}
+        <section style={{ backgroundColor: "var(--bg-base)" }}>
+          <div className="mx-auto px-6 py-10" style={S.container}>
+            <div className="flex flex-wrap gap-6">
+              {[
+                { href: "/institucional", label: "Institucional" },
+                { href: "/sobre", label: "Sobre o projeto" },
+                { href: "/metodologia", label: "Metodologia e fontes" },
+                { href: "/auditoria/reportar", label: "Reportar divergência" },
+                { href: "/voluntarios", label: "Como contribuir" },
+                { href: "/contato", label: "Contato" },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="nav-link"
+                  style={{ fontSize: "14px" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <PageFooter />
+    </div>
+  )
+}

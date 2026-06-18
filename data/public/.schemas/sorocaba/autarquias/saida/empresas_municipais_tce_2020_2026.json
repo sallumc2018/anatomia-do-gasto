@@ -1,0 +1,64 @@
+{
+  "arquivo": "empresas_municipais_tce_2020_2026.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/empresas_municipais_tce_2020_2026.csv",
+  "tamanho_bytes": 8455922,
+  "linhas_dados": 48416,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "EMPRESA DE DESENVOLVIMENTO URBANO E SOCIAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "104-2020",
+      "id_fornecedor": "INSCRIÇÃO GENÉRICA-OUTROS - 00487",
+      "nm_fornecedor": "FOLHA DE PAGAMENTO",
+      "dt_emissao_despesa": "09/01/2020",
+      "vl_despesa": "1297679,46"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "EMPRESA DE DESENVOLVIMENTO URBANO E SOCIAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "127-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 09390038000192",
+      "nm_fornecedor": "R LASSI COMERCIO E SERVICOS EIRELI",
+      "dt_emissao_despesa": "16/01/2020",
+      "vl_despesa": "18139,00"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "EMPRESA DE DESENVOLVIMENTO URBANO E SOCIAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "122-2020",
+      "id_fornecedor": "PESSOA FÍSICA - 653528",
+      "nm_fornecedor": "JOSE ALFREDO SCARPELLI JUNIOR",
+      "dt_emissao_despesa": "16/01/2020",
+      "vl_despesa": "100,00"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.742232"
+}

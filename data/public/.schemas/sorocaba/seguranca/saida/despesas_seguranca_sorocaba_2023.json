@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2023.csv",
+  "tamanho_bytes": 999,
+  "linhas_dados": 5,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "string",
+    "Restos_Processados": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "55.080.661,67",
+      "Liquidada": "53.859.528,35",
+      "Paga": "53.647.638,22",
+      "Restos_Nao_Processados": "1.221.133,32",
+      "Restos_Processados": "211.890,13",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&id_ente=3552205"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "50.198.236,31",
+      "Liquidada": "50.069.341,78",
+      "Paga": "50.045.611,80",
+      "Restos_Nao_Processados": "128.894,53",
+      "Restos_Processados": "23.729,98",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&id_ente=3552205"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "4.540.570,17",
+      "Liquidada": "3.517.733,72",
+      "Paga": "3.329.573,57",
+      "Restos_Nao_Processados": "1.022.836,45",
+      "Restos_Processados": "188.160,15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&id_ente=3552205"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.083449"
+}

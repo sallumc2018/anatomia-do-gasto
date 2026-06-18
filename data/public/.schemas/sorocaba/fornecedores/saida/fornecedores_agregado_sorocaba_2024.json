@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2024.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2024.csv",
+  "tamanho_bytes": 714013,
+  "linhas_dados": 5060,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "fornecedor_codigo": "17682",
+      "fornecedor_nome": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "classificacao_inicial": "movimentacao_interna",
+      "movimentos": "20368",
+      "credito_num": "1235220931.8799899",
+      "debito_num": "1235065744.439999",
+      "saldo_final_num": "155275.74",
+      "primeira_data": "01/02/2024",
+      "ultima_data": "31/10/2024",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2024.pdf"
+    },
+    {
+      "ano": "2024",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "IRMANDADE SANTA CASA DE MISERICORDIA SOROCABA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "215",
+      "credito_num": "190934748.3099999",
+      "debito_num": "182366961.48999998",
+      "saldo_final_num": "8567786.82",
+      "primeira_data": "01/03/2024",
+      "ultima_data": "31/01/2024",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2024.pdf"
+    },
+    {
+      "ano": "2024",
+      "fornecedor_codigo": "48497",
+      "fornecedor_nome": "BRT SOROCABA CONCESS.DE SERV.PUBL.SPE S.A.",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "689",
+      "credito_num": "186522605.93999982",
+      "debito_num": "151196357.39999992",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/02/2024",
+      "ultima_data": "31/07/2024",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2024.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.335085"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "dca_siconfi_sorocaba_2020_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/controle_externo/saida/dca_siconfi_sorocaba_2020_2025.csv",
+  "tamanho_bytes": 1936597,
+  "linhas_dados": 11477,
+  "colunas": [
+    "exercicio",
+    "anexo",
+    "cod_conta",
+    "conta",
+    "coluna",
+    "valor",
+    "instituicao",
+    "uf"
+  ],
+  "tipos": {
+    "exercicio": "integer",
+    "anexo": "string",
+    "cod_conta": "string",
+    "conta": "string",
+    "coluna": "date/datetime",
+    "valor": "float/numeric",
+    "instituicao": "string",
+    "uf": "string"
+  },
+  "amostra": [
+    {
+      "exercicio": "2020",
+      "anexo": "DCA-Anexo I-AB",
+      "cod_conta": "P1.0.0.0.0.00.00",
+      "conta": "1.0.0.0.0.00.00 - Ativo",
+      "coluna": "31/12/2020",
+      "valor": "5517693316.54",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "uf": "SP"
+    },
+    {
+      "exercicio": "2020",
+      "anexo": "DCA-Anexo I-AB",
+      "cod_conta": "P1.1.0.0.0.00.00",
+      "conta": "1.1.0.0.0.00.00 - Ativo Circulante",
+      "coluna": "31/12/2020",
+      "valor": "1850797775.03",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "uf": "SP"
+    },
+    {
+      "exercicio": "2020",
+      "anexo": "DCA-Anexo I-AB",
+      "cod_conta": "P1.1.1.0.0.00.00",
+      "conta": "1.1.1.0.0.00.00 - Caixa e Equivalentes de Caixa",
+      "coluna": "31/12/2020",
+      "valor": "250705069.27",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "uf": "SP"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.765643"
+}

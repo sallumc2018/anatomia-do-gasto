@@ -1,0 +1,74 @@
+{
+  "arquivo": "loa_sorocaba_2024.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2024.csv",
+  "tamanho_bytes": 2486,
+  "linhas_dados": 29,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "empty",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "4576044734.2",
+      "seguridade": "653819491.0",
+      "total": "5229864225.2",
+      "lei_numero": "12.941",
+      "data_lei": "20 DE DEZEMBRO DE 2023",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2024",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "SECR. DE RELAÇÕES INST. E R$",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "2043015.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2024",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "METROPOLITANAS FUNDO SOCIAL DE SOLIDARIEDADE R$ - R$",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "516806.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.936065"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "precatorios_sorocaba_2020_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/contratos/saida/precatorios_sorocaba_2020_2025.csv",
+  "tamanho_bytes": 92904,
+  "linhas_dados": 1358,
+  "colunas": [
+    "ano",
+    "tribunal",
+    "numero",
+    "credor",
+    "tipo",
+    "valor_atualizado",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "tribunal": "string",
+    "numero": "string",
+    "credor": "string",
+    "tipo": "empty",
+    "valor_atualizado": "float/numeric",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "tribunal": "TRT15",
+      "numero": "12/2020",
+      "credor": "648 Camila Gisele Figueiredo, Fernando Nunes de Medeiros, União Federal - INSS",
+      "tipo": "",
+      "valor_atualizado": "32271.39",
+      "situacao": "pendente_pagamento"
+    },
+    {
+      "ano": "2020",
+      "tribunal": "TRT15",
+      "numero": "12/2020",
+      "credor": "649 Gumercindo de Oliveira Souza, União Federal - INSS",
+      "tipo": "",
+      "valor_atualizado": "44906.0",
+      "situacao": "pendente_pagamento"
+    },
+    {
+      "ano": "2020",
+      "tribunal": "TRT15",
+      "numero": "04/2019",
+      "credor": "",
+      "tipo": "",
+      "valor_atualizado": "33262.87",
+      "situacao": "pendente_pagamento"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.940450"
+}

@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_pagamentos_paulinia_2023.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_pagamentos_paulinia_2023.csv",
+  "tamanho_bytes": 194711,
+  "linhas_dados": 1351,
+  "colunas": [
+    "data_pagamento",
+    "nro_empenho",
+    "tipo_empenho",
+    "nome_fornecedor",
+    "cnpj",
+    "valor_pago",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_pagamento": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "nome_fornecedor": "string",
+    "cnpj": "string",
+    "valor_pago": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_pagamento": "25/05/2023 00:00",
+      "nro_empenho": "253",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "UNIMED CAMPINAS - COOPERATIVA DE TRABALHO MEDICO",
+      "cnpj": "46.124.624/0001-11  ",
+      "valor_pago": "97.280,64",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "25/05/2023 00:00",
+      "nro_empenho": "242",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "CAMARA MUNICIPAL DE PAULINIA",
+      "cnpj": "45.751.427/0001-60  ",
+      "valor_pago": "26.000,00",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "04/01/2023 00:00",
+      "nro_empenho": "28",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "INSTITUTO NACIONAL DO SEGURO SOCIAL.",
+      "cnpj": "29.979.036/0001-40  ",
+      "valor_pago": "976,59",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.528368"
+}

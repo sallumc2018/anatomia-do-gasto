@@ -1,0 +1,79 @@
+{
+  "arquivo": "dca_demonstrativo_variacao_sorocaba_2020_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/fiscal/saida/dca_demonstrativo_variacao_sorocaba_2020_2025.csv",
+  "tamanho_bytes": 308744,
+  "linhas_dados": 1572,
+  "colunas": [
+    "exercicio",
+    "instituicao",
+    "cod_ibge",
+    "uf",
+    "anexo",
+    "rotulo",
+    "coluna",
+    "cod_conta",
+    "conta",
+    "valor",
+    "populacao",
+    "ano"
+  ],
+  "tipos": {
+    "exercicio": "integer",
+    "instituicao": "string",
+    "cod_ibge": "integer",
+    "uf": "string",
+    "anexo": "string",
+    "rotulo": "string",
+    "coluna": "string",
+    "cod_conta": "string",
+    "conta": "string",
+    "valor": "float/numeric",
+    "populacao": "integer",
+    "ano": "integer"
+  },
+  "amostra": [
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-D",
+      "rotulo": "Padrão",
+      "coluna": "Despesas Empenhadas",
+      "cod_conta": "TotalDespesas",
+      "conta": "Total Geral da Despesa",
+      "valor": "2934537803.82",
+      "populacao": "679378",
+      "ano": "2020"
+    },
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-D",
+      "rotulo": "Padrão",
+      "coluna": "Despesas Liquidadas",
+      "cod_conta": "TotalDespesas",
+      "conta": "Total Geral da Despesa",
+      "valor": "2836141852.6",
+      "populacao": "679378",
+      "ano": "2020"
+    },
+    {
+      "exercicio": "2020",
+      "instituicao": "Prefeitura Municipal de Sorocaba - SP",
+      "cod_ibge": "3552205",
+      "uf": "SP",
+      "anexo": "DCA-Anexo I-D",
+      "rotulo": "Padrão",
+      "coluna": "Despesas Pagas",
+      "cod_conta": "TotalDespesas",
+      "conta": "Total Geral da Despesa",
+      "valor": "2822021795.06",
+      "populacao": "679378",
+      "ano": "2020"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.129321"
+}

@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2025.csv",
+  "tamanho_bytes": 555428,
+  "linhas_dados": 3911,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "fornecedor_codigo": "17682",
+      "fornecedor_nome": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "classificacao_inicial": "movimentacao_interna",
+      "movimentos": "23901",
+      "credito_num": "1376796101.489999",
+      "debito_num": "1376577295.3099916",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/04/2025",
+      "ultima_data": "31/12/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "fornecedor_codigo": "48497",
+      "fornecedor_nome": "BRT SOROCABA CONCESS.DE SERV.PUBL.SPE S.A.",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "527",
+      "credito_num": "217778306.12000003",
+      "debito_num": "217778306.11999932",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/08/2025",
+      "ultima_data": "31/10/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "IRMANDADE SANTA CASA DE MISERICORDIA SOROCABA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "226",
+      "credito_num": "191241793.97000012",
+      "debito_num": "189799557.72000018",
+      "saldo_final_num": "1442236.25",
+      "primeira_data": "01/08/2025",
+      "ultima_data": "30/10/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2025.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.338824"
+}

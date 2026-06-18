@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2021.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2021.csv",
+  "tamanho_bytes": 592082,
+  "linhas_dados": 4216,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "fornecedor_codigo": "00001",
+      "fornecedor_nome": "FOLHA DE PAGAMENTO - PESSOAL",
+      "classificacao_inicial": "folha",
+      "movimentos": "15159",
+      "credito_num": "750274642.7000002",
+      "debito_num": "728096132.7000029",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/02/2021",
+      "ultima_data": "31/08/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2021.pdf"
+    },
+    {
+      "ano": "2021",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "IRMANDADE SANTA CASA DE MISERICORDIA SOROCABA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "167",
+      "credito_num": "146982185.54999998",
+      "debito_num": "141001294.63999996",
+      "saldo_final_num": "5980890.91",
+      "primeira_data": "02/03/2021",
+      "ultima_data": "31/08/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2021.pdf"
+    },
+    {
+      "ano": "2021",
+      "fornecedor_codigo": "48497",
+      "fornecedor_nome": "BRT SOROCABA CONCESS.DE SERV.PUBL.SPE S.A.",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "797",
+      "credito_num": "102866180.4399999",
+      "debito_num": "86685823.47999996",
+      "saldo_final_num": "361105.97",
+      "primeira_data": "01/07/2021",
+      "ultima_data": "31/08/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2021.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.336989"
+}

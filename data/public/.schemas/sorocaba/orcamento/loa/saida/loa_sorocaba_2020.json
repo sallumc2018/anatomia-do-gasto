@@ -1,0 +1,48 @@
+{
+  "arquivo": "loa_sorocaba_2020.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2020.csv",
+  "tamanho_bytes": 208,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "empty",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "2840565759.98",
+      "seguridade": "495516475.11",
+      "total": "3336082235.09",
+      "lei_numero": "12.160",
+      "data_lei": "26 DE DEZEMBRO DE 2019",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.936880"
+}

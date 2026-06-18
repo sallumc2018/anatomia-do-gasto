@@ -1,0 +1,59 @@
+{
+  "arquivo": "transferencias_para_paulinia_2023.csv",
+  "caminho_relativo": "data/public/paulinia/transferencias/saida/transferencias_para_paulinia_2023.csv",
+  "tamanho_bytes": 4349,
+  "linhas_dados": 15,
+  "colunas": [
+    "ano",
+    "municipio",
+    "fonte",
+    "categoria",
+    "orgao_remetente",
+    "descricao",
+    "valor_bruto",
+    "moeda"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "fonte": "string",
+    "categoria": "string",
+    "orgao_remetente": "string",
+    "descricao": "string",
+    "valor_bruto": "float/numeric",
+    "moeda": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "municipio": "paulinia",
+      "fonte": "Portal_Transparencia_Federal",
+      "categoria": "Ciência e Tecnologia",
+      "orgao_remetente": "Ministério da Ciência, Tecnologia e Inovação",
+      "descricao": "RECUPERAÇÃO E REUSO DE ÁGUA DE EFLUENTES INDUSTRIAIS POR SISTEMA CON- TÍNUO DE ELETRODECANTAÇÃO DE IMPUREZAS ORGÂNICAS                      CONSIDERANDO O SEMIÁRIDO UMA DAS REGIÕES COM MENOR DISPONIBILIDADE DE ÁGUA E COM UM DOS MAIORES CUSTOS AO CONSUMIDOR (MAIS DE R$ 4,00/M3),  ESSE PROJETO DE PESQUISA PROPÕE O ESCALONAMENTO, INSTALAÇÃO E TESTES  DE UM SISTEMA INOVADOR PARA ELETRODECANTAÇÃO DE SÓLIDOS ORGÂNICOS",
+      "valor_bruto": "1413703.59",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2023",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Estruturação da Rede de Serviços Públicos de Saúde (INVESTIMENTO) — ESTRUTURAÇÃO DE UNIDADES DE ATENÇÃO ESPECIALIZADA EM SAÚDE: ESTRUTURAÇÃO DE UNIDADES DE ATENÇÃO ESPECIALIZADA EM SAÚDE",
+      "valor_bruto": "424716.0",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2023",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Manutenção das Ações e Serviços Públicos de Saúde (CUSTEIO) — ATENÇÃO À SAÚDE DA POPULAÇÃO PARA PROCEDIMENTOS NO MAC: ATENÇÃO À SAÚDE DA POPULAÇÃO PARA PROCEDIMENTOS NO MAC",
+      "valor_bruto": "9656980.12",
+      "moeda": "BRL"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.628188"
+}

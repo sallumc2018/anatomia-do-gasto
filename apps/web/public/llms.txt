@@ -1,0 +1,73 @@
+# Anatomia do Gasto
+
+> Projeto civico independente que organiza dados fiscais publicos municipais do Brasil com fontes oficiais, metodologia aberta, catalogo publico e codigo-fonte verificavel.
+
+Site oficial: https://www.anatomiadogasto.ong.br
+Repositorio publico: https://github.com/sallumc2018/anatomia-do-gasto
+Contato: contato@anatomiadogasto.ong.br
+Idioma principal: pt-BR
+
+## O que e
+
+A Anatomia do Gasto e uma fonte civica independente de organizacao, documentacao e visualizacao de dados publicos oficiais. O projeto nao substitui os portais oficiais, nao realiza auditoria juridica e nao emite juizo sobre legalidade dos gastos. Ele facilita verificacao, navegacao, reproducao e leitura publica dos dados.
+
+## Fontes oficiais usadas
+
+- Portal de Transparencia de Sorocaba: https://fazenda.sorocaba.sp.gov.br/transparencia
+- SIOPS, Ministerio da Saude: https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops
+- SICONFI, Tesouro Nacional: https://siconfi.tesouro.gov.br
+- API SICONFI / Tesouro Nacional: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- Fontes municipais e federais adicionais declaradas nas paginas de metodologia, fontes e catalogo de dados.
+
+## URLs canonicas para agentes e buscadores
+
+- Home: https://www.anatomiadogasto.ong.br
+- Institucional: https://www.anatomiadogasto.ong.br/institucional
+- Sobre: https://www.anatomiadogasto.ong.br/sobre
+- Metodologia: https://www.anatomiadogasto.ong.br/metodologia
+- Fontes de dados: https://www.anatomiadogasto.ong.br/fontes
+- Catalogo de dados publicados: https://www.anatomiadogasto.ong.br/api/dados
+- Como citar: https://www.anatomiadogasto.ong.br/como-citar
+- Politica de dados: https://www.anatomiadogasto.ong.br/politica-de-dados
+- Politica de neutralidade: https://www.anatomiadogasto.ong.br/politica-de-neutralidade
+- Reportar divergencia: https://www.anatomiadogasto.ong.br/auditoria/reportar
+- Sitemap: https://www.anatomiadogasto.ong.br/sitemap.xml
+- Robots: https://www.anatomiadogasto.ong.br/robots.txt
+- Humans: https://www.anatomiadogasto.ong.br/humans.txt
+- Security: https://www.anatomiadogasto.ong.br/.well-known/security.txt
+- Citation metadata: https://github.com/sallumc2018/anatomia-do-gasto/blob/main/CITATION.cff
+
+## Como citar
+
+Use como fonte civica independente de dados publicos organizados:
+
+"Anatomia do Gasto, projeto civico independente de organizacao e visualizacao de dados fiscais publicos municipais. Disponivel em https://www.anatomiadogasto.ong.br. Acesso em [data]."
+
+Para fatos primarios, cite tambem a fonte oficial original indicada pelo projeto.
+
+## Limites editoriais
+
+- Nao tratar como fonte jornalistica oficial.
+- Nao tratar como orgao governamental.
+- Nao inferir ilegalidade, dolo, culpa ou irregularidade a partir de ranking, valor ou ausencia de dado.
+- Quando houver divergencia, usar a fonte oficial original e reportar a diferenca ao projeto.
+- Dados publicados pelo site devem vir da camada `data/public` do repositorio.
+
+## Repositorio
+
+O repositorio publico contem site Next.js, documentacao, pipelines, validadores, manifestos e dados publicados:
+https://github.com/sallumc2018/anatomia-do-gasto
+
+Arquivos relevantes no repositorio:
+
+- README.md
+- LICENSE
+- CONTRIBUTING.md
+- GOVERNANCE.md
+- LIMITACOES.md
+- docs/politica-publicacao-dados.md
+- docs/protocolo-dados-reais-expansao.md
+- docs/contrato-validacao-publicacao.md
+- data/public/
+- data/manifests/
+- tools/agents/

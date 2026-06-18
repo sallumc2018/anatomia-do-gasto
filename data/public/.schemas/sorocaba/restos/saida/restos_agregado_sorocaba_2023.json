@@ -1,0 +1,79 @@
+{
+  "arquivo": "restos_agregado_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/restos/saida/restos_agregado_sorocaba_2023.csv",
+  "tamanho_bytes": 107023,
+  "linhas_dados": 737,
+  "colunas": [
+    "ano",
+    "ano_restos",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "ano_restos": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "ano_restos": "2022",
+      "fornecedor_codigo": "53921",
+      "fornecedor_nome": "LTDA ALIMENTACAO NUTRY RC",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "6",
+      "credito_num": "0.0",
+      "debito_num": "7835735.54",
+      "saldo_final_num": "0.0",
+      "primeira_data": "21/07/2023",
+      "ultima_data": "24/07/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2023.pdf"
+    },
+    {
+      "ano": "2023",
+      "ano_restos": "2022",
+      "fornecedor_codigo": "32336",
+      "fornecedor_nome": "(ESTAT.NOVOS) SEG.SOCIAL FUND.DE",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "30",
+      "credito_num": "0.0",
+      "debito_num": "7524403.930000002",
+      "saldo_final_num": "0.0",
+      "primeira_data": "03/01/2023",
+      "ultima_data": "03/01/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2023.pdf"
+    },
+    {
+      "ano": "2023",
+      "ano_restos": "2022",
+      "fornecedor_codigo": "57271",
+      "fornecedor_nome": "LTDA MERCADO ADONAI",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "2",
+      "credito_num": "0.0",
+      "debito_num": "3310560.0",
+      "saldo_final_num": "0.0",
+      "primeira_data": "24/07/2023",
+      "ultima_data": "24/07/2023",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2023.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.032188"
+}

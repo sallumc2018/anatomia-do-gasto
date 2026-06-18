@@ -1,0 +1,39 @@
+{
+  "arquivo": "siope_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/educacao/saida/siope_paulinia_2024.csv",
+  "tamanho_bytes": 152,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge7",
+    "receita_vinculada_mde",
+    "despesa_mde",
+    "percentual_aplicado",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge7": "integer",
+    "receita_vinculada_mde": "empty",
+    "despesa_mde": "empty",
+    "percentual_aplicado": "empty",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "municipio": "paulinia",
+      "ibge7": "3536505",
+      "receita_vinculada_mde": "",
+      "despesa_mde": "",
+      "percentual_aplicado": "",
+      "limite_constitucional_pct": "25",
+      "situacao": "nao_coletado"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.876623"
+}

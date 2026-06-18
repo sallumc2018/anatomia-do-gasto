@@ -1,0 +1,74 @@
+{
+  "arquivo": "convenios_federais_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transferencias/saida/convenios_federais_sorocaba.csv",
+  "tamanho_bytes": 6970,
+  "linhas_dados": 73,
+  "colunas": [
+    "ano",
+    "nr_convenio",
+    "data_assinatura",
+    "situacao",
+    "concedente",
+    "objeto",
+    "valor_repasse",
+    "valor_total",
+    "valor_desembolsado",
+    "vigencia_inicio",
+    "vigencia_fim"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "nr_convenio": "integer",
+    "data_assinatura": "date/datetime",
+    "situacao": "string",
+    "concedente": "empty",
+    "objeto": "empty",
+    "valor_repasse": "float/numeric",
+    "valor_total": "float/numeric",
+    "valor_desembolsado": "float/numeric",
+    "vigencia_inicio": "date/datetime",
+    "vigencia_fim": "date/datetime"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "nr_convenio": "897875",
+      "data_assinatura": "12/11/2020",
+      "situacao": "Prestação de Contas em Complementação",
+      "concedente": "",
+      "objeto": "",
+      "valor_repasse": "100000",
+      "valor_total": "100264",
+      "valor_desembolsado": "82087.29",
+      "vigencia_inicio": "12/11/2020",
+      "vigencia_fim": "23/07/2022"
+    },
+    {
+      "ano": "2020",
+      "nr_convenio": "898226",
+      "data_assinatura": "12/11/2020",
+      "situacao": "Prestação de Contas em Análise",
+      "concedente": "",
+      "objeto": "",
+      "valor_repasse": "500000",
+      "valor_total": "500811",
+      "valor_desembolsado": "478763.81",
+      "vigencia_inicio": "12/11/2020",
+      "vigencia_fim": "27/08/2022"
+    },
+    {
+      "ano": "2020",
+      "nr_convenio": "898735",
+      "data_assinatura": "09/12/2020",
+      "situacao": "Prestação de Contas Concluída",
+      "concedente": "",
+      "objeto": "",
+      "valor_repasse": "999648",
+      "valor_total": "999648",
+      "valor_desembolsado": "832534.00",
+      "vigencia_inicio": "09/12/2020",
+      "vigencia_fim": "14/10/2022"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.062088"
+}

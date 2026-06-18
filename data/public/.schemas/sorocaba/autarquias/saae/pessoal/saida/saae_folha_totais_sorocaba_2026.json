@@ -1,0 +1,79 @@
+{
+  "arquivo": "saae_folha_totais_sorocaba_2026.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saae/pessoal/saida/saae_folha_totais_sorocaba_2026.csv",
+  "tamanho_bytes": 970,
+  "linhas_dados": 3,
+  "colunas": [
+    "ano_referencia",
+    "mes_referencia",
+    "municipio",
+    "orgao",
+    "tipo_folha",
+    "salario_bruto_total_brl",
+    "salario_liquido_total_brl",
+    "fonte_categoria",
+    "fonte_arquivo",
+    "fonte_tabela",
+    "publicado_em",
+    "observacao"
+  ],
+  "tipos": {
+    "ano_referencia": "integer",
+    "mes_referencia": "integer",
+    "municipio": "string",
+    "orgao": "string",
+    "tipo_folha": "string",
+    "salario_bruto_total_brl": "float/numeric",
+    "salario_liquido_total_brl": "float/numeric",
+    "fonte_categoria": "string",
+    "fonte_arquivo": "string",
+    "fonte_tabela": "string",
+    "publicado_em": "date/datetime",
+    "observacao": "string"
+  },
+  "amostra": [
+    {
+      "ano_referencia": "2026",
+      "mes_referencia": "05",
+      "municipio": "sorocaba",
+      "orgao": "Servico Autonomo de Agua e Esgoto de Sorocaba",
+      "tipo_folha": "Adiantamento Salarial",
+      "salario_bruto_total_brl": "264391.48",
+      "salario_liquido_total_brl": "261935.58",
+      "fonte_categoria": "pessoal",
+      "fonte_arquivo": "data/extracted/sorocaba/saae/tdaportal/20260529_091316/pessoal/tabela_45.csv",
+      "fonte_tabela": "tabela_45.csv",
+      "publicado_em": "2026-05-29",
+      "observacao": "total agregado por tipo de folha; sem nome ou matricula"
+    },
+    {
+      "ano_referencia": "2026",
+      "mes_referencia": "05",
+      "municipio": "sorocaba",
+      "orgao": "Servico Autonomo de Agua e Esgoto de Sorocaba",
+      "tipo_folha": "Ferias",
+      "salario_bruto_total_brl": "778388.89",
+      "salario_liquido_total_brl": "635737.29",
+      "fonte_categoria": "pessoal",
+      "fonte_arquivo": "data/extracted/sorocaba/saae/tdaportal/20260529_091316/pessoal/tabela_45.csv",
+      "fonte_tabela": "tabela_45.csv",
+      "publicado_em": "2026-05-29",
+      "observacao": "total agregado por tipo de folha; sem nome ou matricula"
+    },
+    {
+      "ano_referencia": "2026",
+      "mes_referencia": "05",
+      "municipio": "sorocaba",
+      "orgao": "Servico Autonomo de Agua e Esgoto de Sorocaba",
+      "tipo_folha": "Pagamento Mensal",
+      "salario_bruto_total_brl": "11360448.61",
+      "salario_liquido_total_brl": "7493574.32",
+      "fonte_categoria": "pessoal",
+      "fonte_arquivo": "data/extracted/sorocaba/saae/tdaportal/20260529_091316/pessoal/tabela_45.csv",
+      "fonte_tabela": "tabela_45.csv",
+      "publicado_em": "2026-05-29",
+      "observacao": "total agregado por tipo de folha; sem nome ou matricula"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.748025"
+}

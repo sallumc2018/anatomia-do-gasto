@@ -1,0 +1,64 @@
+{
+  "arquivo": "saae_despesas_tce_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/saae_despesas_tce_2022.csv",
+  "tamanho_bytes": 2305753,
+  "linhas_dados": 13579,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "143-2022",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 01427728000167",
+      "nm_fornecedor": "INOVA TECNOL DE INFORM E REPRESENTACOES LTDA",
+      "dt_emissao_despesa": "03/01/2022",
+      "vl_despesa": "8023,00"
+    },
+    {
+      "ano": "2022",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "156-2022",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 35284184000143",
+      "nm_fornecedor": "FACIS PRE-MOLDADOS COMERCIO E SERVICOS LTDA",
+      "dt_emissao_despesa": "03/01/2022",
+      "vl_despesa": "68151,00"
+    },
+    {
+      "ano": "2022",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "230-2022",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 89952709000109",
+      "nm_fornecedor": "GOETZE LOBATO ENGENHARIA S.A.",
+      "dt_emissao_despesa": "03/01/2022",
+      "vl_despesa": "920000,00"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.609957"
+}

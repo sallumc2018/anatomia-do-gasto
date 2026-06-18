@@ -1,0 +1,30 @@
+#!/bin/sh
+# pre-push hook — backstop local antes do push.
+# Consolidacao 2026-06-15 (.githooks -> .husky canonico): barra SEGREDO ou
+# CAMINHO PROIBIDO na arvore versionada antes de enviar ao remoto. Espelha
+# localmente o GitHub Push Protection (que cobre o historico server-side).
+# Usa --no-warn: roda so as camadas BLOCK (~70s); o triador mock/PII completo
+# roda no estagio publish (validate-area --area publish), nao em todo push.
+# Origem: incidente do GitHub PAT em 2026-06-03 (ver memory/handoffs/.../purga-segredo-pat).
+
+if command -v py >/dev/null 2>&1; then
+  PY="py -3"
+elif command -v python3 >/dev/null 2>&1; then
+  PY=python3
+elif command -v python >/dev/null 2>&1; then
+  PY=python
+else
+  echo "AVISO: Python nao encontrado; varredura de segredos no push PULADA." >&2
+  exit 0
+fi
+
+$PY tools/agents/check-commit-gate.py --full --no-warn
+status=$?
+if [ "$status" -ne 0 ]; then
+  echo "------------------------------------------------------------" >&2
+  echo "ERRO: push BARRADO pelo gate (ver linhas [BLOCK] acima)." >&2
+  echo "  Segredo ou caminho operacional proibido na arvore versionada." >&2
+  echo "------------------------------------------------------------" >&2
+  exit 1
+fi
+exit 0

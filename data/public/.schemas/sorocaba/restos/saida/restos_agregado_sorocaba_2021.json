@@ -1,0 +1,79 @@
+{
+  "arquivo": "restos_agregado_sorocaba_2021.csv",
+  "caminho_relativo": "data/public/sorocaba/restos/saida/restos_agregado_sorocaba_2021.csv",
+  "tamanho_bytes": 113395,
+  "linhas_dados": 764,
+  "colunas": [
+    "ano",
+    "ano_restos",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "ano_restos": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "ano_restos": "2020",
+      "fornecedor_codigo": "35193",
+      "fornecedor_nome": "LTDA INDUSTRIAIS GASES MARTINS",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "255",
+      "credito_num": "0.0",
+      "debito_num": "60655470.50000001",
+      "saldo_final_num": "132.5",
+      "primeira_data": "27/01/2021",
+      "ultima_data": "27/01/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2021.pdf"
+    },
+    {
+      "ano": "2021",
+      "ano_restos": "2020",
+      "fornecedor_codigo": "52319",
+      "fornecedor_nome": "LTDA INDUSTRIAIS GASES MARTINS WHITE",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "179",
+      "credito_num": "0.0",
+      "debito_num": "33286456.000000037",
+      "saldo_final_num": "21308.92",
+      "primeira_data": "12/02/2021",
+      "ultima_data": "28/05/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2021.pdf"
+    },
+    {
+      "ano": "2021",
+      "ano_restos": "2019",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "MISERICORDIA CASA SANTA IRMANDADE",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "30",
+      "credito_num": "0.0",
+      "debito_num": "27498728.050000004",
+      "saldo_final_num": "894004.13",
+      "primeira_data": "05/02/2021",
+      "ultima_data": "27/01/2021",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2021.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.036823"
+}

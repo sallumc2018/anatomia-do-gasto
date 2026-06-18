@@ -1,0 +1,54 @@
+{
+  "arquivo": "saae_obras_sorocaba_2017_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saae/saida/saae_obras_sorocaba_2017_2022.csv",
+  "tamanho_bytes": 13844,
+  "linhas_dados": 100,
+  "colunas": [
+    "nro_processo",
+    "ano",
+    "situacao",
+    "obra",
+    "municipio",
+    "fonte",
+    "coletado_em"
+  ],
+  "tipos": {
+    "nro_processo": "string",
+    "ano": "integer",
+    "situacao": "string",
+    "obra": "string",
+    "municipio": "string",
+    "fonte": "string",
+    "coletado_em": "date/datetime"
+  },
+  "amostra": [
+    {
+      "nro_processo": "E00007",
+      "ano": "2019",
+      "situacao": "EM EXECUCAO",
+      "obra": "Sem descricao'",
+      "municipio": "sorocaba",
+      "fonte": "https://saae.tda.inf.br/transparencia (Portal TDA SAAE Sorocaba)",
+      "coletado_em": "2026-05-23"
+    },
+    {
+      "nro_processo": "E00013",
+      "ano": "2018",
+      "situacao": "ENCERRADO - CUMPRIMENTO INTEGRAL",
+      "obra": "Sem descricao'",
+      "municipio": "sorocaba",
+      "fonte": "https://saae.tda.inf.br/transparencia (Portal TDA SAAE Sorocaba)",
+      "coletado_em": "2026-05-23"
+    },
+    {
+      "nro_processo": "E00017",
+      "ano": "2022",
+      "situacao": "Sem medicao",
+      "obra": "Sem descricao'",
+      "municipio": "sorocaba",
+      "fonte": "https://saae.tda.inf.br/transparencia (Portal TDA SAAE Sorocaba)",
+      "coletado_em": "2026-05-23"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.746897"
+}

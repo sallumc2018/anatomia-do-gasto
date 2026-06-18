@@ -1,0 +1,79 @@
+{
+  "arquivo": "inventario_fontes_tce_paulinia.csv",
+  "caminho_relativo": "data/public/paulinia/controle_externo/tce/saida/inventario_fontes_tce_paulinia.csv",
+  "tamanho_bytes": 4378,
+  "linhas_dados": 11,
+  "colunas": [
+    "categoria",
+    "nome",
+    "url",
+    "formato",
+    "objetivo",
+    "status_http",
+    "content_type",
+    "bytes",
+    "sha256",
+    "raw_path",
+    "status_coleta",
+    "observacao"
+  ],
+  "tipos": {
+    "categoria": "string",
+    "nome": "string",
+    "url": "string",
+    "formato": "string",
+    "objetivo": "string",
+    "status_http": "integer",
+    "content_type": "string",
+    "bytes": "integer",
+    "sha256": "string",
+    "raw_path": "string",
+    "status_coleta": "string",
+    "observacao": "empty"
+  },
+  "amostra": [
+    {
+      "categoria": "audesp",
+      "nome": "AUDESP",
+      "url": "https://www.tce.sp.gov.br/audesp",
+      "formato": "html",
+      "objetivo": "pagina institucional e links publicos AUDESP",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "61157",
+      "sha256": "b0add153fb6421e479260b1b55d6f4c7795c3fefb476cabbdc4410acb00a97bb",
+      "raw_path": "/home/sallumc/Documents/Omega/02-repos/00-anatomia-do-gasto/data/raw/paulinia/tce/2026-06-13/fontes/audesp/audesp.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    },
+    {
+      "categoria": "audesp",
+      "nome": "AUDESP comunicados",
+      "url": "https://www.tce.sp.gov.br/comunicados?area=26",
+      "formato": "html",
+      "objetivo": "indice de comunicados da area AUDESP",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "92227",
+      "sha256": "6cc5e88e9b954c5f803ffd42627058a275ed5c6970b6116e7ac5700b8ac9ff78",
+      "raw_path": "/home/sallumc/Documents/Omega/02-repos/00-anatomia-do-gasto/data/raw/paulinia/tce/2026-06-13/fontes/audesp/audesp_comunicados.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    },
+    {
+      "categoria": "processos",
+      "nome": "Pesquisa de Processos",
+      "url": "https://www.tce.sp.gov.br/processos",
+      "formato": "html",
+      "objetivo": "entrada oficial da busca processual",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "58171",
+      "sha256": "8f953c3a8d1e2ddfde634d00ea10661ac33dda212ab92df8e482e597d23d3320",
+      "raw_path": "/home/sallumc/Documents/Omega/02-repos/00-anatomia-do-gasto/data/raw/paulinia/tce/2026-06-13/fontes/processos/pesquisa_de_processos.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    }
+  ],
+  "analisado_em": "2026-06-13T18:09:17.831291"
+}

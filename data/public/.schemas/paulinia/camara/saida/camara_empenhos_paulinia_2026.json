@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_empenhos_paulinia_2026.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_empenhos_paulinia_2026.csv",
+  "tamanho_bytes": 98116,
+  "linhas_dados": 680,
+  "colunas": [
+    "data_empenho",
+    "nro_empenho",
+    "tipo_empenho",
+    "cnpj",
+    "nome_fornecedor",
+    "valor_empenhado",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_empenho": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "cnpj": "string",
+    "nome_fornecedor": "string",
+    "valor_empenhado": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_empenho": "01/06/2026 00:00",
+      "nro_empenho": "346",
+      "tipo_empenho": "Empenho",
+      "cnpj": "45.751.435/0001-06  ",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "valor_empenhado": "214,73",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_empenho": "26/02/2026 00:00",
+      "nro_empenho": "106",
+      "tipo_empenho": "Empenho",
+      "cnpj": "52.354.560/0001-48  ",
+      "nome_fornecedor": "ASSOCIACAO DOS SERVIDORES MUNICIPAIS DE PAULINIA.",
+      "valor_empenhado": "1.809,50",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_empenho": "05/01/2026 00:00",
+      "nro_empenho": "13",
+      "tipo_empenho": "Empenho",
+      "cnpj": "03.965.806/0001-02  ",
+      "nome_fornecedor": "INFORREL COMERCIO E SERVICOS LTDA",
+      "valor_empenhado": "3.726,00",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.505081"
+}

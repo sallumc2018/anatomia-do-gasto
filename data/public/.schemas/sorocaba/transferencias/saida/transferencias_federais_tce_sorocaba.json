@@ -1,0 +1,59 @@
+{
+  "arquivo": "transferencias_federais_tce_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transferencias/saida/transferencias_federais_tce_sorocaba.csv",
+  "tamanho_bytes": 836137,
+  "linhas_dados": 2849,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "ds_alinea",
+    "ds_subalinea",
+    "ds_fonte_recurso",
+    "ds_cd_aplicacao_fixo",
+    "vl_arrecadacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "ds_alinea": "string",
+    "ds_subalinea": "string",
+    "ds_fonte_recurso": "string",
+    "ds_cd_aplicacao_fixo": "string",
+    "vl_arrecadacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "ds_alinea": "17181000 - Transferências de Convênios da União e de Suas Entidades",
+      "ds_subalinea": "17181031 - Transferências de Convênios da União Destinadas a Programas de Assistência Social - Principal",
+      "ds_fonte_recurso": "05 - TRANSFERÊNCIAS E CONVÊNIOS FEDERAIS-VINCULADOS",
+      "ds_cd_aplicacao_fixo": "500 - ASSISTÊNCIA SOCIAL - RECURSOS ESPECÍFICOS",
+      "vl_arrecadacao": "30.900,00"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "ds_alinea": "17180100 - Participação na Receita da União",
+      "ds_subalinea": "17180151 - Cota-Parte do Imposto Sobre a Propriedade Territorial Rural - Principal",
+      "ds_fonte_recurso": "01 - TESOURO",
+      "ds_cd_aplicacao_fixo": "310 - SAÚDE - GERAL",
+      "vl_arrecadacao": "1.037,48"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "ds_alinea": "17180500 - Transferências de Recursos do Fundo Nacional do Desenvolvimento da Educação - FNDE",
+      "ds_subalinea": "17180511 - Transferências do Salário-Educação - Principal",
+      "ds_fonte_recurso": "05 - TRANSFERÊNCIAS E CONVÊNIOS FEDERAIS-VINCULADOS",
+      "ds_cd_aplicacao_fixo": "281 - RECURSOS DO SALÁRIO EDUCAÇÃO - PRÉ-ESCOLA",
+      "vl_arrecadacao": "913.776,64"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.059260"
+}

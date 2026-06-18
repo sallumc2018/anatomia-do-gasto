@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_sorocaba_2024.csv",
+  "caminho_relativo": "data/public/sorocaba/fiscal/saida/rcl_capital_sorocaba_2024.csv",
+  "tamanho_bytes": 441,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Operacoes_Credito_Internas": "26690525.20",
+      "Operacoes_Credito_Externas": "157011076.01",
+      "Operacoes_Credito_Total": "183701601.21",
+      "Alienacao_Bens": "21133550.00",
+      "Alienacao_Bens_Imoveis": "19570000.00",
+      "Alienacao_Bens_Moveis": "1563550.00",
+      "Outras_Capital": "2372670.09",
+      "Total_Capital": "207207821.30",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.178340"
+}

@@ -1,0 +1,4 @@
+level,name,min_validated_signals,allowed_solo_decisions,requires_human,forbidden_always
+C0,manual,0,"log mismatched in-scope questions for human review","any candidate proposal; any route or keyword decision","modify theo-guide.tsx; promote candidate to policy; respond outside scope; commit; push; deploy"
+C1,suggest-keyword,5,"propose candidate keyword for existing route in scope; tag low-confidence matches","creating new route; promoting candidate","modify theo-guide.tsx; promote candidate to policy; respond outside scope; commit; push; deploy"
+C2,suggest-route,15,"propose candidate new route within scope with full fields (id,title,answer,keywords,source,limitation)","promoting candidate; modifying production matcher","modify theo-guide.tsx; promote candidate to policy; respond outside scope; commit; push; deploy"

@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2020.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2020.csv",
+  "tamanho_bytes": 440960,
+  "linhas_dados": 3094,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "fornecedor_codigo": "00001",
+      "fornecedor_nome": "FOLHA DE PAGAMENTO - PESSOAL",
+      "classificacao_inicial": "folha",
+      "movimentos": "11619",
+      "credito_num": "739464457.4099969",
+      "debito_num": "739470359.5199959",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/04/2020",
+      "ultima_data": "31/08/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2020.pdf"
+    },
+    {
+      "ano": "2020",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "IRMANDADE SANTA CASA DE MISERICORDIA SOROCABA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "192",
+      "credito_num": "130298097.20000005",
+      "debito_num": "126442505.38",
+      "saldo_final_num": "3855591.82",
+      "primeira_data": "01/12/2020",
+      "ultima_data": "31/08/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2020.pdf"
+    },
+    {
+      "ano": "2020",
+      "fornecedor_codigo": "42146",
+      "fornecedor_nome": "CONSORCIO SOROCABA",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "416",
+      "credito_num": "89389087.23000011",
+      "debito_num": "87813306.23000002",
+      "saldo_final_num": "708031.79",
+      "primeira_data": "01/04/2020",
+      "ultima_data": "31/08/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2020.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.330618"
+}

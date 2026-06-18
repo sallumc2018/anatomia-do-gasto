@@ -1,0 +1,79 @@
+{
+  "arquivo": "inventario_fontes_tce_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/controle_externo/tce/saida/inventario_fontes_tce_sorocaba.csv",
+  "tamanho_bytes": 5124,
+  "linhas_dados": 15,
+  "colunas": [
+    "categoria",
+    "nome",
+    "url",
+    "formato",
+    "objetivo",
+    "status_http",
+    "content_type",
+    "bytes",
+    "sha256",
+    "raw_path",
+    "status_coleta",
+    "observacao"
+  ],
+  "tipos": {
+    "categoria": "string",
+    "nome": "string",
+    "url": "string",
+    "formato": "string",
+    "objetivo": "string",
+    "status_http": "integer",
+    "content_type": "string",
+    "bytes": "integer",
+    "sha256": "string",
+    "raw_path": "string",
+    "status_coleta": "string",
+    "observacao": "empty"
+  },
+  "amostra": [
+    {
+      "categoria": "audesp",
+      "nome": "AUDESP",
+      "url": "https://www.tce.sp.gov.br/audesp",
+      "formato": "html",
+      "objetivo": "pagina institucional e links publicos AUDESP",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "61151",
+      "sha256": "e0996f6cf902276517d66174a1d76a9708e149d2a1010cb2de30ef796cf8380f",
+      "raw_path": "data/raw/sorocaba/tce/2026-05-29/fontes/audesp/audesp.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    },
+    {
+      "categoria": "audesp",
+      "nome": "AUDESP comunicados",
+      "url": "https://www.tce.sp.gov.br/comunicados?area=26",
+      "formato": "html",
+      "objetivo": "indice de comunicados da area AUDESP",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "92163",
+      "sha256": "81d2cddd8622d67095633c443a7e961d327502ad4c2148e9d8c22feeaee840d9",
+      "raw_path": "data/raw/sorocaba/tce/2026-05-29/fontes/audesp/audesp_comunicados.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    },
+    {
+      "categoria": "processos",
+      "nome": "Pesquisa de Processos",
+      "url": "https://www.tce.sp.gov.br/processos",
+      "formato": "html",
+      "objetivo": "entrada oficial da busca processual",
+      "status_http": "200",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": "58165",
+      "sha256": "a0e633b07dc96166fbf4884f5412771d54204407b4f269b713e0a28f4f747bac",
+      "raw_path": "data/raw/sorocaba/tce/2026-05-29/fontes/processos/pesquisa_de_processos.html",
+      "status_coleta": "ok",
+      "observacao": ""
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.771286"
+}

@@ -1,0 +1,69 @@
+{
+  "arquivo": "rgf_rcl_capital_sorocaba_2020_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/fiscal/saida/rgf_rcl_capital_sorocaba_2020_2025.csv",
+  "tamanho_bytes": 1649,
+  "linhas_dados": 6,
+  "colunas": [
+    "Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "Ano": "2020",
+      "Operacoes_Credito_Internas": "58305665.08",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "58305665.08",
+      "Alienacao_Bens": "516621.84",
+      "Alienacao_Bens_Imoveis": "671.84",
+      "Alienacao_Bens_Moveis": "515950.00",
+      "Outras_Capital": "-4691222.48",
+      "Total_Capital": "54131064.44",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "Ano": "2021",
+      "Operacoes_Credito_Internas": "53996325.80",
+      "Operacoes_Credito_Externas": "38656362.02",
+      "Operacoes_Credito_Total": "92652687.82",
+      "Alienacao_Bens": "38342.02",
+      "Alienacao_Bens_Imoveis": "20674.02",
+      "Alienacao_Bens_Moveis": "17668.00",
+      "Outras_Capital": "-2449065.91",
+      "Total_Capital": "90241963.93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "Ano": "2022",
+      "Operacoes_Credito_Internas": "18383024.05",
+      "Operacoes_Credito_Externas": "62617860.69",
+      "Operacoes_Credito_Total": "81000884.74",
+      "Alienacao_Bens": "3012.26",
+      "Alienacao_Bens_Imoveis": "2667.26",
+      "Alienacao_Bens_Moveis": "345.00",
+      "Outras_Capital": "18245933.81",
+      "Total_Capital": "99249830.81",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3552205&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.084187"
+}

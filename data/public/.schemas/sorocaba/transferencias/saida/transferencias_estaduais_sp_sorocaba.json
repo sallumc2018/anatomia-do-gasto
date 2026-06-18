@@ -1,0 +1,74 @@
+{
+  "arquivo": "transferencias_estaduais_sp_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transferencias/saida/transferencias_estaduais_sp_sorocaba.csv",
+  "tamanho_bytes": 13088,
+  "linhas_dados": 84,
+  "colunas": [
+    "ano",
+    "municipio_nome",
+    "periodo_tipo",
+    "mes",
+    "mes_numero",
+    "icms",
+    "ipva",
+    "fund_exp_ipi",
+    "compensacoes",
+    "total",
+    "fonte_url"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_nome": "string",
+    "periodo_tipo": "string",
+    "mes": "string",
+    "mes_numero": "integer",
+    "icms": "float/numeric",
+    "ipva": "float/numeric",
+    "fund_exp_ipi": "float/numeric",
+    "compensacoes": "float/numeric",
+    "total": "float/numeric",
+    "fonte_url": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "municipio_nome": "Sorocaba",
+      "periodo_tipo": "mensal",
+      "mes": "Janeiro",
+      "mes_numero": "1",
+      "icms": "35166310.66",
+      "ipva": "58833010.55",
+      "fund_exp_ipi": "278131.06",
+      "compensacoes": "95895.48",
+      "total": "94373347.75",
+      "fonte_url": "https://www.fazenda.sp.gov.br/RepasseConsulta/Consulta/repasse.aspx"
+    },
+    {
+      "ano": "2020",
+      "municipio_nome": "Sorocaba",
+      "periodo_tipo": "mensal",
+      "mes": "Fevereiro",
+      "mes_numero": "2",
+      "icms": "35980146.58",
+      "ipva": "27868881.66",
+      "fund_exp_ipi": "230096.39",
+      "compensacoes": "116390.99",
+      "total": "64195515.61",
+      "fonte_url": "https://www.fazenda.sp.gov.br/RepasseConsulta/Consulta/repasse.aspx"
+    },
+    {
+      "ano": "2020",
+      "municipio_nome": "Sorocaba",
+      "periodo_tipo": "mensal",
+      "mes": "Março",
+      "mes_numero": "3",
+      "icms": "41472477.25",
+      "ipva": "19164740.97",
+      "fund_exp_ipi": "249538.37",
+      "compensacoes": "125406.30",
+      "total": "61012162.89",
+      "fonte_url": "https://www.fazenda.sp.gov.br/RepasseConsulta/Consulta/repasse.aspx"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.052304"
+}

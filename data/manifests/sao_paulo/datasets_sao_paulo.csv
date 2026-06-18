@@ -1,0 +1,16 @@
+municipio,Area,Tipo,Descricao,Anos,Fonte,Sistema,Frequencia,Arquivo_Padrao,Origem_Dir
+sao_paulo,receita,receitas,Receitas municipais por categoria - RREO Anexo 01 bimestre 6,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,receitas_sao_paulo_{ano}.csv,public
+sao_paulo,executivo,despesas,Orcamento municipal por funcao - RREO Anexo 02 bimestre 6 incluindo exceto intra e intra,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,despesas_executivo_sao_paulo_{ano}.csv,public
+sao_paulo,seguranca,orcamento-rreo,Orcamento RREO Anexo 02 funcao seguranca,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_seguranca_sao_paulo_{ano}.csv,public
+sao_paulo,transferencias_federais,transferencias,Transferencias da Uniao ao municipio,2021-2025,SICONFI / Tesouro Nacional,API federal,anual,transferencias_federais_sao_paulo_{ano}.csv,public
+sao_paulo,transferencias_estaduais,transferencias,Repasses estaduais SP (cota-parte ICMS/IPVA/FEX) por mes,2020-2025,Fazenda-SP,Portal Repasse,anual,transferencias_estaduais_sp_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,Receita Corrente Liquida - RREO/RGF,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,RCL ajustada capital,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rcl_capital_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,Despesa de pessoal x limite LRF - RGF,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,pessoal_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,Divida consolidada liquida - RGF,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,Divida detalhada - RGF,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,divida_detalhada_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,indicador-fiscal,RPPS - regime proprio de previdencia,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rpps_sao_paulo_{ano}.csv,public
+sao_paulo,fiscal,despesas,Despesa por natureza - RREO,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,natureza_despesa_sao_paulo_{ano}.csv,public
+sao_paulo,transporte,orcamento-rreo,Orcamento RREO funcao 26 transporte,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,rreo_transporte_sao_paulo_{ano}.csv,public
+sao_paulo,transporte,despesas,DCA despesa transporte por subfuncao,2020-2025,SICONFI / Tesouro Nacional,API federal,anual,dca_transporte_sao_paulo_{ano}.csv,public
+sao_paulo,fns,transferencias,Repasses Fundo Nacional de Saude (FAF) com populacao,2020-2025,Fundo Nacional de Saude,API federal,anual,fns_repasses_faf_com_populacao_sao_paulo_{ano}.csv,public

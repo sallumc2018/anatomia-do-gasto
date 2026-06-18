@@ -1,0 +1,74 @@
+{
+  "arquivo": "loa_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2023.csv",
+  "tamanho_bytes": 3305,
+  "linhas_dados": 42,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "integer",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "3979954873.0",
+      "seguridade": "596892448.0",
+      "total": "4576847321.0",
+      "lei_numero": "12.703",
+      "data_lei": "26 DE DEZEMBRO DE 2022",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "FUNDO SOCIAL DE SOLIDARIEDADE -",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "198602.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "SECR. DA CIDADANIA -",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "61140368.54",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.933883"
+}

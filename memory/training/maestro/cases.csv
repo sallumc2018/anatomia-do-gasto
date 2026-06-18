@@ -1,0 +1,13 @@
+id,objective,expected_route,required_confidence,human_gate,notes
+M-001,"/goal transformar Maestro em agente aprendiz","goal -> maestro",C2,no,"Broad objective must enter goal protocol before routing."
+M-002,"completar dados faltantes de Sorocaba","frontino -> dados -> pipeline -> qa -> frontend? -> deploy?",C2,no,"Coverage gaps begin with Frontino score and roadmap."
+M-003,"validar publicacao atual em data/public","qa",C2,no,"Publication QA is read-only."
+M-004,"auditoria de cobertura sorocaba publicacao manifest","pipeline -> qa",C2,no,"Pipeline generates audit manifest and QA checks read-only."
+M-005,"ajustar componente Next.js da pagina inicial","frontend -> deploy?",C3,no,"Frontend execution requires local specialist route and validation."
+M-006,"triagem npm supply chain","seguranca",C2,no,"Security triage starts read-only."
+M-007,"deploy producao vercel","deploy",C1,yes,"Release route can be identified, but execution requires human approval."
+M-008,"sincronizar tablet Android com dados publicos","tablet",C3,no,"Tablet route may be local but destructive actions still require approval."
+M-009,"adicionar novo municipio Campinas SP","onboarding -> dados? -> pipeline? -> qa? -> frontend? -> deploy?",C2,no,"Onboarding maps prerequisites before execution agents."
+M-010,"revisar schema de datasets e consistencia entre municipios","dba",C2,no,"Schema and consistency work starts with DBA read-only."
+M-011,"analisar gastos de saude publicados em linguagem cidadã","analista",C2,no,"Published-data analysis starts with analyst."
+M-012,"instalar dependencia npm para grafico","seguranca -> frontend?",C1,yes,"Dependency installation starts with security triage and requires human approval."

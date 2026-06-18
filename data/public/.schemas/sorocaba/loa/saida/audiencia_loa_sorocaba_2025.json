@@ -1,0 +1,64 @@
+{
+  "arquivo": "audiencia_loa_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/loa/saida/audiencia_loa_sorocaba_2025.csv",
+  "tamanho_bytes": 2715,
+  "linhas_dados": 33,
+  "colunas": [
+    "ano",
+    "regiao",
+    "area",
+    "percentual",
+    "n_formularios_regiao",
+    "n_formularios_total",
+    "n_propostas_total",
+    "qualidade_dado",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "regiao": "string",
+    "area": "string",
+    "percentual": "float/numeric",
+    "n_formularios_regiao": "integer",
+    "n_formularios_total": "integer",
+    "n_propostas_total": "integer",
+    "qualidade_dado": "string",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "regiao": "Centro",
+      "area": "Seguranca Urbana",
+      "percentual": "42.85",
+      "n_formularios_regiao": "7",
+      "n_formularios_total": "100",
+      "n_propostas_total": "277",
+      "qualidade_dado": "exato",
+      "fonte_arquivo": "relatorio_loa_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "regiao": "Centro",
+      "area": "Educacao",
+      "percentual": "28.57",
+      "n_formularios_regiao": "7",
+      "n_formularios_total": "100",
+      "n_propostas_total": "277",
+      "qualidade_dado": "exato",
+      "fonte_arquivo": "relatorio_loa_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "regiao": "Centro",
+      "area": "Saude",
+      "percentual": "14.29",
+      "n_formularios_regiao": "7",
+      "n_formularios_total": "100",
+      "n_propostas_total": "277",
+      "qualidade_dado": "exato",
+      "fonte_arquivo": "relatorio_loa_2025.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.038124"
+}

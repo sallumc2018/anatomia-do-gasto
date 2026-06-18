@@ -1,0 +1,59 @@
+{
+  "arquivo": "transferencias_para_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/transferencias/saida/transferencias_para_paulinia_2024.csv",
+  "tamanho_bytes": 4191,
+  "linhas_dados": 16,
+  "colunas": [
+    "ano",
+    "municipio",
+    "fonte",
+    "categoria",
+    "orgao_remetente",
+    "descricao",
+    "valor_bruto",
+    "moeda"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "fonte": "string",
+    "categoria": "string",
+    "orgao_remetente": "string",
+    "descricao": "string",
+    "valor_bruto": "float/numeric",
+    "moeda": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "municipio": "paulinia",
+      "fonte": "Portal_Transparencia_Federal",
+      "categoria": "Desporto e lazer",
+      "orgao_remetente": "Ministério do Esporte",
+      "descricao": "Implementacao e Desenvolvimento do  Projeto Paulinia Futuro, no Municipio de Paulinia/SP",
+      "valor_bruto": "1049990.5",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2024",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Manutenção das Ações e Serviços Públicos de Saúde (CUSTEIO) — APOIO AOS ESTADOS, DISTRITO FEDERAL E MUNICÍPIOS PARA A VIGILÂNCIA EM SAÚDE: INCENTIVO FINANCEIRO AOS ESTADOS, DISTRITO FEDERAL E MUNICÍPI",
+      "valor_bruto": "325321.07",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2024",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Manutenção das Ações e Serviços Públicos de Saúde (CUSTEIO) — ATENÇÃO À SAÚDE DA POPULAÇÃO PARA PROCEDIMENTOS NO MAC: ATENÇÃO À SAÚDE DA POPULAÇÃO PARA PROCEDIMENTOS NO MAC",
+      "valor_bruto": "10716719.52",
+      "moeda": "BRL"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.629398"
+}

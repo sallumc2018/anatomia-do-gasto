@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_pagamentos_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_pagamentos_paulinia_2024.csv",
+  "tamanho_bytes": 193745,
+  "linhas_dados": 1358,
+  "colunas": [
+    "data_pagamento",
+    "nro_empenho",
+    "tipo_empenho",
+    "nome_fornecedor",
+    "cnpj",
+    "valor_pago",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_pagamento": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "nome_fornecedor": "string",
+    "cnpj": "string",
+    "valor_pago": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_pagamento": "06/05/2024 00:00",
+      "nro_empenho": "481",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "cnpj": "45.751.435/0001-06  ",
+      "valor_pago": "0,00",
+      "ano": "2024",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "12/12/2024 00:00",
+      "nro_empenho": "520",
+      "tipo_empenho": "Anulação de Empenho",
+      "nome_fornecedor": "GSSO GESTAO EM SAUDE E SEGURANÇA OCUPACIONAL LTDA",
+      "cnpj": "33.889.198/0002-46  ",
+      "valor_pago": "0,00",
+      "ano": "2024",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "09/05/2024 00:00",
+      "nro_empenho": "507",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "cnpj": "45.751.435/0001-06  ",
+      "valor_pago": "292,98",
+      "ano": "2024",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.492232"
+}

@@ -1,0 +1,74 @@
+{
+  "arquivo": "loa_sorocaba_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2022.csv",
+  "tamanho_bytes": 2594,
+  "linhas_dados": 31,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "integer",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "3337628113.6",
+      "seguridade": "449266524.0",
+      "total": "3786894637.6",
+      "lei_numero": "12.474",
+      "data_lei": "30 DE DEZEMBRO DE 2021",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2022",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "CONTROLADORIA GERAL DO MUNICÍPIO",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "5506044.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2022",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "Lei nº",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "49101753.9",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.935369"
+}

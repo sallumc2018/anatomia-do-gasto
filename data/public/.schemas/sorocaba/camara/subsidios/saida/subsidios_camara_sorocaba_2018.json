@@ -1,0 +1,59 @@
+{
+  "arquivo": "subsidios_camara_sorocaba_2018.csv",
+  "caminho_relativo": "data/public/sorocaba/camara/subsidios/saida/subsidios_camara_sorocaba_2018.csv",
+  "tamanho_bytes": 1320,
+  "linhas_dados": 10,
+  "colunas": [
+    "ano",
+    "municipio",
+    "orgao",
+    "cargo",
+    "tipo_valor",
+    "valor",
+    "portaria",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "orgao": "string",
+    "cargo": "string",
+    "tipo_valor": "string",
+    "valor": "float/numeric",
+    "portaria": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2018",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "assessordeEpedientee Plenário",
+      "tipo_valor": "total",
+      "valor": "150.5",
+      "portaria": "PORTARIA N.º 001/2018",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    },
+    {
+      "ano": "2018",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "cnefede Senviçode Portara",
+      "tipo_valor": "total",
+      "valor": "2725.96",
+      "portaria": "PORTARIA N.º 001/2018",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    },
+    {
+      "ano": "2018",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "Coordenador Técnico de Engenharia de TV",
+      "tipo_valor": "total",
+      "valor": "1030.27",
+      "portaria": "PORTARIA N.º 001/2018",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.916041"
+}

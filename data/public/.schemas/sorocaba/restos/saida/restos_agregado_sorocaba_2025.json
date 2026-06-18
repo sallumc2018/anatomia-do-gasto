@@ -1,0 +1,79 @@
+{
+  "arquivo": "restos_agregado_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/restos/saida/restos_agregado_sorocaba_2025.csv",
+  "tamanho_bytes": 122384,
+  "linhas_dados": 817,
+  "colunas": [
+    "ano",
+    "ano_restos",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "ano_restos": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "ano_restos": "2024",
+      "fornecedor_codigo": "32336",
+      "fornecedor_nome": "FUND.DE SEG.SOCIAL DE SOROCABA (ESTAT.NOVOS)",
+      "classificacao_inicial": "fundo_publico",
+      "movimentos": "61",
+      "credito_num": "0.0",
+      "debito_num": "20096142.259999998",
+      "saldo_final_num": "0.0",
+      "primeira_data": "08/01/2025",
+      "ultima_data": "08/01/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "ano_restos": "2024",
+      "fornecedor_codigo": "41929",
+      "fornecedor_nome": "ERA-TECNICA ENGENHARIA CONSTR.E SERV.LTDA",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "9",
+      "credito_num": "0.0",
+      "debito_num": "10863441.670000002",
+      "saldo_final_num": "0.0",
+      "primeira_data": "02/04/2025",
+      "ultima_data": "21/01/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2025.pdf"
+    },
+    {
+      "ano": "2025",
+      "ano_restos": "2024",
+      "fornecedor_codigo": "17919",
+      "fornecedor_nome": "FUNDACAO SAO PAULO - HOSPITAL SANTA LUCINDA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "19",
+      "credito_num": "0.0",
+      "debito_num": "10660965.42",
+      "saldo_final_num": "111231.05",
+      "primeira_data": "08/04/2025",
+      "ultima_data": "28/02/2025",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2025.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.033530"
+}

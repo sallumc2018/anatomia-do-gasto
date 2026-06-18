@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_paulinia_2023.csv",
+  "caminho_relativo": "data/public/paulinia/transferencias_federais/saida/transferencias_federais_paulinia_2023.csv",
+  "tamanho_bytes": 964,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "competencia": "2023-05",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "24000",
+      "orgao_superior_nome": "Ministério da Ciência, Tecnologia e Inovação",
+      "unidade_gestora_codigo": "240901",
+      "unidade_gestora_nome": "FUNDO NAC.DE DESENV. CIENT. E TECNOLOGICO",
+      "funcao_id": "19",
+      "funcao_descricao": "Ciência e Tecnologia",
+      "acao_id": "1AAMJL",
+      "acao_descricao": "RECUPERAÇÃO E REUSO DE ÁGUA DE EFLUENTES INDUSTRIAIS POR SISTEMA CON- TÍNUO DE ELETRODECANTAÇÃO DE IMPUREZAS ORGÂNICAS                      CONSIDERANDO O SEMIÁRIDO UMA DAS REGIÕES COM MENOR DISPONIBILIDADE DE ÁGUA E COM UM DOS MAIORES CUSTOS AO CONSUMIDOR (MAIS DE R$ 4,00/M3),  ESSE PROJETO DE PESQUISA PROPÕE O ESCALONAMENTO, INSTALAÇÃO E TESTES  DE UM SISTEMA INOVADOR PARA ELETRODECANTAÇÃO DE SÓLIDOS ORGÂNICOS",
+      "valor_transferido": "1413703.59",
+      "municipio_ibge": "3536505",
+      "municipio_nome": "PAULÍNIA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.588283"
+}

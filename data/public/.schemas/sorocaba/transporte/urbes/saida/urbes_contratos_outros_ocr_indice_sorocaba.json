@@ -1,0 +1,64 @@
+{
+  "arquivo": "urbes_contratos_outros_ocr_indice_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/urbes/saida/urbes_contratos_outros_ocr_indice_sorocaba.csv",
+  "tamanho_bytes": 4813,
+  "linhas_dados": 49,
+  "colunas": [
+    "subpasta",
+    "arquivo",
+    "paginas_ocr",
+    "chars",
+    "status_ocr",
+    "numero_contrato",
+    "cnpj",
+    "valor",
+    "data_assinatura"
+  ],
+  "tipos": {
+    "subpasta": "string",
+    "arquivo": "string",
+    "paginas_ocr": "integer",
+    "chars": "integer",
+    "status_ocr": "string",
+    "numero_contrato": "string",
+    "cnpj": "string",
+    "valor": "string",
+    "data_assinatura": "string"
+  },
+  "amostra": [
+    {
+      "subpasta": "contratos_outros",
+      "arquivo": "202201004173123_0023-2022_contrato.pdf",
+      "paginas_ocr": "3",
+      "chars": "7000",
+      "status_ocr": "ok",
+      "numero_contrato": "23/22",
+      "cnpj": "50.333.699/0001-80",
+      "valor": "141.525,00",
+      "data_assinatura": ""
+    },
+    {
+      "subpasta": "contratos_outros",
+      "arquivo": "202201005160415_0024-2022_contrato.pdf",
+      "paginas_ocr": "3",
+      "chars": "7746",
+      "status_ocr": "ok",
+      "numero_contrato": "9/4/99",
+      "cnpj": "50.333.699/0001-80",
+      "valor": "314.925,00",
+      "data_assinatura": ""
+    },
+    {
+      "subpasta": "contratos_outros",
+      "arquivo": "20220525122022_0011-2022_contrato-inicial.pdf",
+      "paginas_ocr": "3",
+      "chars": "7483",
+      "status_ocr": "ok",
+      "numero_contrato": "",
+      "cnpj": "50.333.699/0001-80",
+      "valor": "67.725,00",
+      "data_assinatura": "21 de janeiro de 2022"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.954596"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "subsidios_camara_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/camara/subsidios/saida/subsidios_camara_sorocaba_2023.csv",
+  "tamanho_bytes": 1750,
+  "linhas_dados": 13,
+  "colunas": [
+    "ano",
+    "municipio",
+    "orgao",
+    "cargo",
+    "tipo_valor",
+    "valor",
+    "portaria",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "orgao": "string",
+    "cargo": "string",
+    "tipo_valor": "string",
+    "valor": "float/numeric",
+    "portaria": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "agenede Apolo Legiao!",
+      "tipo_valor": "total",
+      "valor": "208.73",
+      "portaria": "PORTARIA N.º 001/2023",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    },
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "Assessor de Licitações e Contratos",
+      "tipo_valor": "total",
+      "valor": "20332.34",
+      "portaria": "PORTARIA N.º 001/2023",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    },
+    {
+      "ano": "2023",
+      "municipio": "sorocaba",
+      "orgao": "camara",
+      "cargo": "lAssessordePlenério",
+      "tipo_valor": "total",
+      "valor": "2033.22",
+      "portaria": "PORTARIA N.º 001/2023",
+      "fonte": "Câmara Sorocaba - PDF escaneado (OCR)"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.913705"
+}

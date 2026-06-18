@@ -1,0 +1,41 @@
+id,query,expected_route,expected_score_min,scope_check,human_gate,gap_type,notes
+T-001,o que e a anatomia do gasto,missao-ong,3,in,no,none,ONG identity
+T-002,qual a missao da ong,missao-ong,3,in,no,none,Mission
+T-003,quem mantem o projeto,missao-ong,2,in,no,none,Funding
+T-004,o projeto e do governo,missao-ong,2,in,no,none,Independence
+T-005,e apartidario,missao-ong,2,in,no,none,Partisanship
+T-006,como contribuir com o projeto,voluntariado,3,in,no,none,Volunteer
+T-007,quero ser voluntario,voluntariado,3,in,no,none,Volunteer signup
+T-008,como ajudar,voluntariado,2,in,no,none,Help generic
+T-009,como doar,voluntariado,1,in,no,missing_keyword,No donation keyword yet
+T-010,como fazer pedido de lai,auditoria-dados,1,in,no,missing_route,LAI dedicated route needed
+T-011,prazo da lai,auditoria-dados,1,in,no,missing_route,LAI deadline
+T-012,e-sic como funciona,auditoria-dados,1,in,no,missing_route,e-SIC usage
+T-013,o que e lei de acesso a informacao,auditoria-dados,1,in,no,missing_route,LAI law itself
+T-014,como recorrer negativa lai,auditoria-dados,1,in,no,missing_route,LAI appeal
+T-015,custo do pedido lai,auditoria-dados,1,in,no,missing_route,LAI cost
+T-016,o que e transparencia publica,fontes,2,in,no,missing_keyword,Transparency principles
+T-017,transparencia ativa e passiva,fontes,1,in,no,missing_keyword,Active/passive transparency
+T-018,controle social,fontes,1,in,no,missing_keyword,Social control
+T-019,papel da sociedade civil,fontes,1,in,no,missing_keyword,Civil society role
+T-020,onde encontro receita,receita,4,in,no,none,Site nav receita
+T-021,como baixar os dados,fontes,4,in,no,none,Data download
+T-022,tem api,fontes,3,in,no,none,API
+T-023,onde encontro despesa,executivo,3,in,no,none,Site nav despesa
+T-024,onde fica camara,camara,4,in,no,none,Site nav camara
+T-025,o que significa em coleta,fontes,1,in,no,missing_keyword,Status meaning
+T-026,o que significa lacuna,fontes,1,in,no,missing_keyword,Status meaning
+T-027,github do projeto,tecnologia-site,3,in,no,none,GitHub URL
+T-028,codigo fonte,tecnologia-site,3,in,no,none,Source code
+T-029,como fazer fork,tecnologia-site,1,in,no,missing_keyword,Fork instruction
+T-030,abrir issue github,tecnologia-site,1,in,no,missing_keyword,Issue opening
+T-031,como sugerir pull request,tecnologia-site,1,in,no,missing_keyword,Pull request
+T-032,licenca do codigo,tecnologia-site,1,in,no,missing_keyword,License
+T-033,como auditar o codigo,tecnologia-site,1,in,no,missing_keyword,Code audit
+T-034,linguagem do site,tecnologia-site,3,in,no,none,Stack
+T-035,quanto ganha o prefeito,fiscal,3,in,no,none,Mayor salary (already covered)
+T-036,quem ganhou eleicao,OFF_SCOPE,0,off,yes,off_scope_political,Political election
+T-037,o prefeito atual e quem,OFF_SCOPE,0,off,yes,off_scope_political,Political identity
+T-038,corrupcao em sorocaba,auditoria-dados,2,in,no,none,Audit hint
+T-039,como denunciar,auditoria-dados,2,in,no,none,Whistleblowing
+T-040,a ong e qual partido,OFF_SCOPE,0,off,yes,off_scope_political,Partisan question

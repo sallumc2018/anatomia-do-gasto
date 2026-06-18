@@ -1,0 +1,49 @@
+{
+  "arquivo": "emendas_cepa_por_parlamentar_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/emendas/saida/emendas_cepa_por_parlamentar_sorocaba.csv",
+  "tamanho_bytes": 2850,
+  "linhas_dados": 49,
+  "colunas": [
+    "nome_parlamentar",
+    "qtd_emendas",
+    "valor",
+    "empenhado",
+    "liquidado",
+    "pago"
+  ],
+  "tipos": {
+    "nome_parlamentar": "string",
+    "qtd_emendas": "integer",
+    "valor": "float/numeric",
+    "empenhado": "float/numeric",
+    "liquidado": "float/numeric",
+    "pago": "float/numeric"
+  },
+  "amostra": [
+    {
+      "nome_parlamentar": "Cristiano Anunciação dos Passos",
+      "qtd_emendas": "145",
+      "valor": "11551364.7",
+      "empenhado": "4205556.97",
+      "liquidado": "3019008.26",
+      "pago": "2999008.26"
+    },
+    {
+      "nome_parlamentar": "Cícero João da Silva",
+      "qtd_emendas": "111",
+      "valor": "11494945.26",
+      "empenhado": "4277855.98",
+      "liquidado": "2443936.02",
+      "pago": "2443936.02"
+    },
+    {
+      "nome_parlamentar": "Fernanda Schlic Garcia",
+      "qtd_emendas": "176",
+      "valor": "11485125.26",
+      "empenhado": "3821463.26",
+      "liquidado": "843605.95",
+      "pago": "843605.95"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.894306"
+}

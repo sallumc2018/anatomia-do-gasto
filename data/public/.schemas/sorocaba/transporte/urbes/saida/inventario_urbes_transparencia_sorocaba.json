@@ -1,0 +1,74 @@
+{
+  "arquivo": "inventario_urbes_transparencia_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/urbes/saida/inventario_urbes_transparencia_sorocaba.csv",
+  "tamanho_bytes": 63828,
+  "linhas_dados": 171,
+  "colunas": [
+    "coletado_em",
+    "categoria",
+    "subcategoria",
+    "ano",
+    "periodo",
+    "titulo",
+    "url_pagina",
+    "url_arquivo",
+    "arquivo_raw",
+    "tamanho_bytes",
+    "status_download"
+  ],
+  "tipos": {
+    "coletado_em": "date/datetime",
+    "categoria": "string",
+    "subcategoria": "string",
+    "ano": "integer",
+    "periodo": "string",
+    "titulo": "string",
+    "url_pagina": "string",
+    "url_arquivo": "string",
+    "arquivo_raw": "string",
+    "tamanho_bytes": "integer",
+    "status_download": "string"
+  },
+  "amostra": [
+    {
+      "coletado_em": "2026-05-23T14:39:31",
+      "categoria": "orcamento",
+      "subcategoria": "balancete_patrimonial",
+      "ano": "2026",
+      "periodo": "2026-01",
+      "titulo": "Balancete Janeiro/2026",
+      "url_pagina": "https://www.urbes.com.br/transparencia/informacoes-orcamentarias",
+      "url_arquivo": "https://www.urbes.com.br/uploads/Balanco_Patrimonial_Janeiro_2026.pdf",
+      "arquivo_raw": "data/raw/sorocaba/transporte/urbes/transparencia/orcamento/balancete_patrimonial/balancete_patrimonial_2026-01_balanco_patrimonial_janeiro_2026.pdf",
+      "tamanho_bytes": "8165",
+      "status_download": "baixado"
+    },
+    {
+      "coletado_em": "2026-05-23T14:39:31",
+      "categoria": "orcamento",
+      "subcategoria": "balancete_patrimonial",
+      "ano": "2026",
+      "periodo": "2026-02",
+      "titulo": "Balancete Fevereiro/2026",
+      "url_pagina": "https://www.urbes.com.br/transparencia/informacoes-orcamentarias",
+      "url_arquivo": "https://www.urbes.com.br/uploads/Balanco_Patrimonial_Fevereiro_2026.pdf",
+      "arquivo_raw": "data/raw/sorocaba/transporte/urbes/transparencia/orcamento/balancete_patrimonial/balancete_patrimonial_2026-02_balanco_patrimonial_fevereiro_2026.pdf",
+      "tamanho_bytes": "8192",
+      "status_download": "baixado"
+    },
+    {
+      "coletado_em": "2026-05-23T14:39:31",
+      "categoria": "orcamento",
+      "subcategoria": "balancete_patrimonial",
+      "ano": "2026",
+      "periodo": "2026-03",
+      "titulo": "Balancete Março/2026",
+      "url_pagina": "https://www.urbes.com.br/transparencia/informacoes-orcamentarias",
+      "url_arquivo": "https://www.urbes.com.br/uploads/Balanco_Patrimonial_Março_2026.pdf",
+      "arquivo_raw": "data/raw/sorocaba/transporte/urbes/transparencia/orcamento/balancete_patrimonial/balancete_patrimonial_2026-03_balanco_patrimonial_marco_2026.pdf",
+      "tamanho_bytes": "8186",
+      "status_download": "baixado"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.956394"
+}

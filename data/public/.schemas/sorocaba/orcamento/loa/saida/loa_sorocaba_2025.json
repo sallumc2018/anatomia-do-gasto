@@ -1,0 +1,74 @@
+{
+  "arquivo": "loa_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/orcamento/loa/saida/loa_sorocaba_2025.csv",
+  "tamanho_bytes": 2632,
+  "linhas_dados": 30,
+  "colunas": [
+    "ano",
+    "municipio",
+    "tipo",
+    "codigo",
+    "especificacao",
+    "fiscal",
+    "seguridade",
+    "total",
+    "lei_numero",
+    "data_lei",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "tipo": "string",
+    "codigo": "empty",
+    "especificacao": "string",
+    "fiscal": "float/numeric",
+    "seguridade": "float/numeric",
+    "total": "float/numeric",
+    "lei_numero": "float/numeric",
+    "data_lei": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "municipio": "sorocaba",
+      "tipo": "resumo",
+      "codigo": "",
+      "especificacao": "Total LOA",
+      "fiscal": "4854309576.6",
+      "seguridade": "804867934.7",
+      "total": "5659177511.3",
+      "lei_numero": "13.106",
+      "data_lei": "27 DE DEZEMBRO DE 2024",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2025",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "1 - ADMINISTRACAO DIRETA CAMARA MUNICIPAL R$",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "96370000.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    },
+    {
+      "ano": "2025",
+      "municipio": "sorocaba",
+      "tipo": "orgao",
+      "codigo": "",
+      "especificacao": "SECR.DE RELACOES INST.E METROPOLITANAS R$",
+      "fiscal": "",
+      "seguridade": "",
+      "total": "2397187.0",
+      "lei_numero": "",
+      "data_lei": "",
+      "fonte": "LAI Sorocaba"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.934676"
+}

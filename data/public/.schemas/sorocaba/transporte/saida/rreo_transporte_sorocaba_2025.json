@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sorocaba_2025.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/saida/rreo_transporte_sorocaba_2025.csv",
+  "tamanho_bytes": 427,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "510.621.736,00",
+      "Dotacao_Atualizada": "633.024.394,75",
+      "Empenhado": "629.658.296,16",
+      "Intra_Empenhado": "953.077,34",
+      "Liquidado": "629.173.383,62",
+      "Intra_Liquidado": "953.077,34",
+      "Pct_Orcamento": "12,0314",
+      "Total_Municipal_Empenhado": "5.233.443.347,92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3552205"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.945397"
+}

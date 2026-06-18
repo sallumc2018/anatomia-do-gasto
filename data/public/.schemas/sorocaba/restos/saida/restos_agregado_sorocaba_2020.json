@@ -1,0 +1,79 @@
+{
+  "arquivo": "restos_agregado_sorocaba_2020.csv",
+  "caminho_relativo": "data/public/sorocaba/restos/saida/restos_agregado_sorocaba_2020.csv",
+  "tamanho_bytes": 36370,
+  "linhas_dados": 239,
+  "colunas": [
+    "ano",
+    "ano_restos",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "ano_restos": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "ano_restos": "2019",
+      "fornecedor_codigo": "32336",
+      "fornecedor_nome": "FUND.DE SEG.SOCIAL DE SOROCABA (ESTAT.NOVOS)",
+      "classificacao_inicial": "fundo_publico",
+      "movimentos": "27",
+      "credito_num": "0.0",
+      "debito_num": "5403803.72",
+      "saldo_final_num": "0.0",
+      "primeira_data": "03/01/2020",
+      "ultima_data": "03/01/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2020.pdf"
+    },
+    {
+      "ano": "2020",
+      "ano_restos": "2019",
+      "fornecedor_codigo": "00562",
+      "fornecedor_nome": "IRMANDADE SANTA CASA DE MISERICORDIA SOROCABA",
+      "classificacao_inicial": "entidade_sem_fins_lucrativos",
+      "movimentos": "2",
+      "credito_num": "0.0",
+      "debito_num": "3442280.06",
+      "saldo_final_num": "2812079.87",
+      "primeira_data": "17/01/2020",
+      "ultima_data": "17/01/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2020.pdf"
+    },
+    {
+      "ano": "2020",
+      "ano_restos": "2019",
+      "fornecedor_codigo": "01107",
+      "fornecedor_nome": "GRUPO PESQUISA/ASSIST.CANCER INFANTIL",
+      "classificacao_inicial": "a_classificar",
+      "movimentos": "10",
+      "credito_num": "0.0",
+      "debito_num": "3159706.0799999996",
+      "saldo_final_num": "1168752.8",
+      "primeira_data": "03/01/2020",
+      "ultima_data": "24/01/2020",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_restos_2020.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.030816"
+}

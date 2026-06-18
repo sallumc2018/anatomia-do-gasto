@@ -1,0 +1,64 @@
+{
+  "arquivo": "subvencoes_osc_sorocaba.csv",
+  "caminho_relativo": "data/public/sorocaba/transferencias/saida/subvencoes_osc_sorocaba.csv",
+  "tamanho_bytes": 1558417,
+  "linhas_dados": 10981,
+  "colunas": [
+    "ano",
+    "data",
+    "natureza_despesa",
+    "programa_trabalho",
+    "nota_empenho",
+    "fornecedor_nome",
+    "especificacao",
+    "empenhado_no_dia_num",
+    "empenhado_ate_data_num"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "data": "date/datetime",
+    "natureza_despesa": "string",
+    "programa_trabalho": "string",
+    "nota_empenho": "integer",
+    "fornecedor_nome": "string",
+    "especificacao": "string",
+    "empenhado_no_dia_num": "float/numeric",
+    "empenhado_ate_data_num": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "data": "01/10/2020",
+      "natureza_despesa": "3.3.50.43.00",
+      "programa_trabalho": "08.244.4004-2.178",
+      "nota_empenho": "13300",
+      "fornecedor_nome": "ASSOCIACAO BETHEL CASAS LARES",
+      "especificacao": "VAGAS EXCEDENTES-ACOL.CCA/ADOLESCENTE-AG",
+      "empenhado_no_dia_num": "10452.0",
+      "empenhado_ate_data_num": "2982395.35"
+    },
+    {
+      "ano": "2020",
+      "data": "01/10/2020",
+      "natureza_despesa": "3.3.50.43.00",
+      "programa_trabalho": "08.244.4004-2.178",
+      "nota_empenho": "13301",
+      "fornecedor_nome": "CASA NOSSA SENHORA DAS GRACAS",
+      "especificacao": "VAGAS EXCEDENTES-ACOL.CCA/ADOLESCENTE- C",
+      "empenhado_no_dia_num": "294.0",
+      "empenhado_ate_data_num": "2982689.35"
+    },
+    {
+      "ano": "2020",
+      "data": "01/10/2020",
+      "natureza_despesa": "3.3.50.43.00",
+      "programa_trabalho": "08.244.4004-2.178",
+      "nota_empenho": "13303",
+      "fornecedor_nome": "CASA NOSSA SENHORA DAS GRACAS",
+      "especificacao": "VAGAS EXCED. ACOL.CCA/ADOLESC. C.N.S.GRA",
+      "empenhado_no_dia_num": "5517.0",
+      "empenhado_ate_data_num": "2994206.35"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.067201"
+}

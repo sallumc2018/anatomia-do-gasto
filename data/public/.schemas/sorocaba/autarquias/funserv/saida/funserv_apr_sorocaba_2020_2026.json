@@ -1,0 +1,49 @@
+{
+  "arquivo": "funserv_apr_sorocaba_2020_2026.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/funserv/saida/funserv_apr_sorocaba_2020_2026.csv",
+  "tamanho_bytes": 6804,
+  "linhas_dados": 71,
+  "colunas": [
+    "ano",
+    "mes",
+    "tipo_operacao",
+    "valor_brl",
+    "data_apr",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "tipo_operacao": "string",
+    "valor_brl": "string",
+    "data_apr": "date/datetime",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "mes": "01",
+      "tipo_operacao": "Aplicação",
+      "valor_brl": "263.000,00",
+      "data_apr": "02/01/2020",
+      "fonte": "FUNSERV portal - APR autorização aplicação/resgate"
+    },
+    {
+      "ano": "2020",
+      "mes": "02",
+      "tipo_operacao": "Resgate",
+      "valor_brl": "2.000,00",
+      "data_apr": "03/02/2020",
+      "fonte": "FUNSERV portal - APR autorização aplicação/resgate"
+    },
+    {
+      "ano": "2020",
+      "mes": "03",
+      "tipo_operacao": "Resgate",
+      "valor_brl": "30.000,00",
+      "data_apr": "02/03/2020",
+      "fonte": "FUNSERV portal - APR autorização aplicação/resgate"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.758483"
+}

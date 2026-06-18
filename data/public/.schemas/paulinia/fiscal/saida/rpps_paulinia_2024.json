@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/fiscal/saida/rpps_paulinia_2024.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Contribuicoes_Segurados": "85754413.79",
+      "Contribuicoes_Patronal": "81671784.79",
+      "Total_Receitas_RPPS": "375782592.97",
+      "Aposentadorias": "247781871.51",
+      "Total_Despesas_RPPS": "262664717.53",
+      "Resultado_RPPS": "113117875.44",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3536505&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.659557"
+}

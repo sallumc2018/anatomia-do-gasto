@@ -1,0 +1,25 @@
+#!/bin/sh
+# commit-msg hook — two checks:
+# 1. Conventional commit format (commitlint)
+# 2. Mandatory [CLI > Model > Effort] signature
+
+npx --no -- commitlint --edit "$1"
+
+# Validate signature — must appear at the end of the commit message
+# Pattern: [Any CLI > Any Model > Low|Medium|High|xHigh|Extended]
+SIGNATURE_PATTERN='\[[A-Za-z0-9 ._-]+ > [A-Za-z0-9 ._-]+ > (Low|Medium|High|xHigh|Extended)\]'
+
+if ! grep -qE "$SIGNATURE_PATTERN" "$1"; then
+  echo ""
+  echo "❌  Commit rejeitado: assinatura obrigatória ausente."
+  echo ""
+  echo "    Adicione ao final da mensagem:"
+  echo "      [Claude Code > claude-sonnet-4-6 > Medium]"
+  echo "      [Codex > GPT-5.5 > High]"
+  echo "      [Antigravity > Gemini 3.5 Flash > Low]"
+  echo ""
+  echo "    Formato: [CLI > Modelo > Esforço]"
+  echo "    Esforços aceitos: Low, Medium, High, xHigh, Extended"
+  echo ""
+  exit 1
+fi

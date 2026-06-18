@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_pagamentos_paulinia_2025.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_pagamentos_paulinia_2025.csv",
+  "tamanho_bytes": 201149,
+  "linhas_dados": 1409,
+  "colunas": [
+    "data_pagamento",
+    "nro_empenho",
+    "tipo_empenho",
+    "nome_fornecedor",
+    "cnpj",
+    "valor_pago",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_pagamento": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "nome_fornecedor": "string",
+    "cnpj": "string",
+    "valor_pago": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_pagamento": "24/10/2025 00:00",
+      "nro_empenho": "621",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "cnpj": "45.751.435/0001-06  ",
+      "valor_pago": "157.875,44",
+      "ano": "2025",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "14/01/2025 00:00",
+      "nro_empenho": "69",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "INSTITUTO NACIONAL DO SEGURO SOCIAL.",
+      "cnpj": "29.979.036/0001-40  ",
+      "valor_pago": "128,36",
+      "ano": "2025",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "08/10/2025 00:00",
+      "nro_empenho": "599",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "INSTITUTO DE PREVIDENCIA DOS FUNCIONARIOS PUBLICOS",
+      "cnpj": "04.882.772/0001-55  ",
+      "valor_pago": "2.827,89",
+      "ano": "2025",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.553576"
+}

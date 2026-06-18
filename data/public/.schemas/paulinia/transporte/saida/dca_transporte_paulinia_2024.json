@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_paulinia_2024.csv",
+  "caminho_relativo": "data/public/paulinia/transporte/saida/dca_transporte_paulinia_2024.csv",
+  "tamanho_bytes": 275,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Empenhado": "164.327.998,19",
+      "Liquidado": "153.788.075,92",
+      "Pago": "152.421.536,13",
+      "RP_Nao_Processado": "10.539.922,27",
+      "RP_Processado": "1.366.539,79",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2024&no_anexo=DCA-Anexo%20I-E&id_ente=3536505"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.560698"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "transferencias_para_paulinia_2022.csv",
+  "caminho_relativo": "data/public/paulinia/transferencias/saida/transferencias_para_paulinia_2022.csv",
+  "tamanho_bytes": 4553,
+  "linhas_dados": 19,
+  "colunas": [
+    "ano",
+    "municipio",
+    "fonte",
+    "categoria",
+    "orgao_remetente",
+    "descricao",
+    "valor_bruto",
+    "moeda"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "fonte": "string",
+    "categoria": "string",
+    "orgao_remetente": "string",
+    "descricao": "string",
+    "valor_bruto": "float/numeric",
+    "moeda": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "municipio": "paulinia",
+      "fonte": "Portal_Transparencia_Federal",
+      "categoria": "Desporto e lazer",
+      "orgao_remetente": "Ministério do Esporte",
+      "descricao": "Realizacao do Evento Ciclismo Paulinia para Todos, no Municipio de Paulinia/SP",
+      "valor_bruto": "149999.84",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2022",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Estruturação da Rede de Serviços Públicos de Saúde (INVESTIMENTO) — ATENÇÃO PRIMÁRIA: ESTRUTURAÇÃO DA REDE DE SERVIÇOS DE ATENÇÃO PRIMÁRIA DE SAÚDE",
+      "valor_bruto": "150000.0",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2022",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Manutenção das Ações e Serviços Públicos de Saúde (CUSTEIO) — ASSISTÊNCIA FARMACÊUTICA: CV19 - CORONAVIRUS (COVID-19)",
+      "valor_bruto": "66917.04",
+      "moeda": "BRL"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.592495"
+}

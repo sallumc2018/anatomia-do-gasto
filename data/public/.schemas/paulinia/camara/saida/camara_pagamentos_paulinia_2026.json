@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_pagamentos_paulinia_2026.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_pagamentos_paulinia_2026.csv",
+  "tamanho_bytes": 97411,
+  "linhas_dados": 680,
+  "colunas": [
+    "data_pagamento",
+    "nro_empenho",
+    "tipo_empenho",
+    "nome_fornecedor",
+    "cnpj",
+    "valor_pago",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_pagamento": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "nome_fornecedor": "string",
+    "cnpj": "string",
+    "valor_pago": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_pagamento": "28/04/2026 00:00",
+      "nro_empenho": "240",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "ASSOCIACAO DOS SERVIDORES MUNICIPAIS DE PAULINIA.",
+      "cnpj": "52.354.560/0001-48  ",
+      "valor_pago": "0,00",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "11/05/2026 00:00",
+      "nro_empenho": "289",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "cnpj": "45.751.435/0001-06  ",
+      "valor_pago": "0,00",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_pagamento": "07/04/2026 00:00",
+      "nro_empenho": "222",
+      "tipo_empenho": "Empenho",
+      "nome_fornecedor": "MUNICIPIO DE PAULINIA",
+      "cnpj": "45.751.435/0001-06  ",
+      "valor_pago": "792,00",
+      "ano": "2026",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.501647"
+}

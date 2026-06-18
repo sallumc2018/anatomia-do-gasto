@@ -1,0 +1,64 @@
+{
+  "arquivo": "saae_despesas_tce_2026.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/saae_despesas_tce_2026.csv",
+  "tamanho_bytes": 633408,
+  "linhas_dados": 3709,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "29-2026",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 12059278000113",
+      "nm_fornecedor": "HABIATAR COMERCIO E SERV DE MANUT LTDA EPP",
+      "dt_emissao_despesa": "02/01/2026",
+      "vl_despesa": "5475,47"
+    },
+    {
+      "ano": "2026",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "45-2026",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 57429045000101",
+      "nm_fornecedor": "LABOR SOLUCOES EM ENGENHARIA LTDA - EPP",
+      "dt_emissao_despesa": "02/01/2026",
+      "vl_despesa": "138298,00"
+    },
+    {
+      "ano": "2026",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "139-2026",
+      "id_fornecedor": "PESSOA FÍSICA - 946018",
+      "nm_fornecedor": "ORLANDO NUNES PAIFER",
+      "dt_emissao_despesa": "02/01/2026",
+      "vl_despesa": "32400,00"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.396336"
+}

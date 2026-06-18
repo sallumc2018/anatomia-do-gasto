@@ -1,0 +1,34 @@
+name: Sugestao de melhoria
+description: Proponha melhoria de produto, visualizacao, documentacao ou processo.
+title: "melhoria: "
+labels:
+  - melhoria
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema ou oportunidade
+      description: Que dificuldade cidada, tecnica ou metodologica esta proposta resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Descreva a melhoria desejada e o comportamento esperado.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Escopo sugerido
+      description: Informe rotas, arquivos, municipio, area ou dados afetados, se souber.
+    validations:
+      required: false
+  - type: textarea
+    id: validation
+    attributes:
+      label: Como validar
+      description: Quais testes, revisoes ou evidencias indicariam que a melhoria esta pronta?
+    validations:
+      required: false

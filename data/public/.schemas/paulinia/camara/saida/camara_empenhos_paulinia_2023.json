@@ -1,0 +1,69 @@
+{
+  "arquivo": "camara_empenhos_paulinia_2023.csv",
+  "caminho_relativo": "data/public/paulinia/camara/saida/camara_empenhos_paulinia_2023.csv",
+  "tamanho_bytes": 199052,
+  "linhas_dados": 1371,
+  "colunas": [
+    "data_empenho",
+    "nro_empenho",
+    "tipo_empenho",
+    "cnpj",
+    "nome_fornecedor",
+    "valor_empenhado",
+    "ano",
+    "municipio",
+    "entidade",
+    "fonte"
+  ],
+  "tipos": {
+    "data_empenho": "string",
+    "nro_empenho": "integer",
+    "tipo_empenho": "string",
+    "cnpj": "string",
+    "nome_fornecedor": "string",
+    "valor_empenhado": "string",
+    "ano": "integer",
+    "municipio": "string",
+    "entidade": "string",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "data_empenho": "24/02/2023 00:00",
+      "nro_empenho": "233",
+      "tipo_empenho": "Empenho",
+      "cnpj": "52.354.560/0001-48  ",
+      "nome_fornecedor": "ASSOCIACAO DOS SERVIDORES MUNICIPAIS DE PAULINIA.",
+      "valor_empenhado": "3.023,80",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_empenho": "26/04/2023 00:00",
+      "nro_empenho": "442",
+      "tipo_empenho": "Empenho",
+      "cnpj": "46.124.624/0001-11  ",
+      "nome_fornecedor": "UNIMED CAMPINAS - COOPERATIVA DE TRABALHO MEDICO",
+      "valor_empenhado": "30.086,62",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    },
+    {
+      "data_empenho": "13/12/2023 00:00",
+      "nro_empenho": "557",
+      "tipo_empenho": "Empenho",
+      "cnpj": "45.751.427/0001-60  ",
+      "nome_fornecedor": "CAMARA MUNICIPAL DE PAULINIA",
+      "valor_empenhado": "3.960,00",
+      "ano": "2023",
+      "municipio": "paulinia",
+      "entidade": "camara",
+      "fonte": "SMARAPD Câmara de Paulínia"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.497230"
+}

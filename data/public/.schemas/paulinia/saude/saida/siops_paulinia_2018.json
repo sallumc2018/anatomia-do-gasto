@@ -1,0 +1,42 @@
+{
+  "arquivo": "siops_paulinia_2018.csv",
+  "caminho_relativo": "data/public/paulinia/saude/saida/siops_paulinia_2018.csv",
+  "tamanho_bytes": 164,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "receita_impostos",
+    "despesa_saude_total",
+    "despesa_asps",
+    "percentual_asps",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "receita_impostos": "empty",
+    "despesa_saude_total": "empty",
+    "despesa_asps": "empty",
+    "percentual_asps": "empty",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2018",
+      "municipio": "paulinia",
+      "ibge6": "353650",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.892200"
+}

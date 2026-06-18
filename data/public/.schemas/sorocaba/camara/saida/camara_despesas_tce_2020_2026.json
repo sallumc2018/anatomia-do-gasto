@@ -1,0 +1,64 @@
+{
+  "arquivo": "camara_despesas_tce_2020_2026.csv",
+  "caminho_relativo": "data/public/sorocaba/camara/saida/camara_despesas_tce_2020_2026.csv",
+  "tamanho_bytes": 3880419,
+  "linhas_dados": 25782,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "CÂMARA MUNICIPAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "107-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 23921349000161",
+      "nm_fornecedor": "VISUAL SISTEMAS ELETRONICOS LTDA",
+      "dt_emissao_despesa": "20/01/2020",
+      "vl_despesa": "40592,53"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "CÂMARA MUNICIPAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "129-2020",
+      "id_fornecedor": "INSCRIÇÃO GENÉRICA-OUTROS - 00007",
+      "nm_fornecedor": "FOLHA DE PAGAMENTO 003 - COMISSIONADOS S/V",
+      "dt_emissao_despesa": "20/01/2020",
+      "vl_despesa": "300000,00"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "CÂMARA MUNICIPAL DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "150-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 11385969000144",
+      "nm_fornecedor": "PRIORI SERVICOS E SOLUCOES, CONTAB. EIRELI ME",
+      "dt_emissao_despesa": "20/01/2020",
+      "vl_despesa": "47000,00"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.906168"
+}

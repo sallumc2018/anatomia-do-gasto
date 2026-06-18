@@ -1,0 +1,79 @@
+{
+  "arquivo": "rreo_despesas_saude_sorocaba_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/saude/saida/rreo_despesas_saude_sorocaba_2022.csv",
+  "tamanho_bytes": 4104,
+  "linhas_dados": 24,
+  "colunas": [
+    "﻿Funcao",
+    "ASPS_Empenhada",
+    "ASPS_Liquidada",
+    "ASPS_Paga",
+    "SUS_Empenhada",
+    "SUS_Liquidada",
+    "SUS_Paga",
+    "Total_Empenhada",
+    "Total_Liquidada",
+    "Total_Paga",
+    "Quadrimestre",
+    "Fonte_PDF"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "ASPS_Empenhada": "float/numeric",
+    "ASPS_Liquidada": "float/numeric",
+    "ASPS_Paga": "float/numeric",
+    "SUS_Empenhada": "float/numeric",
+    "SUS_Liquidada": "float/numeric",
+    "SUS_Paga": "float/numeric",
+    "Total_Empenhada": "float/numeric",
+    "Total_Liquidada": "float/numeric",
+    "Total_Paga": "float/numeric",
+    "Quadrimestre": "integer",
+    "Fonte_PDF": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "atencao basica",
+      "ASPS_Empenhada": "148240366,69",
+      "ASPS_Liquidada": "58657136,28",
+      "ASPS_Paga": "52199510,88",
+      "SUS_Empenhada": "26931113,82",
+      "SUS_Liquidada": "14043857,03",
+      "SUS_Paga": "13901574,75",
+      "Total_Empenhada": "175171480,51",
+      "Total_Liquidada": "72700993,31",
+      "Total_Paga": "66101085,63",
+      "Quadrimestre": "1",
+      "Fonte_PDF": "rreo_2022_2bimestre.pdf"
+    },
+    {
+      "﻿Funcao": "assistencia hospitalar e ambulatorial",
+      "ASPS_Empenhada": "233972543,55",
+      "ASPS_Liquidada": "103951289,50",
+      "ASPS_Paga": "101950641,36",
+      "SUS_Empenhada": "133803171,41",
+      "SUS_Liquidada": "58196470,81",
+      "SUS_Paga": "56480831,47",
+      "Total_Empenhada": "367775714,96",
+      "Total_Liquidada": "162147760,31",
+      "Total_Paga": "158431472,83",
+      "Quadrimestre": "1",
+      "Fonte_PDF": "rreo_2022_2bimestre.pdf"
+    },
+    {
+      "﻿Funcao": "suporte profilatico e terapeutico",
+      "ASPS_Empenhada": "4878969,78",
+      "ASPS_Liquidada": "623452,46",
+      "ASPS_Paga": "595791,46",
+      "SUS_Empenhada": "6105327,19",
+      "SUS_Liquidada": "1525560,51",
+      "SUS_Paga": "1509990,51",
+      "Total_Empenhada": "10984296,97",
+      "Total_Liquidada": "2149012,97",
+      "Total_Paga": "2105781,97",
+      "Quadrimestre": "1",
+      "Fonte_PDF": "rreo_2022_2bimestre.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.861707"
+}

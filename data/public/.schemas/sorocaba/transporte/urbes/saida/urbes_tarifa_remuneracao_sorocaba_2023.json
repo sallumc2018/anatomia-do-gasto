@@ -1,0 +1,79 @@
+{
+  "arquivo": "urbes_tarifa_remuneracao_sorocaba_2023.csv",
+  "caminho_relativo": "data/public/sorocaba/transporte/urbes/saida/urbes_tarifa_remuneracao_sorocaba_2023.csv",
+  "tamanho_bytes": 3198,
+  "linhas_dados": 13,
+  "colunas": [
+    "municipio",
+    "orgao",
+    "ano_base",
+    "lote",
+    "empresa_operadora",
+    "tarifa_tecnica_quilometrica_rs",
+    "componente",
+    "valor_por_km_rs",
+    "percentual",
+    "tipo_custo",
+    "fonte",
+    "arquivo_origem"
+  ],
+  "tipos": {
+    "municipio": "string",
+    "orgao": "string",
+    "ano_base": "integer",
+    "lote": "string",
+    "empresa_operadora": "string",
+    "tarifa_tecnica_quilometrica_rs": "float/numeric",
+    "componente": "string",
+    "valor_por_km_rs": "float/numeric",
+    "percentual": "float/numeric",
+    "tipo_custo": "string",
+    "fonte": "string",
+    "arquivo_origem": "string"
+  },
+  "amostra": [
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano_base": "2023",
+      "lote": "LOTE01",
+      "empresa_operadora": "CONSOR",
+      "tarifa_tecnica_quilometrica_rs": "13.892",
+      "componente": "Mão de Obra e Benefícios",
+      "valor_por_km_rs": "7.92",
+      "percentual": "57",
+      "tipo_custo": "Custo Fixo",
+      "fonte": "https://www.urbes.com.br/transparencia/remuneracao-transporte-publico",
+      "arquivo_origem": "remuneracao_transporte_publico_2023_planilha_transporte_publico.pdf"
+    },
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano_base": "2023",
+      "lote": "LOTE01",
+      "empresa_operadora": "CONSOR",
+      "tarifa_tecnica_quilometrica_rs": "13.892",
+      "componente": "Capital Imobilizado em Veículos",
+      "valor_por_km_rs": "2.78",
+      "percentual": "20",
+      "tipo_custo": "Custo Fixo",
+      "fonte": "https://www.urbes.com.br/transparencia/remuneracao-transporte-publico",
+      "arquivo_origem": "remuneracao_transporte_publico_2023_planilha_transporte_publico.pdf"
+    },
+    {
+      "municipio": "sorocaba",
+      "orgao": "Urbes",
+      "ano_base": "2023",
+      "lote": "LOTE01",
+      "empresa_operadora": "CONSOR",
+      "tarifa_tecnica_quilometrica_rs": "13.892",
+      "componente": "Custos Administrativos Operacionais e Peças",
+      "valor_por_km_rs": "0.28",
+      "percentual": "2",
+      "tipo_custo": "Custo Fixo",
+      "fonte": "https://www.urbes.com.br/transparencia/remuneracao-transporte-publico",
+      "arquivo_origem": "remuneracao_transporte_publico_2023_planilha_transporte_publico.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.958481"
+}

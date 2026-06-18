@@ -1,0 +1,64 @@
+{
+  "arquivo": "saae_despesas_tce_2020.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/saae_despesas_tce_2020.csv",
+  "tamanho_bytes": 1772587,
+  "linhas_dados": 10494,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "106-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 15180650000133",
+      "nm_fornecedor": "MELHOR FORMA CONSTRUTORA LTDA",
+      "dt_emissao_despesa": "02/01/2020",
+      "vl_despesa": "56551,61"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "26-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 11294959000101",
+      "nm_fornecedor": "AMBIQUIM INDUSTRIA QUIMICA LTDA - EPP",
+      "dt_emissao_despesa": "02/01/2020",
+      "vl_despesa": "1720006,67"
+    },
+    {
+      "ano": "2020",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "109-2020",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 71445555000195",
+      "nm_fornecedor": "AUTO ONIBUS SAO JOAO LTDA",
+      "dt_emissao_despesa": "02/01/2020",
+      "vl_despesa": "90000,00"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.593701"
+}

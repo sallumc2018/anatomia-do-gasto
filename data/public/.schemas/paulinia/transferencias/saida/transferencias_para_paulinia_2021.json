@@ -1,0 +1,59 @@
+{
+  "arquivo": "transferencias_para_paulinia_2021.csv",
+  "caminho_relativo": "data/public/paulinia/transferencias/saida/transferencias_para_paulinia_2021.csv",
+  "tamanho_bytes": 5224,
+  "linhas_dados": 22,
+  "colunas": [
+    "ano",
+    "municipio",
+    "fonte",
+    "categoria",
+    "orgao_remetente",
+    "descricao",
+    "valor_bruto",
+    "moeda"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "fonte": "string",
+    "categoria": "string",
+    "orgao_remetente": "string",
+    "descricao": "string",
+    "valor_bruto": "float/numeric",
+    "moeda": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "municipio": "paulinia",
+      "fonte": "Portal_Transparencia_Federal",
+      "categoria": "Sem informação",
+      "orgao_remetente": "Ministério da Agricultura e Pecuária",
+      "descricao": "Aquisicao de maquina e implementos agricolas",
+      "valor_bruto": "0.0",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2021",
+      "municipio": "paulinia",
+      "fonte": "Portal_Transparencia_Federal",
+      "categoria": "Desporto e lazer",
+      "orgao_remetente": "Ministério do Esporte",
+      "descricao": "Implementao do Projeto Escola de Bicicross Educao e Cidadania, no Municpio de Paulnia/SP.",
+      "valor_bruto": "200000.0",
+      "moeda": "BRL"
+    },
+    {
+      "ano": "2021",
+      "municipio": "paulinia",
+      "fonte": "FNS_FAF",
+      "categoria": "saude",
+      "orgao_remetente": "Fundo Nacional de Saúde",
+      "descricao": "Estruturação da Rede de Serviços Públicos de Saúde (INVESTIMENTO) — ATENÇÃO BÁSICA: ESTRUTURAÇÃO DA REDE DE SERVIÇOS DE ATENÇÃO BÁSICA DE SAÚDE",
+      "valor_bruto": "60000.0",
+      "moeda": "BRL"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:10.609670"
+}

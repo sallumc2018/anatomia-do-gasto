@@ -1,0 +1,74 @@
+{
+  "arquivo": "fornecedores_agregado_sorocaba_2022.csv",
+  "caminho_relativo": "data/public/sorocaba/fornecedores/saida/fornecedores_agregado_sorocaba_2022.csv",
+  "tamanho_bytes": 620441,
+  "linhas_dados": 4337,
+  "colunas": [
+    "ano",
+    "fornecedor_codigo",
+    "fornecedor_nome",
+    "classificacao_inicial",
+    "movimentos",
+    "credito_num",
+    "debito_num",
+    "saldo_final_num",
+    "primeira_data",
+    "ultima_data",
+    "fonte_arquivo"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "fornecedor_codigo": "integer",
+    "fornecedor_nome": "string",
+    "classificacao_inicial": "string",
+    "movimentos": "integer",
+    "credito_num": "float/numeric",
+    "debito_num": "float/numeric",
+    "saldo_final_num": "float/numeric",
+    "primeira_data": "date/datetime",
+    "ultima_data": "date/datetime",
+    "fonte_arquivo": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "fornecedor_codigo": "17682",
+      "fornecedor_nome": "PREFEITURA MUNICIPAL DE SOROCABA",
+      "classificacao_inicial": "movimentacao_interna",
+      "movimentos": "12422",
+      "credito_num": "162780461.16",
+      "debito_num": "554449738.0500032",
+      "saldo_final_num": "0.0",
+      "primeira_data": "01/06/2022",
+      "ultima_data": "31/10/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2022.pdf"
+    },
+    {
+      "ano": "2022",
+      "fornecedor_codigo": "00001",
+      "fornecedor_nome": "FOLHA DE PAGAMENTO - PESSOAL",
+      "classificacao_inicial": "folha",
+      "movimentos": "4664",
+      "credito_num": "53272919.859999865",
+      "debito_num": "255839034.42000085",
+      "saldo_final_num": "6308507.32",
+      "primeira_data": "01/04/2022",
+      "ultima_data": "31/03/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2022.pdf"
+    },
+    {
+      "ano": "2022",
+      "fornecedor_codigo": "53252",
+      "fornecedor_nome": "CITY TRANSPORTES URBANO GLOBAL LTDA",
+      "classificacao_inicial": "empresa_privada",
+      "movimentos": "649",
+      "credito_num": "1940218.87",
+      "debito_num": "124017550.26000005",
+      "saldo_final_num": "172208.26",
+      "primeira_data": "01/02/2022",
+      "ultima_data": "31/10/2022",
+      "fonte_arquivo": "livro_conta_corrente_fornecedor_2022.pdf"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.329056"
+}

@@ -1,0 +1,64 @@
+{
+  "arquivo": "saae_despesas_tce_2024.csv",
+  "caminho_relativo": "data/public/sorocaba/autarquias/saida/saae_despesas_tce_2024.csv",
+  "tamanho_bytes": 2409437,
+  "linhas_dados": 14164,
+  "colunas": [
+    "ano",
+    "mes",
+    "orgao",
+    "evento",
+    "nr_empenho",
+    "id_fornecedor",
+    "nm_fornecedor",
+    "dt_emissao_despesa",
+    "vl_despesa"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "mes": "integer",
+    "orgao": "string",
+    "evento": "string",
+    "nr_empenho": "string",
+    "id_fornecedor": "string",
+    "nm_fornecedor": "string",
+    "dt_emissao_despesa": "date/datetime",
+    "vl_despesa": "float/numeric"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "304-2024",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 24738369000164",
+      "nm_fornecedor": "BM REDONDO TRANSPORTES EIRELI EPP",
+      "dt_emissao_despesa": "20/01/2024",
+      "vl_despesa": "274560,00"
+    },
+    {
+      "ano": "2024",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "65-2024",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 04965146000122",
+      "nm_fornecedor": "ROCHAFORTE TRANSPORTES E SERVICOS EIRELI",
+      "dt_emissao_despesa": "02/01/2024",
+      "vl_despesa": "5077686,28"
+    },
+    {
+      "ano": "2024",
+      "mes": "01",
+      "orgao": "SERVIÇO AUTÔNOMO DE ÁGUA E ESGOTO DE SOROCABA",
+      "evento": "Empenhado",
+      "nr_empenho": "68-2024",
+      "id_fornecedor": "CNPJ - PESSOA JURÍDICA - 09019609000187",
+      "nm_fornecedor": "CROSSTEC ASSESSORIA E CONSULTORIA LTDA",
+      "dt_emissao_despesa": "02/01/2024",
+      "vl_despesa": "13725,67"
+    }
+  ],
+  "analisado_em": "2026-06-13T10:42:11.633588"
+}

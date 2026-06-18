@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Memory Source",
+  "type": "object",
+  "required": ["id", "path", "type", "visibility", "authority", "allowed_agents", "status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_\\-]+$" },
+    "path": { "type": "string" },
+    "type": { "type": "string", "enum": ["instruction", "doc", "manifest", "handoff", "decision", "agent-run", "catalog"] },
+    "visibility": { "type": "string", "enum": ["public", "local-safe"] },
+    "authority": { "type": "string", "enum": ["canonical", "reference", "historical", "deprecated"] },
+    "allowed_agents": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "index": { "type": "boolean" },
+    "ttl_days": { "type": ["integer", "null"], "minimum": 1 },
+    "status": { "type": "string", "enum": ["active", "resolved", "superseded", "expired"] },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}
