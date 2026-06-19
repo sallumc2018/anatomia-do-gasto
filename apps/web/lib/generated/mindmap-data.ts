@@ -40,14 +40,14 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 158 trilhas publicadas em 32 areas. A interface resume cobertura sem usar camadas internas.",
+    "detail": "Mapa cidadão gerado a partir de 159 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
     "value": "2002-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 158,
+    "sourceCount": 159,
     "policy": {
-      "publicavel": 98,
+      "publicavel": 99,
       "publicavelComCautela": 52,
       "naoDestacarNaUi": 8
     }
