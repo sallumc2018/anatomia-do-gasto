@@ -10,7 +10,7 @@
 | # | Achado | Severidade | Estado |
 |---|--------|-----------|--------|
 | SEC-1 | CPF de pessoas físicas exposto em CSVs públicos | **CRÍTICO** (LGPD) | **RESOLVIDO ✅ (2026-06-18)** — repositório recriado limpo; 0 CPF, 0 `refs/pull/*`. Histórico completo em arquivo privado. |
-| SEC-4a | Dependências dev vulneráveis (`@babel/core`, `js-yaml`) | Baixo / Moderado | Proposto (não aplicado) |
+| SEC-4a | Dependências dev vulneráveis (`@babel/core`, `js-yaml`) | Baixo / Moderado | **RESOLVIDO ✅ (2026-06-19)** — `npm audit fix`; 0 vulns; commit `999ed03`. |
 | SEC-4b | CSP com `'unsafe-inline'` em script-src | Baixo | Aceito (padrão Next.js) |
 | SEC-2 | Path traversal em `/api/dados` | — | Sem vulnerabilidade ✓ |
 | SEC-3 | Segredos no histórico git | — | Nenhum ✓ |
@@ -79,7 +79,7 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 
 **Headers HTTP (completos, em produção):** CSP restritiva (`default-src 'self'`, `object-src 'none'`, `frame-ancestors 'none'`), HSTS `max-age=63072000; preload`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`. `NEXT_PUBLIC_` sem segredos.
 
-**Dependências:** produção **0 vulnerabilidades**. Dev (build-time, não runtime): `@babel/core <=7.29.0` (baixo, arbitrary file read via sourceMappingURL) e `js-yaml <=4.1.1` (moderado, DoS quadrático). Fix = `npm audit fix` — **decisão do usuário** (política Mini Shai-Hulud proíbe instalação automática).
+**Dependências:** produção **0 vulnerabilidades**. Dev: `@babel/core` e `js-yaml` — **resolvido ✅ (2026-06-19)** via `npm audit fix` (commit `999ed03`); 19 pacotes atualizados, apenas `package-lock.json` alterado.
 
 **CSP `'unsafe-inline'`** em script-src/style-src: fraqueza menor, padrão de projetos Next.js; aceito.
 
@@ -108,7 +108,7 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 ## Ações recomendadas ao usuário
 
 1. ~~**Eliminar refs/pull/* com CPF**~~ → **RESOLVIDO ✅** — repositório recriado limpo em 2026-06-18; 0 refs/pull/* no repo público atual.
-2. **`npm audit fix`** em `apps/web` para as 2 vulns dev (quando conveniente).
+2. ~~**`npm audit fix`** em `apps/web` para as 2 vulns dev~~ → **RESOLVIDO ✅ (2026-06-19)** — commit `999ed03`.
 3. **Avaliar** se nomes de beneficiários de auxílio moradia (Sorocaba) devem permanecer — o CPF foi mascarado, mas a jurisprudência é mais restritiva para beneficiários de programas sociais (orientação jurídica).
 4. **Manter** o gate anti-CPF: toda publicação em `data/public` deve passar por `sanear_cpf_publicos.py` (agora cobre CSV + JSON).
 5. ~~**GitHub OAuth token (gh CLI)**: rotação recomendada (P1)~~ → **ENCERRADO ✅ (2026-06-19)** — token `gho_` verificado: escopos corretos (`admin:public_key, gist, read:org, repo, workflow`), armazenado no keyring do sistema, 0 ocorrências hardcoded no repositório (SEC-3). Rotação opcional por política; nenhuma exposição detectada.
