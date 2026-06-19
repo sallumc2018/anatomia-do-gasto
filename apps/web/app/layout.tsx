@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import TheoFloatingButton from "@/components/layout/theo-floating-button"
 import { globalStructuredData } from "@/lib/structured-data"
 import "./globals.css"
@@ -103,6 +104,7 @@ export default function RootLayout({
         {children}
         <TheoFloatingButton />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
