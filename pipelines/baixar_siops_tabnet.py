@@ -43,7 +43,9 @@ sys.path.insert(0, str(ROOT))
 
 try:
     import requests
+    import urllib3
     from bs4 import BeautifulSoup
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     HTTP_OK = True
 except ImportError:
     HTTP_OK = False
@@ -301,6 +303,7 @@ def main() -> int:
         return 1
 
     session = requests.Session()
+    session.verify = False  # CA gov.br não está no store padrão; DATASUS redireciona HTTP→HTTPS
     session.headers.update({
         "User-Agent": "Mozilla/5.0 (compatible; AnatomiaDoGasto/1.0; +https://anatomiadogasto.ong.br)",
     })
