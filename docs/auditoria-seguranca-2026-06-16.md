@@ -111,5 +111,5 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 2. **`npm audit fix`** em `apps/web` para as 2 vulns dev (quando conveniente).
 3. **Avaliar** se nomes de beneficiários de auxílio moradia (Sorocaba) devem permanecer — o CPF foi mascarado, mas a jurisprudência é mais restritiva para beneficiários de programas sociais (orientação jurídica).
 4. **Manter** o gate anti-CPF: toda publicação em `data/public` deve passar por `sanear_cpf_publicos.py` (agora cobre CSV + JSON).
-5. **GitHub PAT**: rotação pendente (P1 identificado em 2026-06-17) — fazer quando conveniente.
-6. **Google API key**: verificar restrição no Google Cloud Console (P2).
+5. **GitHub OAuth token (gh CLI)**: rotação recomendada (P1) — rodar `gh auth refresh --reset-scopes -s repo,read:org,admin:public_key,gist,workflow` no terminal. Revoga token atual e emite novo via browser.
+6. ~~**Google API key**: verificar restrição~~ → **Não se aplica** — projeto não usa chaves Google; `@vercel/analytics` é first-party (sem chave); Google Fonts via Next.js não requer chave.
