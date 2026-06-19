@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+
+export const metadata: Metadata = {
+  title: "Política de neutralidade",
+  description:
+    "Política de neutralidade do Anatomia do Gasto: como mantemos independência editorial e tratamos os dados públicos sem viés partidário.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/politica-de-neutralidade" },
+}
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,

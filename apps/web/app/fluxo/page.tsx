@@ -132,7 +132,7 @@ export default function FluxoPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-01)]">
       <ShellHeader />
-      <main className="flex-1">
+      <main id="conteudo" className="flex-1">
         <section className="border-b border-[var(--border-01)] bg-[var(--bg-elevated)]">
           <div className="mx-auto max-w-7xl px-6 py-8">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">

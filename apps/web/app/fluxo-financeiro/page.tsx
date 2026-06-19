@@ -156,7 +156,7 @@ export default function FluxoFinanceiroPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-01)]">
       <ShellHeader />
-      <main className="flex-1">
+      <main id="conteudo" className="flex-1">
 
         {/* ── Cabeçalho ──────────────────────────────────────────────────── */}
         <section className="border-b border-[var(--border-01)] bg-[var(--bg-elevated)]">

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -90,6 +91,13 @@ function taxaColor(taxa: number | null): string {
   if (taxa >= 85) return "var(--green-60, #16a34a)"
   if (taxa < 70)  return "var(--red-60, #dc2626)"
   return "var(--yellow-60, #b45309)"
+}
+
+export const metadata: Metadata = {
+  title: "Transporte em Sorocaba — série histórica",
+  description:
+    "Série histórica das despesas em transporte de Sorocaba: evolução anual de dotação, empenho, liquidação e pagamento. Fonte: RREO e Relatórios de Aplicação da LRF — Prefeitura de Sorocaba/SP.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/transporte/comparativo" },
 }
 
 export default function TransporteComparativoPage() {

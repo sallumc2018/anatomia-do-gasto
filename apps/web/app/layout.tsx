@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/react"
 import TheoFloatingButton from "@/components/layout/theo-floating-button"
 import { globalStructuredData } from "@/lib/structured-data"
@@ -69,6 +69,15 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+}
+
+// Tema padrão é "carbon" (escuro) — a barra do navegador mobile acompanha o fundo.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#161616" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
+  colorScheme: "dark light",
 }
 
 export default function RootLayout({

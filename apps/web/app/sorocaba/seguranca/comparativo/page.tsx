@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -78,6 +79,13 @@ function fmtPct(v: number, digits = 1): string {
 function delta(curr: number, prev: number): number {
   if (!prev) return 0
   return ((curr - prev) / prev) * 100
+}
+
+export const metadata: Metadata = {
+  title: "Segurança em Sorocaba — série histórica",
+  description:
+    "Série histórica das despesas em segurança pública de Sorocaba: evolução anual de dotação, empenho, liquidação e pagamento. Fonte: RREO e Relatórios de Aplicação da LRF — Prefeitura de Sorocaba/SP.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/seguranca/comparativo" },
 }
 
 export default function ComparativoSegurancaPage() {

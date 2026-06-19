@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+
+export const metadata: Metadata = {
+  title: "Termos de uso",
+  description:
+    "Termos de uso do Anatomia do Gasto: condições de uso dos dados públicos, isenções de responsabilidade e licenciamento do conteúdo.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/termos" },
+}
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,

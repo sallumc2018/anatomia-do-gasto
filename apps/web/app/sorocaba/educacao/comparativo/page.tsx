@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -64,6 +65,13 @@ const FUNCOES = [
   { key: "ensino fundamental", label: "Ensino fundamental" },
   { key: "educacao infantil",  label: "Educação infantil" },
 ] as const
+
+export const metadata: Metadata = {
+  title: "Educação em Sorocaba — série histórica",
+  description:
+    "Série histórica das despesas em educação de Sorocaba: evolução anual de dotação, empenho, liquidação e pagamento. Fonte: RREO e Relatórios de Aplicação da LRF — Prefeitura de Sorocaba/SP.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/educacao/comparativo" },
+}
 
 export default function ComparativoEducacaoPage() {
   const years = getAvailableYears(AREA).reverse() // crescente: 2020, 2021…

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
@@ -101,6 +102,13 @@ const EXPLICACOES_FUNCOES = [
     texto: "Monitoramento de doenças, investigação de surtos, notificação obrigatória de casos e ações para controlar epidemias e endemias.",
   },
 ]
+
+export const metadata: Metadata = {
+  title: "Saúde em Sorocaba — série histórica",
+  description:
+    "Série histórica das despesas em saúde de Sorocaba: evolução anual de dotação, empenho, liquidação e pagamento. Fonte: RREO e Relatórios de Aplicação da LRF — Prefeitura de Sorocaba/SP.",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sorocaba/saude/comparativo" },
+}
 
 export default function ComparativoSaudePage() {
   const years = getAvailableYears(AREA).reverse() // crescente: 2020, 2021…
