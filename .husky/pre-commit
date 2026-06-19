@@ -63,7 +63,24 @@ if [ -n "$SOFT_HITS" ]; then
   echo ""
 fi
 
-# ── Layer 3.5: CPF scan em data/public (LGPD) ───────────────────────────────
+# ── Layer 3.5: QA coverage gate ─────────────────────────────────────────────
+# Bloqueia commit de CSVs em data/public/ sem entrada correspondente em qa.csv.
+# Garante rastreabilidade de toda publicação de dados.
+if echo "$STAGED_FILES" | grep -qE '^data/public/.*\.csv$'; then
+  if command -v python3 >/dev/null 2>&1; then
+    python3 pipelines/verificar_qa_coverage.py --quiet
+    if [ $? -ne 0 ]; then
+      echo ""
+      echo "❌  Commit rejeitado: CSV(s) em data/public/ sem entrada em qa.csv."
+      echo "    Execute: python3 pipelines/verificar_qa_coverage.py"
+      echo "    Depois:  python3 pipelines/gerar_qa_manifest.py --municipio <nome>"
+      echo ""
+      exit 1
+    fi
+  fi
+fi
+
+# ── Layer 3.6: CPF scan em data/public (LGPD) ───────────────────────────────
 # Bloqueia regressão de CPF de pessoa física nos arquivos públicos (CSV e JSON).
 # Pipelines leem de data/raw|extracted (com CPF completo); a publicação DEVE
 # passar pelo saneador. Ver pipelines/sanear_cpf_publicos.py e relatório SEC-1.
@@ -72,6 +89,7 @@ if echo "$STAGED_FILES" | grep -qE '^data/public/.*\.(csv|json)$'; then
     python3 pipelines/sanear_cpf_publicos.py --gate
   fi
 fi
+
 
 # ── Layer 4: README auto sections check ─────────────────────────────────────
 # Ensures README files are up to date before committing

@@ -96,6 +96,8 @@ const nextConfig: NextConfig = {
       "../../data/public/auditoria/**/*",
       "../../data/public/linked/**/*",
     ],
+    "/paulinia/saude":                      ["../../data/public/paulinia/saude/saida/**/*", "../../data/public/paulinia/fns/saida/**/*"],
+    "/paulinia/camara":                     ["../../data/public/paulinia/camara/saida/**/*"],
     "/paulinia/transferencias":             ["../../data/public/paulinia/transferencias_estaduais/saida/**/*", "../../data/public/paulinia/transferencias_federais/saida/**/*"],
     "/sao-paulo/transferencias":            ["../../data/public/sao_paulo/transferencias_estaduais/saida/**/*"],
     "/sao-paulo":                           ["../../data/public/sao_paulo/executivo/saida/**/*"],

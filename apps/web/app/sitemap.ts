@@ -61,6 +61,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/paulinia/seguranca",              mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/transferencias",         mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/transporte",             mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
+    { route: "/paulinia/saude",                  mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
+    { route: "/paulinia/camara",                 mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/sao-paulo",                       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.85 },
     { route: "/sao-paulo/receita",               mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/sao-paulo/executivo",             mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },

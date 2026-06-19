@@ -73,6 +73,16 @@ const MAIS_AREAS = [
     href: "/paulinia/saude-fiscal",
   },
   {
+    titulo: "Saúde — ASPS e FNS",
+    descricao: "Gasto em saúde: cumprimento do mínimo constitucional (SIOPS) e repasses do Fundo Nacional de Saúde.",
+    href: "/paulinia/saude",
+  },
+  {
+    titulo: "Câmara Municipal",
+    descricao: "Execução orçamentária do Legislativo: empenhos, pagamentos e receitas da Câmara (2023–2026).",
+    href: "/paulinia/camara",
+  },
+  {
     titulo: "Transferências",
     descricao: "Repasses federais (FPM, SUS, educação) e estaduais (ICMS, IPVA) recebidos por Paulínia.",
     href: "/paulinia/transferencias",
@@ -99,6 +109,14 @@ const CONSULTAS = [
   {
     pergunta: "Como está a saúde fiscal de Paulínia (LRF)?",
     href: "/paulinia/saude-fiscal",
+  },
+  {
+    pergunta: "Paulínia cumpre o mínimo constitucional de 15% em saúde?",
+    href: "/paulinia/saude",
+  },
+  {
+    pergunta: "Quanto a Câmara Municipal de Paulínia gasta por ano?",
+    href: "/paulinia/camara",
   },
   {
     pergunta: "O que é empenho, liquidação e pagamento?",
