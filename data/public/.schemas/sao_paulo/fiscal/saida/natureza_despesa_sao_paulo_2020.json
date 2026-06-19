@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sao_paulo_2020.csv",
+  "caminho_relativo": "data/public/sao_paulo/fiscal/saida/natureza_despesa_sao_paulo_2020.csv",
+  "tamanho_bytes": 383,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Pessoal": "23320659694.78",
+      "Juros_Encargos": "314610332.71",
+      "Outras_Correntes": "28471396641.45",
+      "Despesas_Correntes": "52106666668.94",
+      "Investimentos": "2940702769.04",
+      "Despesas_Capital": "4487608748.81",
+      "Total_Despesas": "59588462418.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.969339"
+}

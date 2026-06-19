@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sao_paulo_2022.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2022.csv",
+  "tamanho_bytes": 860,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "string",
+    "Restos_Processados": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "805.934.314,38",
+      "Liquidada": "758.179.270,64",
+      "Paga": "756.989.178,36",
+      "Restos_Nao_Processados": "47.755.043,74",
+      "Restos_Processados": "1.190.092,28",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "629.949.798,54",
+      "Liquidada": "629.014.360,61",
+      "Paga": "628.913.548,09",
+      "Restos_Nao_Processados": "935.437,93",
+      "Restos_Processados": "100.812,52",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "111.441.277,56",
+      "Liquidada": "81.091.264,02",
+      "Paga": "80.782.293,45",
+      "Restos_Nao_Processados": "30.350.013,54",
+      "Restos_Processados": "308.970,57",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.995100"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_paulo_2021.csv",
+  "caminho_relativo": "data/public/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2021.csv",
+  "tamanho_bytes": 6228,
+  "linhas_dados": 24,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "2533632148.00",
+      "Dotacao_Atualizada": "2077624955.08",
+      "Empenhado": "1811916210.66",
+      "Liquidado": "1717565355.98",
+      "Exceto_Intra_Liquidado": "1717314420.39",
+      "Intra_Liquidado": "250935.59",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "1422755689.00",
+      "Dotacao_Atualizada": "2110641320.72",
+      "Empenhado": "2011767776.00",
+      "Liquidado": "1898053449.84",
+      "Exceto_Intra_Liquidado": "1898053449.84",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comunicações",
+      "Dotacao_Inicial": "105338837.00",
+      "Dotacao_Atualizada": "205331005.38",
+      "Empenhado": "205184538.56",
+      "Liquidado": "181774823.46",
+      "Exceto_Intra_Liquidado": "181774823.46",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.987427"
+}

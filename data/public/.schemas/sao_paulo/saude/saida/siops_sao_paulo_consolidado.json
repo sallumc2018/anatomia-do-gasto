@@ -1,0 +1,64 @@
+{
+  "arquivo": "siops_sao_paulo_consolidado.csv",
+  "caminho_relativo": "data/public/sao_paulo/saude/saida/siops_sao_paulo_consolidado.csv",
+  "tamanho_bytes": 415,
+  "linhas_dados": 7,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "receita_impostos",
+    "despesa_saude_total",
+    "despesa_asps",
+    "percentual_asps",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "receita_impostos": "empty",
+    "despesa_saude_total": "empty",
+    "despesa_asps": "empty",
+    "percentual_asps": "empty",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "municipio": "sao_paulo",
+      "ibge6": "355030",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    },
+    {
+      "ano": "2021",
+      "municipio": "sao_paulo",
+      "ibge6": "355030",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    },
+    {
+      "ano": "2022",
+      "municipio": "sao_paulo",
+      "ibge6": "355030",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.960322"
+}

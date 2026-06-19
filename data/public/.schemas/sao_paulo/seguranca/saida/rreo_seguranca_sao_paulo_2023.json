@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_paulo_2023.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2023.csv",
+  "tamanho_bytes": 433,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Dotacao_Inicial": "1.057.670.909,00",
+      "Dotacao_Atualizada": "1.180.696.467,60",
+      "Empenhado": "1.162.469.791,80",
+      "Intra_Empenhado": "28.457,62",
+      "Liquidado": "1.064.597.283,67",
+      "Intra_Liquidado": "28.457,62",
+      "Pct_Orcamento": "1,2082",
+      "Total_Municipal_Empenhado": "96.214.432.664,26",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.995441"
+}

@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_sao_paulo_2020.csv",
+  "caminho_relativo": "data/public/sao_paulo/fiscal/saida/rcl_capital_sao_paulo_2020.csv",
+  "tamanho_bytes": 446,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Operacoes_Credito_Internas": "338960960.88",
+      "Operacoes_Credito_Externas": "171235879.29",
+      "Operacoes_Credito_Total": "510196840.17",
+      "Alienacao_Bens": "50295488.01",
+      "Alienacao_Bens_Imoveis": "48403099.59",
+      "Alienacao_Bens_Moveis": "1892388.42",
+      "Outras_Capital": "1417007782.64",
+      "Total_Capital": "1977500110.82",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.966530"
+}

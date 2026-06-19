@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_paulo_2025.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2025.csv",
+  "tamanho_bytes": 436,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "1.680.269.358,00",
+      "Dotacao_Atualizada": "1.817.003.479,66",
+      "Empenhado": "1.780.998.029,87",
+      "Intra_Empenhado": "723.488,44",
+      "Liquidado": "1.664.780.062,33",
+      "Intra_Liquidado": "666.128,44",
+      "Pct_Orcamento": "1,5865",
+      "Total_Municipal_Empenhado": "112.260.294.321,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.996066"
+}

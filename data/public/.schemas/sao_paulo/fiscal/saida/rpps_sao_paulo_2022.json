@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sao_paulo_2022.csv",
+  "caminho_relativo": "data/public/sao_paulo/fiscal/saida/rpps_sao_paulo_2022.csv",
+  "tamanho_bytes": 379,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Contribuicoes_Segurados": "1129729912.95",
+      "Contribuicoes_Patronal": "1043476768.62",
+      "Total_Receitas_RPPS": "2351925899.76",
+      "Aposentadorias": "6543629926.58",
+      "Total_Despesas_RPPS": "7405004875.55",
+      "Resultado_RPPS": "-5053078975.79",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.972112"
+}

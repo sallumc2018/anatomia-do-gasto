@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sao_paulo_2020.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2020.csv",
+  "tamanho_bytes": 857,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "string",
+    "Restos_Processados": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "602.690.751,45",
+      "Liquidada": "576.434.390,52",
+      "Paga": "574.888.648,85",
+      "Restos_Nao_Processados": "26.256.360,93",
+      "Restos_Processados": "1.545.741,67",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2020&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "477.769.021,16",
+      "Liquidada": "477.628.928,81",
+      "Paga": "477.571.403,95",
+      "Restos_Nao_Processados": "140.092,35",
+      "Restos_Processados": "57.524,86",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2020&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "79.970.555,00",
+      "Liquidada": "62.421.668,26",
+      "Paga": "61.571.196,41",
+      "Restos_Nao_Processados": "17.548.886,74",
+      "Restos_Processados": "850.471,85",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2020&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:55.993791"
+}

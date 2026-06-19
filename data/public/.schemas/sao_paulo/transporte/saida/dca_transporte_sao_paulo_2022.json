@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_paulo_2022.csv",
+  "caminho_relativo": "data/public/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2022.csv",
+  "tamanho_bytes": 282,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Empenhado": "8.126.230.919,53",
+      "Liquidado": "7.794.773.989,48",
+      "Pago": "7.784.845.327,72",
+      "RP_Nao_Processado": "331.456.930,05",
+      "RP_Processado": "9.928.661,76",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-E&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:56.002522"
+}

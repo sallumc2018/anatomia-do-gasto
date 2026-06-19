@@ -1,0 +1,54 @@
+{
+  "arquivo": "loa_orcamento_aprovado_paulinia.csv",
+  "caminho_relativo": "data/public/paulinia/orcamento/saida/loa_orcamento_aprovado_paulinia.csv",
+  "tamanho_bytes": 1394,
+  "linhas_dados": 4,
+  "colunas": [
+    "ano_exercicio",
+    "orcamento_total_reais",
+    "valor_por_extenso",
+    "lei_numero",
+    "lei_ano_promulgacao",
+    "fonte_arquivo",
+    "metodologia"
+  ],
+  "tipos": {
+    "ano_exercicio": "integer",
+    "orcamento_total_reais": "float/numeric",
+    "valor_por_extenso": "string",
+    "lei_numero": "float/numeric",
+    "lei_ano_promulgacao": "integer",
+    "fonte_arquivo": "string",
+    "metodologia": "string"
+  },
+  "amostra": [
+    {
+      "ano_exercicio": "2022",
+      "orcamento_total_reais": "1892641000.00",
+      "valor_por_extenso": "Um Bilhão, Oitocentos e Noventa e Dois Milhões, Seiscentos e Quarenta e Um Mil Reais",
+      "lei_numero": "4.010",
+      "lei_ano_promulgacao": "2021",
+      "fonte_arquivo": "ef809ad4-3e2d-4d43-ab0c-59c39b29f1ff_LEI_N%C2%BA_4.010%2C_DE_27_DE_DEZEMBRO_DE_2021.pdf",
+      "metodologia": "receita estimada = despesa fixada (orcamento equilibrado, art. 165 CF / Lei 4.320-1964); valor extraido do texto da lei sancionada"
+    },
+    {
+      "ano_exercicio": "2023",
+      "orcamento_total_reais": "2347618000.00",
+      "valor_por_extenso": "dois bilhões, trezentos e quarenta e sete",
+      "lei_numero": "4188",
+      "lei_ano_promulgacao": "2022",
+      "fonte_arquivo": "48f90330-29d0-4334-a164-030226c620e8_LEI_4188_DE_26_DEZEMBRO_DE_2022.pdf",
+      "metodologia": "receita estimada = despesa fixada (orcamento equilibrado, art. 165 CF / Lei 4.320-1964); valor extraido do texto da lei sancionada"
+    },
+    {
+      "ano_exercicio": "2024",
+      "orcamento_total_reais": "2552112696.00",
+      "valor_por_extenso": "dois bilhões, quinhentos e cinquenta e dois",
+      "lei_numero": "4.402",
+      "lei_ano_promulgacao": "2023",
+      "fonte_arquivo": "bf6cec9e-d432-4728-bde4-d74e3f07686e_LEI_N%C2%BA_4.402%2C_DE_26_DE_DEZEMBRO_DE_2023.pdf",
+      "metodologia": "receita estimada = despesa fixada (orcamento equilibrado, art. 165 CF / Lei 4.320-1964); valor extraido do texto da lei sancionada"
+    }
+  ],
+  "analisado_em": "2026-06-19T08:24:56.345542"
+}
