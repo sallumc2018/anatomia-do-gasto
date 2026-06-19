@@ -9,7 +9,7 @@
 
 | # | Achado | Severidade | Estado |
 |---|--------|-----------|--------|
-| SEC-1 | CPF de pessoas físicas exposto em CSVs públicos | **CRÍTICO** (LGPD) | HEAD + 2 branches saneados ✓ · `main` reescrito e force-pushed ✓ · 13 `refs/pull/*` ainda retêm CPFs (ver camada B) |
+| SEC-1 | CPF de pessoas físicas exposto em CSVs públicos | **CRÍTICO** (LGPD) | **RESOLVIDO ✅ (2026-06-18)** — repositório recriado limpo; 0 CPF, 0 `refs/pull/*`. Histórico completo em arquivo privado. |
 | SEC-4a | Dependências dev vulneráveis (`@babel/core`, `js-yaml`) | Baixo / Moderado | Proposto (não aplicado) |
 | SEC-4b | CSP com `'unsafe-inline'` em script-src | Baixo | Aceito (padrão Next.js) |
 | SEC-2 | Path traversal em `/api/dados` | — | Sem vulnerabilidade ✓ |
@@ -41,13 +41,13 @@ Base legal: LGPD (Lei 13.709/2018); STF Tema 1042 e orientação CGU — o **nom
 Todos mascarados no working tree em 2026-06-18. Saneador estendido para varrer `*.json`
 além de `*.csv`. Gate do pre-commit atualizado correspondentemente.
 
-**Reescrita de histórico (camada B) — iniciada 2026-06-18:**
-Usuário autorizou. Mirror reescrito em `/tmp/rewrite-anatomia` via `git-filter-repo`
-com blob-callback (mesmas 2 regex do saneador). Verificação: **0 CPF** em 3290 blobs
-únicos de todas as branches (main, codex/institutional-audit, claude/tenacity-retry,
-11× dependabot). GitHub tem 13 `refs/pull/*` (apontam commits antigos com CPF); não
-removíveis por push. Decisão do usuário: **recriar repo** (definitivo). Aguarda
-concessão de `delete_repo` scope ou deleção manual pelo painel GitHub.
+**Reescrita de histórico (camada B) — concluída 2026-06-18 ✅:**
+Usuário autorizou. Mirror reescrito via `git-filter-repo` (clone `/tmp/rewrite-anatomia`,
+blob-callback com 2 regex do saneador) → **0 CPF** em 3290 blobs únicos. GitHub retinha
+13 `refs/pull/*` não removíveis por push. Solução definitiva adotada: **repositório recriado
+do zero** — repo antigo arquivado como `anatomia-do-gasto-old` (privado); novo repo público
+iniciado com commit limpo `00d9c04`. Backup local preservado em branch
+`main-full-history-20260618`; arquivo completo em `~/Documents/Omega/02-repos/`.
 
 ---
 
@@ -85,34 +85,31 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 
 ---
 
-## Reescrita de histórico (SEC-1 camada B) — Branch main limpa ✅ · refs/pull/* pendentes ⚠️
+## Reescrita de histórico (SEC-1 camada B) — CONCLUÍDA ✅ (2026-06-18)
 
-**Executado em 2026-06-18** (clone isolado `/tmp/rewrite-anatomia`, verificado):
-- Backup mirror: `~/Documents/Omega/02-repos/.backup-anatomia-pre-rewrite-2d9ead8.git` (HEAD `2d9ead8`)
-- Ferramenta: `git-filter-repo` 2.47.0 com blob-callback Python (2 regex, padrão CGU com backreference nos grupos 2+3)
-- Resultado: 0 CPF em todas as branches (3290 blobs únicos)
-- Conteúdo da `main` reescrita idêntico ao HEAD exceto os 3 arquivos com CPF real acima (corrigidos)
+**Abordagem executada:** repositório recriado do zero (opção mais definitiva).
 
-**Force-push concluído em 2026-06-18:**
-- Branch protection e Ruleset desabilitados temporariamente pelo usuário
-- `git push origin --force refs/heads/main:refs/heads/main` → `4cbb2e04...dc6963fc`
-- Branch protection e Ruleset reativados imediatamente após
-- Verificação local: 0 CPFs no histórico completo (git log --all -p)
-- Repo local sincronizado: `git reset --hard origin/main` → HEAD `dc6963fc`
+**Cronologia:**
+1. `git-filter-repo` reescreveu o histórico em clone isolado → 0 CPF em 3290 blobs únicos
+2. Force-push executado na branch `main` do repo original (`4cbb2e04...dc6963fc`)
+3. Repositório original arquivado como `anatomia-do-gasto-old` (privado no GitHub)
+4. Novo repositório público criado limpo → commit inicial `00d9c04` ("início público limpo")
+5. Ruleset 17863311 aplicado; branch protection reativada
 
-**Estado real:** o GitHub ainda retém `refs/pull/*` (13 PRs dependabot) apontando commits antigos com CPF. Estes NÃO são removíveis por push — são mantidos pelo servidor GitHub. O histórico navegável da `main` (git log, git checkout, clone público) está limpo. Os refs/pull são acessíveis via API ou interface GitHub. **SEC-1 camada B não está totalmente concluída enquanto esses refs existirem.**
-
-Opções para eliminar refs/pull/*:
-1. Solicitação ao GitHub Support para purgar os refs (sem garantia de prazo)
-2. **Recriar o repositório** (decisão prévia do usuário — aguarda execução manual)
-
-Rollback disponível se necessário: `~/Documents/Omega/02-repos/.backup-anatomia-pre-rewrite-2d9ead8.git` (HEAD `2d9ead8`).
+**Estado atual (verificado):**
+- 0 CPF no histórico público (novo repo tem apenas 2 commits: `00d9c04` + `f775d88`)
+- 0 `refs/pull/*` (novo repo não tem histórico de PRs)
+- Conteúdo de trabalho 100% preservado
+- Backup local: branch `main-full-history-20260618`; mirror privado em `~/Documents/Omega/02-repos/`
+- Arquivo LGPD: `~/Documents/Omega/02-repos/ARQUIVO-LGPD-anatomia-README.md`
 
 ---
 
 ## Ações recomendadas ao usuário
 
-1. **Eliminar refs/pull/* com CPF** — reescrita executada (`main` limpa), mas 13 `refs/pull/*` ainda retêm commits antigos. Opções: (a) GitHub Support request, (b) **recriar repo** (decisão prévia do usuário, aguarda execução).
+1. ~~**Eliminar refs/pull/* com CPF**~~ → **RESOLVIDO ✅** — repositório recriado limpo em 2026-06-18; 0 refs/pull/* no repo público atual.
 2. **`npm audit fix`** em `apps/web` para as 2 vulns dev (quando conveniente).
 3. **Avaliar** se nomes de beneficiários de auxílio moradia (Sorocaba) devem permanecer — o CPF foi mascarado, mas a jurisprudência é mais restritiva para beneficiários de programas sociais (orientação jurídica).
 4. **Manter** o gate anti-CPF: toda publicação em `data/public` deve passar por `sanear_cpf_publicos.py` (agora cobre CSV + JSON).
+5. **GitHub PAT**: rotação pendente (P1 identificado em 2026-06-17) — fazer quando conveniente.
+6. **Google API key**: verificar restrição no Google Cloud Console (P2).
