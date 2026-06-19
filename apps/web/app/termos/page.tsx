@@ -48,7 +48,7 @@ const SECOES = [
   {
     titulo: "Dados exibidos no site",
     corpo: "Os dados orçamentários exibidos no site são baseados em documentos oficiais publicados pelo poder público brasileiro.",
-    detalhe: "Sempre que possível, cite a fonte: \"Anatomia do Gasto — https://www.anatomiadogasto.ong.br, com base em dados de [fonte original]\". O reuso deve respeitar a licença do código do projeto e as condições aplicáveis às fontes oficiais de origem.",
+    detalhe: "Os datasets publicados (data/public/) são disponibilizados sob Creative Commons Attribution 4.0 Internacional (CC BY 4.0) — você pode copiar, redistribuir e adaptar para qualquer finalidade, inclusive comercial, desde que atribua a fonte: \"Anatomia do Gasto — https://www.anatomiadogasto.ong.br, com base em dados de [fonte original]\". Os dados de origem permanecem sujeitos às condições das fontes governamentais respectivas.",
   },
   {
     titulo: "Responsabilidade sobre os dados",

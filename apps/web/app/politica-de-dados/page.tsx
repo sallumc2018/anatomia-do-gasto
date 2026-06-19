@@ -90,6 +90,16 @@ const SECOES = [
     ],
   },
   {
+    titulo: "Licença dos dados publicados",
+    corpo: "Os datasets publicados em data/public/ estão disponíveis sob Creative Commons Attribution 4.0 Internacional (CC BY 4.0).",
+    itens: [
+      "Você pode copiar, redistribuir, adaptar e usar os dados para qualquer finalidade, inclusive comercial, desde que atribua a fonte: \"Anatomia do Gasto — anatomiadogasto.ong.br, com base em dados de [fonte original]\"",
+      "Os dados de origem (portais governamentais, SICONFI, SIOPS, FNS etc.) permanecem sujeitos às condições de uso de suas respectivas fontes",
+      "O código-fonte do projeto (site e pipelines) é disponibilizado sob licença MIT",
+      "Licença completa: https://creativecommons.org/licenses/by/4.0/deed.pt_BR",
+    ],
+  },
+  {
     titulo: "Como medimos uso do produto",
     corpo: "O site não exige cadastro e não usa cookies de publicidade, mas registra eventos agregados de navegação para entender se as trilhas principais estão funcionando.",
     itens: [

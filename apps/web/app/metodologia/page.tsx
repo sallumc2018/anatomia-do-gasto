@@ -237,8 +237,8 @@ export default function MetodologiaPage() {
                 },
                 {
                   titulo: "SIOPS — Sistema de Informações sobre Orçamentos Públicos em Saúde",
-                  texto:  "Sistema federal do Ministério da Saúde que consolida os dados declarados pelos municípios. Usado como referência de validação cruzada.",
-                  url:    "gov.br/saude/siops",
+                  texto:  "Sistema federal do Ministério da Saúde. Os dados publicados aqui são extraídos da Fase Previsto (planejamento/declaração municipal), que é a referência oficial de conformidade com o Art. 198 CF / LC 141/2012. A coluna 'Liquidado' dos relatórios públicos exibe zerado por design do sistema — o valor real de execução fica na Fase Previsto até o encerramento do exercício. Fonte: siops-relatorio-api.saude.gov.br (endpoint público sem autenticação).",
+                  url:    "siops-relatorio-api.saude.gov.br",
                   href:   "https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops",
                 },
               ] as const).map((f, i) => (
