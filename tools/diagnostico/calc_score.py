@@ -18,6 +18,7 @@ items = [
   # LACUNAS executivo
   ('executivo','publicado',6,6),  # despesa detalhe
   ('executivo','publicado',5,5),  # LOA pub
+  ('executivo','publicado',11,11), # SIOPS ASPS (Art.198 CF) 2015-2025 via siops-relatorio-api
   # inexistente excluido
   ('executivo','lacuna',6,0),     # receita analítica
   ('executivo','lacuna',6,0),     # pessoal
