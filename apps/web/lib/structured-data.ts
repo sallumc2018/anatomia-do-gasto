@@ -49,6 +49,19 @@ export function datasetSchema(config: {
   return base
 }
 
+export function breadcrumbSchema(items: Array<{ name: string; url?: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(({ name, url }, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      ...(url ? { item: url } : {}),
+    })),
+  }
+}
+
 export function municipioDataCatalogSchema(config: {
   municipioId: string
   name: string

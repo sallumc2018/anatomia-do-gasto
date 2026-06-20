@@ -11,7 +11,7 @@ import {
   type PessoalRow,
   type DividaDetalhadaRow,
 } from "@/lib/data"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_FIS_DATASET = datasetSchema({
   name: "Saúde fiscal (LRF/RGF) — São Paulo 2020–2025",
@@ -43,6 +43,12 @@ const SP_FIS_DATASET = datasetSchema({
   ],
 })
 
+
+const SP_SAUDE_FISCAL_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Saúde fiscal (LRF)" },
+])
 const MUNICIPIO = "sao_paulo"
 
 export const metadata: Metadata = {
@@ -117,6 +123,7 @@ export default function SaoPauloSaudeFiscalPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_FIS_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SAUDE_FISCAL_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

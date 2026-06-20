@@ -40,6 +40,8 @@ export const metadata: Metadata = {
     "portal da transparência",
     "prefeitura de sorocaba",
     "prefeitura de paulínia",
+    "são paulo orçamento",
+    "são bernardo do campo dados públicos",
   ],
   alternates: {
     canonical: "https://www.anatomiadogasto.ong.br",

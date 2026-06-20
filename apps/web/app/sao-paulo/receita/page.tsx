@@ -12,7 +12,7 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_REC_DATASET = datasetSchema({
   name: "Receitas municipais — São Paulo 2020–2025",
@@ -33,6 +33,12 @@ const SP_REC_DATASET = datasetSchema({
 })
 
 
+
+const SP_RECEITA_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Receitas municipais" },
+])
 const MUNICIPIO = "sao_paulo"
 const IBGE = "3550308"
 
@@ -208,6 +214,7 @@ export default async function SaoPauloReceitaPage({
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_REC_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_RECEITA_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

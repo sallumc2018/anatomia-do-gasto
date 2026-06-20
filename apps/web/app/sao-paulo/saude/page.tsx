@@ -6,7 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const FNS_DATASET = datasetSchema({
   name: "Repasses do Fundo Nacional de Saúde (FNS/FAF) ao Município de São Paulo — 2020–2025",
@@ -20,6 +20,12 @@ const FNS_DATASET = datasetSchema({
     (ano) => `${SITE_URL}/api/dados/sao_paulo/fns/saida/fns_repasses_faf_com_populacao_sao_paulo_${ano}.csv`
   ),
 })
+
+const SP_SAUDE_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Repasses federais de saúde (FNS)" },
+])
 
 export const metadata: Metadata = {
   title: "Repasses Federais de Saúde — São Paulo",
@@ -129,6 +135,7 @@ export default function SaoPauloSaudePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FNS_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SAUDE_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const fornecedoresMtime = newestMtime(path.join(DATA_ROOT, "fornecedores", "saida"))
   const datasetsMtime = new Date(Math.max(saudeMtime.getTime(), educacaoMtime.getTime(), segurancaMtime.getTime(), transporteMtime.getTime()))
 
-  const SITE_UPDATED = new Date("2026-05-17")
+  const SITE_UPDATED = new Date("2026-06-20")
   const execucaoMtime     = newestMtime(path.join(DATA_ROOT, "despesa",      "saida"))
   const empenhoMtime      = newestMtime(path.join(DATA_ROOT, "empenho",      "saida"))
 

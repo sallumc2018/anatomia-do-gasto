@@ -6,7 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_TRF_DATASET = datasetSchema({
   name: "Transferências estaduais ao Município de São Paulo 2020–2026",
@@ -27,6 +27,12 @@ const SP_TRF_DATASET = datasetSchema({
   ],
 })
 
+
+const SP_TRANSFERENCIAS_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Transferências estaduais" },
+])
 
 export const metadata: Metadata = {
   title: "Transferências Intergovernamentais — São Paulo",
@@ -148,6 +154,7 @@ export default function SaoPauloTransferenciasPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRF_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRANSFERENCIAS_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
