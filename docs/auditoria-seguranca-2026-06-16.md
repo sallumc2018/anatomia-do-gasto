@@ -113,3 +113,26 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 4. **Manter** o gate anti-CPF: toda publicação em `data/public` deve passar por `sanear_cpf_publicos.py` (agora cobre CSV + JSON).
 5. ~~**GitHub OAuth token (gh CLI)**: rotação recomendada (P1)~~ → **ENCERRADO ✅ (2026-06-19)** — token `gho_` verificado: escopos corretos (`admin:public_key, gist, read:org, repo, workflow`), armazenado no keyring do sistema, 0 ocorrências hardcoded no repositório (SEC-3). Rotação opcional por política; nenhuma exposição detectada.
 6. ~~**Google API key**: verificar restrição~~ → **Não se aplica** — projeto não usa chaves Google; `@vercel/analytics` é first-party (sem chave); Google Fonts via Next.js não requer chave.
+
+---
+
+## Build warnings conhecidos — 2026-06-20
+
+### NFT warning: `/sorocaba/transporte/relatorio/[ano]/page.tsx`
+Turbopack rastreia `data/public/sorocaba` inteiro (13MB) para rotas de relatório de Sorocaba.
+Causa: `lib/data.ts` importado pela rota usa `process.cwd()` sem `/*turbopackIgnore*/`.
+Impacto: nenhum (deploy bem-sucedido; limite 250MB não atingido). Correção futura: adicionar `turbopackIgnore` em `lib/data.ts` e entrada cirúrgica em `outputFileTracingIncludes`.
+
+### Chart warning: `width(-1) height(-1)`
+`SerieHistorica` usa `<ResponsiveContainer width="100%">` — sem DOM no SSG, Recharts reporta dimensões -1.
+Impacto: nenhum para o usuário final (browser resolve o tamanho corretamente).
+Correção futura (opcional): usar `<ResponsiveContainer width="100%" height={260} minWidth={0}>`.
+
+### CKAN SP 2023: 3.369 contratos
+O portal CKAN SP (`dados.prefeitura.sp.gov.br`) disponibiliza apenas 3.369 registros para 2023
+(vs ~12.000-15.000 dos outros anos). O dataset fonte tem preâmbulo de 3 linhas antes do header
+real — diferente dos anos anteriores — o que fazia o pipeline detectar a linha errada como header
+e gerar campos em branco. Bug corrigido em `baixar_ckan_sp_contratos.py` (2026-06-20): detecção
+de header agora exige ao menos 2 keywords em vez de 1 (evita capturar "Contratos da Prefeitura").
+Após a correção, os 3.369 registros têm todos os campos corretamente preenchidos. O volume baixo
+é limitação da fonte — dataset aparentemente incompleto para 2023 no CKAN SP.
