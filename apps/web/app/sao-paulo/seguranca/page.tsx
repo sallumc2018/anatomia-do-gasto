@@ -8,6 +8,32 @@ import {
   type SegurancaOrcamentoRow,
 } from "@/lib/data"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_SEG_DATASET = datasetSchema({
+  name: "Despesas em segurança pública — São Paulo 2020–2025",
+  description: "Execução orçamentária em segurança pública (função 06) do Município de São Paulo: dotação atualizada, liquidado e pago por ano e quadrimestre. Inclui dados RREO e despesas por categoria econômica. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/seguranca`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["segurança pública", "despesas São Paulo", "RREO", "orçamento municipal", "guarda civil", "São Paulo"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2025.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/seguranca/saida/rreo_seguranca_sao_paulo_2025.csv`,
+  ],
+})
+
 
 const MUNICIPIO = "sao_paulo"
 
@@ -84,6 +110,7 @@ export default function SaoPauloSegurancaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SEG_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

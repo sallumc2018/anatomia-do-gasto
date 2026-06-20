@@ -12,6 +12,26 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_EXE_DATASET = datasetSchema({
+  name: "Orçamento total por função — Prefeitura de São Paulo 2020–2025",
+  description: "Despesas totais da Prefeitura de São Paulo por função de governo (RREO Anexo 02/SICONFI): saúde, educação, transporte, habitação, assistência social, administração e demais áreas. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/executivo`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["orçamento São Paulo", "despesas por função", "RREO", "SICONFI", "prefeitura São Paulo", "execução orçamentária"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2025.csv`,
+  ],
+})
+
 
 const MUNICIPIO = "sao_paulo"
 const IBGE = "3550308"
@@ -171,6 +191,7 @@ export default async function SaoPauloExecutivoPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_EXE_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
