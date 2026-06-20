@@ -15,6 +15,37 @@ import {
   type RclDetalhadaRow,
   type RppsRow,
 } from "@/lib/data"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_FIS_DATASET = datasetSchema({
+  name: "Saúde fiscal (LRF/RGF) — Sorocaba 2020–2025",
+  description: "Indicadores de responsabilidade fiscal de Sorocaba: despesa com pessoal, dívida consolidada e RCL. Comparação com os limites da Lei de Responsabilidade Fiscal. Fonte: RGF/SICONFI. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/saude-fiscal`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["LRF", "responsabilidade fiscal", "RGF", "despesa com pessoal", "dívida", "Sorocaba"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2024.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/pessoal_sorocaba_2025.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2024.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/fiscal/saida/divida_detalhada_sorocaba_2025.csv`,
+  ],
+})
+
+const SOR_FIS_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Saúde fiscal (LRF)" },
+])
 
 export const metadata: Metadata = {
   title: "Saúde Fiscal de Sorocaba",
@@ -115,6 +146,8 @@ export default function SaudeFiscalPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_FIS_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_FIS_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

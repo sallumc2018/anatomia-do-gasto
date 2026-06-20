@@ -6,6 +6,30 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const PAU_TRF_DATASET = datasetSchema({
+  name: "Transferências intergovernamentais — Paulínia 2020–2024",
+  description: "Transferências da União e do Estado de São Paulo ao Município de Paulínia: FPM, ICMS, IPVA, FUNDEB, royalties REPLAN. Fonte: SICONFI/TCE-SP. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/transferencias`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["transferências", "FPM", "ICMS", "REPLAN", "royalties", "Paulínia"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transferencias/saida/transferencias_para_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transferencias/saida/transferencias_para_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transferencias/saida/transferencias_para_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transferencias/saida/transferencias_para_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transferencias/saida/transferencias_para_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_TRF_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Transferências" },
+])
 
 export const metadata: Metadata = {
   title: "Transferências Intergovernamentais — Paulínia",
@@ -156,6 +180,8 @@ export default function PauliniaTransferenciasPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRF_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRF_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

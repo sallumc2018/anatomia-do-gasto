@@ -8,8 +8,32 @@ import {
   type TransporteOrcamentoRow,
 } from "@/lib/data"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "sao_bernardo"
+
+const SBC_TRP_DATASET = datasetSchema({
+  name: "Despesas em transporte — São Bernardo do Campo 2020–2024",
+  description: "Execução orçamentária em transporte (função 26) do Município de São Bernardo do Campo. Fonte: RREO/SICONFI. IBGE 3548708.",
+  url: `https://www.anatomiadogasto.ong.br/sao-bernardo/transporte`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "São Bernardo do Campo, SP, Brasil (IBGE 3548708)",
+  keywords: ["transporte", "mobilidade", "São Bernardo do Campo", "ABC Paulista", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2024.csv`,
+  ],
+})
+
+const SBC_TRP_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Bernardo do Campo", url: "https://www.anatomiadogasto.ong.br/sao-bernardo" },
+  { name: "Transporte" },
+])
 
 export const metadata: Metadata = {
   title: "Transporte em São Bernardo do Campo",
@@ -66,6 +90,8 @@ export default function SaoBernardoTransportePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_TRP_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_TRP_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

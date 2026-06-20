@@ -8,10 +8,34 @@ import {
   type SegurancaOrcamentoRow,
 } from "@/lib/data"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 // Paulínia só tem rreo_seguranca_* (sem despesas_seguranca_*).
 // Usamos getAvailableYearsTransporte como proxy — mesmos anos disponíveis.
 const MUNICIPIO = "paulinia"
+
+const PAU_SEG_DATASET = datasetSchema({
+  name: "Despesas em segurança pública — Paulínia 2020–2024",
+  description: "Execução orçamentária em segurança pública (função 06) do Município de Paulínia: dotação, liquidado. Fonte: RREO/SICONFI. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/seguranca`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["segurança pública", "Paulínia", "orçamento", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/seguranca/saida/rreo_seguranca_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/seguranca/saida/rreo_seguranca_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/seguranca/saida/rreo_seguranca_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/seguranca/saida/rreo_seguranca_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/seguranca/saida/rreo_seguranca_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_SEG_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Segurança pública" },
+])
 
 export const metadata: Metadata = {
   title: "Segurança Pública em Paulínia",
@@ -86,6 +110,8 @@ export default function PauliniaSegurancaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_SEG_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_SEG_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

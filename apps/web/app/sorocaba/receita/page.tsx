@@ -11,6 +11,30 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_REC_DATASET = datasetSchema({
+  name: "Receitas municipais — Sorocaba 2020–2024",
+  description: "Receitas do Município de Sorocaba: impostos próprios (IPTU, ISS, ITBI), cota-parte ICMS/IPVA, FPM, FUNDEB e demais transferências. Fonte: RREO Anexo 01/SICONFI. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/receita`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["receita municipal", "IPTU", "ISS", "ICMS", "FPM", "Sorocaba", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/receita/saida/receitas_sorocaba_2024.csv`,
+  ],
+})
+
+const SOR_REC_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Receitas municipais" },
+])
 
 export const metadata: Metadata = {
   title: "Receita Municipal de Sorocaba",
@@ -199,6 +223,8 @@ export default async function ReceitaPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_REC_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_REC_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

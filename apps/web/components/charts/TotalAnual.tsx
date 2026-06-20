@@ -20,7 +20,7 @@ function fmtM(v: number) {
 
 export function TotalAnual({ data }: Props) {
   return (
-    <ResponsiveContainer width="100%" height={220}>
+    <ResponsiveContainer width="100%" height={220} minWidth={0}>
       <LineChart data={data} margin={{ top: 8, right: 24, left: 0, bottom: 0 }}>
         <CartesianGrid vertical={false} stroke="var(--border-01)" />
         <XAxis

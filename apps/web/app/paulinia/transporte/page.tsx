@@ -10,8 +10,32 @@ import {
   loadTransporteDca,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "paulinia"
+
+const PAU_TRP_DATASET = datasetSchema({
+  name: "Despesas em transporte — Paulínia 2020–2024",
+  description: "Execução orçamentária em transporte (função 26) do Município de Paulínia: dotação, liquidado, pago. Fonte: DCA/SICONFI. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/transporte`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["transporte", "mobilidade", "Paulínia", "orçamento", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transporte/saida/dca_transporte_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transporte/saida/dca_transporte_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transporte/saida/dca_transporte_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transporte/saida/dca_transporte_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/transporte/saida/dca_transporte_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_TRP_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Transporte" },
+])
 
 export const metadata: Metadata = {
   title: "Função Transporte em Paulínia",
@@ -70,6 +94,8 @@ export default function PauliniaTransportePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRP_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRP_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

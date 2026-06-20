@@ -14,9 +14,33 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "paulinia"
 const IBGE = "3536505"
+
+const PAU_EXE_DATASET = datasetSchema({
+  name: "Despesas do executivo — Paulínia 2020–2024",
+  description: "Execução orçamentária total do Poder Executivo do Município de Paulínia por função, dotação atualizada, liquidado e pago. Fonte: RREO/SICONFI. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/executivo`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["orçamento municipal", "despesa executivo", "Paulínia", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/executivo/saida/despesas_executivo_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/executivo/saida/despesas_executivo_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/executivo/saida/despesas_executivo_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/executivo/saida/despesas_executivo_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/executivo/saida/despesas_executivo_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_EXE_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Orçamento total (executivo)" },
+])
 
 export async function generateMetadata(): Promise<Metadata> {
   const anos = getAvailableYearsExecutivo(MUNICIPIO)
@@ -221,6 +245,8 @@ export default async function PauliniaExecutivoPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_EXE_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_EXE_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

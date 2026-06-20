@@ -12,6 +12,30 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_EXE_DATASET = datasetSchema({
+  name: "Despesas do executivo — Sorocaba 2020–2024",
+  description: "Execução orçamentária total do Poder Executivo do Município de Sorocaba: todas as funções, subfunções, dotação atualizada, empenhado, liquidado e pago. Fonte: DCA/SICONFI. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/executivo`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["orçamento municipal", "despesa executivo", "Sorocaba", "SICONFI", "DCA"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/despesa/saida/despesa_orcamentaria_sorocaba_2024.csv`,
+  ],
+})
+
+const SOR_EXE_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Orçamento total (executivo)" },
+])
 
 export async function generateMetadata(): Promise<Metadata> {
   const anos = getAvailableYearsExecutivo()
@@ -212,6 +236,8 @@ export default async function ExecutivoPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EXE_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EXE_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

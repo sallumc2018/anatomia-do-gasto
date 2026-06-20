@@ -21,7 +21,7 @@ function fmtTooltip(v: number): string {
 
 export function DonutFuncoes({ data }: Props) {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={300} minWidth={0}>
       <PieChart>
         <Pie
           data={data}

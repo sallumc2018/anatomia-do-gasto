@@ -11,6 +11,30 @@ import {
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_TRP_DATASET = datasetSchema({
+  name: "Despesas em transporte — Sorocaba 2020–2024",
+  description: "Execução orçamentária em transporte (função 26) do Município de Sorocaba: dotação, liquidado, pago. Fonte: DCA/SICONFI. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/transporte`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["transporte", "mobilidade urbana", "Sorocaba", "orçamento", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/transporte/saida/dca_transporte_sorocaba_2024.csv`,
+  ],
+})
+
+const SOR_TRP_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Transporte" },
+])
 
 export const metadata: Metadata = {
   title: "Função Transporte em Sorocaba",
@@ -73,6 +97,8 @@ export default function TransportePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_TRP_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_TRP_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
