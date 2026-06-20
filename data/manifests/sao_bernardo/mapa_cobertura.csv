@@ -1,0 +1,13 @@
+nivel,status_auditavel,orgao,area,tipo_dado,periodo_alvo,pronto_publicar,proximo_passo,pedido_lai,evidencia_local
+1,publicado,Prefeitura SBC,receita,receitas-rreo,2020-2025,sim,monitorar atualizacao anual,nao,data/public/sao_bernardo/receita/saida/
+1,publicado,Prefeitura SBC,fiscal,indicador-pessoal-lrf,2020-2025,sim,monitorar atualizacao anual,nao,data/public/sao_bernardo/fiscal/saida/pessoal_sao_bernardo_*.csv
+1,publicado,Prefeitura SBC,fiscal,indicador-divida-lrf,2020-2025,sim,monitorar atualizacao anual,nao,data/public/sao_bernardo/fiscal/saida/divida_sao_bernardo_*.csv
+1,publicado,Prefeitura SBC,seguranca,orcamento-rreo,2020-2025,sim,monitorar atualizacao anual,nao,data/public/sao_bernardo/seguranca/saida/
+1,publicado,Prefeitura SBC,transporte,orcamento-rreo,2020-2025,sim,monitorar atualizacao anual,nao,data/public/sao_bernardo/transporte/saida/
+1,publicado,Prefeitura SBC,saude,receitas-detalhamento,2023-2025,sim,coletar 2020-2022 via SICONFI,nao,data/public/sao_bernardo/saude/saida/
+2,nao_coletado,Prefeitura SBC,executivo,orcamento-rreo-funcoes,2020-2025,nao,extrair via extrator_executivo.py MUNICIPIO=sao_bernardo,nao,
+2,nao_coletado,Prefeitura SBC,educacao,orcamento-rreo,2020-2025,nao,extrair via extrator_rreo_educacao.py,nao,
+2,nao_coletado,Prefeitura SBC,saude,orcamento-rreo,2020-2025,nao,extrair via extrator_rreo_saude.py,nao,
+2,lai_necessario,Prefeitura SBC,pessoal,remuneracao-servidores,2020-2025,nao,LAI para folha nominal ou totalizadores,sim,
+2,lai_necessario,Prefeitura SBC,contratos,licitacoes-contratos,2020-2021,nao,LAI para pre-PNCP; PNCP cobre 2022+,sim,
+3,nao_coletado,Camara SBC,camara,despesas-camara,2020-2025,nao,verificar portal TCE-SP AUDESP para camara de SBC,nao,

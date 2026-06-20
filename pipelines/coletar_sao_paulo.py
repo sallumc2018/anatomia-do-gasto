@@ -121,8 +121,13 @@ def fase_fazenda_sp():
     rodar("baixar_transferencias_estaduais_sp.py", "Transferencias Estaduais")
 
 
+def fase_ckan():
+    log("\n═══════════ FASE 6: CKAN SP (Contratos históricos) ═══════════")
+    rodar("baixar_ckan_sp_contratos.py", "CKAN Contratos SP 2016-2024")
+
+
 def fase_tce():
-    log("\n═══════════ FASE 6: TCE-SP ═══════════")
+    log("\n═══════════ FASE 7: TCE-SP ═══════════")
     for ano in range(2020, 2026):
         for mes in range(1, 13):
             rodar("baixar_tce_sorocaba.py", f"TCE {ano}/{mes:02d}",
@@ -188,6 +193,7 @@ def main():
     fase_siconfi()
     fase_fns()
     fase_fazenda_sp()
+    fase_ckan()
     fase_tce()
     publicar()
     gdrive_sync()

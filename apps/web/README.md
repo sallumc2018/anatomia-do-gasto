@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 **Cobertura atual:**
 
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
-- **Datasets publicados:** 165
+- **Datasets publicados:** 166
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-06-20
 <!-- AUTO:coverage-end -->

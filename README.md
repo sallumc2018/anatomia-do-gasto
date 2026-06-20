@@ -38,7 +38,7 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 **Cobertura atual:**
 
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
-- **Datasets publicados:** 165
+- **Datasets publicados:** 166
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-06-20
 <!-- AUTO:coverage-end -->
@@ -146,6 +146,8 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
+- ffa370b fix(gates): registrar sao_bernardo em publication_classification + municipios.ts
+- a3205bc feat(sao-bernardo): adicionar São Bernardo do Campo — 5 páginas + 33 CSVs publicados
 - df0b00a docs(lai): rascunhos de 8 pedidos LAI para tier municipal
 - 5831606 data(automatic): atualização agendada dos manifestos e esquemas de dados
 - 7b959a1 feat(paulinia): páginas /saude e /camara + QA 100% nos 3 municípios
@@ -154,6 +156,4 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 - 54e691a fix(sitemap): adicionar /sao-paulo/saude ao sitemap
 - 347ad87 fix(siops): desabilitar verificação SSL para DATASUS Tabnet
 - 5b9c3f4 data(complemento): SIOPS, RREO SUS, fontes execução, PDFs educação, despesas câmara
-- fdf7a71 data(extração): FNS + convênios federais Sorocaba+Paulínia 2020-2025; PNCP Sorocaba 2022-2026
-- 817b173 feat(observability): adicionar SpeedInsights (Core Web Vitals por rota)
 <!-- AUTO:activity-end -->

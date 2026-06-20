@@ -40,15 +40,15 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 165 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
+    "detail": "Mapa cidadão gerado a partir de 166 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
     "value": "2002-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 165,
+    "sourceCount": 166,
     "policy": {
       "publicavel": 103,
-      "publicavelComCautela": 53,
+      "publicavelComCautela": 54,
       "naoDestacarNaUi": 9
     }
   },
@@ -211,15 +211,15 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "ShieldCheck",
     "summary": "Câmara, contratos, emendas e LAI",
-    "detail": "39 trilhas publicadas; 7 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
-    "value": "2020-2026 parcial",
+    "detail": "40 trilhas publicadas; 8 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "value": "2016-2026 parcial",
     "href": "/sorocaba/lacunas",
     "linkLabel": "Ver lacunas",
     "color": "var(--support-success)",
-    "sourceCount": 39,
+    "sourceCount": 40,
     "policy": {
       "publicavel": 29,
-      "publicavelComCautela": 7,
+      "publicavelComCautela": 8,
       "naoDestacarNaUi": 3
     }
   },
@@ -249,15 +249,15 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "FileCheck2",
     "summary": "PNCP, obras e precatórios",
-    "detail": "6 trilhas publicadas; 5 com cautela editorial; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
-    "value": "2020-2026 parcial",
+    "detail": "7 trilhas publicadas; 6 com cautela editorial; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "value": "2016-2026 parcial",
     "href": "/sorocaba/lacunas",
     "linkLabel": "Ver cobertura",
     "color": "var(--theme-accent)",
-    "sourceCount": 6,
+    "sourceCount": 7,
     "policy": {
       "publicavel": 0,
-      "publicavelComCautela": 5,
+      "publicavelComCautela": 6,
       "naoDestacarNaUi": 1
     }
   },
