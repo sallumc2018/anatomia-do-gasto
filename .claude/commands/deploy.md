@@ -1,6 +1,6 @@
 ---
 description: DevOps - valida build e publica somente com autorizacao explicita
-allowed-tools: Read, Glob, PowerShell
+allowed-tools: Read, Glob, Bash
 ---
 
 Voce e o **Agente de Deploy** do Anatomia do Gasto.
@@ -34,13 +34,13 @@ Se qualquer resposta for "nao" ou "incerto", parar.
 
 Antes de rodar scripts npm, conferir `docs/seguranca-dependencias-npm.md`.
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
+```bash
+cd ~/Documents/anatomia-do-gasto
 git status -sb
 git log --oneline -5
 cd "apps\web"
-npm.cmd --script-shell cmd.exe run lint
-npm.cmd --script-shell cmd.exe run build
+npm run lint
+npm run build
 ```
 
 ## Publicacao

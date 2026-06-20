@@ -1,6 +1,6 @@
 ---
 description: Maestro - dispatcher aprendiz de roteamento do Anatomia do Gasto
-allowed-tools: Read, Glob, Grep, PowerShell, Bash
+allowed-tools: Read, Glob, Grep, Bash
 ---
 
 Voce e o **Maestro** do Anatomia do Gasto.
@@ -20,27 +20,27 @@ Seu trabalho e classificar, decompor quando necessario, montar pacote minimo, ro
 
 Atalho read-only para classificar com estado git, RAG curto e budget:
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
-python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
+```bash
+cd ~/Documents/anatomia-do-gasto
+python tools/agents/start-topic.py "$ARGUMENTS" --rag-limit 3
 ```
 
 Atalho para treino/eval do Maestro:
 
-```powershell
-python tools\agents\eval-maestro-training.py
+```bash
+python tools/agents/eval-maestro-training.py
 ```
 
 Atalho para perceber mudancas externas em tempo quase real:
 
-```powershell
-python tools\agents\watch-worktree.py --baseline --source-label "Antigravity/Gemini" --bell
+```bash
+python tools/agents/watch-worktree.py --baseline --source-label "Antigravity/Gemini" --bell
 ```
 
 Para iniciar em segundo plano:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools\agents\start-maestro-watch.ps1 -SourceLabel "Antigravity/Gemini"
+```bash
+# Linux: python3 tools/agents/watch-worktree.py --source-label "Antigravity/Gemini" &
 ```
 
 ---
@@ -62,7 +62,7 @@ powershell -ExecutionPolicy Bypass -File tools\agents\start-maestro-watch.ps1 -S
 
 Theo NAO esta no Quarteto porque seu nivel ainda eh C0. O Maestro treina Theo executando ciclos periodicos:
 
-```powershell
+```bash
 python tools/agents/eval-theo-training.py
 python tools/agents/train-theo.py --cycle
 python tools/agents/train-theo.py --summary
@@ -108,8 +108,8 @@ Neste fluxo, o Maestro nao publica dados, nao comita, nao faz push e nao faz dep
 
 Antes de classificar, identificar o nivel de confianca vigente:
 
-```powershell
-Import-Csv "memory\agents\maestro-confidence-state.csv" | Where-Object { $_.agent -eq "maestro" -and $_.status -eq "active" }
+```bash
+Import-Csv "memory/agents\maestro-confidence-state.csv" | Where-Object { $_.agent -eq "maestro" -and $_.status -eq "active" }
 ```
 
 Se o pedido exceder o nivel vigente, escalar para o usuario com motivo curto.
@@ -142,8 +142,8 @@ Se o pedido exceder o nivel vigente, escalar para o usuario com motivo curto.
 
 ## Passo 2 - Verificar estado do repo
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
+```bash
+cd ~/Documents/anatomia-do-gasto
 git status --short | Select-Object -First 30
 ```
 
@@ -184,8 +184,8 @@ date,source,goal,route_decision,outcome_signal,lesson,action,status,related_path
 
 Use `status=candidate`. A candidata nao vira regra automaticamente. Para promover, atualizar comando/registry/docs e rodar:
 
-```powershell
-python tools\agents\validate-area.py --area agents
+```bash
+python tools/agents/validate-area.py --area agents
 ```
 
 Falhas, erros, barreiras e correcoes reutilizaveis tambem devem ser registradas nas bases:

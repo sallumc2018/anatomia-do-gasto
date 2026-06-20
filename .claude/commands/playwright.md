@@ -60,7 +60,7 @@ Padrao de nomenclatura: `pipelines/baixar_{entidade}_playwright.py`
 
 O script deve ter CLI com argparse (`--documento`, `--ano`, `--apenas-listar`, `--permitir-grandes`) e seguir a mesma estrutura de `pipelines/baixar_fontes_execucao.py`.
 
-Municipio: extrair do argumento (ex: `campinas camara loa 2024`). Default: `sorocaba`.
+Municipio: extrair do argumento (ex: `campinas camara loa 2024`). Default: `sorocaba`. Municípios ativos: sorocaba, paulinia, sao_paulo, sao_bernardo.
 
 Destino dos arquivos:
 - Camara Municipal: `data/raw/<municipio>/camara/{ano}/`
@@ -95,4 +95,4 @@ Referencia Sorocaba (historica):
 - Proximo passo: /pipeline [area] [anos] ou autorizacao para publicar
 ```
 
-Raiz: `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto`
+Raiz: `~/Documents/anatomia-do-gasto`
