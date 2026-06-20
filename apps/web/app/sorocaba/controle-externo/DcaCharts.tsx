@@ -34,7 +34,7 @@ export function DcaCharts({ data }: Props) {
           A queda drástica indica aumento vertiginoso de dívidas e compromissos atuariais.
         </p>
         <div style={{ width: "100%", height: 300 }}>
-          <ResponsiveContainer>
+          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
             <BarChart data={data} margin={{ top: 12, right: 12, left: 0, bottom: 0 }}>
               <CartesianGrid vertical={false} stroke="var(--border-01)" />
               <XAxis
@@ -92,7 +92,7 @@ export function DcaCharts({ data }: Props) {
           Comparação entre os recursos controlados pela prefeitura (Ativo) e as obrigações mais o saldo patrimonial.
         </p>
         <div style={{ width: "100%", height: 300 }}>
-          <ResponsiveContainer>
+          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
             <BarChart data={data} margin={{ top: 12, right: 12, left: 0, bottom: 0 }}>
               <CartesianGrid vertical={false} stroke="var(--border-01)" />
               <XAxis

@@ -251,7 +251,7 @@ export default function FluxoFinanceiroPage() {
 
                 {/* Diagrama */}
                 <div className="px-2 py-4">
-                  <ResponsiveContainer width="100%" height={520}>
+                  <ResponsiveContainer width="100%" height={520} minWidth={0}>
                     <Sankey
                       data={entry.data}
                       node={<FluxoNode />}

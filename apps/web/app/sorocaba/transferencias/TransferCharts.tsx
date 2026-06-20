@@ -216,7 +216,7 @@ export function TransferCharts({ subvencoes, inboundTransfers, availableYears }:
             </p>
             
             <div className="h-[420px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                 <BarChart
                   data={top10OSCs}
                   layout="vertical"
@@ -300,7 +300,7 @@ export function TransferCharts({ subvencoes, inboundTransfers, availableYears }:
             </p>
 
             <div className="h-[400px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                 <LineChart
                   data={inboundTransfers}
                   margin={{ top: 10, right: 30, left: 10, bottom: 10 }}
