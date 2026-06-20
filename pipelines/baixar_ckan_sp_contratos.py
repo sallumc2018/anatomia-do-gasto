@@ -131,11 +131,13 @@ def processar_linhas(rows: list[list[str]], ano: int) -> list[dict]:
     Pula linhas de cabeçalho extra (ex: 'Data de Processamento') e
     mapeia colunas para o schema de saída.
     """
-    # Encontrar linha de header real (contém 'Órgão' ou 'Org')
+    # Encontrar linha de header real — exige múltiplas keywords para não capturar
+    # linhas de preâmbulo como "Contratos da Prefeitura..." (presente no 2023)
     header_idx = None
     for i, row in enumerate(rows):
         joined = ";".join(row).lower()
-        if any(kw in joined for kw in ["forn", "objeto", "valor", "modalidade", "contrato"]):
+        score = sum(1 for kw in ["forn", "objeto", "valor", "modalidade"] if kw in joined)
+        if score >= 2:
             header_idx = i
             break
     if header_idx is None:
@@ -145,15 +147,15 @@ def processar_linhas(rows: list[list[str]], ano: int) -> list[dict]:
 
     # Mapeamento de colunas — variações entre anos
     field_map = {
-        "orgao":      ["órgão", "orgao", "org\xe3o", "secretaria"],
+        "orgao":      ["órgão", "orgao", "org\xe3o", "nome do", "secretaria"],
         "fornecedor": ["fornecedor"],
-        "cnpj":       ["cnpj"],
+        "cnpj":       ["cnpj/cpf", "cnpj"],
         "objeto":     ["objeto"],
-        "valor":      ["valor (r$)", "valor"],
+        "valor":      ["valor (r$)", "valor(r$)", "valor"],
         "modalidade": ["modalidade"],
         "contrato":   ["contrato", "número do contrato"],
         "data_ass":   ["data de assinatura", "assinatura"],
-        "vigencia":   ["vigência(dias)", "vigencia(dias)", "vig\xeancia(dias)", "vigência"],
+        "vigencia":   ["vigência(dias)", "vigencia(dias)", "vig\xeancia(dias)", "vigência (dias", "vigência"],
         "processo":   ["processo administrativo", "processo"],
         "licitacao":  ["licitação", "licita\xe7\xe3o", "licitacao"],
         "evento":     ["evento"],
