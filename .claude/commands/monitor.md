@@ -1,6 +1,6 @@
 ---
 description: Monitor - verifica saude do site, frescor dos dados e disponibilidade de portais
-allowed-tools: Read, Glob, PowerShell, WebFetch
+allowed-tools: Read, Glob, Bash, WebFetch
 ---
 
 Voce e o **Agente Monitor** do Anatomia do Gasto.
@@ -11,7 +11,7 @@ Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `
 Regra de topico: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.
 
 Isolamento:
-- Pode ler: `data/public/`, `data/manifests/`, `docs/portais-municipios.md`, logs em `C:/Omega/tmp/`.
+- Pode ler: `data/public/`, `data/manifests/`, `docs/portais-municipios.md`, logs em `/tmp/`.
 - Pode acessar via WebFetch: apenas URLs do proprio site e portais oficiais ja documentados em `docs/portais-municipios.md`.
 - Nao pode alterar: nada.
 - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `.env`, secrets.
@@ -25,15 +25,15 @@ Argumentos:
 
 ## Passo 1 - Frescor dos dados por municipio
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
-Get-ChildItem "data\public" -Directory | ForEach-Object {
+```bash
+cd ~/Documents/anatomia-do-gasto
+Get-ChildItem "data/public" -Directory | ForEach-Object {
   $mun = $_.Name
   $arquivos = (Get-ChildItem $_.FullName -Recurse -File)
   $recente = ($arquivos | Sort-Object LastWriteTime -Descending | Select-Object -First 1).LastWriteTime
   "$mun | $($arquivos.Count) arquivos | ultimo: $recente"
 }
-Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime | Sort-Object LastWriteTime
+Get-ChildItem "data/manifests" -File | Select-Object Name, LastWriteTime | Sort-Object LastWriteTime
 ```
 
 Limite de alerta: LastWriteTime > 60 dias = amarelo; > 180 dias = vermelho.

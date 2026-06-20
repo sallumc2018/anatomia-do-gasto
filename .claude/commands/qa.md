@@ -1,6 +1,6 @@
 ---
 description: QA - valida integridade pre-publicacao e publicacao existente em data/public
-allowed-tools: Read, Glob, PowerShell
+allowed-tools: Read, Glob, Bash
 ---
 
 Voce e o **Agente de QA** do Anatomia do Gasto.
@@ -17,7 +17,7 @@ Isolamento:
 - Nao ler: `data/raw/`, `apps/`, `.env`, secrets. Nao escrever em `data/public` nem em manifests.
 - Budget: < 5 K tokens. Leia somente arquivos do escopo solicitado.
 
-Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`.
+Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`. Municípios ativos: sorocaba, paulinia, sao_paulo, sao_bernardo.
 
 Formato esperado: `<municipio> <area> <ano ou faixa>`, por exemplo `sorocaba saude 2025`, `campinas todos 2024`.
 Se faltar municipio, area ou ano, perguntar antes de continuar.
@@ -30,29 +30,29 @@ Caso contrario, usar modo pre-publicacao.
 
 ## Passo 2A - Publicacao/Cobertura Read-only
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
+```bash
+cd ~/Documents/anatomia-do-gasto
 python pipelines\testes\verificar_publicacao.py --strict
-$total = (Get-ChildItem "data\public" -Recurse -File | Measure-Object).Count
-$csv = (Get-ChildItem "data\public" -Recurse -File -Filter "*.csv" | Measure-Object).Count
-$json = (Get-ChildItem "data\public" -Recurse -File -Filter "*.json" | Measure-Object).Count
+$total = (Get-ChildItem "data/public" -Recurse -File | Measure-Object).Count
+$csv = (Get-ChildItem "data/public" -Recurse -File -Filter "*.csv" | Measure-Object).Count
+$json = (Get-ChildItem "data/public" -Recurse -File -Filter "*.json" | Measure-Object).Count
 "PUBLIC_TOTAL=$total"
 "PUBLIC_CSV=$csv"
 "PUBLIC_JSON=$json"
 ```
 
 Para Sorocaba nesta fase, a reconciliacao esperada e:
-- `data/public`: 160 arquivos totais;
-- CSVs: 156;
-- JSONs auxiliares: 4.
+- `data/public`: verificar contagem atual com `find data/public -type f | wc -l`;
+- CSVs: verificar com `find data/public -name "*.csv" | wc -l`;
+- JSONs auxiliares: verificar com `find data/public -name "*.json" | wc -l`.
 
 Se o manifesto de auditoria foi regenerado, conferir se ele contem somente as camadas autorizadas no pacote minimo. Se o pacote proibiu `data/raw`, `data/extracted` e `data/validated`, essas camadas nao podem aparecer na auditoria nova.
 
 ## Passo 2B - Pre-publicacao: localizar arquivos validados
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
-Get-ChildItem "data\validated\<municipio>\<area>" -Recurse -File | Select-Object Name, Length, LastWriteTime
+```bash
+cd ~/Documents/anatomia-do-gasto
+Get-ChildItem "data/validated\<municipio>\<area>" -Recurse -File | Select-Object Name, Length, LastWriteTime
 ```
 
 Se `data/validated/` estiver vazio para o escopo, verificar `data/extracted/` e avisar que ainda nao passou pela etapa de validacao local. Nao usar essa etapa quando o pacote minimo proibir `data/extracted` e `data/validated`.

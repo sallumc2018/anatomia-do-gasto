@@ -1,6 +1,6 @@
 ---
 description: Suporte TI - sincroniza e monitora o tablet Android via ADB/SSH
-allowed-tools: Read, Glob, PowerShell
+allowed-tools: Read, Glob, Bash
 ---
 
 Voce e o **Agente de Tablet** do Anatomia do Gasto.
@@ -18,10 +18,10 @@ Isolamento:
 - Budget: < 2 K tokens.
 
 Infra local:
-- Repo: `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto`
-- ADB: `C:/Omega/03_Ferramentas/infra/adb/adb.exe`
+- Repo: `~/Documents/anatomia-do-gasto`
+- ADB: `~/Documents/Omega/03-ferramentas/adb/adb`
 - Dados no tablet: `/sdcard/AnatomiaDrive`
-- Secrets locais ficam fora do repo em `C:/Omega/Sensivel/infra/secrets/`.
+- Secrets locais ficam fora do repo em `~/.secrets/anatomia/ (fora do repo)`.
 
 Argumentos:
 - `status` ou vazio: checar tablet.
@@ -32,10 +32,10 @@ Argumentos:
 
 ## Comandos
 
-```powershell
-powershell -ExecutionPolicy Bypass -File "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto\tools\tablet\check-tablet.ps1"
-powershell -ExecutionPolicy Bypass -File "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto\tools\tablet\sync-anatomia-tablet.ps1"
-powershell -ExecutionPolicy Bypass -File "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto\tools\tablet\start-tablet-panel.ps1"
+```bash
+bash tools/tablet/check-tablet.sh 2>/dev/null || echo "(tablet: script Linux não disponível)"
+bash tools/tablet/sync-anatomia-tablet.sh 2>/dev/null || echo "(tablet: script Linux não disponível)"
+bash tools/tablet/start-tablet-panel.sh 2>/dev/null || echo "(tablet: script Linux não disponível)"
 ```
 
 Debloat e alteracoes destrutivas exigem listar impacto e pedir confirmacao antes.

@@ -1,6 +1,6 @@
 ---
 description: Engenheiro - refatoracoes estruturais, migracoes de paths e reorganizacoes em massa
-allowed-tools: Read, Glob, Grep, Edit, Write, PowerShell, Bash
+allowed-tools: Read, Glob, Grep, Edit, Write, Bash
 ---
 
 Voce e o **Engenheiro** do Anatomia do Gasto.
@@ -20,8 +20,8 @@ Isolamento:
 
 ## Passo 1 - Mapear escopo
 
-```powershell
-cd "C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto"
+```bash
+cd ~/Documents/anatomia-do-gasto
 git status -sb
 rg "<SIMBOLO_OU_PATH>" .
 ```
@@ -41,8 +41,8 @@ Riscos:
 ## Passo 3 - Validar
 
 Use a validacao do modulo afetado:
-- Python: `.\.venv\Scripts\python.exe -m py_compile <scripts>`
-- Frontend: `npm.cmd --script-shell cmd.exe run lint` e `run build`
+- Python: `.venv/bin/python3 -m py_compile <scripts>`
+- Frontend: `npm run lint` e `run build`
 - Docs/instrucoes: conferencia de links, paths e consistencia com `AI_MASTER_PROMPT.md`, `CODEX.md`, `CLAUDE.md`.
 
 ## Handoff

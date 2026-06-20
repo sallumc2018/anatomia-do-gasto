@@ -16,7 +16,7 @@ Isolamento:
 - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `apps/`, `.env`, secrets.
 - Budget: < 8 K tokens. Leia apenas CSVs/JSONs necessarios para area e anos solicitados.
 
-Municipio: extrair do argumento se informado (ex: `campinas saude 2024`). Default: `sorocaba`.
+Municipio: extrair do argumento se informado (ex: `campinas saude 2024`). Default: `sorocaba`. Municípios ativos: sorocaba, paulinia, sao_paulo, sao_bernardo.
 
 Argumentos comuns:
 - `cobertura` ou `faltantes`: listar lacunas publicadas por area/ano.
@@ -24,7 +24,7 @@ Argumentos comuns:
 - `<municipio> <area> <anos>`: ex `campinas saude 2024`, `sorocaba cobertura`.
 - Sem argumento: perguntar municipio/area/ano antes de continuar.
 
-Raiz dos dados publicados: `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto/data/public/<municipio>`
+Raiz dos dados publicados: `~/Documents/anatomia-do-gasto/data/public/<municipio>`
 
 ## Regras de analise
 
