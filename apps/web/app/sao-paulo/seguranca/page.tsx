@@ -8,7 +8,7 @@ import {
   type SegurancaOrcamentoRow,
 } from "@/lib/data"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_SEG_DATASET = datasetSchema({
   name: "Despesas em segurança pública — São Paulo 2020–2025",
@@ -35,6 +35,12 @@ const SP_SEG_DATASET = datasetSchema({
 })
 
 
+
+const SP_SEGURANCA_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Segurança pública" },
+])
 const MUNICIPIO = "sao_paulo"
 
 export const metadata: Metadata = {
@@ -111,6 +117,7 @@ export default function SaoPauloSegurancaPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SEG_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SEGURANCA_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

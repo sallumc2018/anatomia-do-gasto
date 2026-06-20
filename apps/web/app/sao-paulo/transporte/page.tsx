@@ -10,7 +10,7 @@ import {
   loadTransporteDca,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
-import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_TRP_DATASET = datasetSchema({
   name: "Despesas em transporte — São Paulo 2020–2025",
@@ -37,6 +37,12 @@ const SP_TRP_DATASET = datasetSchema({
 })
 
 
+
+const SP_TRANSPORTE_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Paulo", url: "https://www.anatomiadogasto.ong.br/sao-paulo" },
+  { name: "Transporte" },
+])
 const MUNICIPIO = "sao_paulo"
 
 export const metadata: Metadata = {
@@ -97,6 +103,7 @@ export default function SaoPauloTransportePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRP_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRANSPORTE_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
