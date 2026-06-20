@@ -165,7 +165,7 @@ export function CabinetExpensesDashboard({ expensesByYear, availableYears }: Pro
           <p className="text-sm text-[var(--text-04)] text-center py-12">Nenhum dado contábil disponível para este exercício.</p>
         ) : (
           <div style={{ width: "100%", height: 320 }}>
-            <ResponsiveContainer>
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <BarChart data={chartData} margin={{ top: 8, right: 12, left: 0, bottom: 20 }}>
                 <CartesianGrid vertical={false} stroke="var(--border-01)" />
                 <XAxis
