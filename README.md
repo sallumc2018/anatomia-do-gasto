@@ -37,10 +37,10 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 <!-- AUTO:coverage-start -->
 **Cobertura atual:**
 
-- **Cidades:** Paulinia, Sao Paulo, Sorocaba
-- **Datasets publicados:** 159
+- **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
+- **Datasets publicados:** 165
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-06-18
+- **Atualizado em:** 2026-06-20
 <!-- AUTO:coverage-end -->
 
 O projeto nao realiza auditoria juridica nem emite juizo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificacao independente.
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- e909515 review(lgpd): estender saneador para JSON + mascarar 3 CPFs reais no HEAD
-- 2d9ead8 review(lgpd): mascarar CPF de pessoas físicas nos CSVs públicos + auditoria
-- 5edbe14 feat(paulinia): orçamento aprovado por lei (LOA) + validação cruzada com SICONFI
-- 5cd1f52 docs(frontend): nota de fonte em /sao-paulo/transferencias (RREO vs Fazenda-SP)
-- e7473a2 feat(frontend): página /sao-paulo/transferencias com série histórica 2020–2025
-- 8ee49f4 feat(frontend): adicionar São Paulo ao fluxo financeiro (Sankey)
-- 4c69b37 feat(frontend): header multi-município com seletor de cidade
-- 7bc12af fix(deps): pin duckdb 1.0.0 → 1.5.3, resolver CVE sniff_csv
-- 5a60774 fix(frontend): corrigir acentuação em metadata global e páginas secundárias
-- 8e4c58f fix(frontend): linguagem cidadã, acentuação e ativar card Paulínia
+- df0b00a docs(lai): rascunhos de 8 pedidos LAI para tier municipal
+- 5831606 data(automatic): atualização agendada dos manifestos e esquemas de dados
+- 7b959a1 feat(paulinia): páginas /saude e /camara + QA 100% nos 3 municípios
+- ac7f895 chore(pre-deploy): resolver 4 pendências de qualidade antes do push
+- 1e9d4fc data(siops): coletar indicadores ASPS via siops-relatorio-api.saude.gov.br
+- 54e691a fix(sitemap): adicionar /sao-paulo/saude ao sitemap
+- 347ad87 fix(siops): desabilitar verificação SSL para DATASUS Tabnet
+- 5b9c3f4 data(complemento): SIOPS, RREO SUS, fontes execução, PDFs educação, despesas câmara
+- fdf7a71 data(extração): FNS + convênios federais Sorocaba+Paulínia 2020-2025; PNCP Sorocaba 2022-2026
+- 817b173 feat(observability): adicionar SpeedInsights (Core Web Vitals por rota)
 <!-- AUTO:activity-end -->

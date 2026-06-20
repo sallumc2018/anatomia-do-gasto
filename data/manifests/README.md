@@ -105,8 +105,8 @@ Em expansao municipal, cada linha de `datasets.csv` deve ter classificacao corre
 <!-- AUTO:coverage-start -->
 **Cobertura atual:**
 
-- **Cidades:** Paulinia, Sao Paulo, Sorocaba
-- **Datasets publicados:** 159
+- **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
+- **Datasets publicados:** 165
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-06-18
+- **Atualizado em:** 2026-06-20
 <!-- AUTO:coverage-end -->

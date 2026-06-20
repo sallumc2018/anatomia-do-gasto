@@ -9,7 +9,8 @@ MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
 MUNICIPIOS = {
     "sorocaba": {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba", "sefaz_sp": "6695", "cnpj_prefeitura": "46634044000174"},
     "paulinia": {"ibge": "3536505", "uf": "SP", "nome": "Paulinia", "sefaz_sp": "5137", "cnpj_prefeitura": "45751435000106"},
-    "sao_paulo": {"ibge": "3550308", "uf": "SP", "nome": "Sao Paulo", "sefaz_sp": "1004", "cnpj_prefeitura": "46395000000139"},
+    "sao_paulo":       {"ibge": "3550308", "uf": "SP", "nome": "Sao Paulo",           "sefaz_sp": "1004", "cnpj_prefeitura": "46395000000139"},
+    "sao_bernardo":    {"ibge": "3548708", "uf": "SP", "nome": "Sao Bernardo do Campo", "sefaz_sp": "6490", "cnpj_prefeitura": "46523239000147"},
 }
 
 if MUNICIPIO not in MUNICIPIOS:

@@ -104,6 +104,16 @@ function getDataDirs(municipio: string) {
       receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/receita/saida"),
     }
   }
+  if (municipio === "sao_bernardo") {
+    return {
+      saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/saude/saida"),
+      educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/educacao/saida"),
+      seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/seguranca/saida"),
+      transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/transporte/saida"),
+      executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/executivo/saida"),
+      receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/receita/saida"),
+    }
+  }
   return {
     saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/saude/saida"),
     educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/educacao/saida"),
@@ -679,6 +689,9 @@ function getFiscalDir(municipio = "sorocaba"): string {
   }
   if (municipio === "sao_paulo") {
     return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/fiscal/saida")
+  }
+  if (municipio === "sao_bernardo") {
+    return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/fiscal/saida")
   }
   return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/fiscal/saida")
 }

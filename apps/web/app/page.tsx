@@ -46,6 +46,14 @@ const CIDADES = [
     href: "/sao-paulo",
     ativo: true,
   },
+  {
+    nome: "São Bernardo do Campo",
+    uf: "SP",
+    descricao: "844 mil hab. · Polo industrial do ABC Paulista. Receitas, saúde fiscal, segurança e transporte (2020–2025).",
+    status: "Disponível",
+    href: "/sao-bernardo",
+    ativo: true,
+  },
 ]
 
 export default function IndexPage() {
