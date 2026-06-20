@@ -64,28 +64,32 @@ const SBC_CATALOG = municipioDataCatalogSchema({
 
 const SBC_FAQ = faqPageSchema([
   {
-    question: "Quanto São Bernardo do Campo gastou em segurança pública?",
-    answer: `Consulte a execução orçamentária em segurança pública de São Bernardo do Campo em ${SITE_URL}/sao-bernardo/seguranca. Série 2020–2025. Fonte: RREO/SICONFI.`,
+    question: "Quanto São Bernardo do Campo gastou em segurança pública em 2024?",
+    answer: `Em 2024, São Bernardo do Campo liquidou R$ 123,7 milhões em segurança pública — 1,99% do orçamento municipal de R$ 6,35 bilhões. O valor cobre guarda civil, monitoramento e defesa civil. A dotação inicial era R$ 98 mi, atualizada para R$ 140 mi ao longo do exercício. Série 2020–2025 em ${SITE_URL}/sao-bernardo/seguranca. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto SBC gastou em transporte?",
-    answer: `Veja as despesas em transporte de São Bernardo do Campo em ${SITE_URL}/sao-bernardo/transporte. Série histórica 2020–2025. Fonte: RREO/SICONFI.`,
+    question: "Quanto SBC gastou em transporte em 2024?",
+    answer: `Em 2024, São Bernardo do Campo liquidou R$ 547,6 milhões em transporte — 9,55% do orçamento municipal, tornando-o a maior área de despesa setorial publicada no site para o município. O montante cobre ônibus urbano e obras de mobilidade. Série histórica 2020–2025 em ${SITE_URL}/sao-bernardo/transporte. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto entrou de receita em São Bernardo?",
-    answer: `As receitas de São Bernardo do Campo — impostos próprios, ICMS, FPM e demais transferências — estão em ${SITE_URL}/sao-bernardo/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+    question: "Quanto entrou de receita em São Bernardo do Campo em 2024?",
+    answer: `Em 2024, São Bernardo do Campo arrecadou R$ 6,59 bilhões em receitas totais, superando a previsão de R$ 6,49 bilhões. A Receita Corrente Líquida (RCL) — base de cálculo da LRF — foi de R$ 5,47 bilhões. Composição por categoria disponível em ${SITE_URL}/sao-bernardo/receita. Fonte: RREO Anexo 01/SICONFI.`,
   },
   {
-    question: "Como está a saúde fiscal de SBC (LRF)?",
-    answer: `Os indicadores de LRF de São Bernardo do Campo — despesa com pessoal, dívida consolidada e RCL — estão em ${SITE_URL}/sao-bernardo/saude-fiscal. Fonte: RGF/SICONFI.`,
+    question: "Como está a saúde fiscal de São Bernardo do Campo (LRF)?",
+    answer: `Em 2024, a despesa com pessoal de São Bernardo do Campo representou 32,4% da Receita Corrente Líquida (RCL de R$ 5,47 bi) — bem abaixo do limite legal de 54% da LRF. O gasto bruto com pessoal foi de R$ 2,12 bilhões (ativo + inativo). Indicadores completos (despesa com pessoal, dívida consolidada) em ${SITE_URL}/sao-bernardo/saude-fiscal. Fonte: RGF Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Qual é o orçamento total de São Bernardo do Campo?",
+    answer: `Em 2024, São Bernardo do Campo teve um orçamento municipal total de R$ 6,49 bilhões (LOA atualizada), com execução empenhada de R$ 6,35 bilhões. São Bernardo é o 4º maior município do Estado de São Paulo e um dos maiores pólos industriais do ABC paulista. Dados em ${SITE_URL}/sao-bernardo/receita. Fonte: RREO/SICONFI.`,
   },
   {
     question: "O que é empenho, liquidação e pagamento?",
-    answer: `Empenho é a reserva orçamentária para uma despesa. Liquidação confirma entrega do bem/serviço. Pagamento é a transferência efetiva do recurso. Glossário completo em ${SITE_URL}/glossario.`,
+    answer: `Empenho é a reserva orçamentária que compromete recursos para uma despesa futura. Liquidação confirma que o bem foi entregue ou o serviço prestado. Pagamento é a transferência efetiva do dinheiro para o fornecedor. Glossário completo em ${SITE_URL}/glossario.`,
   },
   {
-    question: "Como os dados são coletados e validados?",
-    answer: `Dados de São Bernardo extraídos do SICONFI/Tesouro Nacional, transformados e validados por scripts abertos antes da publicação. Metodologia em ${SITE_URL}/metodologia.`,
+    question: "Como os dados de São Bernardo são coletados?",
+    answer: `Dados de São Bernardo do Campo extraídos do SICONFI (Tesouro Nacional) via API pública — mesma base usada por TCEs e STN para monitorar municípios. Scripts de coleta e transformação são abertos. Metodologia declarada em ${SITE_URL}/metodologia.`,
   },
 ])
 

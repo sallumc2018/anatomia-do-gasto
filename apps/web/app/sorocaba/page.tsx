@@ -140,36 +140,40 @@ const SOR_CATALOG = municipioDataCatalogSchema({
 
 const SOR_FAQ = faqPageSchema([
   {
-    question: "Quanto Sorocaba gastou com saúde?",
-    answer: `Consulte a execução orçamentária em saúde de Sorocaba — dotação, empenhado, liquidado e pago por ano — em ${SITE_URL}/sorocaba/saude. Inclui ASPS (Ações e Serviços Públicos de Saúde) e SUS. Série 2020–2025. Fonte: RREO Anexo 12/SICONFI e SIOPS.`,
+    question: "Quanto Sorocaba gastou com saúde em 2024?",
+    answer: `Em 2024, a Prefeitura de Sorocaba liquidou R$ 2,10 bilhões em saúde pública — incluindo ASPS (ações e serviços de saúde municipais) e repasses SUS. O valor representa cerca de 42% das despesas totais do município e reflete o papel de Sorocaba como polo regional de saúde para o interior paulista, com hospital municipal de referência e rede de UBS. Série histórica 2020–2025 em ${SITE_URL}/sorocaba/saude. Fonte: RREO Anexo 12/SICONFI.`,
   },
   {
-    question: "Quanto Sorocaba gastou com educação?",
-    answer: `Veja a execução orçamentária em educação de Sorocaba por trimestre e subfunção em ${SITE_URL}/sorocaba/educacao. Inclui verificação do mínimo constitucional de 25% do FUNDEB. Série 2020–2025. Fonte: RREO/SICONFI.`,
+    question: "Quanto Sorocaba gastou com educação em 2024?",
+    answer: `Em 2024, Sorocaba liquidou R$ 880 milhões em educação — ensino fundamental (R$ 174 mi) e educação infantil (R$ 173 mi) no acumulado do 3º quadrimestre. Os dados incluem verificação do mínimo constitucional de aplicação em MDE. Execução por quadrimestre e subfunção disponível em ${SITE_URL}/sorocaba/educacao. Fonte: Relatórios LRF/SICONFI e FNDE/SIOPE.`,
   },
   {
-    question: "Quais foram os maiores fornecedores da Prefeitura de Sorocaba?",
-    answer: `Consulte o ranking de fornecedores da Prefeitura de Sorocaba por valor total recebido em ${SITE_URL}/sorocaba/fornecedores. Dados do Portal de Transparência de Sorocaba.`,
+    question: "Quanto Sorocaba gastou em transporte em 2024?",
+    answer: `Em 2024, Sorocaba liquidou R$ 575 milhões em transporte — incluindo ônibus urbano (Urbes), infraestrutura viária e mobilidade. Isso representa 11,5% do orçamento municipal total de R$ 4,99 bilhões. Série 2020–2025 em ${SITE_URL}/sorocaba/transporte. Fonte: RREO Anexo 02 e DCA/SICONFI.`,
   },
   {
-    question: "Como consultar empenhos da Prefeitura de Sorocaba?",
-    answer: `Veja a execução detalhada de empenhos, liquidações e pagamentos da Prefeitura de Sorocaba em ${SITE_URL}/sorocaba/execucao. Fonte: Portal de Transparência Municipal.`,
+    question: "Quanto Sorocaba gastou em segurança pública em 2024?",
+    answer: `Em 2024, Sorocaba liquidou R$ 60,4 milhões em segurança pública — 1,23% do orçamento municipal total. Segurança pública municipal financia guarda civil metropolitana e monitoramento; o policiamento ostensivo é responsabilidade do Estado. Dados anuais 2020–2025 em ${SITE_URL}/sorocaba/seguranca. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto entrou de receita em Sorocaba?",
-    answer: `As receitas do Município de Sorocaba — impostos próprios, ICMS, FPM, transferências da União e Estado — estão disponíveis em ${SITE_URL}/sorocaba/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+    question: "Quanto entrou de receita em Sorocaba em 2024?",
+    answer: `Em 2024, Sorocaba arrecadou R$ 5,17 bilhões (previsão LOA: R$ 5,21 bi). As principais fontes são impostos próprios (ISS, IPTU), ICMS-cota estadual, FPM e transferências federais (SUS, FNDE). Composição detalhada por categoria em ${SITE_URL}/sorocaba/receita. Fonte: RREO Anexo 01/SICONFI.`,
   },
   {
     question: "Qual é o orçamento total da Prefeitura de Sorocaba?",
-    answer: `O orçamento total de Sorocaba por função de governo está em ${SITE_URL}/sorocaba/executivo. Série histórica 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
+    answer: `O orçamento (LOA) de Sorocaba para 2024 foi de R$ 5,21 bilhões, com execução total empenhada de R$ 4,99 bilhões. As três maiores funções são saúde (R$ 2,10 bi), transporte (R$ 575 mi) e educação (R$ 880 mi). Série histórica 2020–2025 por função de governo em ${SITE_URL}/sorocaba/executivo. Fonte: RREO Anexo 02/SICONFI.`,
+  },
+  {
+    question: "Quais foram os maiores fornecedores da Prefeitura de Sorocaba?",
+    answer: `O ranking de fornecedores da Prefeitura de Sorocaba — empresas, entidades e pessoas físicas que receberam recursos públicos — está disponível em ${SITE_URL}/sorocaba/fornecedores. Dados do Portal de Transparência de Sorocaba com identificação por CNPJ/CPF mascarado.`,
   },
   {
     question: "O que é empenho, liquidação e pagamento?",
-    answer: `Empenho é a reserva orçamentária para uma despesa. Liquidação confirma que o bem/serviço foi entregue. Pagamento é a transferência efetiva. Glossário completo em ${SITE_URL}/glossario.`,
+    answer: `Empenho é a reserva orçamentária que compromete recursos para uma despesa futura. Liquidação confirma que o bem foi entregue ou o serviço prestado. Pagamento é a transferência efetiva do dinheiro. Um empenho pode existir sem liquidação (entrega pendente) e uma liquidação sem pagamento (débito em aberto). Glossário completo em ${SITE_URL}/glossario.`,
   },
   {
-    question: "Como os dados são coletados e validados?",
-    answer: `Dados extraídos de portais oficiais (SICONFI, Portal de Transparência de Sorocaba, SIOPS), transformados e validados por scripts abertos antes da publicação. Metodologia em ${SITE_URL}/metodologia.`,
+    question: "Como os dados de Sorocaba são coletados e validados?",
+    answer: `Dados extraídos de portais oficiais (SICONFI/Tesouro Nacional, Portal de Transparência de Sorocaba, SIOPS, SIOPE/FNDE), transformados por scripts Python de código aberto e validados por testes automatizados antes de qualquer publicação. Metodologia declarada em ${SITE_URL}/metodologia.`,
   },
 ])
 
