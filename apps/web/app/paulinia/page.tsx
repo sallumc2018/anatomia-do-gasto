@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { getAvailableYearsExecutivo } from "@/lib/data"
+import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Dados públicos de Paulínia — Prefeitura de Paulínia/SP",
@@ -89,6 +90,58 @@ const MAIS_AREAS = [
   },
 ]
 
+const PAU_CATALOG = municipioDataCatalogSchema({
+  municipioId: "paulinia",
+  name: "Dados fiscais públicos de Paulínia/SP — Anatomia do Gasto",
+  description: "Catálogo de dados fiscais públicos de Paulínia: segurança pública, transporte, receitas, orçamento (RREO), saúde fiscal (LRF), saúde (ASPS), câmara municipal e transferências estaduais. Série 2020–2025. Fonte: SICONFI e Portal TCE-SP.",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  datasets: [
+    { name: "Segurança pública — Paulínia",                 url: "/paulinia/seguranca" },
+    { name: "Transporte — Paulínia",                        url: "/paulinia/transporte" },
+    { name: "Receitas municipais — Paulínia",               url: "/paulinia/receita" },
+    { name: "Orçamento total por função — Paulínia",        url: "/paulinia/executivo" },
+    { name: "Saúde fiscal (LRF/RGF) — Paulínia",           url: "/paulinia/saude-fiscal" },
+    { name: "Saúde pública (ASPS) — Paulínia",             url: "/paulinia/saude" },
+    { name: "Câmara Municipal — Paulínia",                  url: "/paulinia/camara" },
+    { name: "Transferências estaduais — Paulínia",          url: "/paulinia/transferencias" },
+  ],
+})
+
+const PAU_FAQ = faqPageSchema([
+  {
+    question: "Quanto Paulínia gastou em segurança pública?",
+    answer: `Consulte a execução orçamentária em segurança pública de Paulínia (dotação, liquidado, pago por ano) em ${SITE_URL}/paulinia/seguranca. Série 2020–2025. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quanto Paulínia gastou em transporte?",
+    answer: `Veja as despesas em transporte de Paulínia em ${SITE_URL}/paulinia/transporte. Série histórica 2020–2025. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quanto entrou de receita em Paulínia?",
+    answer: `As receitas de Paulínia — impostos próprios, ICMS, FPM, royalties de petróleo e transferências da União — estão em ${SITE_URL}/paulinia/receita. Paulínia recebe alto volume de royalties por ter a maior refinaria da Petrobras (REPLAN). Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Qual é o orçamento total da Prefeitura de Paulínia?",
+    answer: `O orçamento total de Paulínia por função de governo está em ${SITE_URL}/paulinia/executivo. Série 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
+  },
+  {
+    question: "Como está a saúde fiscal de Paulínia (LRF)?",
+    answer: `Os indicadores de LRF de Paulínia — despesa com pessoal, dívida consolidada e RCL — estão em ${SITE_URL}/paulinia/saude-fiscal. Fonte: RGF/SICONFI.`,
+  },
+  {
+    question: "Paulínia cumpre o mínimo constitucional de 15% em saúde?",
+    answer: `Consulte os dados de aplicação em ASPS (Ações e Serviços Públicos de Saúde) de Paulínia e a verificação do mínimo constitucional em ${SITE_URL}/paulinia/saude. Fonte: RREO Anexo 12/SICONFI.`,
+  },
+  {
+    question: "Quanto a Câmara Municipal de Paulínia gasta por ano?",
+    answer: `Veja as despesas anuais da Câmara Municipal de Paulínia por natureza de despesa em ${SITE_URL}/paulinia/camara. Fonte: Portal de Transparência da Câmara de Paulínia.`,
+  },
+  {
+    question: "O que são transferências estaduais para municípios?",
+    answer: `Transferências estaduais são repasses do Governo do Estado ao município: ICMS (cota-parte), IPVA, FUNDEB estadual, entre outros. Dados de Paulínia em ${SITE_URL}/paulinia/transferencias. Fonte: SICONFI.`,
+  },
+])
+
 const CONSULTAS = [
   {
     pergunta: "Quanto Paulínia gastou em segurança pública?",
@@ -138,6 +191,8 @@ export default function PauliniaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_CATALOG) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_FAQ) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

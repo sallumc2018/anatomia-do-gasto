@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { getAvailableYearsExecutivo } from "@/lib/data"
+import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Dados públicos de São Paulo — Prefeitura de São Paulo/SP",
@@ -79,6 +80,57 @@ const MAIS_AREAS = [
   },
 ]
 
+const SP_CATALOG = municipioDataCatalogSchema({
+  municipioId: "sao-paulo",
+  name: "Dados fiscais públicos de São Paulo/SP — Anatomia do Gasto",
+  description: "Catálogo de dados fiscais públicos do Município de São Paulo: despesas por função (RREO), receitas, execução fiscal (LRF/RGF), repasses federais de saúde (FNS), segurança pública e transporte. Série 2020–2025. Fonte: SICONFI/Tesouro Nacional e TCE-SP.",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  datasets: [
+    { name: "Orçamento total por função — São Paulo",       url: "/sao-paulo/executivo" },
+    { name: "Receitas municipais — São Paulo",               url: "/sao-paulo/receita" },
+    { name: "Segurança pública — São Paulo",                 url: "/sao-paulo/seguranca" },
+    { name: "Transporte — São Paulo",                        url: "/sao-paulo/transporte" },
+    { name: "Saúde fiscal (LRF/RGF) — São Paulo",           url: "/sao-paulo/saude-fiscal" },
+    { name: "Repasses FNS/saúde federal — São Paulo",        url: "/sao-paulo/saude" },
+    { name: "Transferências estaduais — São Paulo",          url: "/sao-paulo/transferencias" },
+  ],
+})
+
+const SP_FAQ = faqPageSchema([
+  {
+    question: "Quanto São Paulo gastou em segurança pública?",
+    answer: `Consulte a série histórica de despesas em segurança pública de São Paulo (dotação, liquidado e pago por ano, 2020–2025) em ${SITE_URL}/sao-paulo/seguranca. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quanto São Paulo gastou em transporte?",
+    answer: `Veja a execução orçamentária em transporte do Município de São Paulo (2020–2025) em ${SITE_URL}/sao-paulo/transporte. Inclui despesas com mobilidade urbana, ônibus e infraestrutura. Fonte: RREO e DCA/SICONFI.`,
+  },
+  {
+    question: "Quanto entrou de receita em São Paulo?",
+    answer: `Consulte as receitas do Município de São Paulo — impostos próprios (ISS, IPTU), ICMS, FPM, transferências da União e demais fontes — em ${SITE_URL}/sao-paulo/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Qual é o orçamento total da Prefeitura de São Paulo?",
+    answer: `O orçamento total da Prefeitura de São Paulo por função de governo (saúde, educação, transporte, administração etc.) está disponível em ${SITE_URL}/sao-paulo/executivo. Série 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
+  },
+  {
+    question: "Como está a saúde fiscal de São Paulo (LRF)?",
+    answer: `Os indicadores de responsabilidade fiscal de São Paulo — despesa com pessoal, dívida consolidada e Receita Corrente Líquida (RCL) conforme a Lei de Responsabilidade Fiscal — estão em ${SITE_URL}/sao-paulo/saude-fiscal. Fonte: RGF/SICONFI.`,
+  },
+  {
+    question: "Quanto o governo federal repassa para a saúde de São Paulo?",
+    answer: `O Fundo Nacional de Saúde (FNS) repassou mais de R$ 10 bilhões ao Município de São Paulo em 2025 para financiar ações do SUS (custeio e investimento). Série histórica 2020–2025 em ${SITE_URL}/sao-paulo/saude. Fonte: FNS/Ministério da Saúde.`,
+  },
+  {
+    question: "O que é empenho, liquidação e pagamento?",
+    answer: `Empenho é a reserva de crédito para uma despesa futura. Liquidação é a confirmação de que o bem ou serviço foi entregue. Pagamento é a transferência efetiva do dinheiro. Veja o glossário completo em ${SITE_URL}/glossario.`,
+  },
+  {
+    question: "Como os dados são coletados e validados?",
+    answer: `Os dados são extraídos de portais oficiais (SICONFI, TCE-SP, FNS), transformados por scripts abertos e validados antes de qualquer publicação. A metodologia completa está em ${SITE_URL}/metodologia.`,
+  },
+])
+
 const CONSULTAS = [
   {
     pergunta: "Quanto São Paulo gastou em segurança pública?",
@@ -120,6 +172,8 @@ export default function SaoPauloPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_CATALOG) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_FAQ) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

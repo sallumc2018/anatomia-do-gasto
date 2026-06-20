@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { getAvailableYears } from "@/lib/data"
+import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Dados públicos de Sorocaba — Prefeitura de Sorocaba/SP",
@@ -118,6 +119,60 @@ const MAIS_AREAS = [
   },
 ]
 
+const SOR_CATALOG = municipioDataCatalogSchema({
+  municipioId: "sorocaba",
+  name: "Dados fiscais públicos de Sorocaba/SP — Anatomia do Gasto",
+  description: "Catálogo de dados fiscais públicos de Sorocaba: saúde, educação, segurança pública, transporte, receitas, fornecedores, execução orçamentária, câmara municipal e transferências. Série 2020–2025. Fonte: Portal de Transparência de Sorocaba, SICONFI, SIOPS.",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  datasets: [
+    { name: "Saúde pública — Sorocaba",                    url: "/sorocaba/saude" },
+    { name: "Educação — Sorocaba",                         url: "/sorocaba/educacao" },
+    { name: "Segurança pública — Sorocaba",                url: "/sorocaba/seguranca" },
+    { name: "Transporte — Sorocaba",                       url: "/sorocaba/transporte" },
+    { name: "Orçamento total por função — Sorocaba",       url: "/sorocaba/executivo" },
+    { name: "Receitas municipais — Sorocaba",              url: "/sorocaba/receita" },
+    { name: "Fornecedores — Sorocaba",                     url: "/sorocaba/fornecedores" },
+    { name: "Empenhos e execução — Sorocaba",              url: "/sorocaba/execucao" },
+    { name: "Câmara Municipal — Sorocaba",                 url: "/sorocaba/camara" },
+    { name: "Transferências intergovernamentais",          url: "/sorocaba/transferencias" },
+  ],
+})
+
+const SOR_FAQ = faqPageSchema([
+  {
+    question: "Quanto Sorocaba gastou com saúde?",
+    answer: `Consulte a execução orçamentária em saúde de Sorocaba — dotação, empenhado, liquidado e pago por ano — em ${SITE_URL}/sorocaba/saude. Inclui ASPS (Ações e Serviços Públicos de Saúde) e SUS. Série 2020–2025. Fonte: RREO Anexo 12/SICONFI e SIOPS.`,
+  },
+  {
+    question: "Quanto Sorocaba gastou com educação?",
+    answer: `Veja a execução orçamentária em educação de Sorocaba por trimestre e subfunção em ${SITE_URL}/sorocaba/educacao. Inclui verificação do mínimo constitucional de 25% do FUNDEB. Série 2020–2025. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quais foram os maiores fornecedores da Prefeitura de Sorocaba?",
+    answer: `Consulte o ranking de fornecedores da Prefeitura de Sorocaba por valor total recebido em ${SITE_URL}/sorocaba/fornecedores. Dados do Portal de Transparência de Sorocaba.`,
+  },
+  {
+    question: "Como consultar empenhos da Prefeitura de Sorocaba?",
+    answer: `Veja a execução detalhada de empenhos, liquidações e pagamentos da Prefeitura de Sorocaba em ${SITE_URL}/sorocaba/execucao. Fonte: Portal de Transparência Municipal.`,
+  },
+  {
+    question: "Quanto entrou de receita em Sorocaba?",
+    answer: `As receitas do Município de Sorocaba — impostos próprios, ICMS, FPM, transferências da União e Estado — estão disponíveis em ${SITE_URL}/sorocaba/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Qual é o orçamento total da Prefeitura de Sorocaba?",
+    answer: `O orçamento total de Sorocaba por função de governo está em ${SITE_URL}/sorocaba/executivo. Série histórica 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
+  },
+  {
+    question: "O que é empenho, liquidação e pagamento?",
+    answer: `Empenho é a reserva orçamentária para uma despesa. Liquidação confirma que o bem/serviço foi entregue. Pagamento é a transferência efetiva. Glossário completo em ${SITE_URL}/glossario.`,
+  },
+  {
+    question: "Como os dados são coletados e validados?",
+    answer: `Dados extraídos de portais oficiais (SICONFI, Portal de Transparência de Sorocaba, SIOPS), transformados e validados por scripts abertos antes da publicação. Metodologia em ${SITE_URL}/metodologia.`,
+  },
+])
+
 const CONSULTAS = [
   {
     pergunta: "Quanto Sorocaba gastou com saúde?",
@@ -160,6 +215,8 @@ export default function SorocabaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_CATALOG) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_FAQ) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

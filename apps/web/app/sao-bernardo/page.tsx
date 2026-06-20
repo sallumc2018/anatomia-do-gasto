@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { getAvailableYearsReceita } from "@/lib/data"
+import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Dados públicos de São Bernardo do Campo — Prefeitura de SBC/SP",
@@ -48,6 +49,46 @@ const MAIS_AREAS = [
   },
 ]
 
+const SBC_CATALOG = municipioDataCatalogSchema({
+  municipioId: "sao-bernardo",
+  name: "Dados fiscais públicos de São Bernardo do Campo/SP — Anatomia do Gasto",
+  description: "Catálogo de dados fiscais públicos de São Bernardo do Campo: receitas municipais, segurança pública, transporte e saúde fiscal (LRF/RGF). Série 2020–2025. Fonte: SICONFI/Tesouro Nacional.",
+  spatialCoverage: "São Bernardo do Campo, SP, Brasil (IBGE 3548708)",
+  datasets: [
+    { name: "Receitas municipais — São Bernardo do Campo",         url: "/sao-bernardo/receita" },
+    { name: "Saúde fiscal (LRF/RGF) — São Bernardo do Campo",     url: "/sao-bernardo/saude-fiscal" },
+    { name: "Segurança pública — São Bernardo do Campo",           url: "/sao-bernardo/seguranca" },
+    { name: "Transporte — São Bernardo do Campo",                  url: "/sao-bernardo/transporte" },
+  ],
+})
+
+const SBC_FAQ = faqPageSchema([
+  {
+    question: "Quanto São Bernardo do Campo gastou em segurança pública?",
+    answer: `Consulte a execução orçamentária em segurança pública de São Bernardo do Campo em ${SITE_URL}/sao-bernardo/seguranca. Série 2020–2025. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quanto SBC gastou em transporte?",
+    answer: `Veja as despesas em transporte de São Bernardo do Campo em ${SITE_URL}/sao-bernardo/transporte. Série histórica 2020–2025. Fonte: RREO/SICONFI.`,
+  },
+  {
+    question: "Quanto entrou de receita em São Bernardo?",
+    answer: `As receitas de São Bernardo do Campo — impostos próprios, ICMS, FPM e demais transferências — estão em ${SITE_URL}/sao-bernardo/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Como está a saúde fiscal de SBC (LRF)?",
+    answer: `Os indicadores de LRF de São Bernardo do Campo — despesa com pessoal, dívida consolidada e RCL — estão em ${SITE_URL}/sao-bernardo/saude-fiscal. Fonte: RGF/SICONFI.`,
+  },
+  {
+    question: "O que é empenho, liquidação e pagamento?",
+    answer: `Empenho é a reserva orçamentária para uma despesa. Liquidação confirma entrega do bem/serviço. Pagamento é a transferência efetiva do recurso. Glossário completo em ${SITE_URL}/glossario.`,
+  },
+  {
+    question: "Como os dados são coletados e validados?",
+    answer: `Dados de São Bernardo extraídos do SICONFI/Tesouro Nacional, transformados e validados por scripts abertos antes da publicação. Metodologia em ${SITE_URL}/metodologia.`,
+  },
+])
+
 const CONSULTAS = [
   { pergunta: "Quanto São Bernardo do Campo gastou em segurança pública?",    href: "/sao-bernardo/seguranca" },
   { pergunta: "Quanto SBC gastou em transporte?",                             href: "/sao-bernardo/transporte" },
@@ -63,6 +104,8 @@ export default function SaoBernardoPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_CATALOG) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_FAQ) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

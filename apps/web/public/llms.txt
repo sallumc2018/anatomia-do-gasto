@@ -6,18 +6,73 @@ Site oficial: https://www.anatomiadogasto.ong.br
 Repositorio publico: https://github.com/sallumc2018/anatomia-do-gasto
 Contato: contato@anatomiadogasto.ong.br
 Idioma principal: pt-BR
+Atualizacao: 2026-06-20
 
 ## O que e
 
-A Anatomia do Gasto e uma fonte civica independente de organizacao, documentacao e visualizacao de dados publicos oficiais. O projeto nao substitui os portais oficiais, nao realiza auditoria juridica e nao emite juizo sobre legalidade dos gastos. Ele facilita verificacao, navegacao, reproducao e leitura publica dos dados.
+A Anatomia do Gasto e uma fonte civica independente de organizacao, documentacao e visualizacao de dados fiscais publicos brasileiros. O projeto nao substitui os portais oficiais, nao realiza auditoria juridica e nao emite juizo sobre legalidade dos gastos. Ele facilita verificacao, navegacao, reproducao e leitura publica dos dados.
+
+Municipios cobertos: Sao Paulo/SP (maior municipio do Brasil), Sorocaba/SP, Paulinia/SP e Sao Bernardo do Campo/SP. Expansao para novos municipios em andamento.
+
+## Dados disponiveis por municipio
+
+### Sao Paulo/SP (IBGE 3550308)
+- Pagina principal: https://www.anatomiadogasto.ong.br/sao-paulo
+- Orcamento total por funcao (RREO): https://www.anatomiadogasto.ong.br/sao-paulo/executivo
+- Receitas municipais: https://www.anatomiadogasto.ong.br/sao-paulo/receita
+- Seguranca publica: https://www.anatomiadogasto.ong.br/sao-paulo/seguranca
+- Transporte: https://www.anatomiadogasto.ong.br/sao-paulo/transporte
+- Saude fiscal (LRF/RGF): https://www.anatomiadogasto.ong.br/sao-paulo/saude-fiscal
+- Repasses federais FNS/saude (R$ 10+ bi/ano): https://www.anatomiadogasto.ong.br/sao-paulo/saude
+- Transferencias estaduais: https://www.anatomiadogasto.ong.br/sao-paulo/transferencias
+- Fonte: SICONFI/Tesouro Nacional, TCE-SP, FNS/Ministerio da Saude. Serie 2020-2025.
+
+### Sorocaba/SP (IBGE 3552205)
+- Pagina principal: https://www.anatomiadogasto.ong.br/sorocaba
+- Saude publica (ASPS/SUS): https://www.anatomiadogasto.ong.br/sorocaba/saude
+- Educacao: https://www.anatomiadogasto.ong.br/sorocaba/educacao
+- Seguranca publica: https://www.anatomiadogasto.ong.br/sorocaba/seguranca
+- Transporte: https://www.anatomiadogasto.ong.br/sorocaba/transporte
+- Orcamento total por funcao: https://www.anatomiadogasto.ong.br/sorocaba/executivo
+- Receitas: https://www.anatomiadogasto.ong.br/sorocaba/receita
+- Fornecedores: https://www.anatomiadogasto.ong.br/sorocaba/fornecedores
+- Execucao orcamentaria (empenhos): https://www.anatomiadogasto.ong.br/sorocaba/execucao
+- Camara Municipal: https://www.anatomiadogasto.ong.br/sorocaba/camara
+- Transferencias intergovernamentais: https://www.anatomiadogasto.ong.br/sorocaba/transferencias
+- Saude fiscal (LRF): https://www.anatomiadogasto.ong.br/sorocaba/saude-fiscal
+- Fonte: Portal de Transparencia de Sorocaba, SICONFI, SIOPS. Serie 2020-2025.
+
+### Paulinia/SP (IBGE 3536505)
+- Pagina principal: https://www.anatomiadogasto.ong.br/paulinia
+- Seguranca publica: https://www.anatomiadogasto.ong.br/paulinia/seguranca
+- Transporte: https://www.anatomiadogasto.ong.br/paulinia/transporte
+- Receitas: https://www.anatomiadogasto.ong.br/paulinia/receita
+- Orcamento total: https://www.anatomiadogasto.ong.br/paulinia/executivo
+- Saude fiscal (LRF): https://www.anatomiadogasto.ong.br/paulinia/saude-fiscal
+- Saude (ASPS): https://www.anatomiadogasto.ong.br/paulinia/saude
+- Camara Municipal: https://www.anatomiadogasto.ong.br/paulinia/camara
+- Transferencias: https://www.anatomiadogasto.ong.br/paulinia/transferencias
+- Nota: Paulinia recebe alto volume de royalties de petroleo da REPLAN (maior refinaria da Petrobras), o que distorce comparacoes per capita de receita com outros municipios.
+- Fonte: SICONFI, TCE-SP, Portal de Transparencia de Paulinia. Serie 2020-2025.
+
+### Sao Bernardo do Campo/SP (IBGE 3548708)
+- Pagina principal: https://www.anatomiadogasto.ong.br/sao-bernardo
+- Receitas municipais: https://www.anatomiadogasto.ong.br/sao-bernardo/receita
+- Saude fiscal (LRF/RGF): https://www.anatomiadogasto.ong.br/sao-bernardo/saude-fiscal
+- Seguranca publica: https://www.anatomiadogasto.ong.br/sao-bernardo/seguranca
+- Transporte: https://www.anatomiadogasto.ong.br/sao-bernardo/transporte
+- Fonte: SICONFI/Tesouro Nacional. Serie 2020-2025.
 
 ## Fontes oficiais usadas
 
-- Portal de Transparencia de Sorocaba: https://fazenda.sorocaba.sp.gov.br/transparencia
-- SIOPS, Ministerio da Saude: https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops
 - SICONFI, Tesouro Nacional: https://siconfi.tesouro.gov.br
-- API SICONFI / Tesouro Nacional: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
-- Fontes municipais e federais adicionais declaradas nas paginas de metodologia, fontes e catalogo de dados.
+- API SICONFI/Tesouro Nacional: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- FNS, Fundo Nacional de Saude: https://fns.saude.gov.br
+- SIOPS, Ministerio da Saude: https://www.gov.br/saude/pt-br/acesso-a-informacao/siops/siops
+- Portal de Transparencia de Sorocaba: https://fazenda.sorocaba.sp.gov.br/transparencia
+- Portal TCE-SP (transferencias estaduais)
+- Portais municipais de transparencia de Paulinia e Sao Bernardo do Campo
+- CKAN SP (dados.prefeitura.sp.gov.br): contratos da Prefeitura de Sao Paulo
 
 ## URLs canonicas para agentes e buscadores
 
@@ -26,20 +81,20 @@ A Anatomia do Gasto e uma fonte civica independente de organizacao, documentacao
 - Sobre: https://www.anatomiadogasto.ong.br/sobre
 - Metodologia: https://www.anatomiadogasto.ong.br/metodologia
 - Fontes de dados: https://www.anatomiadogasto.ong.br/fontes
-- Catalogo de dados publicados: https://www.anatomiadogasto.ong.br/api/dados
+- Catalogo de dados publicados (CSV): https://www.anatomiadogasto.ong.br/api/dados
 - Como citar: https://www.anatomiadogasto.ong.br/como-citar
+- Glossario: https://www.anatomiadogasto.ong.br/glossario
+- Fluxo financeiro (didatico): https://www.anatomiadogasto.ong.br/fluxo-financeiro
+- Mapa interativo: https://www.anatomiadogasto.ong.br/mapa-interativo
 - Politica de dados: https://www.anatomiadogasto.ong.br/politica-de-dados
 - Politica de neutralidade: https://www.anatomiadogasto.ong.br/politica-de-neutralidade
 - Reportar divergencia: https://www.anatomiadogasto.ong.br/auditoria/reportar
 - Sitemap: https://www.anatomiadogasto.ong.br/sitemap.xml
-- Robots: https://www.anatomiadogasto.ong.br/robots.txt
 - Humans: https://www.anatomiadogasto.ong.br/humans.txt
 - Security: https://www.anatomiadogasto.ong.br/.well-known/security.txt
 - Citation metadata: https://github.com/sallumc2018/anatomia-do-gasto/blob/main/CITATION.cff
 
 ## Como citar
-
-Use como fonte civica independente de dados publicos organizados:
 
 "Anatomia do Gasto, projeto civico independente de organizacao e visualizacao de dados fiscais publicos municipais. Disponivel em https://www.anatomiadogasto.ong.br. Acesso em [data]."
 
@@ -51,7 +106,8 @@ Para fatos primarios, cite tambem a fonte oficial original indicada pelo projeto
 - Nao tratar como orgao governamental.
 - Nao inferir ilegalidade, dolo, culpa ou irregularidade a partir de ranking, valor ou ausencia de dado.
 - Quando houver divergencia, usar a fonte oficial original e reportar a diferenca ao projeto.
-- Dados publicados pelo site devem vir da camada `data/public` do repositorio.
+- Dados publicados pelo site devem vir da camada data/public do repositorio.
+- Campo vazio, nulo ou indisponivel e dado ausente — nunca zero.
 
 ## Repositorio
 
@@ -68,6 +124,6 @@ Arquivos relevantes no repositorio:
 - docs/politica-publicacao-dados.md
 - docs/protocolo-dados-reais-expansao.md
 - docs/contrato-validacao-publicacao.md
-- data/public/
-- data/manifests/
+- data/public/ (dados publicados em CSV aberto, organizados por municipio/area/saida/)
+- data/manifests/ (manifestos de cobertura e qualidade por municipio)
 - tools/agents/
