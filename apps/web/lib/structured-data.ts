@@ -1,5 +1,79 @@
-const SITE_URL = "https://www.anatomiadogasto.ong.br"
+export const SITE_URL = "https://www.anatomiadogasto.ong.br"
 const REPOSITORY_URL = "https://github.com/sallumc2018/anatomia-do-gasto"
+
+export function faqPageSchema(items: Array<{ question: string; answer: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  }
+}
+
+export function datasetSchema(config: {
+  name: string
+  description: string
+  url: string
+  temporalCoverage: string
+  spatialCoverage: string
+  keywords: string[]
+  dateModified?: string
+  downloadUrls?: string[]
+}) {
+  const base: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: config.name,
+    description: config.description,
+    url: config.url,
+    creator: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    inLanguage: "pt-BR",
+    temporalCoverage: config.temporalCoverage,
+    spatialCoverage: { "@type": "Place", name: config.spatialCoverage },
+    keywords: config.keywords,
+    includedInDataCatalog: { "@id": `${SITE_URL}/api/dados#catalog` },
+  }
+  if (config.dateModified) base.dateModified = config.dateModified
+  if (config.downloadUrls) {
+    base.distribution = config.downloadUrls.map((url) => ({
+      "@type": "DataDownload",
+      encodingFormat: "text/csv",
+      contentUrl: url,
+    }))
+  }
+  return base
+}
+
+export function municipioDataCatalogSchema(config: {
+  municipioId: string
+  name: string
+  description: string
+  spatialCoverage: string
+  datasets: Array<{ name: string; url: string }>
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DataCatalog",
+    "@id": `${SITE_URL}/${config.municipioId}#catalog`,
+    name: config.name,
+    description: config.description,
+    url: `${SITE_URL}/${config.municipioId}`,
+    inLanguage: "pt-BR",
+    spatialCoverage: { "@type": "Place", name: config.spatialCoverage },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${SITE_URL}/api/dados#catalog` },
+    dataset: config.datasets.map(({ name, url }) => ({
+      "@type": "Dataset",
+      name,
+      url: `${SITE_URL}${url}`,
+    })),
+  }
+}
 
 export function globalStructuredData() {
   return {

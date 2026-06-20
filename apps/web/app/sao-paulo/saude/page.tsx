@@ -6,6 +6,20 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const FNS_DATASET = datasetSchema({
+  name: "Repasses do Fundo Nacional de Saúde (FNS/FAF) ao Município de São Paulo — 2020–2025",
+  description: "Série histórica dos repasses fundo-a-fundo do FNS ao Fundo Municipal de Saúde de São Paulo. Inclui blocos de custeio (manutenção de serviços SUS) e investimento (estruturação da rede), com grupos, estratégias, CNPJ da entidade receptora e valores brutos/líquidos. Município IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/saude`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["FNS", "Fundo Nacional de Saúde", "repasses saúde", "SUS", "custeio saúde", "São Paulo", "saúde pública", "transferência fundo-a-fundo"],
+  dateModified: "2026-06-20",
+  downloadUrls: [2020, 2021, 2022, 2023, 2024, 2025].map(
+    (ano) => `${SITE_URL}/api/dados/sao_paulo/fns/saida/fns_repasses_faf_com_populacao_sao_paulo_${ano}.csv`
+  ),
+})
 
 export const metadata: Metadata = {
   title: "Repasses Federais de Saúde — São Paulo",
@@ -114,6 +128,7 @@ export default function SaoPauloSaudePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FNS_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
