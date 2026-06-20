@@ -1,42 +1,48 @@
 {
   "arquivo": "siops_sao_paulo_2024.csv",
   "caminho_relativo": "data/public/sao_paulo/saude/saida/siops_sao_paulo_2024.csv",
-  "tamanho_bytes": 163,
+  "tamanho_bytes": 258,
   "linhas_dados": 1,
   "colunas": [
     "ano",
     "municipio",
     "ibge6",
-    "receita_impostos",
-    "despesa_saude_total",
-    "despesa_asps",
     "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
     "limite_constitucional_pct",
-    "situacao"
+    "situacao",
+    "fase"
   ],
   "tipos": {
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "receita_impostos": "empty",
-    "despesa_saude_total": "empty",
-    "despesa_asps": "empty",
-    "percentual_asps": "empty",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
     "limite_constitucional_pct": "integer",
-    "situacao": "string"
+    "situacao": "string",
+    "fase": "string"
   },
   "amostra": [
     {
       "ano": "2024",
       "municipio": "sao_paulo",
       "ibge6": "355030",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "24.70",
+      "despesa_saude_total": "14974001558.09",
+      "receita_impostos": "60622559457.70",
+      "despesa_saude_por_hab": "18610931635.05",
+      "pct_transferencias_sus": "15.83",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     }
   ],
-  "analisado_em": "2026-06-19T08:24:55.961241"
+  "analisado_em": "2026-06-20T06:53:23.807473"
 }

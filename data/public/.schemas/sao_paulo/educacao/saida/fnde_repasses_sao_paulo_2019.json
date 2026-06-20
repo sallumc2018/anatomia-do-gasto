@@ -1,0 +1,36 @@
+{
+  "arquivo": "fnde_repasses_sao_paulo_2019.csv",
+  "caminho_relativo": "data/public/sao_paulo/educacao/saida/fnde_repasses_sao_paulo_2019.csv",
+  "tamanho_bytes": 143,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge7",
+    "programa",
+    "valor_repassado",
+    "data_ultimo_repasse",
+    "fonte"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge7": "integer",
+    "programa": "string",
+    "valor_repassado": "empty",
+    "data_ultimo_repasse": "empty",
+    "fonte": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2019",
+      "municipio": "sao_paulo",
+      "ibge7": "3550308",
+      "programa": "sem_dados",
+      "valor_repassado": "",
+      "data_ultimo_repasse": "",
+      "fonte": "Portal Transparência Federal / FNDE"
+    }
+  ],
+  "analisado_em": "2026-06-20T06:53:23.861339"
+}

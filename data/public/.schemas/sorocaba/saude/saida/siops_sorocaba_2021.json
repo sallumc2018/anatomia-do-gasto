@@ -1,42 +1,48 @@
 {
   "arquivo": "siops_sorocaba_2021.csv",
   "caminho_relativo": "data/public/sorocaba/saude/saida/siops_sorocaba_2021.csv",
-  "tamanho_bytes": 162,
+  "tamanho_bytes": 252,
   "linhas_dados": 1,
   "colunas": [
     "ano",
     "municipio",
     "ibge6",
-    "receita_impostos",
-    "despesa_saude_total",
-    "despesa_asps",
     "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
     "limite_constitucional_pct",
-    "situacao"
+    "situacao",
+    "fase"
   ],
   "tipos": {
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "receita_impostos": "empty",
-    "despesa_saude_total": "empty",
-    "despesa_asps": "empty",
-    "percentual_asps": "empty",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
     "limite_constitucional_pct": "integer",
-    "situacao": "string"
+    "situacao": "string",
+    "fase": "string"
   },
   "amostra": [
     {
       "ano": "2021",
       "municipio": "sorocaba",
       "ibge6": "355220",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "28.55",
+      "despesa_saude_total": "450396867.06",
+      "receita_impostos": "1577756808.79",
+      "despesa_saude_por_hab": "596963342.76",
+      "pct_transferencias_sus": "26.40",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     }
   ],
-  "analisado_em": "2026-06-19T08:24:56.165858"
+  "analisado_em": "2026-06-20T06:53:24.053370"
 }

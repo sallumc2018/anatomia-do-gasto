@@ -1,64 +1,74 @@
 {
   "arquivo": "siops_sao_paulo_consolidado.csv",
   "caminho_relativo": "data/public/sao_paulo/saude/saida/siops_sao_paulo_consolidado.csv",
-  "tamanho_bytes": 415,
-  "linhas_dados": 7,
+  "tamanho_bytes": 1290,
+  "linhas_dados": 12,
   "colunas": [
     "ano",
     "municipio",
     "ibge6",
-    "receita_impostos",
-    "despesa_saude_total",
-    "despesa_asps",
     "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
     "limite_constitucional_pct",
-    "situacao"
+    "situacao",
+    "fase"
   ],
   "tipos": {
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "receita_impostos": "empty",
-    "despesa_saude_total": "empty",
-    "despesa_asps": "empty",
-    "percentual_asps": "empty",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
     "limite_constitucional_pct": "integer",
-    "situacao": "string"
+    "situacao": "string",
+    "fase": "string"
   },
   "amostra": [
     {
-      "ano": "2020",
+      "ano": "2015",
       "municipio": "sao_paulo",
       "ibge6": "355030",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "18.77",
+      "despesa_saude_total": "5286535314.29",
+      "receita_impostos": "28159611183.04",
+      "despesa_saude_por_hab": "7239178552.96",
+      "pct_transferencias_sus": "24.79",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     },
     {
-      "ano": "2021",
+      "ano": "2016",
       "municipio": "sao_paulo",
       "ibge6": "355030",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "21.47",
+      "despesa_saude_total": "6129101452.55",
+      "receita_impostos": "28545595637.02",
+      "despesa_saude_por_hab": "8098700161.79",
+      "pct_transferencias_sus": "21.44",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     },
     {
-      "ano": "2022",
+      "ano": "2017",
       "municipio": "sao_paulo",
       "ibge6": "355030",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "19.92",
+      "despesa_saude_total": "6148257934.75",
+      "receita_impostos": "30858898536.67",
+      "despesa_saude_por_hab": "7976147612.96",
+      "pct_transferencias_sus": "21.58",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     }
   ],
-  "analisado_em": "2026-06-19T08:24:55.960322"
+  "analisado_em": "2026-06-20T06:53:23.805505"
 }

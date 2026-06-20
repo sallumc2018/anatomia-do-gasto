@@ -1,42 +1,48 @@
 {
   "arquivo": "siops_paulinia_2023.csv",
   "caminho_relativo": "data/public/paulinia/saude/saida/siops_paulinia_2023.csv",
-  "tamanho_bytes": 162,
+  "tamanho_bytes": 251,
   "linhas_dados": 1,
   "colunas": [
     "ano",
     "municipio",
     "ibge6",
-    "receita_impostos",
-    "despesa_saude_total",
-    "despesa_asps",
     "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
     "limite_constitucional_pct",
-    "situacao"
+    "situacao",
+    "fase"
   ],
   "tipos": {
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "receita_impostos": "empty",
-    "despesa_saude_total": "empty",
-    "despesa_asps": "empty",
-    "percentual_asps": "empty",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
     "limite_constitucional_pct": "integer",
-    "situacao": "string"
+    "situacao": "string",
+    "fase": "string"
   },
   "amostra": [
     {
       "ano": "2023",
       "municipio": "paulinia",
       "ibge6": "353650",
-      "receita_impostos": "",
-      "despesa_saude_total": "",
-      "despesa_asps": "",
-      "percentual_asps": "",
+      "percentual_asps": "20.81",
+      "despesa_saude_total": "358552525.41",
+      "receita_impostos": "1722796726.48",
+      "despesa_saude_por_hab": "415445368.39",
+      "pct_transferencias_sus": "3.28",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido",
+      "fase": "previsto"
     }
   ],
-  "analisado_em": "2026-06-19T08:24:56.389675"
+  "analisado_em": "2026-06-20T06:53:24.319992"
 }
