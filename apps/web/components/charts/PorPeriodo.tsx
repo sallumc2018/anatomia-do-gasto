@@ -40,7 +40,7 @@ function fmtM(v: number) {
 
 export function PorPeriodo({ data, periodos = QUADS }: Props) {
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer width="100%" height={200} minWidth={0}>
       <BarChart data={data} layout="vertical" barCategoryGap="35%" margin={{ top: 4, right: 24, left: 0, bottom: 0 }}>
         <CartesianGrid horizontal={false} stroke="#393939" />
         <XAxis

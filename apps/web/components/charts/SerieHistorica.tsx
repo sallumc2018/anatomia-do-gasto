@@ -35,7 +35,7 @@ export function SerieHistorica({ data, unit = "bi" }: Props) {
   const suffix = unit === "bi" ? "bi"  : "mi"
 
   return (
-    <ResponsiveContainer width="100%" height={260}>
+    <ResponsiveContainer width="100%" height={260} minWidth={0}>
       <BarChart
         data={data}
         barCategoryGap="32%"

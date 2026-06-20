@@ -11,8 +11,32 @@ import {
   type PessoalRow,
   type DividaRow,
 } from "@/lib/data"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "sao_bernardo"
+
+const SBC_FIS_DATASET = datasetSchema({
+  name: "Saúde fiscal (LRF/RGF) — São Bernardo do Campo 2020–2024",
+  description: "Indicadores de responsabilidade fiscal de São Bernardo do Campo: dívida consolidada e RCL. Comparação com os limites da LRF. Fonte: RGF/SICONFI. IBGE 3548708.",
+  url: `https://www.anatomiadogasto.ong.br/sao-bernardo/saude-fiscal`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "São Bernardo do Campo, SP, Brasil (IBGE 3548708)",
+  keywords: ["LRF", "responsabilidade fiscal", "dívida", "São Bernardo do Campo", "ABC Paulista"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/fiscal/saida/divida_sao_bernardo_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/fiscal/saida/divida_sao_bernardo_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/fiscal/saida/divida_sao_bernardo_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/fiscal/saida/divida_sao_bernardo_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/fiscal/saida/divida_sao_bernardo_2024.csv`,
+  ],
+})
+
+const SBC_FIS_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Bernardo do Campo", url: "https://www.anatomiadogasto.ong.br/sao-bernardo" },
+  { name: "Saúde fiscal (LRF)" },
+])
 
 export const metadata: Metadata = {
   title: "Saúde Fiscal de São Bernardo do Campo",
@@ -85,6 +109,8 @@ export default function SaoBernardoSaudeFiscalPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_FIS_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_FIS_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

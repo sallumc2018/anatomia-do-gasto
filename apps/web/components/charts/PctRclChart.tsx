@@ -46,7 +46,7 @@ export function PctRclChart({ data, limite, limiteLabel, limitePrudencial, barCo
   const yMax   = Math.min(Math.ceil((maxVal * 1.1) / 10) * 10, 120)
 
   return (
-    <ResponsiveContainer width="100%" height={280}>
+    <ResponsiveContainer width="100%" height={280} minWidth={0}>
       <BarChart data={data} barSize={20} barCategoryGap="35%"
         margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
         <CartesianGrid strokeDasharray="2 4" stroke="#393939" vertical={false} />

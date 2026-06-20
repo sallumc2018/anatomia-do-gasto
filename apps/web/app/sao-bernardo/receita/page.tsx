@@ -12,9 +12,33 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "sao_bernardo"
 const IBGE = "3548708"
+
+const SBC_REC_DATASET = datasetSchema({
+  name: "Receitas municipais — São Bernardo do Campo 2020–2024",
+  description: "Receitas do Município de São Bernardo do Campo: impostos próprios, cota-parte ICMS/IPVA, FPM e transferências federais. Fonte: RREO Anexo 01/SICONFI. IBGE 3548708.",
+  url: `https://www.anatomiadogasto.ong.br/sao-bernardo/receita`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "São Bernardo do Campo, SP, Brasil (IBGE 3548708)",
+  keywords: ["receita municipal", "ICMS", "FPM", "São Bernardo do Campo", "ABC Paulista", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/receita/saida/receitas_sao_bernardo_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/receita/saida/receitas_sao_bernardo_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/receita/saida/receitas_sao_bernardo_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/receita/saida/receitas_sao_bernardo_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sao_bernardo/receita/saida/receitas_sao_bernardo_2024.csv`,
+  ],
+})
+
+const SBC_REC_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "São Bernardo do Campo", url: "https://www.anatomiadogasto.ong.br/sao-bernardo" },
+  { name: "Receitas municipais" },
+])
 
 export const metadata: Metadata = {
   title: "Receita Municipal de São Bernardo do Campo",
@@ -168,6 +192,8 @@ export default async function SaoBernardoReceitaPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_REC_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_REC_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

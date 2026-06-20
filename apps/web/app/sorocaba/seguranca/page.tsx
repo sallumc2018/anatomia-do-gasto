@@ -13,6 +13,30 @@ import {
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_SEG_DATASET = datasetSchema({
+  name: "Despesas em segurança pública — Sorocaba 2020–2024",
+  description: "Execução orçamentária em segurança pública (função 06) do Município de Sorocaba: Guarda Municipal, dotação, liquidado. Fonte: DCA/SICONFI. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/seguranca`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["segurança pública", "Guarda Municipal", "Sorocaba", "orçamento", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/seguranca/saida/despesas_seguranca_sorocaba_2024.csv`,
+  ],
+})
+
+const SOR_SEG_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Segurança pública" },
+])
 
 export const metadata: Metadata = {
   title: "Segurança Pública em Sorocaba",
@@ -117,6 +141,8 @@ export default function SegurancaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SEG_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SEG_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

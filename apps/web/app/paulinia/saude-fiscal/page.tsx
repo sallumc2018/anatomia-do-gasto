@@ -11,8 +11,32 @@ import {
   type PessoalRow,
   type DividaDetalhadaRow,
 } from "@/lib/data"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "paulinia"
+
+const PAU_FIS_DATASET = datasetSchema({
+  name: "Saúde fiscal (LRF/RGF) — Paulínia 2020–2024",
+  description: "Indicadores de responsabilidade fiscal de Paulínia: despesa com pessoal, dívida consolidada e RCL. Comparação com os limites da LRF. Fonte: RGF/SICONFI. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/saude-fiscal`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["LRF", "responsabilidade fiscal", "RGF", "dívida", "Paulínia"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/fiscal/saida/divida_detalhada_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/fiscal/saida/divida_detalhada_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/fiscal/saida/divida_detalhada_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/fiscal/saida/divida_detalhada_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/fiscal/saida/divida_detalhada_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_FIS_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Saúde fiscal (LRF)" },
+])
 
 export const metadata: Metadata = {
   title: "Saúde Fiscal de Paulínia",
@@ -85,6 +109,8 @@ export default function PauliniaSaudeFiscalPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_FIS_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_FIS_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

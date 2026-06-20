@@ -32,7 +32,7 @@ export function ComparativoAnos({ data, years }: Props) {
   const colors = COLOR_SEQ.slice(COLOR_SEQ.length - years.length)
 
   return (
-    <ResponsiveContainer width="100%" height={380}>
+    <ResponsiveContainer width="100%" height={380} minWidth={0}>
       <BarChart
         data={data}
         layout="vertical"

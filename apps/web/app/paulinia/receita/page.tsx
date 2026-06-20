@@ -12,9 +12,33 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const MUNICIPIO = "paulinia"
 const IBGE = "3536505"
+
+const PAU_REC_DATASET = datasetSchema({
+  name: "Receitas municipais — Paulínia 2020–2024",
+  description: "Receitas do Município de Paulínia: impostos, royalties REPLAN, cota-parte ICMS/IPVA, FPM e transferências intergovernamentais. Fonte: RREO Anexo 01/SICONFI. IBGE 3536505.",
+  url: `https://www.anatomiadogasto.ong.br/paulinia/receita`,
+  temporalCoverage: "2020/2024",
+  spatialCoverage: "Paulínia, SP, Brasil (IBGE 3536505)",
+  keywords: ["receita municipal", "REPLAN", "royalties", "ICMS", "FPM", "Paulínia", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/receita/saida/receitas_paulinia_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/receita/saida/receitas_paulinia_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/receita/saida/receitas_paulinia_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/receita/saida/receitas_paulinia_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/paulinia/receita/saida/receitas_paulinia_2024.csv`,
+  ],
+})
+
+const PAU_REC_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Paulínia", url: "https://www.anatomiadogasto.ong.br/paulinia" },
+  { name: "Receitas municipais" },
+])
 
 export const metadata: Metadata = {
   title: "Receita Municipal de Paulínia",
@@ -187,6 +211,8 @@ export default async function PauliniaReceitaPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_REC_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_REC_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

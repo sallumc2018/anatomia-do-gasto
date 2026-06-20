@@ -16,6 +16,31 @@ import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/Por
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
+
+const SOR_EDU_DATASET = datasetSchema({
+  name: "Despesas em educação — Sorocaba 2020–2025",
+  description: "Execução orçamentária em educação (função 12) do Município de Sorocaba: subfunções, fontes RREO/SICONFI. Série 2020–2025. IBGE 3552205.",
+  url: `https://www.anatomiadogasto.ong.br/sorocaba/educacao`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "Sorocaba, SP, Brasil (IBGE 3552205)",
+  keywords: ["educação", "ensino fundamental", "Sorocaba", "orçamento", "SICONFI"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2020.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2021.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2022.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2023.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2024.csv`,
+    `https://www.anatomiadogasto.ong.br/api/dados/sorocaba/educacao/saida/despesas_educacao_sorocaba_2025.csv`,
+  ],
+})
+
+const SOR_EDU_BREADCRUMB = breadcrumbSchema([
+  { name: "Início", url: "https://www.anatomiadogasto.ong.br" },
+  { name: "Sorocaba", url: "https://www.anatomiadogasto.ong.br/sorocaba" },
+  { name: "Educação" },
+])
 
 export const metadata: Metadata = {
   title: "Educação em Sorocaba",
@@ -164,6 +189,8 @@ export default function EducacaoPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EDU_DATASET) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EDU_BREADCRUMB) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
