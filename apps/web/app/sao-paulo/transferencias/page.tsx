@@ -6,6 +6,27 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_TRF_DATASET = datasetSchema({
+  name: "Transferências estaduais ao Município de São Paulo 2020–2026",
+  description: "Transferências do Governo do Estado de São Paulo ao Município: ICMS (cota-parte), IPVA, FUNDEB, IPI-exportação e demais repasses legais. Fonte: TCE-SP/Fazenda/SP. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/transferencias`,
+  temporalCoverage: "2020/2026",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["transferências estaduais", "ICMS", "IPVA", "FUNDEB", "São Paulo", "repasses Estado"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2025.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transferencias_estaduais/saida/transferencias_estaduais_sp_sao_paulo_2026.csv`,
+  ],
+})
+
 
 export const metadata: Metadata = {
   title: "Transferências Intergovernamentais — São Paulo",
@@ -126,6 +147,7 @@ export default function SaoPauloTransferenciasPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRF_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

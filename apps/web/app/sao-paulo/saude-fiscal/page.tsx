@@ -11,6 +11,37 @@ import {
   type PessoalRow,
   type DividaDetalhadaRow,
 } from "@/lib/data"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_FIS_DATASET = datasetSchema({
+  name: "Saúde fiscal (LRF/RGF) — São Paulo 2020–2025",
+  description: "Indicadores de responsabilidade fiscal de São Paulo conforme a Lei de Responsabilidade Fiscal: despesa com pessoal, dívida consolidada, Receita Corrente Líquida (RCL) e verificação dos limites legais. Fonte: RGF/SICONFI. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/saude-fiscal`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["LRF", "Lei de Responsabilidade Fiscal", "RGF", "despesa com pessoal", "dívida consolidada", "RCL", "São Paulo"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/pessoal_sao_paulo_2025.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/divida_sao_paulo_2025.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/fiscal/saida/rcl_sao_paulo_2025.csv`,
+  ],
+})
 
 const MUNICIPIO = "sao_paulo"
 
@@ -85,6 +116,7 @@ export default function SaoPauloSaudeFiscalPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_FIS_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

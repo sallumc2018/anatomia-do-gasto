@@ -12,6 +12,26 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_REC_DATASET = datasetSchema({
+  name: "Receitas municipais — São Paulo 2020–2025",
+  description: "Receitas do Município de São Paulo por categoria e espécie (RREO Anexo 01/SICONFI): impostos próprios (ISS, IPTU, ITBI), transferências da União (FPM, IR, IPI), ICMS/IPVA estaduais e demais fontes. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/receita`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["receitas São Paulo", "ISS", "IPTU", "FPM", "ICMS", "RREO", "arrecadação municipal"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/receita/saida/receitas_sao_paulo_2025.csv`,
+  ],
+})
+
 
 const MUNICIPIO = "sao_paulo"
 const IBGE = "3550308"
@@ -187,6 +207,7 @@ export default async function SaoPauloReceitaPage({
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_REC_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

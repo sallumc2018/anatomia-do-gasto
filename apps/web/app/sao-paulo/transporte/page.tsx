@@ -10,6 +10,32 @@ import {
   loadTransporteDca,
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
+import { datasetSchema, SITE_URL } from "@/lib/structured-data"
+
+const SP_TRP_DATASET = datasetSchema({
+  name: "Despesas em transporte — São Paulo 2020–2025",
+  description: "Execução orçamentária em transporte (função 26) do Município de São Paulo: RREO e DCA/SICONFI por ano. Inclui ônibus, metrô, BRT e infraestrutura viária. IBGE 3550308.",
+  url: `${SITE_URL}/sao-paulo/transporte`,
+  temporalCoverage: "2020/2025",
+  spatialCoverage: "São Paulo, SP, Brasil (IBGE 3550308)",
+  keywords: ["transporte", "mobilidade urbana", "ônibus", "metrô", "RREO", "São Paulo"],
+  dateModified: "2026-06-20",
+  downloadUrls: [
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2025.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2020.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2021.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2022.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2023.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2024.csv`,
+    `${SITE_URL}/api/dados/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2025.csv`,
+  ],
+})
+
 
 const MUNICIPIO = "sao_paulo"
 
@@ -70,6 +96,7 @@ export default function SaoPauloTransportePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRP_DATASET) }} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
