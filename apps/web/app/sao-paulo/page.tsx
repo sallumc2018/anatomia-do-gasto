@@ -98,36 +98,36 @@ const SP_CATALOG = municipioDataCatalogSchema({
 
 const SP_FAQ = faqPageSchema([
   {
-    question: "Quanto São Paulo gastou em segurança pública?",
-    answer: `Consulte a série histórica de despesas em segurança pública de São Paulo (dotação, liquidado e pago por ano, 2020–2025) em ${SITE_URL}/sao-paulo/seguranca. Fonte: RREO/SICONFI.`,
+    question: "Qual é o orçamento da Prefeitura de São Paulo?",
+    answer: `Em 2024, a Prefeitura de São Paulo empenhou R$ 112,3 bilhões — o maior orçamento municipal da América Latina. A receita arrecadada foi de R$ 117 bilhões, superior à previsão. As maiores despesas são saúde, educação e transporte. Distribuição por função de governo em ${SITE_URL}/sao-paulo/executivo. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto São Paulo gastou em transporte?",
-    answer: `Veja a execução orçamentária em transporte do Município de São Paulo (2020–2025) em ${SITE_URL}/sao-paulo/transporte. Inclui despesas com mobilidade urbana, ônibus e infraestrutura. Fonte: RREO e DCA/SICONFI.`,
+    question: "Quanto São Paulo gastou em segurança pública em 2024?",
+    answer: `Em 2024, São Paulo liquidou R$ 1,49 bilhão em segurança pública — 1,40% do orçamento de R$ 112,3 bilhões. A série mostra crescimento expressivo: de R$ 580 milhões em 2020 para R$ 1,49 bilhão em 2024, alta de 157% em termos nominais. Cobre guarda civil metropolitana (GM-SP), câmeras de segurança e defesa civil. Série histórica em ${SITE_URL}/sao-paulo/seguranca. Fonte: RREO/SICONFI.`,
   },
   {
-    question: "Quanto entrou de receita em São Paulo?",
-    answer: `Consulte as receitas do Município de São Paulo — impostos próprios (ISS, IPTU), ICMS, FPM, transferências da União e demais fontes — em ${SITE_URL}/sao-paulo/receita. Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
-  },
-  {
-    question: "Qual é o orçamento total da Prefeitura de São Paulo?",
-    answer: `O orçamento total da Prefeitura de São Paulo por função de governo (saúde, educação, transporte, administração etc.) está disponível em ${SITE_URL}/sao-paulo/executivo. Série 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
-  },
-  {
-    question: "Como está a saúde fiscal de São Paulo (LRF)?",
-    answer: `Os indicadores de responsabilidade fiscal de São Paulo — despesa com pessoal, dívida consolidada e Receita Corrente Líquida (RCL) conforme a Lei de Responsabilidade Fiscal — estão em ${SITE_URL}/sao-paulo/saude-fiscal. Fonte: RGF/SICONFI.`,
+    question: "Quanto São Paulo gastou em transporte em 2024?",
+    answer: `Em 2024, São Paulo liquidou R$ 10,56 bilhões em transporte — 9,80% do orçamento municipal. O valor inclui subsídio à SPTrans (ônibus), participação no Metrô e CPTM, obras viárias e manutenção de vias. São Paulo tem a maior rede de ônibus da América do Sul, com mais de 1.300 linhas. Série 2020–2025 em ${SITE_URL}/sao-paulo/transporte. Fonte: RREO/SICONFI.`,
   },
   {
     question: "Quanto o governo federal repassa para a saúde de São Paulo?",
-    answer: `O Fundo Nacional de Saúde (FNS) repassou mais de R$ 10 bilhões ao Município de São Paulo em 2025 para financiar ações do SUS (custeio e investimento). Série histórica 2020–2025 em ${SITE_URL}/sao-paulo/saude. Fonte: FNS/Ministério da Saúde.`,
+    answer: `O Fundo Nacional de Saúde (FNS) repassou R$ 10–11 bilhões anuais ao Município de São Paulo (2023–2025) para financiar o SUS — o maior repasse fundo-a-fundo do Brasil. Os recursos vão diretamente do Fundo Nacional para o Fundo Municipal de Saúde (FMS-SP), cobrindo UBS, hospitais municipais, CAPS, SAMU e vigilância sanitária. Série 2020–2025 em ${SITE_URL}/sao-paulo/saude. Fonte: FNS/Ministério da Saúde.`,
+  },
+  {
+    question: "Quanto entrou de receita em São Paulo em 2024?",
+    answer: `Em 2024, São Paulo arrecadou R$ 117 bilhões em receitas totais. As principais fontes são ISS (imposto sobre serviços), IPTU, ICMS-cota estadual e transferências federais (FPM, SUS, FNDE). São Paulo é a cidade com maior arrecadação municipal do Brasil. Composição por categoria em ${SITE_URL}/sao-paulo/receita. Fonte: RREO Anexo 01/SICONFI.`,
+  },
+  {
+    question: "Como está a saúde fiscal de São Paulo (LRF)?",
+    answer: `Em 2024, a despesa com pessoal de São Paulo representou 28,4% da Receita Corrente Líquida (RCL de R$ 93,8 bilhões) — bem abaixo do limite máximo de 54% da LRF. O gasto bruto com pessoal foi de R$ 38,7 bilhões (ativo R$ 25,6 bi + inativo R$ 13,0 bi). São Paulo tem ampla margem fiscal pela dimensão da sua economia tributária. Indicadores completos em ${SITE_URL}/sao-paulo/saude-fiscal. Fonte: RGF Anexo 01/SICONFI.`,
   },
   {
     question: "O que é empenho, liquidação e pagamento?",
-    answer: `Empenho é a reserva de crédito para uma despesa futura. Liquidação é a confirmação de que o bem ou serviço foi entregue. Pagamento é a transferência efetiva do dinheiro. Veja o glossário completo em ${SITE_URL}/glossario.`,
+    answer: `Empenho é a reserva de crédito orçamentária para uma despesa futura. Liquidação confirma que o bem foi entregue ou o serviço prestado. Pagamento é a transferência efetiva do dinheiro ao fornecedor. Um empenho pode existir sem liquidação (entrega pendente) e uma liquidação sem pagamento (débito em aberto). Glossário completo em ${SITE_URL}/glossario.`,
   },
   {
-    question: "Como os dados são coletados e validados?",
-    answer: `Os dados são extraídos de portais oficiais (SICONFI, TCE-SP, FNS), transformados por scripts abertos e validados antes de qualquer publicação. A metodologia completa está em ${SITE_URL}/metodologia.`,
+    question: "Como os dados de São Paulo são coletados e validados?",
+    answer: `Dados extraídos de portais oficiais (SICONFI/Tesouro Nacional, FNS/Ministério da Saúde, TCE-SP), transformados por scripts Python de código aberto e validados por testes automatizados antes de qualquer publicação. Metodologia completa em ${SITE_URL}/metodologia.`,
   },
 ])
 

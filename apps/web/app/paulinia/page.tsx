@@ -109,36 +109,40 @@ const PAU_CATALOG = municipioDataCatalogSchema({
 
 const PAU_FAQ = faqPageSchema([
   {
-    question: "Quanto Paulínia gastou em segurança pública?",
-    answer: `Consulte a execução orçamentária em segurança pública de Paulínia (dotação, liquidado, pago por ano) em ${SITE_URL}/paulinia/seguranca. Série 2020–2025. Fonte: RREO/SICONFI.`,
+    question: "Quanto Paulínia gastou em segurança pública em 2024?",
+    answer: `Em 2024, Paulínia liquidou R$ 104,5 milhões em segurança pública — 4,25% do orçamento municipal. O percentual é elevado para municípios de porte similar (média nacional fica em torno de 1–2%) e reflete investimento em guarda municipal e monitoramento urbano. Série 2020–2025 em ${SITE_URL}/paulinia/seguranca. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto Paulínia gastou em transporte?",
-    answer: `Veja as despesas em transporte de Paulínia em ${SITE_URL}/paulinia/transporte. Série histórica 2020–2025. Fonte: RREO/SICONFI.`,
+    question: "Quanto Paulínia gastou em transporte em 2024?",
+    answer: `Em 2024, Paulínia liquidou R$ 153,8 milhões em transporte — 6,42% do orçamento municipal de R$ 2,56 bilhões. O investimento inclui mobilidade urbana e infraestrutura viária. Série histórica 2020–2025 em ${SITE_URL}/paulinia/transporte. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
-    question: "Quanto entrou de receita em Paulínia?",
-    answer: `As receitas de Paulínia — impostos próprios, ICMS, FPM, royalties de petróleo e transferências da União — estão em ${SITE_URL}/paulinia/receita. Paulínia recebe alto volume de royalties por ter a maior refinaria da Petrobras (REPLAN). Série 2020–2025. Fonte: RREO Anexo 01/SICONFI.`,
-  },
-  {
-    question: "Qual é o orçamento total da Prefeitura de Paulínia?",
-    answer: `O orçamento total de Paulínia por função de governo está em ${SITE_URL}/paulinia/executivo. Série 2020–2025. Fonte: RREO Anexo 02/SICONFI.`,
-  },
-  {
-    question: "Como está a saúde fiscal de Paulínia (LRF)?",
-    answer: `Os indicadores de LRF de Paulínia — despesa com pessoal, dívida consolidada e RCL — estão em ${SITE_URL}/paulinia/saude-fiscal. Fonte: RGF/SICONFI.`,
+    question: "Quanto entrou de receita em Paulínia em 2024?",
+    answer: `Em 2024, Paulínia arrecadou R$ 3,00 bilhões — 17% acima do orçamento previsto de R$ 2,56 bilhões. R$ 1,59 bilhão veio de transferências do Estado (ICMS-cota e IPVA), impulsionados pela alta atividade industrial da Refinaria de Paulínia (REPLAN/Petrobras), a maior do Brasil. Os impostos próprios somaram R$ 609 milhões. Composição detalhada em ${SITE_URL}/paulinia/receita. Fonte: RREO Anexo 01/SICONFI.`,
   },
   {
     question: "Paulínia cumpre o mínimo constitucional de 15% em saúde?",
-    answer: `Consulte os dados de aplicação em ASPS (Ações e Serviços Públicos de Saúde) de Paulínia e a verificação do mínimo constitucional em ${SITE_URL}/paulinia/saude. Fonte: RREO Anexo 12/SICONFI.`,
+    answer: `Sim. Em 2024, Paulínia aplicou R$ 359 milhões em saúde pública (ASPS), representando 16,62% das receitas de impostos — acima do mínimo constitucional de 15%. Isso equivale a R$ 367 mil por habitante ao ano (Paulínia tem ~115 mil habitantes). Dados detalhados em ${SITE_URL}/paulinia/saude. Fonte: SIOPS/Ministério da Saúde.`,
+  },
+  {
+    question: "Qual é o orçamento total da Prefeitura de Paulínia?",
+    answer: `O orçamento (LOA) de Paulínia para 2024 foi de R$ 2,56 bilhões, com receita arrecadada de R$ 3,00 bilhões — superávit de R$ 440 milhões frente à previsão. A receita elevada se deve ao ICMS industrial e IPVA de veículos de carga. Distribuição por função de governo em ${SITE_URL}/paulinia/executivo. Fonte: RREO Anexo 02/SICONFI.`,
+  },
+  {
+    question: "Como está a saúde fiscal de Paulínia (LRF)?",
+    answer: `Os indicadores de responsabilidade fiscal de Paulínia — despesa com pessoal frente à RCL, dívida consolidada e resultado primário — estão disponíveis em ${SITE_URL}/paulinia/saude-fiscal. Série 2020–2025. Fonte: RGF/SICONFI.`,
   },
   {
     question: "Quanto a Câmara Municipal de Paulínia gasta por ano?",
-    answer: `Veja as despesas anuais da Câmara Municipal de Paulínia por natureza de despesa em ${SITE_URL}/paulinia/camara. Fonte: Portal de Transparência da Câmara de Paulínia.`,
+    answer: `A execução orçamentária da Câmara Municipal de Paulínia — empenhos, pagamentos e receitas por natureza de despesa (2023–2026) — está em ${SITE_URL}/paulinia/camara. Fonte: Portal de Transparência da Câmara de Paulínia.`,
   },
   {
-    question: "O que são transferências estaduais para municípios?",
-    answer: `Transferências estaduais são repasses do Governo do Estado ao município: ICMS (cota-parte), IPVA, FUNDEB estadual, entre outros. Dados de Paulínia em ${SITE_URL}/paulinia/transferencias. Fonte: SICONFI.`,
+    question: "Quais transferências estaduais Paulínia recebe?",
+    answer: `Paulínia recebeu R$ 1,59 bilhão em transferências do Estado de São Paulo em 2024, principalmente ICMS-cota (proporcional ao VAF industrial da REPLAN) e IPVA. Transferências federais (FPM, SUS, educação) somaram R$ 138 milhões adicionais. Dados históricos em ${SITE_URL}/paulinia/transferencias. Fonte: SICONFI e Fazenda/SP.`,
+  },
+  {
+    question: "O que é empenho, liquidação e pagamento?",
+    answer: `Empenho é a reserva orçamentária que compromete recursos para uma despesa futura. Liquidação confirma que o bem foi entregue ou o serviço prestado. Pagamento é a transferência efetiva do dinheiro. Glossário completo em ${SITE_URL}/glossario.`,
   },
 ])
 
