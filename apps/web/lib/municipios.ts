@@ -6,7 +6,7 @@
 // têm página publicada (app/<id>/<rota>/page.tsx). O header filtra os links
 // por esta lista para nunca gerar um link para rota inexistente (404).
 
-export type MunicipioId = "sorocaba" | "paulinia" | "sao-paulo"
+export type MunicipioId = "sorocaba" | "paulinia" | "sao-paulo" | "sao-bernardo"
 
 export type MunicipioInfo = {
   id: MunicipioId
@@ -53,6 +53,12 @@ export const MUNICIPIOS: readonly MunicipioInfo[] = [
     nome: "São Paulo",
     uf: "SP",
     rotas: ["executivo", "receita", "saude-fiscal", "seguranca", "transporte", "transferencias"],
+  },
+  {
+    id: "sao-bernardo",
+    nome: "São Bernardo do Campo",
+    uf: "SP",
+    rotas: ["receita", "saude-fiscal", "seguranca", "transporte"],
   },
 ]
 

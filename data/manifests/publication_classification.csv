@@ -170,3 +170,9 @@ sao_paulo,saude,siops-federal,siops_sao_paulo_{ano}.csv,public,publicavel_com_ca
 sao_paulo,saude,siops-consolidado,siops_sao_paulo_consolidado.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Dado federal consolidado de saude; publicar agregadamente e com linguagem neutra.
 sao_paulo,contratos,pncp-completo,pncp_sao_paulo_2022_2026.csv,public,publicavel_com_cautela,mostrar_cobertura_parcial,Contratacao publica e publicavel; objetos podem conter termos sensiveis entao evitar juizo e perfis pessoais.
 sao_paulo,fns,transferencias,fns_repasses_faf_com_populacao_sao_paulo_{ano}.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Tema de saude; publicar agregadamente e sem destaque pessoal.
+sao_bernardo,receita,receitas,receitas_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
+sao_bernardo,fiscal,indicador-fiscal,divida_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
+sao_bernardo,fiscal,indicador-fiscal,pessoal_sao_bernardo_{ano}.csv,public,nao_destacar_na_ui,agregar_sem_perfil_pessoal,Transparencia do gasto publico mantida; evitar perfil individual ranking nominal ou sugestao de conduta.
+sao_bernardo,seguranca,orcamento-rreo,rreo_seguranca_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
+sao_bernardo,transporte,orcamento-rreo,rreo_transporte_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
+sao_bernardo,saude,receitas,receitas_detalhamento_sao_bernardo_{ano}.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Tema pode envolver saude; publicar cobertura agregada e nao destacar identificadores pessoais.

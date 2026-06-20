@@ -40,16 +40,16 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 159 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
+    "detail": "Mapa cidadão gerado a partir de 165 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
     "value": "2002-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 159,
+    "sourceCount": 165,
     "policy": {
-      "publicavel": 99,
-      "publicavelComCautela": 52,
-      "naoDestacarNaUi": 8
+      "publicavel": 103,
+      "publicavelComCautela": 53,
+      "naoDestacarNaUi": 9
     }
   },
   {
@@ -59,16 +59,16 @@ export const MINDMAP_NODES = [
     "group": "dinheiro",
     "icon": "Building2",
     "summary": "Despesa, receita e execução",
-    "detail": "45 trilhas publicadas; 4 com cautela editorial; 5 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "48 trilhas publicadas; 4 com cautela editorial; 6 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2026 parcial",
     "href": "/sorocaba/executivo",
     "linkLabel": "Ver Executivo",
     "color": "var(--blue-40)",
-    "sourceCount": 45,
+    "sourceCount": 48,
     "policy": {
-      "publicavel": 36,
+      "publicavel": 38,
       "publicavelComCautela": 4,
-      "naoDestacarNaUi": 5
+      "naoDestacarNaUi": 6
     }
   },
   {
@@ -78,14 +78,14 @@ export const MINDMAP_NODES = [
     "group": "dinheiro",
     "icon": "Coins",
     "summary": "Entradas do município",
-    "detail": "3 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "4 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2025",
     "href": "/sorocaba/receita",
     "linkLabel": "Ver receita",
     "color": "var(--support-success)",
-    "sourceCount": 3,
+    "sourceCount": 4,
     "policy": {
-      "publicavel": 3,
+      "publicavel": 4,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
@@ -116,15 +116,15 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "HeartPulse",
     "summary": "Saúde, educação, segurança e transporte",
-    "detail": "32 trilhas publicadas; 17 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "35 trilhas publicadas; 18 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2010-2026 parcial",
     "href": "/sorocaba/saude",
     "linkLabel": "Começar pela saúde",
     "color": "var(--theme-accent-hover)",
-    "sourceCount": 32,
+    "sourceCount": 35,
     "policy": {
-      "publicavel": 15,
-      "publicavelComCautela": 17,
+      "publicavel": 17,
+      "publicavelComCautela": 18,
       "naoDestacarNaUi": 0
     }
   },
@@ -135,15 +135,15 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "HeartPulse",
     "summary": "ASPS, RREO, SUS e FNS",
-    "detail": "12 trilhas publicadas; 12 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "13 trilhas publicadas; 13 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2015-2026 parcial",
     "href": "/sorocaba/saude",
     "linkLabel": "Ver saúde",
     "color": "var(--support-error)",
-    "sourceCount": 12,
+    "sourceCount": 13,
     "policy": {
       "publicavel": 0,
-      "publicavelComCautela": 12,
+      "publicavelComCautela": 13,
       "naoDestacarNaUi": 0
     }
   },
@@ -173,14 +173,14 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "Shield",
     "summary": "Função segurança pública",
-    "detail": "5 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "6 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2025",
     "href": "/sorocaba/seguranca",
     "linkLabel": "Ver segurança",
     "color": "var(--support-warning)",
-    "sourceCount": 5,
+    "sourceCount": 6,
     "policy": {
-      "publicavel": 5,
+      "publicavel": 6,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
@@ -192,14 +192,14 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "Bus",
     "summary": "Transporte e Urbes",
-    "detail": "7 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "8 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2010-2026 parcial",
     "href": "/sorocaba/transporte",
     "linkLabel": "Ver transporte",
     "color": "var(--border-focus)",
-    "sourceCount": 7,
+    "sourceCount": 8,
     "policy": {
-      "publicavel": 7,
+      "publicavel": 8,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
