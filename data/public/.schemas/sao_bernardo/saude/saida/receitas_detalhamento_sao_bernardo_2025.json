@@ -1,0 +1,39 @@
+{
+  "arquivo": "receitas_detalhamento_sao_bernardo_2025.csv",
+  "caminho_relativo": "data/public/sao_bernardo/saude/saida/receitas_detalhamento_sao_bernardo_2025.csv",
+  "tamanho_bytes": 1753,
+  "linhas_dados": 9,
+  "colunas": [
+    "﻿Categoria",
+    "Conta",
+    "Valor",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Conta": "string",
+    "Valor": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "IPTU",
+      "Valor": "654396478.74",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2003"
+    },
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "ISS",
+      "Valor": "940106648.08",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2003"
+    },
+    {
+      "﻿Categoria": "proprios",
+      "Conta": "ITBI",
+      "Valor": "128820373.71",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2003"
+    }
+  ],
+  "analisado_em": "2026-06-21T07:24:00.842755"
+}
