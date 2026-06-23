@@ -181,7 +181,8 @@ def resolver_arquivo(item: dict) -> dict:
 
 
 def salvar_inventario(itens: list[dict]) -> Path:
-    destino = FNS_EXTRACTED_DIR / f"inventario_fns_repasses_faf_{MUNICIPIO}.csv"
+    # Inventário salvo em fns/ (não em saida/) para não ser escaneado por publicar_dados.py
+    destino = FNS_EXTRACTED_DIR.parent / f"inventario_fns_repasses_faf_{MUNICIPIO}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
     with destino.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=INVENTARIO_CAMPOS)
