@@ -44,12 +44,13 @@ a `DECISIONS.md`.
 - [x] Criar `pipelines/baixar_emendas_federais.py` — endpoint `/api-de-dados/emendas`
   Portal da Transparência, args `--anos START END`, schema bate com
   `sprint2_contracts.py` (`municipio_ibge` + `valor_empenhado`). — 2026-06-25
-- [ ] **Validação isolada obrigatória antes do cron** (usuário executa com chave real):
-  `MUNICIPIO=sorocaba PORTAL_TRANSPARENCIA_KEY=... .venv/bin/python3 pipelines/baixar_emendas_federais.py --anos 2024 2024`
-  Checar: 200 OK, `localidadeGasto`/`anoExercicio` filtram corretamente,
-  campos `_linha_para_csv()` batem com o contrato; ajustar se necessário.
-- Responsável: usuário valida; Claude corrige campos se a API diferir.
-- Evidência: bug Codex 2026-06-25; script criado Claude 2026-06-25.
+- [x] **Validação isolada concluída** (2026-06-25):
+  Sorocaba 2024, 15 registros, `sprint2_contracts` OK. Campos da API são
+  strings planas (sem objetos aninhados); `_linha_para_csv` corrigido e
+  commitado em `45132b7`. `PORTAL_TRANSPARENCIA_KEY` configurada em
+  `~/.config/omega/secrets.env`.
+- Responsável: usuário validou; Claude corrigiu campos.
+- Evidência: bug Codex 2026-06-25; script criado Claude 2026-06-25; fix Claude 2026-06-25.
 
 ### P1 — Frontend e descoberta
 
