@@ -13,6 +13,7 @@ export type GeneratedMindNode = {
     | "GraduationCap"
     | "HeartPulse"
     | "Landmark"
+    | "LayoutGrid"
     | "Network"
     | "Shield"
     | "ShieldCheck"
@@ -34,22 +35,117 @@ export type GeneratedMindNode = {
 
 export const MINDMAP_NODES = [
   {
-    "id": "sorocaba",
+    "id": "anatomia",
     "parentId": null,
+    "label": "Anatomia do Gasto",
+    "group": "root",
+    "icon": "LayoutGrid",
+    "summary": "Portal de transparência municipal",
+    "detail": "Portal cívico independente dedicado à transparência fiscal municipal. Organiza contas públicas com fonte declarada, limites explícitos e rastreabilidade completa — sem vínculo com partidos ou governos.",
+    "value": "metodologia",
+    "href": "/",
+    "linkLabel": "Ver início",
+    "color": "var(--theme-accent)",
+    "sourceCount": 0,
+    "policy": {
+      "publicavel": 0,
+      "publicavelComCautela": 0,
+      "naoDestacarNaUi": 0
+    }
+  },
+  {
+    "id": "estado_sp",
+    "parentId": "anatomia",
+    "label": "Estado de SP",
+    "group": "root",
+    "icon": "Network",
+    "summary": "4 municípios publicados · SP",
+    "detail": "Estado de São Paulo — fase 1 da cobertura nacional. Municípios cobertos em profundidade variável, de acordo com disponibilidade das fontes oficiais.",
+    "value": "metodologia",
+    "href": "/",
+    "linkLabel": "Escolher município",
+    "color": "var(--teal-60)",
+    "sourceCount": 0,
+    "policy": {
+      "publicavel": 0,
+      "publicavelComCautela": 0,
+      "naoDestacarNaUi": 0
+    }
+  },
+  {
+    "id": "sorocaba",
+    "parentId": "estado_sp",
     "label": "Sorocaba/SP",
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 167 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
-    "value": "2002-2027 parcial",
+    "detail": "Mapa cidadão gerado a partir de 105 trilhas publicadas em 27 areas. A interface resume cobertura sem usar camadas internas.",
+    "value": "2010-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 167,
+    "sourceCount": 105,
     "policy": {
-      "publicavel": 104,
-      "publicavelComCautela": 54,
-      "naoDestacarNaUi": 9
+      "publicavel": 63,
+      "publicavelComCautela": 34,
+      "naoDestacarNaUi": 8
+    }
+  },
+  {
+    "id": "paulinia",
+    "parentId": "estado_sp",
+    "label": "Paulínia/SP",
+    "group": "root",
+    "icon": "Network",
+    "summary": "18 áreas publicadas (2020–2025)",
+    "detail": "34 trilhas publicadas em 17 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
+    "value": "2002-2027 parcial",
+    "href": "/paulinia",
+    "linkLabel": "Abrir painel de Paulínia",
+    "color": "var(--purple-60)",
+    "sourceCount": 34,
+    "policy": {
+      "publicavel": 21,
+      "publicavelComCautela": 13,
+      "naoDestacarNaUi": 0
+    }
+  },
+  {
+    "id": "sao_paulo",
+    "parentId": "estado_sp",
+    "label": "São Paulo/SP",
+    "group": "root",
+    "icon": "Network",
+    "summary": "11 áreas publicadas (2020–2025)",
+    "detail": "22 trilhas publicadas em 10 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
+    "value": "2016-2026 parcial",
+    "href": "/sao-paulo",
+    "linkLabel": "Abrir painel de São Paulo",
+    "color": "var(--blue-50)",
+    "sourceCount": 22,
+    "policy": {
+      "publicavel": 16,
+      "publicavelComCautela": 6,
+      "naoDestacarNaUi": 0
+    }
+  },
+  {
+    "id": "sao_bernardo",
+    "parentId": "estado_sp",
+    "label": "São Bernardo/SP",
+    "group": "root",
+    "icon": "Network",
+    "summary": "5 áreas publicadas (2020–2025)",
+    "detail": "6 trilhas publicadas em 5 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
+    "value": "2020-2025 parcial",
+    "href": "/sao-bernardo",
+    "linkLabel": "Abrir painel de São Bernardo",
+    "color": "var(--cyan-60)",
+    "sourceCount": 6,
+    "policy": {
+      "publicavel": 4,
+      "publicavelComCautela": 1,
+      "naoDestacarNaUi": 1
     }
   },
   {
@@ -59,16 +155,16 @@ export const MINDMAP_NODES = [
     "group": "dinheiro",
     "icon": "Building2",
     "summary": "Despesa, receita e execução",
-    "detail": "48 trilhas publicadas; 4 com cautela editorial; 6 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
-    "value": "2020-2026 parcial",
+    "detail": "26 trilhas publicadas; 2 com cautela editorial; 5 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "value": "2020-2025",
     "href": "/sorocaba/executivo",
     "linkLabel": "Ver Executivo",
     "color": "var(--blue-40)",
-    "sourceCount": 48,
+    "sourceCount": 26,
     "policy": {
-      "publicavel": 38,
-      "publicavelComCautela": 4,
-      "naoDestacarNaUi": 6
+      "publicavel": 19,
+      "publicavelComCautela": 2,
+      "naoDestacarNaUi": 5
     }
   },
   {
@@ -78,14 +174,14 @@ export const MINDMAP_NODES = [
     "group": "dinheiro",
     "icon": "Coins",
     "summary": "Entradas do município",
-    "detail": "4 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "1 trilha publicada. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2025",
     "href": "/sorocaba/receita",
     "linkLabel": "Ver receita",
     "color": "var(--support-success)",
-    "sourceCount": 4,
+    "sourceCount": 1,
     "policy": {
-      "publicavel": 4,
+      "publicavel": 1,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
@@ -116,15 +212,15 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "HeartPulse",
     "summary": "Saúde, educação, segurança e transporte",
-    "detail": "35 trilhas publicadas; 18 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "17 trilhas publicadas; 11 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2010-2026 parcial",
     "href": "/sorocaba/saude",
     "linkLabel": "Começar pela saúde",
     "color": "var(--theme-accent-hover)",
-    "sourceCount": 35,
+    "sourceCount": 17,
     "policy": {
-      "publicavel": 17,
-      "publicavelComCautela": 18,
+      "publicavel": 6,
+      "publicavelComCautela": 11,
       "naoDestacarNaUi": 0
     }
   },
@@ -135,15 +231,15 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "HeartPulse",
     "summary": "ASPS, RREO, SUS e FNS",
-    "detail": "13 trilhas publicadas; 13 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "8 trilhas publicadas; 8 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2015-2026 parcial",
     "href": "/sorocaba/saude",
     "linkLabel": "Ver saúde",
     "color": "var(--support-error)",
-    "sourceCount": 13,
+    "sourceCount": 8,
     "policy": {
       "publicavel": 0,
-      "publicavelComCautela": 13,
+      "publicavelComCautela": 8,
       "naoDestacarNaUi": 0
     }
   },
@@ -154,15 +250,15 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "GraduationCap",
     "summary": "Aplicação em ensino",
-    "detail": "8 trilhas publicadas; 5 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "4 trilhas publicadas; 3 com cautela editorial. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2015-2026 parcial",
     "href": "/sorocaba/educacao",
     "linkLabel": "Ver educação",
     "color": "var(--blue-40)",
-    "sourceCount": 8,
+    "sourceCount": 4,
     "policy": {
-      "publicavel": 3,
-      "publicavelComCautela": 5,
+      "publicavel": 1,
+      "publicavelComCautela": 3,
       "naoDestacarNaUi": 0
     }
   },
@@ -173,14 +269,14 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "Shield",
     "summary": "Função segurança pública",
-    "detail": "6 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "2 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2025",
     "href": "/sorocaba/seguranca",
     "linkLabel": "Ver segurança",
     "color": "var(--support-warning)",
-    "sourceCount": 6,
+    "sourceCount": 2,
     "policy": {
-      "publicavel": 6,
+      "publicavel": 2,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
@@ -192,14 +288,14 @@ export const MINDMAP_NODES = [
     "group": "servicos",
     "icon": "Bus",
     "summary": "Transporte e Urbes",
-    "detail": "8 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "3 trilhas publicadas. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2010-2026 parcial",
     "href": "/sorocaba/transporte",
     "linkLabel": "Ver transporte",
     "color": "var(--border-focus)",
-    "sourceCount": 8,
+    "sourceCount": 3,
     "policy": {
-      "publicavel": 8,
+      "publicavel": 3,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 0
     }
@@ -211,15 +307,15 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "ShieldCheck",
     "summary": "Câmara, contratos, emendas e LAI",
-    "detail": "41 trilhas publicadas; 8 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "34 trilhas publicadas; 5 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2015-2026 parcial",
     "href": "/sorocaba/lacunas",
     "linkLabel": "Ver lacunas",
     "color": "var(--support-success)",
-    "sourceCount": 41,
+    "sourceCount": 34,
     "policy": {
-      "publicavel": 30,
-      "publicavelComCautela": 8,
+      "publicavel": 26,
+      "publicavelComCautela": 5,
       "naoDestacarNaUi": 3
     }
   },
@@ -230,14 +326,14 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "Landmark",
     "summary": "Legislativo municipal",
-    "detail": "9 trilhas publicadas; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "detail": "6 trilhas publicadas; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
     "value": "2020-2026 parcial",
     "href": "/sorocaba/camara-municipal",
     "linkLabel": "Ver Câmara",
     "color": "var(--blue-30)",
-    "sourceCount": 9,
+    "sourceCount": 6,
     "policy": {
-      "publicavel": 8,
+      "publicavel": 5,
       "publicavelComCautela": 0,
       "naoDestacarNaUi": 1
     }
@@ -249,15 +345,15 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "FileCheck2",
     "summary": "PNCP, obras e precatórios",
-    "detail": "7 trilhas publicadas; 6 com cautela editorial; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
-    "value": "2016-2026 parcial",
+    "detail": "4 trilhas publicadas; 3 com cautela editorial; 1 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "value": "2020-2026 parcial",
     "href": "/sorocaba/lacunas",
     "linkLabel": "Ver cobertura",
     "color": "var(--theme-accent)",
-    "sourceCount": 7,
+    "sourceCount": 4,
     "policy": {
       "publicavel": 0,
-      "publicavelComCautela": 6,
+      "publicavelComCautela": 3,
       "naoDestacarNaUi": 1
     }
   },

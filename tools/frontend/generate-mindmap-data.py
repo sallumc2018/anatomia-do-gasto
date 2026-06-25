@@ -15,8 +15,28 @@ OUTPUT = ROOT / "apps" / "web" / "lib" / "generated" / "mindmap-data.ts"
 
 
 AREA_CONFIG = {
-    "sorocaba": {
+    "anatomia": {
         "parentId": None,
+        "label": "Anatomia do Gasto",
+        "group": "root",
+        "icon": "LayoutGrid",
+        "summary": "Portal de transparência municipal",
+        "href": "/",
+        "linkLabel": "Ver início",
+        "color": "var(--theme-accent)",
+    },
+    "estado_sp": {
+        "parentId": "anatomia",
+        "label": "Estado de SP",
+        "group": "root",
+        "icon": "Network",
+        "summary": "4 municípios publicados · SP",
+        "href": "/",
+        "linkLabel": "Escolher município",
+        "color": "var(--teal-60)",
+    },
+    "sorocaba": {
+        "parentId": "estado_sp",
         "label": "Sorocaba/SP",
         "group": "root",
         "icon": "Network",
@@ -24,6 +44,39 @@ AREA_CONFIG = {
         "href": "/sorocaba",
         "linkLabel": "Abrir painel de Sorocaba",
         "color": "var(--theme-accent)",
+    },
+    "paulinia": {
+        "parentId": "estado_sp",
+        "municipality": "paulinia",
+        "label": "Paulínia/SP",
+        "group": "root",
+        "icon": "Network",
+        "summary": "18 áreas publicadas (2020–2025)",
+        "href": "/paulinia",
+        "linkLabel": "Abrir painel de Paulínia",
+        "color": "var(--purple-60)",
+    },
+    "sao_paulo": {
+        "parentId": "estado_sp",
+        "municipality": "sao_paulo",
+        "label": "São Paulo/SP",
+        "group": "root",
+        "icon": "Network",
+        "summary": "11 áreas publicadas (2020–2025)",
+        "href": "/sao-paulo",
+        "linkLabel": "Abrir painel de São Paulo",
+        "color": "var(--blue-50)",
+    },
+    "sao_bernardo": {
+        "parentId": "estado_sp",
+        "municipality": "sao_bernardo",
+        "label": "São Bernardo/SP",
+        "group": "root",
+        "icon": "Network",
+        "summary": "5 áreas publicadas (2020–2025)",
+        "href": "/sao-bernardo",
+        "linkLabel": "Abrir painel de São Bernardo",
+        "color": "var(--cyan-60)",
     },
     "executivo": {
         "parentId": "sorocaba",
@@ -159,7 +212,12 @@ AREA_CONFIG = {
 }
 
 NODE_ORDER = [
+    "anatomia",
+    "estado_sp",
     "sorocaba",
+    "paulinia",
+    "sao_paulo",
+    "sao_bernardo",
     "executivo",
     "receita",
     "fornecedores",
@@ -231,6 +289,23 @@ def period_label(rows: list[dict[str, str]]) -> str:
 
 
 def detail_for(node_id: str, rows: list[dict[str, str]], policy_counts: Counter[str]) -> str:
+    if node_id == "anatomia":
+        return (
+            "Portal cívico independente dedicado à transparência fiscal municipal. "
+            "Organiza contas públicas com fonte declarada, limites explícitos e rastreabilidade completa — "
+            "sem vínculo com partidos ou governos."
+        )
+    if node_id == "estado_sp":
+        return (
+            "Estado de São Paulo — fase 1 da cobertura nacional. "
+            "Municípios cobertos em profundidade variável, de acordo com disponibilidade das fontes oficiais."
+        )
+    if node_id in ("paulinia", "sao_paulo", "sao_bernardo"):
+        areas = sorted({row["Area"].split("/")[0] for row in rows})
+        return (
+            f"{len(rows)} trilhas publicadas em {len(areas)} áreas temáticas. "
+            "Acesse o painel municipal para explorar receita, gasto e serviços."
+        )
     if node_id == "sorocaba":
         areas = sorted({row["Area"] for row in rows})
         return (
@@ -256,19 +331,38 @@ def detail_for(node_id: str, rows: list[dict[str, str]], policy_counts: Counter[
     )
 
 
+HIERARCHY_NODES = {"anatomia", "estado_sp"}
+CITY_NODES = {"paulinia", "sao_paulo", "sao_bernardo"}
+
+
 def build_nodes(datasets: list[dict[str, str]], classifications: list[dict[str, str]]) -> list[dict]:
     class_by_pattern = {row["arquivo_padrao"]: row for row in classifications}
     public_rows = [row for row in datasets if row.get("Origem_Dir") == "public"]
+    sorocaba_rows = [row for row in public_rows if row["municipio"] == "sorocaba"]
     rows_by_area: dict[str, list[dict[str, str]]] = defaultdict(list)
-    for row in public_rows:
+    for row in sorocaba_rows:
         rows_by_area[row["Area"]].append(row)
 
     nodes = []
     for node_id in NODE_ORDER:
         config = AREA_CONFIG[node_id]
         areas = config.get("areas", [])
-        rows = public_rows if node_id == "sorocaba" else [row for area in areas for row in rows_by_area.get(area, [])]
-        classes = Counter(class_by_pattern[row["Arquivo_Padrao"]]["classe"] for row in rows)
+        municipality = config.get("municipality")
+
+        if node_id in HIERARCHY_NODES:
+            rows = []
+        elif node_id == "sorocaba":
+            rows = sorocaba_rows
+        elif municipality:
+            rows = [row for row in public_rows if row["municipio"] == municipality]
+        else:
+            rows = [row for area in areas for row in rows_by_area.get(area, [])]
+
+        classes = Counter(
+            class_by_pattern[row["Arquivo_Padrao"]]["classe"]
+            for row in rows
+            if row["Arquivo_Padrao"] in class_by_pattern
+        )
         node = {
             "id": node_id,
             "parentId": config["parentId"],
@@ -310,6 +404,7 @@ def render_ts(nodes: list[dict]) -> str:
         '    | "GraduationCap"\n'
         '    | "HeartPulse"\n'
         '    | "Landmark"\n'
+        '    | "LayoutGrid"\n'
         '    | "Network"\n'
         '    | "Shield"\n'
         '    | "ShieldCheck"\n'
