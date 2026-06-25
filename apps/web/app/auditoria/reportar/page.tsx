@@ -4,7 +4,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Reportar divergência — Anatomia do Gasto",
+  title: "Reportar divergência",
   description:
     "Canal neutro para reportar divergência, lacuna ou fonte oficial relacionada aos dados publicados pelo Anatomia do Gasto.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/auditoria/reportar" },

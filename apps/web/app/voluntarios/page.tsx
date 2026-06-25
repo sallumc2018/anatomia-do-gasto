@@ -4,7 +4,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Colaboração open-source — Anatomia do Gasto",
+  title: "Colaboração open-source",
   description: "Contribua com o Anatomia do Gasto. Ajude a decifrar contas públicas e tornar gastos municipais compreensíveis para qualquer cidadão.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/voluntarios" },
 }

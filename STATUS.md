@@ -1,6 +1,31 @@
 # STATUS — Anatomia do Gasto
-> Fonte única de verdade. Lido por Claude, Codex, Gemini e qualquer IDE.
-> Atualizar a cada sessão. Data: 2026-06-09
+> Fonte única de verdade. Lido por Claude, Codex e qualquer IDE.
+> Atualizar a cada sessão. Data da última normalização documental: 2026-06-25.
+
+## Governança documental — 2026-06-25
+
+- `CANONICAL_PATHS.md` define onde cada artefato, camada de dados e handoff fica.
+- `TASKS.md` substitui o antigo `tasks.txt` e contém a fila executável.
+- `IDEAS.md` recebe propostas ainda não aprovadas.
+- `DECISIONS.md` permanece como registro de decisões duráveis.
+- `memory/handoffs/YYYY-MM/` permanece como caixa postal pública sanitizada.
+- O estado operacional detalhado abaixo ainda precisa de reconciliação pelas
+  sessões responsáveis antes de ser tratado como fotografia integral de 2026-06-25.
+
+## UI/UX — 2026-06-25 (Claude UI/UX)
+
+- **Canonicals corrigidos**: `layout.tsx` criados em `/fluxo`, `/fluxo-financeiro`,
+  `/mapa-interativo` (canonical) e `/sandbox` (noindex). Gate `check_canonical_routes.py` retorna OK.
+- **Títulos duplicados eliminados**: 8 páginas tinham `title: "X — Anatomia do Gasto"` que
+  combinava com o template do root layout (`"%s | Anatomia do Gasto"`) gerando duplicação.
+  Corrigido em `atualizacoes/page.tsx`, `atualizacoes/[slug]/page.tsx`, `api/dados/page.tsx`,
+  `auditoria/reportar/page.tsx`, `institucional/page.tsx`, `sobre/page.tsx`, `voluntarios/page.tsx`,
+  `comparativo/page.tsx`.
+- **Recharts -1**: verificado — todos os charts de produção (`components/charts/`) têm `minWidth={0}`
+  e alturas fixas. Charts sorocaba experimentais já têm wrapper divs com altura explícita. Sem ação pendente.
+- **Gramática PT-BR**: pipeline `tools/gates/check_grammar.py` criado e integrado ao pre-commit
+  (Layer 1.5). ~50 strings corrigidas em 10 arquivos. Commit `48f0d6f`.
+- **Mapa interativo sem cruzamentos**: SVG e coordenadas redesenhados (bandas y disjuntas). Commit `8d02ce3`.
 
 ## Sprint ativo
 **Sorocaba + Paulínia em paralelo** (sessão 2026-06-09, Claude Sonnet 4.6). Score Sorocaba: **26/37 sem-LAI (70%)** — Urbes despesas mensais promovida de `coletado_pend_valid` → `publicado_parcial`. Paulínia: CNPJ confirmado válido (`45751435000106` = BrasilAPI ✓); `data/public/paulinia/` 89 CSVs já commitados. Bloqueio CNPJ resolvido: `baixar_pncp_playwright.py` já pode rodar para Paulínia. Próximo: LOA extrator, Câmara projetos de lei, SIOPS, novas fontes (DATASUS, INEP, SIGA Brasil).

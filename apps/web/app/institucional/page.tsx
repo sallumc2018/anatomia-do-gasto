@@ -4,7 +4,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Institucional — Anatomia do Gasto",
+  title: "Institucional",
   description:
     "Base institucional do Anatomia do Gasto: projeto cívico em formação, governança mínima, limites públicos e status pré-CNPJ.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/institucional" },

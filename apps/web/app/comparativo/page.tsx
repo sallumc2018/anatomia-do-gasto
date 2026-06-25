@@ -6,7 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Comparativo entre municípios — Anatomia do Gasto",
+  title: "Comparativo entre municípios",
   description: "Orçamento, execução e gastos per capita de Sorocaba, Paulínia e São Paulo — série histórica SICONFI 2020–2025.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/comparativo" },
 }
