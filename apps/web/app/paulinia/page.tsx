@@ -69,6 +69,11 @@ const MAIS_AREAS = [
     href: "/paulinia/executivo",
   },
   {
+    titulo: "Educação",
+    descricao: "Gasto municipal em educação 2020–2025: dotação aprovada, liquidado e participação no orçamento total. Fonte: RREO/SICONFI.",
+    href: "/paulinia/educacao",
+  },
+  {
     titulo: "Saúde fiscal",
     descricao: "Indicadores de responsabilidade fiscal: despesa com pessoal, dívida consolidada e RCL (LRF).",
     href: "/paulinia/saude-fiscal",
