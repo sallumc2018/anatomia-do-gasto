@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/paulinia/receita",                mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/executivo",              mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/educacao",               mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
+    { route: "/paulinia/contratos",              mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/saude-fiscal",           mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/seguranca",              mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/paulinia/transferencias",         mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
