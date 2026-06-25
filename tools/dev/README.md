@@ -59,7 +59,7 @@ Esse script busca `origin/main` no WSL e faz `reset --hard` do checkout Linux pa
 **Cobertura atual:**
 
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
-- **Datasets publicados:** 166
+- **Datasets publicados:** 167
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-06-25
 <!-- AUTO:coverage-end -->
