@@ -3,6 +3,7 @@ import fs from "fs"
 import path from "path"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import datasetsStatus from "@/lib/datasets_status.json"
 
 export const metadata: Metadata = {
   title: "Catálogo de dados",
@@ -143,7 +144,21 @@ function areaLabel(area: string): string {
   return area.replace(/\//g, " / ").replace(/_/g, " ")
 }
 
-function buildCatalogJsonLd(catalog: CatalogItem[]) {
+const MUNICIPIO_WIKIDATA: Record<string, string> = {
+  sorocaba:              "https://www.wikidata.org/wiki/Q152302",
+  paulinia:              "https://www.wikidata.org/wiki/Q845177",
+  sao_paulo:             "https://www.wikidata.org/wiki/Q174",
+  guarulhos:             "https://www.wikidata.org/wiki/Q199620",
+  campinas:              "https://www.wikidata.org/wiki/Q81396",
+  sao_bernardo_do_campo: "https://www.wikidata.org/wiki/Q177208",
+  santo_andre:           "https://www.wikidata.org/wiki/Q202130",
+  osasco:                "https://www.wikidata.org/wiki/Q201025",
+  ribeirao_preto:        "https://www.wikidata.org/wiki/Q208547",
+  sao_jose_dos_campos:   "https://www.wikidata.org/wiki/Q202159",
+  santos:                "https://www.wikidata.org/wiki/Q131756",
+}
+
+function buildCatalogJsonLd(catalog: CatalogItem[], dateModified: string) {
   const SITE_URL = "https://www.anatomiadogasto.ong.br"
   const byGroup = new Map<string, CatalogItem[]>()
   for (const item of catalog) {
@@ -155,6 +170,12 @@ function buildCatalogJsonLd(catalog: CatalogItem[]) {
     const first = items[0]
     const allDownloads = items.flatMap((it) => it.files.map((f) => `${SITE_URL}${f.href}`))
     const anos = first.anos || ""
+    const wikidataUri = MUNICIPIO_WIKIDATA[first.municipio]
+    const spatialCoverage: Record<string, string> = {
+      "@type": "Place",
+      name: `${first.municipio}, Brasil`,
+    }
+    if (wikidataUri) spatialCoverage.sameAs = wikidataUri
     return {
       "@type": "Dataset",
       name: `${first.descricao || first.area} — ${first.municipio}`,
@@ -165,7 +186,8 @@ function buildCatalogJsonLd(catalog: CatalogItem[]) {
       inLanguage: "pt-BR",
       encodingFormat: "text/csv",
       temporalCoverage: anos,
-      spatialCoverage: { "@type": "Place", name: `${first.municipio}, Brasil` },
+      dateModified,
+      spatialCoverage,
       includedInDataCatalog: { "@id": `${SITE_URL}/api/dados#catalog` },
       ...(allDownloads.length > 0 ? {
         distribution: allDownloads.map((url) => ({
@@ -183,6 +205,7 @@ function buildCatalogJsonLd(catalog: CatalogItem[]) {
     name: "Catálogo de dados publicados — Anatomia do Gasto",
     url: `${SITE_URL}/api/dados`,
     inLanguage: "pt-BR",
+    dateModified,
     publisher: { "@id": `${SITE_URL}/#organization` },
     dataset: datasets,
   }
@@ -192,7 +215,8 @@ export default function ApiDadosPage() {
   const catalog = getCatalog()
   const totalFiles = catalog.reduce((sum, item) => sum + item.files.length, 0)
   const municipalities = Array.from(new Set(catalog.map((item) => item.municipio))).sort()
-  const catalogJsonLd = buildCatalogJsonLd(catalog)
+  const dateModified = (datasetsStatus as { _generated?: string })._generated ?? ""
+  const catalogJsonLd = buildCatalogJsonLd(catalog, dateModified)
 
   return (
     <div className="min-h-screen flex flex-col">
