@@ -28,5 +28,5 @@ A auditoria cobre a cadeia completa de remuneração e destinação de recursos 
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
 - **Datasets publicados:** 166
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-06-20
+- **Atualizado em:** 2026-06-25
 <!-- AUTO:coverage-end -->
