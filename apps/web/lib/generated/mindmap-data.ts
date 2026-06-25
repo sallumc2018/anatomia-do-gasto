@@ -40,14 +40,14 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "Município piloto da ONG",
-    "detail": "Mapa cidadão gerado a partir de 166 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
+    "detail": "Mapa cidadão gerado a partir de 167 trilhas publicadas em 33 areas. A interface resume cobertura sem usar camadas internas.",
     "value": "2002-2027 parcial",
     "href": "/sorocaba",
     "linkLabel": "Abrir painel de Sorocaba",
     "color": "var(--theme-accent)",
-    "sourceCount": 166,
+    "sourceCount": 167,
     "policy": {
-      "publicavel": 103,
+      "publicavel": 104,
       "publicavelComCautela": 54,
       "naoDestacarNaUi": 9
     }
@@ -211,14 +211,14 @@ export const MINDMAP_NODES = [
     "group": "controle",
     "icon": "ShieldCheck",
     "summary": "Câmara, contratos, emendas e LAI",
-    "detail": "40 trilhas publicadas; 8 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
-    "value": "2016-2026 parcial",
+    "detail": "41 trilhas publicadas; 8 com cautela editorial; 3 sem destaque individual na UI. A leitura pública privilegia cobertura, período, fonte e agregação, sem inferir conduta.",
+    "value": "2015-2026 parcial",
     "href": "/sorocaba/lacunas",
     "linkLabel": "Ver lacunas",
     "color": "var(--support-success)",
-    "sourceCount": 40,
+    "sourceCount": 41,
     "policy": {
-      "publicavel": 29,
+      "publicavel": 30,
       "publicavelComCautela": 8,
       "naoDestacarNaUi": 3
     }
