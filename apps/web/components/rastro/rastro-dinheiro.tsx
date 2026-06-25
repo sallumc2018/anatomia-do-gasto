@@ -109,7 +109,7 @@ export function RastroDinheiro({
           />
           <TraceColumn
             number="02"
-            title="Entrada no ente publico"
+            title="Entrada no ente público"
             rows={[
               {
                 label: "Prefeitura de Sorocaba",
@@ -120,7 +120,7 @@ export function RastroDinheiro({
           />
           <TraceColumn
             number="03"
-            title="Estagio orcamentario"
+            title="Estágio orçamentário"
             rows={stages.map((stage) => ({
               label: stage.label,
               value: stage.value,

@@ -61,10 +61,10 @@ export default function ReportarDivergenciaPage() {
   const subject = encodeURIComponent("Divergencia nos dados - Anatomia do Gasto")
   const body = encodeURIComponent(
     [
-      "Pagina ou arquivo:",
+      "Página ou arquivo:",
       "Fonte oficial:",
-      "Periodo:",
-      "Descricao factual:",
+      "Período:",
+      "Descrição factual:",
       "Observacoes:",
     ].join("\n\n")
   )

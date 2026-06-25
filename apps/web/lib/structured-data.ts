@@ -103,16 +103,16 @@ export function globalStructuredData() {
           name: "Brasil",
         },
         description:
-          "Projeto civico independente que organiza dados fiscais publicos brasileiros em linguagem cidada, com fontes oficiais, metodologia aberta e rastreabilidade.",
+          "Projeto cívico independente que organiza dados fiscais públicos brasileiros em linguagem cidadã, com fontes oficiais, metodologia aberta e rastreabilidade.",
         sameAs: [REPOSITORY_URL],
         knowsAbout: [
-          "orcamento publico",
-          "gasto publico municipal",
-          "transparencia publica",
+          "orçamento público",
+          "gasto público municipal",
+          "transparência pública",
           "controle social",
           "SIOPS",
           "SICONFI",
-          "dados publicos oficiais",
+          "dados públicos oficiais",
         ],
       },
       {
@@ -125,7 +125,7 @@ export function globalStructuredData() {
           "@id": `${SITE_URL}/#organization`,
         },
         description:
-          "Site de visualizacao, documentacao e rastreabilidade de dados fiscais publicos municipais.",
+          "Site de visualização, documentação e rastreabilidade de dados fiscais públicos municipais.",
         potentialAction: {
           "@type": "SearchAction",
           target: `${SITE_URL}/api/dados?busca={search_term_string}`,
@@ -144,12 +144,12 @@ export function globalStructuredData() {
           "@id": `${SITE_URL}/#website`,
         },
         description:
-          "Repositorio publico com site, validadores, pipelines, documentacao e dados publicados pela Anatomia do Gasto.",
+          "Repositório público com site, validadores, pipelines, documentação e dados publicados pela Anatomia do Gasto.",
       },
       {
         "@type": "DataCatalog",
         "@id": `${SITE_URL}/api/dados#catalog`,
-        name: "Catalogo de dados publicados da Anatomia do Gasto",
+        name: "Catálogo de dados publicados da Anatomia do Gasto",
         url: `${SITE_URL}/api/dados`,
         inLanguage: "pt-BR",
         publisher: {
@@ -157,9 +157,9 @@ export function globalStructuredData() {
         },
         includedInDataCatalog: `${SITE_URL}/fontes`,
         measurementTechnique:
-          "Extracao, normalizacao e validacao local de bases publicas oficiais antes da publicacao em data/public.",
+          "Extração, normalização e validação local de bases públicas oficiais antes da publicação em data/public.",
         description:
-          "Catalogo dos arquivos CSV publicados pelo projeto, com dados fiscais municipais oriundos de portais oficiais e bases federais.",
+          "Catálogo dos arquivos CSV publicados pelo projeto, com dados fiscais municipais oriundos de portais oficiais e bases federais.",
       },
     ],
   }
