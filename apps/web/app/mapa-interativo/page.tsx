@@ -54,6 +54,7 @@ const ICONS: Record<GeneratedMindNode["icon"], LucideIcon> = {
   GraduationCap,
   HeartPulse,
   Landmark,
+  LayoutGrid,
   Network,
   Shield,
   ShieldCheck,
@@ -66,35 +67,45 @@ const NODES: MindNode[] = MINDMAP_NODES.map((node) => ({
 }))
 
 const COORDS_NEURAL: Record<string, { x: number; y: number }> = {
-  sorocaba: { x: 500, y: 300 },
-  executivo: { x: 305, y: 235 },
-  receita: { x: 110, y: 160 },
-  fornecedores: { x: 120, y: 310 },
-  servicos: { x: 500, y: 155 },
-  saude: { x: 340, y: 60 },
-  educacao: { x: 470, y: 48 },
-  seguranca: { x: 600, y: 62 },
-  transporte: { x: 715, y: 130 },
-  controle: { x: 695, y: 365 },
-  camara: { x: 860, y: 265 },
-  contratos: { x: 870, y: 405 },
-  fluxo: { x: 620, y: 525 },
+  anatomia:     { x: 90,  y: 295 },
+  estado_sp:    { x: 250, y: 295 },
+  sorocaba:     { x: 420, y: 190 },
+  paulinia:     { x: 420, y: 295 },
+  sao_paulo:    { x: 420, y: 390 },
+  sao_bernardo: { x: 420, y: 475 },
+  executivo:    { x: 590, y: 145 },
+  receita:      { x: 740, y: 80  },
+  fornecedores: { x: 740, y: 215 },
+  servicos:     { x: 590, y: 65  },
+  saude:        { x: 720, y: 22  },
+  educacao:     { x: 820, y: 55  },
+  seguranca:    { x: 895, y: 105 },
+  transporte:   { x: 950, y: 180 },
+  controle:     { x: 660, y: 360 },
+  camara:       { x: 825, y: 295 },
+  contratos:    { x: 840, y: 435 },
+  fluxo:        { x: 620, y: 510 },
 }
 
 const COORDS_BLUEPRINT: Record<string, { x: number; y: number }> = {
-  sorocaba: { x: 500, y: 300 },
-  executivo: { x: 280, y: 210 },
-  receita: { x: 90, y: 150 },
-  fornecedores: { x: 90, y: 270 },
-  servicos: { x: 500, y: 150 },
-  saude: { x: 330, y: 60 },
-  educacao: { x: 450, y: 60 },
-  seguranca: { x: 570, y: 60 },
-  transporte: { x: 690, y: 60 },
-  controle: { x: 720, y: 360 },
-  camara: { x: 910, y: 270 },
-  contratos: { x: 910, y: 390 },
-  fluxo: { x: 500, y: 530 },
+  anatomia:     { x: 80,  y: 295 },
+  estado_sp:    { x: 230, y: 295 },
+  sorocaba:     { x: 400, y: 185 },
+  paulinia:     { x: 400, y: 295 },
+  sao_paulo:    { x: 400, y: 390 },
+  sao_bernardo: { x: 400, y: 480 },
+  executivo:    { x: 570, y: 140 },
+  receita:      { x: 720, y: 80  },
+  fornecedores: { x: 720, y: 210 },
+  servicos:     { x: 570, y: 60  },
+  saude:        { x: 720, y: 25  },
+  educacao:     { x: 820, y: 60  },
+  seguranca:    { x: 900, y: 100 },
+  transporte:   { x: 950, y: 170 },
+  controle:     { x: 660, y: 360 },
+  camara:       { x: 830, y: 295 },
+  contratos:    { x: 850, y: 435 },
+  fluxo:        { x: 570, y: 490 },
 }
 
 function childrenOf(id: string) {
@@ -102,7 +113,7 @@ function childrenOf(id: string) {
 }
 
 export default function MapaInterativoPage() {
-  const [activeId, setActiveId] = useState("sorocaba")
+  const [activeId, setActiveId] = useState("anatomia")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [mode, setMode] = useState<ViewMode>("neural")
 
@@ -142,7 +153,7 @@ export default function MapaInterativoPage() {
                 Mindmap da Anatomia do Gasto
               </h1>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[var(--text-03)]">
-                Um mapa navegável das trilhas públicas de Sorocaba. As conexões mostram
+                Um mapa navegável das trilhas públicas de municípios do Estado de SP. As conexões mostram
                 onde o cidadão entra para entender receita, gasto, serviços e controle.
               </p>
             </div>
@@ -220,7 +231,7 @@ export default function MapaInterativoPage() {
               {NODES.map((node) => {
                 const Icon = node.icon
                 const selected = activeId === node.id
-                const root = node.id === "sorocaba"
+                const root = node.parentId === null
                 const branch = childrenOf(node.id).length > 0 && !root
                 const position = percent(node.id)
                 return (
