@@ -110,23 +110,16 @@ run_cmd "Sync public to GDrive" \
     --progress --checksum
 
 # 7. Sprint 2 — rotação de UF (fontes federais para todos os municípios Brasil)
-log "=== Sprint 2 Rotação de UF ==="
-if [[ "$DRY_RUN" == "true" ]]; then
-  log "  [DRY-RUN] bash scripts/sprint2_rotacao.sh"
-else
-  bash "$REPO/scripts/sprint2_rotacao.sh" >> "$LOG_FILE" 2>&1 || \
-    log "  AVISO: Sprint 2 terminou com erros (ver log acima)"
-fi
+run_cmd "Sprint 2: rotação de UF" \
+  bash "$REPO/scripts/sprint2_rotacao.sh"
 
-# 8. Publicar dados Sprint 2 coletados esta noite
-log "=== Sprint 2 Publicação ==="
-if [[ "$DRY_RUN" == "true" ]]; then
-  log "  [DRY-RUN] publicar_municipios_brasil.py --todos"
-else
-  "$REPO/.venv/bin/python3" "$REPO/pipelines/publicar_municipios_brasil.py" --todos \
-    >> "$LOG_FILE" 2>&1 || \
-    log "  AVISO: Publicação Sprint 2 terminou com erros (ver log acima)"
-fi
+# 8. Publicar dados Sprint 2 coletados esta noite (gate de integridade ativo)
+run_cmd "Sprint 2: publicar fontes federais" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/publicar_municipios_brasil.py" --todos
+
+# 8b. Regenerar catálogo após publicação Sprint 2 (dados desta noite ficam visíveis)
+run_cmd "Regenerar catálogo de datasets (pós Sprint 2)" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"
 
 # 9. Sincronizar extracted Sprint 2 para GDrive (backup)
 run_cmd "Sync extracted Sprint 2 to GDrive" \
@@ -147,5 +140,37 @@ if [[ ${#FALHAS[@]} -gt 0 ]]; then
   for f in "${FALHAS[@]}"; do
     log "  ✗ $f"
   done
+
+  # Notificação Telegram — token não exportado ao ambiente; arquivo 600; trap garante remoção
+  OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
+  TG_BOT_TOKEN=""
+  TG_CHAT_ID=""
+  if [[ -f "$OMEGA_SECRETS" ]]; then
+    # Subshell: extrai apenas as duas variáveis necessárias; demais segredos não poluem o ambiente
+    TG_BOT_TOKEN=$(. "$OMEGA_SECRETS" 2>/dev/null && printf '%s' "${TELEGRAM_BOT_TOKEN:-}")
+    TG_CHAT_ID=$(. "$OMEGA_SECRETS" 2>/dev/null && printf '%s' "${TELEGRAM_CHAT_ID:-}")
+  fi
+  if [[ -n "${TG_BOT_TOKEN:-}" ]] && [[ -n "${TG_CHAT_ID:-}" ]]; then
+    LISTA_FALHAS=$(printf '%s\n' "${FALHAS[@]}" | head -10 | sed 's/^/• /')
+    TG_MSG="⚠️ Coleta Noturna — ${#FALHAS[@]} falha(s) em $(date -u +'%Y-%m-%d')
+
+${LISTA_FALHAS}"
+    # umask 077 → arquivo temporário com permissão 600 (sem leitura por outros usuários)
+    _old_umask=$(umask)
+    umask 077
+    TG_CFG=$(mktemp)
+    umask "$_old_umask"
+    # trap garante remoção mesmo em sinal ou erro antes do rm explícito abaixo
+    trap 'rm -f "${TG_CFG:-}"' EXIT INT TERM HUP
+    # URL no config file → token não aparece em ps aux
+    printf 'url = "https://api.telegram.org/bot%s/sendMessage"\n' \
+      "$TG_BOT_TOKEN" > "$TG_CFG"
+    curl -s --max-time 10 --config "$TG_CFG" \
+      --data-urlencode "chat_id=${TG_CHAT_ID}" \
+      --data-urlencode "text=${TG_MSG}" > /dev/null || true
+    rm -f "$TG_CFG"
+    trap - EXIT INT TERM HUP
+  fi
+
   exit 1
 fi
