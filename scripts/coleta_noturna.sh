@@ -133,6 +133,10 @@ run_cmd "Sync public Sprint 2 to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
+# 11. Relatório de cobertura Sprint 2 (informativo — não bloqueia se falhar)
+run_cmd "Cobertura Sprint 2: gerar relatório" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_cobertura_sprint2.py"
+
 log "=== Coleta Noturna concluída ==="
 log "Log completo: $LOG_FILE"
 if [[ ${#FALHAS[@]} -gt 0 ]]; then
