@@ -100,6 +100,8 @@ const nextConfig: NextConfig = {
     "/paulinia/saude":                      ["../../data/public/paulinia/saude/saida/**/*", "../../data/public/paulinia/fns/saida/**/*"],
     "/paulinia/educacao":                   ["../../data/public/paulinia/executivo/saida/**/*"],
     "/paulinia/contratos":                  ["../../data/public/paulinia/compras/pncp/saida/**/*"],
+    "/paulinia/fornecedores":               ["../../data/public/paulinia/despesa/saida/**/*"],
+    "/paulinia/controle-externo":           ["../../data/public/paulinia/controle_externo/tce/saida/**/*"],
     "/paulinia/camara":                     ["../../data/public/paulinia/camara/saida/**/*"],
     "/paulinia/transferencias":             ["../../data/public/paulinia/transferencias_estaduais/saida/**/*", "../../data/public/paulinia/transferencias_federais/saida/**/*"],
     "/sao-paulo/transferencias":            ["../../data/public/sao_paulo/transferencias_estaduais/saida/**/*"],
