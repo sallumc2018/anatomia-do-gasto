@@ -7,24 +7,51 @@ DATA_DIR = ROOT / "data"
 MUNICIPIO = os.getenv("MUNICIPIO", "sorocaba")
 
 MUNICIPIOS = {
-    "sorocaba": {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba", "sefaz_sp": "6695", "cnpj_prefeitura": "46634044000174"},
-    "paulinia": {"ibge": "3536505", "uf": "SP", "nome": "Paulinia", "sefaz_sp": "5137", "cnpj_prefeitura": "45751435000106"},
-    "sao_paulo":       {"ibge": "3550308", "uf": "SP", "nome": "Sao Paulo",           "sefaz_sp": "1004", "cnpj_prefeitura": "46395000000139"},
-    "sao_bernardo":    {"ibge": "3548708", "uf": "SP", "nome": "Sao Bernardo do Campo", "sefaz_sp": "6490", "cnpj_prefeitura": "46523239000147"},
+    # Municípios originais (com sefaz_sp e cnpj_prefeitura completos)
+    "sorocaba":              {"ibge": "3552205", "uf": "SP", "nome": "Sorocaba",              "sefaz_sp": "6695", "cnpj_prefeitura": "46634044000174"},
+    "paulinia":              {"ibge": "3536505", "uf": "SP", "nome": "Paulinia",              "sefaz_sp": "5137", "cnpj_prefeitura": "45751435000106"},
+    "sao_paulo":             {"ibge": "3550308", "uf": "SP", "nome": "Sao Paulo",             "sefaz_sp": "1004", "cnpj_prefeitura": "46395000000139"},
+    # Top 20 SP por população — Sprint 1 (sefaz_sp/cnpj pendentes: coleta SICONFI+FNS já funciona)
+    "guarulhos":             {"ibge": "3518800", "uf": "SP", "nome": "Guarulhos"},
+    "campinas":              {"ibge": "3509502", "uf": "SP", "nome": "Campinas"},
+    "sao_bernardo_do_campo": {"ibge": "3548708", "uf": "SP", "nome": "Sao Bernardo do Campo"},
+    "santo_andre":           {"ibge": "3547809", "uf": "SP", "nome": "Santo Andre"},
+    "osasco":                {"ibge": "3534401", "uf": "SP", "nome": "Osasco"},
+    "ribeirao_preto":        {"ibge": "3543402", "uf": "SP", "nome": "Ribeirao Preto"},
+    "sao_jose_dos_campos":   {"ibge": "3549904", "uf": "SP", "nome": "Sao Jose dos Campos"},
+    "maua":                  {"ibge": "3529401", "uf": "SP", "nome": "Maua"},
+    "sao_jose_do_rio_preto": {"ibge": "3549805", "uf": "SP", "nome": "Sao Jose do Rio Preto"},
+    "santos":                {"ibge": "3548500", "uf": "SP", "nome": "Santos"},
+    "mogi_das_cruzes":       {"ibge": "3530607", "uf": "SP", "nome": "Mogi das Cruzes"},
+    "diadema":               {"ibge": "3513801", "uf": "SP", "nome": "Diadema"},
+    "jundiai":               {"ibge": "3525904", "uf": "SP", "nome": "Jundiai"},
+    "carapicuiba":           {"ibge": "3510609", "uf": "SP", "nome": "Carapicuiba"},
+    "piracicaba":            {"ibge": "3538709", "uf": "SP", "nome": "Piracicaba"},
+    "bauru":                 {"ibge": "3506003", "uf": "SP", "nome": "Bauru"},
+    "itaquaquecetuba":       {"ibge": "3523602", "uf": "SP", "nome": "Itaquaquecetuba"},
+    "sao_vicente":           {"ibge": "3551702", "uf": "SP", "nome": "Sao Vicente"},
 }
 
-if MUNICIPIO not in MUNICIPIOS:
-    raise ValueError(
-        f"MUNICIPIO={MUNICIPIO!r} nao registrado em pipelines/paths.py. "
-        "Adicione uma entrada em MUNICIPIOS com ibge, uf e nome."
-    )
-
-CFG = MUNICIPIOS[MUNICIPIO]
+if MUNICIPIO in MUNICIPIOS:
+    CFG = MUNICIPIOS[MUNICIPIO]
+else:
+    # Modo dinâmico (Sprint 2 bulk): município não precisa estar no dict.
+    # Requer MUNICIPIO_IBGE, MUNICIPIO_NOME e MUNICIPIO_UF no ambiente.
+    _ibge = os.getenv("MUNICIPIO_IBGE")
+    _nome = os.getenv("MUNICIPIO_NOME")
+    _uf   = os.getenv("MUNICIPIO_UF")
+    if not (_ibge and _nome and _uf):
+        raise ValueError(
+            f"MUNICIPIO={MUNICIPIO!r} nao registrado em pipelines/paths.py.\n"
+            "Adicione ao dict MUNICIPIOS, ou defina MUNICIPIO_IBGE, MUNICIPIO_NOME e MUNICIPIO_UF."
+        )
+    CFG = {"ibge": _ibge, "nome": _nome, "uf": _uf}
 
 RAW_BASE_DIR = Path(os.getenv("ANATOMIA_RAW_ROOT") or DATA_DIR / "raw")
+EXTRACTED_BASE_DIR = Path(os.getenv("ANATOMIA_EXTRACTED_ROOT") or DATA_DIR / "extracted")
 
 RAW_DIR = RAW_BASE_DIR / MUNICIPIO
-EXTRACTED_DIR = DATA_DIR / "extracted" / MUNICIPIO
+EXTRACTED_DIR = EXTRACTED_BASE_DIR / MUNICIPIO
 VALIDATED_DIR = DATA_DIR / "validated" / MUNICIPIO
 PUBLIC_DIR = DATA_DIR / "public" / MUNICIPIO
 
@@ -78,6 +105,11 @@ CONTRATOS_RAW_DIR = RAW_DIR / "contratos"
 CONTRATOS_EXTRACTED_DIR = EXTRACTED_DIR / "contratos"
 CONTRATOS_VALIDATED_DIR = VALIDATED_DIR / "contratos"
 CONTRATOS_PUBLIC_DIR = PUBLIC_DIR / "contratos"
+
+EMENDAS_RAW_DIR = RAW_DIR / "emendas_federais"
+EMENDAS_EXTRACTED_DIR = EXTRACTED_DIR / "emendas_federais"
+EMENDAS_VALIDATED_DIR = VALIDATED_DIR / "emendas_federais"
+EMENDAS_PUBLIC_DIR = PUBLIC_DIR / "emendas_federais"
 
 
 def as_str(path: Path) -> str:
