@@ -84,6 +84,11 @@ const MAIS_AREAS = [
     href: "/paulinia/saude",
   },
   {
+    titulo: "Contratos e licitações",
+    descricao: "Contratos firmados publicados no PNCP 2023–2026: modalidade, valor global e fornecedor. Lei 14.133/2021.",
+    href: "/paulinia/contratos",
+  },
+  {
     titulo: "Câmara Municipal",
     descricao: "Execução orçamentária do Legislativo: empenhos, pagamentos e receitas da Câmara (2023–2026).",
     href: "/paulinia/camara",
