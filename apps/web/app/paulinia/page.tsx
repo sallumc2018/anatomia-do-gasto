@@ -89,6 +89,16 @@ const MAIS_AREAS = [
     href: "/paulinia/contratos",
   },
   {
+    titulo: "Fornecedores e empenhos",
+    descricao: "Maiores credores do município 2020–2026: empenhos por fornecedor, CNPJ, valor bruto e líquido.",
+    href: "/paulinia/fornecedores",
+  },
+  {
+    titulo: "Controle externo (TCE-SP)",
+    descricao: "Pareceres prévios do TCE-SP sobre contas anuais 2008–2017: 6 desfavoráveis, 4 favoráveis. Alertas AUDESP.",
+    href: "/paulinia/controle-externo",
+  },
+  {
     titulo: "Câmara Municipal",
     descricao: "Execução orçamentária do Legislativo: empenhos, pagamentos e receitas da Câmara (2023–2026).",
     href: "/paulinia/camara",
