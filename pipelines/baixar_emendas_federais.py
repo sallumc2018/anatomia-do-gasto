@@ -25,6 +25,7 @@ Uso:
 """
 import argparse
 import csv
+import decimal
 import json
 import os
 import sys
@@ -33,8 +34,12 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from paths import EMENDAS_EXTRACTED_DIR, EMENDAS_RAW_DIR, MUNICIPIO
 from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponential
+
+try:
+    from .paths import EMENDAS_EXTRACTED_DIR, EMENDAS_RAW_DIR, MUNICIPIO
+except ImportError:
+    from paths import EMENDAS_EXTRACTED_DIR, EMENDAS_RAW_DIR, MUNICIPIO
 
 
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
@@ -101,7 +106,10 @@ def _ibge_municipio() -> str:
     ibge = os.environ.get("MUNICIPIO_IBGE", "")
     if not ibge:
         try:
-            from paths import CFG
+            try:
+                from .paths import CFG
+            except ImportError:
+                from paths import CFG
             ibge = CFG.get("ibge", "")
         except Exception:
             pass
@@ -129,7 +137,12 @@ def _fetch_pagina(pagina: int, ibge: str, ano: int, chave: str, timeout: int = 3
     )
     try:
         with _urlopen_com_retry(req, timeout=timeout) as resp:
-            return json.loads(resp.read().decode("utf-8"))
+            dados = json.loads(resp.read().decode("utf-8"))
+            if not isinstance(dados, list):
+                raise ValueError(
+                    f"Resposta inesperada da API: esperado list, recebido {type(dados).__name__}"
+                )
+            return dados
     except urllib.error.HTTPError as e:
         corpo = ""
         try:
@@ -146,8 +159,7 @@ def _fetch_pagina(pagina: int, ibge: str, ano: int, chave: str, timeout: int = 3
             return []
         raise urllib.error.HTTPError(url, e.code, e.reason, e.headers, None)
     except urllib.error.URLError as e:
-        print(f"  Erro de rede: {e}  (URL: {url})")
-        return []
+        raise RuntimeError(f"Erro de rede ao consultar {url}: {e}") from e
 
 
 def _salvar_pagina_raw(paginas_dir: Path, numero: int, dados: list) -> None:
@@ -157,29 +169,25 @@ def _salvar_pagina_raw(paginas_dir: Path, numero: int, dados: list) -> None:
 
 
 def _linha_para_csv(item: dict, ano: int, ibge: str, nome_mun: str) -> dict:
-    """Normaliza item da API para o schema do contrato emendas_federais."""
-    localidade = item.get("localidade") or {}
-    municipio_obj = localidade.get("municipio") or {}
+    """Normaliza item da API para o schema do contrato emendas_federais.
 
-    funcao_obj = item.get("funcao") or {}
-    subfuncao_obj = item.get("subfuncao") or {}
-    autor_obj = item.get("autor") or {}
-    tipo_obj = item.get("tipoEmenda") or {}
-
+    Resposta real do endpoint /emendas: todos os campos são strings planas.
+    Não há objetos aninhados como localidade.municipio, autor{nome,partido} etc.
+    """
     return {
         "ano": ano,
-        "municipio_ibge": municipio_obj.get("codigoIBGE") or ibge,
-        "municipio_nome": municipio_obj.get("nomeIBGE") or nome_mun,
-        "numero_emenda": item.get("codigoEmenda") or item.get("numero") or "",
-        "autor": autor_obj.get("nome") or item.get("nomeAutor") or "",
-        "partido": autor_obj.get("partido") or item.get("partido") or "",
-        "uf_autor": autor_obj.get("uf") or item.get("uf") or "",
-        "tipo_emenda": tipo_obj.get("descricao") or item.get("tipoEmenda") or "",
-        "funcao": funcao_obj.get("descricao") or str(funcao_obj.get("codigo") or ""),
-        "subfuncao": subfuncao_obj.get("descricao") or str(subfuncao_obj.get("codigo") or ""),
-        "valor_empenhado": item.get("valorEmpenhado") or item.get("vl_empenhado") or 0,
-        "valor_liquidado": item.get("valorLiquidado") or 0,
-        "valor_pago": item.get("valorPago") or item.get("valor_pago") or 0,
+        "municipio_ibge": ibge,
+        "municipio_nome": nome_mun,
+        "numero_emenda": item.get("codigoEmenda") or item.get("numeroEmenda") or "",
+        "autor": item.get("autor") or item.get("nomeAutor") or "",
+        "partido": item.get("partido") or "",
+        "uf_autor": item.get("uf") or "",
+        "tipo_emenda": item.get("tipoEmenda") or "",
+        "funcao": item.get("funcao") or "",
+        "subfuncao": item.get("subfuncao") or "",
+        "valor_empenhado": item.get("valorEmpenhado") or item.get("vl_empenhado") or "0",
+        "valor_liquidado": item.get("valorLiquidado") or "0",
+        "valor_pago": item.get("valorPago") or item.get("valor_pago") or "0",
         "fonte_api": f"{BASE_URL}/{ENDPOINT}",
     }
 
@@ -214,6 +222,17 @@ def coletar_ano(ibge: str, nome_mun: str, ano: int, chave: str, forcar: bool) ->
     return [_linha_para_csv(item, ano, ibge, nome_mun) for item in todos]
 
 
+def _valor_decimal(value: object) -> decimal.Decimal:
+    if value in (None, ""):
+        return decimal.Decimal(0)
+    if isinstance(value, (int, float, decimal.Decimal)):
+        return decimal.Decimal(str(value))
+    text = str(value).strip().replace("R$", "").replace(" ", "")
+    if "," in text:
+        text = text.replace(".", "").replace(",", ".")
+    return decimal.Decimal(text)
+
+
 def salvar_csv(registros: list[dict], ano: int) -> Path:
     destino = EMENDAS_EXTRACTED_DIR / "saida" / f"emendas_federais_{MUNICIPIO}_{ano}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
@@ -235,6 +254,8 @@ def main() -> None:
     parser.add_argument("--forcar", action="store_true",
                         help="Rebaixa páginas já salvas em cache")
     args = parser.parse_args()
+    if args.anos[0] > args.anos[1]:
+        parser.error("INICIO deve ser menor ou igual a FIM")
 
     chave = _chave_api()
     ibge = _ibge_municipio()
@@ -250,8 +271,8 @@ def main() -> None:
             continue
         destino = salvar_csv(registros, ano)
         total_emp = sum(
-            float(r["valor_empenhado"]) for r in registros
-            if r["valor_empenhado"] and r["valor_empenhado"] != 0
+            (_valor_decimal(r["valor_empenhado"]) for r in registros),
+            decimal.Decimal(0),
         )
         print(f"  {ano}: {len(registros)} emendas, R$ {total_emp:,.2f} empenhados — {destino}")
 
