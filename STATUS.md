@@ -12,6 +12,19 @@
 - O estado operacional detalhado abaixo ainda precisa de reconciliação pelas
   sessões responsáveis antes de ser tratado como fotografia integral de 2026-06-25.
 
+## Coleta e Publicação — 2026-06-25 (Claude Coleta e Publicação)
+
+- **P0 gate integridade Sprint 2** (`bd5a6e7`): `publicar_municipios_brasil.py` valida
+  schema por área, rejeita HTML/CSV vazio/sem linhas, copia atomicamente via temp+replace,
+  gera manifesto SHA-256 em `data/manifests/sprint2/`, exit 1 em rejeições.
+- **P0 falhas cron Sprint 2**: passos 7 e 8 convertidos para `run_cmd` — falhas entram
+  em `FALHAS[]` e disparam alerta Telegram.
+- **P0 Telegram hardening**: subshell isola segredos (sem exportar ao ambiente), umask 077
+  cria arquivo com perm 600, trap garante remoção em qualquer sinal, log path removido da
+  mensagem.
+- **Passo 11 cron**: `gerar_cobertura_sprint2.py` (Codex) integrado à coleta noturna.
+- Pendente (Codex): testes de contrato P1 para as 3 áreas federais.
+
 ## UI/UX — 2026-06-25 (Claude UI/UX)
 
 - **Canonicals corrigidos**: `layout.tsx` criados em `/fluxo`, `/fluxo-financeiro`,
