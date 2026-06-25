@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = getAtualizacao(slug)
   if (!a) return {}
   return {
-    title: `${a.titulo} — Anatomia do Gasto`,
+    title: a.titulo,
     description: a.resumo,
     alternates: { canonical: `${SITE_URL}/atualizacoes/${a.slug}` },
     openGraph: {

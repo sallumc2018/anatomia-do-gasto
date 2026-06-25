@@ -5,7 +5,7 @@ import PageFooter from "@/components/layout/page-footer"
 import { calcularCobertura, calcularTotalRegistros, calcularDatasetsPublicados } from "@/lib/lacunas"
 
 export const metadata: Metadata = {
-  title: "Sobre — Anatomia do Gasto",
+  title: "Sobre",
   description: "Projeto cívico independente que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sobre" },
 }

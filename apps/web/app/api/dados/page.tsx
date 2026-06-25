@@ -5,7 +5,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Catálogo de dados — Anatomia do Gasto",
+  title: "Catálogo de dados",
   description:
     "Catálogo público dos arquivos CSV realmente disponíveis em data/public no Anatomia do Gasto.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/api/dados" },

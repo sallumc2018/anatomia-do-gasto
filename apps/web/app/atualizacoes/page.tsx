@@ -6,7 +6,7 @@ import { ATUALIZACOES } from "@/lib/atualizacoes"
 import { SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Atualizações de dados — Anatomia do Gasto",
+  title: "Atualizações de dados",
   description:
     "Changelog público de lançamentos e atualizações de dados do Anatomia do Gasto. Novos municípios, séries históricas e expansões de cobertura.",
   alternates: { canonical: `${SITE_URL}/atualizacoes` },
