@@ -130,6 +130,11 @@ const nextConfig: NextConfig = {
     "/sorocaba/saude/relatorio/[ano]":      ["../../data/public/sorocaba/saude/saida/**/*"],
     "/sorocaba/educacao/relatorio/[ano]":   ["../../data/public/sorocaba/educacao/saida/**/*"],
     "/sorocaba/seguranca/relatorio/[ano]":  ["../../data/public/sorocaba/seguranca/saida/**/*"],
+    "/comparativo": [
+      "../../data/public/sao_paulo/executivo/saida/**/*",
+      "../../data/public/sorocaba/executivo/saida/**/*",
+      "../../data/public/paulinia/executivo/saida/**/*",
+    ],
   },
   async redirects() {
     const perm = true
