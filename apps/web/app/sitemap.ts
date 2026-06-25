@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import type { MetadataRoute } from "next"
+import { ATUALIZACOES } from "@/lib/atualizacoes"
 
 const BASE_URL = "https://www.anatomiadogasto.ong.br"
 
@@ -118,6 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/glossario",                       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/llms.txt",                        mtime: SITE_UPDATED,      freq: "monthly", priority: 0.5 },
     { route: "/humans.txt",                      mtime: SITE_UPDATED,      freq: "monthly", priority: 0.5 },
+    { route: "/atualizacoes",                    mtime: new Date("2026-06-22"), freq: "weekly",  priority: 0.8 },
   ]
 
   const staticEntries = staticRoutes.map(({ route, mtime, freq, priority }) => ({
@@ -155,5 +157,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries, ...transporteEntries]
+  const atualizacoesEntries = ATUALIZACOES.map((a) => ({
+    url: `${BASE_URL}/atualizacoes/${a.slug}`,
+    lastModified: new Date(a.data),
+    changeFrequency: "yearly" as const,
+    priority: 0.75,
+  }))
+
+  return [...staticEntries, ...saudeEntries, ...educacaoEntries, ...segurancaEntries, ...transporteEntries, ...atualizacoesEntries]
 }

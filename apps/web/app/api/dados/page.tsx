@@ -143,13 +143,63 @@ function areaLabel(area: string): string {
   return area.replace(/\//g, " / ").replace(/_/g, " ")
 }
 
+function buildCatalogJsonLd(catalog: CatalogItem[]) {
+  const SITE_URL = "https://www.anatomiadogasto.ong.br"
+  const byGroup = new Map<string, CatalogItem[]>()
+  for (const item of catalog) {
+    const key = `${item.municipio}::${item.area}`
+    if (!byGroup.has(key)) byGroup.set(key, [])
+    byGroup.get(key)!.push(item)
+  }
+  const datasets = Array.from(byGroup.entries()).map(([, items]) => {
+    const first = items[0]
+    const allDownloads = items.flatMap((it) => it.files.map((f) => `${SITE_URL}${f.href}`))
+    const anos = first.anos || ""
+    return {
+      "@type": "Dataset",
+      name: `${first.descricao || first.area} — ${first.municipio}`,
+      description: `${first.descricao || first.area} do município de ${first.municipio}. Fonte: ${first.fonte || first.sistema}. Período: ${anos}.`,
+      url: `${SITE_URL}/api/dados`,
+      creator: { "@id": `${SITE_URL}/#organization` },
+      license: "https://creativecommons.org/licenses/by/4.0/",
+      inLanguage: "pt-BR",
+      encodingFormat: "text/csv",
+      temporalCoverage: anos,
+      spatialCoverage: { "@type": "Place", name: `${first.municipio}, Brasil` },
+      includedInDataCatalog: { "@id": `${SITE_URL}/api/dados#catalog` },
+      ...(allDownloads.length > 0 ? {
+        distribution: allDownloads.map((url) => ({
+          "@type": "DataDownload",
+          encodingFormat: "text/csv",
+          contentUrl: url,
+        })),
+      } : {}),
+    }
+  })
+  return {
+    "@context": "https://schema.org",
+    "@type": "DataCatalog",
+    "@id": `${SITE_URL}/api/dados#catalog`,
+    name: "Catálogo de dados publicados — Anatomia do Gasto",
+    url: `${SITE_URL}/api/dados`,
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    dataset: datasets,
+  }
+}
+
 export default function ApiDadosPage() {
   const catalog = getCatalog()
   const totalFiles = catalog.reduce((sum, item) => sum + item.files.length, 0)
   const municipalities = Array.from(new Set(catalog.map((item) => item.municipio))).sort()
+  const catalogJsonLd = buildCatalogJsonLd(catalog)
 
   return (
     <div className="min-h-screen flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogJsonLd) }}
+      />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
