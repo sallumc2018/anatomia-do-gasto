@@ -118,10 +118,26 @@ else
     log "  AVISO: Sprint 2 terminou com erros (ver log acima)"
 fi
 
-# 8. Sincronizar extracted Sprint 2 para GDrive (backup)
+# 8. Publicar dados Sprint 2 coletados esta noite
+log "=== Sprint 2 Publicação ==="
+if [[ "$DRY_RUN" == "true" ]]; then
+  log "  [DRY-RUN] publicar_municipios_brasil.py --todos"
+else
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/publicar_municipios_brasil.py" --todos \
+    >> "$LOG_FILE" 2>&1 || \
+    log "  AVISO: Publicação Sprint 2 terminou com erros (ver log acima)"
+fi
+
+# 9. Sincronizar extracted Sprint 2 para GDrive (backup)
 run_cmd "Sync extracted Sprint 2 to GDrive" \
   "$RCLONE" sync "$REPO/data/extracted/" \
     "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+    --progress --checksum
+
+# 10. Sincronizar public Sprint 2 para GDrive
+run_cmd "Sync public Sprint 2 to GDrive" \
+  "$RCLONE" sync "$REPO/data/public/" \
+    "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
 log "=== Coleta Noturna concluída ==="
