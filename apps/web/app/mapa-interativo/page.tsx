@@ -66,46 +66,48 @@ const NODES: MindNode[] = MINDMAP_NODES.map((node) => ({
   icon: ICONS[node.icon],
 }))
 
+// Layout: árvore esquerda→direita, bandas y disjuntas por sub-árvore — sem cruzamentos
+// servicos children: y=[30,180]  executivo: y=[230,280]  controle: y=[330,418]  municípios: y=[470,550]
 const COORDS_NEURAL: Record<string, { x: number; y: number }> = {
-  anatomia:     { x: 90,  y: 295 },
-  estado_sp:    { x: 250, y: 295 },
-  sorocaba:     { x: 420, y: 190 },
-  paulinia:     { x: 420, y: 295 },
-  sao_paulo:    { x: 420, y: 390 },
-  sao_bernardo: { x: 420, y: 475 },
-  executivo:    { x: 590, y: 145 },
-  receita:      { x: 740, y: 80  },
-  fornecedores: { x: 740, y: 215 },
-  servicos:     { x: 590, y: 65  },
-  saude:        { x: 720, y: 22  },
-  educacao:     { x: 820, y: 55  },
-  seguranca:    { x: 895, y: 105 },
-  transporte:   { x: 950, y: 180 },
-  controle:     { x: 660, y: 360 },
-  camara:       { x: 825, y: 295 },
-  contratos:    { x: 840, y: 435 },
-  fluxo:        { x: 620, y: 510 },
+  anatomia:     { x: 80,  y: 394 },
+  estado_sp:    { x: 230, y: 394 },
+  sorocaba:     { x: 390, y: 239 },
+  paulinia:     { x: 390, y: 470 },
+  sao_paulo:    { x: 390, y: 510 },
+  sao_bernardo: { x: 390, y: 550 },
+  servicos:     { x: 560, y: 105 },
+  executivo:    { x: 560, y: 255 },
+  controle:     { x: 560, y: 374 },
+  saude:        { x: 745, y: 30  },
+  educacao:     { x: 745, y: 80  },
+  seguranca:    { x: 745, y: 130 },
+  transporte:   { x: 745, y: 180 },
+  receita:      { x: 745, y: 230 },
+  fornecedores: { x: 745, y: 280 },
+  camara:       { x: 745, y: 330 },
+  contratos:    { x: 745, y: 375 },
+  fluxo:        { x: 745, y: 418 },
 }
 
 const COORDS_BLUEPRINT: Record<string, { x: number; y: number }> = {
-  anatomia:     { x: 80,  y: 295 },
-  estado_sp:    { x: 230, y: 295 },
-  sorocaba:     { x: 400, y: 185 },
-  paulinia:     { x: 400, y: 295 },
-  sao_paulo:    { x: 400, y: 390 },
-  sao_bernardo: { x: 400, y: 480 },
-  executivo:    { x: 570, y: 140 },
-  receita:      { x: 720, y: 80  },
-  fornecedores: { x: 720, y: 210 },
-  servicos:     { x: 570, y: 60  },
-  saude:        { x: 720, y: 25  },
-  educacao:     { x: 820, y: 60  },
-  seguranca:    { x: 900, y: 100 },
-  transporte:   { x: 950, y: 170 },
-  controle:     { x: 660, y: 360 },
-  camara:       { x: 830, y: 295 },
-  contratos:    { x: 850, y: 435 },
-  fluxo:        { x: 570, y: 490 },
+  anatomia:     { x: 80,  y: 394 },
+  estado_sp:    { x: 230, y: 394 },
+  sorocaba:     { x: 390, y: 239 },
+  paulinia:     { x: 390, y: 470 },
+  sao_paulo:    { x: 390, y: 510 },
+  sao_bernardo: { x: 390, y: 550 },
+  servicos:     { x: 560, y: 105 },
+  executivo:    { x: 560, y: 255 },
+  controle:     { x: 560, y: 374 },
+  saude:        { x: 745, y: 30  },
+  educacao:     { x: 745, y: 80  },
+  seguranca:    { x: 745, y: 130 },
+  transporte:   { x: 745, y: 180 },
+  receita:      { x: 745, y: 230 },
+  fornecedores: { x: 745, y: 280 },
+  camara:       { x: 745, y: 330 },
+  contratos:    { x: 745, y: 375 },
+  fluxo:        { x: 745, y: 418 },
 }
 
 function childrenOf(id: string) {
@@ -204,7 +206,7 @@ export default function MapaInterativoPage() {
             </div>
 
             <div className="relative mt-5 hidden min-h-[540px] md:block">
-              <svg viewBox="0 0 1000 600" className="absolute inset-0 h-full w-full">
+              <svg viewBox="0 0 1000 600" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
                 {NODES.filter((node) => node.parentId).map((node) => {
                   const path = pathFor(node.parentId!, node.id)
                   const active = activeId === node.id || activeId === node.parentId || hoveredId === node.id
