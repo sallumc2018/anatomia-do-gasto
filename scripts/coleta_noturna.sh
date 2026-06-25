@@ -37,10 +37,11 @@ run_cmd() {
     log "  [DRY-RUN] $@"
     return 0
   fi
-  if "$@" >> "$LOG_FILE" 2>&1; then
+  local code=0
+  "$@" >> "$LOG_FILE" 2>&1 || code=$?
+  if [[ $code -eq 0 ]]; then
     log "  ✓ $label"
   else
-    local code=$?
     log "  ✗ $label (exit $code)"
     FALHAS+=("$label")
   fi
@@ -68,13 +69,13 @@ log "=== Coleta Noturna iniciada ==="
 
 # 1. Sincronizar raw do GDrive (antes de coletar)
 critical_run_cmd "Sync raw from GDrive" \
-  "$RCLONE" sync "gdrive:00-Omega/04_staging/anatomia-do-gasto/raw/" \
+  "$RCLONE" sync "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/raw/" \
     "$REPO/data/raw/" \
     --progress --checksum --create-empty-src-dirs
 
 # 2. Sincronizar extracted do GDrive (para continuar de onde parou)
 critical_run_cmd "Sync extracted from GDrive" \
-  "$RCLONE" sync "gdrive:00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+  "$RCLONE" sync "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
     "$REPO/data/extracted/" \
     --progress --checksum --create-empty-src-dirs
 
@@ -93,13 +94,13 @@ run_cmd "Gerar catálogo de datasets" \
 # 5. Sincronizar extracted para GDrive (persist coleta)
 run_cmd "Sync extracted to GDrive" \
   "$RCLONE" sync "$REPO/data/extracted/" \
-    "gdrive:00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+    "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
     --progress --checksum
 
 # 6. Sincronizar public para GDrive (backup + vis)
 run_cmd "Sync public to GDrive" \
   "$RCLONE" sync "$REPO/data/public/" \
-    "gdrive:00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
+    "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
 # 7. Sprint 2 — rotação de UF (fontes federais para todos os municípios Brasil)
@@ -114,7 +115,7 @@ fi
 # 8. Sincronizar extracted Sprint 2 para GDrive (backup)
 run_cmd "Sync extracted Sprint 2 to GDrive" \
   "$RCLONE" sync "$REPO/data/extracted/" \
-    "gdrive:00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+    "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
     --progress --checksum
 
 log "=== Coleta Noturna concluída ==="

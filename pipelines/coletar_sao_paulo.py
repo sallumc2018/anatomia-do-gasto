@@ -147,23 +147,19 @@ def publicar():
 def gdrive_sync():
     log("\n═══════════ FASE 8: GDRIVE SYNC ═══════════")
     raw_origem = str(ROOT / "data" / "raw" / "sao_paulo") + "/"
-    raw_destino = "gdrive:Omega-data/raw/sao_paulo/"
+    raw_destino = "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/raw/sao_paulo/"
     ext_origem = str(ROOT / "data" / "extracted" / "sao_paulo") + "/"
-    ext_destino = "gdrive:Omega-data/extracted/sao_paulo/"
+    ext_destino = "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/sao_paulo/"
     pub_origem = str(ROOT / "data" / "public" / "sao_paulo") + "/"
-    pub_destino = "gdrive:Omega-data/public/sao_paulo/"
+    pub_destino = "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/sao_paulo/"
 
     ok_raw = rodar_rclone(raw_origem, raw_destino, "raw → GDrive")
     ok_ext = rodar_rclone(ext_origem, ext_destino, "extracted → GDrive")
     ok_pub = rodar_rclone(pub_origem, pub_destino, "public → GDrive")
 
-    if ok_raw:
-        log("  Limpando raw local...")
-        shutil.rmtree(ROOT / "data" / "raw" / "sao_paulo", ignore_errors=True)
-    if ok_ext:
-        log("  Limpando extracted local...")
-        shutil.rmtree(ROOT / "data" / "extracted" / "sao_paulo", ignore_errors=True)
-
+    # Não deletar raw/extracted local: coleta_noturna.sh step 5 é o dono da
+    # persistência e faria rclone sync de diretório vazio → apagaria do GDrive.
+    # Limpeza manual: bash -c "rm -rf data/raw/sao_paulo data/extracted/sao_paulo"
     return ok_raw and ok_ext
 
 
