@@ -45,6 +45,7 @@ const SCOPED_LINKS = [
 
 // Links globais (sem escopo de município) — sempre presentes no menu "Mais".
 const GLOBAL_LINKS = [
+  { href: "/comparativo", label: "Comparativo" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/como-citar", label: "Como citar" },
   { href: "/sobre", label: "Sobre" },
@@ -284,9 +285,38 @@ export default function ShellHeader() {
             {open && (
               <div
                 role="menu"
-                className="absolute right-0 mt-2 w-48 max-h-[360px] overflow-y-auto rounded-md border border-[var(--border-01)] bg-[var(--bg-elevated)] shadow-xl z-50 p-1"
+                className="absolute right-0 mt-2 w-52 max-h-[420px] overflow-y-auto rounded-md border border-[var(--border-01)] bg-[var(--bg-elevated)] shadow-xl z-50 p-1"
               >
-                {MAIS_NAV.map((link) => {
+                {/* Links com escopo de município */}
+                {scopedExistentes.slice(4).length > 0 && (
+                  <>
+                    <span className="block px-3 pt-1.5 pb-0.5 text-[10px] uppercase font-bold tracking-wider text-[var(--text-04)]">
+                      {municipio.nome}
+                    </span>
+                    {scopedExistentes.slice(4).map((link) => {
+                      const isActive = pathname === link.href
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          role="menuitem"
+                          className={`block px-3 py-1.5 text-xs rounded-md transition-colors ${
+                            isActive ? "bg-[var(--bg-raised)] text-[var(--text-01)] font-semibold" : "text-[var(--text-02)] hover:bg-[var(--bg-raised)]"
+                          }`}
+                          onClick={() => { setOpen(false); trackEvent.navClick(link.href) }}
+                        >
+                          {link.label}
+                        </Link>
+                      )
+                    })}
+                    <div className="border-t border-[var(--border-01)] my-1" />
+                  </>
+                )}
+                {/* Links globais */}
+                <span className="block px-3 pt-1.5 pb-0.5 text-[10px] uppercase font-bold tracking-wider text-[var(--text-04)]">
+                  Geral
+                </span>
+                {GLOBAL_LINKS.map((link) => {
                   const isActive = pathname === link.href
                   return (
                     <Link
@@ -296,10 +326,7 @@ export default function ShellHeader() {
                       className={`block px-3 py-1.5 text-xs rounded-md transition-colors ${
                         isActive ? "bg-[var(--bg-raised)] text-[var(--text-01)] font-semibold" : "text-[var(--text-02)] hover:bg-[var(--bg-raised)]"
                       }`}
-                      onClick={() => {
-                        setOpen(false)
-                        trackEvent.navClick(link.href)
-                      }}
+                      onClick={() => { setOpen(false); trackEvent.navClick(link.href) }}
                     >
                       {link.label}
                     </Link>

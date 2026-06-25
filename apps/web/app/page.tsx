@@ -29,6 +29,7 @@ const CIDADES = [
     status: "Disponível",
     href: "/sorocaba",
     ativo: true,
+    cor: "var(--teal-60)",
   },
   {
     nome: "Paulínia",
@@ -37,6 +38,7 @@ const CIDADES = [
     status: "Disponível",
     href: "/paulinia",
     ativo: true,
+    cor: "var(--purple-60)",
   },
   {
     nome: "São Paulo",
@@ -45,6 +47,7 @@ const CIDADES = [
     status: "Disponível",
     href: "/sao-paulo",
     ativo: true,
+    cor: "var(--theme-accent)",
   },
   {
     nome: "São Bernardo do Campo",
@@ -53,7 +56,15 @@ const CIDADES = [
     status: "Disponível",
     href: "/sao-bernardo",
     ativo: true,
+    cor: "var(--cyan-60)",
   },
+]
+
+const STATS = [
+  { valor: "20", label: "municípios cobertos", sub: "Estado de SP · fase 1" },
+  { valor: "2002–2026", label: "série histórica", sub: "24 anos de dados" },
+  { valor: "02:00", label: "coleta diária", sub: "BRT · SICONFI + FNS + SIOPS" },
+  { valor: "5.571", label: "municípios — meta", sub: "cobertura nacional e LATAM" },
 ]
 
 export default function IndexPage() {
@@ -99,11 +110,42 @@ export default function IndexPage() {
                 lineHeight: "24px",
                 color: "var(--text-03)",
                 maxWidth: "560px",
+                marginBottom: "28px",
               }}
             >
               Projeto cívico independente que organiza contas municipais com fonte declarada,
               limites explícitos e rastreabilidade completa — sem vínculo com partidos ou governos.
             </p>
+
+            {/* Stats strip */}
+            <div className="flex flex-wrap gap-3">
+              {STATS.map((stat) => (
+                <div
+                  key={stat.valor}
+                  style={{
+                    padding: "10px 16px",
+                    border: "1px solid var(--border-01)",
+                    backgroundColor: "var(--bg-base)",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      color: "var(--text-01)",
+                      display: "block",
+                      lineHeight: "1",
+                      marginBottom: "3px",
+                    }}
+                  >
+                    {stat.valor}
+                  </span>
+                  <span style={{ fontSize: "11px", color: "var(--text-04)", lineHeight: "1" }}>
+                    {stat.sub}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -118,10 +160,20 @@ export default function IndexPage() {
               {CIDADES.map((cidade) => {
                 const inner = (
                   <>
+                    {cidade.cor && (
+                      <div
+                        style={{
+                          width: "28px",
+                          height: "3px",
+                          backgroundColor: cidade.cor,
+                          marginBottom: "20px",
+                        }}
+                      />
+                    )}
                     <p
                       style={{
                         ...S.label,
-                        color: cidade.ativo ? "var(--blue-40)" : "var(--text-04)",
+                        color: cidade.cor ?? (cidade.ativo ? "var(--blue-40)" : "var(--text-04)"),
                       }}
                     >
                       {cidade.status}
@@ -208,6 +260,12 @@ export default function IndexPage() {
             >
               {[
                 {
+                  href: "/comparativo",
+                  title: "Comparativo entre municípios",
+                  text: "Orçamento, gasto efetivo e per capita — Sorocaba, Paulínia e São Paulo lado a lado com dados de 2025.",
+                  destaque: true,
+                },
+                {
                   href: "/institucional",
                   title: "Base institucional",
                   text: "Veja o status pré-CNPJ, os limites públicos e as regras de colaboração enquanto o projeto se estrutura.",
@@ -244,6 +302,16 @@ export default function IndexPage() {
                     padding: "28px",
                   }}
                 >
+                  {(item as { destaque?: boolean }).destaque && (
+                    <div
+                      style={{
+                        width: "28px",
+                        height: "3px",
+                        backgroundColor: "var(--theme-accent)",
+                        marginBottom: "16px",
+                      }}
+                    />
+                  )}
                   <h2 className="font-semibold" style={{ fontSize: "20px", color: "var(--text-01)" }}>
                     {item.title}
                   </h2>
