@@ -16,7 +16,6 @@ Uso:
 import argparse
 import csv
 import html
-import os
 import re
 import sys
 import time
@@ -27,7 +26,8 @@ import urllib.request
 import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
-from xml.etree import ElementTree as ET
+from defusedxml import ElementTree as ET
+from xml.etree.ElementTree import Element as _ET_Element
 
 from paths import CFG, MUNICIPIO, EXTRACTED_DIR, RAW_DIR, ROOT
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception
@@ -51,13 +51,13 @@ _HTTP_RETRY = retry(
 )
 
 FONTE_DOWNLOADS = "https://portalfns.saude.gov.br/downloads/"
-IBGE_SOROCABA = CFG["ibge"]
-MUNICIPIO_SOROCABA = CFG["nome"].upper()
-UF_SOROCABA = CFG["uf"].upper()
+IBGE_MUN = CFG["ibge"]
+MUNICIPIO_NOME_MUN = CFG["nome"].upper()
+UF_MUN = CFG["uf"].upper()
 ANOS_PADRAO = range(2020, 2027)
 
 FNS_RAW_DIR = RAW_DIR / "fns" / "repasses_faf_com_populacao"
-FNS_EXTRACTED_DIR = EXTRACTED_DIR / "fns" / "repasses_faf_com_populacao"
+FNS_EXTRACTED_DIR = EXTRACTED_DIR / "fns" / "saida"
 
 INVENTARIO_CAMPOS = [
     "ano",
@@ -181,8 +181,7 @@ def resolver_arquivo(item: dict) -> dict:
 
 
 def salvar_inventario(itens: list[dict]) -> Path:
-    # Inventário salvo em fns/ (não em saida/) para não ser escaneado por publicar_dados.py
-    destino = FNS_EXTRACTED_DIR.parent / f"inventario_fns_repasses_faf_{MUNICIPIO}.csv"
+    destino = FNS_EXTRACTED_DIR / f"inventario_fns_repasses_faf_{MUNICIPIO}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
     with destino.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=INVENTARIO_CAMPOS)
@@ -272,7 +271,7 @@ def _primeira_planilha(zf: zipfile.ZipFile) -> str:
     return candidatos[0]
 
 
-def _valor_celula(celula: ET.Element, compartilhadas: list[str], ns: dict[str, str]) -> str:
+def _valor_celula(celula: _ET_Element, compartilhadas: list[str], ns: dict[str, str]) -> str:
     tipo = celula.attrib.get("t", "")
     if tipo == "inlineStr":
         return "".join(t.text or "" for t in celula.findall(".//x:t", ns)).strip()
@@ -335,19 +334,19 @@ def _valor(row: dict[str, str], indice: dict[str, str], nomes: list[str]) -> str
     return ""
 
 
-def eh_sorocaba(row: dict[str, str], indice: dict[str, str]) -> bool:
+def eh_municipio(row: dict[str, str], indice: dict[str, str]) -> bool:
     ibge = re.sub(r"\D", "", _valor(row, indice, ["CO_MUNICIPIO_IBGE", "COD_IBGE", "IBGE"]))
-    if ibge == IBGE_SOROCABA:
+    if ibge == IBGE_MUN:
         return True
 
     municipio = _sem_acentos(_valor(row, indice, ["MUNICIPIO", "NO_MUNICIPIO", "NOME_MUNICIPIO"])).upper()
     uf = _valor(row, indice, ["UF", "SG_UF"]).upper()
-    return municipio == MUNICIPIO_SOROCABA and uf == UF_SOROCABA
+    return municipio == MUNICIPIO_NOME_MUN and uf == UF_MUN
 
 
-def filtrar_sorocaba(campos: list[str], rows: list[dict[str, str]]) -> list[dict[str, str]]:
+def filtrar_municipio(campos: list[str], rows: list[dict[str, str]]) -> list[dict[str, str]]:
     indice = _indice_campos(campos)
-    return [row for row in rows if eh_sorocaba(row, indice)]
+    return [row for row in rows if eh_municipio(row, indice)]
 
 
 def salvar_extraido(item: dict, caminho: Path, campos: list[str], rows: list[dict[str, str]]) -> Path:
@@ -374,7 +373,7 @@ def processar_ano(item: dict, forcar: bool, limite_mb: int) -> tuple[Path | None
     if caminho is None:
         return None, 0, 0, 0
     campos, rows = ler_tabela(caminho)
-    filtrados = filtrar_sorocaba(campos, rows)
+    filtrados = filtrar_municipio(campos, rows)
     destino = salvar_extraido(item, caminho, campos, filtrados)
     return destino, len(rows), len(filtrados), caminho.stat().st_size
 
@@ -426,7 +425,7 @@ def main() -> None:
             continue
         print(f"Arquivo bruto: {tamanho / 1024 / 1024:.1f} MB")
         print(f"Linhas fonte: {total}")
-        print(f"Linhas Sorocaba: {filtrados}")
+        print(f"Linhas {CFG['nome']}: {filtrados}")
         print(f"CSV extraido: {destino}")
 
 

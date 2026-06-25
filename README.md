@@ -37,7 +37,7 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 <!-- AUTO:coverage-start -->
 **Cobertura atual:**
 
-- **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
+- **Cidades:** Bauru, Campinas, Carapicuiba, Diadema, Guarulhos, Itaquaquecetuba, Jundiai, Maua, Mogi das Cruzes, Osasco, Paulinia, Piracicaba, Ribeirao Preto, Santo Andre, Santos, Sao Bernardo do Campo, Sao Jose do Rio Preto, Sao Jose dos Campos, Sao Paulo, Sao Vicente, Sorocaba
 - **Datasets publicados:** 167
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-06-25
@@ -146,6 +146,8 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
+- d751d3f feat(ui): 5 melhorias UI/UX — comparativo, home, nav, temas
+- c6e4d2a chore(meta): atualizar READMEs e handoff UI/UX 2026-06-25
 - 39020fb Merge pull request #12 from sallumc2018/publish-coleta-20260625
 - 842310b fix(scope): registrar dca_siconfi_sorocaba_2015_2026 em datasets + classification + mindmap
 - 4362151 Merge pull request #11 from sallumc2018/publish-coleta-20260625
@@ -154,6 +156,4 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 - 2eaabae fix(coleta): atualizar paths rclone gdrive após reorganização de 2026-06-23
 - ed75b60 data(sao_paulo): refresh timestamps transferencias 2026 + DIRECTORY_MAP.md
 - f35b8ad fix(coleta): corrigir dois bugs de pipeline noturno
-- 391b080 data(sao_paulo): dados coletados na rodada noturna 2026-06-22/23
-- f6805fd data(automatic): atualização agendada dos manifestos e esquemas de dados
 <!-- AUTO:activity-end -->
