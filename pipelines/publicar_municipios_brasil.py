@@ -25,12 +25,25 @@ Uso:
 """
 import argparse
 import csv
-import hashlib
 import json
-import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+try:
+    from .sprint2_contracts import (
+        AREA_CONTRACTS,
+        atomic_copy_verified,
+        sha256_file,
+        validate_csv,
+    )
+except ImportError:
+    from sprint2_contracts import (
+        AREA_CONTRACTS,
+        atomic_copy_verified,
+        sha256_file,
+        validate_csv,
+    )
 
 ROOT      = Path(__file__).resolve().parents[1]
 LOG_DIR   = ROOT / "_logs" / "publicar_brasil"
@@ -45,20 +58,7 @@ AREAS_SPRINT2 = ["transferencias_federais", "emendas_federais", "fns"]
 
 # Contrato mínimo de colunas por área.
 # Pelo menos UMA opção de cada grupo deve aparecer no header (case-insensitive).
-SCHEMA: dict[str, dict[str, list[str]]] = {
-    "transferencias_federais": {
-        "municipio": ["ibge", "codigomunicipio", "municipio", "cod_ibge", "nome_municipio"],
-        "valor":     ["valor", "vl_repasse", "vl_bruto", "vl_total", "valor_repasse"],
-    },
-    "emendas_federais": {
-        "municipio": ["ibge", "codigomunicipio", "municipio", "cod_ibge", "nome_municipio"],
-        "valor":     ["valor", "valor_empenhado", "valor_pago", "vl_empenhado"],
-    },
-    "fns": {
-        "municipio": ["ibge", "codigomunicipio", "municipio", "nome_municipio"],
-        "valor":     ["vl_bruto", "valor", "vl_repasse", "vl_liquido"],
-    },
-}
+SCHEMA = AREA_CONTRACTS
 
 LOG_FILE: Path
 COPIADOS = IGNORADOS = MUNICIPIOS_OK = MUNICIPIOS_SEM_DADOS = REJEITADOS = 0
@@ -72,61 +72,18 @@ def log(msg: str) -> None:
 
 
 def sha256_arquivo(path: Path) -> str:
-    h = hashlib.sha256()
-    h.update(path.read_bytes())
-    return h.hexdigest()
+    return sha256_file(path)
 
 
-def validar_csv(path: Path, area: str) -> tuple[bool, str, int]:
+def validar_csv(path: Path, area: str, ibge_esperado: str = "") -> tuple[bool, str, int]:
     """Retorna (valido, motivo_rejeicao, num_linhas_dados)."""
-    if not path.exists():
-        return False, "arquivo não encontrado", 0
-    if path.stat().st_size == 0:
-        return False, "arquivo vazio (0 bytes)", 0
-
-    try:
-        raw = path.read_bytes()
-    except OSError as e:
-        return False, f"erro de leitura: {e}", 0
-
-    # Rejeitar HTML/XML salvo como CSV (resposta de erro da fonte)
-    head = raw[:512].decode("utf-8", errors="replace").lstrip()
-    if head.lower().startswith(("<!doctype", "<html", "<?xml")):
-        return False, "conteúdo HTML/XML (resposta de erro da fonte salva como CSV)", 0
-
-    try:
-        text = raw.decode("utf-8", errors="replace")
-    except Exception as e:
-        return False, f"erro de decodificação: {e}", 0
-
-    lines = [ln for ln in text.splitlines() if ln.strip()]
-    if len(lines) < 2:
-        return False, f"CSV com apenas {len(lines)} linha(s) — sem dados", len(lines)
-
-    # Verificar schema mínimo no header
-    contrato = SCHEMA.get(area)
-    if contrato:
-        header = lines[0].lower().replace('"', "").replace("'", "")
-        for grupo, opcoes in contrato.items():
-            if not any(col in header for col in opcoes):
-                return False, (
-                    f"coluna de '{grupo}' ausente no header "
-                    f"(esperado: {', '.join(opcoes[:3])}…)"
-                ), len(lines)
-
-    return True, "", len(lines) - 1  # -1 exclui o header
+    result = validate_csv(path, area, ibge_esperado)
+    return result.valid, result.reason, result.data_rows
 
 
-def copiar_atomicamente(src: Path, dst: Path) -> None:
+def copiar_atomicamente(src: Path, dst: Path) -> str:
     """Copia src → dst via arquivo temporário; promoção atômica no mesmo filesystem."""
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dst.parent / f".tmp_{dst.name}"
-    try:
-        shutil.copy2(src, tmp)
-        tmp.replace(dst)
-    except Exception:
-        tmp.unlink(missing_ok=True)
-        raise
+    return atomic_copy_verified(src, dst)
 
 
 def salvar_manifesto(key: str, area: str, entradas: list[dict]) -> None:
@@ -193,7 +150,7 @@ def publicar_municipio(m: dict, areas: list[str], dry_run: bool) -> bool:
                 continue
 
             # Gate de integridade
-            valido, motivo, n_linhas = validar_csv(src, area)
+            valido, motivo, n_linhas = validar_csv(src, area, ibge)
             if not valido:
                 log(f"  ✗ REJEITADO {key}/{area}/saida/{src.name} — {motivo}")
                 REJEITADOS += 1
@@ -205,8 +162,7 @@ def publicar_municipio(m: dict, areas: list[str], dry_run: bool) -> bool:
                 IGNORADOS += 1
                 continue
 
-            copiar_atomicamente(src, dst)
-            digest = sha256_arquivo(dst)
+            digest = copiar_atomicamente(src, dst)
             log(f"  ✓ {key}/{area}/saida/{src.name} ({n_linhas} linhas, sha256={digest[:12]}…)")
             COPIADOS += 1
             entradas_manifesto.append({
