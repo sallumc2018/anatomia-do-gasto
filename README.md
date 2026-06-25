@@ -40,7 +40,7 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
 - **Datasets publicados:** 166
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-06-20
+- **Atualizado em:** 2026-06-25
 <!-- AUTO:coverage-end -->
 
 O projeto nao realiza auditoria juridica nem emite juizo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificacao independente.
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- ffa370b fix(gates): registrar sao_bernardo em publication_classification + municipios.ts
-- a3205bc feat(sao-bernardo): adicionar São Bernardo do Campo — 5 páginas + 33 CSVs publicados
-- df0b00a docs(lai): rascunhos de 8 pedidos LAI para tier municipal
-- 5831606 data(automatic): atualização agendada dos manifestos e esquemas de dados
-- 7b959a1 feat(paulinia): páginas /saude e /camara + QA 100% nos 3 municípios
-- ac7f895 chore(pre-deploy): resolver 4 pendências de qualidade antes do push
-- 1e9d4fc data(siops): coletar indicadores ASPS via siops-relatorio-api.saude.gov.br
-- 54e691a fix(sitemap): adicionar /sao-paulo/saude ao sitemap
-- 347ad87 fix(siops): desabilitar verificação SSL para DATASUS Tabnet
-- 5b9c3f4 data(complemento): SIOPS, RREO SUS, fontes execução, PDFs educação, despesas câmara
+- 2eaabae fix(coleta): atualizar paths rclone gdrive após reorganização de 2026-06-23
+- ed75b60 data(sao_paulo): refresh timestamps transferencias 2026 + DIRECTORY_MAP.md
+- f35b8ad fix(coleta): corrigir dois bugs de pipeline noturno
+- 391b080 data(sao_paulo): dados coletados na rodada noturna 2026-06-22/23
+- f6805fd data(automatic): atualização agendada dos manifestos e esquemas de dados
+- 57c036c data(automatic): atualização agendada dos manifestos e esquemas de dados
+- 645f41f data(automatic): atualização agendada dos manifestos e esquemas de dados
+- f7e0fc8 data(paulinia): atualizar transferências estaduais e federais 2025
+- b1a7a64 chore(meta): atualizar CITATION.cff e descrição do GitHub
+- a4252d6 fix(charts): adicionar minWidth={0} nos ResponsiveContainer restantes (6 ocorrências)
 <!-- AUTO:activity-end -->
