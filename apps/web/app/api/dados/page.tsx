@@ -205,17 +205,17 @@ export default function ApiDadosPage() {
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px", maxWidth: "780px" }}>
-              <p className="uppercase font-semibold mb-4" style={S.label}>Catalogo de dados</p>
+              <p className="uppercase font-semibold mb-4" style={S.label}>Catálogo de dados</p>
               <h1
                 className="font-light mb-6"
                 style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)" }}
               >
-                Arquivos CSV publicados e verificaveis
+                Arquivos CSV publicados e verificáveis
               </h1>
               <p style={{ ...S.body, color: "var(--text-03)" }}>
-                Este catalogo lista somente arquivos existentes em `data/public`.
-                Registros em extracao ou validacao local nao aparecem aqui ate passarem
-                por validacao e copia explicita para publicacao.
+                Este catálogo lista somente arquivos existentes em `data/public`.
+                Registros em extração ou validação local não aparecem aqui até passarem
+                por validação e cópia explícita para publicação.
               </p>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function ApiDadosPage() {
           <div className="mx-auto px-6 py-10" style={S.container}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0" style={S.borderTop}>
               {[
-                ["Municipios", municipalities.join(", ") || "Nenhum"],
+                ["Municípios", municipalities.join(", ") || "Nenhum"],
                 ["Datasets com arquivo", String(catalog.length)],
                 ["Downloads CSV", String(totalFiles)],
               ].map(([label, value], index) => (
@@ -252,7 +252,7 @@ export default function ApiDadosPage() {
               <table style={{ width: "100%", minWidth: "980px", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={S.borderBottom}>
-                    {["Municipio", "Area", "Tipo", "Anos", "Fonte", "Frequencia", "Downloads"].map((header) => (
+                    {["Município", "Área", "Tipo", "Anos", "Fonte", "Frequência", "Downloads"].map((header) => (
                       <th key={header} style={{ textAlign: "left", padding: "14px 10px", ...S.label }}>
                         {header}
                       </th>
@@ -297,9 +297,9 @@ export default function ApiDadosPage() {
             </div>
 
             <p className="mt-8" style={{ ...S.body, color: "var(--text-03)", maxWidth: "760px" }}>
-              A URL de download e sempre servida por `/api/dados/...`, mas o arquivo de origem
-              permanece em `data/public`. Se um dataset estiver no manifesto e nao aparecer aqui,
-              o arquivo correspondente nao foi encontrado na camada publicada.
+              A URL de download é sempre servida por `/api/dados/...`, mas o arquivo de origem
+              permanece em `data/public`. Se um dataset estiver no manifesto e não aparecer aqui,
+              o arquivo correspondente não foi encontrado na camada publicada.
             </p>
           </div>
         </section>

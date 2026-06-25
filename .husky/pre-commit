@@ -9,6 +9,19 @@ set -e
 # ── Layer 1: lint-staged ────────────────────────────────────────────────────
 npx lint-staged
 
+# ── Layer 1.5: grammar check (PT-BR acentuação em texto de display) ─────────
+STAGED_TSX=$(git diff --cached --name-only | grep -E '\.(tsx|ts)$' | grep -v '\.d\.ts$' || true)
+if [ -n "$STAGED_TSX" ] && command -v python3 >/dev/null 2>&1; then
+  python3 tools/gates/check_grammar.py $STAGED_TSX --strict
+  if [ $? -ne 0 ]; then
+    echo ""
+    echo "    Corrija a acentuação antes de commitar."
+    echo "    Para adicionar exceção: edite tools/gates/check_grammar.py"
+    echo ""
+    exit 1
+  fi
+fi
+
 # ── Layer 2: private path scan ──────────────────────────────────────────────
 STAGED_FILES=$(git diff --cached --name-only)
 

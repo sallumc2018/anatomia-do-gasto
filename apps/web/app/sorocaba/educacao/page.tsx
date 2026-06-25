@@ -262,17 +262,17 @@ export default function EducacaoPage() {
               {
                 label: "Impostos próprios",
                 value: latestRevQ.proprios_arrecadado,
-                note: "Valor arrecadado registrado na base fiscal da educacao.",
+                note: "Valor arrecadado registrado na base fiscal da educação.",
               },
               {
                 label: "Transferências do Estado",
                 value: latestRevQ.transferencias_estaduais_arrecadado,
-                note: "Repasses estaduais registrados na base fiscal da educacao.",
+                note: "Repasses estaduais registrados na base fiscal da educação.",
               },
               {
                 label: "Transferências da União",
                 value: latestRevQ.transferencias_federais_arrecadado,
-                note: "Repasses federais registrados na base fiscal da educacao.",
+                note: "Repasses federais registrados na base fiscal da educação.",
               },
             ]}
             stages={[

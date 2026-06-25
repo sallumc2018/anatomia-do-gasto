@@ -56,19 +56,19 @@ function expandYears(anosStr: string): string[] {
 }
 
 const AREA_LABEL: Record<string, string> = {
-  saude: "Saude",
-  educacao: "Educacao",
-  seguranca: "Seguranca publica",
+  saude: "Saúde",
+  educacao: "Educação",
+  seguranca: "Segurança pública",
   transporte: "Transporte",
   executivo: "Executivo",
   receita: "Receita",
-  fiscal: "Saude fiscal",
+  fiscal: "Saúde fiscal",
   fornecedores: "Fornecedores",
   restos: "Restos a pagar",
-  despesa: "Despesa orcamentaria",
+  despesa: "Despesa orçamentária",
   empenho: "Empenho",
-  loa: "LOA - Audiencia Publica",
-  "camara/gabinete": "Camara - despesas de gabinete",
+  loa: "LOA - Audiência Pública",
+  "camara/gabinete": "Câmara - despesas de gabinete",
 }
 
 function areaLabel(areaKey: string, tipo: string): string {
@@ -79,32 +79,32 @@ function areaLabel(areaKey: string, tipo: string): string {
 }
 
 const PUBLIC_DATASETS = [
-  ["saude", "despesas", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - saude", "despesas_saude_sorocaba_{ano}.csv"],
-  ["saude", "receitas", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base ASPS - saude", "receitas_base_saude_sorocaba_{ano}.csv"],
-  ["educacao", "despesas", "2020-2025", "Portal de Transparencia Sorocaba", "Despesas por funcao - educacao", "despesas_educacao_sorocaba_{ano}.csv"],
-  ["educacao", "receitas", "2020-2025", "Portal de Transparencia Sorocaba", "Receitas base FUNDEB - educacao", "receitas_base_educacao_sorocaba_{ano}.csv"],
-  ["seguranca", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas por subfuncao - DCA Anexo I-E", "despesas_seguranca_sorocaba_{ano}.csv"],
-  ["seguranca", "orcamento", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 EXCETO INTRA", "rreo_seguranca_sorocaba_{ano}.csv"],
-  ["transporte", "orcamento rreo", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento RREO Anexo 02 bimestre 6 funcao 26 EXCETO INTRA", "rreo_transporte_sorocaba_{ano}.csv"],
-  ["transporte", "orcamento dca", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas DCA Anexo I-E funcao 26 empenhado, liquidado e pago", "dca_transporte_sorocaba_{ano}.csv"],
-  ["executivo", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Orcamento municipal por funcao - RREO Anexo 02 bimestre 6", "despesas_executivo_sorocaba_{ano}.csv"],
+  ["saude", "despesas", "2020-2025", "Portal de Transparência Sorocaba", "Despesas por função - saúde", "despesas_saude_sorocaba_{ano}.csv"],
+  ["saude", "receitas", "2020-2025", "Portal de Transparência Sorocaba", "Receitas base ASPS - saúde", "receitas_base_saude_sorocaba_{ano}.csv"],
+  ["educacao", "despesas", "2020-2025", "Portal de Transparência Sorocaba", "Despesas por função - educação", "despesas_educacao_sorocaba_{ano}.csv"],
+  ["educacao", "receitas", "2020-2025", "Portal de Transparência Sorocaba", "Receitas base FUNDEB - educação", "receitas_base_educacao_sorocaba_{ano}.csv"],
+  ["seguranca", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas por subfunção - DCA Anexo I-E", "despesas_seguranca_sorocaba_{ano}.csv"],
+  ["seguranca", "orcamento", "2020-2025", "SICONFI / Tesouro Nacional", "Orçamento RREO Anexo 02 bimestre 6 EXCETO INTRA", "rreo_seguranca_sorocaba_{ano}.csv"],
+  ["transporte", "orcamento rreo", "2020-2025", "SICONFI / Tesouro Nacional", "Orçamento RREO Anexo 02 bimestre 6 função 26 EXCETO INTRA", "rreo_transporte_sorocaba_{ano}.csv"],
+  ["transporte", "orcamento dca", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas DCA Anexo I-E função 26 empenhado, liquidado e pago", "dca_transporte_sorocaba_{ano}.csv"],
+  ["executivo", "despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Orçamento municipal por função - RREO Anexo 02 bimestre 6", "despesas_executivo_sorocaba_{ano}.csv"],
   ["receita", "receitas", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas municipais por categoria - RREO Anexo 01 bimestre 6", "receitas_sorocaba_{ano}.csv"],
   ["fiscal", "pessoal", "2020-2025", "SICONFI / Tesouro Nacional", "Despesa com pessoal e RCL ajustada - RGF Anexo 01", "pessoal_sorocaba_{ano}.csv"],
-  ["fiscal", "divida", "2020-2025", "SICONFI / Tesouro Nacional", "Divida consolidada e limite de endividamento - RGF Anexo 02", "divida_sorocaba_{ano}.csv"],
-  ["fiscal", "rcl", "2020-2025", "SICONFI / Tesouro Nacional", "Composicao das receitas correntes - RREO Anexo 03", "rcl_sorocaba_{ano}.csv"],
-  ["fiscal", "rcl capital", "2020-2025", "SICONFI / Tesouro Nacional", "Composicao das receitas de capital - RREO Anexo 03", "rcl_capital_sorocaba_{ano}.csv"],
-  ["fiscal", "divida detalhada", "2020-2025", "SICONFI / Tesouro Nacional", "Detalhamento da divida consolidada e limites - RGF Anexo 02", "divida_detalhada_sorocaba_{ano}.csv"],
+  ["fiscal", "divida", "2020-2025", "SICONFI / Tesouro Nacional", "Dívida consolidada e limite de endividamento - RGF Anexo 02", "divida_sorocaba_{ano}.csv"],
+  ["fiscal", "rcl", "2020-2025", "SICONFI / Tesouro Nacional", "Composição das receitas correntes - RREO Anexo 03", "rcl_sorocaba_{ano}.csv"],
+  ["fiscal", "rcl capital", "2020-2025", "SICONFI / Tesouro Nacional", "Composição das receitas de capital - RREO Anexo 03", "rcl_capital_sorocaba_{ano}.csv"],
+  ["fiscal", "divida detalhada", "2020-2025", "SICONFI / Tesouro Nacional", "Detalhamento da dívida consolidada e limites - RGF Anexo 02", "divida_detalhada_sorocaba_{ano}.csv"],
   ["fiscal", "natureza despesa", "2020-2025", "SICONFI / Tesouro Nacional", "Resumo fiscal por natureza da despesa", "natureza_despesa_sorocaba_{ano}.csv"],
-  ["fiscal", "rpps", "2020-2025", "SICONFI / Tesouro Nacional", "Indicadores previdenciarios e RPPS", "rpps_sorocaba_{ano}.csv"],
-  ["saude", "receitas detalhamento", "2020-2025", "Portal de Transparencia Sorocaba / SICONFI", "Detalhamento auxiliar das receitas de saude", "receitas_detalhamento_sorocaba_{ano}.csv"],
-  ["saude", "rreo despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas de saude no RREO", "rreo_despesas_saude_sorocaba_{ano}.csv"],
+  ["fiscal", "rpps", "2020-2025", "SICONFI / Tesouro Nacional", "Indicadores previdenciários e RPPS", "rpps_sorocaba_{ano}.csv"],
+  ["saude", "receitas detalhamento", "2020-2025", "Portal de Transparência Sorocaba / SICONFI", "Detalhamento auxiliar das receitas de saúde", "receitas_detalhamento_sorocaba_{ano}.csv"],
+  ["saude", "rreo despesas", "2020-2025", "SICONFI / Tesouro Nacional", "Despesas de saúde no RREO", "rreo_despesas_saude_sorocaba_{ano}.csv"],
   ["saude", "rreo receitas sus", "2020-2025", "SICONFI / Tesouro Nacional", "Receitas SUS no RREO", "rreo_receitas_sus_sorocaba_{ano}.csv"],
-  ["despesa", "registro analitico", "2020-2025", "Portal de Transparencia Sorocaba", "Registro Analitico da Despesa por fornecedor, natureza e empenho", "despesa_orcamentaria_sorocaba_{ano}.csv"],
-  ["empenho", "registro empenho", "2020-2025", "Portal de Transparencia Sorocaba", "Livro Registro de Empenho por natureza da despesa e fornecedor", "empenho_sorocaba_{ano}.csv"],
-  ["fornecedores", "conta corrente", "2020-2025", "Portal de Transparencia Sorocaba", "Conta Corrente de Fornecedor agregada por ano", "fornecedores_agregado_sorocaba_{ano}.csv"],
-  ["restos", "restos a pagar", "2020-2025", "Portal de Transparencia Sorocaba", "Restos a Pagar agregados por fornecedor", "restos_agregado_sorocaba_{ano}.csv"],
-  ["loa", "audiencia publica", "2022-2026", "Portal de Transparencia Sorocaba", "Priorizacoes da audiencia publica da LOA por area tematica e regiao", "audiencia_loa_sorocaba_{ano}.csv"],
-  ["camara/gabinete", "despesas gabinete", "2020-2026", "Portal Camara Municipal de Sorocaba", "Despesas mensais dos gabinetes dos vereadores por categoria", "despesas_gabinete_camara_sorocaba_{ano}.csv"],
+  ["despesa", "registro analitico", "2020-2025", "Portal de Transparência Sorocaba", "Registro Analítico da Despesa por fornecedor, natureza e empenho", "despesa_orcamentaria_sorocaba_{ano}.csv"],
+  ["empenho", "registro empenho", "2020-2025", "Portal de Transparência Sorocaba", "Livro Registro de Empenho por natureza da despesa e fornecedor", "empenho_sorocaba_{ano}.csv"],
+  ["fornecedores", "conta corrente", "2020-2025", "Portal de Transparência Sorocaba", "Conta Corrente de Fornecedor agregada por ano", "fornecedores_agregado_sorocaba_{ano}.csv"],
+  ["restos", "restos a pagar", "2020-2025", "Portal de Transparência Sorocaba", "Restos a Pagar agregados por fornecedor", "restos_agregado_sorocaba_{ano}.csv"],
+  ["loa", "audiencia publica", "2022-2026", "Portal de Transparência Sorocaba", "Priorizações da audiência pública da LOA por área temática e região", "audiencia_loa_sorocaba_{ano}.csv"],
+  ["camara/gabinete", "despesas gabinete", "2020-2026", "Portal Câmara Municipal de Sorocaba", "Despesas mensais dos gabinetes dos vereadores por categoria", "despesas_gabinete_camara_sorocaba_{ano}.csv"],
 ] as const
 
 function getDatasets(): DatasetRow[] {
@@ -167,13 +167,13 @@ export default function DadosPage() {
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px" }}>
               <p className="uppercase font-semibold mb-4" style={S.label}>Dados publicados</p>
               <h1 className="font-light mb-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "760px" }}>
-                Dados disponiveis para download e consulta
+                Dados disponíveis para download e consulta
               </h1>
               <p style={{ ...S.body, maxWidth: "680px" }}>
-                Todos os arquivos CSV usados pelo site estao abertos para download.
-                Esta pagina le somente arquivos em data/public e so exibe links que existem na camada publicada.
-                Arquivos ainda em validacao nao aparecem no site ate serem conferidos e copiados explicitamente para publicacao.
-                Este catalogo nao representa cobertura integral de Sorocaba; as pendencias estao declaradas em /sorocaba/lacunas.
+                Todos os arquivos CSV usados pelo site estão abertos para download.
+                Esta página lê somente arquivos em data/public e só exibe links que existem na camada publicada.
+                Arquivos ainda em validação não aparecem no site até serem conferidos e copiados explicitamente para publicação.
+                Este catálogo não representa cobertura integral de Sorocaba; as pendências estão declaradas em /sorocaba/lacunas.
               </p>
             </div>
           </div>
@@ -233,9 +233,9 @@ export default function DadosPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-12" style={S.borderTop}>
               {[
-                ["Fonte oficial", "Documento ou API publicado por orgao oficial."],
-                ["CSV extraido", "Tabela gerada a partir da fonte. Nao vira publicacao automaticamente."],
-                ["CSV publicado", "Arquivo disponivel para download e exibido no site, lido exclusivamente de data/public."],
+                ["Fonte oficial", "Documento ou API publicado por órgão oficial."],
+                ["CSV extraído", "Tabela gerada a partir da fonte. Não vira publicação automaticamente."],
+                ["CSV publicado", "Arquivo disponível para download e exibido no site, lido exclusivamente de data/public."],
               ].map(([title, text]) => (
                 <div key={title} className="py-8 md:pr-8" style={S.borderBottom}>
                   <p style={{ ...S.mono, color: "var(--blue-40)", marginBottom: "10px" }}>{title}</p>

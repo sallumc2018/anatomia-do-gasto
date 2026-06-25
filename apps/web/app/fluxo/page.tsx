@@ -84,7 +84,7 @@ const FLOW_NODES: FlowNode[] = [
   {
     id: "public",
     label: "data/public",
-    eyebrow: "publicacao oficial",
+    eyebrow: "publicação oficial",
     icon: CheckCircle2,
     status: "publico",
     summary: "Única camada de dados que o site oficial pode ler.",

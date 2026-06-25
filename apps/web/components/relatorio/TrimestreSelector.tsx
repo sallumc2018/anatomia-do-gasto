@@ -228,17 +228,17 @@ export function TrimestreSelector({
             {
               label: "Impostos próprios",
               value: revQ?.proprios_arrecadado ?? 0,
-              note: "Valor arrecadado registrado na base fiscal da educacao.",
+              note: "Valor arrecadado registrado na base fiscal da educação.",
             },
             {
               label: "Transferências do Estado",
               value: revQ?.transferencias_estaduais_arrecadado ?? 0,
-              note: "Repasses estaduais registrados na base fiscal da educacao.",
+              note: "Repasses estaduais registrados na base fiscal da educação.",
             },
             {
               label: "Transferências da União",
               value: revQ?.transferencias_federais_arrecadado ?? 0,
-              note: "Repasses federais registrados na base fiscal da educacao.",
+              note: "Repasses federais registrados na base fiscal da educação.",
             },
           ]}
           stages={[
