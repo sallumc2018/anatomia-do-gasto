@@ -38,7 +38,7 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 **Cobertura atual:**
 
 - **Cidades:** Paulinia, Sao Bernardo do Campo, Sao Paulo, Sorocaba
-- **Datasets publicados:** 166
+- **Datasets publicados:** 167
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-06-25
 <!-- AUTO:coverage-end -->
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
+- 39020fb Merge pull request #12 from sallumc2018/publish-coleta-20260625
+- 842310b fix(scope): registrar dca_siconfi_sorocaba_2015_2026 em datasets + classification + mindmap
+- 4362151 Merge pull request #11 from sallumc2018/publish-coleta-20260625
+- bfaf907 data(manifests): atualizar data de geração do datasets_status.json
+- 55f34aa data(sprint1+2): coleta noturna 2026-06-25 — novos municípios e SIOPS atualizado
 - 2eaabae fix(coleta): atualizar paths rclone gdrive após reorganização de 2026-06-23
 - ed75b60 data(sao_paulo): refresh timestamps transferencias 2026 + DIRECTORY_MAP.md
 - f35b8ad fix(coleta): corrigir dois bugs de pipeline noturno
 - 391b080 data(sao_paulo): dados coletados na rodada noturna 2026-06-22/23
 - f6805fd data(automatic): atualização agendada dos manifestos e esquemas de dados
-- 57c036c data(automatic): atualização agendada dos manifestos e esquemas de dados
-- 645f41f data(automatic): atualização agendada dos manifestos e esquemas de dados
-- f7e0fc8 data(paulinia): atualizar transferências estaduais e federais 2025
-- b1a7a64 chore(meta): atualizar CITATION.cff e descrição do GitHub
-- a4252d6 fix(charts): adicionar minWidth={0} nos ResponsiveContainer restantes (6 ocorrências)
 <!-- AUTO:activity-end -->
