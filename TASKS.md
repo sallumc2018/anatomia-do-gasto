@@ -4,6 +4,16 @@ Fila pública de trabalho aprovado. Ideias ainda em avaliação pertencem a
 `IDEAS.md`; estado factual pertence a `STATUS.md`; decisões duráveis pertencem
 a `DECISIONS.md`.
 
+## Mudanças de workflow — 2026-06-25 (ler antes de tudo)
+
+> **Para Claude e Codex:** handoffs em `memory/handoffs/` estão **DEPRECADOS**. O canal
+> oficial agora é TASKS.md (fila) + STATUS.md (estado). Não criar novos handoff files.
+>
+> **Sessão única:** Claude opera em uma sessão só (coleta + UI/UX). A fronteira é o
+> **commit**, não a sessão: nunca misturar pipelines/scripts com apps/web no mesmo commit.
+>
+> **Alerta de contexto:** hook ajustado para 90k tokens (era 99k).
+
 ## Fila ativa — 2026-06-25
 
 ### P0 — Coleta e publicação ✅ 2026-06-25
@@ -20,12 +30,26 @@ a `DECISIONS.md`.
 
 ### P1 — Contratos e testes
 
-- [ ] Criar testes de contrato para `transferencias_federais`,
+- [x] Criar testes de contrato para `transferencias_federais`,
   `emendas_federais` e `fns`.
-- [ ] Cobrir CSV vazio, HTML salvo como CSV, IBGE divergente, schema inválido,
+- [x] Cobrir CSV vazio, HTML salvo como CSV, IBGE divergente, schema inválido,
   hash e promoção atômica.
-- [ ] Revisar tecnicamente a integração final do cron antes de commit.
+- [x] Revisar tecnicamente a integração final do cron antes de commit.
 - Responsável primário: Codex.
+- Evidência: 15 testes, Ruff, `py_compile`, build e revisão `bash -n` em
+  2026-06-25; alterações locais ainda sem commit.
+
+### P1 — Coleta Sprint 2: coletor de emendas ausente
+
+- [x] Criar `pipelines/baixar_emendas_federais.py` — endpoint `/api-de-dados/emendas`
+  Portal da Transparência, args `--anos START END`, schema bate com
+  `sprint2_contracts.py` (`municipio_ibge` + `valor_empenhado`). — 2026-06-25
+- [ ] **Validação isolada obrigatória antes do cron** (usuário executa com chave real):
+  `MUNICIPIO=sorocaba PORTAL_TRANSPARENCIA_KEY=... .venv/bin/python3 pipelines/baixar_emendas_federais.py --anos 2024 2024`
+  Checar: 200 OK, `localidadeGasto`/`anoExercicio` filtram corretamente,
+  campos `_linha_para_csv()` batem com o contrato; ajustar se necessário.
+- Responsável: usuário valida; Claude corrige campos se a API diferir.
+- Evidência: bug Codex 2026-06-25; script criado Claude 2026-06-25.
 
 ### P1 — Frontend e descoberta
 
@@ -37,6 +61,18 @@ a `DECISIONS.md`.
   — verificado: todos os charts de produção já têm `minWidth={0}` + alturas fixas; sem ação pendente.
 - Gate: `tools/gates/check_canonical_routes.py` retorna OK. ✓
 - Responsável: Claude UI/UX.
+
+### P1 — Refatoração estrutural de páginas municipais
+
+- [x] Consolidar as páginas de receita de Paulínia, São Paulo e São Bernardo
+  em um template Server Component configurável.
+- [ ] Aplicar o mesmo inventário, uma área por vez, a `saude-fiscal`,
+  `seguranca` e `transporte`.
+- Gate: preservar conteúdo municipal, metadados, dados estruturados, links e
+  comportamento de `searchParams`.
+- Responsável primário: Codex.
+- Evidência da primeira fatia: redução de 1.414 para 641 linhas; ESLint,
+  TypeScript via `next build`, build de 108 rotas e HTTP 200 nas três páginas.
 
 ### P2 — Confiabilidade
 
