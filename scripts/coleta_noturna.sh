@@ -7,6 +7,12 @@ FALHAS=()
 RCLONE=/home/sallumc/.local/bin/rclone
 export PATH="/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 REPO=$(cd "$(dirname "$0")/.." && pwd)
+
+# Carregar segredos (Portal Transparência, etc.) — arquivo fora do repo
+PORTAIS_ENV="/home/sallumc/.config/omega/secrets/by-project/portais.env"
+if [[ -f "$PORTAIS_ENV" ]]; then
+  source "$PORTAIS_ENV"
+fi
 LOG_DIR="$REPO/_logs/coleta_noturna"
 TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
 LOG_FILE="$LOG_DIR/coleta_${TIMESTAMP}.log"
