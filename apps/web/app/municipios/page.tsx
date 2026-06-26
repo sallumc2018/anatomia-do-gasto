@@ -8,22 +8,113 @@ import PageFooter from "@/components/layout/page-footer"
 export const metadata: Metadata = {
   title: "Municípios — Anatomia do Gasto",
   description:
-    "Dados federais de transferências, emendas parlamentares e repasses de saúde (FNS) para municípios do Acre, Amapá e Roraima. Série histórica disponível para download.",
+    "Dados federais de transferências, emendas parlamentares e repasses de saúde (FNS) para municípios brasileiros. Série histórica disponível para download.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/municipios" },
 }
 
+// Raiz data/ — turbopackIgnore impede o tracer de puxar data/public/ inteiro
 const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data")
 
+// Áreas reconhecidas na ordem em que devem aparecer
+const AREAS_ORDEM = ["transferencias_federais", "emendas_federais", "fns", "executivo", "fiscal", "receita"]
 const AREA_LABELS: Record<string, string> = {
   emendas_federais: "Emendas",
   fns: "Saúde FNS",
   transferencias_federais: "Transferências",
+  executivo: "Orçamento",
+  fiscal: "Fiscal LRF",
+  receita: "Receitas",
 }
 
-const UF_LABELS: Record<string, { nome: string; regiao: string }> = {
-  AC: { nome: "Acre", regiao: "Norte" },
-  AP: { nome: "Amapá", regiao: "Norte" },
-  RR: { nome: "Roraima", regiao: "Norte" },
+// Prefixo IBGE → UF
+const IBGE_UF: Record<string, string> = {
+  "11": "RO", "12": "AC", "13": "AM", "14": "RR",
+  "15": "PA", "16": "AP", "17": "TO",
+  "21": "MA", "22": "PI", "23": "CE", "24": "RN",
+  "25": "PB", "26": "PE", "27": "AL", "28": "SE", "29": "BA",
+  "31": "MG", "32": "ES", "33": "RJ", "35": "SP",
+  "41": "PR", "42": "SC", "43": "RS",
+  "50": "MS", "51": "MT", "52": "GO", "53": "DF",
+}
+
+const UF_META: Record<string, { nome: string; regiao: string }> = {
+  AC: { nome: "Acre",             regiao: "Norte"        },
+  AL: { nome: "Alagoas",         regiao: "Nordeste"     },
+  AM: { nome: "Amazonas",        regiao: "Norte"        },
+  AP: { nome: "Amapá",           regiao: "Norte"        },
+  BA: { nome: "Bahia",           regiao: "Nordeste"     },
+  CE: { nome: "Ceará",           regiao: "Nordeste"     },
+  DF: { nome: "Distrito Federal", regiao: "Centro-Oeste" },
+  ES: { nome: "Espírito Santo",  regiao: "Sudeste"      },
+  GO: { nome: "Goiás",           regiao: "Centro-Oeste" },
+  MA: { nome: "Maranhão",        regiao: "Nordeste"     },
+  MG: { nome: "Minas Gerais",    regiao: "Sudeste"      },
+  MS: { nome: "Mato Grosso do Sul", regiao: "Centro-Oeste" },
+  MT: { nome: "Mato Grosso",     regiao: "Centro-Oeste" },
+  PA: { nome: "Pará",            regiao: "Norte"        },
+  PB: { nome: "Paraíba",         regiao: "Nordeste"     },
+  PE: { nome: "Pernambuco",      regiao: "Nordeste"     },
+  PI: { nome: "Piauí",           regiao: "Nordeste"     },
+  PR: { nome: "Paraná",          regiao: "Sul"          },
+  RJ: { nome: "Rio de Janeiro",  regiao: "Sudeste"      },
+  RN: { nome: "Rio Grande do Norte", regiao: "Nordeste" },
+  RO: { nome: "Rondônia",        regiao: "Norte"        },
+  RR: { nome: "Roraima",         regiao: "Norte"        },
+  RS: { nome: "Rio Grande do Sul", regiao: "Sul"        },
+  SC: { nome: "Santa Catarina",  regiao: "Sul"          },
+  SE: { nome: "Sergipe",         regiao: "Nordeste"     },
+  SP: { nome: "São Paulo",       regiao: "Sudeste"      },
+  TO: { nome: "Tocantins",       regiao: "Norte"        },
+}
+
+// Nomes com acentuação não derivável da key
+const NOME_OVERRIDE: Record<string, string> = {
+  acrelandia: "Acrelândia",
+  amapa: "Amapá",
+  brasileia: "Brasiléia",
+  calcoene: "Calçoene",
+  canta: "Cantá",
+  caracarai: "Caracaraí",
+  epitaciolandia: "Epitaciolândia",
+  feijo: "Feijó",
+  jordao: "Jordão",
+  macapa: "Macapá",
+  mancio_lima: "Mâncio Lima",
+  mazagao: "Mazagão",
+  mucajai: "Mucajaí",
+  pacaraima: "Pacaraima",
+  placido_de_castro: "Plácido de Castro",
+  rorainopolis: "Rorainópolis",
+  sao_joao_da_baliza: "São João da Baliza",
+  sao_jose_do_rio_preto: "São José do Rio Preto",
+  sao_jose_dos_campos: "São José dos Campos",
+  sao_luiz_do_anaua: "São Luiz do Anauá",
+  sao_vicente: "São Vicente",
+  tarauaca: "Tarauacá",
+  uiramuta: "Uiramutã",
+  vitoria_do_jari: "Vitória do Jari",
+  // SP 17
+  bauru: "Bauru",
+  campinas: "Campinas",
+  carapicuiba: "Carapicuíba",
+  diadema: "Diadema",
+  guarulhos: "Guarulhos",
+  itaquaquecetuba: "Itaquaquecetuba",
+  jundiai: "Jundiaí",
+  maua: "Mauá",
+  mogi_das_cruzes: "Mogi das Cruzes",
+  osasco: "Osasco",
+  piracicaba: "Piracicaba",
+  ribeirao_preto: "Ribeirão Preto",
+  santo_andre: "Santo André",
+  santos: "Santos",
+}
+
+function capitalizeKey(key: string): string {
+  const skip = new Set(["do", "da", "de", "dos", "das", "e"])
+  return key.split("_").map((w, i) =>
+    i === 0 || !skip.has(w) ? w.charAt(0).toUpperCase() + w.slice(1) : w
+  ).join(" ")
 }
 
 interface MunicipioInfo {
@@ -31,76 +122,51 @@ interface MunicipioInfo {
   ibge: string
   uf: string
   nome: string
-  areas: string[]
+  areas: { area: string; csvs: string[] }[]
   arquivos_total: number
 }
 
-const MUNICIPIO_MAP: MunicipioInfo[] = [
-  // AC — 22 municípios
-  { key: "acrelandia",           ibge: "1200013", uf: "AC", nome: "Acrelândia",           areas: ["emendas_federais","transferencias_federais"] },
-  { key: "assis_brasil",         ibge: "1200054", uf: "AC", nome: "Assis Brasil",          areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "brasileia",            ibge: "1200104", uf: "AC", nome: "Brasiléia",             areas: ["emendas_federais","transferencias_federais"] },
-  { key: "bujari",               ibge: "1200138", uf: "AC", nome: "Bujari",                areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "capixaba",             ibge: "1200179", uf: "AC", nome: "Capixaba",              areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "cruzeiro_do_sul",      ibge: "1200203", uf: "AC", nome: "Cruzeiro do Sul",       areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "epitaciolandia",       ibge: "1200252", uf: "AC", nome: "Epitaciolândia",        areas: ["emendas_federais","transferencias_federais"] },
-  { key: "feijo",                ibge: "1200302", uf: "AC", nome: "Feijó",                 areas: ["emendas_federais","transferencias_federais"] },
-  { key: "jordao",               ibge: "1200328", uf: "AC", nome: "Jordão",                areas: ["emendas_federais","transferencias_federais"] },
-  { key: "mancio_lima",          ibge: "1200336", uf: "AC", nome: "Mâncio Lima",           areas: ["emendas_federais","transferencias_federais"] },
-  { key: "manoel_urbano",        ibge: "1200344", uf: "AC", nome: "Manoel Urbano",         areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "marechal_thaumaturgo", ibge: "1200351", uf: "AC", nome: "Marechal Thaumaturgo",  areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "placido_de_castro",    ibge: "1200385", uf: "AC", nome: "Plácido de Castro",     areas: ["emendas_federais","transferencias_federais"] },
-  { key: "porto_acre",           ibge: "1200807", uf: "AC", nome: "Porto Acre",            areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "porto_walter",         ibge: "1200393", uf: "AC", nome: "Porto Walter",          areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "rio_branco",           ibge: "1200401", uf: "AC", nome: "Rio Branco",            areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "rodrigues_alves",      ibge: "1200427", uf: "AC", nome: "Rodrigues Alves",       areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "santa_rosa_do_purus",  ibge: "1200435", uf: "AC", nome: "Santa Rosa do Purus",  areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "sena_madureira",       ibge: "1200500", uf: "AC", nome: "Sena Madureira",        areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "senador_guiomard",     ibge: "1200450", uf: "AC", nome: "Senador Guiomard",      areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "tarauaca",             ibge: "1200609", uf: "AC", nome: "Tarauacá",              areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "xapuri",               ibge: "1200708", uf: "AC", nome: "Xapuri",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  // AP — 16 municípios
-  { key: "amapa",                ibge: "1600105", uf: "AP", nome: "Amapá",                 areas: ["emendas_federais","transferencias_federais"] },
-  { key: "calcoene",             ibge: "1600204", uf: "AP", nome: "Calçoene",              areas: ["emendas_federais","transferencias_federais"] },
-  { key: "cutias",               ibge: "1600212", uf: "AP", nome: "Cutias",                areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "ferreira_gomes",       ibge: "1600238", uf: "AP", nome: "Ferreira Gomes",        areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "itaubal",              ibge: "1600253", uf: "AP", nome: "Itaubal",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "laranjal_do_jari",     ibge: "1600279", uf: "AP", nome: "Laranjal do Jari",      areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "macapa",               ibge: "1600303", uf: "AP", nome: "Macapá",                areas: ["emendas_federais","transferencias_federais"] },
-  { key: "mazagao",              ibge: "1600402", uf: "AP", nome: "Mazagão",               areas: ["emendas_federais","transferencias_federais"] },
-  { key: "oiapoque",             ibge: "1600501", uf: "AP", nome: "Oiapoque",              areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "pedra_branca_do_amapari", ibge: "1600154", uf: "AP", nome: "Pedra Branca do Amapari", areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "porto_grande",         ibge: "1600535", uf: "AP", nome: "Porto Grande",          areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "pracuuba",             ibge: "1600550", uf: "AP", nome: "Pracuuba",              areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "santana",              ibge: "1600600", uf: "AP", nome: "Santana",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "serra_do_navio",       ibge: "1600055", uf: "AP", nome: "Serra do Navio",        areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "tartarugalzinho",      ibge: "1600709", uf: "AP", nome: "Tartarugalzinho",       areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "vitoria_do_jari",      ibge: "1600808", uf: "AP", nome: "Vitória do Jari",       areas: ["emendas_federais","fns","transferencias_federais"] },
-  // RR — 15 municípios
-  { key: "alto_alegre",          ibge: "1400050", uf: "RR", nome: "Alto Alegre",           areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "amajari",              ibge: "1400027", uf: "RR", nome: "Amajari",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "boa_vista",            ibge: "1400100", uf: "RR", nome: "Boa Vista",             areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "bonfim",               ibge: "1400159", uf: "RR", nome: "Bonfim",                areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "canta",                ibge: "1400175", uf: "RR", nome: "Cantá",                 areas: ["emendas_federais","transferencias_federais"] },
-  { key: "caracarai",            ibge: "1400209", uf: "RR", nome: "Caracaraí",             areas: ["emendas_federais","transferencias_federais"] },
-  { key: "caroebe",              ibge: "1400233", uf: "RR", nome: "Caroebe",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "iracema",              ibge: "1400282", uf: "RR", nome: "Iracema",               areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "mucajai",              ibge: "1400308", uf: "RR", nome: "Mucajaí",               areas: ["emendas_federais","transferencias_federais"] },
-  { key: "normandia",            ibge: "1400407", uf: "RR", nome: "Normandia",             areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "pacaraima",            ibge: "1400456", uf: "RR", nome: "Pacaraima",             areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "rorainopolis",         ibge: "1400472", uf: "RR", nome: "Rorainópolis",          areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "sao_joao_da_baliza",   ibge: "1400506", uf: "RR", nome: "São João da Baliza",    areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "sao_luiz_do_anaua",    ibge: "1400508", uf: "RR", nome: "São Luiz do Anauá",     areas: ["emendas_federais","fns","transferencias_federais"] },
-  { key: "uiramuta",             ibge: "1400704", uf: "RR", nome: "Uiramutã",              areas: ["emendas_federais","fns","transferencias_federais"] },
-].map((m) => {
-  // Contar arquivos disponíveis
-  let total = 0
-  for (const area of m.areas) {
-    const saida = path.join(DATA_ROOT, "public", m.key, area, "saida")
-    if (fs.existsSync(saida)) total += fs.readdirSync(saida).filter(f => f.endsWith(".csv")).length
+function loadMunicipios(): MunicipioInfo[] {
+  const manifestsDir = path.join(DATA_ROOT, "manifests", "sprint2")
+  if (!fs.existsSync(manifestsDir)) return []
+
+  const municipioKeys = fs.readdirSync(manifestsDir).filter(d => {
+    const full = path.join(manifestsDir, d)
+    return fs.statSync(full).isDirectory() && !d.startsWith("_")
+  })
+
+  const result: MunicipioInfo[] = []
+
+  for (const key of municipioKeys) {
+    const keyDir = path.join(manifestsDir, key)
+    const manifestFiles = fs.readdirSync(keyDir).filter(f => f.endsWith(".json"))
+    if (!manifestFiles.length) continue
+
+    // IBGE vem do primeiro manifesto
+    let ibge = ""
+    try {
+      const m = JSON.parse(fs.readFileSync(path.join(keyDir, manifestFiles[0]), "utf-8"))
+      ibge = String(m.arquivos?.[0]?.municipio_ibge ?? "")
+    } catch { /* ignora manifesto corrompido */ }
+
+    const uf = ibge.length >= 2 ? (IBGE_UF[ibge.slice(0, 2)] ?? "??") : "??"
+    const nome = NOME_OVERRIDE[key] ?? capitalizeKey(key)
+
+    // Áreas disponíveis (com pelo menos 1 CSV)
+    const areas: { area: string; csvs: string[] }[] = []
+    for (const area of AREAS_ORDEM) {
+      const saida = path.join(DATA_ROOT, "public", key, area, "saida")
+      if (!fs.existsSync(saida)) continue
+      const csvs = fs.readdirSync(saida).filter(f => f.endsWith(".csv")).sort()
+      if (csvs.length > 0) areas.push({ area, csvs })
+    }
+
+    const arquivos_total = areas.reduce((acc, a) => acc + a.csvs.length, 0)
+    result.push({ key, ibge, uf, nome, areas, arquivos_total })
   }
-  return { ...m, arquivos_total: total }
-})
+
+  return result.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"))
+}
 
 const S = {
   container: { maxWidth: "1312px" } as React.CSSProperties,
@@ -110,15 +176,23 @@ const S = {
 }
 
 export default function MunicipiosPage() {
+  const municipios = loadMunicipios()
+
+  // Agrupar por UF
   const porUf: Record<string, MunicipioInfo[]> = {}
-  for (const m of MUNICIPIO_MAP) {
+  for (const m of municipios) {
     if (!porUf[m.uf]) porUf[m.uf] = []
     porUf[m.uf].push(m)
   }
+  const ufsOrdenadas = Object.keys(porUf).sort((a, b) => {
+    const ra = UF_META[a]?.regiao ?? "Z"
+    const rb = UF_META[b]?.regiao ?? "Z"
+    return ra === rb ? a.localeCompare(b) : ra.localeCompare(rb)
+  })
 
-  const totalArquivos = MUNICIPIO_MAP.reduce((acc, m) => acc + m.arquivos_total, 0)
-  const totalMunicipios = MUNICIPIO_MAP.length
-  const totalUfs = Object.keys(porUf).length
+  const totalArquivos = municipios.reduce((acc, m) => acc + m.arquivos_total, 0)
+  const totalMunicipios = municipios.length
+  const totalUfs = ufsOrdenadas.length
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -129,14 +203,14 @@ export default function MunicipiosPage() {
         <section style={{ backgroundColor: "var(--bg-elevated)", borderBottom: "1px solid var(--border-01)" }}>
           <div className="mx-auto px-6 py-16 md:py-20" style={S.container}>
             <div style={{ borderLeft: "4px solid var(--teal-60)", paddingLeft: "24px" }}>
-              <p className="uppercase font-semibold mb-3" style={S.label}>Sprint 2 — Expansão Nacional</p>
+              <p className="uppercase font-semibold mb-3" style={S.label}>Expansão Nacional — Sprint 2</p>
               <h1 className="font-light mb-4" style={{ fontSize: "clamp(28px,4vw,44px)", lineHeight: 1.2, color: "var(--text-01)", maxWidth: "720px" }}>
-                Dados federais de {totalMunicipios} municípios de {totalUfs} estados
+                Dados federais de {totalMunicipios} municípios em {totalUfs} estado{totalUfs !== 1 ? "s" : ""}
               </h1>
               <p style={{ ...S.body, maxWidth: "640px", marginBottom: "16px" }}>
                 Transferências federais, emendas parlamentares e repasses do Fundo Nacional de Saúde (FNS)
-                para todos os municípios do Acre, Amapá e Roraima. {totalArquivos} arquivos CSV prontos para
-                download. Coleta diária automatizada — dados atualizados a cada 24h.
+                para municípios brasileiros. {totalArquivos.toLocaleString("pt-BR")} arquivos CSV disponíveis
+                para download. Coleta automatizada com atualização contínua.
               </p>
               <div className="flex flex-wrap gap-6">
                 {[
@@ -145,8 +219,10 @@ export default function MunicipiosPage() {
                   { label: "Arquivos CSV", valor: totalArquivos },
                 ].map(({ label, valor }) => (
                   <div key={label}>
-                    <p style={{ ...S.label }}>{label}</p>
-                    <p style={{ fontSize: "28px", fontWeight: 300, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>{valor}</p>
+                    <p style={S.label}>{label}</p>
+                    <p style={{ fontSize: "28px", fontWeight: 300, color: "var(--text-01)", fontVariantNumeric: "tabular-nums" }}>
+                      {valor.toLocaleString("pt-BR")}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -154,75 +230,68 @@ export default function MunicipiosPage() {
           </div>
         </section>
 
-        {/* Por UF */}
-        {Object.entries(UF_LABELS).map(([uf, info]) => {
-          const municipios = porUf[uf] ?? []
-          if (!municipios.length) return null
+        {/* Seções por UF */}
+        {ufsOrdenadas.map((uf) => {
+          const munis = porUf[uf].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"))
+          const meta = UF_META[uf] ?? { nome: uf, regiao: "" }
           return (
             <section key={uf} style={{ backgroundColor: "var(--bg-base)", borderBottom: "1px solid var(--border-01)" }}>
               <div className="mx-auto px-6 py-10" style={S.container}>
                 <div className="flex items-baseline gap-3 mb-6">
                   <span style={{ fontSize: "18px", fontWeight: 300, color: "var(--text-01)" }}>
-                    {info.nome} <span style={{ color: "var(--text-03)", fontWeight: 400 }}>({uf})</span>
+                    {meta.nome} <span style={{ color: "var(--text-03)", fontWeight: 400 }}>({uf})</span>
                   </span>
-                  <span style={S.caption}>{municipios.length} municípios · Região {info.regiao}</span>
+                  <span style={S.caption}>
+                    {munis.length} municípios{meta.regiao ? ` · Região ${meta.regiao}` : ""}
+                  </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {municipios.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR")).map((m) => (
+                  {munis.map((m) => (
                     <div
                       key={m.key}
                       className="p-4"
                       style={{ border: "1px solid var(--border-01)", backgroundColor: "var(--bg-elevated)" }}
                     >
-                      <div className="flex items-start justify-between gap-2 mb-3">
-                        <div>
-                          <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-01)" }}>{m.nome}</p>
-                          <p style={{ ...S.caption }}>{m.ibge} · {m.arquivos_total} arquivo{m.arquivos_total !== 1 ? "s" : ""}</p>
-                        </div>
+                      <div className="mb-3">
+                        <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-01)" }}>{m.nome}</p>
+                        <p style={S.caption}>{m.ibge} · {m.arquivos_total} arquivo{m.arquivos_total !== 1 ? "s" : ""}</p>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {m.areas.map((area) => {
-                          const saida = path.join(DATA_ROOT, "public", m.key, area, "saida")
-                          const csvs = fs.existsSync(saida)
-                            ? fs.readdirSync(saida).filter(f => f.endsWith(".csv")).sort()
-                            : []
-                          if (csvs.length === 0) return null
-                          return (
-                            <details key={area} style={{ width: "100%" }}>
-                              <summary
-                                style={{
-                                  fontSize: "11px",
-                                  fontWeight: 600,
-                                  letterSpacing: "0.06em",
-                                  textTransform: "uppercase",
-                                  color: "var(--teal-40)",
-                                  cursor: "pointer",
-                                  listStyle: "none",
-                                  padding: "4px 0",
-                                }}
-                              >
-                                {AREA_LABELS[area] ?? area} ({csvs.length})
-                              </summary>
-                              <div className="flex flex-col gap-1 mt-2 ml-2">
-                                {csvs.map((csv) => {
-                                  const url = `/api/dados/${m.key}/${area}/saida/${csv}`
-                                  const ano = csv.match(/(\d{4})\.csv$/)?.[1] ?? ""
-                                  return (
-                                    <a
-                                      key={csv}
-                                      href={url}
-                                      download
-                                      style={{ fontSize: "12px", color: "var(--text-02)", textDecoration: "none" }}
-                                      className="nav-link"
-                                    >
-                                      CSV {ano}
-                                    </a>
-                                  )
-                                })}
-                              </div>
-                            </details>
-                          )
-                        })}
+                      <div className="flex flex-col gap-1">
+                        {m.areas.map(({ area, csvs }) => (
+                          <details key={area} style={{ width: "100%" }}>
+                            <summary
+                              style={{
+                                fontSize: "11px",
+                                fontWeight: 600,
+                                letterSpacing: "0.06em",
+                                textTransform: "uppercase",
+                                color: "var(--teal-40)",
+                                cursor: "pointer",
+                                listStyle: "none",
+                                padding: "4px 0",
+                              }}
+                            >
+                              {AREA_LABELS[area] ?? area} ({csvs.length})
+                            </summary>
+                            <div className="flex flex-col gap-1 mt-2 ml-2">
+                              {csvs.map((csv) => {
+                                const url = `/api/dados/${m.key}/${area}/saida/${csv}`
+                                const ano = csv.match(/(\d{4})\.csv$/)?.[1] ?? csv
+                                return (
+                                  <a
+                                    key={csv}
+                                    href={url}
+                                    download
+                                    style={{ fontSize: "12px", color: "var(--text-02)", textDecoration: "none" }}
+                                    className="nav-link"
+                                  >
+                                    CSV {ano}
+                                  </a>
+                                )
+                              })}
+                            </div>
+                          </details>
+                        ))}
                       </div>
                     </div>
                   ))}
