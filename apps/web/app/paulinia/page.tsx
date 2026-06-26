@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import { getAvailableYearsExecutivo } from "@/lib/data"
 import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
@@ -215,8 +216,8 @@ export default function PauliniaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_CATALOG) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_FAQ) }} />
+      <JsonLd data={PAU_CATALOG} />
+      <JsonLd data={PAU_FAQ} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

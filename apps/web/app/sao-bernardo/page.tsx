@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import { getAvailableYearsReceita } from "@/lib/data"
 import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/structured-data"
 
@@ -108,8 +109,8 @@ export default function SaoBernardoPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_CATALOG) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SBC_FAQ) }} />
+      <JsonLd data={SBC_CATALOG} />
+      <JsonLd data={SBC_FAQ} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
