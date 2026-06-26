@@ -12,8 +12,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/municipios" },
 }
 
-// Raiz data/ — turbopackIgnore impede o tracer de puxar data/public/ inteiro
-const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data")
+// Raízes separadas com turbopackIgnore explícito em cada uma.
+// turbopackIgnore precisa estar dentro do path.join() que contém process.cwd()
+// para que o Turbopack ignore aquele caminho específico na fase de file-tracing.
+const MANIFESTS_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "manifests")
+const PUBLIC_DIR    = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
 // Áreas reconhecidas na ordem em que devem aparecer
 const AREAS_ORDEM = ["transferencias_federais", "emendas_federais", "fns", "executivo", "fiscal", "receita"]
@@ -127,7 +130,7 @@ interface MunicipioInfo {
 }
 
 function loadMunicipios(): MunicipioInfo[] {
-  const manifestsDir = path.join(DATA_ROOT, "manifests", "sprint2")
+  const manifestsDir = path.join(MANIFESTS_DIR, "sprint2")
   if (!fs.existsSync(manifestsDir)) return []
 
   const municipioKeys = fs.readdirSync(manifestsDir).filter(d => {
@@ -155,7 +158,7 @@ function loadMunicipios(): MunicipioInfo[] {
     // Áreas disponíveis (com pelo menos 1 CSV)
     const areas: { area: string; csvs: string[] }[] = []
     for (const area of AREAS_ORDEM) {
-      const saida = path.join(DATA_ROOT, "public", key, area, "saida")
+      const saida = path.join(PUBLIC_DIR, key, area, "saida")
       if (!fs.existsSync(saida)) continue
       const csvs = fs.readdirSync(saida).filter(f => f.endsWith(".csv")).sort()
       if (csvs.length > 0) areas.push({ area, csvs })
