@@ -5,7 +5,6 @@ import json
 import os
 import subprocess
 import sys
-from pathlib import Path
 
 from common import ROOT, configure_utf8_stdio
 
@@ -18,74 +17,77 @@ def frontend_command(script: str) -> dict:
     return {"command": command, "cwd": ROOT / "apps" / "web"}
 
 
+def python_command(*args: str) -> list[str]:
+    return [sys.executable, *args]
+
+
 COMMANDS: dict[str, list[dict]] = {
     "memory": [
-        {"command": ["python3", "-m", "compileall", "-q", "tools/memory"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/audit-memory-scope.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/validate-knowledge-base.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/validate-provenance-log.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/build-rag-index.py", "--check"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/write-token-economy.py", "--check"], "cwd": ROOT},
-        {"command": ["python3", "tools/memory/write-provenance.py", "--check"], "cwd": ROOT},
+        {"command": python_command("-m", "compileall", "-q", "tools/memory"), "cwd": ROOT},
+        {"command": python_command("tools/memory/audit-memory-scope.py"), "cwd": ROOT},
+        {"command": python_command("tools/memory/validate-knowledge-base.py"), "cwd": ROOT},
+        {"command": python_command("tools/memory/validate-provenance-log.py"), "cwd": ROOT},
+        {"command": python_command("tools/memory/build-rag-index.py", "--check"), "cwd": ROOT},
+        {"command": python_command("tools/memory/write-token-economy.py", "--check"), "cwd": ROOT},
+        {"command": python_command("tools/memory/write-provenance.py", "--check"), "cwd": ROOT},
     ],
     "agents": [
-        {"command": ["python3", "-m", "compileall", "-q", "tools/agents"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/validate-agent-contracts.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/validate-maestro-learning.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/eval-maestro-training.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/watch-worktree.py", "--once", "--source-label", "validation"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/plan-route.py", "completar dados faltantes sorocaba"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/start-topic.py", "validar automacoes locais", "--rag-limit", "1"], "cwd": ROOT},
+        {"command": python_command("-m", "compileall", "-q", "tools/agents"), "cwd": ROOT},
+        {"command": python_command("tools/agents/validate-agent-contracts.py"), "cwd": ROOT},
+        {"command": python_command("tools/agents/validate-maestro-learning.py"), "cwd": ROOT},
+        {"command": python_command("tools/agents/eval-maestro-training.py"), "cwd": ROOT},
+        {"command": python_command("tools/agents/watch-worktree.py", "--once", "--source-label", "validation"), "cwd": ROOT},
+        {"command": python_command("tools/agents/plan-route.py", "completar dados faltantes sorocaba"), "cwd": ROOT},
+        {"command": python_command("tools/agents/start-topic.py", "validar automacoes locais", "--rag-limit", "1"), "cwd": ROOT},
     ],
     "scope": [
-        {"command": ["python3", "tools/agents/check-scope-gates.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-secrets.py", "--all"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-scope-gates.py"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-secrets.py", "--all"), "cwd": ROOT},
     ],
     "secrets": [
-        {"command": ["python3", "tools/agents/check-secrets.py", "--selftest"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-secrets.py", "--all"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-secrets.py", "--selftest"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-secrets.py", "--all"), "cwd": ROOT},
     ],
     "review": [
-        {"command": ["python3", "tools/agents/check-peer-review-readiness.py"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-peer-review-readiness.py"), "cwd": ROOT},
     ],
     "pipeline": [
         {
-            "command": [
-                "python3",
+            "command": python_command(
                 "-m",
                 "py_compile",
                 "pipelines/paths.py",
                 "pipelines/pipeline.py",
                 "pipelines/publicar_dados.py",
-            ],
+            ),
             "cwd": ROOT,
         },
-        {"command": ["python3", "pipelines/testes/verificar_publicacao.py"], "cwd": ROOT},
+        {"command": python_command("pipelines/testes/verificar_publicacao.py"), "cwd": ROOT},
     ],
     "data": [
-        {"command": ["python3", "tools/data/qa_public_sorocaba.py", "--strict"], "cwd": ROOT},
-        {"command": ["python3", "tools/data/qa_extracted_sorocaba.py"], "cwd": ROOT},
-        {"command": ["python3", "tools/data/qa_lacunas_sorocaba.py"], "cwd": ROOT},
+        {"command": python_command("tools/data/qa_public_sorocaba.py", "--strict"), "cwd": ROOT},
+        {"command": python_command("tools/data/qa_extracted_sorocaba.py"), "cwd": ROOT},
+        {"command": python_command("tools/data/qa_lacunas_sorocaba.py"), "cwd": ROOT},
     ],
     "publication": [
-        {"command": ["python3", "tools/agents/check-secrets.py", "--all"], "cwd": ROOT},
-        {"command": ["python3", "tools/data/qa_public_sorocaba.py", "--strict"], "cwd": ROOT},
-        {"command": ["python3", "pipelines/gerar_datasets_json.py"], "cwd": ROOT},
-        {"command": ["python3", "pipelines/testes/verificar_publicacao.py", "--strict"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-scope-gates.py"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-secrets.py", "--all"), "cwd": ROOT},
+        {"command": python_command("tools/data/qa_public_sorocaba.py", "--strict"), "cwd": ROOT},
+        {"command": python_command("pipelines/gerar_datasets_json.py"), "cwd": ROOT},
+        {"command": python_command("pipelines/testes/verificar_publicacao.py", "--strict"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-scope-gates.py"), "cwd": ROOT},
     ],
     "realdata": [
-        {"command": ["python3", "tools/agents/check-commit-gate.py", "--staged"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-scope-gates.py"], "cwd": ROOT},
-        {"command": ["python3", "pipelines/testes/verificar_publicacao.py", "--strict"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-commit-gate.py", "--staged"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-scope-gates.py"), "cwd": ROOT},
+        {"command": python_command("pipelines/testes/verificar_publicacao.py", "--strict"), "cwd": ROOT},
     ],
     "publish": [
-        {"command": ["python3", "tools/agents/check-commit-gate.py", "--full"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-secrets.py", "--all"], "cwd": ROOT},
-        {"command": ["python3", "tools/data/qa_public_sorocaba.py", "--strict"], "cwd": ROOT},
-        {"command": ["python3", "pipelines/gerar_datasets_json.py"], "cwd": ROOT},
-        {"command": ["python3", "pipelines/testes/verificar_publicacao.py", "--strict"], "cwd": ROOT},
-        {"command": ["python3", "tools/agents/check-scope-gates.py"], "cwd": ROOT},
+        {"command": python_command("tools/agents/check-commit-gate.py", "--full"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-secrets.py", "--all"), "cwd": ROOT},
+        {"command": python_command("tools/data/qa_public_sorocaba.py", "--strict"), "cwd": ROOT},
+        {"command": python_command("pipelines/gerar_datasets_json.py"), "cwd": ROOT},
+        {"command": python_command("pipelines/testes/verificar_publicacao.py", "--strict"), "cwd": ROOT},
+        {"command": python_command("tools/agents/check-scope-gates.py"), "cwd": ROOT},
     ],
 }
 
@@ -126,9 +128,11 @@ def run_command(item: dict) -> dict:
 def print_result(result: dict) -> None:
     command = " ".join(result["command"])
     print(f"- ({result['returncode']}) {result['cwd']}> {command}")
-    output = result["stdout"] or result["stderr"]
-    if output:
-        print(output)
+    if result["stdout"]:
+        print(result["stdout"])
+    if result["stderr"]:
+        print("[stderr]")
+        print(result["stderr"])
 
 
 def main() -> int:

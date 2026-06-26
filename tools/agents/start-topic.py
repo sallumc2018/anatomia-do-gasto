@@ -70,7 +70,7 @@ def print_text(payload: dict) -> None:
     print(f"- Objetivo: {payload['objective']}")
     print(f"- Rota sugerida: {payload['route'] or 'indefinida'}")
     print(f"- Budget alvo: {payload['budget_agent']} {payload['budget']}")
-    print(f"- Gate inicial: commit local so ao final de bloco validado; sem push/deploy/publicacao data/public sem autorizacao")
+    print("- Gate inicial: commit local so ao final de bloco validado; sem push/deploy/publicacao data/public sem autorizacao")
     print("")
     print("### Git")
     print(payload["git_status"]["stdout"] or payload["git_status"]["stderr"] or "sem saida")
@@ -100,13 +100,13 @@ def main() -> int:
 
     objective = " ".join(args.objective)
     git_status = run_command(["git", "status", "-sb"])
-    route_result = run_command(["python", "tools/agents/plan-route.py", objective])
+    route_result = run_command([sys.executable, "tools/agents/plan-route.py", objective])
     route_line = first_output_line(route_result)
     budget_agent = first_agent(route_line)
     budget = BUDGETS.get(budget_agent, "por tarefa")
     rag_result = run_command(
         [
-            "python",
+            sys.executable,
             "tools/memory/query-rag.py",
             "--agent",
             args.agent,

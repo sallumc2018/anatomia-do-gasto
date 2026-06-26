@@ -26,7 +26,11 @@ REQUIRED_PATHS = [
     "docs/revisao-pares-github.md",
     "docs/benchmark-publico.md",
     "docs/politica-publicacao-dados.md",
-    "tasks.txt",
+    "CANONICAL_PATHS.md",
+    "STATUS.md",
+    "TASKS.md",
+    "IDEAS.md",
+    "DECISIONS.md",
     "data/manifests/datasets.csv",
     "data/manifests/publication_classification.csv",
     "data/manifests/benchmark_targets.csv",
@@ -66,9 +70,17 @@ TEXT_EXPECTATIONS = {
         "Nao publicar nota",
         "evidencia armazenada",
     ],
-    "tasks.txt": [
+    "TASKS.md": [
         "Benchmark como meta auditavel",
         "Validacao Maestro",
+    ],
+    "CANONICAL_PATHS.md": [
+        "Controle do trabalho",
+        "Handoffs e memória",
+    ],
+    "IDEAS.md": [
+        "Propostas ainda não aprovadas",
+        "Em triagem",
     ],
 }
 

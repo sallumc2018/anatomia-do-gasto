@@ -19,6 +19,7 @@ import csv
 import html
 import re
 import shutil
+import sys
 import time
 import urllib.error
 import urllib.request
@@ -28,9 +29,9 @@ from pathlib import Path
 
 from paths import CFG, EXTRACTED_DIR, RAW_DIR, ROOT
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception
-import sys as _sys
-if str(ROOT) not in _sys.path:
-    _sys.path.insert(0, str(ROOT))
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 from tools.pipeline.hash_utils import registrar_hash as _registrar_hash
 
 

@@ -1,49 +1,63 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+# Diagnostico local do ambiente Linux. Nao instala pacotes nem acessa a rede.
 
-# Cores para output formatado
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
+set -uo pipefail
 
-echo -e "${GREEN}=== Iniciando Configuração do Ecossistema Linux (Anatomia do Gasto) ===${NC}"
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$ROOT"
 
-# 1. Configurar RTK
-echo -e "\n${YELLOW}[1/3] Configurando RTK Token Economy...${NC}"
-if command -v rtk &> /dev/null; then
-    echo "RTK encontrado em: $(which rtk)"
-    echo "Inicializando ganchos do RTK..."
-    # Inicializar hooks globais
-    rtk init -g || true
-    rtk init -g --gemini || true
-    echo -e "${GREEN}RTK configurado com sucesso!${NC}"
+failures=0
+warnings=0
+
+ok() {
+  printf 'OK: %s\n' "$1"
+}
+
+warn() {
+  printf 'AVISO: %s\n' "$1" >&2
+  warnings=$((warnings + 1))
+}
+
+fail() {
+  printf 'ERRO: %s\n' "$1" >&2
+  failures=$((failures + 1))
+}
+
+printf '=== Diagnostico Linux - Anatomia do Gasto ===\n'
+
+if command -v rtk >/dev/null 2>&1; then
+  ok "RTK encontrado em $(command -v rtk)"
+  rtk --version || fail "RTK nao respondeu a --version"
+  rtk verify >/dev/null 2>&1 \
+    && ok "hook RTK verificado" \
+    || fail "rtk verify falhou; revise a configuracao global da TUI"
 else
-    echo "AVISO: RTK não está no PATH. Certifique-se de que ~/.local/bin está no seu PATH."
-    echo "Para instalar o RTK: curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh"
+  fail "RTK nao esta no PATH; instale somente a partir de artefato previamente validado"
 fi
 
-# 2. Instalar Dependências no Venv
-echo -e "\n${YELLOW}[2/3] Instalando dependências de IA (GPTCache, LLMLingua, HuggingFace)...${NC}"
-if [ -d ".venv" ]; then
-    echo "Venv encontrado. Ativando e instalando..."
-    .venv/bin/pip install --upgrade pip
-    
-    # Instalar gptcache, llmlingua, e dependências para buscas locais de embeddings
-    .venv/bin/pip install gptcache llmlingua faiss-cpu sentence-transformers
-    
-    echo -e "${GREEN}Dependências instaladas no venv com sucesso!${NC}"
+if [[ -x .venv/bin/python ]]; then
+  ok "venv Python encontrado"
+  .venv/bin/python -m pip check >/dev/null 2>&1 \
+    && ok "dependencias instaladas sao consistentes" \
+    || fail "pip check encontrou dependencias inconsistentes"
 else
-    echo "AVISO: Pasta .venv não encontrada neste diretório. Execute a instalação do venv primeiro."
+  fail ".venv/bin/python nao encontrado"
 fi
 
-# 3. Testar a inicialização do Cache local
-echo -e "\n${YELLOW}[3/3] Validando funcionamento do GPTCache...${NC}"
-if [ -f "tools/cache/gptcache_init.py" ]; then
-    .venv/bin/python tools/cache/gptcache_init.py --test
-    echo -e "${GREEN}Validação do GPTCache concluída!${NC}"
+if [[ -x .venv/bin/python ]] && .venv/bin/python -c "import gptcache" >/dev/null 2>&1; then
+  warn "GPTCache esta instalado, mas pipelines/gptcache_helper.py nao possui consumidores ativos"
 else
-    echo "Erro: Script gptcache_init.py não encontrado."
+  warn "GPTCache indisponivel; nao afeta RTK nem o RAG publico local"
 fi
 
-echo -e "\n${GREEN}=== Configuração Concluída com Sucesso! ===${NC}"
-echo "Nota: Adicione suas chaves de API nos campos correspondentes em ~/.gemini/antigravity/mcp_config.json para ativar os MCPs externos."
+if [[ -x .venv/bin/python ]]; then
+  .venv/bin/python -m py_compile tools/hooks/autonomous_rag.py \
+    && ok "hook de RAG compila" \
+    || fail "hook de RAG nao compila"
+  .venv/bin/python tools/memory/build-rag-index.py --check >/dev/null 2>&1 \
+    && ok "contrato do indice RAG validado" \
+    || fail "contrato do indice RAG falhou"
+fi
+
+printf 'Resumo: %d erro(s), %d aviso(s).\n' "$failures" "$warnings"
+exit "$failures"

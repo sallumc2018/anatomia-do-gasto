@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import subprocess
 import sys
-from pathlib import Path
 
 from common import ROOT, configure_utf8_stdio
 
@@ -17,7 +16,7 @@ LEVEL_ORDER = {"C0": 0, "C1": 1, "C2": 2, "C3": 3, "C4": 4}
 
 def run_route(objective: str) -> tuple[int, str, str]:
     completed = subprocess.run(
-        ["python", "tools/agents/plan-route.py", objective],
+        [sys.executable, "tools/agents/plan-route.py", objective],
         cwd=ROOT,
         text=True,
         encoding="utf-8",
