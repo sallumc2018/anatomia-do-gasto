@@ -52,8 +52,10 @@ npm.cmd run dev
 
 - `README.md`: visao geral publica.
 - `CONTRIBUTING.md`: regras de contribuicao.
+- `CANONICAL_PATHS.md`: mapa oficial de arquivos, dados, memoria e codigo.
 - `STATUS.md`: estado atual do projeto.
 - `TASKS.md`: fila de trabalho.
+- `IDEAS.md`: propostas ainda nao aprovadas.
 - `DECISIONS.md`: decisoes tecnicas e metodologicas.
 - `docs/politica-publicacao-dados.md`: regra de publicacao de dados.
 - `.github/PULL_REQUEST_TEMPLATE.md`: formato esperado do PR.

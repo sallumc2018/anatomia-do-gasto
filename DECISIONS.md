@@ -2,6 +2,21 @@
 > Decisões arquiteturais e editoriais que não mudam toda sessão.
 > Atualizar só quando uma decisão for revisada ou nova.
 
+## Governança documental
+
+**Mapa e fluxo canônicos — decidido em 2026-06-25**
+
+- `CANONICAL_PATHS.md` define localização e função dos artefatos do projeto.
+- `STATUS.md` contém estado factual atual.
+- `TASKS.md` contém apenas trabalho aprovado e executável.
+- `IDEAS.md` contém propostas ainda não aprovadas.
+- `DECISIONS.md` registra escolhas duráveis.
+- `docs/roadmap.md` contém direção estratégica.
+- `memory/handoffs/YYYY-MM/` transfere contexto entre sessões, mas não substitui
+  status, tarefas ou decisões.
+- `DIRECTORY_MAP.md` é histórico de movimentações do Google Drive, não fonte de
+  caminhos operacionais.
+
 ## Site / Frontend
 
 **Dois mapas separados**

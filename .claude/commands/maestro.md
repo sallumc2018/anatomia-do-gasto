@@ -34,13 +34,13 @@ python tools/agents/eval-maestro-training.py
 Atalho para perceber mudancas externas em tempo quase real:
 
 ```bash
-python tools/agents/watch-worktree.py --baseline --source-label "Antigravity/Gemini" --bell
+python tools/agents/watch-worktree.py --baseline --source-label "Claude/outra-sessao" --bell
 ```
 
 Para iniciar em segundo plano:
 
 ```bash
-# Linux: python3 tools/agents/watch-worktree.py --source-label "Antigravity/Gemini" &
+# Linux: python3 tools/agents/watch-worktree.py --source-label "Claude/outra-sessao" &
 ```
 
 ---
@@ -211,7 +211,9 @@ Antes de propor C3, confirmar `memory/training/maestro/promotion-criteria.md`.
 
 ## Passo 6 - Observar mudancas externas
 
-O Maestro nao percebe arquivos sozinho se nenhum processo estiver rodando. Para vigiar Antigravity/Gemini ou qualquer outra ferramenta, use `tools/agents/watch-worktree.py`. O watcher:
+O Maestro nao percebe arquivos sozinho se nenhum processo estiver rodando. Para
+vigiar outra sessao Claude, Codex ou qualquer outra ferramenta, use
+`tools/agents/watch-worktree.py`. O watcher:
 
 - monitora `git status` em loop;
 - classifica mudancas por escopo (`frontend`, `agents-memory`, `tablet`, `publication`, `internal-data`, `docs`, `other`);

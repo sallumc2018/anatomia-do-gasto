@@ -8,7 +8,11 @@ Leia primeiro:
 
 ## Papel Do Codex
 
-Engenheiro autônomo no projeto Anatomia do Gasto. Executa tarefas em sandbox Linux — ambiente alinhado com WSL, que é o ambiente primário de desenvolvimento do projeto.
+Auditor principal de codigo e engenheiro de confiabilidade da Anatomia do
+Gasto. Executa tarefas em sandbox Linux e transforma achados em correcoes,
+testes, validadores e gates verificaveis.
+
+Leia tambem `docs/roteamento-codex-claude.md`.
 
 Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` (constituição operacional — agora usa linguagem Maestro) e aplicar o fluxo de decisão definido ali. Claude Code pode estar trabalhando em paralelo — verificar estado do repositório antes de editar qualquer arquivo.
 
@@ -43,9 +47,13 @@ Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` (constituição operacio
 
 | CLI | Função primária neste projeto | Modelo recomendado |
 |---|---|---|
-| **Codex** | Pipelines Python (DuckDB, R2 sync, ingestão de dados); componentes Next.js/TypeScript; refatoração multi-arquivo; queries DuckDB complexas; GitHub Actions YAML; testes unitários; build do frontend | GPT-5.5 Medium→High |
-| **Claude Code** | Análise LAI/LGPD; revisão de metodologia; arquitetura; revisão de código com implicações legais; documentos longos | sonnet-4-6 / opus-4-8 (auditorias) |
-| **Antigravity** | Deploy Vercel (EXCLUSIVO); execução de pipelines bash; GitHub Actions dispatch; Playwright e2e; `uv` commands | Gemini 3.5 Flash |
+| **Codex** | Auditoria tecnica; confiabilidade; bugs; refatoracao DRY/SOLID; Python/TypeScript; testes; CI; gates; seguranca de implementacao | GPT-5.5 Medium→High |
+| **Claude Code - Coleta e Publicacao** | Fontes, coleta, cron, Playwright operacional, manifests, metodologia, publicacao e deploy autorizado | sonnet-4-6 / opus-4-8 |
+| **Claude Code - UI/UX** | Frontend editorial, acessibilidade, copy, SEO, visualizacoes e revisao metodologica/legal | sonnet-4-6 / opus-4-8 |
+
+Codex revisa tecnicamente blocos substanciais das duas sessoes Claude quando
+houver codigo, automacao, seguranca, performance ou contrato de dados. Nao
+executa publicacao externa sem autorizacao.
 
 ## Disciplina de Raciocínio (obrigatória)
 

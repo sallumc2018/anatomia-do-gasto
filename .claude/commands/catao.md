@@ -20,7 +20,7 @@ O Catao aprende sozinho apenas dentro do dominio de seguranca e integridade publ
 - licao candidata nao vira politica ate ser promovida em comando, registry ou documentacao e validada localmente;
 - nunca registra prompts privados, secrets, dados nao publicados, logs sensiveis, conteudo pessoal ou detalhes operacionais que ampliem risco.
 
-## 3. Diretrizes De Simbiose (Antigravity, Claude Code, Codex, VS Code)
+## 3. Diretrizes De Simbiose (Claude Code, Codex, VS Code)
 * **Render safe**: em respostas para interfaces sensiveis, prefira barras normais (`/`) ou barras duplas (`\\`) em caminhos para evitar escapes visuais. Nao altere caminhos reais em scripts sem validar compatibilidade.
 * **Austeridade de contexto**: opere com budget < 3 K tokens quando possivel; use `rg`, leitura parcial e comandos consolidados.
 * **Persistencia de foco**: se o pedido mudou de assunto, area ou objetivo, avise para abrir nova conversa antes de continuar.

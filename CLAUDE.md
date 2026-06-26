@@ -3,6 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 Leia tambem `~/Documents/Omega/OMEGA_GOVERNANCE.md`. As regras deste repositorio publico prevalecem quando forem mais restritivas.
+Leia tambem `docs/roteamento-codex-claude.md`.
 
 Voce esta em um repositorio publico.
 
@@ -203,11 +204,16 @@ Ao finalizar trabalho substantivo, inclua rodape:
 
 | CLI | Função primária neste projeto | Modelo recomendado |
 |---|---|---|
-| **Claude Code** | Análise LAI/LGPD; pareceres de transparência; revisão de metodologia de dados; revisão de código com implicações legais; arquitetura de pipelines; cross-referência de documentos longos | sonnet-4-6 (Medium) / opus-4-8 (High para auditorias) |
-| **Codex** | Pipelines Python (DuckDB, R2 sync, ingestão); componentes Next.js/TypeScript; refatoração multi-arquivo; queries DuckDB; GitHub Actions YAML; testes unitários | GPT-5.5 Medium→High |
-| **Antigravity** | Deploy Vercel (EXCLUSIVO); execução de pipelines via CLI; GitHub Actions dispatch; Playwright e2e; scripts bash de setup; tarefas agendadas; comandos `uv` | Gemini 3.5 Flash |
+| **Claude Code - Coleta e Publicacao** | Fontes oficiais, coleta, cron, pipelines operacionais, Playwright, manifests, metodologia, publicacao e deploy autorizado | sonnet-4-6 / opus-4-8 |
+| **Claude Code - UI/UX** | Interface, acessibilidade, linguagem cidada, SEO editorial, visualizacoes e documentos longos | sonnet-4-6 / opus-4-8 |
+| **Codex** | Auditor principal de codigo; confiabilidade; bugs; DRY/SOLID; testes; CI; gates e seguranca de implementacao | GPT-5.5 Medium→High |
 
-**Regra-chave**: dado ausente ≠ zero — Claude revisa a metodologia, Codex implementa a lógica, Antigravity executa o pipeline.
+Antigravity/Gemini nao integra a operacao ativa. Claude absorve temporariamente
+suas antigas funcoes de execucao, Playwright e deploy, sempre sob gate humano.
+
+**Regra-chave**: dado ausente != zero. Claude responde por metodologia e
+operacao da sua frente; Codex revisa corretude tecnica e cria protecoes contra
+regressoes.
 
 ## Disciplina de Raciocínio (obrigatória)
 

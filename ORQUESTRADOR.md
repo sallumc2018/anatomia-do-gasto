@@ -3,6 +3,8 @@
 Leia `AI_MASTER_PROMPT.md`. O protocolo detalhado de economia de contexto e subagentes fica em `docs/agentes-contexto.md`.
 
 Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. Todo agente aplica este roteamento antes de agir.
+O contrato de divisao entre as ferramentas esta em
+`docs/roteamento-codex-claude.md`.
 
 ## 1. Regra Central
 
@@ -38,7 +40,11 @@ A autonomia do Maestro e limitada por confianca. Os niveis ficam em `memory/agen
 
 A trilha de treino do Maestro fica em `memory/training/maestro/` e e validada por `python tools\agents\eval-maestro-training.py`. Esse eval e evidencia para promocao, nao promocao automatica.
 
-Para o Maestro perceber mudancas externas sem novo pedido, um watcher local precisa estar rodando. Use `python tools\agents\watch-worktree.py --baseline --source-label "Antigravity/Gemini" --bell` em terminal visivel ou `tools\agents\start-maestro-watch.ps1` em segundo plano. O watcher escreve apenas em `.local/` e nao autoriza nenhuma acao.
+Para o Maestro perceber mudancas externas sem novo pedido, um watcher local
+precisa estar rodando. Use `python tools\agents\watch-worktree.py --baseline
+--source-label "Claude/outra-sessao" --bell` em terminal visivel ou
+`tools\agents\start-maestro-watch.ps1` em segundo plano. O watcher escreve
+apenas em `.local/` e nao autoriza nenhuma acao.
 
 Falhas, erros, barreiras e correcoes reutilizaveis devem ser registradas nas bases publicas sanitizadas:
 
