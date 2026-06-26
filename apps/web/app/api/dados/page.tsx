@@ -3,6 +3,7 @@ import fs from "fs"
 import path from "path"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import datasetsStatus from "@/lib/datasets_status.json"
 
 export const metadata: Metadata = {
@@ -220,10 +221,7 @@ export default function ApiDadosPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogJsonLd) }}
-      />
+      <JsonLd data={catalogJsonLd} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
