@@ -4,6 +4,8 @@ Este e o contrato canonico de divisao de trabalho entre as duas ferramentas
 principais da Anatomia do Gasto. Antigravity/Gemini nao faz parte da operacao
 ativa. Suas antigas funcoes ficam temporariamente com Claude Code.
 
+Para commit, push e deploy, aplicar tambem `docs/release-ownership.md`.
+
 ## Codex: auditoria e confiabilidade
 
 Codex e o auditor principal de codigo e o engenheiro de confiabilidade do
@@ -82,3 +84,7 @@ substancial.
 - Todo produtor preserva alteracoes concorrentes e registra proveniencia.
 - Revisao do Codex nao substitui QA de dados, decisao metodologica nem
   autorizacao humana.
+- Cada agente commita apenas o proprio escopo. Se publicar commits de outro
+  agente, deve declarar quais commits sao de quem e quais gates cobrem o lote.
+- Antes de push/deploy, rodar `python tools/agents/check-release-readiness.py`
+  no estagio correspondente.

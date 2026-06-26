@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 Leia tambem `~/Documents/Omega/OMEGA_GOVERNANCE.md`. As regras deste repositorio publico prevalecem quando forem mais restritivas.
-Leia tambem `docs/roteamento-codex-claude.md`.
+Leia tambem `docs/roteamento-codex-claude.md` e `docs/release-ownership.md`.
 
 Voce esta em um repositorio publico.
 
@@ -42,8 +42,9 @@ MUNICIPIO=paulinia .venv/bin/python3 pipelines/extrator_rreo.py
 # Frontend (dev)
 cd apps/web && npm ci --ignore-scripts && npm run dev
 
-# Deploy produção (nunca via integração GitHub; sempre CLI explícito com confirmação)
-npx vercel deploy --prod --yes
+# Deploy produção
+# Regra atual: não rodar deploy manual se STATUS.md bloquear.
+# Preferir integração GitHub/Vercel; validar com docs/release-ownership.md.
 ```
 
 **Mini Shai-Hulud ativa:** `npm install`, `npm update`, `npm audit fix`, `npx` sem autorização explícita são PROIBIDOS. Comece pela triagem read-only do `package-lock.json`.
@@ -152,7 +153,12 @@ git status -sb
 git log --oneline -5
 ```
 
-Commit local e permitido ao final de um bloco completo e validado, desde que o diff seja revisado, a proveniencia esteja registrada quando aplicavel e o pacote nao misture mudancas de outro agente/usuario sem identificacao. Push, deploy, publicacao em `data/public` e infraestrutura continuam exigindo autorizacao explicita do usuario.
+Commit local e permitido ao final de um bloco completo e validado, desde que o
+diff seja revisado, a proveniencia esteja registrada quando aplicavel e o pacote
+nao misture mudancas de outro agente/usuario sem identificacao. Push, deploy,
+publicacao em `data/public` e infraestrutura continuam exigindo autorizacao
+explicita do usuario. Antes de push/deploy, rodar
+`python tools/agents/check-release-readiness.py --stage push|deploy`.
 
 **Assinatura obrigatória em todo commit:** `[Claude Code > claude-sonnet-4-6 > Medium]` (ou modelo/effort correspondente).
 
