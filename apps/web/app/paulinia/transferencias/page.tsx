@@ -6,6 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const PAU_TRF_DATASET = datasetSchema({
@@ -180,8 +181,8 @@ export default function PauliniaTransferenciasPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRF_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAU_TRF_BREADCRUMB) }} />
+      <JsonLd data={PAU_TRF_DATASET} />
+      <JsonLd data={PAU_TRF_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
