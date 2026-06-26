@@ -8,8 +8,14 @@ RCLONE=/home/sallumc/.local/bin/rclone
 export PATH="/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 
-# Carregar segredos (Portal Transparência, etc.) — arquivo fora do repo
+# Carregar segredos (Portal Transparência, etc.) — arquivos fora do repo.
+# O arquivo por projeto tem precedência quando existir, mas mantemos o caminho
+# legado porque TASKS.md e sessões anteriores registraram a chave ali.
+OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
 PORTAIS_ENV="/home/sallumc/.config/omega/secrets/by-project/portais.env"
+if [[ -f "$OMEGA_SECRETS" ]]; then
+  source "$OMEGA_SECRETS"
+fi
 if [[ -f "$PORTAIS_ENV" ]]; then
   source "$PORTAIS_ENV"
 fi
