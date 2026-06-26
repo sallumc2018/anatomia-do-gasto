@@ -14,16 +14,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 COMMANDS = [
-    ["python", "-m", "compileall", "-q", "tools/memory"],
-    ["python", "-m", "compileall", "-q", "tools/agents"],
-    ["python", "tools/memory/audit-memory-scope.py"],
-    ["python", "tools/memory/build-rag-index.py", "--check"],
-    ["python", "tools/memory/build-rag-index.py"],
-    ["python", "tools/memory/write-token-economy.py", "--check"],
-    ["python", "tools/agents/validate-agent-contracts.py"],
-    ["python", "tools/agents/check-scope-gates.py"],
-    ["python", "tools/agents/start-topic.py", "completar dados faltantes sorocaba", "--rag-limit", "1"],
-    ["python", "tools/agents/plan-route.py", "completar dados faltantes sorocaba"],
+    [sys.executable, "-m", "compileall", "-q", "tools/memory"],
+    [sys.executable, "-m", "compileall", "-q", "tools/agents"],
+    [sys.executable, "tools/memory/audit-memory-scope.py"],
+    [sys.executable, "tools/memory/build-rag-index.py", "--check"],
+    [sys.executable, "tools/memory/build-rag-index.py"],
+    [sys.executable, "tools/memory/write-token-economy.py", "--check"],
+    [sys.executable, "tools/agents/validate-agent-contracts.py"],
+    [sys.executable, "tools/agents/check-scope-gates.py"],
+    [sys.executable, "tools/agents/start-topic.py", "completar dados faltantes sorocaba", "--rag-limit", "1"],
+    [sys.executable, "tools/agents/plan-route.py", "completar dados faltantes sorocaba"],
 ]
 
 

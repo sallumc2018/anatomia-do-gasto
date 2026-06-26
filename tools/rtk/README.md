@@ -12,13 +12,14 @@ Binários e caches não são versionados. Este diretório documenta apenas o con
 # Verificar se já está instalado
 rtk --version
 
-# Se não estiver: instalar manualmente o binário que vocês validarem
-mkdir -p ~/bin
-# Copie o binário Linux validado para ~/bin/rtk e torne executável:
-chmod +x ~/bin/rtk
+# Se não estiver: instalar manualmente um binário previamente validado.
+# O caminho pode variar; neste ambiente o local observado e ~/.local/bin/rtk.
+mkdir -p ~/.local/bin
+chmod +x ~/.local/bin/rtk
 
 # Verificar que está no PATH
-which rtk   # deve retornar ~/bin/rtk
+command -v rtk
+rtk verify
 rtk gain    # deve mostrar analytics de economia
 ```
 
@@ -39,13 +40,16 @@ $env:PATH += ";C:/ferramentas/rtk"
 
 ## Como Funciona
 
-O hook do Claude Code intercepta comandos de terminal e os repassa pelo RTK automaticamente:
+O hook global nativo do Claude Code pode interceptar comandos de terminal e
+repassa-los pelo RTK automaticamente:
 
 ```
 git status  →  rtk git status   (transparente, 0 tokens de overhead)
 ```
 
-O hook está configurado em `.claude/settings.json` (UserPromptSubmit) e no perfil global do Claude Code (RTK.md).
+Use `rtk verify` como fonte de verdade da integridade do hook. O arquivo
+`.claude/settings.json` deste projeto apenas autoriza comandos RTK e configura
+o RAG local; ele nao instala nem prova o hook global.
 
 ## Verificar Economia
 
@@ -64,6 +68,8 @@ rtk discover        # oportunidades não aproveitadas no histórico do Claude Co
 3. Salvar apenas artefatos textuais pequenos e auditáveis quando úteis para sessões futuras.
 4. Não versionar: `rtk.exe`, binários Linux, caches, bancos locais.
 5. Para trabalhos substantivos, registrar uma entrada sanitizada em `memory/token-economy/YYYY-MM.md` quando houver economia auditavel.
+6. `tools/setup_linux.sh` e somente diagnostico local: nao baixa binarios e nao
+   instala dependencias.
 
 ## Artefatos Permitidos No Git
 
