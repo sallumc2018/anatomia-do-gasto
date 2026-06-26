@@ -4,6 +4,14 @@
 
 Este guia define como dividir trabalho entre agentes sem gastar contexto lendo arquivos irrelevantes.
 
+A divisao entre ferramentas e sessoes principais fica em
+`docs/roteamento-codex-claude.md`. Resumo:
+
+- Codex: auditoria de codigo e engenharia de confiabilidade.
+- Claude Coleta e Publicacao: dados, cron, Playwright operacional e release.
+- Claude UI/UX: frontend, acessibilidade, linguagem cidada e SEO editorial.
+- Antigravity/Gemini: fora da operacao ativa.
+
 ## Principio
 
 O maestro deve criar ou acionar subagentes apenas quando a tarefa puder ser isolada por funcao, arquivos e validacao. Um subagente nunca deve receber historico completo da conversa se um objetivo, paths e trechos rastreaveis bastarem.
@@ -173,6 +181,13 @@ Proibido:
 - `pipeline` + `qa` no mesmo escopo
 - `deploy` + qualquer outro (gate de publicação)
 - `engenheiro` + `frontend` (podem editar os mesmos arquivos)
+
+Entre as sessoes principais:
+
+- Claude produz e valida dentro da frente Coleta/Publicacao ou UI/UX.
+- Codex audita blocos substanciais com risco de codigo, automacao, seguranca,
+  performance ou contrato de dados.
+- Codex e Claude nao editam simultaneamente os mesmos paths.
 
 ## Protocolo de Handoff
 

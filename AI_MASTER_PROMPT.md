@@ -63,6 +63,9 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 19. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
 20. Topicos substantivos devem comecar, quando util, por `python tools/agents/start-topic.py "<objetivo>" --rag-limit 3`. Validacoes locais consolidadas ficam em `python tools/agents/validate-area.py --area <area>`, e o gate de escopo em `python tools/agents/check-scope-gates.py`.
 21. Toda alteracao no projeto, feita por Codex, Claude, Antigravity, VS Code, Gemini, GPT, Opus, Sonnet, Haiku, scripts ou qualquer outro agente/ferramenta, deve deixar assinatura clara em `memory/provenance/changes.csv` quando o registro publico for seguro. A assinatura deve informar actor/agente, ferramenta, modelo ou familia de modelo quando conhecido, ambiente, escopo, paths alterados, resumo, validacao e privacidade. Se o detalhe for sensivel ou operacional, registrar apenas resumo publico sanitizado e manter o detalhe em `.local/memory/`.
+22. A divisao canonica entre Codex e as duas sessoes Claude esta em
+    `docs/roteamento-codex-claude.md`. Antigravity/Gemini nao integra a operacao
+    ativa; Claude absorve temporariamente execucao, Playwright e deploy.
 
 ## 4. Validação Mínima
 
@@ -173,11 +176,21 @@ Para objetivos amplos ou ambiguos, `/goal` define objetivo verificavel, nao-obje
 | `tablet` | — | Claude Code | Windows (ADB) | Sincroniza e monitora o tablet Android |
 | `engenheiro` | — | Codex | WSL | Refatorações grandes, migrações de estrutura |
 
+Executores principais:
+
+- Codex: auditor principal de codigo e engenheiro de confiabilidade.
+- Claude `Anatomia do Gasto - Coleta e Publicacao`: dados, cron, operacao,
+  Playwright e release sob autorizacao.
+- Claude `Anatomia do Gasto - UI/UX`: interface, acessibilidade, copy, SEO e
+  metodologia editorial.
+
 ### Critério De Roteamento
 
 - **WSL**: tarefas de código, pipeline, frontend, Codex — ambiente primário de desenvolvimento.
 - **Windows**: operações com tablet (ADB), GUI, tarefas que exigem drivers locais.
 - **Codex**: tarefas autônomas em WSL, refatorações em massa, geração de código estrutural.
+- **Claude Code**: absorve temporariamente as antigas funcoes operacionais do
+  Antigravity. Deploy, push e publicacao continuam exigindo autorizacao.
 
 ## 9. Resposta Esperada Das IAs
 

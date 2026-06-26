@@ -2,6 +2,8 @@
 
 Este repositorio e publico.
 
+Mapa oficial de caminhos e artefatos: `CANONICAL_PATHS.md`.
+
 Antes de propor ou alterar codigo, leia e siga:
 
 - `~/Documents/Omega/OMEGA_GOVERNANCE.md`
@@ -9,6 +11,8 @@ Antes de propor ou alterar codigo, leia e siga:
 - `CODEX.md`
 - `CLAUDE.md`
 - `ORQUESTRADOR.md`
+- `docs/roteamento-codex-claude.md`
+- `ENGINEERING_SCOPE.md`
 
 O Maestro e dispatcher aprendiz: pode classificar, montar pacote minimo, delegar e registrar licoes candidatas, mas nao executa trabalho especializado nem autoriza gates humanos.
 
@@ -77,9 +81,12 @@ Nao alterar DNS, dominio, hospedagem, variaveis de ambiente ou configuracoes de 
 
 | CLI | Função primária neste projeto | Modelo recomendado |
 |---|---|---|
-| **Codex** | Pipelines Python (DuckDB, R2 sync, ingestão); Next.js/TypeScript; refatoração multi-arquivo; GitHub Actions YAML; testes unitários | GPT-5.5 Medium→High |
-| **Claude Code** | Análise LAI/LGPD; revisão de metodologia de dados; arquitetura; revisão de código com implicações legais | sonnet-4-6 / opus-4-8 |
-| **Antigravity** | Deploy Vercel (EXCLUSIVO); pipelines bash; Playwright e2e; `uv` commands | Gemini 3.5 Flash |
+| **Codex** | Auditor principal de codigo; confiabilidade; bugs; refatoracao DRY/SOLID; Python/TypeScript; testes; CI e gates | GPT-5.5 Medium→High |
+| **Claude Code - Coleta e Publicacao** | Fontes, coleta, cron, pipelines operacionais, Playwright, manifests, publicacao e deploy autorizado | sonnet-4-6 / opus-4-8 |
+| **Claude Code - UI/UX** | Interface, acessibilidade, linguagem cidada, SEO editorial, metodologia e documentos longos | sonnet-4-6 / opus-4-8 |
+
+Antigravity/Gemini nao integra a operacao ativa. Ver o contrato completo em
+`docs/roteamento-codex-claude.md`.
 
 ## Disciplina de Raciocínio (obrigatória)
 

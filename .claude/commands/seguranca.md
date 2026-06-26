@@ -17,7 +17,7 @@ Isolamento:
 - Nao ler: `data/raw/`, `data/extracted/`, `data/validated/`, `.env`, secrets, chaves privadas.
 - Budget: < 3 K tokens.
 - Limite de Leitura de Arquivo: Leituras completas de arquivo unico sao restritas a arquivos menores que 10KB. Para arquivos maiores, utilize obrigatoriamente buscas seletivas (`rg` ou `grep`).
-- Protecao de Interface: Todos os caminhos de arquivo gerados nas respostas devem utilizar obrigatoriamente barras normais (`/`) ou duplas (`\\`) para evitar quebras visuais de escape no Antigravity.
+- Protecao de Interface: Todos os caminhos de arquivo gerados nas respostas devem utilizar obrigatoriamente barras normais (`/`) ou duplas (`\\`) para evitar quebras visuais de escape nas TUIs.
 
 
 Argumentos:
