@@ -6,6 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { JsonLd } from "@/components/seo/json-ld"
 import { breadcrumbSchema, datasetSchema, SITE_URL } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
@@ -150,11 +151,7 @@ export default function PauliniaEducacaoPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {jsonLd.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <JsonLd key={i} data={schema} />
       ))}
       <ShellHeader />
       <main id="conteudo" className="flex-1">
