@@ -2,6 +2,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import Link from "next/link"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
+import { JsonLd } from "@/components/seo/json-ld"
 import {
   getAvailableYearsReceita,
   loadReceitaMunicipal,
@@ -176,11 +177,7 @@ export async function ReceitaMunicipalPage({
   return (
     <div className="min-h-screen flex flex-col">
       {config.structuredData.map((data, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-        />
+        <JsonLd key={index} data={data} />
       ))}
       <ShellHeader />
       <main id="conteudo" className="flex-1">

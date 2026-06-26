@@ -3,6 +3,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "Metodologia",
@@ -142,24 +143,19 @@ export default function MetodologiaPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Como os dados chegam até você — Metodologia",
-            "description": "Metodologia de coleta, extração e validação de dados públicos de Sorocaba: pipeline automatizado, fontes oficiais, limitações declaradas e errata.",
-            "url": "https://www.anatomiadogasto.ong.br/metodologia",
-            "author": { "@type": "Organization", "name": "Anatomia do Gasto" },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Anatomia do Gasto",
-              "url": "https://www.anatomiadogasto.ong.br",
-            },
-          }),
-        }}
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Como os dados chegam até você — Metodologia",
+        "description": "Metodologia de coleta, extração e validação de dados públicos de Sorocaba: pipeline automatizado, fontes oficiais, limitações declaradas e errata.",
+        "url": "https://www.anatomiadogasto.ong.br/metodologia",
+        "author": { "@type": "Organization", "name": "Anatomia do Gasto" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Anatomia do Gasto",
+          "url": "https://www.anatomiadogasto.ong.br",
+        },
+      }} />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
 

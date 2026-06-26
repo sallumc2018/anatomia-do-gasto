@@ -1,6 +1,7 @@
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { PctRclChart, type PctRclPoint } from "@/components/charts/PctRclChart"
 import {
@@ -105,11 +106,7 @@ export function SaudeFiscalPage({ config }: { config: SaudeFiscalPageConfig }) {
   return (
     <div className="min-h-screen flex flex-col">
       {config.structuredData.map((data, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-        />
+        <JsonLd key={index} data={data} />
       ))}
       <ShellHeader />
       <main id="conteudo" className="flex-1">
