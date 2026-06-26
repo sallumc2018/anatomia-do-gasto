@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_diadema_2024.csv",
+  "caminho_relativo": "data/public/diadema/transporte/saida/dca_transporte_diadema_2024.csv",
+  "tamanho_bytes": 271,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Empenhado": "70.342.408,99",
+      "Liquidado": "65.047.551,24",
+      "Pago": "63.331.458,38",
+      "RP_Nao_Processado": "5.294.857,75",
+      "RP_Processado": "1.716.092,86",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2024&no_anexo=DCA-Anexo%20I-E&id_ente=3513801"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.199632"
+}

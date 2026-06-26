@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_jose_dos_campos_2021.csv",
+  "caminho_relativo": "data/public/sao_jose_dos_campos/transporte/saida/dca_transporte_sao_jose_dos_campos_2021.csv",
+  "tamanho_bytes": 275,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Empenhado": "214.300.930,57",
+      "Liquidado": "189.343.410,71",
+      "Pago": "187.539.321,82",
+      "RP_Nao_Processado": "24.957.519,86",
+      "RP_Processado": "1.804.088,89",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2021&no_anexo=DCA-Anexo%20I-E&id_ente=3549904"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.578147"
+}

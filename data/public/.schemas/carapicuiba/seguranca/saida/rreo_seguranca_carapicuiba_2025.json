@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_carapicuiba_2025.csv",
+  "caminho_relativo": "data/public/carapicuiba/seguranca/saida/rreo_seguranca_carapicuiba_2025.csv",
+  "tamanho_bytes": 409,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "8.620.656,69",
+      "Dotacao_Atualizada": "12.039.596,20",
+      "Empenhado": "11.211.969,35",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "10.768.045,33",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,9316",
+      "Total_Municipal_Empenhado": "1.203.555.698,59",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3510609"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.516549"
+}

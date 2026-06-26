@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_bauru_2019.csv",
+  "caminho_relativo": "data/public/bauru/executivo/saida/despesas_executivo_bauru_2019.csv",
+  "tamanho_bytes": 5344,
+  "linhas_dados": 21,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "55799864.00",
+      "Dotacao_Atualizada": "62991111.34",
+      "Empenhado": "61500478.59",
+      "Liquidado": "60627605.02",
+      "Exceto_Intra_Liquidado": "52408823.99",
+      "Intra_Liquidado": "8218781.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4171750.00",
+      "Dotacao_Atualizada": "5878773.09",
+      "Empenhado": "5476202.69",
+      "Liquidado": "4957722.90",
+      "Exceto_Intra_Liquidado": "4454696.31",
+      "Intra_Liquidado": "503026.59",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "67721663.00",
+      "Dotacao_Atualizada": "72694908.14",
+      "Empenhado": "68974432.01",
+      "Liquidado": "68054924.90",
+      "Exceto_Intra_Liquidado": "60739294.87",
+      "Intra_Liquidado": "7315630.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.298306"
+}

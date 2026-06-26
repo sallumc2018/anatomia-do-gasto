@@ -1,0 +1,45 @@
+{
+  "arquivo": "despesas_seguranca_bauru_2016.csv",
+  "caminho_relativo": "data/public/bauru/seguranca/saida/despesas_seguranca_bauru_2016.csv",
+  "tamanho_bytes": 433,
+  "linhas_dados": 2,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "2.271.369,50",
+      "Liquidada": "1.951.650,62",
+      "Paga": "1.903.323,86",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3506003"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "2.271.369,50",
+      "Liquidada": "1.951.650,62",
+      "Paga": "1.903.323,86",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3506003"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.304560"
+}

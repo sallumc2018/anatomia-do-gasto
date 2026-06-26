@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_osasco_2022.csv",
+  "caminho_relativo": "data/public/osasco/transporte/saida/dca_transporte_osasco_2022.csv",
+  "tamanho_bytes": 271,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Empenhado": "74.000.458,54",
+      "Liquidado": "70.616.332,72",
+      "Pago": "62.730.161,26",
+      "RP_Nao_Processado": "3.384.125,82",
+      "RP_Processado": "7.886.171,46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-E&id_ente=3534401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.247873"
+}

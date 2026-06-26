@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_santo_andre_2021.csv",
+  "caminho_relativo": "data/public/santo_andre/fiscal/saida/rpps_santo_andre_2021.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Contribuicoes_Segurados": "42191457.17",
+      "Contribuicoes_Patronal": "70249902.41",
+      "Total_Receitas_RPPS": "114183221.30",
+      "Aposentadorias": "4753483.47",
+      "Total_Despesas_RPPS": "6664239.42",
+      "Resultado_RPPS": "107518981.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.218776"
+}

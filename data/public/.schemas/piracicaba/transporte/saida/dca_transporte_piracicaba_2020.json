@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_piracicaba_2020.csv",
+  "caminho_relativo": "data/public/piracicaba/transporte/saida/dca_transporte_piracicaba_2020.csv",
+  "tamanho_bytes": 252,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Empenhado": "436.001,27",
+      "Liquidado": "278.685,75",
+      "Pago": "278.685,75",
+      "RP_Nao_Processado": "157.315,52",
+      "RP_Processado": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2020&no_anexo=DCA-Anexo%20I-E&id_ente=3538709"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.421733"
+}

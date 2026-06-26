@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_mogi_das_cruzes_2015.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/transporte/saida/dca_transporte_mogi_das_cruzes_2015.csv",
+  "tamanho_bytes": 246,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "float/numeric",
+    "RP_Processado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2015",
+      "Empenhado": "112.483,80",
+      "Liquidado": "112.470,11",
+      "Pago": "112.470,11",
+      "RP_Nao_Processado": "0,00",
+      "RP_Processado": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&no_anexo=DCA-Anexo%20I-E&id_ente=3530607"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.359041"
+}

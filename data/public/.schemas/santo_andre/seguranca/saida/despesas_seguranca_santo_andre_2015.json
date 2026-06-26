@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_santo_andre_2015.csv",
+  "caminho_relativo": "data/public/santo_andre/seguranca/saida/despesas_seguranca_santo_andre_2015.csv",
+  "tamanho_bytes": 630,
+  "linhas_dados": 3,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "47.173.728,10",
+      "Liquidada": "46.067.345,00",
+      "Paga": "44.589.756,54",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3547809"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "914.278,46",
+      "Liquidada": "713.943,56",
+      "Paga": "606.413,14",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3547809"
+    },
+    {
+      "﻿Subfuncao": "06.999 - Demais Subfunções Segurança Pública",
+      "Empenhada": "46.259.449,64",
+      "Liquidada": "45.353.401,44",
+      "Paga": "43.983.343,40",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3547809"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.255909"
+}

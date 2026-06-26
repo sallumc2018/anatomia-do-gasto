@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_santos_2020.csv",
+  "caminho_relativo": "data/public/santos/fiscal/saida/rpps_santos_2020.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Contribuicoes_Segurados": "37161459.44",
+      "Contribuicoes_Patronal": "37805663.24",
+      "Total_Receitas_RPPS": "79580191.26",
+      "Aposentadorias": "932075.35",
+      "Total_Despesas_RPPS": "1616979.30",
+      "Resultado_RPPS": "77963211.96",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548500&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.326401"
+}

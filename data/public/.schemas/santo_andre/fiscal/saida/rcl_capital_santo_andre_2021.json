@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_santo_andre_2021.csv",
+  "caminho_relativo": "data/public/santo_andre/fiscal/saida/rcl_capital_santo_andre_2021.csv",
+  "tamanho_bytes": 439,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Operacoes_Credito_Internas": "31442233.70",
+      "Operacoes_Credito_Externas": "38640400.00",
+      "Operacoes_Credito_Total": "70082633.70",
+      "Alienacao_Bens": "10536203.00",
+      "Alienacao_Bens_Imoveis": "8855000.00",
+      "Alienacao_Bens_Moveis": "1681203.00",
+      "Outras_Capital": "22404530.72",
+      "Total_Capital": "103023367.42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.227761"
+}

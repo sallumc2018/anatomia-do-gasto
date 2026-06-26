@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_osasco_2016.csv",
+  "caminho_relativo": "data/public/osasco/executivo/saida/despesas_executivo_osasco_2016.csv",
+  "tamanho_bytes": 5805,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "284532921.00",
+      "Dotacao_Atualizada": "275896606.48",
+      "Empenhado": "207867881.88",
+      "Liquidado": "204257150.00",
+      "Exceto_Intra_Liquidado": "196702261.60",
+      "Intra_Liquidado": "7554888.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3534401&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "36994253.00",
+      "Dotacao_Atualizada": "36359709.67",
+      "Empenhado": "33490767.70",
+      "Liquidado": "31153798.87",
+      "Exceto_Intra_Liquidado": "29407402.56",
+      "Intra_Liquidado": "1746396.31",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3534401&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comunicações",
+      "Dotacao_Inicial": "13560430.00",
+      "Dotacao_Atualizada": "17329591.42",
+      "Empenhado": "16731762.13",
+      "Liquidado": "16731762.13",
+      "Exceto_Intra_Liquidado": "16731762.13",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3534401&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.236556"
+}

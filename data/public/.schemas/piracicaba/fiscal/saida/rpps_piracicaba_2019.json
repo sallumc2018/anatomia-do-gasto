@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_piracicaba_2019.csv",
+  "caminho_relativo": "data/public/piracicaba/fiscal/saida/rpps_piracicaba_2019.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Contribuicoes_Segurados": "5280911.39",
+      "Contribuicoes_Patronal": "10532480.82",
+      "Total_Receitas_RPPS": "20138900.16",
+      "Aposentadorias": "393003.25",
+      "Total_Despesas_RPPS": "823338.79",
+      "Resultado_RPPS": "19315561.37",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3538709&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.381411"
+}

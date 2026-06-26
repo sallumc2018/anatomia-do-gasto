@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_jundiai_2019.csv",
+  "caminho_relativo": "data/public/jundiai/fiscal/saida/rcl_capital_jundiai_2019.csv",
+  "tamanho_bytes": 425,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Operacoes_Credito_Internas": "110789692.97",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "110789692.97",
+      "Alienacao_Bens": "1109699.72",
+      "Alienacao_Bens_Imoveis": "1109699.72",
+      "Alienacao_Bens_Moveis": "0.00",
+      "Outras_Capital": "222592.33",
+      "Total_Capital": "112121985.02",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3525904&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.154681"
+}

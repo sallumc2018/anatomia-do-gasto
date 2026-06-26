@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_piracicaba_2015.csv",
+  "caminho_relativo": "data/public/piracicaba/fiscal/saida/natureza_despesa_piracicaba_2015.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2015",
+      "Pessoal": "591289204.26",
+      "Juros_Encargos": "112899.11",
+      "Outras_Correntes": "606229251.06",
+      "Despesas_Correntes": "1197631354.43",
+      "Investimentos": "69129859.72",
+      "Despesas_Capital": "84546688.00",
+      "Total_Despesas": "1313261139.95",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3538709&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.383953"
+}

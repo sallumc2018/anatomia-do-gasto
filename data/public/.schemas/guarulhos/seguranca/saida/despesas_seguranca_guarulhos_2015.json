@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_guarulhos_2015.csv",
+  "caminho_relativo": "data/public/guarulhos/seguranca/saida/despesas_seguranca_guarulhos_2015.csv",
+  "tamanho_bytes": 809,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "74.160.493,25",
+      "Liquidada": "73.793.384,75",
+      "Paga": "62.583.813,65",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3518800"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "52.497.044,81",
+      "Liquidada": "52.410.539,79",
+      "Paga": "44.797.950,23",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3518800"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "7.056.459,37",
+      "Liquidada": "6.929.654,15",
+      "Paga": "6.454.469,11",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3518800"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.697425"
+}

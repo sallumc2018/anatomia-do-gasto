@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_jundiai_2019.csv",
+  "caminho_relativo": "data/public/jundiai/fiscal/saida/natureza_despesa_jundiai_2019.csv",
+  "tamanho_bytes": 374,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Pessoal": "1022171703.82",
+      "Juros_Encargos": "8484662.84",
+      "Outras_Correntes": "906891628.18",
+      "Despesas_Correntes": "1937547994.84",
+      "Investimentos": "105068104.51",
+      "Despesas_Capital": "117557875.09",
+      "Total_Despesas": "2434574295.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3525904&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.156799"
+}

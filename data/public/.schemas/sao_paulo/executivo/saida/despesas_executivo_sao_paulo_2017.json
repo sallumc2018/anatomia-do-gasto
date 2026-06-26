@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_paulo_2017.csv",
+  "caminho_relativo": "data/public/sao_paulo/executivo/saida/despesas_executivo_sao_paulo_2017.csv",
+  "tamanho_bytes": 6184,
+  "linhas_dados": 24,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "1107875484.00",
+      "Dotacao_Atualizada": "954843990.96",
+      "Empenhado": "776154170.52",
+      "Liquidado": "695930086.99",
+      "Exceto_Intra_Liquidado": "695689922.58",
+      "Intra_Liquidado": "240164.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "1431623309.00",
+      "Dotacao_Atualizada": "1429809002.00",
+      "Empenhado": "1276209793.83",
+      "Liquidado": "1235887405.67",
+      "Exceto_Intra_Liquidado": "1235887405.67",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comunicações",
+      "Dotacao_Inicial": "159929013.00",
+      "Dotacao_Atualizada": "145017040.27",
+      "Empenhado": "124412828.06",
+      "Liquidado": "84633804.85",
+      "Exceto_Intra_Liquidado": "84633804.85",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.786788"
+}

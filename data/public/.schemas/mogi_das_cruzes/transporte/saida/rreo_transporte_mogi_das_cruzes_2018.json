@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_mogi_das_cruzes_2018.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/transporte/saida/rreo_transporte_mogi_das_cruzes_2018.csv",
+  "tamanho_bytes": 401,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "881.000,00",
+      "Dotacao_Atualizada": "10.360.031,56",
+      "Empenhado": "701.367,92",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "349.079,29",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,0510",
+      "Total_Municipal_Empenhado": "1.374.002.236,75",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3530607"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.361457"
+}

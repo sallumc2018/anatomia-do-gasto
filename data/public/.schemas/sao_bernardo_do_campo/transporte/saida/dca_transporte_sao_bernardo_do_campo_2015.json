@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_bernardo_do_campo_2015.csv",
+  "caminho_relativo": "data/public/sao_bernardo_do_campo/transporte/saida/dca_transporte_sao_bernardo_do_campo_2015.csv",
+  "tamanho_bytes": 258,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "float/numeric",
+    "RP_Processado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2015",
+      "Empenhado": "325.234.891,58",
+      "Liquidado": "291.046.002,47",
+      "Pago": "260.623.448,97",
+      "RP_Nao_Processado": "0,00",
+      "RP_Processado": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&no_anexo=DCA-Anexo%20I-E&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.138743"
+}

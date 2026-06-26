@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_guarulhos_2019.csv",
+  "caminho_relativo": "data/public/guarulhos/fiscal/saida/rpps_guarulhos_2019.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Contribuicoes_Segurados": "36448796.56",
+      "Contribuicoes_Patronal": "68527289.95",
+      "Total_Receitas_RPPS": "123788250.09",
+      "Aposentadorias": "754768.58",
+      "Total_Despesas_RPPS": "1143665.35",
+      "Resultado_RPPS": "122644584.74",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518800&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.665055"
+}

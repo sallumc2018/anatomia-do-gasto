@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_jundiai_2021.csv",
+  "caminho_relativo": "data/public/jundiai/fiscal/saida/rpps_jundiai_2021.csv",
+  "tamanho_bytes": 371,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Contribuicoes_Segurados": "95251137.61",
+      "Contribuicoes_Patronal": "119754833.75",
+      "Total_Receitas_RPPS": "400279908.17",
+      "Aposentadorias": "263016045.54",
+      "Total_Despesas_RPPS": "290268133.56",
+      "Resultado_RPPS": "110011774.61",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3525904&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.159329"
+}

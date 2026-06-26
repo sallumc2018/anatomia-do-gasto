@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_santo_andre_2015.csv",
+  "caminho_relativo": "data/public/santo_andre/fiscal/saida/natureza_despesa_santo_andre_2015.csv",
+  "tamanho_bytes": 373,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2015",
+      "Pessoal": "838883584.84",
+      "Juros_Encargos": "5153400.66",
+      "Outras_Correntes": "994759752.27",
+      "Despesas_Correntes": "1838796737.77",
+      "Investimentos": "126410801.69",
+      "Despesas_Capital": "136836360.09",
+      "Total_Despesas": "2117970544.66",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.207554"
+}

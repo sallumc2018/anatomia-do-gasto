@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_jose_do_rio_preto_2023.csv",
+  "caminho_relativo": "data/public/sao_jose_do_rio_preto/seguranca/saida/rreo_seguranca_sao_jose_do_rio_preto_2023.csv",
+  "tamanho_bytes": 416,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Dotacao_Inicial": "1.318.300,00",
+      "Dotacao_Atualizada": "3.281.306,56",
+      "Empenhado": "2.521.401,41",
+      "Intra_Empenhado": "90.000,00",
+      "Liquidado": "2.143.464,61",
+      "Intra_Liquidado": "84.870,67",
+      "Pct_Orcamento": "0,0904",
+      "Total_Municipal_Empenhado": "2.790.117.461,53",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3549805"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.636156"
+}

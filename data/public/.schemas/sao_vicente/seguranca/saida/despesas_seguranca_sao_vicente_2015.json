@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sao_vicente_2015.csv",
+  "caminho_relativo": "data/public/sao_vicente/seguranca/saida/despesas_seguranca_sao_vicente_2015.csv",
+  "tamanho_bytes": 597,
+  "linhas_dados": 3,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "8.772.394,97",
+      "Liquidada": "8.732.731,60",
+      "Paga": "8.078.995,89",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3551702"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "8.554.162,98",
+      "Liquidada": "8.543.515,98",
+      "Paga": "7.898.150,08",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3551702"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "218.231,99",
+      "Liquidada": "189.215,62",
+      "Paga": "180.845,81",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3551702"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.447241"
+}

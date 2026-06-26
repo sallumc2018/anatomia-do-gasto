@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_maua_2019.csv",
+  "caminho_relativo": "data/public/maua/seguranca/saida/despesas_seguranca_maua_2019.csv",
+  "tamanho_bytes": 801,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "3.122.367,23",
+      "Liquidada": "3.122.367,23",
+      "Paga": "1.562.773,99",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "1.559.593,24",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3529401"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "463.739,73",
+      "Liquidada": "463.739,73",
+      "Paga": "384.994,15",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "78.745,58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3529401"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "833.288,15",
+      "Liquidada": "833.288,15",
+      "Paga": "822.397,84",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "10.890,31",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3529401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.306005"
+}

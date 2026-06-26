@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_ribeirao_preto_2020.csv",
+  "caminho_relativo": "data/public/ribeirao_preto/executivo/saida/despesas_executivo_ribeirao_preto_2020.csv",
+  "tamanho_bytes": 4874,
+  "linhas_dados": 19,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "247204100.17",
+      "Dotacao_Atualizada": "308626409.34",
+      "Empenhado": "260220665.10",
+      "Liquidado": "245256878.84",
+      "Exceto_Intra_Liquidado": "185578100.94",
+      "Intra_Liquidado": "59678777.90",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3543402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "81767293.00",
+      "Dotacao_Atualizada": "98541611.86",
+      "Empenhado": "71128146.79",
+      "Liquidado": "68315355.79",
+      "Exceto_Intra_Liquidado": "61823808.96",
+      "Intra_Liquidado": "6491546.83",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3543402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "8102100.00",
+      "Dotacao_Atualizada": "17208442.09",
+      "Empenhado": "13159337.94",
+      "Liquidado": "9251691.56",
+      "Exceto_Intra_Liquidado": "9251691.56",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3543402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.619335"
+}

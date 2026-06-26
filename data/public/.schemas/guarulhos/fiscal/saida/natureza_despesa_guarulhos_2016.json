@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_guarulhos_2016.csv",
+  "caminho_relativo": "data/public/guarulhos/fiscal/saida/natureza_despesa_guarulhos_2016.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Pessoal": "1708770396.57",
+      "Juros_Encargos": "40313229.09",
+      "Outras_Correntes": "1485025304.12",
+      "Despesas_Correntes": "3234108929.78",
+      "Investimentos": "119975723.44",
+      "Despesas_Capital": "195788148.64",
+      "Total_Despesas": "3695056252.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518800&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.666718"
+}

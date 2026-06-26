@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sao_vicente_2026.csv",
+  "caminho_relativo": "data/public/sao_vicente/fiscal/saida/rpps_sao_vicente_2026.csv",
+  "tamanho_bytes": 364,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2026",
+      "Contribuicoes_Segurados": "7697256.34",
+      "Contribuicoes_Patronal": "16381061.23",
+      "Total_Receitas_RPPS": "31786197.39",
+      "Aposentadorias": "24747710.22",
+      "Total_Despesas_RPPS": "27624366.56",
+      "Resultado_RPPS": "4161830.83",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.423462"
+}

@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sao_bernardo_do_campo_2019.csv",
+  "caminho_relativo": "data/public/sao_bernardo_do_campo/transporte/saida/rreo_transporte_sao_bernardo_do_campo_2019.csv",
+  "tamanho_bytes": 431,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Dotacao_Inicial": "778.201.000,00",
+      "Dotacao_Atualizada": "591.690.634,15",
+      "Empenhado": "443.652.369,03",
+      "Intra_Empenhado": "7.239.232,69",
+      "Liquidado": "404.041.269,49",
+      "Intra_Liquidado": "7.239.232,69",
+      "Pct_Orcamento": "10,6322",
+      "Total_Municipal_Empenhado": "4.172.732.123,41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.136926"
+}

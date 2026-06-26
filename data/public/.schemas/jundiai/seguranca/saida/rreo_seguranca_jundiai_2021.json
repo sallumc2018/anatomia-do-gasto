@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_jundiai_2021.csv",
+  "caminho_relativo": "data/public/jundiai/seguranca/saida/rreo_seguranca_jundiai_2021.csv",
+  "tamanho_bytes": 428,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Dotacao_Inicial": "71.837.500,00",
+      "Dotacao_Atualizada": "76.494.326,43",
+      "Empenhado": "62.403.055,64",
+      "Intra_Empenhado": "10.127.238,07",
+      "Liquidado": "56.940.896,63",
+      "Intra_Liquidado": "10.127.238,07",
+      "Pct_Orcamento": "2,6115",
+      "Total_Municipal_Empenhado": "2.389.561.547,15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3525904"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.193398"
+}

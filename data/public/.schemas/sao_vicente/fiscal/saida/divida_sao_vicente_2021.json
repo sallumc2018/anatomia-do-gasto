@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sao_vicente_2021.csv",
+  "caminho_relativo": "data/public/sao_vicente/fiscal/saida/divida_sao_vicente_2021.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "DC_Bruta": "40948800.17",
+      "DC_Contratual": "31352809.25",
+      "Emprestimos": "28905821.62",
+      "Financiamentos": "0.00",
+      "Precatorios": "9595990.92",
+      "Deducoes": "144646704.96",
+      "DCL": "-103697904.79",
+      "RCL": "538170269.42",
+      "DC_pct_RCL": "7.6300",
+      "DCL_pct_RCL": "-19.3200",
+      "Limite_valor": "644244323.30",
+      "Limite_pct_RCL": "119.7101",
+      "Limite_Alerta_valor": "579819890.97",
+      "Passivo_Atuarial": "535401971.37",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2021&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3551702&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.419044"
+}

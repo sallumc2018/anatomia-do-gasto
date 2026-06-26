@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_osasco_2019.csv",
+  "caminho_relativo": "data/public/osasco/seguranca/saida/despesas_seguranca_osasco_2019.csv",
+  "tamanho_bytes": 641,
+  "linhas_dados": 3,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "string",
+    "Restos_Processados": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "61.518.610,19",
+      "Liquidada": "59.882.809,66",
+      "Paga": "59.508.653,24",
+      "Restos_Nao_Processados": "1.635.800,53",
+      "Restos_Processados": "374.156,42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3534401"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "60.840.905,62",
+      "Liquidada": "59.439.889,83",
+      "Paga": "59.066.788,11",
+      "Restos_Nao_Processados": "1.401.015,79",
+      "Restos_Processados": "373.101,72",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3534401"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "677.704,57",
+      "Liquidada": "442.919,83",
+      "Paga": "441.865,13",
+      "Restos_Nao_Processados": "234.784,74",
+      "Restos_Processados": "1.054,70",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&id_ente=3534401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.243518"
+}

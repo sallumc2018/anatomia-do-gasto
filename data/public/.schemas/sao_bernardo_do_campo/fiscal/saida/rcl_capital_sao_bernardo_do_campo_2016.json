@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_sao_bernardo_do_campo_2016.csv",
+  "caminho_relativo": "data/public/sao_bernardo_do_campo/fiscal/saida/rcl_capital_sao_bernardo_do_campo_2016.csv",
+  "tamanho_bytes": 440,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Operacoes_Credito_Internas": "70203716.95",
+      "Operacoes_Credito_Externas": "84269173.66",
+      "Operacoes_Credito_Total": "154472890.61",
+      "Alienacao_Bens": "15529790.38",
+      "Alienacao_Bens_Imoveis": "15110536.98",
+      "Alienacao_Bens_Moveis": "419253.40",
+      "Outras_Capital": "30111166.44",
+      "Total_Capital": "200113847.43",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.108629"
+}

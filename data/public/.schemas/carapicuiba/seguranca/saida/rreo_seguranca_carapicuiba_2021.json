@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_carapicuiba_2021.csv",
+  "caminho_relativo": "data/public/carapicuiba/seguranca/saida/rreo_seguranca_carapicuiba_2021.csv",
+  "tamanho_bytes": 404,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Dotacao_Inicial": "5.593.399,41",
+      "Dotacao_Atualizada": "5.608.536,39",
+      "Empenhado": "5.045.194,31",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "5.045.194,31",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,7622",
+      "Total_Municipal_Empenhado": "661.916.612,77",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3510609"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.515915"
+}

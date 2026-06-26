@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_mogi_das_cruzes_2015.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/seguranca/saida/despesas_seguranca_mogi_das_cruzes_2015.csv",
+  "tamanho_bytes": 609,
+  "linhas_dados": 3,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "17.078.264,16",
+      "Liquidada": "16.580.813,56",
+      "Paga": "15.675.290,99",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3530607"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "15.495.903,59",
+      "Liquidada": "15.058.185,40",
+      "Paga": "14.162.296,28",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3530607"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "1.582.360,57",
+      "Liquidada": "1.522.628,16",
+      "Paga": "1.512.994,71",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3530607"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.355931"
+}

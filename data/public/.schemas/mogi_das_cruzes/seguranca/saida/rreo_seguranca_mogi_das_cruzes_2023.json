@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_mogi_das_cruzes_2023.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/seguranca/saida/rreo_seguranca_mogi_das_cruzes_2023.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Dotacao_Inicial": "42.281.177,77",
+      "Dotacao_Atualizada": "43.777.700,97",
+      "Empenhado": "42.842.010,90",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "41.250.184,62",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,8575",
+      "Total_Municipal_Empenhado": "2.306.407.521,94",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3530607"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.351569"
+}

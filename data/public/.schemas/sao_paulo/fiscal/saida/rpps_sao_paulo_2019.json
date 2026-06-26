@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sao_paulo_2019.csv",
+  "caminho_relativo": "data/public/sao_paulo/fiscal/saida/rpps_sao_paulo_2019.csv",
+  "tamanho_bytes": 379,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Contribuicoes_Segurados": "1872396433.03",
+      "Contribuicoes_Patronal": "2526363463.63",
+      "Total_Receitas_RPPS": "4518023204.09",
+      "Aposentadorias": "9056163358.13",
+      "Total_Despesas_RPPS": "9923714557.41",
+      "Resultado_RPPS": "-5405691353.32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550308&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.751620"
+}

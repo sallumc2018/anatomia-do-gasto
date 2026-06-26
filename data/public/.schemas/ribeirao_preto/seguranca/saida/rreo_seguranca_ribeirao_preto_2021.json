@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_ribeirao_preto_2021.csv",
+  "caminho_relativo": "data/public/ribeirao_preto/seguranca/saida/rreo_seguranca_ribeirao_preto_2021.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2021",
+      "Dotacao_Inicial": "35.004.000,00",
+      "Dotacao_Atualizada": "35.216.448,60",
+      "Empenhado": "30.900.235,09",
+      "Intra_Empenhado": "7.030.817,28",
+      "Liquidado": "30.591.609,72",
+      "Intra_Liquidado": "7.030.817,28",
+      "Pct_Orcamento": "1,0361",
+      "Total_Municipal_Empenhado": "2.982.494.323,87",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2021&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3543402"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.623132"
+}

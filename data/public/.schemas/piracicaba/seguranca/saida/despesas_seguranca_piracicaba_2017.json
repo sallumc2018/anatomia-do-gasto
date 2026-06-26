@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_piracicaba_2017.csv",
+  "caminho_relativo": "data/public/piracicaba/seguranca/saida/despesas_seguranca_piracicaba_2017.csv",
+  "tamanho_bytes": 794,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "string",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "39.161.791,87",
+      "Liquidada": "38.724.051,26",
+      "Paga": "38.723.534,23",
+      "Restos_Nao_Processados": "437.740,61",
+      "Restos_Processados": "517,03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&id_ente=3538709"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "82.512,87",
+      "Liquidada": "82.512,87",
+      "Paga": "82.512,87",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&id_ente=3538709"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "38.437.513,63",
+      "Liquidada": "38.075.513,73",
+      "Paga": "38.075.513,73",
+      "Restos_Nao_Processados": "361.999,90",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&id_ente=3538709"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.412543"
+}

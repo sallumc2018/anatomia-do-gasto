@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_maua_2017.csv",
+  "caminho_relativo": "data/public/maua/seguranca/saida/rreo_seguranca_maua_2017.csv",
+  "tamanho_bytes": 408,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Dotacao_Inicial": "21.066.000,00",
+      "Dotacao_Atualizada": "25.134.778,00",
+      "Empenhado": "22.582.591,72",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "22.121.215,64",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "2,4807",
+      "Total_Municipal_Empenhado": "910.337.898,18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3529401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.307532"
+}

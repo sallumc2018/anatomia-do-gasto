@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_diadema_2017.csv",
+  "caminho_relativo": "data/public/diadema/transporte/saida/rreo_transporte_diadema_2017.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Dotacao_Inicial": "19.180.000,00",
+      "Dotacao_Atualizada": "23.234.441,71",
+      "Empenhado": "17.881.163,16",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "16.707.385,47",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,5629",
+      "Total_Municipal_Empenhado": "1.144.082.318,11",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3513801"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.200773"
+}

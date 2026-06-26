@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_mogi_das_cruzes_2026.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/fiscal/saida/rpps_mogi_das_cruzes_2026.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2026",
+      "Contribuicoes_Segurados": "19664311.36",
+      "Contribuicoes_Patronal": "35371054.35",
+      "Total_Receitas_RPPS": "67947276.57",
+      "Aposentadorias": "61990908.01",
+      "Total_Despesas_RPPS": "72289094.72",
+      "Resultado_RPPS": "-4341818.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3530607&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.330209"
+}

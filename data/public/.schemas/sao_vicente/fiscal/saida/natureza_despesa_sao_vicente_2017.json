@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sao_vicente_2017.csv",
+  "caminho_relativo": "data/public/sao_vicente/fiscal/saida/natureza_despesa_sao_vicente_2017.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Pessoal": "183084914.37",
+      "Juros_Encargos": "1510632.76",
+      "Outras_Correntes": "164695745.73",
+      "Despesas_Correntes": "349291292.86",
+      "Investimentos": "17203832.09",
+      "Despesas_Capital": "20364496.22",
+      "Total_Despesas": "487923889.47",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.409438"
+}

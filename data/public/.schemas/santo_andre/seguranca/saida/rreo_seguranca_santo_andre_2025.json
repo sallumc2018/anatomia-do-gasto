@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_santo_andre_2025.csv",
+  "caminho_relativo": "data/public/santo_andre/seguranca/saida/rreo_seguranca_santo_andre_2025.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "87.624.000,00",
+      "Dotacao_Atualizada": "89.142.659,96",
+      "Empenhado": "76.170.881,84",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "75.468.159,73",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,7944",
+      "Total_Municipal_Empenhado": "4.245.018.526,39",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3547809"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.249652"
+}

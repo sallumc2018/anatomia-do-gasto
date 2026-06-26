@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_santo_andre_2019.csv",
+  "caminho_relativo": "data/public/santo_andre/executivo/saida/despesas_executivo_santo_andre_2019.csv",
+  "tamanho_bytes": 5778,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "642408000.00",
+      "Dotacao_Atualizada": "575671790.77",
+      "Empenhado": "479298183.74",
+      "Liquidado": "461825909.47",
+      "Exceto_Intra_Liquidado": "408071934.99",
+      "Intra_Liquidado": "53753974.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "2511000.00",
+      "Dotacao_Atualizada": "2496000.00",
+      "Empenhado": "976197.97",
+      "Liquidado": "976197.97",
+      "Exceto_Intra_Liquidado": "976197.97",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "41009000.00",
+      "Dotacao_Atualizada": "44817385.88",
+      "Empenhado": "37374460.45",
+      "Liquidado": "35767772.90",
+      "Exceto_Intra_Liquidado": "35762017.58",
+      "Intra_Liquidado": "5755.32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.246120"
+}

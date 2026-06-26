@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_bernardo_do_campo_2026.csv",
+  "caminho_relativo": "data/public/sao_bernardo_do_campo/seguranca/saida/rreo_seguranca_sao_bernardo_do_campo_2026.csv",
+  "tamanho_bytes": 412,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2026",
+      "Dotacao_Inicial": "131.220.000,00",
+      "Dotacao_Atualizada": "131.211.262,92",
+      "Empenhado": "60.432.349,93",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "36.533.895,10",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,5169",
+      "Total_Municipal_Empenhado": "3.983.894.748,95",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.130386"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_sao_jose_dos_campos_2025.csv",
+  "caminho_relativo": "data/public/sao_jose_dos_campos/fiscal/saida/pessoal_sao_jose_dos_campos_2025.csv",
+  "tamanho_bytes": 484,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "RCL": "4280936255.71",
+      "RCL_Ajustada": "4258756143.71",
+      "Pessoal_Bruto": "2018282634.18",
+      "Pessoal_Ativo": "1192794672.78",
+      "Pessoal_Inativo": "820193498.99",
+      "Pessoal_Liquido": "1131866006.70",
+      "DTP": "1149579006.70",
+      "DTP_pct_RCL": "26.9900",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3549904&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.540305"
+}

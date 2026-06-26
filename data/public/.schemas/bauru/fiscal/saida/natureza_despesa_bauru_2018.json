@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_bauru_2018.csv",
+  "caminho_relativo": "data/public/bauru/fiscal/saida/natureza_despesa_bauru_2018.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Pessoal": "628726030.55",
+      "Juros_Encargos": "5854622.02",
+      "Outras_Correntes": "346373942.90",
+      "Despesas_Correntes": "980954595.47",
+      "Investimentos": "63878424.35",
+      "Despesas_Capital": "67593732.27",
+      "Total_Despesas": "1252421920.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.276145"
+}

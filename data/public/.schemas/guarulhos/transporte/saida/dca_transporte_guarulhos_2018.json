@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_guarulhos_2018.csv",
+  "caminho_relativo": "data/public/guarulhos/transporte/saida/dca_transporte_guarulhos_2018.csv",
+  "tamanho_bytes": 271,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Empenhado": "50.610.985,52",
+      "Liquidado": "47.849.019,24",
+      "Pago": "44.344.164,26",
+      "RP_Nao_Processado": "2.761.966,28",
+      "RP_Processado": "3.504.854,98",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2018&no_anexo=DCA-Anexo%20I-E&id_ente=3518800"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.699005"
+}

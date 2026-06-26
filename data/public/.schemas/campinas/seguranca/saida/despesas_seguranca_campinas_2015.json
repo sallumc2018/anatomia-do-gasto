@@ -1,0 +1,45 @@
+{
+  "arquivo": "despesas_seguranca_campinas_2015.csv",
+  "caminho_relativo": "data/public/campinas/seguranca/saida/despesas_seguranca_campinas_2015.csv",
+  "tamanho_bytes": 466,
+  "linhas_dados": 2,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "59.590.472,49",
+      "Liquidada": "58.468.614,36",
+      "Paga": "53.863.671,54",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3509502"
+    },
+    {
+      "﻿Subfuncao": "06.999 - Demais Subfunções Segurança Pública",
+      "Empenhada": "59.590.472,49",
+      "Liquidada": "58.468.614,36",
+      "Paga": "53.863.671,54",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3509502"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.399825"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sao_paulo_2016.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2016.csv",
+  "tamanho_bytes": 997,
+  "linhas_dados": 5,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "511.496.551,18",
+      "Liquidada": "499.111.717,81",
+      "Paga": "498.654.796,98",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "394.378.228,79",
+      "Liquidada": "394.227.455,21",
+      "Paga": "394.123.487,00",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "82.983.345,86",
+      "Liquidada": "75.410.536,82",
+      "Paga": "75.168.322,51",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.800409"
+}

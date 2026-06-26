@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_itaquaquecetuba_2023.csv",
+  "caminho_relativo": "data/public/itaquaquecetuba/transporte/saida/dca_transporte_itaquaquecetuba_2023.csv",
+  "tamanho_bytes": 252,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "float/numeric",
+    "RP_Processado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Empenhado": "1.931.379,73",
+      "Liquidado": "1.931.379,73",
+      "Pago": "1.931.379,73",
+      "RP_Nao_Processado": "0,00",
+      "RP_Processado": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-E&id_ente=3523602"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.469290"
+}

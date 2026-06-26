@@ -1,0 +1,42 @@
+{
+  "arquivo": "siops_sorocaba_2008.csv",
+  "caminho_relativo": "data/public/sorocaba/saude/saida/siops_sorocaba_2008.csv",
+  "tamanho_bytes": 162,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "receita_impostos",
+    "despesa_saude_total",
+    "despesa_asps",
+    "percentual_asps",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "receita_impostos": "empty",
+    "despesa_saude_total": "empty",
+    "despesa_asps": "empty",
+    "percentual_asps": "empty",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2008",
+      "municipio": "sorocaba",
+      "ibge6": "355220",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.984723"
+}
