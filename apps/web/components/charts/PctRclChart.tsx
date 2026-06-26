@@ -4,6 +4,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ResponsiveContainer, Cell,
 } from "recharts"
+import type { TooltipContentProps } from "recharts"
 
 export interface PctRclPoint {
   ano: string
@@ -18,10 +19,11 @@ interface Props {
   barColor?: string
 }
 
-function CustomTooltip({ active, payload, label, limite }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  active?: boolean; payload?: ReadonlyArray<any>; label?: string | number; limite: number
-}) {
+type CustomTooltipProps = TooltipContentProps & {
+  limite: number
+}
+
+function CustomTooltip({ active, payload, label, limite }: CustomTooltipProps) {
   if (!active || !payload?.length) return null
   const v = Number(payload[0]?.value ?? 0)
   const margem = limite - v
@@ -86,7 +88,7 @@ export function PctRclChart({ data, limite, limiteLabel, limitePrudencial, barCo
           {data.map((entry) => (
             <Cell
               key={entry.ano}
-              fill={entry.valor > limitePrudencial! ? "#f1c21b" : barColor}
+              fill={limitePrudencial !== undefined && entry.valor > limitePrudencial ? "#f1c21b" : barColor}
             />
           ))}
         </Bar>
