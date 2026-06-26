@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 // turbopackIgnore precisa estar dentro do path.join() que contém process.cwd()
 // para que o Turbopack ignore aquele caminho específico na fase de file-tracing.
 const MANIFESTS_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "manifests")
-const PUBLIC_DIR    = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
 // Áreas reconhecidas na ordem em que devem aparecer
 const AREAS_ORDEM = ["transferencias_federais", "emendas_federais", "fns", "executivo", "fiscal", "receita"]
@@ -129,6 +128,16 @@ interface MunicipioInfo {
   arquivos_total: number
 }
 
+interface Sprint2ManifestFile {
+  arquivo?: string
+  municipio_ibge?: string | number
+}
+
+interface Sprint2Manifest {
+  area?: string
+  arquivos?: Sprint2ManifestFile[]
+}
+
 function loadMunicipios(): MunicipioInfo[] {
   const manifestsDir = path.join(MANIFESTS_DIR, "sprint2")
   if (!fs.existsSync(manifestsDir)) return []
@@ -145,24 +154,34 @@ function loadMunicipios(): MunicipioInfo[] {
     const manifestFiles = fs.readdirSync(keyDir).filter(f => f.endsWith(".json"))
     if (!manifestFiles.length) continue
 
-    // IBGE vem do primeiro manifesto
     let ibge = ""
-    try {
-      const m = JSON.parse(fs.readFileSync(path.join(keyDir, manifestFiles[0]), "utf-8"))
-      ibge = String(m.arquivos?.[0]?.municipio_ibge ?? "")
-    } catch { /* ignora manifesto corrompido */ }
+    const areasByName = new Map<string, string[]>()
+
+    for (const manifestFile of manifestFiles) {
+      try {
+        const manifest = JSON.parse(
+          fs.readFileSync(path.join(keyDir, manifestFile), "utf-8")
+        ) as Sprint2Manifest
+        const area = manifest.area ?? manifestFile.replace(/\.json$/, "")
+        const csvs = (manifest.arquivos ?? [])
+          .map((arquivo) => arquivo.arquivo)
+          .filter((arquivo): arquivo is string => Boolean(arquivo?.endsWith(".csv")))
+          .sort()
+
+        if (!ibge) {
+          const manifestIbge = manifest.arquivos?.find((arquivo) => arquivo.municipio_ibge)?.municipio_ibge
+          ibge = manifestIbge ? String(manifestIbge) : ""
+        }
+
+        if (csvs.length > 0) areasByName.set(area, csvs)
+      } catch { /* ignora manifesto corrompido */ }
+    }
 
     const uf = ibge.length >= 2 ? (IBGE_UF[ibge.slice(0, 2)] ?? "??") : "??"
     const nome = NOME_OVERRIDE[key] ?? capitalizeKey(key)
-
-    // Áreas disponíveis (com pelo menos 1 CSV)
-    const areas: { area: string; csvs: string[] }[] = []
-    for (const area of AREAS_ORDEM) {
-      const saida = path.join(PUBLIC_DIR, key, area, "saida")
-      if (!fs.existsSync(saida)) continue
-      const csvs = fs.readdirSync(saida).filter(f => f.endsWith(".csv")).sort()
-      if (csvs.length > 0) areas.push({ area, csvs })
-    }
+    const areas = AREAS_ORDEM
+      .map((area) => ({ area, csvs: areasByName.get(area) ?? [] }))
+      .filter(({ csvs }) => csvs.length > 0)
 
     const arquivos_total = areas.reduce((acc, a) => acc + a.csvs.length, 0)
     result.push({ key, ibge, uf, nome, areas, arquivos_total })
