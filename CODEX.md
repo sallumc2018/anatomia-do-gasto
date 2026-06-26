@@ -13,6 +13,7 @@ Gasto. Executa tarefas em sandbox Linux e transforma achados em correcoes,
 testes, validadores e gates verificaveis.
 
 Leia tambem `docs/roteamento-codex-claude.md`.
+Para commit, push e deploy, leia `docs/release-ownership.md`.
 
 Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` (constituição operacional — agora usa linguagem Maestro) e aplicar o fluxo de decisão definido ali. Claude Code pode estar trabalhando em paralelo — verificar estado do repositório antes de editar qualquer arquivo.
 
@@ -40,8 +41,16 @@ Antes de agir em qualquer pedido, ler `ORQUESTRADOR.md` (constituição operacio
 - Para validacao padronizada por area, usar `python tools/agents/validate-area.py --area memory|agents|scope|pipeline|frontend|publication`.
 - Ao mexer no pipeline, rodar `python -m py_compile` nos scripts afetados (ver § Validação Mínima em `AI_MASTER_PROMPT.md`).
 - Ao mexer no frontend, rodar lint e build (ver § Validação Mínima em `AI_MASTER_PROMPT.md`).
-- Commit local e permitido ao final de bloco completo, validado e revisado, seguindo a mensagem `[Codex] ...`; nunca agrupar mudancas nao relacionadas.
-- Push, deploy, publicacao em `data/public`, infraestrutura, GitHub/Vercel settings e credenciais continuam exigindo autorizacao explicita do usuario.
+- Commit local e permitido ao final de bloco completo, validado e revisado,
+  seguindo a assinatura obrigatoria `[Codex > GPT-5.5 > <Effort>]`; nunca
+  agrupar mudancas nao relacionadas.
+- Codex so faz push do proprio trabalho por padrao. Para publicar commits do
+  Claude no mesmo lote, deve declarar commits, dono, validacoes e motivo de
+  seguranca antes da acao.
+- Push, deploy, publicacao em `data/public`, infraestrutura, GitHub/Vercel
+  settings e credenciais continuam exigindo autorizacao explicita do usuario.
+- Antes de push ou deploy, rodar `python tools/agents/check-release-readiness.py
+  --stage push|deploy`.
 
 ## Roteamento de IA
 
