@@ -602,6 +602,15 @@ button:focus-visible {
   color: var(--support-warning);
 }
 
+/* ─── Fluxo financeiro ─────────────────────────────────────────────────── */
+
+.fluxo-grid {
+  background-image:
+    linear-gradient(var(--border-01) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-01) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 /* Acessibilidade: respeita usuários com sensibilidade a movimento. */
 @media (prefers-reduced-motion: reduce) {
   *,
