@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Sankey, Tooltip, ResponsiveContainer } from "recharts"
+import type { SankeyLinkProps, SankeyNodeProps, TooltipContentProps } from "recharts"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { FLUXO_MUNICIPIOS, type FluxoSankeyNode } from "@/lib/generated/fluxo-data"
@@ -20,11 +21,10 @@ function pct(v: number, total: number): string {
 // ─── Sankey node customizado ──────────────────────────────────────────────────
 // Recharts passa x, y, width, height, payload (= objeto original do nó).
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function FluxoNode(props: any) {
+function FluxoNode(props: SankeyNodeProps) {
   const { x, y, width, height, payload } = props
   if (!payload) return null
-  const node = payload as FluxoSankeyNode
+  const node = payload as unknown as FluxoSankeyNode
   const gap = 10
   const midY = y + height / 2
   const lineH = Math.max(7, Math.min(10, height / 4))
@@ -61,11 +61,11 @@ function FluxoNode(props: any) {
 }
 
 // ─── Sankey link customizado ──────────────────────────────────────────────────
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function FluxoLink(props: any) {
+function FluxoLink(props: SankeyLinkProps) {
   const { sourceX, sourceY, sourceControlX, targetControlX, targetX, targetY, linkWidth, payload } = props
-  if (!payload || linkWidth === 0) return null
-  const sourceColor: string = (payload.source as FluxoSankeyNode)?.color ?? "#525252"
+  if (!payload || linkWidth === 0) return <path d="" fill="none" />
+  const source = payload.source as unknown as FluxoSankeyNode
+  const sourceColor = source.color ?? "#525252"
   const half = linkWidth / 2
   const d = [
     `M${sourceX},${sourceY + half}`,
@@ -82,12 +82,12 @@ function FluxoLink(props: any) {
 }
 
 // ─── Tooltip customizado ──────────────────────────────────────────────────────
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function FluxoTooltip({ active, payload }: any) {
+function FluxoTooltip({ active, payload }: TooltipContentProps) {
   if (!active || !payload?.length) return null
   const item = payload[0]
-  const name: string = item.name ?? item.payload?.name ?? ""
-  const val: number = item.value ?? item.payload?.value ?? 0
+  const itemPayload = item.payload as Partial<FluxoSankeyNode> | undefined
+  const name = String(item.name ?? itemPayload?.name ?? "")
+  const val = Number(item.value ?? itemPayload?.valueM ?? 0)
   return (
     <div className="rounded border border-[var(--border-01)] bg-[var(--bg-raised)] px-3 py-2 text-xs shadow-lg">
       <p className="font-semibold text-[var(--text-01)]">{name}</p>
@@ -143,6 +143,13 @@ function MobileSection({ title, nodes, total }: { title: string; nodes: FluxoSan
   )
 }
 
+function maiorPorValor(nodes: FluxoSankeyNode[]): FluxoSankeyNode | undefined {
+  return nodes.reduce<FluxoSankeyNode | undefined>(
+    (best, node) => (!best || node.valueM > best.valueM ? node : best),
+    undefined,
+  )
+}
+
 // ─── Página principal ─────────────────────────────────────────────────────────
 
 export default function FluxoFinanceiroPage() {
@@ -152,6 +159,8 @@ export default function FluxoFinanceiroPage() {
   const sourceNodes = entry.data.nodes.filter((n) => n.side === "source")
   const useNodes = entry.data.nodes.filter((n) => n.side === "use")
   const totalM = entry.totalLiquidadoM
+  const maiorGasto = maiorPorValor(useNodes)
+  const maiorFonte = maiorPorValor(sourceNodes)
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-01)]">
@@ -222,13 +231,13 @@ export default function FluxoFinanceiroPage() {
             />
             <SummaryCard
               label="Maior gasto"
-              value={entry.data.nodes.filter((n) => n.side === "use").sort((a, b) => b.valueM - a.valueM)[0]?.shortName ?? "—"}
-              sub={fmtM(entry.data.nodes.filter((n) => n.side === "use").sort((a, b) => b.valueM - a.valueM)[0]?.valueM ?? 0)}
+              value={maiorGasto?.shortName ?? "—"}
+              sub={fmtM(maiorGasto?.valueM ?? 0)}
             />
             <SummaryCard
               label="Maior fonte"
-              value={entry.data.nodes.filter((n) => n.side === "source").sort((a, b) => b.valueM - a.valueM)[0]?.shortName ?? "—"}
-              sub={fmtM(entry.data.nodes.filter((n) => n.side === "source").sort((a, b) => b.valueM - a.valueM)[0]?.valueM ?? 0)}
+              value={maiorFonte?.shortName ?? "—"}
+              sub={fmtM(maiorFonte?.valueM ?? 0)}
             />
           </div>
 
@@ -254,14 +263,14 @@ export default function FluxoFinanceiroPage() {
                   <ResponsiveContainer width="100%" height={520} minWidth={0}>
                     <Sankey
                       data={entry.data}
-                      node={<FluxoNode />}
-                      link={<FluxoLink />}
+                      node={FluxoNode}
+                      link={FluxoLink}
                       nodePadding={14}
                       nodeWidth={18}
                       margin={{ top: 24, right: 160, bottom: 24, left: 160 }}
                       iterations={64}
                     >
-                      <Tooltip content={<FluxoTooltip />} />
+                      <Tooltip content={FluxoTooltip} />
                     </Sankey>
                   </ResponsiveContainer>
                 </div>
