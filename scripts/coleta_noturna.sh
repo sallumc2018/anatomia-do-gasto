@@ -93,6 +93,12 @@ run_cmd "Coletar São Paulo Capital" \
 run_cmd "Coletar Sprint 1 — 18 municípios SP" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/coletar_municipio_sp.py" --todos
 
+# 3c. Sprint 1 — FNDE repasses + SIOPE (Sorocaba e Paulínia)
+# Requer PORTAL_TRANSPARENCIA_KEY com permissão para /transferencias — se 403, refaz stubs
+run_cmd "Sprint 1 FNDE+SIOPE — Sorocaba e Paulínia" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_fnde_siope.py" \
+    --municipios sorocaba paulinia
+
 # 4. Gerar datasets.json (publicar dados coletados)
 run_cmd "Gerar catálogo de datasets" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"
