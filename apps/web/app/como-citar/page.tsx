@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { TrackedExternalLink } from "@/components/analytics/tracked-link"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "Como citar",
@@ -58,28 +59,23 @@ export default function ComoCitarPage() {
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
       <main id="conteudo" className="flex-1">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: "Como citar a Anatomia do Gasto",
-              url: "https://www.anatomiadogasto.ong.br/como-citar",
-              inLanguage: "pt-BR",
-              about: {
-                "@id": "https://www.anatomiadogasto.ong.br/#organization",
-              },
-              mainEntity: {
-                "@type": "CreativeWork",
-                name: "Anatomia do Gasto",
-                url: "https://www.anatomiadogasto.ong.br",
-                license: "https://github.com/sallumc2018/anatomia-do-gasto/blob/main/LICENSE",
-                codeRepository: "https://github.com/sallumc2018/anatomia-do-gasto",
-              },
-            }),
-          }}
-        />
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Como citar a Anatomia do Gasto",
+          url: "https://www.anatomiadogasto.ong.br/como-citar",
+          inLanguage: "pt-BR",
+          about: {
+            "@id": "https://www.anatomiadogasto.ong.br/#organization",
+          },
+          mainEntity: {
+            "@type": "CreativeWork",
+            name: "Anatomia do Gasto",
+            url: "https://www.anatomiadogasto.ong.br",
+            license: "https://github.com/sallumc2018/anatomia-do-gasto/blob/main/LICENSE",
+            codeRepository: "https://github.com/sallumc2018/anatomia-do-gasto",
+          },
+        }} />
 
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-16 md:py-24" style={S.container}>

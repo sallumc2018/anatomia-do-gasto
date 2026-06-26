@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import { ATUALIZACOES } from "@/lib/atualizacoes"
 import { SITE_URL } from "@/lib/structured-data"
 
@@ -53,10 +54,7 @@ export default function AtualizacoesPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
