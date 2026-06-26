@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import {
   formatPrecise,
   getAvailableYearsTransporte,
@@ -92,7 +93,7 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -100,8 +101,8 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
           { "@type": "ListItem", position: 2, name: "Transporte", item: "https://www.anatomiadogasto.ong.br/sorocaba/transporte" },
           { "@type": "ListItem", position: 3, name: `Relatório ${year}` },
         ],
-      }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      }} />
+      <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Dataset",
         name: `Execução orçamentária em transporte — Sorocaba ${year}`,
@@ -111,7 +112,7 @@ export default async function TransporteRelatorioPage({ params }: PageProps) {
         license: "https://creativecommons.org/licenses/by/4.0/",
         publisher: { "@type": "Organization", name: "Anatomia do Gasto", url: "https://www.anatomiadogasto.ong.br" },
         spatialCoverage: { "@type": "Place", name: "Sorocaba, São Paulo, Brasil" },
-      }) }} />
+      }} />
       <main id="conteudo" className="flex-1">
 
         {/* ── Breadcrumb ────────────────────────────────────────────────────── */}
