@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_sao_vicente_2017.csv",
+  "caminho_relativo": "data/public/sao_vicente/fiscal/saida/rcl_capital_sao_vicente_2017.csv",
+  "tamanho_bytes": 422,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Operacoes_Credito_Internas": "3672710.79",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "3672710.79",
+      "Alienacao_Bens": "603056.99",
+      "Alienacao_Bens_Imoveis": "568477.69",
+      "Alienacao_Bens_Moveis": "34579.30",
+      "Outras_Capital": "1147145.28",
+      "Total_Capital": "5422913.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.418393"
+}

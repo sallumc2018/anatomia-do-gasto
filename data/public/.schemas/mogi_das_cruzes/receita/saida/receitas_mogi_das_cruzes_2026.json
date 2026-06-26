@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_mogi_das_cruzes_2026.csv",
+  "caminho_relativo": "data/public/mogi_das_cruzes/receita/saida/receitas_mogi_das_cruzes_2026.csv",
+  "tamanho_bytes": 4206,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "3242359648.00",
+      "Previsto_Atualizado": "3242359648.00",
+      "Arrecadado_Bimestre": "576258892.40",
+      "Arrecadado_Acumulado": "1040267465.17",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3530607&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "3033466164.00",
+      "Previsto_Atualizado": "3033466164.00",
+      "Arrecadado_Bimestre": "546718613.98",
+      "Arrecadado_Acumulado": "982878673.09",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3530607&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "2776765166.00",
+      "Previsto_Atualizado": "2776765166.00",
+      "Arrecadado_Bimestre": "542309898.47",
+      "Arrecadado_Acumulado": "973294502.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3530607&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.365119"
+}

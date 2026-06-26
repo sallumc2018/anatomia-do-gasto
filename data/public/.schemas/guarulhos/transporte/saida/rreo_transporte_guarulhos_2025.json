@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_guarulhos_2025.csv",
+  "caminho_relativo": "data/public/guarulhos/transporte/saida/rreo_transporte_guarulhos_2025.csv",
+  "tamanho_bytes": 414,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "159.774.725,85",
+      "Dotacao_Atualizada": "229.793.092,25",
+      "Empenhado": "227.656.276,89",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "219.953.956,30",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "3,3982",
+      "Total_Municipal_Empenhado": "6.699.234.936,62",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3518800"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.702575"
+}

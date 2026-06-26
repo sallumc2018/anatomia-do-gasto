@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_jose_do_rio_preto_2018.csv",
+  "caminho_relativo": "data/public/sao_jose_do_rio_preto/transporte/saida/dca_transporte_sao_jose_do_rio_preto_2018.csv",
+  "tamanho_bytes": 271,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Empenhado": "40.853.551,56",
+      "Liquidado": "36.837.004,50",
+      "Pago": "34.264.223,96",
+      "RP_Nao_Processado": "4.016.547,06",
+      "RP_Processado": "2.572.780,54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2018&no_anexo=DCA-Anexo%20I-E&id_ente=3549805"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.641941"
+}

@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_maua_2023.csv",
+  "caminho_relativo": "data/public/maua/transporte/saida/dca_transporte_maua_2023.csv",
+  "tamanho_bytes": 263,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Empenhado": "22.953.418,03",
+      "Liquidado": "22.948.322,03",
+      "Pago": "22.945.886,03",
+      "RP_Nao_Processado": "5.096,00",
+      "RP_Processado": "2.436,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-E&id_ente=3529401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.314813"
+}

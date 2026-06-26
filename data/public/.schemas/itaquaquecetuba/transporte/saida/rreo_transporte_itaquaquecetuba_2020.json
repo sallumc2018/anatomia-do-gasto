@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_itaquaquecetuba_2020.csv",
+  "caminho_relativo": "data/public/itaquaquecetuba/transporte/saida/rreo_transporte_itaquaquecetuba_2020.csv",
+  "tamanho_bytes": 403,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Dotacao_Inicial": "1.139.000,00",
+      "Dotacao_Atualizada": "1.615.100,00",
+      "Empenhado": "1.458.688,15",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "1.458.688,15",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,8907",
+      "Total_Municipal_Empenhado": "77.148.687,30",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3523602"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.464936"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_guarulhos_2024.csv",
+  "caminho_relativo": "data/public/guarulhos/receita/saida/receitas_guarulhos_2024.csv",
+  "tamanho_bytes": 4479,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "7564158510.00",
+      "Previsto_Atualizado": "8133504238.57",
+      "Arrecadado_Bimestre": "1373479990.66",
+      "Arrecadado_Acumulado": "7160422683.16",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518800&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "7318537190.00",
+      "Previsto_Atualizado": "7887882918.57",
+      "Arrecadado_Bimestre": "1333704456.22",
+      "Arrecadado_Acumulado": "6915180059.76",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518800&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "6599770990.00",
+      "Previsto_Atualizado": "7018993669.95",
+      "Arrecadado_Bimestre": "1261895780.62",
+      "Arrecadado_Acumulado": "6448706001.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518800&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.705418"
+}

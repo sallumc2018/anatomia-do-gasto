@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_bauru_2025.csv",
+  "caminho_relativo": "data/public/bauru/fiscal/saida/rpps_bauru_2025.csv",
+  "tamanho_bytes": 371,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Contribuicoes_Segurados": "75323501.66",
+      "Contribuicoes_Patronal": "149380935.00",
+      "Total_Receitas_RPPS": "270511067.84",
+      "Aposentadorias": "312805414.67",
+      "Total_Despesas_RPPS": "360594353.31",
+      "Resultado_RPPS": "-90083285.47",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.269825"
+}

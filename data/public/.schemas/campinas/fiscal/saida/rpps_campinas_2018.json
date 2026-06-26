@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_campinas_2018.csv",
+  "caminho_relativo": "data/public/campinas/fiscal/saida/rpps_campinas_2018.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Contribuicoes_Segurados": "39305293.80",
+      "Contribuicoes_Patronal": "52819422.65",
+      "Total_Receitas_RPPS": "109447513.09",
+      "Aposentadorias": "3269708.84",
+      "Total_Despesas_RPPS": "6806695.69",
+      "Resultado_RPPS": "102640817.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3509502&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.377915"
+}

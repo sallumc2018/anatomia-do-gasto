@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_guarulhos_2020.csv",
+  "caminho_relativo": "data/public/guarulhos/seguranca/saida/rreo_seguranca_guarulhos_2020.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Dotacao_Inicial": "69.828.848,20",
+      "Dotacao_Atualizada": "92.126.417,74",
+      "Empenhado": "87.833.779,15",
+      "Intra_Empenhado": "2.588.172,16",
+      "Liquidado": "87.833.779,15",
+      "Intra_Liquidado": "2.588.172,16",
+      "Pct_Orcamento": "2,1647",
+      "Total_Municipal_Empenhado": "4.057.623.099,54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3518800"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.696239"
+}

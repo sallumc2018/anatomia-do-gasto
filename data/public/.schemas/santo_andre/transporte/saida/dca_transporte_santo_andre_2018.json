@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_santo_andre_2018.csv",
+  "caminho_relativo": "data/public/santo_andre/transporte/saida/dca_transporte_santo_andre_2018.csv",
+  "tamanho_bytes": 272,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Empenhado": "86.608.052,40",
+      "Liquidado": "71.037.890,81",
+      "Pago": "66.793.104,82",
+      "RP_Nao_Processado": "15.570.161,59",
+      "RP_Processado": "4.244.785,99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2018&no_anexo=DCA-Anexo%20I-E&id_ente=3547809"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.260728"
+}

@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_carapicuiba_2018.csv",
+  "caminho_relativo": "data/public/carapicuiba/transporte/saida/rreo_transporte_carapicuiba_2018.csv",
+  "tamanho_bytes": 404,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "4.466.000,00",
+      "Dotacao_Atualizada": "8.342.793,84",
+      "Empenhado": "8.076.278,01",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "6.591.733,72",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,5977",
+      "Total_Municipal_Empenhado": "505.492.617,20",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3510609"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.523900"
+}

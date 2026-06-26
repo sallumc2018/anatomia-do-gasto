@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_santo_andre_2015.csv",
+  "caminho_relativo": "data/public/santo_andre/executivo/saida/despesas_executivo_santo_andre_2015.csv",
+  "tamanho_bytes": 5751,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "451654000.00",
+      "Dotacao_Atualizada": "447020612.44",
+      "Empenhado": "364492734.51",
+      "Liquidado": "322631535.75",
+      "Exceto_Intra_Liquidado": "322631535.75",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4094000.00",
+      "Dotacao_Atualizada": "3682509.02",
+      "Empenhado": "968121.86",
+      "Liquidado": "756026.41",
+      "Exceto_Intra_Liquidado": "756026.41",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "52278000.00",
+      "Dotacao_Atualizada": "49246331.48",
+      "Empenhado": "36461231.54",
+      "Liquidado": "33766833.63",
+      "Exceto_Intra_Liquidado": "33766833.63",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3547809&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.249267"
+}

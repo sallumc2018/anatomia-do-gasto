@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_vicente_2018.csv",
+  "caminho_relativo": "data/public/sao_vicente/seguranca/saida/rreo_seguranca_sao_vicente_2018.csv",
+  "tamanho_bytes": 422,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "11.322.379,00",
+      "Dotacao_Atualizada": "10.198.184,00",
+      "Empenhado": "9.820.553,60",
+      "Intra_Empenhado": "2.076.046,21",
+      "Liquidado": "9.709.247,59",
+      "Intra_Liquidado": "2.076.046,21",
+      "Pct_Orcamento": "2,2905",
+      "Total_Municipal_Empenhado": "428.751.537,12",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3551702"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.450033"
+}

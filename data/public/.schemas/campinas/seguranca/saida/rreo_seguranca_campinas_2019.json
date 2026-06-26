@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_campinas_2019.csv",
+  "caminho_relativo": "data/public/campinas/seguranca/saida/rreo_seguranca_campinas_2019.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Dotacao_Inicial": "68.918.398,00",
+      "Dotacao_Atualizada": "65.753.481,65",
+      "Empenhado": "64.322.461,42",
+      "Intra_Empenhado": "8.092.688,65",
+      "Liquidado": "63.633.814,22",
+      "Intra_Liquidado": "8.092.688,65",
+      "Pct_Orcamento": "1,2249",
+      "Total_Municipal_Empenhado": "5.251.372.548,86",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3509502"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.398523"
+}

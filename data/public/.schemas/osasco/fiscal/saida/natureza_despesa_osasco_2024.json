@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_osasco_2024.csv",
+  "caminho_relativo": "data/public/osasco/fiscal/saida/natureza_despesa_osasco_2024.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "1966130813.03",
+      "Juros_Encargos": "52525508.33",
+      "Outras_Correntes": "2306096621.78",
+      "Despesas_Correntes": "4324752943.14",
+      "Investimentos": "180155652.85",
+      "Despesas_Capital": "396229865.66",
+      "Total_Despesas": "4972742844.32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3534401&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.221429"
+}

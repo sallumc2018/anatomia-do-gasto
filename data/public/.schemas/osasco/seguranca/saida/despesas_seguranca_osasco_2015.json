@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_osasco_2015.csv",
+  "caminho_relativo": "data/public/osasco/seguranca/saida/despesas_seguranca_osasco_2015.csv",
+  "tamanho_bytes": 971,
+  "linhas_dados": 5,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "48.232.334,57",
+      "Liquidada": "47.809.442,53",
+      "Paga": "46.519.301,59",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3534401"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "342.052,00",
+      "Liquidada": "241.924,00",
+      "Paga": "7.848,00",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3534401"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "319.956,00",
+      "Liquidada": "319.956,00",
+      "Paga": "319.956,00",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3534401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.245389"
+}

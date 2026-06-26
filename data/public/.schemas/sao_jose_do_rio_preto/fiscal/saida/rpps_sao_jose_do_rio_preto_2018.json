@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sao_jose_do_rio_preto_2018.csv",
+  "caminho_relativo": "data/public/sao_jose_do_rio_preto/fiscal/saida/rpps_sao_jose_do_rio_preto_2018.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Contribuicoes_Segurados": "35051849.02",
+      "Contribuicoes_Patronal": "64053797.09",
+      "Total_Receitas_RPPS": "101135769.71",
+      "Aposentadorias": "96734906.69",
+      "Total_Despesas_RPPS": "115996512.77",
+      "Resultado_RPPS": "-14860743.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3549805&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.593939"
+}

@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_ribeirao_preto_2024.csv",
+  "caminho_relativo": "data/public/ribeirao_preto/seguranca/saida/rreo_seguranca_ribeirao_preto_2024.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Dotacao_Inicial": "48.253.194,67",
+      "Dotacao_Atualizada": "57.030.579,40",
+      "Empenhado": "49.317.593,86",
+      "Intra_Empenhado": "9.409.040,57",
+      "Liquidado": "48.166.730,66",
+      "Intra_Liquidado": "9.409.040,57",
+      "Pct_Orcamento": "1,1200",
+      "Total_Municipal_Empenhado": "4.403.383.540,70",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3543402"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.622822"
+}

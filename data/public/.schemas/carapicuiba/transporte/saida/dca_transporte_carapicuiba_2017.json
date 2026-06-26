@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_carapicuiba_2017.csv",
+  "caminho_relativo": "data/public/carapicuiba/transporte/saida/dca_transporte_carapicuiba_2017.csv",
+  "tamanho_bytes": 268,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Empenhado": "12.824.899,60",
+      "Liquidado": "10.340.573,55",
+      "Pago": "9.744.380,43",
+      "RP_Nao_Processado": "2.484.326,05",
+      "RP_Processado": "596.193,12",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&no_anexo=DCA-Anexo%20I-E&id_ente=3510609"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.524618"
+}

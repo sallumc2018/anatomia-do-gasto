@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_jundiai_2016.csv",
+  "caminho_relativo": "data/public/jundiai/seguranca/saida/despesas_seguranca_jundiai_2016.csv",
+  "tamanho_bytes": 973,
+  "linhas_dados": 5,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "48.867.466,34",
+      "Liquidada": "45.699.754,81",
+      "Paga": "43.689.806,59",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3525904"
+    },
+    {
+      "﻿Subfuncao": "06.122 - Administração Geral",
+      "Empenhada": "42.011.792,24",
+      "Liquidada": "40.955.346,66",
+      "Paga": "40.515.632,72",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3525904"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "5.726.328,04",
+      "Liquidada": "3.874.365,63",
+      "Paga": "2.383.647,26",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2016&id_ente=3525904"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.192179"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_ribeirao_preto_2018.csv",
+  "caminho_relativo": "data/public/ribeirao_preto/fiscal/saida/natureza_despesa_ribeirao_preto_2018.csv",
+  "tamanho_bytes": 374,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Pessoal": "1482720352.50",
+      "Juros_Encargos": "13773681.80",
+      "Outras_Correntes": "818808157.09",
+      "Despesas_Correntes": "2315302191.39",
+      "Investimentos": "50313777.90",
+      "Despesas_Capital": "115625723.70",
+      "Total_Despesas": "2722253520.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3543402&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.584133"
+}

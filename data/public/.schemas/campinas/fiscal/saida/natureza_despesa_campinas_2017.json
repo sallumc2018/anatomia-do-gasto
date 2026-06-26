@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_campinas_2017.csv",
+  "caminho_relativo": "data/public/campinas/fiscal/saida/natureza_despesa_campinas_2017.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Pessoal": "2170261495.57",
+      "Juros_Encargos": "24511494.03",
+      "Outras_Correntes": "2031513324.08",
+      "Despesas_Correntes": "4226286313.68",
+      "Investimentos": "123772143.54",
+      "Despesas_Capital": "146463386.17",
+      "Total_Despesas": "4611541464.34",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3509502&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.384375"
+}

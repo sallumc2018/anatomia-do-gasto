@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_ribeirao_preto_2015.csv",
+  "caminho_relativo": "data/public/ribeirao_preto/seguranca/saida/despesas_seguranca_ribeirao_preto_2015.csv",
+  "tamanho_bytes": 603,
+  "linhas_dados": 3,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "21.012.594,45",
+      "Liquidada": "20.933.779,01",
+      "Paga": "20.723.371,64",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3543402"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "20.150.913,13",
+      "Liquidada": "20.150.913,13",
+      "Paga": "20.150.913,13",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3543402"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "861.681,32",
+      "Liquidada": "782.865,88",
+      "Paga": "572.458,51",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3543402"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.619701"
+}

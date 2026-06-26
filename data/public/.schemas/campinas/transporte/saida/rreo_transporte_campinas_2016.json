@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_campinas_2016.csv",
+  "caminho_relativo": "data/public/campinas/transporte/saida/rreo_transporte_campinas_2016.csv",
+  "tamanho_bytes": 414,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Dotacao_Inicial": "113.419.659,00",
+      "Dotacao_Atualizada": "173.474.796,53",
+      "Empenhado": "127.706.733,08",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "127.706.733,08",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "2,9594",
+      "Total_Municipal_Empenhado": "4.315.223.124,93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3509502"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.402624"
+}

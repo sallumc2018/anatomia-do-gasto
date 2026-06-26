@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sao_paulo_2018.csv",
+  "caminho_relativo": "data/public/sao_paulo/transporte/saida/rreo_transporte_sao_paulo_2018.csv",
+  "tamanho_bytes": 423,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "4.656.366.117,00",
+      "Dotacao_Atualizada": "5.225.847.143,05",
+      "Empenhado": "5.128.618.324,64",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "5.058.077.299,63",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "9,8440",
+      "Total_Municipal_Empenhado": "52.099.115.695,49",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.815888"
+}

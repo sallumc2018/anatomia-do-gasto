@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_piracicaba_2017.csv",
+  "caminho_relativo": "data/public/piracicaba/receita/saida/receitas_piracicaba_2017.csv",
+  "tamanho_bytes": 3564,
+  "linhas_dados": 14,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "1593373779.00",
+      "Previsto_Atualizado": "1593373779.00",
+      "Arrecadado_Bimestre": "246770560.10",
+      "Arrecadado_Acumulado": "1513696053.09",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3538709&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "1557291779.00",
+      "Previsto_Atualizado": "1557291779.00",
+      "Arrecadado_Bimestre": "238502550.45",
+      "Arrecadado_Acumulado": "1477804580.34",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3538709&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "1512552744.00",
+      "Previsto_Atualizado": "1512552744.00",
+      "Arrecadado_Bimestre": "235767398.80",
+      "Arrecadado_Acumulado": "1442836443.25",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3538709&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.427134"
+}

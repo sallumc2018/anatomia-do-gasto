@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_osasco_2026.csv",
+  "caminho_relativo": "data/public/osasco/seguranca/saida/rreo_seguranca_osasco_2026.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2026",
+      "Dotacao_Inicial": "32.952.105,00",
+      "Dotacao_Atualizada": "33.673.620,30",
+      "Empenhado": "21.572.473,20",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "10.607.422,95",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,8153",
+      "Total_Municipal_Empenhado": "2.645.876.961,39",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3534401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.244758"
+}

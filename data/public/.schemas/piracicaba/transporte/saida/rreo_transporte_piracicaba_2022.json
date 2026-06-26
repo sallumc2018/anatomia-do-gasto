@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_piracicaba_2022.csv",
+  "caminho_relativo": "data/public/piracicaba/transporte/saida/rreo_transporte_piracicaba_2022.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Dotacao_Inicial": "17.909.900,00",
+      "Dotacao_Atualizada": "30.758.299,04",
+      "Empenhado": "29.004.625,75",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "19.433.199,68",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,3675",
+      "Total_Municipal_Empenhado": "2.120.992.328,32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3538709"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.418211"
+}

@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sao_jose_dos_campos_2022.csv",
+  "caminho_relativo": "data/public/sao_jose_dos_campos/transporte/saida/rreo_transporte_sao_jose_dos_campos_2022.csv",
+  "tamanho_bytes": 414,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Dotacao_Inicial": "180.655.000,00",
+      "Dotacao_Atualizada": "225.700.664,44",
+      "Empenhado": "201.053.710,61",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "190.811.912,61",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "5,2384",
+      "Total_Municipal_Empenhado": "3.838.106.958,47",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3549904"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.580227"
+}

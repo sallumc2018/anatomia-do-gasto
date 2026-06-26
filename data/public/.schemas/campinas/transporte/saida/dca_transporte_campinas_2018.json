@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_campinas_2018.csv",
+  "caminho_relativo": "data/public/campinas/transporte/saida/dca_transporte_campinas_2018.csv",
+  "tamanho_bytes": 276,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Empenhado": "151.622.026,37",
+      "Liquidado": "135.257.620,79",
+      "Pago": "119.488.400,64",
+      "RP_Nao_Processado": "16.364.405,58",
+      "RP_Processado": "15.769.220,15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2018&no_anexo=DCA-Anexo%20I-E&id_ente=3509502"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.403492"
+}

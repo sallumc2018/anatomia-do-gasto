@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_maua_2025.csv",
+  "caminho_relativo": "data/public/maua/transporte/saida/dca_transporte_maua_2025.csv",
+  "tamanho_bytes": 265,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Empenhado": "51.346.117,55",
+      "Liquidado": "43.782.356,87",
+      "Pago": "43.781.988,87",
+      "RP_Nao_Processado": "7.563.760,68",
+      "RP_Processado": "368,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-E&id_ente=3529401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.313065"
+}

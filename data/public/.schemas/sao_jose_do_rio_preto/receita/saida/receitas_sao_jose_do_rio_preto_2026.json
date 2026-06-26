@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_sao_jose_do_rio_preto_2026.csv",
+  "caminho_relativo": "data/public/sao_jose_do_rio_preto/receita/saida/receitas_sao_jose_do_rio_preto_2026.csv",
+  "tamanho_bytes": 4456,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "3805727400.00",
+      "Previsto_Atualizado": "4109303925.00",
+      "Arrecadado_Bimestre": "705074777.07",
+      "Arrecadado_Acumulado": "1294379331.76",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3549805&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "3423547695.00",
+      "Previsto_Atualizado": "3727124220.00",
+      "Arrecadado_Bimestre": "663552420.80",
+      "Arrecadado_Acumulado": "1199558286.60",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3549805&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "3320725695.00",
+      "Previsto_Atualizado": "3322295987.00",
+      "Arrecadado_Bimestre": "659661792.79",
+      "Arrecadado_Acumulado": "1194163863.98",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&id_ente=3549805&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.645786"
+}

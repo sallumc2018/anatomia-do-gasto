@@ -1,0 +1,54 @@
+{
+  "arquivo": "despesas_seguranca_sao_paulo_2015.csv",
+  "caminho_relativo": "data/public/sao_paulo/seguranca/saida/despesas_seguranca_sao_paulo_2015.csv",
+  "tamanho_bytes": 818,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Subfuncao",
+    "Empenhada",
+    "Liquidada",
+    "Paga",
+    "Restos_Nao_Processados",
+    "Restos_Processados",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Subfuncao": "string",
+    "Empenhada": "string",
+    "Liquidada": "string",
+    "Paga": "string",
+    "Restos_Nao_Processados": "float/numeric",
+    "Restos_Processados": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Subfuncao": "06 - Segurança Pública",
+      "Empenhada": "454.539.731,05",
+      "Liquidada": "434.288.924,56",
+      "Paga": "433.149.479,23",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.181 - Policiamento",
+      "Empenhada": "94.460.538,96",
+      "Liquidada": "78.548.950,47",
+      "Paga": "77.856.466,71",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3550308"
+    },
+    {
+      "﻿Subfuncao": "06.182 - Defesa Civil",
+      "Empenhada": "29.122.987,52",
+      "Liquidada": "25.390.654,95",
+      "Paga": "25.291.454,95",
+      "Restos_Nao_Processados": "0,00",
+      "Restos_Processados": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2015&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.801028"
+}

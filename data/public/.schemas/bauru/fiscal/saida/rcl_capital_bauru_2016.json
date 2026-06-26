@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_bauru_2016.csv",
+  "caminho_relativo": "data/public/bauru/fiscal/saida/rcl_capital_bauru_2016.csv",
+  "tamanho_bytes": 419,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Operacoes_Credito_Internas": "19611031.63",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "19611031.63",
+      "Alienacao_Bens": "229481.30",
+      "Alienacao_Bens_Imoveis": "229481.30",
+      "Alienacao_Bens_Moveis": "0.00",
+      "Outras_Capital": "20353.32",
+      "Total_Capital": "19860866.25",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3506003&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.270130"
+}

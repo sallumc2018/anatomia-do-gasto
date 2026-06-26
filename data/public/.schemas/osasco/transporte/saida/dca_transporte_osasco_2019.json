@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_osasco_2019.csv",
+  "caminho_relativo": "data/public/osasco/transporte/saida/dca_transporte_osasco_2019.csv",
+  "tamanho_bytes": 269,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Empenhado": "41.134.535,21",
+      "Liquidado": "37.793.742,78",
+      "Pago": "37.477.030,63",
+      "RP_Nao_Processado": "3.340.792,43",
+      "RP_Processado": "316.712,15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&no_anexo=DCA-Anexo%20I-E&id_ente=3534401"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.248473"
+}

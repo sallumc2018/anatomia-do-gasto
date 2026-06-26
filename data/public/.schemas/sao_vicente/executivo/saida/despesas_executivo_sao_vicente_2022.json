@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_vicente_2022.csv",
+  "caminho_relativo": "data/public/sao_vicente/executivo/saida/despesas_executivo_sao_vicente_2022.csv",
+  "tamanho_bytes": 4106,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "37835199.00",
+      "Dotacao_Atualizada": "43631145.63",
+      "Empenhado": "37649853.56",
+      "Liquidado": "35008227.25",
+      "Exceto_Intra_Liquidado": "31300710.46",
+      "Intra_Liquidado": "3707516.79",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "26855044.00",
+      "Dotacao_Atualizada": "34080021.60",
+      "Empenhado": "26492516.50",
+      "Liquidado": "22320455.73",
+      "Exceto_Intra_Liquidado": "21010259.74",
+      "Intra_Liquidado": "1310195.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comércio e Serviços",
+      "Dotacao_Inicial": "4279728.00",
+      "Dotacao_Atualizada": "4996200.00",
+      "Empenhado": "4830494.16",
+      "Liquidado": "4567002.16",
+      "Exceto_Intra_Liquidado": "4470867.01",
+      "Intra_Liquidado": "96135.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551702&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.442785"
+}

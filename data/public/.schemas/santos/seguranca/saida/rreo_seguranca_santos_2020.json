@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_santos_2020.csv",
+  "caminho_relativo": "data/public/santos/seguranca/saida/rreo_seguranca_santos_2020.csv",
+  "tamanho_bytes": 406,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Dotacao_Inicial": "5.859.800,00",
+      "Dotacao_Atualizada": "6.155.283,17",
+      "Empenhado": "5.870.692,17",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "4.888.931,24",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,2025",
+      "Total_Municipal_Empenhado": "2.898.964.714,93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3548500"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.366355"
+}

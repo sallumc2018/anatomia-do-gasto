@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_sao_jose_dos_campos_2025.csv",
+  "caminho_relativo": "data/public/sao_jose_dos_campos/seguranca/saida/rreo_seguranca_sao_jose_dos_campos_2025.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Dotacao_Inicial": "63.051.000,00",
+      "Dotacao_Atualizada": "72.560.391,65",
+      "Empenhado": "72.116.293,88",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "72.065.831,80",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,4845",
+      "Total_Municipal_Empenhado": "4.857.983.259,54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3549904"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.575466"
+}

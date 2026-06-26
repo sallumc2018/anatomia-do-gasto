@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_piracicaba_2024.csv",
+  "caminho_relativo": "data/public/piracicaba/seguranca/saida/rreo_seguranca_piracicaba_2024.csv",
+  "tamanho_bytes": 410,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Dotacao_Inicial": "56.563.000,00",
+      "Dotacao_Atualizada": "54.786.717,73",
+      "Empenhado": "52.640.986,79",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "52.083.236,55",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,7170",
+      "Total_Municipal_Empenhado": "3.065.919.725,62",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3538709"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.413273"
+}

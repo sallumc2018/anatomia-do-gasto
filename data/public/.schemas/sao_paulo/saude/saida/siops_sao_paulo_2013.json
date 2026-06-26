@@ -1,0 +1,42 @@
+{
+  "arquivo": "siops_sao_paulo_2013.csv",
+  "caminho_relativo": "data/public/sao_paulo/saude/saida/siops_sao_paulo_2013.csv",
+  "tamanho_bytes": 163,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "receita_impostos",
+    "despesa_saude_total",
+    "despesa_asps",
+    "percentual_asps",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "receita_impostos": "empty",
+    "despesa_saude_total": "empty",
+    "despesa_asps": "empty",
+    "percentual_asps": "empty",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2013",
+      "municipio": "sao_paulo",
+      "ibge6": "355030",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
+      "limite_constitucional_pct": "15",
+      "situacao": "nao_coletado"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.708535"
+}

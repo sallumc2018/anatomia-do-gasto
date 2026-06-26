@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_bauru_2018.csv",
+  "caminho_relativo": "data/public/bauru/seguranca/saida/rreo_seguranca_bauru_2018.csv",
+  "tamanho_bytes": 416,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "4.490.110,00",
+      "Dotacao_Atualizada": "8.572.042,88",
+      "Empenhado": "2.110.061,97",
+      "Intra_Empenhado": "48.439,03",
+      "Liquidado": "1.149.618,04",
+      "Intra_Liquidado": "34.562,11",
+      "Pct_Orcamento": "0,1946",
+      "Total_Municipal_Empenhado": "1.084.270.273,32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3506003"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.299397"
+}

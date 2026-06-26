@@ -1,74 +1,64 @@
 {
   "arquivo": "siops_paulinia_consolidado.csv",
   "caminho_relativo": "data/public/paulinia/saude/saida/siops_paulinia_consolidado.csv",
-  "tamanho_bytes": 974,
-  "linhas_dados": 12,
+  "tamanho_bytes": 1146,
+  "linhas_dados": 25,
   "colunas": [
     "ano",
     "municipio",
     "ibge6",
-    "percentual_asps",
-    "despesa_saude_total",
     "receita_impostos",
-    "despesa_saude_por_hab",
-    "pct_transferencias_sus",
+    "despesa_saude_total",
+    "despesa_asps",
+    "percentual_asps",
     "limite_constitucional_pct",
-    "situacao",
-    "fase"
+    "situacao"
   ],
   "tipos": {
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "percentual_asps": "float/numeric",
-    "despesa_saude_total": "float/numeric",
-    "receita_impostos": "float/numeric",
-    "despesa_saude_por_hab": "float/numeric",
-    "pct_transferencias_sus": "float/numeric",
+    "receita_impostos": "empty",
+    "despesa_saude_total": "empty",
+    "despesa_asps": "empty",
+    "percentual_asps": "empty",
     "limite_constitucional_pct": "integer",
-    "situacao": "string",
-    "fase": "string"
+    "situacao": "string"
   },
   "amostra": [
     {
-      "ano": "2015",
+      "ano": "2002",
       "municipio": "paulinia",
       "ibge6": "353650",
-      "percentual_asps": "",
-      "despesa_saude_total": "",
       "receita_impostos": "",
-      "despesa_saude_por_hab": "",
-      "pct_transferencias_sus": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado",
-      "fase": ""
+      "situacao": "nao_coletado"
     },
     {
-      "ano": "2016",
+      "ano": "2003",
       "municipio": "paulinia",
       "ibge6": "353650",
-      "percentual_asps": "",
-      "despesa_saude_total": "",
       "receita_impostos": "",
-      "despesa_saude_por_hab": "",
-      "pct_transferencias_sus": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
       "limite_constitucional_pct": "15",
-      "situacao": "nao_coletado",
-      "fase": ""
+      "situacao": "nao_coletado"
     },
     {
-      "ano": "2017",
+      "ano": "2004",
       "municipio": "paulinia",
       "ibge6": "353650",
-      "percentual_asps": "21.93",
-      "despesa_saude_total": "222775262.53",
-      "receita_impostos": "1015718602.38",
-      "despesa_saude_por_hab": "224172407.91",
-      "pct_transferencias_sus": "4.13",
+      "receita_impostos": "",
+      "despesa_saude_total": "",
+      "despesa_asps": "",
+      "percentual_asps": "",
       "limite_constitucional_pct": "15",
-      "situacao": "cumprido",
-      "fase": "previsto"
+      "situacao": "nao_coletado"
     }
   ],
-  "analisado_em": "2026-06-24T06:35:13.136571"
+  "analisado_em": "2026-06-26T06:41:58.500781"
 }

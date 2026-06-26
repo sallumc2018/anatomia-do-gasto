@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_seguranca_diadema_2016.csv",
+  "caminho_relativo": "data/public/diadema/seguranca/saida/rreo_seguranca_diadema_2016.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Dotacao_Inicial": "33.997.000,00",
+      "Dotacao_Atualizada": "35.596.287,25",
+      "Empenhado": "33.419.541,45",
+      "Intra_Empenhado": "1.953.586,28",
+      "Liquidado": "33.112.484,41",
+      "Intra_Liquidado": "1.953.586,28",
+      "Pct_Orcamento": "2,9750",
+      "Total_Municipal_Empenhado": "1.123.335.373,54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3513801"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.190893"
+}

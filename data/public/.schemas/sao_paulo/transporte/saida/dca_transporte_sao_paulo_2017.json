@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_paulo_2017.csv",
+  "caminho_relativo": "data/public/sao_paulo/transporte/saida/dca_transporte_sao_paulo_2017.csv",
+  "tamanho_bytes": 282,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Empenhado": "4.524.589.363,03",
+      "Liquidado": "4.393.788.147,70",
+      "Pago": "4.387.283.487,99",
+      "RP_Nao_Processado": "130.801.215,33",
+      "RP_Processado": "6.504.659,71",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&no_anexo=DCA-Anexo%20I-E&id_ente=3550308"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.813031"
+}

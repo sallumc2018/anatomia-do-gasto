@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_maua_2018.csv",
+  "caminho_relativo": "data/public/maua/fiscal/saida/pessoal_maua_2018.csv",
+  "tamanho_bytes": 476,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "RCL": "956171783.77",
+      "RCL_Ajustada": "956171783.77",
+      "Pessoal_Bruto": "320387666.88",
+      "Pessoal_Ativo": "317005417.86",
+      "Pessoal_Inativo": "1943975.10",
+      "Pessoal_Liquido": "320105363.00",
+      "DTP": "320113103.00",
+      "DTP_pct_RCL": "33.4800",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2018&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3529401&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:58.279138"
+}

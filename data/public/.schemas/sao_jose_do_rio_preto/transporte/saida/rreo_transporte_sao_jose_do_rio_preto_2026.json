@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sao_jose_do_rio_preto_2026.csv",
+  "caminho_relativo": "data/public/sao_jose_do_rio_preto/transporte/saida/rreo_transporte_sao_jose_do_rio_preto_2026.csv",
+  "tamanho_bytes": 421,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2026",
+      "Dotacao_Inicial": "81.696.000,00",
+      "Dotacao_Atualizada": "91.310.837,11",
+      "Empenhado": "69.897.564,96",
+      "Intra_Empenhado": "330.000,00",
+      "Liquidado": "27.221.611,31",
+      "Intra_Liquidado": "89.035,77",
+      "Pct_Orcamento": "3,6262",
+      "Total_Municipal_Empenhado": "1.927.578.554,40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=2&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3549805"
+    }
+  ],
+  "analisado_em": "2026-06-26T06:41:57.640411"
+}
