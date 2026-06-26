@@ -186,6 +186,7 @@ export default function MunicipiosPage() {
                           const csvs = fs.existsSync(saida)
                             ? fs.readdirSync(saida).filter(f => f.endsWith(".csv")).sort()
                             : []
+                          if (csvs.length === 0) return null
                           return (
                             <details key={area} style={{ width: "100%" }}>
                               <summary
