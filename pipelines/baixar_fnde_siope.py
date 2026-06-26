@@ -22,7 +22,7 @@ Uso:
     .venv/bin/python3 pipelines/baixar_fnde_siope.py --anos 2022 2023 2024
 
     # Com chave da API Portal Transparência (opcional — aumenta limite de requisições):
-    PTG_API_KEY=sua-chave .venv/bin/python3 pipelines/baixar_fnde_siope.py
+    PORTAL_TRANSPARENCIA_KEY=sua-chave .venv/bin/python3 pipelines/baixar_fnde_siope.py
 
 Chave da API: https://portaldatransparencia.gov.br/api-de-dados/cadastrar-email
 
@@ -307,8 +307,10 @@ def coletar_fnde(municipio: str, anos: list[int], forcar: bool, session: "reques
     for ano in anos:
         dest = pub_dir / f"fnde_repasses_{municipio}_{ano}.csv"
         if dest.exists() and not forcar:
-            print(f"  [{municipio}/FNDE/{ano}] já existe, pulando")
-            continue
+            if "sem_dados" not in dest.read_text(encoding="utf-8"):
+                print(f"  [{municipio}/FNDE/{ano}] já existe, pulando")
+                continue
+            print(f"  [{municipio}/FNDE/{ano}] stub sem_dados detectado — refazendo")
 
         print(f"  [{municipio}/FNDE/{ano}] Portal Transparência …")
         raw = _fetch_ptg_transferencias(cfg["ibge7"], ano, session)
@@ -346,8 +348,10 @@ def coletar_siope(municipio: str, anos: list[int], forcar: bool, session: "reque
     for ano in anos:
         dest = pub_dir / f"siope_{municipio}_{ano}.csv"
         if dest.exists() and not forcar:
-            print(f"  [{municipio}/SIOPE/{ano}] já existe, pulando")
-            continue
+            if "nao_coletado" not in dest.read_text(encoding="utf-8"):
+                print(f"  [{municipio}/SIOPE/{ano}] já existe, pulando")
+                continue
+            print(f"  [{municipio}/SIOPE/{ano}] stub nao_coletado detectado — refazendo")
 
         print(f"  [{municipio}/SIOPE/{ano}] FNDE SIOPE portal …")
         dados = _fetch_siope(cfg["ibge6"], ano, session)
@@ -401,9 +405,9 @@ def main() -> int:
         print("  .venv/bin/pip install requests beautifulsoup4 lxml")
         return 1
 
-    api_key = os.getenv("PTG_API_KEY")
+    api_key = os.getenv("PORTAL_TRANSPARENCIA_KEY") or os.getenv("PTG_API_KEY")
     if not api_key:
-        print("INFO: PTG_API_KEY não definido — usando API sem autenticação (limite menor)")
+        print("INFO: PORTAL_TRANSPARENCIA_KEY não definido — usando API sem autenticação (limite menor)")
         print("  Registre uma chave grátis em: portaldatransparencia.gov.br/api-de-dados/cadastrar-email")
 
     sess = _session(api_key)
@@ -422,7 +426,7 @@ def main() -> int:
     if total_fnde == 0 and args.fonte in ("fnde", "ambos"):
         print("\nAVISO FNDE: sem dados coletados.")
         print("  Opções:")
-        print("  1. Definir PTG_API_KEY e tentar novamente")
+        print("  1. Definir PORTAL_TRANSPARENCIA_KEY e tentar novamente")
         print("  2. Download manual em portaldatransparencia.gov.br → Transferências → filtrar por FNDE")
         print("  3. Download via fnde.gov.br/siope/ (programa a programa)")
 
