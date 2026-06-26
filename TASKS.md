@@ -35,9 +35,14 @@ a `DECISIONS.md`.
 - [x] Cobrir CSV vazio, HTML salvo como CSV, IBGE divergente, schema inválido,
   hash e promoção atômica.
 - [x] Revisar tecnicamente a integração final do cron antes de commit.
+- [x] Restaurar o coletor `pipelines/coletar_municipio_sp.py` chamado pelo
+  cron noturno. — commit `0240664`
+- [x] Corrigir carregamento da `PORTAL_TRANSPARENCIA_KEY` no cron noturno
+  usando também `~/.config/omega/secrets.env`. — commit `0240664`
 - Responsável primário: Codex.
 - Evidência: 15 testes, Ruff, `py_compile`, build e revisão `bash -n` em
-  2026-06-25; alterações locais ainda sem commit.
+  2026-06-25; validação final em 2026-06-26 com `unittest`, `eslint`,
+  `tsc`, `next build`, `bash -n` e pre-push.
 
 ### P1 — Coleta Sprint 2: coletor de emendas ausente
 
@@ -77,7 +82,8 @@ a `DECISIONS.md`.
 
 ### P2 — Confiabilidade
 
-- [ ] Restringir a API de downloads por allowlist derivada do catálogo.
+- [x] Restringir a API de downloads por allowlist derivada do catálogo. —
+  commit `0240664`
 - [ ] Remover chaves duplicadas detectadas pelo Ruff.
 - [ ] Planejar refatoração dos hotspots listados na auditoria sem misturar
   coleta, frontend e governança no mesmo commit.
