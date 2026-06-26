@@ -15,6 +15,7 @@ import {
   type RclDetalhadaRow,
   type RppsRow,
 } from "@/lib/data"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_FIS_DATASET = datasetSchema({
@@ -146,8 +147,8 @@ export default function SaudeFiscalPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_FIS_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_FIS_BREADCRUMB) }} />
+      <JsonLd data={SOR_FIS_DATASET} />
+      <JsonLd data={SOR_FIS_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

@@ -13,6 +13,7 @@ import {
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/ComparativoAnos"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_SEG_DATASET = datasetSchema({
@@ -141,8 +142,8 @@ export default function SegurancaPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SEG_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SEG_BREADCRUMB) }} />
+      <JsonLd data={SOR_SEG_DATASET} />
+      <JsonLd data={SOR_SEG_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

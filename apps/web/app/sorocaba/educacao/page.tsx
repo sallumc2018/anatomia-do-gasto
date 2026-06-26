@@ -16,6 +16,7 @@ import { PorPeriodo, type PorPeriodoPoint, TRIMS } from "@/components/charts/Por
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_EDU_DATASET = datasetSchema({
@@ -189,8 +190,8 @@ export default function EducacaoPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EDU_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EDU_BREADCRUMB) }} />
+      <JsonLd data={SOR_EDU_DATASET} />
+      <JsonLd data={SOR_EDU_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

@@ -20,6 +20,7 @@ import { ComparativoAnos, type ComparativoPoint } from "@/components/charts/Comp
 import { RastroDinheiro } from "@/components/rastro/rastro-dinheiro"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_SAU_DATASET = datasetSchema({
@@ -201,8 +202,8 @@ export default function SaudePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SAU_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_SAU_BREADCRUMB) }} />
+      <JsonLd data={SOR_SAU_DATASET} />
+      <JsonLd data={SOR_SAU_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)" }}>
