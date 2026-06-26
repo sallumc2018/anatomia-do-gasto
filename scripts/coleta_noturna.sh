@@ -109,9 +109,9 @@ run_cmd "Sync public to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
-# 7. Sprint 2 — rotação de UF (fontes federais para todos os municípios Brasil)
+# 7. Sprint 2 — rotação de UF (2 grupos/noite → ~10 noites/ciclo Brasil)
 run_cmd "Sprint 2: rotação de UF" \
-  bash "$REPO/scripts/sprint2_rotacao.sh"
+  bash "$REPO/scripts/sprint2_rotacao.sh" --grupos 2
 
 # 8. Publicar dados Sprint 2 coletados esta noite (gate de integridade ativo)
 run_cmd "Sprint 2: publicar fontes federais" \

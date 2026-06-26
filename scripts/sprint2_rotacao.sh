@@ -55,13 +55,15 @@ log() {
 STATUS=false
 RESETAR=false
 FORCAR_UF=""
+N_GRUPOS_NOITE=2   # grupos processados por execução (padrão 2 → ciclo ~10 noites)
 
 for arg in "$@"; do
   case "$arg" in
     --status)   STATUS=true ;;
     --resetar)  RESETAR=true ;;
-    --forcar)   shift; FORCAR_UF="$1" ;;
-    *)          if [[ -n "$FORCAR_UF" ]]; then FORCAR_UF="$arg"; fi ;;
+    --forcar)   FORCAR_UF="${2:-}"; shift ;;
+    --grupos)   N_GRUPOS_NOITE="${2:-2}"; shift ;;
+    *)          if [[ -n "$FORCAR_UF" && "$arg" != --* ]]; then FORCAR_UF="$arg"; fi ;;
   esac
 done
 
@@ -79,47 +81,54 @@ if [[ -f "$ESTADO" ]]; then
 fi
 IDX=$((IDX % N_GRUPOS))
 
-# Determinar UF(s) a rodar
-if [[ -n "$FORCAR_UF" ]]; then
-  UFS_HOJE="$FORCAR_UF"
-  log "FORÇADO: $UFS_HOJE (índice não avança)"
-else
-  UFS_HOJE="${GRUPOS[$IDX]}"
-  PROXIMO=$(( (IDX + 1) % N_GRUPOS ))
-fi
-
-log "=== Sprint 2 Rotação ==="
-log "Grupo $IDX/$((N_GRUPOS-1)): [$UFS_HOJE]"
-
 if $STATUS; then
-  echo "Grupo atual : $IDX — UFs: [$UFS_HOJE]"
-  echo "Próximo     : $PROXIMO — UFs: [${GRUPOS[$PROXIMO]}]"
-  echo "Total grupos: $N_GRUPOS (~${N_GRUPOS} noites para 1 ciclo Brasil)"
+  PROXIMO_STATUS=$(( (IDX + N_GRUPOS_NOITE) % N_GRUPOS ))
+  echo "Grupo atual : $IDX — UFs: [${GRUPOS[$IDX]}]"
+  echo "Grupos/noite: $N_GRUPOS_NOITE (~$(( (N_GRUPOS + N_GRUPOS_NOITE - 1) / N_GRUPOS_NOITE )) noites/ciclo)"
+  echo "Próximo     : $PROXIMO_STATUS"
+  echo "Total grupos: $N_GRUPOS"
   exit 0
 fi
 
-# Construir flags --uf para o orquestrador
-UF_FLAGS=""
-for uf in $UFS_HOJE; do
-  UF_FLAGS="$UF_FLAGS --uf $uf"
-done
+log "=== Sprint 2 Rotação ==="
 
-log "Iniciando coleta: $UF_FLAGS"
-log "Log Sprint 2: $LOG_FILE"
-
-"$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS >> "$LOG_FILE" 2>&1
-EXIT_CODE=$?
-
-if [[ $EXIT_CODE -eq 0 ]]; then
-  log "✓ Grupo [$UFS_HOJE] concluído com sucesso"
+if [[ -n "$FORCAR_UF" ]]; then
+  # Modo forçado: apenas uma UF, índice não avança
+  log "FORÇADO: $FORCAR_UF (índice não avança)"
+  UF_FLAGS="--uf $FORCAR_UF"
+  log "Iniciando coleta: $UF_FLAGS"
+  "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS >> "$LOG_FILE" 2>&1
+  EXIT_CODE=$?
+  if [[ $EXIT_CODE -eq 0 ]]; then
+    log "✓ [$FORCAR_UF] concluído"
+  else
+    log "✗ [$FORCAR_UF] com falhas (exit $EXIT_CODE)"
+  fi
 else
-  log "✗ Grupo [$UFS_HOJE] com falhas (exit $EXIT_CODE) — avançando mesmo assim"
-fi
-
-# Avançar índice (mesmo com falhas, para não travar indefinidamente)
-if [[ -z "$FORCAR_UF" ]]; then
+  # Modo rotação: processar N_GRUPOS_NOITE grupos consecutivos
+  log "Grupos/noite: $N_GRUPOS_NOITE — iniciando em idx=$IDX"
+  FALHAS=0
+  for (( i=0; i<N_GRUPOS_NOITE; i++ )); do
+    CUR=$(( (IDX + i) % N_GRUPOS ))
+    UFS_CUR="${GRUPOS[$CUR]}"
+    UF_FLAGS=""
+    for uf in $UFS_CUR; do
+      UF_FLAGS="$UF_FLAGS --uf $uf"
+    done
+    log "--- Grupo $CUR/$((N_GRUPOS-1)): [$UFS_CUR]"
+    "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS >> "$LOG_FILE" 2>&1
+    EC=$?
+    if [[ $EC -eq 0 ]]; then
+      log "✓ Grupo $CUR [$UFS_CUR] OK"
+    else
+      log "✗ Grupo $CUR [$UFS_CUR] falhou (exit $EC)"
+      FALHAS=$((FALHAS + 1))
+    fi
+  done
+  PROXIMO=$(( (IDX + N_GRUPOS_NOITE) % N_GRUPOS ))
   echo "$PROXIMO" > "$ESTADO"
-  log "Próxima noite: grupo $PROXIMO [${GRUPOS[$PROXIMO]}]"
+  log "Índice avançado para $PROXIMO [${GRUPOS[$PROXIMO]}] — próxima noite"
+  log "Falhas nesta rodada: $FALHAS/$N_GRUPOS_NOITE"
 fi
 
 log "=== Sprint 2 Rotação concluída ==="
