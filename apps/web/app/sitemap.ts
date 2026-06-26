@@ -123,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/glossario",                       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.7 },
     { route: "/llms.txt",                        mtime: SITE_UPDATED,      freq: "monthly", priority: 0.5 },
     { route: "/humans.txt",                      mtime: SITE_UPDATED,      freq: "monthly", priority: 0.5 },
-    { route: "/atualizacoes",                    mtime: new Date("2026-06-22"), freq: "weekly",  priority: 0.8 },
+    { route: "/atualizacoes",                    mtime: new Date("2026-06-25"), freq: "weekly",  priority: 0.8 },
   ]
 
   const staticEntries = staticRoutes.map(({ route, mtime, freq, priority }) => ({
