@@ -35,7 +35,7 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 })
   }
 
-  const resolved = path.resolve(path.join(DATA_ROOT, ...slug))
+  const resolved = path.resolve(path.join(/*turbopackIgnore: true*/ DATA_ROOT, ...slug))
   const dataRootResolved = path.resolve(DATA_ROOT)
 
   if (!resolved.startsWith(dataRootResolved + path.sep) && resolved !== dataRootResolved) {
