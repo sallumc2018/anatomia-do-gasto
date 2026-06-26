@@ -301,18 +301,6 @@ export default function FluxoPage() {
         </section>
       </main>
       <PageFooter />
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .fluxo-grid {
-              background-image:
-                linear-gradient(var(--border-01) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border-01) 1px, transparent 1px);
-              background-size: 28px 28px;
-            }
-          `,
-        }}
-      />
     </div>
   )
 }
