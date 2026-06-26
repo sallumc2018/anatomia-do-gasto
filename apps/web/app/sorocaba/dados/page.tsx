@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "Dados",
@@ -145,21 +146,16 @@ export default function DadosPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "DataCatalog",
-            "name": "Dados públicos de Sorocaba — Anatomia do Gasto",
-            "description": "Datasets abertos de gastos públicos de Sorocaba publicados pelo Anatomia do Gasto. CSVs gerados a partir de fontes oficiais, com rastreabilidade até a fonte e lacunas declaradas.",
-            "url": "https://www.anatomiadogasto.ong.br/sorocaba/dados",
-            "creator": { "@type": "Organization", "name": "Anatomia do Gasto", "url": "https://www.anatomiadogasto.ong.br" },
-            "spatialCoverage": { "@type": "Place", "name": "Sorocaba, São Paulo, Brasil" },
-            "license": "https://creativecommons.org/licenses/by/4.0/",
-          }),
-        }}
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "DataCatalog",
+        "name": "Dados públicos de Sorocaba — Anatomia do Gasto",
+        "description": "Datasets abertos de gastos públicos de Sorocaba publicados pelo Anatomia do Gasto. CSVs gerados a partir de fontes oficiais, com rastreabilidade até a fonte e lacunas declaradas.",
+        "url": "https://www.anatomiadogasto.ong.br/sorocaba/dados",
+        "creator": { "@type": "Organization", "name": "Anatomia do Gasto", "url": "https://www.anatomiadogasto.ong.br" },
+        "spatialCoverage": { "@type": "Place", "name": "Sorocaba, São Paulo, Brasil" },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+      }} />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>

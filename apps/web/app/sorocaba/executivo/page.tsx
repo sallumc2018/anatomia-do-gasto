@@ -12,6 +12,7 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_EXE_DATASET = datasetSchema({
@@ -236,8 +237,8 @@ export default async function ExecutivoPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EXE_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_EXE_BREADCRUMB) }} />
+      <JsonLd data={SOR_EXE_DATASET} />
+      <JsonLd data={SOR_EXE_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
