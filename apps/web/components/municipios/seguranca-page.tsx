@@ -1,6 +1,7 @@
 import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
+import { JsonLd } from "@/components/seo/json-ld"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import {
   getAvailableYearsSeguranca,
@@ -75,7 +76,7 @@ export function SegurancaPage({ config }: { config: SegurancaPageConfig }) {
   return (
     <div className="min-h-screen flex flex-col">
       {config.structuredData.map((data) => (
-        <script key={JSON.stringify(data)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+        <JsonLd key={JSON.stringify(data)} data={data} />
       ))}
       <ShellHeader />
       <main id="conteudo" className="flex-1">

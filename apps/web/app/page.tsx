@@ -3,6 +3,7 @@ import Link from "next/link"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { AvisoMaturidade } from "@/components/ui/aviso-maturidade"
+import { JsonLd } from "@/components/seo/json-ld"
 import TheoGuide from "@/components/theo/theo-guide"
 
 const S = {
@@ -71,20 +72,15 @@ export default function IndexPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Anatomia do Gasto",
-            "url": "https://www.anatomiadogasto.ong.br",
-            "description": "Projeto cívico brasileiro que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
-            "email": "contato@anatomiadogasto.ong.br",
-            "sameAs": ["https://github.com/sallumc2018/anatomia-do-gasto"],
-          }),
-        }}
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Anatomia do Gasto",
+        "url": "https://www.anatomiadogasto.ong.br",
+        "description": "Projeto cívico brasileiro que organiza dados fiscais públicos em linguagem cidadã, com fonte declarada, limites explícitos e rastreabilidade completa.",
+        "email": "contato@anatomiadogasto.ong.br",
+        "sameAs": ["https://github.com/sallumc2018/anatomia-do-gasto"],
+      }} />
       <AvisoMaturidade />
       <main id="conteudo" className="flex-1">
 
