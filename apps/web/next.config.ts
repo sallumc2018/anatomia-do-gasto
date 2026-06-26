@@ -27,18 +27,22 @@ const nextConfig: NextConfig = {
   // IMPORTANT: all process.cwd() calls in server pages MUST have /*turbopackIgnore: true*/
   // to prevent @vercel/nft from auto-tracing data/public/ (248MB) into every Lambda.
   // This only works in Turbopack mode — do NOT use "next build --webpack".
-  outputFileTracingRoot: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../"),
+  outputFileTracingRoot: path.join(__dirname, "../../"),
   // Belt-and-suspenders: explicitly exclude all of data/public from auto-tracing for
   // the download API. turbopackIgnore in route.ts should already prevent this, but
   // route handlers and server components may be compiled differently by Turbopack.
   // outputFileTracingIncludes (processed after) re-adds the needed ~60MB.
   outputFileTracingExcludes: {
     "*": [
+      "next.config.ts",
+      "../../apps/web/next.config.ts",
       "../../data/public/sorocaba/despesa/**/*",
       "../../data/public/sorocaba/empenho/**/*",
       "../../data/public/paulinia/despesa/**/*",
     ],
     "**/*": [
+      "next.config.ts",
+      "../../apps/web/next.config.ts",
       "../../data/public/sorocaba/despesa/**/*",
       "../../data/public/sorocaba/empenho/**/*",
       "../../data/public/paulinia/despesa/**/*",

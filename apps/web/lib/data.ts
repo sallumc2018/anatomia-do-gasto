@@ -73,6 +73,10 @@ function parseCSV(content: string): HealthRow[] {
 
 const DATA_PUBLIC_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
 
+function dataPublicPath(...segments: string[]): string {
+  return path.join(/*turbopackIgnore: true*/ DATA_PUBLIC_ROOT, ...segments)
+}
+
 function getDataDirs(municipio: string) {
   if (municipio === "sorocaba") {
     return {
@@ -1061,7 +1065,7 @@ export interface FornecedorRow {
 }
 
 function getFornecedoresDir(municipio = "sorocaba"): string {
-  return path.join(DATA_PUBLIC_ROOT, municipio, "fornecedores", "saida")
+  return dataPublicPath(municipio, "fornecedores", "saida")
 }
 
 function parseFornecedoresCSV(content: string, ano: number): FornecedorRow[] {
@@ -1125,7 +1129,7 @@ export interface EmendaAnoRow {
 }
 
 function getEmendasDir(municipio = "sorocaba"): string {
-  return path.join(DATA_PUBLIC_ROOT, municipio, "emendas", "saida")
+  return dataPublicPath(municipio, "emendas", "saida")
 }
 
 export function loadEmendasPorParlamentar(municipio = "sorocaba"): EmendaParlamentarRow[] {
@@ -1184,7 +1188,7 @@ export interface DcaSiconfiRow {
 }
 
 export function loadDcaSiconfi(municipio = "sorocaba"): DcaSiconfiRow[] {
-  const dir = path.join(DATA_PUBLIC_ROOT, municipio, "controle_externo", "saida")
+  const dir = dataPublicPath(municipio, "controle_externo", "saida")
   const filePath = path.join(dir, `dca_siconfi_${municipio}_2020_2025.csv`)
   if (!fs.existsSync(filePath)) return []
   const content = fs.readFileSync(filePath, "utf-8")
@@ -1222,7 +1226,7 @@ export interface CabinetExpenseRow {
 }
 
 export function getAvailableYearsCabinet(municipio = "sorocaba"): number[] {
-  const dir = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "gabinete", "saida")
+  const dir = dataPublicPath(municipio, "camara", "gabinete", "saida")
   if (!fs.existsSync(dir)) return []
   return fs
     .readdirSync(dir)
@@ -1233,7 +1237,7 @@ export function getAvailableYearsCabinet(municipio = "sorocaba"): number[] {
 }
 
 export function loadCabinetExpenses(year: number, municipio = "sorocaba"): CabinetExpenseRow[] {
-  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "gabinete", "saida", `despesas_gabinete_camara_${municipio}_${year}.csv`)
+  const filePath = dataPublicPath(municipio, "camara", "gabinete", "saida", `despesas_gabinete_camara_${municipio}_${year}.csv`)
   if (!fs.existsSync(filePath)) return []
   const content = fs.readFileSync(filePath, "utf-8")
   const lines = content.split("\n").filter(Boolean)
@@ -1269,9 +1273,9 @@ export interface CamaraDespesaTceRow {
 }
 
 export function loadCamaraDespesasTce(municipio = "sorocaba"): CamaraDespesaTceRow[] {
-  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "saida", `camara_despesas_tce_2020_2026.csv`)
+  const filePath = dataPublicPath(municipio, "camara", "saida", `camara_despesas_tce_2020_2026.csv`)
   if (!fs.existsSync(filePath)) {
-    const fallbackPath = path.join(DATA_PUBLIC_ROOT, municipio, "camara", "saida", `camara_despesas_tce_2020_2025.csv`)
+    const fallbackPath = dataPublicPath(municipio, "camara", "saida", `camara_despesas_tce_2020_2025.csv`)
     if (!fs.existsSync(fallbackPath)) return []
     return parseCamaraTceFile(fallbackPath)
   }
@@ -1310,9 +1314,9 @@ export interface SubvencaoEntidadeRow {
 }
 
 export function loadSubvencoesPorEntidade(municipio = "sorocaba"): SubvencaoEntidadeRow[] {
-  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `subvencoes_por_entidade_${municipio}.csv`)
+  const filePath = dataPublicPath(municipio, "transferencias", "saida", `subvencoes_por_entidade_${municipio}.csv`)
   if (!fs.existsSync(filePath)) {
-    const fallbackPath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `subvencoes_por_entidade_sorocaba.csv`)
+    const fallbackPath = dataPublicPath(municipio, "transferencias", "saida", `subvencoes_por_entidade_sorocaba.csv`)
     if (!fs.existsSync(fallbackPath)) return []
     return parseSubvencoesFile(fallbackPath)
   }
@@ -1349,7 +1353,7 @@ export interface ConvenioFederalRow {
 }
 
 export function loadConveniosFederais(municipio = "sorocaba"): ConvenioFederalRow[] {
-  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `transferencias_federais_portal_${municipio}.csv`)
+  const filePath = dataPublicPath(municipio, "transferencias", "saida", `transferencias_federais_portal_${municipio}.csv`)
   if (!fs.existsSync(filePath)) return []
   const content = fs.readFileSync(filePath, "utf-8")
   const lines = content.split("\n").filter(Boolean)
@@ -1382,7 +1386,7 @@ export interface StateTransferResumoRow {
 }
 
 export function loadStateTransferResumo(municipio = "sorocaba"): StateTransferResumoRow[] {
-  const filePath = path.join(DATA_PUBLIC_ROOT, municipio, "transferencias", "saida", `transferencias_estaduais_resumo_${municipio}.csv`)
+  const filePath = dataPublicPath(municipio, "transferencias", "saida", `transferencias_estaduais_resumo_${municipio}.csv`)
   if (!fs.existsSync(filePath)) return []
   const content = fs.readFileSync(filePath, "utf-8")
   const lines = content.split("\n").filter(Boolean)
