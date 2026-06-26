@@ -156,6 +156,13 @@ def _fetch_ptg_transferencias(
                       "portaldatransparencia.gov.br/api-de-dados/cadastrar-email",
                       file=sys.stderr)
                 return resultados
+            if resp.status_code == 403:
+                print("    AVISO 403: chave sem permissão para /transferencias/municipios. "
+                      "Endpoint requer tier de acesso específico no PT-Gov. "
+                      "Cadastre nova chave selecionando 'Transferências' em "
+                      "portaldatransparencia.gov.br/api-de-dados/cadastrar-email",
+                      file=sys.stderr)
+                return resultados
             if resp.status_code == 429:
                 print("    Rate limit — aguardando 30s …", file=sys.stderr)
                 time.sleep(30)
