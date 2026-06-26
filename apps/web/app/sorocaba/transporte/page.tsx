@@ -11,6 +11,7 @@ import {
 } from "@/lib/data"
 import { TotalAnual, type TotalAnualPoint } from "@/components/charts/TotalAnual"
 import { TrackedReportLink } from "@/components/analytics/tracked-link"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_TRP_DATASET = datasetSchema({
@@ -97,8 +98,8 @@ export default function TransportePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_TRP_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_TRP_BREADCRUMB) }} />
+      <JsonLd data={SOR_TRP_DATASET} />
+      <JsonLd data={SOR_TRP_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

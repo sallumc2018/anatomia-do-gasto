@@ -11,6 +11,7 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const SOR_REC_DATASET = datasetSchema({
@@ -223,8 +224,8 @@ export default async function ReceitaPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_REC_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SOR_REC_BREADCRUMB) }} />
+      <JsonLd data={SOR_REC_DATASET} />
+      <JsonLd data={SOR_REC_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
