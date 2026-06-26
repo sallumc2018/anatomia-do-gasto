@@ -46,6 +46,7 @@ const SCOPED_LINKS = [
 // Links globais (sem escopo de município) — sempre presentes no menu "Mais".
 const GLOBAL_LINKS = [
   { href: "/atualizacoes", label: "Atualizações" },
+  { href: "/municipios", label: "Municípios (AC/AP/RR)" },
   { href: "/comparativo", label: "Comparativo" },
   { href: "/metodologia", label: "Metodologia" },
   { href: "/como-citar", label: "Como citar" },
