@@ -12,6 +12,38 @@ export interface Atualizacao {
 
 export const ATUALIZACOES: Atualizacao[] = [
   {
+    id: "paulinia-expansao-paginas-2026-06",
+    slug: "paulinia-expansao-paginas-2026-06",
+    titulo: "Paulínia completa: contratos PNCP, fornecedores, educação e controle externo publicados",
+    data: "2026-06-25",
+    municipios: ["3536505"],
+    tags: ["paulinia", "contratos", "fornecedores", "educação", "tce-sp", "transparência"],
+    resumo: "Quatro novas seções de Paulínia publicadas: educação (RREO 2020–2025), contratos PNCP (1.063 contratos 2023–2026), fornecedores/empenhos (188k empenhos 2020–2026) e controle externo com pareceres prévios do TCE-SP (6 desfavoráveis em 10 exercícios).",
+    corpo: `O Anatomia do Gasto expandiu a cobertura do Município de Paulínia/SP com quatro novas seções de dados públicos.
+
+**Educação — gasto com MDE (2020–2025)**
+
+A página de educação mostra o gasto do Município de Paulínia com educação a partir do RREO Anexo 02 (função 12). Os dados cobrem dotação inicial, dotação atualizada e liquidado, com série histórica 2020–2025. O gasto liquidado em educação alcançou R$ 655 milhões em 2025, representando aproximadamente 23% do orçamento total executado.
+
+**Contratos e licitações — PNCP (2023–2026)**
+
+1.063 contratos publicados no Portal Nacional de Contratações Públicas (PNCP) entre 2023 e 2026, totalizando R$ 1,07 bilhão em valor global contratado. Dados cobrem modalidade (pregão eletrônico, dispensa, inexigibilidade), valor global, datas de vigência e links diretos para os documentos no PNCP.
+
+**Fornecedores e empenhos (2020–2026)**
+
+188 mil empenhos registrados no portal SMARAPD de Paulínia, com os maiores credores do município por ano. Em 2025, foram 35,6 mil empenhos; os 8 maiores credores (excluindo empenhos intragovernamentais) responderam pela maior parte dos gastos. Dados disponíveis por exercício em CSV.
+
+**Controle externo — TCE-SP (2008–2017)**
+
+Inventário dos pareceres prévios do Tribunal de Contas do Estado de São Paulo sobre as contas anuais do Prefeito de Paulínia. Entre 2008 e 2017, o TCE-SP emitiu 6 pareceres desfavoráveis e 4 favoráveis. A virada para desfavorável coincide com o período 2012–2017. Todos os documentos com links diretos ao AUDESP/TCE-SP.`,
+    datasets: [
+      { label: "Educação — Paulínia 2020–2025", href: "/paulinia/educacao" },
+      { label: "Contratos PNCP — Paulínia 2023–2026", href: "/paulinia/contratos" },
+      { label: "Fornecedores e empenhos — Paulínia 2020–2026", href: "/paulinia/fornecedores" },
+      { label: "Controle externo TCE-SP — Paulínia", href: "/paulinia/controle-externo" },
+    ],
+  },
+  {
     id: "sprint1-expansao-sp",
     slug: "sprint1-expansao-sp",
     titulo: "Sprint 1: expansão para 18 municípios do estado de São Paulo",
@@ -59,7 +91,7 @@ Exemplos:
 
 Para Sorocaba: saúde, educação, segurança pública, transporte, orçamento executivo, receitas, fornecedores, saúde fiscal e empenhos.
 
-Para Paulínia: segurança pública, transporte, receitas, orçamento executivo, saúde fiscal, saúde, transferências e câmara municipal.
+Para Paulínia: segurança pública, transporte, receitas, orçamento executivo, saúde fiscal, saúde, transferências, câmara municipal, educação, contratos PNCP, fornecedores/empenhos e controle externo (TCE-SP).
 
 Para São Paulo: orçamento total (RREO), receitas, segurança, transporte, saúde fiscal e repasses FNS de saúde.
 
