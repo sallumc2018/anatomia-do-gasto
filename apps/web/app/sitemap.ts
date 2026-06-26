@@ -76,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/sao-paulo/seguranca",             mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/sao-paulo/transporte",            mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/sao-paulo/transferencias",        mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
+    { route: "/municipios",                       mtime: new Date("2026-06-26"), freq: "weekly",  priority: 0.85 },
     { route: "/sao-bernardo",                    mtime: SITE_UPDATED,      freq: "monthly", priority: 0.85 },
     { route: "/sao-bernardo/receita",            mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
     { route: "/sao-bernardo/saude-fiscal",       mtime: SITE_UPDATED,      freq: "monthly", priority: 0.75 },
