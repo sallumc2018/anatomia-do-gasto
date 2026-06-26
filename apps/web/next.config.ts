@@ -143,8 +143,12 @@ const nextConfig: NextConfig = {
       "../../data/public/sorocaba/executivo/saida/**/*",
       "../../data/public/paulinia/executivo/saida/**/*",
     ],
-    // Sprint 2 — AC, AP, RR (53 municípios, ~25MB estimado)
+    // Sprint 2 — dinâmico: lê data/manifests/sprint2/ e data/public/{key}/
+    // Ao adicionar novos grupos (RO+TO, AM+PA...), a página auto-detecta.
+    // Lambda precisa dos manifests (para descoberta) e dos CSVs (para listagem).
+    // O glob abrangente é intencional — municípios Sprint 2 têm arquivos pequenos.
     "/municipios": [
+      "../../data/manifests/sprint2/**/*",
       "../../data/public/acrelandia/**/*",
       "../../data/public/alto_alegre/**/*",
       "../../data/public/amajari/**/*",
