@@ -6,6 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const FNS_DATASET = datasetSchema({
@@ -134,8 +135,8 @@ export default function SaoPauloSaudePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FNS_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_SAUDE_BREADCRUMB) }} />
+      <JsonLd data={FNS_DATASET} />
+      <JsonLd data={SP_SAUDE_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

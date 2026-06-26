@@ -12,6 +12,7 @@ import { AnoSelector } from "@/components/ui/ano-selector"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
 import { DonutFuncoes, type DonutPoint } from "@/components/charts/DonutFuncoes"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_EXE_DATASET = datasetSchema({
@@ -197,8 +198,8 @@ export default async function SaoPauloExecutivoPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_EXE_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_EXECUTIVO_BREADCRUMB) }} />
+      <JsonLd data={SP_EXE_DATASET} />
+      <JsonLd data={SP_EXECUTIVO_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 

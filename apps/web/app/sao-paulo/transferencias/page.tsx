@@ -6,6 +6,7 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { DadoQueMostra } from "@/components/ui/dado-que-mostra"
 import { SerieHistorica, type SerieHistoricaPoint } from "@/components/charts/SerieHistorica"
+import { JsonLd } from "@/components/seo/json-ld"
 import { datasetSchema, breadcrumbSchema, SITE_URL } from "@/lib/structured-data"
 
 const SP_TRF_DATASET = datasetSchema({
@@ -153,8 +154,8 @@ export default function SaoPauloTransferenciasPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRF_DATASET) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SP_TRANSFERENCIAS_BREADCRUMB) }} />
+      <JsonLd data={SP_TRF_DATASET} />
+      <JsonLd data={SP_TRANSFERENCIAS_BREADCRUMB} />
       <ShellHeader />
       <main id="conteudo" className="flex-1">
 
