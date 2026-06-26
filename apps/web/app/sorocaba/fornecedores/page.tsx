@@ -6,6 +6,7 @@ import {
   loadFornecedores,
   type FornecedorRow,
 } from "@/lib/data"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "Fornecedores — Sorocaba",
@@ -78,21 +79,16 @@ export default function FornecedoresPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Dataset",
-            "name": "Fornecedores da Prefeitura de Sorocaba",
-            "description": "Dados públicos de destinatários de recursos da Prefeitura de Sorocaba: empresas privadas, entidades sem fins lucrativos, folha de pagamento e fundos públicos. Fonte: Livro de Conta-Corrente de Fornecedores (Tesouro Nacional).",
-            "url": "https://www.anatomiadogasto.ong.br/fornecedores",
-            "creator": { "@type": "Organization", "name": "Anatomia do Gasto", "url": "https://www.anatomiadogasto.ong.br" },
-            "spatialCoverage": { "@type": "Place", "name": "Sorocaba, São Paulo, Brasil" },
-            "license": "https://creativecommons.org/licenses/by/4.0/",
-          }),
-        }}
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Fornecedores da Prefeitura de Sorocaba",
+        "description": "Dados públicos de destinatários de recursos da Prefeitura de Sorocaba: empresas privadas, entidades sem fins lucrativos, folha de pagamento e fundos públicos. Fonte: Livro de Conta-Corrente de Fornecedores (Tesouro Nacional).",
+        "url": "https://www.anatomiadogasto.ong.br/fornecedores",
+        "creator": { "@type": "Organization", "name": "Anatomia do Gasto", "url": "https://www.anatomiadogasto.ong.br" },
+        "spatialCoverage": { "@type": "Place", "name": "Sorocaba, São Paulo, Brasil" },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+      }} />
       <main id="conteudo" className="flex-1">
 
         {/* Hero */}

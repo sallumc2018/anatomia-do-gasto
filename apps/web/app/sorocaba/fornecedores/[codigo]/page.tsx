@@ -8,6 +8,7 @@ import {
   loadFornecedores,
   type FornecedorRow,
 } from "@/lib/data"
+import { JsonLd } from "@/components/seo/json-ld"
 
 const CLASS_LABEL: Record<string, string> = {
   folha:                        "Folha de pagamento",
@@ -78,7 +79,7 @@ export default async function FornecedorDetailPage({ params }: PageProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -86,7 +87,7 @@ export default async function FornecedorDetailPage({ params }: PageProps) {
           { "@type": "ListItem", position: 2, name: "Fornecedores", item: "https://www.anatomiadogasto.ong.br/sorocaba/fornecedores" },
           { "@type": "ListItem", position: 3, name: latest.fornecedor_nome },
         ],
-      }) }} />
+      }} />
       <main id="conteudo" className="flex-1">
 
         {/* Breadcrumb */}

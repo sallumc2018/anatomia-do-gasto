@@ -11,6 +11,7 @@ import {
   getAvailableYearsTransporte,
   type ExecutivoRow,
 } from "@/lib/data"
+import { JsonLd } from "@/components/seo/json-ld"
 
 const S = {
   container:    { maxWidth: "1312px" } as React.CSSProperties,
@@ -92,7 +93,7 @@ export default async function AnoPage({ params }: PageProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <ShellHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -100,8 +101,8 @@ export default async function AnoPage({ params }: PageProps) {
           { "@type": "ListItem", position: 2, name: "Sorocaba", item: "https://www.anatomiadogasto.ong.br/sorocaba" },
           { "@type": "ListItem", position: 3, name: String(year) },
         ],
-      }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      }} />
+      <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Dataset",
         name: `Execução orçamentária de Sorocaba — ${year}`,
@@ -111,7 +112,7 @@ export default async function AnoPage({ params }: PageProps) {
         license: "https://creativecommons.org/licenses/by/4.0/",
         publisher: { "@type": "Organization", name: "Anatomia do Gasto", url: "https://www.anatomiadogasto.ong.br" },
         spatialCoverage: { "@type": "Place", name: "Sorocaba, São Paulo, Brasil" },
-      }) }} />
+      }} />
       <main id="conteudo" className="flex-1">
 
         {/* Breadcrumb */}
