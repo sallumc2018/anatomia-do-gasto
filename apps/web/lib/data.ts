@@ -50,15 +50,7 @@ function parseCSV(content: string): HealthRow[] {
   const lines = content.split("\n").filter(Boolean)
   if (lines.length < 2) return []
   return lines.slice(1).map((line) => {
-    const fields: string[] = []
-    let cur = ""
-    let inQ = false
-    for (const c of line) {
-      if (c === '"') { inQ = !inQ; continue }
-      if (c === "," && !inQ) { fields.push(cur); cur = ""; continue }
-      cur += c
-    }
-    fields.push(cur)
+    const fields = splitCsvLine(line)
     return {
       funcao:       fields[0]?.trim() ?? "",
       dotacao:      parseBrNumber(fields[1] ?? "0"),
@@ -72,60 +64,31 @@ function parseCSV(content: string): HealthRow[] {
 }
 
 const DATA_PUBLIC_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
+const KNOWN_MUNICIPIOS = new Set(["sorocaba", "paulinia", "sao_paulo", "sao_bernardo"])
 
 function dataPublicPath(...segments: string[]): string {
   return path.join(/*turbopackIgnore: true*/ DATA_PUBLIC_ROOT, ...segments)
 }
 
-function getDataDirs(municipio: string) {
-  if (municipio === "sorocaba") {
-    return {
-      saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/saude/saida"),
-      educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/educacao/saida"),
-      seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/seguranca/saida"),
-      transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/transporte/saida"),
-      executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/executivo/saida"),
-      receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/receita/saida"),
-    }
-  }
-  if (municipio === "paulinia") {
-    return {
-      saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/saude/saida"),
-      educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/educacao/saida"),
-      seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/seguranca/saida"),
-      transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/transporte/saida"),
-      executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/executivo/saida"),
-      receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/receita/saida"),
-    }
-  }
-  if (municipio === "sao_paulo") {
-    return {
-      saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/saude/saida"),
-      educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/educacao/saida"),
-      seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/seguranca/saida"),
-      transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/transporte/saida"),
-      executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/executivo/saida"),
-      receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/receita/saida"),
-    }
-  }
-  if (municipio === "sao_bernardo") {
-    return {
-      saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/saude/saida"),
-      educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/educacao/saida"),
-      seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/seguranca/saida"),
-      transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/transporte/saida"),
-      executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/executivo/saida"),
-      receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/receita/saida"),
-    }
-  }
+function normalizeMunicipio(municipio: string): string {
+  return KNOWN_MUNICIPIOS.has(municipio) ? municipio : "sorocaba"
+}
+
+type DataDirs = Record<"saude" | "educacao" | "seguranca" | "transporte" | "executivo" | "receita", string>
+
+function municipioAreaDirs(municipio: string): DataDirs {
   return {
-    saude:      path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/saude/saida"),
-    educacao:   path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/educacao/saida"),
-    seguranca:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/seguranca/saida"),
-    transporte: path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/transporte/saida"),
-    executivo:  path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/executivo/saida"),
-    receita:    path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/receita/saida"),
+    saude:      dataPublicPath(municipio, "saude", "saida"),
+    educacao:   dataPublicPath(municipio, "educacao", "saida"),
+    seguranca:  dataPublicPath(municipio, "seguranca", "saida"),
+    transporte: dataPublicPath(municipio, "transporte", "saida"),
+    executivo:  dataPublicPath(municipio, "executivo", "saida"),
+    receita:    dataPublicPath(municipio, "receita", "saida"),
   }
+}
+
+function getDataDirs(municipio: string) {
+  return municipioAreaDirs(normalizeMunicipio(municipio))
 }
 
 function maybeDevDataDir(envKey: string): string | null {
@@ -242,15 +205,7 @@ function parseRevenueDetailCSV(content: string): RevenueDetailRow[] {
   const lines = content.split("\n").filter(Boolean)
   if (lines.length < 2) return []
   return lines.slice(1).map((line) => {
-    const fields: string[] = []
-    let cur = ""
-    let inQ = false
-    for (const c of line) {
-      if (c === '"') { inQ = !inQ; continue }
-      if (c === "," && !inQ) { fields.push(cur); cur = ""; continue }
-      cur += c
-    }
-    fields.push(cur)
+    const fields = splitCsvLine(line)
     return {
       categoria: fields[0]?.trim() ?? "",
       conta:     fields[1]?.trim() ?? "",
@@ -283,15 +238,7 @@ function parseRREODespesasCSV(content: string): RREODespesasRow[] {
   const lines = content.split("\n").filter(Boolean)
   if (lines.length < 2) return []
   return lines.slice(1).map((line) => {
-    const cols: string[] = []
-    let cur = ""
-    let inQ = false
-    for (const c of line) {
-      if (c === '"') { inQ = !inQ; continue }
-      if (c === "," && !inQ) { cols.push(cur); cur = ""; continue }
-      cur += c
-    }
-    cols.push(cur)
+    const cols = splitCsvLine(line)
     return {
       funcao:          cols[0]?.trim() ?? "",
       asps_empenhada:  parseBrNumber(cols[1]  ?? "0"),
@@ -332,15 +279,7 @@ function parseRREOReceitasCSV(content: string): RREOReceitasRow[] {
   const lines = content.split("\n").filter(Boolean)
   if (lines.length < 2) return []
   return lines.slice(1).map((line) => {
-    const cols: string[] = []
-    let cur = ""
-    let inQ = false
-    for (const c of line) {
-      if (c === '"') { inQ = !inQ; continue }
-      if (c === "," && !inQ) { cols.push(cur); cur = ""; continue }
-      cur += c
-    }
-    cols.push(cur)
+    const cols = splitCsvLine(line)
     return {
       quadrimestre:           parseInt(cols[0]  ?? "0"),
       sus_total_previsao:     parseBrNumber(cols[1]  ?? "0"),
@@ -688,16 +627,7 @@ export function loadReceitaMunicipal(year: number, municipio = "sorocaba"): Rece
 function getFiscalDir(municipio = "sorocaba"): string {
   const devDir = maybeDevDataDir("DATA_SAIDA_DIR_FISCAL")
   if (devDir) return devDir
-  if (municipio === "paulinia") {
-    return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/paulinia/fiscal/saida")
-  }
-  if (municipio === "sao_paulo") {
-    return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_paulo/fiscal/saida")
-  }
-  if (municipio === "sao_bernardo") {
-    return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sao_bernardo/fiscal/saida")
-  }
-  return path.join(/*turbopackIgnore: true*/ process.cwd(), "../../data/public/sorocaba/fiscal/saida")
+  return dataPublicPath(normalizeMunicipio(municipio), "fiscal", "saida")
 }
 
 export interface PessoalRow {
