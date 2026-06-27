@@ -7,6 +7,9 @@ import pandas as pd
 from paths import as_str, SAUDE_RAW_DIR, SAUDE_EXTRACTED_DIR
 
 
+HTTP_TIMEOUT = 30
+
+
 def extrair_tabela_saude(caminho_pdf):
     dados = []
     try:
@@ -418,7 +421,7 @@ def baixar_pdfs_sorocaba(pasta_pdfs):
         return
 
     url_base = "https://fazenda.sorocaba.sp.gov.br/transparencia/"
-    response = requests.get(url_base)
+    response = requests.get(url_base, timeout=HTTP_TIMEOUT)
     if response.status_code != 200:
         print("Erro ao acessar o portal.")
         return
@@ -431,7 +434,7 @@ def baixar_pdfs_sorocaba(pasta_pdfs):
             pdf_url = href if href.startswith('http') else url_base + href.lstrip('/')
             nome_arquivo = os.path.basename(pdf_url)
             caminho_destino = os.path.join(pasta_pdfs, nome_arquivo)
-            pdf_response = requests.get(pdf_url)
+            pdf_response = requests.get(pdf_url, timeout=HTTP_TIMEOUT)
             if pdf_response.status_code == 200:
                 with open(caminho_destino, 'wb') as f:
                     f.write(pdf_response.content)
