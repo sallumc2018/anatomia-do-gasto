@@ -74,6 +74,10 @@ a `DECISIONS.md`.
   em um template Server Component configurável.
 - [ ] Aplicar o mesmo inventário, uma área por vez, a `saude-fiscal`,
   `seguranca` e `transporte`.
+  - [x] `saude-fiscal`: Sorocaba usa o template compartilhado e mantém blocos
+    específicos de RPPS/RCL em componente isolado.
+  - [ ] `seguranca`.
+  - [ ] `transporte`.
 - Gate: preservar conteúdo municipal, metadados, dados estruturados, links e
   comportamento de `searchParams`.
 - Responsável primário: Codex.

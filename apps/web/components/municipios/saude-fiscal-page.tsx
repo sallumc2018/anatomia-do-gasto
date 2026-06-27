@@ -1,4 +1,5 @@
 import Link from "next/link"
+import type { ReactNode } from "react"
 import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 import { JsonLd } from "@/components/seo/json-ld"
@@ -29,6 +30,7 @@ export interface SaudeFiscalPageConfig {
   debtExplanation: string
   debtChartLabel: string
   debtInsightSuffix?: string
+  extraSections?: ReactNode
   sourceCards: readonly { title: string; text: string }[]
   navLinks: readonly { href: string; label: string }[]
 }
@@ -265,6 +267,8 @@ export function SaudeFiscalPage({ config }: { config: SaudeFiscalPageConfig }) {
             </div>
           </div>
         </section>
+
+        {config.extraSections}
 
         {/* Fonte */}
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
