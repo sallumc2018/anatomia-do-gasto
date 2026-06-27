@@ -66,10 +66,9 @@ CONTAS_RESUMO = {
     "P2.0.0.0.0.00.00": "Passivo Total",
     "P2.1.0.0.0.00.00": "Passivo Circulante",
     "P2.2.0.0.0.00.00": "Passivo Não Circulante",
-    "SaldoPatrimonial": "Saldo Patrimonial (PL)",
+    "SaldoPatrimonial": "Saldo Patrimonial",
     "AtivoPermanente": "Ativo Permanente (ant.)",
     "PassivoPermanente": "Passivo Permanente (ant.)",
-    "SaldoPatrimonial": "Saldo Patrimonial",
 }
 
 
