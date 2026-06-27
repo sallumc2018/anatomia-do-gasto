@@ -36,7 +36,6 @@ CORRECTIONS: dict[str, str] = {
     "visualizacao": "visualização",
     "composicao": "composição",
     "composicoes": "composições",
-    "composicao": "composição",
     "funcao": "função",
     "subfuncao": "subfunção",
     "atualizacao": "atualização",
@@ -56,7 +55,6 @@ CORRECTIONS: dict[str, str] = {
     "orcamentario": "orçamentário",
     "orcamentarios": "orçamentários",
     # palavras com á / ê / é / í / ó / ú
-    "catalogo": "catálogo",
     "catalogo": "catálogo",
     "analitico": "analítico",
     "analitica": "analítica",
@@ -80,7 +78,6 @@ CORRECTIONS: dict[str, str] = {
     "historico": "histórico",
     "historica": "histórica",
     "sintetico": "sintético",
-    "analitico": "analítico",
     "especifico": "específico",
     "explicita": "explícita",
     "explicito": "explícito",

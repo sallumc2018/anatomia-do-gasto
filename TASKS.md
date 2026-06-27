@@ -84,7 +84,7 @@ a `DECISIONS.md`.
 
 - [x] Restringir a API de downloads por allowlist derivada do catálogo. —
   commit `0240664`
-- [ ] Remover chaves duplicadas detectadas pelo Ruff.
+- [x] Remover chaves duplicadas detectadas pelo Ruff. — commit pendente Codex
 - [ ] Planejar refatoração dos hotspots listados na auditoria sem misturar
   coleta, frontend e governança no mesmo commit.
 - Responsável: Codex e Claude, com paths separados.
