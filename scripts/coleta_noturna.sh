@@ -2,7 +2,7 @@
 # Coleta noturna com sincronização GDrive (02:00 cada dia)
 # Uso: bash scripts/coleta_noturna.sh [--dry-run]
 
-set -eE
+set -Eeuo pipefail
 FALHAS=()
 RCLONE=/home/sallumc/.local/bin/rclone
 export PATH="/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -13,12 +13,14 @@ REPO=$(cd "$(dirname "$0")/.." && pwd)
 # legado porque TASKS.md e sessões anteriores registraram a chave ali.
 OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
 PORTAIS_ENV="/home/sallumc/.config/omega/secrets/by-project/portais.env"
+set +u
 if [[ -f "$OMEGA_SECRETS" ]]; then
   source "$OMEGA_SECRETS"
 fi
 if [[ -f "$PORTAIS_ENV" ]]; then
   source "$PORTAIS_ENV"
 fi
+set -u
 LOG_DIR="$REPO/_logs/coleta_noturna"
 TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
 LOG_FILE="$LOG_DIR/coleta_${TIMESTAMP}.log"
@@ -26,7 +28,7 @@ LOG_FILE="$LOG_DIR/coleta_${TIMESTAMP}.log"
 mkdir -p "$LOG_DIR"
 
 DRY_RUN=false
-[[ "$1" == "--dry-run" ]] && DRY_RUN=true
+[[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
 # Prevenir execuções simultâneas (lock de arquivo)
 LOCKFILE="/tmp/coleta_noturna_anatomia.lock"
