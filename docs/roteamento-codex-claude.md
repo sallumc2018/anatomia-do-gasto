@@ -84,6 +84,10 @@ substancial.
 - Todo produtor preserva alteracoes concorrentes e registra proveniencia.
 - Revisao do Codex nao substitui QA de dados, decisao metodologica nem
   autorizacao humana.
+- Claude faz commit, push e deploy apenas do proprio escopo autorizado
+  (coleta/publicacao ou UI/UX). Codex faz commit e push apenas do proprio escopo
+  autorizado; deploy pelo Codex e excecao, somente com limite operacional
+  suficiente e autorizacao explicita.
 - Cada agente commita apenas o proprio escopo. Se publicar commits de outro
   agente, deve declarar quais commits sao de quem e quais gates cobrem o lote.
 - Antes de push/deploy, rodar `python tools/agents/check-release-readiness.py`

@@ -8,6 +8,9 @@ Ele prevalece sobre instrucoes antigas quando houver conflito.
 - Cada agente commita apenas o proprio diff.
 - Cada agente pode fazer push apenas quando o branch estiver limpo, alinhado com
   `origin/main` e o push contiver somente commits que ele revisou.
+- Claude e dono do commit, push e deploy do proprio escopo autorizado. Codex e
+  dono do commit e push do proprio escopo autorizado; deploy via Codex e
+  excecao condicionada a autorizacao explicita e limite operacional suficiente.
 - Deploy so ocorre depois de push validado e autorizacao explicita do usuario.
 - Deploy manual via `vercel deploy --prod --yes` esta bloqueado enquanto
   `STATUS.md` mantiver esse comando como blocker.
