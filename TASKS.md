@@ -93,6 +93,27 @@ a `DECISIONS.md`.
   coleta, frontend e governança no mesmo commit.
 - Responsável: Codex e Claude, com paths separados.
 
+### P1 — Fix Sprint 1: SICONFI 2026 + WARN counter (2026-06-29)
+
+- [x] Criar counter `WARN` separado de `SKIP` e `FAIL` em
+  `pipelines/coletar_municipio_sp.py`.
+- [x] `rodar_warn()`: extrator que falha conta como WARN (dados indisponíveis),
+  não FAIL. Log detalhado com motivo.
+- [x] `fase_siconfi_2026_parcial()`: usa `rodar_warn()` — dados 2026 que não
+  existem viram WARN em vez de exit 1 em cascata.
+- [x] `fase_publicar()`: verifica pasta `validated/` antes de tentar publicar;
+  ausência → WARN.
+- [x] Manifest `transferencias_estaduais`: conversão FAIL → WARN para padrão
+  de manifest incompatível (pré-existente).
+- [x] `resumo_municipio()`: mostra OK/FAIL/SKIP/WARN + lista de warnings.
+- [ ] **Pendente**: investigar falhas SICONFI base (DCA Transporte, Rreo
+  Transporte, DCA Seguranca, Rpps, Refis Capital) em 9/18 municípios —
+  pré-existentes, não do fix 2026.
+- Responsável: Claude Coleta e Publicação.
+- Evidência: teste completo 2026-06-29, 9/18 municípios FAIL=0.
+- Contexto: Sprint 1 rodava com exit 1 toda noite; agora exit 0 para
+  municípios sem falhas SICONFI base. Cron `0 2 * * *` usa este script.
+
 ## Registro histórico migrado de `tasks.txt`
 
 O conteúdo abaixo foi preservado como histórico de decisões, triagens e tarefas
