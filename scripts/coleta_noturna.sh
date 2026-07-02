@@ -123,33 +123,10 @@ run_cmd "Sync public to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
-# 7. Sprint 2 — rotação de UF (2 grupos/noite → ~10 noites/ciclo Brasil)
-run_cmd "Sprint 2: rotação de UF" \
-  timeout 3h bash "$REPO/scripts/sprint2_rotacao.sh" --grupos 1
-
-# 8. Publicar dados Sprint 2 coletados esta noite (gate de integridade ativo)
-run_cmd "Sprint 2: publicar fontes federais" \
-  "$REPO/.venv/bin/python3" "$REPO/pipelines/publicar_municipios_brasil.py" --todos
-
-# 8b. Regenerar catálogo após publicação Sprint 2 (dados desta noite ficam visíveis)
-run_cmd "Regenerar catálogo de datasets (pós Sprint 2)" \
-  "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"
-
-# 9. Sincronizar extracted Sprint 2 para GDrive (backup)
-run_cmd "Sync extracted Sprint 2 to GDrive" \
-  "$RCLONE" sync "$REPO/data/extracted/" \
-    "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
-    --progress --checksum
-
-# 10. Sincronizar public Sprint 2 para GDrive
-run_cmd "Sync public Sprint 2 to GDrive" \
-  "$RCLONE" sync "$REPO/data/public/" \
-    "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
-    --progress --checksum
-
-# 11. Relatório de cobertura Sprint 2 (informativo — não bloqueia se falhar)
-run_cmd "Cobertura Sprint 2: gerar relatório" \
-  "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_cobertura_sprint2.py"
+# Sprint 2 agora é gerenciado pelo worker 24/7 (scripts/sprint2_24x7_worker.py).
+# Este cron cuida apenas de Sprint 1 + GDrive sync.
+# O worker tem lock próprio (_logs/sprint2_24x7/worker.lock) e roda
+# continuamente via systemd no sallumc-server.
 
 log "=== Coleta Noturna concluída ==="
 log "Log completo: $LOG_FILE"
