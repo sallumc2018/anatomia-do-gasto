@@ -1,9 +1,10 @@
 # STATUS — Anatomia do Gasto
 > **Regra:** ao atingir 40 linhas, migrar em batch p/ STATUS_HISTORICO.md; manter as 20 ativas + esta linha.
-## Ativo — 2026-06-25
+## Ativo — 2026-06-29
 - P0 Coleta Sprint 2 ✅ `bd5a6e7`: gate integridade + cron `run_cmd` + Telegram hardening
 - P1 Contratos/testes ✅ `0240664`: testes/cron Sprint 1 restaurado + API downloads allowlist
 - P1 Frontend ✅ `fbf0b2a`: canonicals, títulos duplos, Recharts, gramática PT-BR
+- P1 Fix Sprint 1 ✅ 2026-06-29: WARN counter + SICONFI 2026 warn-only + publicar resiliente. 9/18 municípios FAIL=0. Pendente: investigar falhas SICONFI base (DCA/Rreo Transporte etc.)
 - P2 Confiabilidade 🔄 Codex+Claude: allowlist API ✅; Ruff keys + hotspot refactor pendentes
 - Sorocaba 26/37 sem-LAI (70%); Urbes publicado_parcial
 - Paulínia site ⬜ página `/paulinia` (~22 sub-rotas); nota metodológica 2022 obrigatória
