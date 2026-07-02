@@ -28,6 +28,31 @@ IBGE_CSV = ROOT / "data" / "manifests" / "ibge_municipios_completo.csv"
 STATE_DIR = ROOT / "_logs" / "sprint2_24x7"
 STATE_FILE = STATE_DIR / "state.json"
 LOCK_FILE = STATE_DIR / "worker.lock"
+
+_SECRETS_FILES = [
+    Path.home() / ".config" / "omega" / "secrets.env",
+    Path.home() / ".config" / "omega" / "secrets" / "by-project" / "portais.env",
+]
+
+
+def _load_secrets() -> None:
+    """Carrega variáveis de ambiente dos arquivos de segredos do Omega."""
+    for path in _SECRETS_FILES:
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if line.startswith("export "):
+                    line = line[len("export "):]
+                if "=" in line:
+                    key, _, value = line.partition("=")
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    if key and key not in os.environ:
+                        os.environ[key] = value
 PUBLIC_PATHS = (
     "data/public/",
     "data/manifests/sprint2/",
@@ -289,6 +314,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--commit-push-every", type=int, default=0, help="commit/push a cada N sucessos; 0 desativa")
     parser.add_argument("--dry-run-commit", action="store_true", help="roda gates mas nao commita/pusha")
     args = parser.parse_args(argv)
+
+    _load_secrets()
 
     if not PYTHON.exists():
         raise SystemExit(f"Python da venv nao encontrado: {PYTHON}")
