@@ -123,7 +123,7 @@ run_cmd "Sync public to GDrive" \
 
 # 7. Sprint 2 — rotação de UF (2 grupos/noite → ~10 noites/ciclo Brasil)
 run_cmd "Sprint 2: rotação de UF" \
-  bash "$REPO/scripts/sprint2_rotacao.sh" --grupos 2
+  timeout 3h bash "$REPO/scripts/sprint2_rotacao.sh" --grupos 1
 
 # 8. Publicar dados Sprint 2 coletados esta noite (gate de integridade ativo)
 run_cmd "Sprint 2: publicar fontes federais" \
