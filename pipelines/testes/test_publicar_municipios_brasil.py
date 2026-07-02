@@ -38,10 +38,10 @@ class PublicarMunicipiosBrasilTest(unittest.TestCase):
             patcher.stop()
         self.temp_dir.cleanup()
 
-    def _write_transferencias(self, ibge: str, value: str = "10.00") -> Path:
+    def _write_transferencias(self, ibge: str, value: str = "10.00", key: str = "sorocaba") -> Path:
         output_dir = (
             self.extracted
-            / "sorocaba"
+            / key
             / "transferencias_federais"
             / "saida"
         )
@@ -125,6 +125,48 @@ class PublicarMunicipiosBrasilTest(unittest.TestCase):
         self.assertFalse(
             (self.manifests / "sorocaba" / "transferencias_federais.json").exists()
         )
+
+    def test_slug_duplicado_publica_em_chave_com_uf_a_partir_de_legado_validado(self) -> None:
+        source = self._write_transferencias("1721000", key="palmas")
+        municipality = {
+            "key": "palmas",
+            "nome": "Palmas",
+            "uf": "TO",
+            "ibge": "1721000",
+        }
+
+        success = publisher.publicar_municipio(
+            municipality,
+            ["transferencias_federais"],
+            dry_run=False,
+            duplicated_keys={"palmas"},
+        )
+
+        destination = (
+            self.public
+            / "palmas_to"
+            / "transferencias_federais"
+            / "saida"
+            / source.name
+        )
+        legacy_destination = (
+            self.public
+            / "palmas"
+            / "transferencias_federais"
+            / "saida"
+            / source.name
+        )
+        manifest_path = (
+            self.manifests
+            / "palmas_to"
+            / "transferencias_federais.json"
+        )
+
+        self.assertTrue(success)
+        self.assertEqual(destination.read_bytes(), source.read_bytes())
+        self.assertFalse(legacy_destination.exists())
+        self.assertTrue(manifest_path.exists())
+        self.assertEqual(json.loads(manifest_path.read_text(encoding="utf-8"))["municipio_key"], "palmas_to")
 
 
 if __name__ == "__main__":

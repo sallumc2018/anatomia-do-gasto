@@ -7,7 +7,13 @@ conjunto de municípios brasileiros sem precisar registrá-los em paths.py.
   - emendas_federais          (Portal Transparência /emendas)
   - fns                       (FNS repasses fundo-a-fundo)
 
-Fluxo: data/extracted/<key>/<area>/saida/*.csv → data/public/<key>/<area>/saida/
+Fluxo:
+  data/extracted/<key>/<area>/saida/*.csv → data/public/<key>/<area>/saida/
+
+Para keys ambíguas no manifesto IBGE, o destino canônico recebe sufixo de UF:
+  data/extracted/palmas_to/... → data/public/palmas_to/...
+Se só existir diretório legado sem UF, ele é aceito como fallback apenas quando
+o gate de IBGE comprovar que o CSV pertence ao município alvo.
 
 Gate de integridade (por arquivo):
   - Rejeita arquivo vazio, com menos de 2 linhas ou com conteúdo HTML/XML.
@@ -37,6 +43,7 @@ try:
         sha256_file,
         validate_csv,
     )
+    from .sprint2_keys import duplicate_keys, municipio_input_keys, municipio_storage_key
 except ImportError:
     from sprint2_contracts import (
         AREA_CONTRACTS,
@@ -44,6 +51,7 @@ except ImportError:
         sha256_file,
         validate_csv,
     )
+    from sprint2_keys import duplicate_keys, municipio_input_keys, municipio_storage_key
 
 ROOT      = Path(__file__).resolve().parents[1]
 LOG_DIR   = ROOT / "_logs" / "publicar_brasil"
@@ -113,26 +121,35 @@ def filtrar(municipios: list[dict], ufs: list[str], ibges: list[str]) -> list[di
     return municipios
 
 
-def publicar_municipio(m: dict, areas: list[str], dry_run: bool) -> bool:
+def publicar_municipio(
+    m: dict,
+    areas: list[str],
+    dry_run: bool,
+    duplicated_keys: set[str] | None = None,
+) -> bool:
     """Retorna True se nenhum arquivo foi rejeitado pelo gate de integridade."""
     global COPIADOS, IGNORADOS, MUNICIPIOS_OK, MUNICIPIOS_SEM_DADOS, REJEITADOS
 
-    key  = m["key"]
+    duplicated_keys = duplicated_keys or set()
+    key = municipio_storage_key(m, duplicated_keys)
+    input_keys = municipio_input_keys(m, duplicated_keys)
     nome = m["nome"]
     uf   = m["uf"]
     ibge = m.get("ibge", "")
-
-    extraidos = EXTRACTED / key
-    if not extraidos.exists():
-        MUNICIPIOS_SEM_DADOS += 1
-        return True
 
     arquivos_encontrados = 0
     houve_rejeicao = False
 
     for area in areas:
-        origem = extraidos / area / "saida"
-        if not origem.exists():
+        origem = next(
+            (
+                EXTRACTED / input_key / area / "saida"
+                for input_key in input_keys
+                if (EXTRACTED / input_key / area / "saida").exists()
+            ),
+            None,
+        )
+        if origem is None:
             continue
         csvs = sorted(origem.glob("*.csv"))
         if not csvs:
@@ -226,6 +243,7 @@ def main() -> None:
         sys.exit(1)
 
     todos = carregar_municipios(IBGE_CSV)
+    duplicated_keys = duplicate_keys(todos)
     ufs   = args.ufs   or []
     ibges = args.ibges or []
     areas = args.areas or AREAS_SPRINT2
@@ -236,11 +254,15 @@ def main() -> None:
         print("-" * 70)
         count = 0
         for m in alvos:
-            key = m["key"]
+            key = municipio_storage_key(m, duplicated_keys)
+            input_keys = municipio_input_keys(m, duplicated_keys)
             areas_com_dados = [
                 a for a in areas
-                if (EXTRACTED / key / a / "saida").exists()
-                and any((EXTRACTED / key / a / "saida").glob("*.csv"))
+                if any(
+                    (EXTRACTED / input_key / a / "saida").exists()
+                    and any((EXTRACTED / input_key / a / "saida").glob("*.csv"))
+                    for input_key in input_keys
+                )
             ]
             if areas_com_dados:
                 print(f"{m['ibge']:<10} {m['uf']:<4} {m['nome']:<40} {', '.join(areas_com_dados)}")
@@ -255,7 +277,7 @@ def main() -> None:
 
     falhas_municipio = 0
     for m in alvos:
-        if not publicar_municipio(m, areas, dry_run=False):
+        if not publicar_municipio(m, areas, dry_run=False, duplicated_keys=duplicated_keys):
             falhas_municipio += 1
 
     log("\n=== Publicação concluída ===")

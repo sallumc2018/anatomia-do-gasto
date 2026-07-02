@@ -28,6 +28,11 @@ Uso:
 
   # Limitar paralelas simultâneas (padrão: 3)
   .venv/bin/python3 pipelines/coletar_municipios_brasil.py --todos --paralelas 5
+
+Diretórios:
+  - Municípios com key única usam data/extracted/<key>/.
+  - Keys ambíguas no manifesto IBGE usam data/extracted/<key>_<uf>/ para evitar
+    sobrescrita entre municípios homônimos (ex.: palmas_to e palmas_pr).
 """
 import argparse
 import csv
@@ -37,6 +42,11 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+try:
+    from .sprint2_keys import duplicate_keys, municipio_storage_key
+except ImportError:
+    from sprint2_keys import duplicate_keys, municipio_storage_key
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = str(ROOT / ".venv" / "bin" / "python3")
@@ -115,17 +125,21 @@ def rodar_fonte(script: str, label: str, args: list[str], env: dict) -> bool:
         return False
 
 
-def coletar_municipio(m: dict) -> bool:
+def coletar_municipio(m: dict, duplicated_keys: set[str] | None = None) -> bool:
     global PASS, FAIL, SKIP
     PASS = FAIL = SKIP = 0
 
-    key = m["key"]
+    duplicated_keys = duplicated_keys or set()
+    manifest_key = m["key"]
+    key = municipio_storage_key(m, duplicated_keys)
     nome = m["nome"]
     ibge = m["ibge"]
     uf = m["uf"]
 
     log(f"\n{'='*55}")
     log(f"COLETANDO: {nome} — {uf} (IBGE {ibge}, key={key})")
+    if key != manifest_key:
+        log(f"CHAVE CANÔNICA: {manifest_key} é ambígua; usando {key}")
     log(f"{'='*55}")
 
     env = {
@@ -169,6 +183,7 @@ def main() -> None:
         sys.exit(1)
 
     todos = carregar_municipios(IBGE_CSV)
+    duplicated_keys = duplicate_keys(todos)
     ufs = args.ufs or []
     ibges = args.ibges or []
     alvos = filtrar(todos, ufs, ibges) if (ufs or ibges) else todos
@@ -178,7 +193,8 @@ def main() -> None:
         print(f"\n{'IBGE':<10} {'UF':<4} {'Nome'}")
         print("-" * 50)
         for m in alvos:
-            print(f"{m['ibge']:<10} {m['uf']:<4} {m['nome']}")
+            key = municipio_storage_key(m, duplicated_keys)
+            print(f"{m['ibge']:<10} {m['uf']:<4} {m['nome']} ({key})")
         print(f"\nTotal: {len(alvos)}")
         return
 
@@ -187,7 +203,7 @@ def main() -> None:
 
     falhas_totais = 0
     for i, m in enumerate(alvos):
-        ok = coletar_municipio(m)
+        ok = coletar_municipio(m, duplicated_keys)
         if not ok:
             falhas_totais += 1
         if i < len(alvos) - 1:
