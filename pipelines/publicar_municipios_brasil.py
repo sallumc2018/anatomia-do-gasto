@@ -149,6 +149,17 @@ def publicar_municipio(m: dict, areas: list[str], dry_run: bool) -> bool:
                 COPIADOS += 1
                 continue
 
+            # Arquivos de inventário/índice não têm coluna de município — pulam o gate
+            if src.name.startswith("inventario_"):
+                dst = destino / src.name
+                if not (dst.exists() and src.stat().st_mtime <= dst.stat().st_mtime):
+                    copiar_atomicamente(src, dst)
+                    log(f"  ✓ {key}/{area}/saida/{src.name} (inventário, sem gate)")
+                    COPIADOS += 1
+                else:
+                    IGNORADOS += 1
+                continue
+
             # Gate de integridade
             valido, motivo, n_linhas = validar_csv(src, area, ibge)
             if not valido:
