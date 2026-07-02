@@ -180,6 +180,11 @@ def publicar_municipio(
             # Gate de integridade
             valido, motivo, n_linhas = validar_csv(src, area, ibge)
             if not valido:
+                if motivo == "CSV sem linhas de dados":
+                    # Arquivo só com header = fonte sem dados para esse ano/município.
+                    # Não é falha estrutural — ignorar silenciosamente.
+                    IGNORADOS += 1
+                    continue
                 log(f"  ✗ REJEITADO {key}/{area}/saida/{src.name} — {motivo}")
                 REJEITADOS += 1
                 houve_rejeicao = True
