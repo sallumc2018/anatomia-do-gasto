@@ -34,7 +34,11 @@ echo "5. Commit gate"
 $PYTHON tools/agents/check-commit-gate.py --full
 
 echo ""
-echo "6. Sprint 2 slug collisions (advisory)"
+echo "6. Turbopack data tracing"
+$PYTHON tools/gates/check_turbopack_data_tracing.py
+
+echo ""
+echo "7. Sprint 2 slug collisions (advisory)"
 $PYTHON tools/gates/check_sprint2_slug_collisions.py --max-findings 20
 
 echo ""
