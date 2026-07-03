@@ -17,6 +17,7 @@ import argparse
 import csv
 import html
 import re
+import shutil
 import sys
 import time
 import unicodedata
@@ -205,11 +206,11 @@ def baixar_arquivo(item: dict, forcar: bool, limite_mb: int) -> Path | None:
     destino.parent.mkdir(parents=True, exist_ok=True)
     tmp = destino.with_suffix(destino.suffix + ".tmp")
     with _abrir_url(item["url_pagina"], timeout=120) as resp:
-        conteudo = resp.read()
         item["url_arquivo"] = resp.geturl()
         item["content_type"] = resp.headers.get("content-type", item.get("content_type", ""))
-        item["content_length"] = str(len(conteudo))
-    tmp.write_bytes(conteudo)
+        with tmp.open("wb") as out:
+            shutil.copyfileobj(resp, out, length=1024 * 1024)
+        item["content_length"] = str(tmp.stat().st_size)
     tmp.replace(destino)
     _registrar_hash(destino, item.get("url_arquivo") or item.get("url_pagina", ""))
     item["status"] = "baixado"
@@ -217,27 +218,44 @@ def baixar_arquivo(item: dict, forcar: bool, limite_mb: int) -> Path | None:
     return destino
 
 
-def _ler_csv(caminho: Path) -> tuple[list[str], list[dict[str, str]]]:
-    conteudo = caminho.read_bytes()
+def _detectar_encoding(caminho: Path) -> str:
+    with caminho.open("rb") as f:
+        amostra_bytes = f.read(8192)
     for encoding in ("utf-8-sig", "latin-1"):
         try:
-            texto = conteudo.decode(encoding)
-            break
+            amostra_bytes.decode(encoding)
+            return encoding
         except UnicodeDecodeError:
             continue
-    else:
-        texto = conteudo.decode("utf-8", errors="replace")
+    return "utf-8"
 
-    amostra = texto[:4096]
+
+def _dialeto_csv(caminho: Path, encoding: str) -> csv.Dialect:
+    with caminho.open(encoding=encoding, errors="replace", newline="") as f:
+        amostra = f.read(4096)
     try:
-        dialect = csv.Sniffer().sniff(amostra, delimiters=";,")
+        return csv.Sniffer().sniff(amostra, delimiters=";,")
     except csv.Error:
         dialect = csv.excel
         dialect.delimiter = ";"
+        return dialect
 
-    reader = csv.DictReader(texto.splitlines(), dialect=dialect)
-    campos = list(reader.fieldnames or [])
-    return campos, [dict(row) for row in reader]
+
+def _filtrar_csv_municipio(caminho: Path) -> tuple[list[str], list[dict[str, str]], int]:
+    encoding = _detectar_encoding(caminho)
+    dialect = _dialeto_csv(caminho, encoding)
+    filtrados: list[dict[str, str]] = []
+    total = 0
+    with caminho.open(encoding=encoding, errors="replace", newline="") as f:
+        reader = csv.DictReader(f, dialect=dialect)
+        campos = list(reader.fieldnames or [])
+        indice = _indice_campos(campos)
+        for row in reader:
+            total += 1
+            row_dict = dict(row)
+            if eh_municipio(row_dict, indice):
+                filtrados.append(row_dict)
+    return campos, filtrados, total
 
 
 def _coluna_xlsx(ref: str) -> int:
@@ -284,41 +302,50 @@ def _valor_celula(celula: _ET_Element, compartilhadas: list[str], ns: dict[str, 
     return valor.text.strip()
 
 
-def _ler_xlsx(caminho: Path) -> tuple[list[str], list[dict[str, str]]]:
+def _iter_linhas_xlsx(caminho: Path):
     ns = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
     with zipfile.ZipFile(caminho) as zf:
         compartilhadas = _shared_strings(zf)
         planilha = _primeira_planilha(zf)
-        root = ET.fromstring(zf.read(planilha))
+        with zf.open(planilha) as sheet:
+            for _, elem in ET.iterparse(sheet, events=("end",)):
+                if not elem.tag.endswith("}row"):
+                    continue
+                valores: list[str] = []
+                for celula in elem.findall("x:c", ns):
+                    idx = _coluna_xlsx(celula.attrib.get("r", "A1"))
+                    while len(valores) <= idx:
+                        valores.append("")
+                    valores[idx] = _valor_celula(celula, compartilhadas, ns)
+                elem.clear()
+                if any(valor.strip() for valor in valores):
+                    yield valores
 
-    linhas: list[list[str]] = []
-    for row in root.findall(".//x:sheetData/x:row", ns):
-        valores: list[str] = []
-        for celula in row.findall("x:c", ns):
-            idx = _coluna_xlsx(celula.attrib.get("r", "A1"))
-            while len(valores) <= idx:
-                valores.append("")
-            valores[idx] = _valor_celula(celula, compartilhadas, ns)
-        if any(valor.strip() for valor in valores):
-            linhas.append(valores)
 
-    if not linhas:
-        return [], []
+def _filtrar_xlsx_municipio(caminho: Path) -> tuple[list[str], list[dict[str, str]], int]:
+    rows = _iter_linhas_xlsx(caminho)
+    try:
+        campos = [campo.strip() for campo in next(rows)]
+    except StopIteration:
+        return [], [], 0
 
-    campos = [campo.strip() for campo in linhas[0]]
-    registros: list[dict[str, str]] = []
-    for linha in linhas[1:]:
+    indice = _indice_campos(campos)
+    filtrados: list[dict[str, str]] = []
+    total = 0
+    for linha in rows:
+        total += 1
         row = {campo: (linha[i].strip() if i < len(linha) else "") for i, campo in enumerate(campos)}
-        registros.append(row)
-    return campos, registros
+        if eh_municipio(row, indice):
+            filtrados.append(row)
+    return campos, filtrados, total
 
 
-def ler_tabela(caminho: Path) -> tuple[list[str], list[dict[str, str]]]:
+def filtrar_tabela_municipio(caminho: Path) -> tuple[list[str], list[dict[str, str]], int]:
     sufixo = caminho.suffix.lower()
     if sufixo == ".csv":
-        return _ler_csv(caminho)
+        return _filtrar_csv_municipio(caminho)
     if sufixo == ".xlsx":
-        return _ler_xlsx(caminho)
+        return _filtrar_xlsx_municipio(caminho)
     raise ValueError(f"Formato nao suportado: {caminho.name}")
 
 
@@ -344,11 +371,6 @@ def eh_municipio(row: dict[str, str], indice: dict[str, str]) -> bool:
     return municipio == MUNICIPIO_NOME_MUN and uf == UF_MUN
 
 
-def filtrar_municipio(campos: list[str], rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    indice = _indice_campos(campos)
-    return [row for row in rows if eh_municipio(row, indice)]
-
-
 def salvar_extraido(item: dict, caminho: Path, campos: list[str], rows: list[dict[str, str]]) -> Path:
     destino = FNS_EXTRACTED_DIR / f"fns_repasses_faf_com_populacao_{MUNICIPIO}_{item['ano']}.csv"
     destino.parent.mkdir(parents=True, exist_ok=True)
@@ -372,10 +394,9 @@ def processar_ano(item: dict, forcar: bool, limite_mb: int) -> tuple[Path | None
     caminho = baixar_arquivo(item, forcar=forcar, limite_mb=limite_mb)
     if caminho is None:
         return None, 0, 0, 0
-    campos, rows = ler_tabela(caminho)
-    filtrados = filtrar_municipio(campos, rows)
+    campos, filtrados, total = filtrar_tabela_municipio(caminho)
     destino = salvar_extraido(item, caminho, campos, filtrados)
-    return destino, len(rows), len(filtrados), caminho.stat().st_size
+    return destino, total, len(filtrados), caminho.stat().st_size
 
 
 def main() -> None:
