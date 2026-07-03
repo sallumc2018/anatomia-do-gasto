@@ -59,6 +59,7 @@ PUBLIC_PATHS = (
     "data/manifests/datasets_status.json",
     "apps/web/lib/datasets_status.json",
 )
+AREAS_SPRINT2 = ("transferencias_federais", "emendas_federais", "fns")
 
 
 @dataclass(frozen=True)
@@ -171,6 +172,22 @@ def run_command(label: str, command: list[str], log_path: Path, timeout: int) ->
     return CommandResult(label=label, returncode=returncode, elapsed_seconds=elapsed)
 
 
+def municipio_candidate_keys(municipio: Municipio) -> list[str]:
+    keys = [municipio.key]
+    uf_key = f"{municipio.key}_{municipio.uf.lower()}"
+    if uf_key not in keys:
+        keys.append(uf_key)
+    return [key for key in keys if key]
+
+
+def has_public_output(municipio: Municipio) -> bool:
+    for key in municipio_candidate_keys(municipio):
+        for area in AREAS_SPRINT2:
+            if any((ROOT / "data" / "public" / key / area / "saida").glob("*.csv")):
+                return True
+    return False
+
+
 def safe_command(command: list[str]) -> list[str]:
     redacted: list[str] = []
     for item in command:
@@ -195,22 +212,22 @@ def process_municipio(municipio: Municipio, timeout: int) -> bool:
         }
     )
 
-    commands = [
-        (
-            "coletar municipio",
-            [str(PYTHON), "pipelines/coletar_municipios_brasil.py", "--ibge", municipio.ibge],
-        ),
-        (
-            "publicar municipio",
-            [str(PYTHON), "pipelines/publicar_municipios_brasil.py", "--ibge", municipio.ibge],
-        ),
-    ]
-    ok = True
-    for label, command in commands:
-        result = run_command(label, command, log_path, timeout)
-        if result.returncode != 0:
-            ok = False
-            break
+    collect_result = run_command(
+        "coletar municipio",
+        [str(PYTHON), "pipelines/coletar_municipios_brasil.py", "--ibge", municipio.ibge],
+        log_path,
+        timeout,
+    )
+    publish_result = run_command(
+        "publicar municipio",
+        [str(PYTHON), "pipelines/publicar_municipios_brasil.py", "--ibge", municipio.ibge],
+        log_path,
+        timeout,
+    )
+    has_output = has_public_output(municipio)
+    ok = publish_result.returncode == 0 and has_output
+    if collect_result.returncode != 0 and ok:
+        append_event({"event": "municipio_partial_success", "ibge": municipio.ibge})
 
     append_event(
         {
@@ -219,6 +236,9 @@ def process_municipio(municipio: Municipio, timeout: int) -> bool:
             "nome": municipio.nome,
             "uf": municipio.uf,
             "ok": ok,
+            "collect_returncode": collect_result.returncode,
+            "publish_returncode": publish_result.returncode,
+            "has_public_output": has_output,
         }
     )
     return ok
@@ -246,6 +266,65 @@ def stage_public_outputs() -> None:
     subprocess.run(["git", "add", "--", *PUBLIC_PATHS], cwd=ROOT, check=True)
 
 
+def remote_is_current(timeout: int) -> bool:
+    git_timeout = min(max(timeout, 1), 120)
+    fetch = subprocess.run(
+        ["git", "fetch", "origin", "main"],
+        cwd=ROOT,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        timeout=git_timeout,
+        check=False,
+    )
+    if fetch.returncode != 0:
+        append_event(
+            {
+                "event": "commit_blocked",
+                "reason": "git_fetch_failed",
+                "returncode": fetch.returncode,
+            }
+        )
+        return False
+
+    ahead_behind = subprocess.run(
+        ["git", "rev-list", "--left-right", "--count", "origin/main...HEAD"],
+        cwd=ROOT,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        timeout=git_timeout,
+        check=False,
+    )
+    if ahead_behind.returncode != 0:
+        append_event(
+            {
+                "event": "commit_blocked",
+                "reason": "git_rev_list_failed",
+                "returncode": ahead_behind.returncode,
+            }
+        )
+        return False
+
+    parts = ahead_behind.stdout.strip().split()
+    if len(parts) != 2:
+        append_event({"event": "commit_blocked", "reason": "git_rev_list_unexpected"})
+        return False
+
+    behind, ahead = (int(parts[0]), int(parts[1]))
+    if behind > 0:
+        append_event(
+            {
+                "event": "commit_blocked",
+                "reason": "remote_has_new_commits",
+                "behind": behind,
+                "ahead": ahead,
+            }
+        )
+        return False
+    return True
+
+
 def run_commit_gates(timeout: int) -> bool:
     log_path = STATE_DIR / "runs" / f"gates_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -263,6 +342,8 @@ def run_commit_gates(timeout: int) -> bool:
 
 
 def commit_and_push(timeout: int, dry_run: bool) -> bool:
+    if not remote_is_current(timeout):
+        return False
     if not run_catalog_and_coverage(timeout):
         append_event({"event": "commit_skip", "reason": "catalog_or_coverage_failed"})
         return False
