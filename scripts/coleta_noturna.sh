@@ -123,10 +123,10 @@ run_cmd "Sync public to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
-# Sprint 2 agora é gerenciado pelo worker 24/7 (scripts/sprint2_24x7_worker.py).
-# Este cron cuida apenas de Sprint 1 + GDrive sync.
-# O worker tem lock próprio (_logs/sprint2_24x7/worker.lock) e roda
-# continuamente via systemd no sallumc-server.
+# Sprint 2 — rodado separadamente pelo cron de 05:30 (scripts/sprint2_rotacao.sh).
+# Enquanto o servidor estiver offline, a rotação roda no PC com 1 grupo por noite,
+# timeout de 2h. Quando o servidor voltar, o worker 24x7 (sprint2_24x7_worker.py)
+# retoma via systemd e a rotação PC pode ser desativada.
 
 log "=== Coleta Noturna concluída ==="
 log "Log completo: $LOG_FILE"

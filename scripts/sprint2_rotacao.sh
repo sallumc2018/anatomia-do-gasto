@@ -56,14 +56,16 @@ STATUS=false
 RESETAR=false
 FORCAR_UF=""
 N_GRUPOS_NOITE=2   # grupos processados por execução (padrão 2 → ciclo ~10 noites)
+PARALELAS=1        # coletas simultâneas por grupo
 
-for arg in "$@"; do
-  case "$arg" in
-    --status)   STATUS=true ;;
-    --resetar)  RESETAR=true ;;
-    --forcar)   FORCAR_UF="${2:-}"; shift ;;
-    --grupos)   N_GRUPOS_NOITE="${2:-2}"; shift ;;
-    *)          if [[ -n "$FORCAR_UF" && "$arg" != --* ]]; then FORCAR_UF="$arg"; fi ;;
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --status)    STATUS=true; shift ;;
+    --resetar)   RESETAR=true; shift ;;
+    --forcar)    FORCAR_UF="${2:-}"; shift 2 ;;
+    --grupos)    N_GRUPOS_NOITE="${2:-2}"; shift 2 ;;
+    --paralelas) PARALELAS="${2:-1}"; shift 2 ;;
+    *)           if [[ -n "$FORCAR_UF" && "$1" != --* ]]; then FORCAR_UF="$1"; fi; shift ;;
   esac
 done
 
@@ -96,8 +98,8 @@ if [[ -n "$FORCAR_UF" ]]; then
   # Modo forçado: apenas uma UF, índice não avança
   log "FORÇADO: $FORCAR_UF (índice não avança)"
   UF_FLAGS="--uf $FORCAR_UF"
-  log "Iniciando coleta: $UF_FLAGS"
-  "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS >> "$LOG_FILE" 2>&1
+  log "Iniciando coleta: $UF_FLAGS (paralelas=$PARALELAS)"
+  "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS --paralelas "$PARALELAS" >> "$LOG_FILE" 2>&1
   EXIT_CODE=$?
   if [[ $EXIT_CODE -eq 0 ]]; then
     log "✓ [$FORCAR_UF] concluído"
@@ -106,7 +108,7 @@ if [[ -n "$FORCAR_UF" ]]; then
   fi
 else
   # Modo rotação: processar N_GRUPOS_NOITE grupos consecutivos
-  log "Grupos/noite: $N_GRUPOS_NOITE — iniciando em idx=$IDX"
+  log "Grupos/noite: $N_GRUPOS_NOITE — iniciando em idx=$IDX (paralelas=$PARALELAS)"
   FALHAS=0
   for (( i=0; i<N_GRUPOS_NOITE; i++ )); do
     CUR=$(( (IDX + i) % N_GRUPOS ))
@@ -116,7 +118,7 @@ else
       UF_FLAGS="$UF_FLAGS --uf $uf"
     done
     log "--- Grupo $CUR/$((N_GRUPOS-1)): [$UFS_CUR]"
-    "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS >> "$LOG_FILE" 2>&1
+    "$PYTHON" "$REPO/pipelines/coletar_municipios_brasil.py" $UF_FLAGS --paralelas "$PARALELAS" >> "$LOG_FILE" 2>&1
     EC=$?
     if [[ $EC -eq 0 ]]; then
       log "✓ Grupo $CUR [$UFS_CUR] OK"
