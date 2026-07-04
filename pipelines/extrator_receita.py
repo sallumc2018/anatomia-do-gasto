@@ -21,7 +21,7 @@ import urllib.request
 
 from paths import CFG, MUNICIPIO, as_str, RECEITA_EXTRACTED_DIR
 
-IBGE_SOROCABA = int(CFG["ibge"])
+IBGE_SOROCABA = int(os.environ.get("MUNICIPIO_IBGE") or CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 
 COL_PREVISTO_INICIAL  = "PREVISÃO INICIAL"

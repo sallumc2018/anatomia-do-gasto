@@ -19,7 +19,7 @@ import urllib.request
 
 from paths import CFG, MUNICIPIO, as_str, FISCAL_EXTRACTED_DIR
 
-IBGE_SOROCABA = int(CFG["ibge"])
+IBGE_SOROCABA = int(os.environ.get("MUNICIPIO_IBGE") or CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 COL_REALIZADO = "Até o Bimestre (c)"
 
@@ -114,8 +114,8 @@ def processar_ano(ano: int) -> bool:
 
     acc = extrair(items)
     if not acc:
-        print("  ATENÇÃO: nenhum dado encontrado")
-        return False
+        # Município sem receitas de capital nas categorias monitoradas — salva zeros.
+        acc = {}
 
     caminho = salvar_csv(ano, acc, fonte_url)
 

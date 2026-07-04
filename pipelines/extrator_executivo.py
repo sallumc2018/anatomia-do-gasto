@@ -22,7 +22,7 @@ import urllib.request
 
 from paths import CFG, MUNICIPIO, as_str, EXECUTIVO_EXTRACTED_DIR
 
-IBGE_SOROCABA = int(CFG["ibge"])
+IBGE_SOROCABA = int(os.environ.get("MUNICIPIO_IBGE") or CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 
 # 28 funções orçamentárias oficiais (Portaria SOF 42/1999 e atualizações)
