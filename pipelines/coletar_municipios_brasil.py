@@ -56,15 +56,25 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 IBGE_CSV = ROOT / "data" / "manifests" / "ibge_municipios_completo.csv"
 
 _ANOS_CONVENIOS = sum([["--ano", str(a)] for a in range(2024, 2027)], [])
-_ANOS_FNS      = sum([["--ano", str(a)] for a in range(2024, 2027)], [])
+_ANOS_FNS       = sum([["--ano", str(a)] for a in range(2024, 2027)], [])
+_ANOS_SICONFI   = sum([["--ano", str(a)] for a in range(2022, 2027)], [])
 
 FONTES_FEDERAIS = [
     # (script, label, args_extras)
-    # --ano aceita action="append": precisa de --ano 2024 --ano 2025 --ano 2026
+    # --- Fontes federais via Portal Transparência / FNS ---
     ("baixar_transferencias_federais.py", "Convênios Portal Transparência", _ANOS_CONVENIOS),
     ("baixar_emendas_federais.py", "Emendas Parlamentares Federais",
      ["--anos", "2014", "2026"]),
     ("baixar_fns_repasses.py", "Repasses FNS", _ANOS_FNS),
+    # --- SICONFI (Tesouro Nacional) — obrigatório para todos os municípios ---
+    ("extrator_receita.py",          "SICONFI Receita",         _ANOS_SICONFI),
+    ("extrator_executivo.py",        "SICONFI Executivo",        _ANOS_SICONFI),
+    ("extrator_rcl.py",              "SICONFI RCL",              _ANOS_SICONFI),
+    ("extrator_natureza_despesa.py", "SICONFI Natureza Despesa", _ANOS_SICONFI),
+    ("extrator_receita_capital.py",  "SICONFI Receita Capital",  _ANOS_SICONFI),
+    ("extrator_rgf_pessoal.py",      "SICONFI RGF Pessoal",      _ANOS_SICONFI),
+    ("extrator_rgf_divida.py",       "SICONFI RGF Dívida",       _ANOS_SICONFI),
+    ("extrator_divida_detalhada.py", "SICONFI Dívida Detalhada", _ANOS_SICONFI),
 ]
 
 LOG_FILE: Path

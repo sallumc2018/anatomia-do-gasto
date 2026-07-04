@@ -27,7 +27,7 @@ from paths import CFG, MUNICIPIO, as_str, SAUDE_EXTRACTED_DIR
 DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(os.path.join(DIRETORIO_SCRIPT, '..'))
 
-IBGE_SOROCABA = int(CFG["ibge"])
+IBGE_SOROCABA = int(os.environ.get("MUNICIPIO_IBGE") or CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo"
 COLUNA_TOTAL = "TOTAL (ÚLTIMOS 12 MESES)"
 

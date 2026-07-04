@@ -30,7 +30,7 @@ import urllib.request
 from pathlib import Path
 from paths import CFG, MUNICIPIO, as_str, SEGURANCA_RAW_DIR, SEGURANCA_EXTRACTED_DIR
 
-IBGE_SOROCABA = int(CFG["ibge"])
+IBGE_SOROCABA = int(os.environ.get("MUNICIPIO_IBGE") or CFG["ibge"])
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca"
 ANEXO = "DCA-Anexo I-E"
 
