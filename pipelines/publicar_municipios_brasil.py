@@ -141,14 +141,16 @@ def publicar_municipio(
     houve_rejeicao = False
 
     for area in areas:
-        origem = next(
-            (
-                EXTRACTED / input_key / area / "saida"
-                for input_key in input_keys
-                if (EXTRACTED / input_key / area / "saida").exists()
-            ),
-            None,
-        )
+        # Rastrear qual chave de entrada foi usada (canônica vs legado)
+        input_key_used = None
+        origem = None
+        for ik in input_keys:
+            candidate = EXTRACTED / ik / area / "saida"
+            if candidate.exists():
+                input_key_used = ik
+                origem = candidate
+                break
+
         if origem is None:
             continue
         csvs = sorted(origem.glob("*.csv"))
@@ -183,6 +185,12 @@ def publicar_municipio(
                 if motivo == "CSV sem linhas de dados":
                     # Arquivo só com header = fonte sem dados para esse ano/município.
                     # Não é falha estrutural — ignorar silenciosamente.
+                    IGNORADOS += 1
+                    continue
+                if motivo.startswith("IBGE divergente") and input_key_used != key:
+                    # Dado num diretório legado (ex: "palmas/") pertence ao município
+                    # cujo IBGE bate no CSV. Para este município (key diferente),
+                    # é apenas ruído de colisão de slug — ignorar silenciosamente.
                     IGNORADOS += 1
                     continue
                 log(f"  ✗ REJEITADO {key}/{area}/saida/{src.name} — {motivo}")

@@ -98,7 +98,13 @@ def criar_dirs(municipio: str) -> None:
 def fase_siconfi(env: dict) -> None:
     municipio = env["MUNICIPIO"]
     log(f"\n  === SICONFI RREO — {municipio} ===")
-    RREO_OPCIONAIS = {"extrator_rreo_transporte.py", "extrator_rreo_seguranca.py"}
+    # Segurança, Transporte e RPPS: obrigações seletivas — nem todos os municípios
+    # têm secretaria de segurança pública própria, função de transporte ou RPPS.
+    RREO_OPCIONAIS = {
+        "extrator_rreo_transporte.py",
+        "extrator_rreo_seguranca.py",
+        "extrator_rpps.py",
+    }
     for script in [
         "extrator_receita.py", "extrator_executivo.py", "extrator_rcl.py",
         "extrator_natureza_despesa.py", "extrator_receita_capital.py",
@@ -112,7 +118,8 @@ def fase_siconfi(env: dict) -> None:
 
     log(f"\n  === SICONFI DCA — {municipio} ===")
     rodar_warn("extrator_dca_transporte.py", f"{municipio}/DCA Transporte", env)
-    rodar("extrator_seguranca.py", f"{municipio}/DCA Seguranca", env)
+    # DCA Segurança também é opcional (nem todos os municípios têm a função)
+    rodar_warn("extrator_seguranca.py", f"{municipio}/DCA Seguranca", env)
 
     log(f"\n  === SICONFI RGF — {municipio} ===")
     rodar("extrator_rgf_pessoal.py", f"{municipio}/RGF Pessoal", env)
