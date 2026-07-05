@@ -1,4 +1,4 @@
-﻿"""
+"""
 Baixa e publica despesas das empresas municipais de Sorocaba via API TCE-SP.
 
 Entidades: EDUSS (Empresa de Desenvolvimento Urbano e Social) e

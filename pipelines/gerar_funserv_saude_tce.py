@@ -1,4 +1,4 @@
-﻿"""
+"""
 Baixa e publica despesas do FUNSERV Assistência Médica de Sorocaba via API TCE-SP.
 
 O FUNSERV - ASSISTÊNCIA MÉDICA é o fundo de saúde do funcionalismo municipal de
