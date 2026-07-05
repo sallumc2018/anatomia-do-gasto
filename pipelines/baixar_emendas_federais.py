@@ -44,7 +44,8 @@ except ImportError:
 
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
 ENDPOINT = "emendas"
-DELAY_ENTRE_PAGINAS = 0.4
+DELAY_ENTRE_PAGINAS = 2.0   # Portal Transparência: 500 req/hora; 2s → ~360 req/hora (72% do limite)
+DELAY_APOS_ERRO = 10.0     # pausa extra após qualquer HTTPError não-fatal
 
 CAMPOS_CSV = [
     "ano",
@@ -64,7 +65,17 @@ CAMPOS_CSV = [
 ]
 
 
+class PortalBloqueadoError(RuntimeError):
+    """Levantado quando o Portal Transpar��ncia bloqueia a chave por limite de requisições."""
+
+
+def _detectar_bloqueio(corpo: str) -> bool:
+    return "limite de acesso" in corpo.lower() or "usuário bloqueado" in corpo.lower()
+
+
 def _is_transient_error(exc):
+    if isinstance(exc, PortalBloqueadoError):
+        return True  # retentar após o backoff longo
     if isinstance(exc, urllib.error.HTTPError):
         return exc.code in (429, 500, 502, 503, 504)
     return isinstance(exc, (urllib.error.URLError, TimeoutError))
@@ -72,7 +83,7 @@ def _is_transient_error(exc):
 
 _HTTP_RETRY = retry(
     stop=stop_after_attempt(5),
-    wait=wait_exponential(multiplier=1, min=2, max=60),
+    wait=wait_exponential(multiplier=2, min=5, max=300),  # até 5 min de espera; 300s para bloqueio
     retry=retry_if_exception(_is_transient_error),
     reraise=True,
 )
@@ -149,6 +160,15 @@ def _fetch_pagina(pagina: int, ibge: str, ano: int, chave: str, timeout: int = 3
             corpo = e.read().decode("utf-8", errors="replace")[:500]
         except Exception:
             pass
+        if e.code == 401 and _detectar_bloqueio(corpo):
+            # Conta bloqueada por excesso de requisições — aguardar e retentar
+            print(
+                f"  ⚠️  Portal Transparência: conta bloqueada por limite de requisições.\n"
+                f"  Aguardando 300s antes de retentar. Verifique o email cadastrado.\n"
+                f"  {corpo[:200]}"
+            )
+            time.sleep(300)
+            raise PortalBloqueadoError("Conta bloqueada por limite de requisições Portal Transparência")
         if e.code == 403:
             sys.exit(
                 f"403 Proibido — chave sem acesso ao endpoint /{ENDPOINT}.\n"
