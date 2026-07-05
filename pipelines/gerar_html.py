@@ -1,3 +1,4 @@
+"""Gera páginas HTML estáticas de visualização a partir dos dados em data/public/."""
 import json
 import os
 import re

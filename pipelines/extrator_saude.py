@@ -1,3 +1,4 @@
+"""Extrai indicadores de saúde de PDFs (relatórios SIOPS/FNS) para data/extracted/."""
 import json
 import os
 import re

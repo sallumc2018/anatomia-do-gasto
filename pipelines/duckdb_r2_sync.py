@@ -1,3 +1,4 @@
+"""Sincroniza arquivos DuckDB consolidados com o bucket Cloudflare R2."""
 import os
 import sys
 import argparse
