@@ -31,7 +31,17 @@ from paths import CFG, MUNICIPIO, TRANSFERENCIAS_EXTRACTED_DIR, TRANSFERENCIAS_R
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception
 
 
+class PortalBloqueadoError(RuntimeError):
+    """Levantado quando o Portal Transparência bloqueia por limite de requisições."""
+
+
+def _detectar_bloqueio(corpo: str) -> bool:
+    return "limite de acesso" in corpo.lower() or "usuário bloqueado" in corpo.lower()
+
+
 def _is_transient_error(exc):
+    if isinstance(exc, PortalBloqueadoError):
+        return True
     if isinstance(exc, urllib.error.HTTPError):
         return exc.code in (429, 500, 502, 503, 504)
     return isinstance(exc, (urllib.error.URLError, TimeoutError))
@@ -39,7 +49,7 @@ def _is_transient_error(exc):
 
 _HTTP_RETRY = retry(
     stop=stop_after_attempt(5),
-    wait=wait_exponential(multiplier=1, min=2, max=60),
+    wait=wait_exponential(multiplier=2, min=5, max=300),
     retry=retry_if_exception(_is_transient_error),
     reraise=True,
 )
@@ -52,7 +62,7 @@ def _urlopen_com_retry(req, timeout=30):
 IBGE_SOROCABA = CFG["ibge"]
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
 ENDPOINT = "convenios"
-DELAY_ENTRE_PAGINAS = 0.3
+DELAY_ENTRE_PAGINAS = 2.0   # Portal Transparência: 500 req/hora; 2s → ~360 req/hora
 
 CAMPOS_CSV = [
     "ano",
@@ -110,6 +120,14 @@ def _fetch_pagina(pagina: int, chave: str, timeout: int = 30) -> list:
             corpo = e.read().decode("utf-8", errors="replace")[:400]
         except Exception:
             pass
+        if e.code == 401 and _detectar_bloqueio(corpo):
+            print(
+                f"  ⚠️  Portal Transparência: conta bloqueada por limite de requisições.\n"
+                f"  Aguardando 300s antes de retentar. Verifique o email cadastrado.\n"
+                f"  {corpo[:200]}"
+            )
+            time.sleep(300)
+            raise PortalBloqueadoError("Conta bloqueada por limite de requisições")
         if e.code == 403:
             sys.exit(
                 f"403 Proibido. A chave nao tem acesso ao endpoint /{ENDPOINT}.\n"
