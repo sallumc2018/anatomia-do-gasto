@@ -4,13 +4,17 @@ Fila pública de trabalho aprovado. Ideias ainda em avaliação pertencem a
 `IDEAS.md`; estado factual pertence a `STATUS.md`; decisões duráveis pertencem
 a `DECISIONS.md`.
 
-## Mudanças de workflow — 2026-06-25 (ler antes de tudo)
+## Mudanças de workflow — 2026-06-25 (atualizado 2026-07-05)
 
-> **Para Claude e Codex:** handoffs em `memory/handoffs/` estão **DEPRECADOS**. O canal
-> oficial agora é TASKS.md (fila) + STATUS.md (estado). Não criar novos handoff files.
+> **Para Claude e Codex:** TASKS.md é o canal de **fila pública** (o quê fazer e por quê).
+> Handoffs em `memory/handoffs/` continuam válidos para **continuidade técnica entre sessões**
+> (estado de cursores, flags, contexto operacional de curto prazo) — são sanitizados e
+> complementares ao TASKS.md, não substitutos. Criar handoff quando houver contexto técnico
+> que não cabe numa linha de TASKS; registrar conclusão aqui.
 >
-> **Sessão única:** Claude opera em uma sessão só (coleta + UI/UX). A fronteira é o
-> **commit**, não a sessão: nunca misturar pipelines/scripts com apps/web no mesmo commit.
+> **Escopo total:** Esta sessão (Claude Code) opera com escopo completo — Coleta, Publicação,
+> Frontend, UI/UX e Estratégia. A fronteira é o **commit**: nunca misturar pipelines/scripts
+> com apps/web no mesmo commit.
 >
 > **Alerta de contexto:** hook ajustado para 90k tokens (era 99k).
 
