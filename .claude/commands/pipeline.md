@@ -21,7 +21,7 @@ Municipio: extrair do argumento (ex: `campinas saude 2024`). Default: `sorocaba`
 
 Formato esperado: `<municipio> <area> <ano ou faixa>`, por exemplo `sorocaba saude 2025`, `campinas receita 2020-2025`.
 
-Raiz: `~/Documents/anatomia-do-gasto`
+Raiz: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
 Fluxo: `data/raw/<municipio>` -> `data/extracted/<municipio>` -> `data/validated/<municipio>` autorizado -> `data/public/<municipio>` autorizado.
 
 Fluxo de auditoria de cobertura publicada: `data/public` + `data/manifests` -> `data/manifests/auditoria_*.csv` -> `/qa`.
@@ -29,7 +29,7 @@ Fluxo de auditoria de cobertura publicada: `data/public` + `data/manifests` -> `
 ## Passo 1 - Identificar script correto
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 Get-ChildItem "pipelines" -File -Filter "*.py" | Select-Object Name
 ```
 

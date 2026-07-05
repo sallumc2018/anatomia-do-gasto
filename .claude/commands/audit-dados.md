@@ -10,7 +10,7 @@ Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `
 
 Modo: **varredura completa, sem ação**. Apenas relatar. Não mover dados, não commitar, não publicar.
 
-Raiz do projeto: `~/Documents/anatomia-do-gasto`
+Raiz do projeto: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
 
 ---
 
@@ -42,7 +42,7 @@ Alerta: último update > 60 dias = atenção; > 180 dias = crítico.
 ## 2. Gate LGPD — CPFs em data/public
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 .venv/bin/python3 pipelines/sanear_cpf_publicos.py --gate
 ```
 

@@ -26,7 +26,7 @@ Argumentos:
 ## Passo 1 - Frescor dos dados por municipio
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 Get-ChildItem "data/public" -Directory | ForEach-Object {
   $mun = $_.Name
   $arquivos = (Get-ChildItem $_.FullName -Recurse -File)

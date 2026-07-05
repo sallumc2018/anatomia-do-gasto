@@ -14,14 +14,14 @@ Objetivo: apresentar status consolidado sem reler arquivos longos.
 Atalho preferencial:
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 python tools\agents\start-topic.py "$ARGUMENTS" --rag-limit 3
 ```
 
 ## WSL
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 .venv/bin/python -c "import pdfplumber, pandas; print('python OK')" 2>/dev/null || echo "python pendente"
 node --version
 npm --version
@@ -32,7 +32,7 @@ git branch --show-current
 ## Windows
 
 ```bash
-REPO=~/Documents/anatomia-do-gasto
+REPO=~/Documents/Omega/02-repos/00-anatomia-do-gasto
 $adb = "~/Documents/Omega/03-ferramentas/adb/adb"
 $infra = "~/Documents/Omega/03-ferramentas"
 $venvOk = Test-Path "$repo\.venv"
@@ -45,7 +45,7 @@ Write-Host "Windows - .venv: $venvOk | node_modules: $nodeOk | ADB: $adbOk | inf
 ## Dados publicados
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 Get-ChildItem "data\public" -Recurse -File | Group-Object DirectoryName | Select-Object Count, Name
 Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 ```

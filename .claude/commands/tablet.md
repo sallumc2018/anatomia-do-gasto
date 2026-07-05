@@ -18,7 +18,7 @@ Isolamento:
 - Budget: < 2 K tokens.
 
 Infra local:
-- Repo: `~/Documents/anatomia-do-gasto`
+- Repo: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
 - ADB: `~/Documents/Omega/03-ferramentas/adb/adb`
 - Dados no tablet: `/sdcard/AnatomiaDrive`
 - Secrets locais ficam fora do repo em `~/.secrets/anatomia/ (fora do repo)`.
