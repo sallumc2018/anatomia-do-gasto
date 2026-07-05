@@ -35,7 +35,7 @@ Se qualquer resposta for "nao" ou "incerto", parar.
 Antes de rodar scripts npm, conferir `docs/seguranca-dependencias-npm.md`.
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 git status -sb
 git log --oneline -5
 cd "apps\web"

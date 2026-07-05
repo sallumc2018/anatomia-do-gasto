@@ -21,7 +21,7 @@ Isolamento:
 ## Passo 1 - Mapear escopo
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 git status -sb
 rg "<SIMBOLO_OU_PATH>" .
 ```

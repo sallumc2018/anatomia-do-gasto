@@ -95,4 +95,4 @@ Referencia Sorocaba (historica):
 - Proximo passo: /pipeline [area] [anos] ou autorizacao para publicar
 ```
 
-Raiz: `~/Documents/anatomia-do-gasto`
+Raiz: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`

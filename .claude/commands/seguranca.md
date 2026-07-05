@@ -29,7 +29,7 @@ Argumentos:
 ## Checks preferenciais
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 bash tools/security/check-npm-supply-chain.sh 2>/dev/null || python3 tools/security/check-npm-supply-chain.py 2>/dev/null || echo "(script de verificação npm não disponível para Linux)"
 bash tools/security/check-site-local.sh --skip-build 2>/dev/null || echo "(script check-site não disponível para Linux — verificar manualmente)"
 ```

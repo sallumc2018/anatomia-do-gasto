@@ -19,12 +19,12 @@ Isolamento:
 Formato esperado: `<area> <ano ou faixa>`, por exemplo `saude 2025`, `educacao 2024`, `receita 2020-2025`, `fiscal todos`.
 Se faltar area ou ano, pergunte antes de baixar.
 
-Raiz: `~/Documents/anatomia-do-gasto`
+Raiz: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
 
 ## Passo 1 - Inventario minimo
 
 ```bash
-cd ~/Documents/anatomia-do-gasto
+cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
 Get-ChildItem "data\raw" -Recurse -File | Select-Object FullName, Length, LastWriteTime | Sort-Object FullName
 Get-ChildItem "data\manifests" -File | Select-Object Name, LastWriteTime
 ```
