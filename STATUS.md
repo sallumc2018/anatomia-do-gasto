@@ -1,21 +1,22 @@
 # STATUS — Anatomia do Gasto
 > **Regra:** ao atingir 40 linhas, migrar em batch p/ STATUS_HISTORICO.md; manter as 20 ativas + esta linha.
-## Ativo — 2026-06-29
-- P0 Coleta Sprint 2 ✅ `bd5a6e7`: gate integridade + cron `run_cmd` + Telegram hardening
-- P1 Contratos/testes ✅ `0240664`: testes/cron Sprint 1 restaurado + API downloads allowlist
-- P1 Frontend ✅ `fbf0b2a`: canonicals, títulos duplos, Recharts, gramática PT-BR
-- P1 Fix Sprint 1 ✅ 2026-06-29: WARN counter + SICONFI 2026 warn-only + publicar resiliente. 9/18 municípios FAIL=0. Pendente: investigar falhas SICONFI base (DCA/Rreo Transporte etc.)
-- P2 Confiabilidade 🔄 Codex+Claude: allowlist API ✅; Ruff keys + hotspot refactor pendentes
-- Sorocaba 26/37 sem-LAI (70%); Urbes publicado_parcial
-- Paulínia site ⬜ página `/paulinia` (~22 sub-rotas); nota metodológica 2022 obrigatória
-- Paulínia CNPJ-PNCP ⬜ candidato 46.392.130/0001-18 INVÁLIDO; obter via Playwright
+## Ativo — 2026-07-05
+- Sprint 2 🔄 cursor 218/5571 (3,9%); cron 02:05 BRT × 3h; ~300 mun/noite; cobertura ~18 noites
+- Deploy ✅ cron 05:10 BRT; `--archive=tgz` corrige free tier >5000 arquivos; último build 114 páginas
+- Sprint 1 transferências ✅ `e3acdfb5`: fase_transferencias_federais usa rodar_warn() (403 não bloqueia)
+- TCE contas anuais ✅ bug confirmado resolvido: IBGE filter OK (Sorocaba=10, Paulínia=10, Gov=0)
+- Sorocaba score 80.2% (calc_score.py 2026-07-05)
+- Paulínia 🔄 dados extraídos; prefeitura/câmara/PNCP pendentes
+- P2 Confiabilidade 🔄 Ruff keys + hotspot refactor pendentes
 ## Blockers
 - `npm install/update/audit fix` — PROIBIDO (worm mai/2026)
-- `vercel deploy --prod --yes` (integração GitHub cancela deploys)
+- Portal Transparência 403: chave sem permissão `/transferencias`. Requer re-cadastro com escopo "Transferências"
 - PNCP `/api/consulta/v1/` → 403; workaround Playwright `/api/search/`
-- `baixar_tce_sorocaba.py` contas anuais: coleta página ESTADUAL (BUG; sem impacto público)
+- CPF em git history: sanitizar com BFG Repo Cleaner (requer confirmação do usuário)
 ## Municípios
 | Município | Status |
 |---|---|
-| Sorocaba | ✅ publicado |
+| Sorocaba | ✅ publicado (80.2% cobertura) |
 | Paulínia | 🔄 dados extraídos; prefeitura/câmara/PNCP pendentes |
+| SP + 18 municípios SP | 🔄 Sprint 1 — coleta noturna ativa |
+| Brasil 5571 | 🔄 Sprint 2 — 218 coletados, worker circular ativo |
