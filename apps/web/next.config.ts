@@ -143,6 +143,14 @@ const nextConfig: NextConfig = {
       "../../data/public/sorocaba/executivo/saida/**/*",
       "../../data/public/paulinia/executivo/saida/**/*",
     ],
+    "/api/municipios/[ibge]/orcamento/[ano]": [
+      "../../data/public/sorocaba/executivo/saida/**/*",
+      "../../data/public/paulinia/executivo/saida/**/*",
+    ],
+    "/api/municipios/[ibge]/comparativo": [
+      "../../data/public/sorocaba/executivo/saida/**/*",
+      "../../data/public/paulinia/executivo/saida/**/*",
+    ],
     // Sprint 2 — dinâmico: lê data/manifests/sprint2/ e data/public/{key}/
     // Ao adicionar novos grupos (RO+TO, AM+PA...), a página auto-detecta.
     // Lambda precisa dos manifests (para descoberta) e dos CSVs (para listagem).
