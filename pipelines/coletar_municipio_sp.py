@@ -219,7 +219,8 @@ def fase_transferencias_federais(env: dict) -> None:
     args = []
     for ano in range(2004, 2027):
         args.extend(["--ano", str(ano)])
-    rodar("baixar_transferencias_federais.py", f"{municipio}/Transferencias Federais", env, args)
+    # 403 = chave sem permissão para /transferencias/municipios → tratar como warn, não fail
+    rodar_warn("baixar_transferencias_federais.py", f"{municipio}/Transferencias Federais", env, args)
 
 
 def fase_fazenda_sp(env: dict, cfg: dict) -> None:
