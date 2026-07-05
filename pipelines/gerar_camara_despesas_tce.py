@@ -1,4 +1,4 @@
-﻿"""
+"""
 Baixa e publica despesas da Câmara Municipal de Sorocaba via API TCE-SP.
 
 A API do TCE-SP disponibiliza despesas mensais por empenho para todos os órgãos
