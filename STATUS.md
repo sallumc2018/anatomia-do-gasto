@@ -6,17 +6,17 @@
 - Sprint 1 transferências ✅ `e3acdfb5`: fase_transferencias_federais usa rodar_warn() (403 não bloqueia)
 - TCE contas anuais ✅ bug confirmado resolvido: IBGE filter OK (Sorocaba=10, Paulínia=10, Gov=0)
 - Sorocaba score 80.2% (calc_score.py 2026-07-05)
-- Paulínia 🔄 dados extraídos; prefeitura/câmara/PNCP pendentes
+- Paulínia score 80.2% (calc_score.py 2026-07-05); câmara+PNCP+executivo publicados ✅
 - P2 Confiabilidade 🔄 Ruff keys + hotspot refactor pendentes
+- Portal Transparência ⚠️ conta bloqueada por rate limit (Sprint 2); aguarda desbloqueio email sallumc@gmail.com
 ## Blockers
 - `npm install/update/audit fix` — PROIBIDO (worm mai/2026)
-- Portal Transparência 403: chave sem permissão `/transferencias`. Requer re-cadastro com escopo "Transferências"
-- PNCP `/api/consulta/v1/` → 403; workaround Playwright `/api/search/`
+- Portal Transparência: conta bloqueada (rate limit Sprint 2) + chave sem escopo `/transferencias`. Requer desbloqueio + re-cadastro com escopo "Transferências"
 - CPF em git history: sanitizar com BFG Repo Cleaner (requer confirmação do usuário)
 ## Municípios
 | Município | Status |
 |---|---|
 | Sorocaba | ✅ publicado (80.2% cobertura) |
-| Paulínia | 🔄 dados extraídos; prefeitura/câmara/PNCP pendentes |
+| Paulínia | ✅ publicado (80.2% cobertura); PNCP workaround `/api/search/` ativo |
 | SP + 18 municípios SP | 🔄 Sprint 1 — coleta noturna ativa |
 | Brasil 5571 | 🔄 Sprint 2 — 218 coletados, worker circular ativo |
