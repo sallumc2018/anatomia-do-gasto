@@ -1,3 +1,4 @@
+"""Parser genérico de PDFs: extrai estrutura de páginas, imagens e texto para uso nos extratores."""
 import re
 import sys
 import json

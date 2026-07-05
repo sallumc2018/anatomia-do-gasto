@@ -1,3 +1,4 @@
+"""Cache semântico via gptcache para evitar chamadas repetidas a APIs de IA."""
 import os
 from pathlib import Path
 

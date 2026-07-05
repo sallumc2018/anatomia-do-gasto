@@ -1,3 +1,4 @@
+"""Configuração central de paths e municípios. Seleciona município via env var MUNICIPIO (default: sorocaba)."""
 import os
 from pathlib import Path
 
