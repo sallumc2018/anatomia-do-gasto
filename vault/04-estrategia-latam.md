@@ -104,33 +104,64 @@ comparáveis para todos os cidadãos da América Latina.
 
 ## CFO — Custo, Risco e Funding
 
-### Custo atual (estimado mensal)
+### Custo real atual (mensal)
 
-| Item | Custo | Risco |
-|------|-------|-------|
-| Vercel (free tier) | R$ 0 | Limite 5000 arquivos/deploy |
-| GDrive (personal) | R$ 0 | Quota 15GB, sync via rclone |
-| PC principal 24h/dia | ~R$ 80/mês eletricidade | SPOF operacional |
-| Domínio `.ong.br` | ~R$ 40/ano | Baixo |
-| **Total** | **~R$ 80/mês** | Concentrado em hardware único |
+| Item | Custo | O que entrega |
+|------|-------|--------------|
+| Claude Pro (Anthropic) | R$ 110 | Coleta + Publicação + UI/UX + Estratégia (esta sessão) |
+| Codex Plus (OpenAI) | R$ 110 | Auditoria de código, testes, CI, refatorações |
+| Google AI Pro (5 TB GDrive) | R$ 96,99 | Storage de dados brutos + RAG + backup |
+| Vercel (free tier) | R$ 0 | Deploy frontend (limite 5000 arquivos/build) |
+| PC principal 24h/dia (cron) | ~R$ 80 | Coleta noturna, Sprint 2, deploy automático |
+| Domínio `.ong.br` | ~R$ 3,33 | Identidade pública |
+| **Total mensal** | **~R$ 400** | **Projeto inteiro rodando** |
+| **Total anual** | **~R$ 4.800** | |
+
+### O que cada R$ está comprando
+
+- **R$ 220/mês em IAs** (Claude + Codex): substitui 1 desenvolvedor sênior + 1 analista de dados (custo de mercado: R$ 15.000–25.000/mês). ROI: **37x–62x**.
+- **R$ 97/mês GDrive 5TB**: necessário — dados brutos das 5571 cidades chegam a 250MB+/município. Alternativa (S3/R2) seria mais caro.
+- **R$ 80/mês eletricidade**: o maior risco. PC é SPOF — qualquer apagão para a coleta.
 
 ### Riscos financeiros
 
-1. **Zero funding** — projeto inteiramente bootstrap; sem runway para escalar infra
-2. **SPOF elétrico** — queda de luz no PC = coleta parada, dados defasados
-3. **Vercel free tier** — quando `data/public/` passar de ~100MB, build fica lento demais
+1. **Zero receita** — projeto bootstrap; sem runway para escalar infra além do atual
+2. **SPOF elétrico** — queda de luz no PC = coleta para. Mitigação: servidor 192.168.15.9 quando estável
+3. **Vercel free tier** — deploy lento quando `data/public/` > 100MB. Workaround ativo: `--archive=tgz`
+4. **Dependência de IAs pagas** — se preços subirem, custo operacional sobe proporcionalmente
 
-### Oportunidades de funding
+### Recomendação "ir de uma vez só"
+
+**Não há trade-off entre velocidade e qualidade — tudo pode ser feito em paralelo:**
+
+```
+AGORA (sem bloquear nada):
+  Claude (eu)  → API pública + Dashboard execução + Comparativo expandido
+  Sprint 2     → rodando automaticamente (não precisa de ação)
+
+VOCÊ FAZ (30 min total, desbloqueiam tudo):
+  1. Re-cadastrar Portal Transparência (15 min) → libera transferências para 5571 municípios
+  2. Confirmar BFG para CPF (2 min decisão) → resolve compliance LGPD
+
+RESULTADO EM ~18 NOITES:
+  5571 municípios coletados + API pública + Dashboard + Comparativo expandido
+  → Prontos para lançamento público = press release "Brasil completo"
+```
+
+**Não tem "começo melhor" — o começo ideal é começar tudo agora, em paralelo.**
+
+### Oportunidades de funding (após CNPJ formalizado)
 
 | Fonte | Alinhamento | Valor estimado | Prazo |
 |-------|------------|----------------|-------|
-| OCDE OGP (Open Gov) | Alto | USD 20–50k | 6–12 meses |
-| BID Transparência | Alto | USD 50–200k | 12–18 meses |
-| NED (National Endowment) | Médio | USD 10–30k | 6–12 meses |
-| Google.org/ANPD BR | Médio | R$ 50–200k | 6–12 meses |
-| FAPESP (pesquisa) | Médio | R$ 50–100k | 12–24 meses |
+| OCDE OGP (Open Gov Partnership) | Alto | USD 20–50k | 6–12 meses |
+| BID Lab / Transparência | Alto | USD 50–200k | 12–18 meses |
+| NED (National Endowment for Democracy) | Médio | USD 10–30k | 6–12 meses |
+| Google.org | Médio | USD 20–100k | 6–12 meses |
+| FAPESP / CNPq (pesquisa) | Médio | R$ 50–100k | 12–24 meses |
 
-**Pré-requisito para captação:** CNPJ da ONG formalizado + relatório de impacto público.
+**Com funding de USD 50k:** migrar para servidor dedicado, contratar 1 designer, Vercel Pro, coverage LATAM.
+**Sem funding:** o modelo atual (R$ 400/mês) é sustentável indefinidamente — só cresce mais devagar.
 
 ---
 
