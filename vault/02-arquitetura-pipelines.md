@@ -49,8 +49,10 @@ Lógica de IBGE divergente:
 Horário: 00:00 BRT (03:00 UTC) via cron.
 Fluxo: Sync raw GDrive → Sync extracted GDrive → Coletar SP Capital → Sprint 1 → Gerar catálogo → Sync extracted para GDrive → Sync public para GDrive.
 
-## Sprint 2 Rotação — scripts/sprint2_rotacao.sh
-Horário: 00:05 BRT (03:05 UTC) via cron.
-20 grupos de UFs, processa 1 grupo/noite (ciclo completo ~20 noites = ~3 semanas).
-Estado persistido em `_logs/sprint2_rotacao/estado.txt`.
-Timeout: 2h por execução.
+## Sprint 2 Worker — scripts/sprint2_24x7_worker.py
+Horário: 02:05 BRT (05:05 UTC) via cron, timeout 3h (`--loop --sleep 30`).
+Worker circular com cursor persistido em `_logs/sprint2_24x7/state.json`.
+Por município: roda `coletar_municipios_brasil.py --ibge X` + `publicar_municipios_brasil.py --ibge X`.
+Lock exclusivo via `flock` para evitar execuções simultâneas.
+Commit/push automático opcional via `--commit-push-every N` (desativado no cron atual).
+Cursor em 218/5571 (2026-07-05). Velocidade: ~300 municípios/noite de 3h.

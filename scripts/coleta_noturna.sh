@@ -123,10 +123,9 @@ run_cmd "Sync public to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
-# Sprint 2 — rodado separadamente pelo cron de 05:30 (scripts/sprint2_rotacao.sh).
-# Enquanto o servidor estiver offline, a rotação roda no PC com 1 grupo por noite,
-# timeout de 2h. Quando o servidor voltar, o worker 24x7 (sprint2_24x7_worker.py)
-# retoma via systemd e a rotação PC pode ser desativada.
+# Sprint 2 — rodado separadamente pelo cron de 05:05 UTC (scripts/sprint2_24x7_worker.py --loop --sleep 30).
+# Timeout 3h. Quando o servidor 192.168.15.9 voltar online, o worker pode rodar
+# via systemd no servidor para cobertura contínua.
 
 log "=== Coleta Noturna concluída ==="
 log "Log completo: $LOG_FILE"
