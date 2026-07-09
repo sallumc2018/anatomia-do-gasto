@@ -136,15 +136,15 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "5 áreas publicadas (2020–2025)",
-    "detail": "6 trilhas publicadas em 5 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
-    "value": "2020-2025 parcial",
+    "detail": "15 trilhas publicadas em 7 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
+    "value": "2015-2025 parcial",
     "href": "/sao-bernardo",
     "linkLabel": "Abrir painel de São Bernardo",
     "color": "var(--cyan-60)",
-    "sourceCount": 6,
+    "sourceCount": 15,
     "policy": {
-      "publicavel": 4,
-      "publicavelComCautela": 1,
+      "publicavel": 12,
+      "publicavelComCautela": 2,
       "naoDestacarNaUi": 1
     }
   },

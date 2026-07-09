@@ -45,7 +45,7 @@ const CONFIG = {
 
 export const metadata: Metadata = {
   title: "Segurança Pública em São Bernardo do Campo",
-  description: "Execução orçamentária de segurança pública em São Bernardo do Campo 2020–2025: dotação, liquidado e percentual do orçamento municipal. Fonte: SICONFI/Tesouro Nacional — RREO Anexo 02.",
+  description: "Execução orçamentária de segurança pública em São Bernardo do Campo 2015–2025: dotação, liquidado e percentual do orçamento municipal. Fonte: SICONFI/Tesouro Nacional — RREO Anexo 02.",
   alternates: { canonical: `${SITE_URL}/sao-bernardo/seguranca` },
 }
 

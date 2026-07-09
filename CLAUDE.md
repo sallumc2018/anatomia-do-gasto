@@ -83,13 +83,17 @@ Municípios registrados:
 diretórios do Sprint2 em `data/public/` usam snake_case com nome IBGE completo,
 de forma consistente. Rotas do site usam hífen (`/sao-paulo`), dados usam
 underscore (`sao_paulo`) — convenção intencional (slug de URL vs chave de
-dado), não misturar. Única exceção real: **São Bernardo do Campo tem dois
-datasets coexistindo de propósito** — `sao_bernardo` (curado, registrado em
-`data/manifests/datasets.csv` + `publication_classification.csv`, usado pela
-página `/sao-bernardo`) e `sao_bernardo_do_campo` (coleta bruta Sprint2, chave
-canônica em `pipelines/paths.py`, ainda sem passar pelo gate de publicação).
-Não renomear/mesclar um no outro sem atualizar os 3 manifests + as 5 páginas
-do frontend juntos — decisão registrada em 2026-07-09, revisitar com calma.
+dado), não misturar. Única exceção real: **São Bernardo do Campo tem duas
+chaves por desenho** — `sao_bernardo_do_campo` (coleta bruta Sprint2 via
+`pipelines/coletar_municipio_sp.py`, chave canônica em `pipelines/paths.py`)
+alimenta `sao_bernardo` (curado, registrado em `data/manifests/datasets.csv` +
+`publication_classification.csv`, usado pela página `/sao-bernardo`).
+Consolidado em 2026-07-09: os 14 tipos de dataset do Sprint2 (executivo, FNS,
+divida-detalhada, natureza-despesa, RCL, RCL capital, RPPS, despesas-DCA,
+orcamento-DCA) foram classificados e publicados, série estendida de 2020-2025
+para 2015-2025. `sao_bernardo_do_campo` continua sendo a chave de coleta —
+não apagar, é a fonte que alimenta a publicação. Novas categorias (executivo,
+FNS) ainda não têm página própria no frontend, só os dados publicados.
 
 ### Manifestos de cobertura
 

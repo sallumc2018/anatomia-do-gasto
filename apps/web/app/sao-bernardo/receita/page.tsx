@@ -44,7 +44,7 @@ const CONFIG = {
 export const metadata: Metadata = {
   title: "Receita Municipal de São Bernardo do Campo",
   description:
-    "De onde vêm os recursos de São Bernardo do Campo: impostos próprios, ICMS/IPVA estaduais e transferências federais. Série histórica 2020–2025. Fonte: SICONFI/Tesouro Nacional — RREO Anexo 01.",
+    "De onde vêm os recursos de São Bernardo do Campo: impostos próprios, ICMS/IPVA estaduais e transferências federais. Série histórica 2015–2025. Fonte: SICONFI/Tesouro Nacional — RREO Anexo 01.",
   alternates: { canonical: `${SITE_URL}/sao-bernardo/receita` },
 }
 

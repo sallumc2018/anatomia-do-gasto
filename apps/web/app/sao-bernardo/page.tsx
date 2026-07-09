@@ -8,7 +8,7 @@ import { faqPageSchema, municipioDataCatalogSchema, SITE_URL } from "@/lib/struc
 
 export const metadata: Metadata = {
   title: "Dados públicos de São Bernardo do Campo — Prefeitura de SBC/SP",
-  description: "Base navegável de dados públicos de São Bernardo do Campo: receitas, execução fiscal (LRF), segurança pública e transporte. Série histórica 2020–2025. Fonte: SICONFI/Tesouro Nacional.",
+  description: "Base navegável de dados públicos de São Bernardo do Campo: receitas, execução fiscal (LRF), segurança pública e transporte. Série histórica 2015–2025. Fonte: SICONFI/Tesouro Nacional.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sao-bernardo" },
 }
 
@@ -53,7 +53,7 @@ const MAIS_AREAS = [
 const SBC_CATALOG = municipioDataCatalogSchema({
   municipioId: "sao-bernardo",
   name: "Dados fiscais públicos de São Bernardo do Campo/SP — Anatomia do Gasto",
-  description: "Catálogo de dados fiscais públicos de São Bernardo do Campo: receitas municipais, segurança pública, transporte e saúde fiscal (LRF/RGF). Série 2020–2025. Fonte: SICONFI/Tesouro Nacional.",
+  description: "Catálogo de dados fiscais públicos de São Bernardo do Campo: receitas municipais, segurança pública, transporte e saúde fiscal (LRF/RGF). Série 2015–2025. Fonte: SICONFI/Tesouro Nacional.",
   spatialCoverage: "São Bernardo do Campo, SP, Brasil (IBGE 3548708)",
   datasets: [
     { name: "Receitas municipais — São Bernardo do Campo",         url: "/sao-bernardo/receita" },
@@ -66,11 +66,11 @@ const SBC_CATALOG = municipioDataCatalogSchema({
 const SBC_FAQ = faqPageSchema([
   {
     question: "Quanto São Bernardo do Campo gastou em segurança pública em 2024?",
-    answer: `Em 2024, São Bernardo do Campo liquidou R$ 123,7 milhões em segurança pública — 1,99% do orçamento municipal de R$ 6,35 bilhões. O valor cobre guarda civil, monitoramento e defesa civil. A dotação inicial era R$ 98 mi, atualizada para R$ 140 mi ao longo do exercício. Série 2020–2025 em ${SITE_URL}/sao-bernardo/seguranca. Fonte: RREO Anexo 02/SICONFI.`,
+    answer: `Em 2024, São Bernardo do Campo liquidou R$ 123,7 milhões em segurança pública — 1,99% do orçamento municipal de R$ 6,35 bilhões. O valor cobre guarda civil, monitoramento e defesa civil. A dotação inicial era R$ 98 mi, atualizada para R$ 140 mi ao longo do exercício. Série 2015–2025 em ${SITE_URL}/sao-bernardo/seguranca. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
     question: "Quanto SBC gastou em transporte em 2024?",
-    answer: `Em 2024, São Bernardo do Campo liquidou R$ 547,6 milhões em transporte — 9,55% do orçamento municipal, tornando-o a maior área de despesa setorial publicada no site para o município. O montante cobre ônibus urbano e obras de mobilidade. Série histórica 2020–2025 em ${SITE_URL}/sao-bernardo/transporte. Fonte: RREO Anexo 02/SICONFI.`,
+    answer: `Em 2024, São Bernardo do Campo liquidou R$ 547,6 milhões em transporte — 9,55% do orçamento municipal, tornando-o a maior área de despesa setorial publicada no site para o município. O montante cobre ônibus urbano e obras de mobilidade. Série histórica 2015–2025 em ${SITE_URL}/sao-bernardo/transporte. Fonte: RREO Anexo 02/SICONFI.`,
   },
   {
     question: "Quanto entrou de receita em São Bernardo do Campo em 2024?",

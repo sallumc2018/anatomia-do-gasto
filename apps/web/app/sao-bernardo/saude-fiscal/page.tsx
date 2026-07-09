@@ -66,7 +66,7 @@ const CONFIG = {
 export const metadata: Metadata = {
   title: "Saúde Fiscal de São Bernardo do Campo",
   description:
-    "Despesa com pessoal e dívida consolidada de São Bernardo do Campo 2020–2025. Comparação com os limites da Lei de Responsabilidade Fiscal. Fonte: SICONFI/Tesouro Nacional.",
+    "Despesa com pessoal e dívida consolidada de São Bernardo do Campo 2015–2025. Comparação com os limites da Lei de Responsabilidade Fiscal. Fonte: SICONFI/Tesouro Nacional.",
   alternates: { canonical: `${SITE_URL}/sao-bernardo/saude-fiscal` },
 }
 
