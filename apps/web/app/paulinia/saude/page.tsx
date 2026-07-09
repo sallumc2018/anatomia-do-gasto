@@ -209,7 +209,12 @@ export default function PauliniaSaudePage() {
             <div className="mx-auto px-6 py-12" style={S.container}>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
                 <div>
-                  <p className="uppercase font-semibold mb-4" style={S.label}>SIOPS — Mínimo constitucional</p>
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <p className="uppercase font-semibold" style={S.label}>SIOPS — Mínimo constitucional</p>
+                    <Link href="/paulinia/saude/comparativo" style={{ fontSize: "12px", color: "var(--blue-50)", textDecoration: "none", whiteSpace: "nowrap" }}>
+                      Ver série histórica →
+                    </Link>
+                  </div>
                   <h2 style={S.h2}>Conformidade ASPS por ano</h2>
                   <div style={S.borderTop}>
                     {[...siopsSerie].sort((a, b) => b.ano - a.ano).map(r => {
@@ -316,6 +321,7 @@ export default function PauliniaSaudePage() {
         <section style={{ backgroundColor: "var(--bg-base)" }}>
           <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
             <Link href="/paulinia" className="nav-link">← Paulínia</Link>
+            <Link href="/paulinia/saude/comparativo" className="nav-link">Série histórica</Link>
             <Link href="/paulinia/saude-fiscal" className="nav-link">Saúde Fiscal (LRF)</Link>
             <Link href="/paulinia/executivo" className="nav-link">Orçamento total</Link>
             <Link href="/paulinia/transferencias" className="nav-link">Transferências</Link>

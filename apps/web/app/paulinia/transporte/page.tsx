@@ -25,6 +25,7 @@ const CONFIG = {
   variant: "dca",
   navLinks: [
     { href: "/paulinia", label: "← Paulínia" },
+    { href: "/paulinia/transporte/comparativo", label: "Comparativo histórico" },
     { href: "/paulinia/executivo", label: "Orçamento total" },
     { href: "/paulinia/seguranca", label: "Segurança pública" },
     { href: "/metodologia", label: "Metodologia" },

@@ -424,6 +424,23 @@ export function loadSegurancaOrcamento(year: number, municipio = "sorocaba"): Se
   return parseSegurancaOrcamentoCSV(fs.readFileSync(filePath, "utf-8"))
 }
 
+/**
+ * Anos disponíveis a partir dos arquivos rreo_seguranca_{municipio}_{ano}.csv.
+ * Usar para municípios que só têm o dado agregado do RREO (sem detalhamento
+ * por subfunção via DCA Anexo I-E, ex.: Paulínia). Não usar para Sorocaba,
+ * que tem despesas_seguranca_* com quebra por subfunção — ver getAvailableYearsSeguranca.
+ */
+export function getAvailableYearsSegurancaOrcamento(municipio = "sorocaba"): number[] {
+  const dir = getSegurancaDir(municipio)
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .map((f) => f.match(new RegExp(`^rreo_seguranca_${municipio}_(\\d{4})\\.csv$`)))
+    .filter((m): m is RegExpMatchArray => m !== null)
+    .map((m) => Number(m[1]))
+    .sort((a, b) => b - a)
+}
+
 // ─── Transporte ──────────────────────────────────────────────────────────────
 
 function getTransporteDir(municipio = "sorocaba"): string {

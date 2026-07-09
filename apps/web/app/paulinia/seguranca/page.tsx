@@ -36,6 +36,7 @@ const CONFIG = {
   variant: "totais",
   navLinks: [
     { href: "/paulinia", label: "← Paulínia" },
+    { href: "/paulinia/seguranca/comparativo", label: "Série histórica" },
     { href: "/paulinia/executivo", label: "Orçamento total" },
     { href: "/paulinia/transporte", label: "Transporte" },
     { href: "/metodologia", label: "Metodologia" },

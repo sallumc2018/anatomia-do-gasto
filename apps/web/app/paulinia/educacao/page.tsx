@@ -185,8 +185,9 @@ export default function PauliniaEducacaoPage() {
                 <p style={{ ...S.caption, lineHeight: "18px" }}>
                   <strong style={{ color: "var(--text-02)" }}>Nota metodológica:</strong>{" "}
                   Esta página mostra a execução orçamentária da função Educação (RREO Anexo 02).
-                  Os dados de cumprimento do mínimo constitucional de MDE (25%) via SIOPE/FNDE
-                  estão temporariamente indisponíveis para Paulínia — a API retorna resposta vazia.
+                  O cumprimento do mínimo constitucional de MDE (25%) via SICONFI (RREO Anexo 14)
+                  tem série histórica própria, incluindo anos sem dado publicado pela fonte oficial —
+                  veja a <Link href="/paulinia/educacao/comparativo" style={{ color: "var(--blue-40)" }}>série histórica do MDE</Link>.
                   O gasto total pelo RREO inclui todas as fontes (próprias + transferências).
                 </p>
               </div>
@@ -345,6 +346,7 @@ export default function PauliniaEducacaoPage() {
         <section style={{ backgroundColor: "var(--bg-base)" }}>
           <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
             <Link href="/paulinia" className="nav-link">← Paulínia</Link>
+            <Link href="/paulinia/educacao/comparativo" className="nav-link">Série histórica do MDE</Link>
             <Link href="/paulinia/executivo" className="nav-link">Orçamento total</Link>
             <Link href="/paulinia/receita" className="nav-link">Receitas</Link>
             <Link href="/paulinia/saude" className="nav-link">Saúde</Link>
