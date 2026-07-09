@@ -15,6 +15,13 @@ MUNICIPIOS = {
     # Top 20 SP por população — Sprint 1 (sefaz_sp/cnpj pendentes: coleta SICONFI+FNS já funciona)
     "guarulhos":             {"ibge": "3518800", "uf": "SP", "nome": "Guarulhos"},
     "campinas":              {"ibge": "3509502", "uf": "SP", "nome": "Campinas"},
+    # ATENÇÃO: chave canônica (nome IBGE completo) da coleta Sprint2 nacional.
+    # NÃO confundir com "sao_bernardo" — dataset curado à parte, registrado em
+    # data/manifests/datasets.csv + publication_classification.csv e usado pela
+    # página dedicada /sao-bernardo. Os dois coexistem de propósito: um é a
+    # coleta bruta nacional (esta chave), o outro já passou pelo gate de
+    # publicação. Não renomear/mesclar sem atualizar os 3 manifests + as
+    # páginas do frontend juntos (ver handoff 2026-07-09).
     "sao_bernardo_do_campo": {"ibge": "3548708", "uf": "SP", "nome": "Sao Bernardo do Campo"},
     "santo_andre":           {"ibge": "3547809", "uf": "SP", "nome": "Santo Andre"},
     "osasco":                {"ibge": "3534401", "uf": "SP", "nome": "Osasco"},

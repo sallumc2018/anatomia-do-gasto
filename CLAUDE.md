@@ -79,6 +79,18 @@ Municípios registrados:
 - `sorocaba`: IBGE 3552205, CNPJ 46634044000174, sefaz_sp 6695
 - `paulinia`: IBGE 3536505, CNPJ 45751435000106, sefaz_sp 5137
 
+**Nomenclatura de municípios (padronizada, uma exceção documentada):** os 5.571
+diretórios do Sprint2 em `data/public/` usam snake_case com nome IBGE completo,
+de forma consistente. Rotas do site usam hífen (`/sao-paulo`), dados usam
+underscore (`sao_paulo`) — convenção intencional (slug de URL vs chave de
+dado), não misturar. Única exceção real: **São Bernardo do Campo tem dois
+datasets coexistindo de propósito** — `sao_bernardo` (curado, registrado em
+`data/manifests/datasets.csv` + `publication_classification.csv`, usado pela
+página `/sao-bernardo`) e `sao_bernardo_do_campo` (coleta bruta Sprint2, chave
+canônica em `pipelines/paths.py`, ainda sem passar pelo gate de publicação).
+Não renomear/mesclar um no outro sem atualizar os 3 manifests + as 5 páginas
+do frontend juntos — decisão registrada em 2026-07-09, revisitar com calma.
+
 ### Manifestos de cobertura
 
 - `data/manifests/sorocaba/mapa_cobertura.csv` — fonte de verdade do score de Sorocaba

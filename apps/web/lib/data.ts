@@ -64,6 +64,9 @@ function parseCSV(content: string): HealthRow[] {
 }
 
 const DATA_PUBLIC_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
+// "sao_bernardo" (curado, gate de publicação) != "sao_bernardo_do_campo" (coleta
+// bruta Sprint2, chave canônica em pipelines/paths.py). Não trocar sem migrar os
+// 3 manifests + páginas /sao-bernardo juntos — ver pipelines/paths.py.
 const KNOWN_MUNICIPIOS = new Set(["sorocaba", "paulinia", "sao_paulo", "sao_bernardo"])
 
 function dataPublicPath(...segments: string[]): string {
