@@ -123,9 +123,29 @@ run_cmd "Sync public to GDrive" \
     "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
     --progress --checksum
 
-# Sprint 2 — rodado separadamente pelo cron de 05:05 UTC (scripts/sprint2_24x7_worker.py --loop --sleep 30).
-# Timeout 3h. Quando o servidor 192.168.15.9 voltar online, o worker pode rodar
-# via systemd no servidor para cobertura contínua.
+# 7. Commit local (sem push — fica pronto para push manual matinal)
+log "▶ Commit local do lote noturno"
+git -C "$REPO" add -- data/public data/manifests apps/web/lib/datasets_status.json 2>/dev/null || true
+if git -C "$REPO" diff --cached --quiet; then
+  log "  · nada novo para commitar"
+else
+  if "$REPO/.venv/bin/python3" "$REPO/tools/agents/check-secrets.py" --staged >> "$LOG_FILE" 2>&1 \
+    && "$REPO/.venv/bin/python3" "$REPO/tools/gates/pre_deploy.py" >> "$LOG_FILE" 2>&1; then
+    git -C "$REPO" commit -q \
+      -m "chore(coleta): coleta noturna $(date -u +%Y-%m-%d)" \
+      -m "Coleta automatica via coleta_noturna.sh (00h-06h BRT); nao pusheado." \
+      -m "[Claude Code > claude-sonnet-4-6 > Auto]" >> "$LOG_FILE" 2>&1 \
+      && log "  ✓ Commit local criado" \
+      || log "  ✗ git commit falhou (ver log)"
+  else
+    log "  ✗ Gates de commit falharam — deixando staged para revisão manual"
+    FALHAS+=("Commit local do lote noturno (gate falhou)")
+  fi
+fi
+
+# Sprint 2 — roda em paralelo pelo cron de 00:00 BRT (scripts/sprint2_24x7_worker.py --loop --sleep 30
+# --commit-push-every N), timeout até 06:00 BRT. Commit local próprio, sem push (--push nao usado).
+# Quando o servidor 192.168.15.9 voltar online, o worker pode rodar via systemd para cobertura contínua.
 
 log "=== Coleta Noturna concluída ==="
 log "Log completo: $LOG_FILE"

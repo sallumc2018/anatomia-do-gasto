@@ -341,7 +341,12 @@ def run_commit_gates(timeout: int) -> bool:
     return True
 
 
-def commit_and_push(timeout: int, dry_run: bool) -> bool:
+def commit_and_push(timeout: int, dry_run: bool, push: bool) -> bool:
+    """Commita a coleta acumulada; push só ocorre se `push=True` (autorização explícita).
+
+    Por padrão (`push=False`) o worker deixa o commit pronto localmente para
+    revisão/push manual — nunca publica para origin sozinho.
+    """
     if not remote_is_current(timeout):
         return False
     if not run_catalog_and_coverage(timeout):
@@ -370,6 +375,9 @@ def commit_and_push(timeout: int, dry_run: bool) -> bool:
     ]
     if run_command("git commit", message, STATE_DIR / "runs" / f"git_{today}.log", timeout).returncode != 0:
         return False
+    if not push:
+        append_event({"event": "commit_only", "reason": "push desativado (--push nao passado)"})
+        return True
     return run_command("git push", ["git", "push", "origin", "main"], STATE_DIR / "runs" / f"git_{today}.log", timeout).returncode == 0
 
 
@@ -392,8 +400,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sleep", type=int, default=30, help="pausa entre municipios no modo loop")
     parser.add_argument("--timeout", type=int, default=7200, help="timeout por etapa")
     parser.add_argument("--uf", action="append", default=[], help="filtra UFs, pode repetir")
-    parser.add_argument("--commit-push-every", type=int, default=0, help="commit/push a cada N sucessos; 0 desativa")
+    parser.add_argument("--commit-push-every", type=int, default=0, help="commit (e push, se --push) a cada N sucessos; 0 desativa")
     parser.add_argument("--dry-run-commit", action="store_true", help="roda gates mas nao commita/pusha")
+    parser.add_argument("--push", action="store_true", help="alem de commitar, faz push para origin/main (padrao: so commit local)")
     args = parser.parse_args(argv)
 
     _load_secrets()
@@ -433,7 +442,7 @@ def main(argv: list[str] | None = None) -> int:
             args.commit_push_every > 0
             and int(state.get("successes_since_commit", 0)) >= args.commit_push_every
         ):
-            if commit_and_push(args.timeout, args.dry_run_commit):
+            if commit_and_push(args.timeout, args.dry_run_commit, args.push):
                 state["successes_since_commit"] = 0
                 state["last_commit_attempt_ok"] = True
             else:
