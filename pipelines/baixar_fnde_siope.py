@@ -9,8 +9,13 @@ Fontes (todas públicas — sem LAI):
      `/despesas/tipo-transferencia` [agregado federal, não por município] e
      `/convenios` [acordos voluntários, não repasse constitucional/automático]).
      Sem endpoint público conhecido para repasses automáticos por município.
-     Pendência: investigar dados.gov.br ou download manual. Até lá, fica stub
-     "sem_dados_sem_fonte".
+     dados.gov.br (portal FNDE redireciona pra lá) investigado em 2026-07-09:
+     a API pública migrou para um novo backend que exige Bearer token
+     (`www-authenticate: Bearer` em toda chamada, inclusive sem query) — não
+     é mais CKAN anônimo. Emitir a chave requer login gov.br + cadastro no
+     portal (ação humana única, fora do escopo de coleta automatizada).
+     Pendência real: se o usuário cadastrar uma chave de API em dados.gov.br,
+     dá pra reavaliar. Até lá, fica stub "sem_dados_sem_fonte".
 
   2. Indicador MDE (Manutenção e Desenvolvimento do Ensino) — via SICONFI
      RREO Anexo 14 (Demonstrativo Simplificado), NÃO mais via scraping do
