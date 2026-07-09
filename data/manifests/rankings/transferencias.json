@@ -1,0 +1,1311 @@
+{
+  "_note": "Gerado por pipelines/gerar_ranking_transferencias.py — não editar manualmente",
+  "_generated": "2026-07-09",
+  "data_corte": "2026-07-09",
+  "aviso_metodologico": "Ausência de um município não significa valor zero: pode ser que o dado ainda não tenha sido coletado. Fontes com cobertura desigual não são somadas entre si — cada uma é um ranking próprio. Metodologia completa: docs/ranking-municipios-metodologia.md",
+  "fontes_disponiveis": {
+    "fns": {
+      "metrica": "Soma de repasses do Fundo Nacional de Saúde (FNS), valor líquido, todos os anos disponíveis por município",
+      "fontes": [
+        "Fundo Nacional de Saúde (portalfns.saude.gov.br)"
+      ],
+      "n_incluidos": 183,
+      "n_universo": 5571,
+      "cobertura_pct": 3.28,
+      "ranking": [
+        {
+          "ibge": "355030",
+          "nome": "SAO PAULO",
+          "uf": "SP",
+          "valor_total": 99195062047.57,
+          "posicao": 1
+        },
+        {
+          "ibge": "354870",
+          "nome": "SAO BERNARDO DO CAMPO",
+          "uf": "SP",
+          "valor_total": 4822182027.32,
+          "posicao": 2
+        },
+        {
+          "ibge": "350950",
+          "nome": "CAMPINAS",
+          "uf": "SP",
+          "valor_total": 4680697347.58,
+          "posicao": 3
+        },
+        {
+          "ibge": "351880",
+          "nome": "GUARULHOS",
+          "uf": "SP",
+          "valor_total": 3146674545.0,
+          "posicao": 4
+        },
+        {
+          "ibge": "354340",
+          "nome": "RIBEIRAO PRETO",
+          "uf": "SP",
+          "valor_total": 2309039148.63,
+          "posicao": 5
+        },
+        {
+          "ibge": "354850",
+          "nome": "SANTOS",
+          "uf": "SP",
+          "valor_total": 2022646621.47,
+          "posicao": 6
+        },
+        {
+          "ibge": "354780",
+          "nome": "SANTO ANDRE",
+          "uf": "SP",
+          "valor_total": 1948027925.47,
+          "posicao": 7
+        },
+        {
+          "ibge": "354990",
+          "nome": "SAO JOSE DOS CAMPOS",
+          "uf": "SP",
+          "valor_total": 1908776865.82,
+          "posicao": 8
+        },
+        {
+          "ibge": "354980",
+          "nome": "SAO JOSE DO RIO PRETO",
+          "uf": "SP",
+          "valor_total": 1861133987.64,
+          "posicao": 9
+        },
+        {
+          "ibge": "353870",
+          "nome": "PIRACICABA",
+          "uf": "SP",
+          "valor_total": 1825743626.06,
+          "posicao": 10
+        },
+        {
+          "ibge": "352940",
+          "nome": "MAUA",
+          "uf": "SP",
+          "valor_total": 1668686618.41,
+          "posicao": 11
+        },
+        {
+          "ibge": "352590",
+          "nome": "JUNDIAI",
+          "uf": "SP",
+          "valor_total": 1603217202.65,
+          "posicao": 12
+        },
+        {
+          "ibge": "140010",
+          "nome": "BOA VISTA",
+          "uf": "RR",
+          "valor_total": 1443028671.04,
+          "posicao": 13
+        },
+        {
+          "ibge": "120040",
+          "nome": "RIO BRANCO",
+          "uf": "AC",
+          "valor_total": 1417891037.92,
+          "posicao": 14
+        },
+        {
+          "ibge": "351380",
+          "nome": "DIADEMA",
+          "uf": "SP",
+          "valor_total": 1405541765.31,
+          "posicao": 15
+        },
+        {
+          "ibge": "353440",
+          "nome": "OSASCO",
+          "uf": "SP",
+          "valor_total": 1330224855.04,
+          "posicao": 16
+        },
+        {
+          "ibge": "353060",
+          "nome": "MOGI DAS CRUZES",
+          "uf": "SP",
+          "valor_total": 1323023966.72,
+          "posicao": 17
+        },
+        {
+          "ibge": "355100",
+          "nome": "SAO VICENTE",
+          "uf": "SP",
+          "valor_total": 897356276.26,
+          "posicao": 18
+        },
+        {
+          "ibge": "350600",
+          "nome": "BAURU",
+          "uf": "SP",
+          "valor_total": 797023398.26,
+          "posicao": 19
+        },
+        {
+          "ibge": "150080",
+          "nome": "ANANINDEUA",
+          "uf": "PA",
+          "valor_total": 708475602.04,
+          "posicao": 20
+        },
+        {
+          "ibge": "351060",
+          "nome": "CARAPICUIBA",
+          "uf": "SP",
+          "valor_total": 538688785.56,
+          "posicao": 21
+        },
+        {
+          "ibge": "310160",
+          "nome": "ALFENAS",
+          "uf": "MG",
+          "valor_total": 506361620.1,
+          "posicao": 22
+        },
+        {
+          "ibge": "330010",
+          "nome": "ANGRA DOS REIS",
+          "uf": "RJ",
+          "valor_total": 443556267.04,
+          "posicao": 23
+        },
+        {
+          "ibge": "352310",
+          "nome": "ITAQUAQUECETUBA",
+          "uf": "SP",
+          "valor_total": 379754406.73,
+          "posicao": 24
+        },
+        {
+          "ibge": "290070",
+          "nome": "ALAGOINHAS",
+          "uf": "BA",
+          "valor_total": 250276356.06,
+          "posicao": 25
+        },
+        {
+          "ibge": "160060",
+          "nome": "SANTANA",
+          "uf": "AP",
+          "valor_total": 238408158.89,
+          "posicao": 26
+        },
+        {
+          "ibge": "150010",
+          "nome": "ABAETETUBA",
+          "uf": "PA",
+          "valor_total": 191154393.25,
+          "posicao": 27
+        },
+        {
+          "ibge": "120020",
+          "nome": "CRUZEIRO DO SUL",
+          "uf": "AC",
+          "valor_total": 185540985.43,
+          "posicao": 28
+        },
+        {
+          "ibge": "150060",
+          "nome": "ALTAMIRA",
+          "uf": "PA",
+          "valor_total": 166193088.29,
+          "posicao": 29
+        },
+        {
+          "ibge": "350160",
+          "nome": "AMERICANA",
+          "uf": "SP",
+          "valor_total": 164880400.46,
+          "posicao": 30
+        },
+        {
+          "ibge": "160027",
+          "nome": "LARANJAL DO JARI",
+          "uf": "AP",
+          "valor_total": 142221103.23,
+          "posicao": 31
+        },
+        {
+          "ibge": "350190",
+          "nome": "AMPARO",
+          "uf": "SP",
+          "valor_total": 122938013.32,
+          "posicao": 32
+        },
+        {
+          "ibge": "353650",
+          "nome": "PAULINIA",
+          "uf": "SP",
+          "valor_total": 120101234.53,
+          "posicao": 33
+        },
+        {
+          "ibge": "140005",
+          "nome": "ALTO ALEGRE",
+          "uf": "RR",
+          "valor_total": 105257494.94,
+          "posicao": 34
+        },
+        {
+          "ibge": "260005",
+          "nome": "ABREU E LIMA",
+          "uf": "PE",
+          "valor_total": 103289684.79,
+          "posicao": 35
+        },
+        {
+          "ibge": "220040",
+          "nome": "ALTOS",
+          "uf": "PI",
+          "valor_total": 90924681.05,
+          "posicao": 36
+        },
+        {
+          "ibge": "430060",
+          "nome": "ALVORADA",
+          "uf": "RS",
+          "valor_total": 87606714.15,
+          "posicao": 37
+        },
+        {
+          "ibge": "260010",
+          "nome": "AFOGADOS DA INGAZEIRA",
+          "uf": "PE",
+          "valor_total": 83420568.37,
+          "posicao": 38
+        },
+        {
+          "ibge": "310170",
+          "nome": "ALMENARA",
+          "uf": "MG",
+          "valor_total": 77995923.08,
+          "posicao": 39
+        },
+        {
+          "ibge": "120050",
+          "nome": "SENA MADUREIRA",
+          "uf": "AC",
+          "valor_total": 76667398.26,
+          "posicao": 40
+        },
+        {
+          "ibge": "160053",
+          "nome": "PORTO GRANDE",
+          "uf": "AP",
+          "valor_total": 74530955.88,
+          "posicao": 41
+        },
+        {
+          "ibge": "350210",
+          "nome": "ANDRADINA",
+          "uf": "SP",
+          "valor_total": 73784289.56,
+          "posicao": 42
+        },
+        {
+          "ibge": "350010",
+          "nome": "ADAMANTINA",
+          "uf": "SP",
+          "valor_total": 69533349.21,
+          "posicao": 43
+        },
+        {
+          "ibge": "160070",
+          "nome": "TARTARUGALZINHO",
+          "uf": "AP",
+          "valor_total": 69006036.27,
+          "posicao": 44
+        },
+        {
+          "ibge": "150050",
+          "nome": "ALMEIRIM",
+          "uf": "PA",
+          "valor_total": 68222345.31,
+          "posicao": 45
+        },
+        {
+          "ibge": "250030",
+          "nome": "ALAGOA GRANDE",
+          "uf": "PB",
+          "valor_total": 65948301.79,
+          "posicao": 46
+        },
+        {
+          "ibge": "230030",
+          "nome": "ACOPIARA",
+          "uf": "CE",
+          "valor_total": 65225245.79,
+          "posicao": 47
+        },
+        {
+          "ibge": "240050",
+          "nome": "ALEXANDRIA",
+          "uf": "RN",
+          "valor_total": 63425677.29,
+          "posicao": 48
+        },
+        {
+          "ibge": "290100",
+          "nome": "AMARGOSA",
+          "uf": "BA",
+          "valor_total": 62995202.52,
+          "posicao": 49
+        },
+        {
+          "ibge": "260030",
+          "nome": "AGRESTINA",
+          "uf": "PE",
+          "valor_total": 62601960.45,
+          "posicao": 50
+        },
+        {
+          "ibge": "510025",
+          "nome": "ALTA FLORESTA",
+          "uf": "MT",
+          "valor_total": 57356947.61,
+          "posicao": 51
+        },
+        {
+          "ibge": "230075",
+          "nome": "AMONTADA",
+          "uf": "CE",
+          "valor_total": 55389405.51,
+          "posicao": 52
+        },
+        {
+          "ibge": "430040",
+          "nome": "ALEGRETE",
+          "uf": "RS",
+          "valor_total": 55201702.42,
+          "posicao": 53
+        },
+        {
+          "ibge": "130010",
+          "nome": "ANORI",
+          "uf": "AM",
+          "valor_total": 55065641.01,
+          "posicao": 54
+        },
+        {
+          "ibge": "150040",
+          "nome": "ALENQUER",
+          "uf": "PA",
+          "valor_total": 53361374.05,
+          "posicao": 55
+        },
+        {
+          "ibge": "150085",
+          "nome": "ANAPU",
+          "uf": "PA",
+          "valor_total": 52632805.39,
+          "posicao": 56
+        },
+        {
+          "ibge": "250040",
+          "nome": "ALAGOA NOVA",
+          "uf": "PB",
+          "valor_total": 52500917.59,
+          "posicao": 57
+        },
+        {
+          "ibge": "320040",
+          "nome": "ANCHIETA",
+          "uf": "ES",
+          "valor_total": 52379394.0,
+          "posicao": 58
+        },
+        {
+          "ibge": "220050",
+          "nome": "AMARANTE",
+          "uf": "PI",
+          "valor_total": 51928730.31,
+          "posicao": 59
+        },
+        {
+          "ibge": "210070",
+          "nome": "ANAJATUBA",
+          "uf": "MA",
+          "valor_total": 51081518.17,
+          "posicao": 60
+        },
+        {
+          "ibge": "210030",
+          "nome": "ALDEIAS ALTAS",
+          "uf": "MA",
+          "valor_total": 49068594.8,
+          "posicao": 61
+        },
+        {
+          "ibge": "260080",
+          "nome": "ALTINHO",
+          "uf": "PE",
+          "valor_total": 47317163.6,
+          "posicao": 62
+        },
+        {
+          "ibge": "500060",
+          "nome": "AMAMBAI",
+          "uf": "MS",
+          "valor_total": 45321457.95,
+          "posicao": 63
+        },
+        {
+          "ibge": "140045",
+          "nome": "PACARAIMA",
+          "uf": "RR",
+          "valor_total": 42277282.58,
+          "posicao": 64
+        },
+        {
+          "ibge": "320020",
+          "nome": "ALEGRE",
+          "uf": "ES",
+          "valor_total": 41282469.85,
+          "posicao": 65
+        },
+        {
+          "ibge": "160015",
+          "nome": "PEDRA BRANCA DO AMAPARI",
+          "uf": "AP",
+          "valor_total": 39240184.95,
+          "posicao": 66
+        },
+        {
+          "ibge": "350070",
+          "nome": "AGUDOS",
+          "uf": "SP",
+          "valor_total": 39200688.96,
+          "posicao": 67
+        },
+        {
+          "ibge": "250060",
+          "nome": "ALHANDRA",
+          "uf": "PB",
+          "valor_total": 38541837.52,
+          "posicao": 68
+        },
+        {
+          "ibge": "310260",
+          "nome": "ANDRADAS",
+          "uf": "MG",
+          "valor_total": 38208785.63,
+          "posicao": 69
+        },
+        {
+          "ibge": "270020",
+          "nome": "ANADIA",
+          "uf": "AL",
+          "valor_total": 38163714.36,
+          "posicao": 70
+        },
+        {
+          "ibge": "120042",
+          "nome": "RODRIGUES ALVES",
+          "uf": "AC",
+          "valor_total": 37844764.23,
+          "posicao": 71
+        },
+        {
+          "ibge": "110001",
+          "nome": "ALTA FLORESTA D'OESTE",
+          "uf": "RO",
+          "valor_total": 36981925.55,
+          "posicao": 72
+        },
+        {
+          "ibge": "120035",
+          "nome": "MARECHAL THAUMATURGO",
+          "uf": "AC",
+          "valor_total": 36107902.43,
+          "posicao": 73
+        },
+        {
+          "ibge": "240060",
+          "nome": "ALMINO AFONSO",
+          "uf": "RN",
+          "valor_total": 35792682.96,
+          "posicao": 74
+        },
+        {
+          "ibge": "250050",
+          "nome": "ALAGOINHA",
+          "uf": "PB",
+          "valor_total": 35742875.38,
+          "posicao": 75
+        },
+        {
+          "ibge": "120070",
+          "nome": "XAPURI",
+          "uf": "AC",
+          "valor_total": 35081006.04,
+          "posicao": 76
+        },
+        {
+          "ibge": "120045",
+          "nome": "SENADOR GUIOMARD",
+          "uf": "AC",
+          "valor_total": 33663014.85,
+          "posicao": 77
+        },
+        {
+          "ibge": "520130",
+          "nome": "ANICUNS",
+          "uf": "GO",
+          "valor_total": 32773491.28,
+          "posicao": 78
+        },
+        {
+          "ibge": "260090",
+          "nome": "AMARAJI",
+          "uf": "PE",
+          "valor_total": 32746383.0,
+          "posicao": 79
+        },
+        {
+          "ibge": "230070",
+          "nome": "ALTO SANTO",
+          "uf": "CE",
+          "valor_total": 32683805.21,
+          "posicao": 80
+        },
+        {
+          "ibge": "140015",
+          "nome": "BONFIM",
+          "uf": "RR",
+          "valor_total": 32163325.75,
+          "posicao": 81
+        },
+        {
+          "ibge": "310030",
+          "nome": "ABRE CAMPO",
+          "uf": "MG",
+          "valor_total": 32144165.99,
+          "posicao": 82
+        },
+        {
+          "ibge": "160050",
+          "nome": "OIAPOQUE",
+          "uf": "AP",
+          "valor_total": 31749148.15,
+          "posicao": 83
+        },
+        {
+          "ibge": "260060",
+          "nome": "ALAGOINHA",
+          "uf": "PE",
+          "valor_total": 31308228.95,
+          "posicao": 84
+        },
+        {
+          "ibge": "120017",
+          "nome": "CAPIXABA",
+          "uf": "AC",
+          "valor_total": 30369391.26,
+          "posicao": 85
+        },
+        {
+          "ibge": "110034",
+          "nome": "ALVORADA D'OESTE",
+          "uf": "RO",
+          "valor_total": 30252574.43,
+          "posicao": 86
+        },
+        {
+          "ibge": "290035",
+          "nome": "ADUSTINA",
+          "uf": "BA",
+          "valor_total": 30128861.74,
+          "posicao": 87
+        },
+        {
+          "ibge": "160023",
+          "nome": "FERREIRA GOMES",
+          "uf": "AP",
+          "valor_total": 30050330.83,
+          "posicao": 88
+        },
+        {
+          "ibge": "140040",
+          "nome": "NORMANDIA",
+          "uf": "RR",
+          "valor_total": 28740369.38,
+          "posicao": 89
+        },
+        {
+          "ibge": "240080",
+          "nome": "ANGICOS",
+          "uf": "RN",
+          "valor_total": 28021205.35,
+          "posicao": 90
+        },
+        {
+          "ibge": "260100",
+          "nome": "ANGELIM",
+          "uf": "PE",
+          "valor_total": 27876487.98,
+          "posicao": 91
+        },
+        {
+          "ibge": "350220",
+          "nome": "ANGATUBA",
+          "uf": "SP",
+          "valor_total": 27576701.32,
+          "posicao": 92
+        },
+        {
+          "ibge": "140023",
+          "nome": "CAROEBE",
+          "uf": "RR",
+          "valor_total": 27004256.9,
+          "posicao": 93
+        },
+        {
+          "ibge": "210080",
+          "nome": "ANAPURUS",
+          "uf": "MA",
+          "valor_total": 26811873.74,
+          "posicao": 94
+        },
+        {
+          "ibge": "290030",
+          "nome": "ACAJUTIBA",
+          "uf": "BA",
+          "valor_total": 26567915.04,
+          "posicao": 95
+        },
+        {
+          "ibge": "230040",
+          "nome": "AIUABA",
+          "uf": "CE",
+          "valor_total": 26034583.96,
+          "posicao": 96
+        },
+        {
+          "ibge": "120080",
+          "nome": "PORTO ACRE",
+          "uf": "AC",
+          "valor_total": 25864794.91,
+          "posicao": 97
+        },
+        {
+          "ibge": "510030",
+          "nome": "ALTO ARAGUAIA",
+          "uf": "MT",
+          "valor_total": 25845488.52,
+          "posicao": 98
+        },
+        {
+          "ibge": "290135",
+          "nome": "ANDORINHA",
+          "uf": "BA",
+          "valor_total": 25449076.64,
+          "posicao": 99
+        },
+        {
+          "ibge": "140002",
+          "nome": "AMAJARI",
+          "uf": "RR",
+          "valor_total": 25166551.49,
+          "posicao": 100
+        },
+        {
+          "ibge": "120039",
+          "nome": "PORTO WALTER",
+          "uf": "AC",
+          "valor_total": 24700127.88,
+          "posicao": 101
+        },
+        {
+          "ibge": "120005",
+          "nome": "ASSIS BRASIL",
+          "uf": "AC",
+          "valor_total": 24279181.64,
+          "posicao": 102
+        },
+        {
+          "ibge": "110037",
+          "nome": "ALTO ALEGRE DOS PARECIS",
+          "uf": "RO",
+          "valor_total": 23632829.77,
+          "posicao": 103
+        },
+        {
+          "ibge": "290150",
+          "nome": "ANGUERA",
+          "uf": "BA",
+          "valor_total": 23593801.53,
+          "posicao": 104
+        },
+        {
+          "ibge": "410120",
+          "nome": "ANTONINA",
+          "uf": "PR",
+          "valor_total": 23011387.42,
+          "posicao": 105
+        },
+        {
+          "ibge": "160025",
+          "nome": "ITAUBAL",
+          "uf": "AP",
+          "valor_total": 22992475.01,
+          "posicao": 106
+        },
+        {
+          "ibge": "140028",
+          "nome": "IRACEMA",
+          "uf": "RR",
+          "valor_total": 22874705.81,
+          "posicao": 107
+        },
+        {
+          "ibge": "290140",
+          "nome": "ANGICAL",
+          "uf": "BA",
+          "valor_total": 22720852.14,
+          "posicao": 108
+        },
+        {
+          "ibge": "250053",
+          "nome": "ALCANTIL",
+          "uf": "PB",
+          "valor_total": 22541323.23,
+          "posicao": 109
+        },
+        {
+          "ibge": "120034",
+          "nome": "MANOEL URBANO",
+          "uf": "AC",
+          "valor_total": 21726111.76,
+          "posicao": 110
+        },
+        {
+          "ibge": "240070",
+          "nome": "ALTO DO RODRIGUES",
+          "uf": "RN",
+          "valor_total": 21647753.09,
+          "posicao": 111
+        },
+        {
+          "ibge": "250020",
+          "nome": "AGUIAR",
+          "uf": "PB",
+          "valor_total": 20582333.18,
+          "posicao": 112
+        },
+        {
+          "ibge": "310200",
+          "nome": "ALTEROSA",
+          "uf": "MG",
+          "valor_total": 20538457.99,
+          "posicao": 113
+        },
+        {
+          "ibge": "420010",
+          "nome": "ABELARDO LUZ",
+          "uf": "SC",
+          "valor_total": 20502576.37,
+          "posicao": 114
+        },
+        {
+          "ibge": "310210",
+          "nome": "ALTO RIO DOCE",
+          "uf": "MG",
+          "valor_total": 20229774.3,
+          "posicao": 115
+        },
+        {
+          "ibge": "320030",
+          "nome": "ALFREDO CHAVES",
+          "uf": "ES",
+          "valor_total": 19292054.64,
+          "posicao": 116
+        },
+        {
+          "ibge": "240030",
+          "nome": "AFONSO BEZERRA",
+          "uf": "RN",
+          "valor_total": 19032654.16,
+          "posicao": 117
+        },
+        {
+          "ibge": "230080",
+          "nome": "ANTONINA DO NORTE",
+          "uf": "CE",
+          "valor_total": 19028794.38,
+          "posicao": 118
+        },
+        {
+          "ibge": "520080",
+          "nome": "ALVORADA DO NORTE",
+          "uf": "GO",
+          "valor_total": 18998852.69,
+          "posicao": 119
+        },
+        {
+          "ibge": "170040",
+          "nome": "ALMAS",
+          "uf": "TO",
+          "valor_total": 18331333.45,
+          "posicao": 120
+        },
+        {
+          "ibge": "230015",
+          "nome": "ACARAPE",
+          "uf": "CE",
+          "valor_total": 18211655.73,
+          "posicao": 121
+        },
+        {
+          "ibge": "290160",
+          "nome": "ANTAS",
+          "uf": "BA",
+          "valor_total": 17868852.22,
+          "posicao": 122
+        },
+        {
+          "ibge": "160021",
+          "nome": "CUTIAS",
+          "uf": "AP",
+          "valor_total": 17863019.35,
+          "posicao": 123
+        },
+        {
+          "ibge": "240010",
+          "nome": "ACARI",
+          "uf": "RN",
+          "valor_total": 17592477.52,
+          "posicao": 124
+        },
+        {
+          "ibge": "160005",
+          "nome": "SERRA DO NAVIO",
+          "uf": "AP",
+          "valor_total": 17540739.5,
+          "posicao": 125
+        },
+        {
+          "ibge": "510060",
+          "nome": "ALTO TAQUARI",
+          "uf": "MT",
+          "valor_total": 17482458.04,
+          "posicao": 126
+        },
+        {
+          "ibge": "210010",
+          "nome": "AFONSO CUNHA",
+          "uf": "MA",
+          "valor_total": 17449297.61,
+          "posicao": 127
+        },
+        {
+          "ibge": "230010",
+          "nome": "ABAIARA",
+          "uf": "CE",
+          "valor_total": 17168704.37,
+          "posicao": 128
+        },
+        {
+          "ibge": "320035",
+          "nome": "ALTO RIO NOVO",
+          "uf": "ES",
+          "valor_total": 17165923.59,
+          "posicao": 129
+        },
+        {
+          "ibge": "230060",
+          "nome": "ALTANEIRA",
+          "uf": "CE",
+          "valor_total": 16961877.09,
+          "posicao": 130
+        },
+        {
+          "ibge": "150013",
+          "nome": "ABEL FIGUEIREDO",
+          "uf": "PA",
+          "valor_total": 16345373.12,
+          "posicao": 131
+        },
+        {
+          "ibge": "420070",
+          "nome": "ALFREDO WAGNER",
+          "uf": "SC",
+          "valor_total": 15792333.8,
+          "posicao": 132
+        },
+        {
+          "ibge": "410080",
+          "nome": "ALVORADA DO SUL",
+          "uf": "PR",
+          "valor_total": 15452544.11,
+          "posicao": 133
+        },
+        {
+          "ibge": "120013",
+          "nome": "BUJARI",
+          "uf": "AC",
+          "valor_total": 15245521.24,
+          "posicao": 134
+        },
+        {
+          "ibge": "310120",
+          "nome": "AIURUOCA",
+          "uf": "MG",
+          "valor_total": 14380279.59,
+          "posicao": 135
+        },
+        {
+          "ibge": "170070",
+          "nome": "ALVORADA",
+          "uf": "TO",
+          "valor_total": 14033351.24,
+          "posicao": 136
+        },
+        {
+          "ibge": "290090",
+          "nome": "ALMADINA",
+          "uf": "BA",
+          "valor_total": 13773786.51,
+          "posicao": 137
+        },
+        {
+          "ibge": "120043",
+          "nome": "SANTA ROSA DO PURUS",
+          "uf": "AC",
+          "valor_total": 13494862.92,
+          "posicao": 138
+        },
+        {
+          "ibge": "430064",
+          "nome": "AMETISTA DO SUL",
+          "uf": "RS",
+          "valor_total": 13194043.79,
+          "posicao": 139
+        },
+        {
+          "ibge": "510050",
+          "nome": "ALTO PARAGUAI",
+          "uf": "MT",
+          "valor_total": 12838045.99,
+          "posicao": 140
+        },
+        {
+          "ibge": "310010",
+          "nome": "ABADIA DOS DOURADOS",
+          "uf": "MG",
+          "valor_total": 12403742.7,
+          "posicao": 141
+        },
+        {
+          "ibge": "520085",
+          "nome": "AMERICANO DO BRASIL",
+          "uf": "GO",
+          "valor_total": 12281795.77,
+          "posicao": 142
+        },
+        {
+          "ibge": "430010",
+          "nome": "AGUDO",
+          "uf": "RS",
+          "valor_total": 11875392.01,
+          "posicao": 143
+        },
+        {
+          "ibge": "510010",
+          "nome": "ACORIZAL",
+          "uf": "MT",
+          "valor_total": 11665466.66,
+          "posicao": 144
+        },
+        {
+          "ibge": "510035",
+          "nome": "ALTO BOA VISTA",
+          "uf": "MT",
+          "valor_total": 11024630.33,
+          "posicao": 145
+        },
+        {
+          "ibge": "410030",
+          "nome": "AGUDOS DO SUL",
+          "uf": "PR",
+          "valor_total": 10748328.24,
+          "posicao": 146
+        },
+        {
+          "ibge": "310220",
+          "nome": "ALVARENGA",
+          "uf": "MG",
+          "valor_total": 8708920.85,
+          "posicao": 147
+        },
+        {
+          "ibge": "420080",
+          "nome": "ANCHIETA",
+          "uf": "SC",
+          "valor_total": 8705889.94,
+          "posicao": 148
+        },
+        {
+          "ibge": "350240",
+          "nome": "ANHUMAS",
+          "uf": "SP",
+          "valor_total": 8381432.77,
+          "posicao": 149
+        },
+        {
+          "ibge": "410070",
+          "nome": "ALTO PIQUIRI",
+          "uf": "PR",
+          "valor_total": 8107681.23,
+          "posicao": 150
+        },
+        {
+          "ibge": "290060",
+          "nome": "AIQUARA",
+          "uf": "BA",
+          "valor_total": 8102066.27,
+          "posicao": 151
+        },
+        {
+          "ibge": "310163",
+          "nome": "ALFREDO VASCONCELOS",
+          "uf": "MG",
+          "valor_total": 8050798.14,
+          "posicao": 152
+        },
+        {
+          "ibge": "520055",
+          "nome": "ALTO HORIZONTE",
+          "uf": "GO",
+          "valor_total": 7985065.88,
+          "posicao": 153
+        },
+        {
+          "ibge": "310180",
+          "nome": "ALPERCATA",
+          "uf": "MG",
+          "valor_total": 7975667.68,
+          "posicao": 154
+        },
+        {
+          "ibge": "350020",
+          "nome": "ADOLFO",
+          "uf": "SP",
+          "valor_total": 7917072.7,
+          "posicao": 155
+        },
+        {
+          "ibge": "430070",
+          "nome": "ANTA GORDA",
+          "uf": "RS",
+          "valor_total": 7899376.7,
+          "posicao": 156
+        },
+        {
+          "ibge": "170105",
+          "nome": "ANGICO",
+          "uf": "TO",
+          "valor_total": 7594270.72,
+          "posicao": 157
+        },
+        {
+          "ibge": "350075",
+          "nome": "ALAMBARI",
+          "uf": "SP",
+          "valor_total": 7415645.53,
+          "posicao": 158
+        },
+        {
+          "ibge": "430020",
+          "nome": "AJURICABA",
+          "uf": "RS",
+          "valor_total": 7312926.95,
+          "posicao": 159
+        },
+        {
+          "ibge": "430050",
+          "nome": "ALPESTRE",
+          "uf": "RS",
+          "valor_total": 7242365.93,
+          "posicao": 160
+        },
+        {
+          "ibge": "430030",
+          "nome": "ALECRIM",
+          "uf": "RS",
+          "valor_total": 7174183.87,
+          "posicao": 161
+        },
+        {
+          "ibge": "250073",
+          "nome": "AMPARO",
+          "uf": "PB",
+          "valor_total": 7124912.97,
+          "posicao": 162
+        },
+        {
+          "ibge": "420090",
+          "nome": "ANGELINA",
+          "uf": "SC",
+          "valor_total": 7018323.26,
+          "posicao": 163
+        },
+        {
+          "ibge": "350080",
+          "nome": "ALFREDO MARCONDES",
+          "uf": "SP",
+          "valor_total": 6794297.94,
+          "posicao": 164
+        },
+        {
+          "ibge": "310080",
+          "nome": "AGUANIL",
+          "uf": "MG",
+          "valor_total": 6773269.34,
+          "posicao": 165
+        },
+        {
+          "ibge": "520082",
+          "nome": "AMARALINA",
+          "uf": "GO",
+          "valor_total": 6521655.57,
+          "posicao": 166
+        },
+        {
+          "ibge": "430063",
+          "nome": "AMARAL FERRADOR",
+          "uf": "RS",
+          "valor_total": 6319696.23,
+          "posicao": 167
+        },
+        {
+          "ibge": "410105",
+          "nome": "ANAHY",
+          "uf": "PR",
+          "valor_total": 6110216.52,
+          "posicao": 168
+        },
+        {
+          "ibge": "310040",
+          "nome": "ACAIACA",
+          "uf": "MG",
+          "valor_total": 6081239.47,
+          "posicao": 169
+        },
+        {
+          "ibge": "350230",
+          "nome": "ANHEMBI",
+          "uf": "SP",
+          "valor_total": 5915013.04,
+          "posicao": 170
+        },
+        {
+          "ibge": "420075",
+          "nome": "ALTO BELA VISTA",
+          "uf": "SC",
+          "valor_total": 5662138.98,
+          "posicao": 171
+        },
+        {
+          "ibge": "420100",
+          "nome": "ANITA GARIBALDI",
+          "uf": "SC",
+          "valor_total": 5616557.37,
+          "posicao": 172
+        },
+        {
+          "ibge": "310250",
+          "nome": "AMPARO DO SERRA",
+          "uf": "MG",
+          "valor_total": 5552239.7,
+          "posicao": 173
+        },
+        {
+          "ibge": "350110",
+          "nome": "ALTO ALEGRE",
+          "uf": "SP",
+          "valor_total": 5526387.64,
+          "posicao": 174
+        },
+        {
+          "ibge": "310240",
+          "nome": "ALVORADA DE MINAS",
+          "uf": "MG",
+          "valor_total": 5429583.03,
+          "posicao": 175
+        },
+        {
+          "ibge": "310140",
+          "nome": "ALBERTINA",
+          "uf": "MG",
+          "valor_total": 5382592.54,
+          "posicao": 176
+        },
+        {
+          "ibge": "350090",
+          "nome": "ALTAIR",
+          "uf": "SP",
+          "valor_total": 4953165.85,
+          "posicao": 177
+        },
+        {
+          "ibge": "430057",
+          "nome": "ALTO FELIZ",
+          "uf": "RS",
+          "valor_total": 4884880.86,
+          "posicao": 178
+        },
+        {
+          "ibge": "430045",
+          "nome": "ALEGRIA",
+          "uf": "RS",
+          "valor_total": 4566638.66,
+          "posicao": 179
+        },
+        {
+          "ibge": "430055",
+          "nome": "ALTO ALEGRE",
+          "uf": "RS",
+          "valor_total": 4131321.07,
+          "posicao": 180
+        },
+        {
+          "ibge": "310130",
+          "nome": "ALAGOA",
+          "uf": "MG",
+          "valor_total": 3425916.23,
+          "posicao": 181
+        },
+        {
+          "ibge": "420005",
+          "nome": "ABDON BATISTA",
+          "uf": "SC",
+          "valor_total": 3250800.59,
+          "posicao": 182
+        },
+        {
+          "ibge": "520120",
+          "nome": "ANHANGUERA",
+          "uf": "GO",
+          "valor_total": 3133960.58,
+          "posicao": 183
+        }
+      ]
+    },
+    "emendas_federais": {
+      "metrica": "Soma de emendas parlamentares federais pagas, todos os anos disponíveis por município",
+      "fontes": [
+        "Portal da Transparência (api.portaldatransparencia.gov.br)"
+      ],
+      "n_incluidos": 77,
+      "n_universo": 5571,
+      "cobertura_pct": 1.38,
+      "ranking": [],
+      "bloqueado": "Ranking não publicável: valor monetário zerado em 100% das linhas coletadas (77 municípios) — bug de coleta upstream, não falta de execução real. Corrigir extrator antes de rankear."
+    }
+  }
+}
