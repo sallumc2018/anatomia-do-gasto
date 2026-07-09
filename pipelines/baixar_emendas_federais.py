@@ -1,35 +1,67 @@
 """
-Coleta emendas parlamentares federais para um município via Portal da Transparência.
+Coleta emendas parlamentares federais via Portal da Transparência.
 
 Endpoint: GET /api-de-dados/emendas
-  Parâmetro de município: localidadeGasto (código IBGE de 7 dígitos)
-  Parâmetro de ano: anoExercicio
+  Parâmetros REAIS suportados (confirmado via swagger oficial,
+  api.portaldatransparencia.gov.br/v3/api-docs, 2026-07-09):
+    codigoEmenda, numeroEmenda, nomeAutor, tipoEmenda, ano,
+    codigoFuncao, codigoSubfuncao, pagina.
+  NÃO existe filtro por município (nem `localidadeGasto`, `codigoMunicipio`
+  ou `codigoIBGE`) neste endpoint — é um registro NACIONAL de emendas.
+  O único sinal de localização por linha é o campo de resposta
+  `localidadeDoGasto` (string), que precisa ser filtrado no cliente.
 
-⚠️  ATENÇÃO: validar execução isolada antes do cron operacional.
-    Checar que o endpoint e os nomes de campos batem com a resposta real da API.
-    Executar: MUNICIPIO=sorocaba python3 pipelines/baixar_emendas_federais.py --anos 2024 2024
+⚠️  BUG HISTÓRICO CORRIGIDO 2026-07-09 (ver STATUS.md / provenance):
+    A versão anterior usava `localidadeGasto` e `anoExercicio` — nenhum dos
+    dois é parâmetro válido da API. A API ignorava ambos silenciosamente e
+    devolvia sempre a mesma página nacional não filtrada; o script então
+    carimbava o IBGE/nome do município-alvo em cima dessas linhas, sem
+    checar se elas de fato pertenciam a esse município. Confirmado:
+    77 municípios publicados tinham as MESMAS 52 linhas (emenda, ano)
+    idênticas, só relabeladas. Todo o dataset publicado em
+    data/public/*/emendas_federais/ está incorreto e não deve ser usado
+    até ser recoletado com este script corrigido.
+
+⚠️  NÃO VERIFICADO COM CHAVE REAL — PORTAL_TRANSPARENCIA_KEY está inválida/
+    bloqueada no momento desta correção (2026-07-09). A lógica de filtragem
+    por `localidadeDoGasto` e o formato real desse campo (ex.: "SP" vs.
+    "Sorocaba/SP" vs. "Sorocaba - SP") não puderam ser confirmados contra
+    uma resposta real. Rodar `--anos 2024 2024` com um único município
+    assim que a chave for desbloqueada e inspecionar
+    `data/raw/_nacional/emendas_federais/paginas/2024/pagina_0001.json`
+    antes de rodar a coleta completa.
+
+    Também não é possível confirmar se, numa consulta corretamente filtrada,
+    valorEmpenhado/valorLiquidado/valorPago deixam de ser zero — é possível
+    que emendas do tipo "Transferência com Finalidade Definida" (fundo a
+    fundo, ex. FNS) tenham execução tracked em outro sistema e apareçam
+    zeradas mesmo corretamente filtradas (CGU reconhece publicamente que
+    dados de emendas são incompletos). Validar com amostra real antes de
+    reabrir o ranking.
+
+Arquitetura: como o endpoint não filtra por município, a página de cada ano
+é buscada UMA VEZ e compartilhada entre todos os municípios (cache em
+data/raw/_nacional/, fora do diretório por-município) — evita repetir a
+mesma consulta paginada 77+ vezes sob rate limit. Cada execução por
+município apenas filtra o cache compartilhado por `localidadeDoGasto`.
 
 Saídas:
-  raw cache:  data/raw/{municipio}/emendas_federais/paginas/{ano}/pagina_{n:04d}.json
-  extracted:  data/extracted/{municipio}/emendas_federais/saida/emendas_federais_{municipio}_{ano}.csv
+  raw cache compartilhado: data/raw/_nacional/emendas_federais/paginas/{ano}/pagina_{n:04d}.json
+  extracted (por município): data/extracted/{municipio}/emendas_federais/saida/emendas_federais_{municipio}_{ano}.csv
 
 Uso:
-  # Via orquestrador (MUNICIPIO + MUNICIPIO_IBGE setados pelo coletar_municipios_brasil.py)
-  python3 pipelines/baixar_emendas_federais.py --anos 2014 2026
-
-  # Standalone (município registrado em paths.py)
-  MUNICIPIO=sorocaba python3 pipelines/baixar_emendas_federais.py --anos 2022 2024
-
-  # Forçar rebaixar páginas em cache
-  MUNICIPIO=sorocaba python3 pipelines/baixar_emendas_federais.py --anos 2024 2024 --forcar
+  MUNICIPIO=sorocaba python3 pipelines/baixar_emendas_federais.py --anos 2024 2024
+  python3 pipelines/baixar_emendas_federais.py --anos 2014 2026 --forcar
 """
 import argparse
 import csv
 import decimal
 import json
 import os
+import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -37,9 +69,9 @@ from pathlib import Path
 from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponential
 
 try:
-    from .paths import EMENDAS_EXTRACTED_DIR, EMENDAS_RAW_DIR, MUNICIPIO
+    from .paths import DATA_DIR, EMENDAS_EXTRACTED_DIR, MUNICIPIO
 except ImportError:
-    from paths import EMENDAS_EXTRACTED_DIR, EMENDAS_RAW_DIR, MUNICIPIO
+    from paths import DATA_DIR, EMENDAS_EXTRACTED_DIR, MUNICIPIO
 
 
 BASE_URL = "https://api.portaldatransparencia.gov.br/api-de-dados"
@@ -47,10 +79,15 @@ ENDPOINT = "emendas"
 DELAY_ENTRE_PAGINAS = 2.0   # Portal Transparência: 500 req/hora; 2s → ~360 req/hora (72% do limite)
 DELAY_APOS_ERRO = 10.0     # pausa extra após qualquer HTTPError não-fatal
 
+# Cache compartilhado entre municípios — o endpoint não filtra por localização,
+# então não faz sentido repetir a paginação nacional por município.
+NACIONAL_RAW_DIR = DATA_DIR / "raw" / "_nacional" / "emendas_federais"
+
 CAMPOS_CSV = [
     "ano",
     "municipio_ibge",
     "municipio_nome",
+    "localidade_do_gasto_raw",
     "numero_emenda",
     "autor",
     "partido",
@@ -66,7 +103,7 @@ CAMPOS_CSV = [
 
 
 class PortalBloqueadoError(RuntimeError):
-    """Levantado quando o Portal Transpar��ncia bloqueia a chave por limite de requisições."""
+    """Levantado quando o Portal Transparência bloqueia a chave por limite de requisições."""
 
 
 def _detectar_bloqueio(corpo: str) -> bool:
@@ -133,12 +170,34 @@ def _nome_municipio() -> str:
     return os.environ.get("MUNICIPIO_NOME", MUNICIPIO)
 
 
-def _fetch_pagina(pagina: int, ibge: str, ano: int, chave: str, timeout: int = 30) -> list:
-    url = (
-        f"{BASE_URL}/{ENDPOINT}"
-        f"?localidadeGasto={ibge}&anoExercicio={ano}"
-        f"&pagina={pagina}&quantidade=500"
-    )
+def _normalizar(texto: str) -> str:
+    """Minúsculas, sem acento, sem espaço extra — para comparação tolerante."""
+    if not texto:
+        return ""
+    sem_acento = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"\s+", " ", sem_acento).strip().lower()
+
+
+def _bate_com_municipio(localidade_do_gasto: str, nome_mun: str) -> bool:
+    """Match tolerante entre o texto livre da API e o nome do município alvo.
+
+    NÃO VERIFICADO: formato real de `localidadeDoGasto` desconhecido sem chave
+    ativa (pode ser "Sorocaba/SP", "Sorocaba - SP", só a UF, ou vazio para
+    emendas sem execução localizada). Match por substring é deliberadamente
+    simples — não inventar parsing mais sofisticado sem uma resposta real
+    para calibrar contra.
+    """
+    if not localidade_do_gasto:
+        return False
+    return _normalizar(nome_mun) in _normalizar(localidade_do_gasto)
+
+
+def _fetch_pagina(pagina: int, ano: int, chave: str, timeout: int = 30) -> list:
+    """Busca uma página do registro NACIONAL de emendas para um ano.
+
+    Sem filtro de município — o endpoint não suporta. Ver docstring do módulo.
+    """
+    url = f"{BASE_URL}/{ENDPOINT}?ano={ano}&pagina={pagina}"
     req = urllib.request.Request(
         url,
         headers={
@@ -161,7 +220,6 @@ def _fetch_pagina(pagina: int, ibge: str, ano: int, chave: str, timeout: int = 3
         except Exception:
             pass
         if e.code == 401 and _detectar_bloqueio(corpo):
-            # Conta bloqueada por excesso de requisições — aguardar e retentar
             print(
                 f"  ⚠️  Portal Transparência: conta bloqueada por limite de requisições.\n"
                 f"  Aguardando 300s antes de retentar. Verifique o email cadastrado.\n"
@@ -189,15 +247,15 @@ def _salvar_pagina_raw(paginas_dir: Path, numero: int, dados: list) -> None:
 
 
 def _linha_para_csv(item: dict, ano: int, ibge: str, nome_mun: str) -> dict:
-    """Normaliza item da API para o schema do contrato emendas_federais.
-
-    Resposta real do endpoint /emendas: todos os campos são strings planas.
-    Não há objetos aninhados como localidade.municipio, autor{nome,partido} etc.
+    """Normaliza item da API já confirmado (por `_bate_com_municipio`) como
+    pertencente ao município alvo. Resposta real do endpoint: campos planos
+    (strings), sem objetos aninhados.
     """
     return {
         "ano": ano,
         "municipio_ibge": ibge,
         "municipio_nome": nome_mun,
+        "localidade_do_gasto_raw": item.get("localidadeDoGasto") or "",
         "numero_emenda": item.get("codigoEmenda") or item.get("numeroEmenda") or "",
         "autor": item.get("autor") or item.get("nomeAutor") or "",
         "partido": item.get("partido") or "",
@@ -205,26 +263,29 @@ def _linha_para_csv(item: dict, ano: int, ibge: str, nome_mun: str) -> dict:
         "tipo_emenda": item.get("tipoEmenda") or "",
         "funcao": item.get("funcao") or "",
         "subfuncao": item.get("subfuncao") or "",
-        "valor_empenhado": item.get("valorEmpenhado") or item.get("vl_empenhado") or "0",
+        "valor_empenhado": item.get("valorEmpenhado") or "0",
         "valor_liquidado": item.get("valorLiquidado") or "0",
-        "valor_pago": item.get("valorPago") or item.get("valor_pago") or "0",
+        "valor_pago": item.get("valorPago") or "0",
         "fonte_api": f"{BASE_URL}/{ENDPOINT}",
     }
 
 
-def coletar_ano(ibge: str, nome_mun: str, ano: int, chave: str, forcar: bool) -> list[dict]:
-    paginas_dir = EMENDAS_RAW_DIR / "paginas" / str(ano)
+def _buscar_paginas_nacionais(ano: int, chave: str, forcar: bool) -> list[dict]:
+    """Baixa (ou lê do cache compartilhado) TODAS as páginas nacionais de um
+    ano. Cache não é por município — é reaproveitado por todas as execuções.
+    """
+    paginas_dir = NACIONAL_RAW_DIR / "paginas" / str(ano)
     todos: list[dict] = []
     pagina = 1
 
-    print(f"  Emendas federais {ano} — {nome_mun} (IBGE {ibge})")
+    print(f"  Emendas federais {ano} — busca nacional (sem filtro de município)")
     while True:
         destino_raw = paginas_dir / f"pagina_{pagina:04d}.json"
         if destino_raw.exists() and not forcar:
             dados = json.loads(destino_raw.read_text(encoding="utf-8"))
-            print(f"    p{pagina}: {len(dados)} registros (cache)")
+            print(f"    p{pagina}: {len(dados)} registros (cache compartilhado)")
         else:
-            dados = _fetch_pagina(pagina, ibge, ano, chave)
+            dados = _fetch_pagina(pagina, ano, chave)
             print(f"    p{pagina}: {len(dados)} registros")
             _salvar_pagina_raw(paginas_dir, pagina, dados)
             if pagina > 1:
@@ -234,12 +295,17 @@ def coletar_ano(ibge: str, nome_mun: str, ano: int, chave: str, forcar: bool) ->
             break
 
         todos.extend(dados)
-        if len(dados) < 500:
-            break
         pagina += 1
 
-    print(f"    Total bruto {ano}: {len(todos)} registros")
-    return [_linha_para_csv(item, ano, ibge, nome_mun) for item in todos]
+    print(f"    Total nacional {ano}: {len(todos)} registros")
+    return todos
+
+
+def coletar_ano(ibge: str, nome_mun: str, ano: int, chave: str, forcar: bool) -> list[dict]:
+    nacionais = _buscar_paginas_nacionais(ano, chave, forcar)
+    do_municipio = [item for item in nacionais if _bate_com_municipio(item.get("localidadeDoGasto", ""), nome_mun)]
+    print(f"    Filtrados para {nome_mun}: {len(do_municipio)} de {len(nacionais)}")
+    return [_linha_para_csv(item, ano, ibge, nome_mun) for item in do_municipio]
 
 
 def _valor_decimal(value: object) -> decimal.Decimal:

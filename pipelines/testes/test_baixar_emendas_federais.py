@@ -80,6 +80,55 @@ class BaixarEmendasFederaisTest(unittest.TestCase):
             collector.decimal.Decimal("1234.56"),
         )
 
+    def test_bate_com_municipio_tolera_acento_e_maiusculas(self) -> None:
+        self.assertTrue(collector._bate_com_municipio("Sorocaba/SP", "sorocaba"))
+        self.assertTrue(collector._bate_com_municipio("SÃO JOÃO DA BALIZA - RR", "Sao Joao da Baliza"))
+        self.assertFalse(collector._bate_com_municipio("Campinas/SP", "Sorocaba"))
+        self.assertFalse(collector._bate_com_municipio("", "Sorocaba"))
+
+    def test_fetch_pagina_usa_apenas_parametros_reais_da_api(self) -> None:
+        """Regressão: `localidadeGasto`, `anoExercicio` e `quantidade` não são
+        parâmetros válidos do endpoint (confirmado via swagger oficial) — a URL
+        deve usar somente `ano` e `pagina`."""
+        capturado = {}
+
+        class _FakeResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+            def read(self):
+                return b"[]"
+
+        def _fake_urlopen(req, timeout=30):
+            capturado["url"] = req.full_url
+            return _FakeResponse()
+
+        with mock.patch.object(collector, "_urlopen_com_retry", side_effect=_fake_urlopen):
+            collector._fetch_pagina(2, 2024, "fake-key")
+
+        self.assertIn("ano=2024", capturado["url"])
+        self.assertIn("pagina=2", capturado["url"])
+        self.assertNotIn("localidadeGasto", capturado["url"])
+        self.assertNotIn("anoExercicio", capturado["url"])
+        self.assertNotIn("quantidade", capturado["url"])
+
+    def test_coletar_ano_so_inclui_linhas_do_municipio_alvo(self) -> None:
+        """Regressão do bug real: antes, todo item da página nacional era
+        carimbado com o município alvo independente de `localidadeDoGasto`."""
+        nacionais = [
+            {"codigoEmenda": "1", "localidadeDoGasto": "Sorocaba/SP", "valorEmpenhado": "100.00"},
+            {"codigoEmenda": "2", "localidadeDoGasto": "Campinas/SP", "valorEmpenhado": "999.00"},
+        ]
+        with mock.patch.object(collector, "_buscar_paginas_nacionais", return_value=nacionais):
+            registros = collector.coletar_ano("3552205", "Sorocaba", 2024, "fake-key", forcar=False)
+
+        self.assertEqual(len(registros), 1)
+        self.assertEqual(registros[0]["numero_emenda"], "1")
+        self.assertEqual(registros[0]["localidade_do_gasto_raw"], "Sorocaba/SP")
+
     @mock.patch.object(collector, "_chave_api", return_value="fake-key")
     def test_intervalo_invertido_aborta_antes_da_coleta(self, _key: mock.Mock) -> None:
         with mock.patch("sys.argv", ["baixar_emendas_federais.py", "--anos", "2025", "2024"]):
