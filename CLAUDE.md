@@ -214,8 +214,18 @@ Ao finalizar trabalho substantivo, inclua rodape:
 | **Claude Code - UI/UX** | Interface, acessibilidade, linguagem cidada, SEO editorial, visualizacoes e documentos longos | sonnet-4-6 / opus-4-8 |
 | **Codex** | Auditor principal de codigo; confiabilidade; bugs; DRY/SOLID; testes; CI; gates e seguranca de implementacao | GPT-5.5 Medium→High |
 
-Antigravity/Gemini nao integra a operacao ativa. Claude absorve temporariamente
-suas antigas funcoes de execucao, Playwright e deploy, sempre sob gate humano.
+Ecossistema ativo neste projeto: apenas Claude Code e Codex. Antigravity foi
+desinstalado (nao integra mais o ambiente); OpenCode segue existindo em outros
+projetos, mas nao neste repositorio. Claude cobre execucao, Playwright e deploy
+autorizado, sempre sob gate humano.
+
+Claude e Codex tem permissoes e limitacoes proprias e definidas por frente
+(Claude: coleta/publicacao/UI-UX; Codex: auditoria de codigo/testes/CI). Cada
+um pode, tecnicamente, fazer o trabalho do outro — isso so deve ser usado sem
+os limites normais quando o proprio agente estiver operando "sem limites"
+(modo explicitamente autorizado pelo usuario). Fora isso, os dois devem
+permanecer em sincronia estrita (ver "Edicao concorrente" acima) para nao
+duplicar nem contradizer trabalho um do outro.
 
 **Regra-chave**: dado ausente != zero. Claude responde por metodologia e
 operacao da sua frente; Codex revisa corretude tecnica e cria protecoes contra

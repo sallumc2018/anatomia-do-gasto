@@ -139,7 +139,7 @@ RGF_SCRIPTS = [
 
 def rodar_warn(script: str, label: str, env: dict, args: list[str] | None = None) -> bool:
     """Roda extrator; se falhar, conta como WARN (dados indisponíveis, não é falha crítica)."""
-    global WARN
+    global WARN, PASS
     cmd = [PYTHON, f"pipelines/{script}"]
     if args:
         cmd.extend(args)
