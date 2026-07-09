@@ -1,30 +1,44 @@
 """
-Coleta dados de educação do FNDE e SIOPE para Sorocaba e Paulínia.
+Coleta dados de educação (repasses FNDE + indicador MDE) para Sorocaba e Paulínia.
 
 Fontes (todas públicas — sem LAI):
   1. FNDE Transferências (PDDE, PNAE, PNATE, FUNDEB)
-     Portal: https://www.fnde.gov.br/siope/
-     API PT-Gov: https://api.portaldatransparencia.gov.br/api-de-dados/transferencias/municipios
-     Orgão FNDE: código SIORG 26297 / UGE 153173
+     SEM FONTE AUTOMATIZÁVEL no momento (verificado em 2026-07-09): o endpoint
+     `/api-de-dados/transferencias/municipios` do Portal da Transparência NÃO
+     existe no swagger v3 atual (confirmado via /v3/api-docs — só há
+     `/despesas/tipo-transferencia` [agregado federal, não por município] e
+     `/convenios` [acordos voluntários, não repasse constitucional/automático]).
+     Sem endpoint público conhecido para repasses automáticos por município.
+     Pendência: investigar dados.gov.br ou download manual. Até lá, fica stub
+     "sem_dados_sem_fonte".
 
-  2. SIOPE — Sistema de Informações sobre Orçamentos Públicos em Educação
-     Download: https://www.fnde.gov.br/siope/municipio.do
-     Indicadores: receita_vinculada_educacao, despesa_educacao, percentual_mde, limite_mde
+  2. Indicador MDE (Manutenção e Desenvolvimento do Ensino) — via SICONFI
+     RREO Anexo 14 (Demonstrativo Simplificado), NÃO mais via scraping do
+     SIOPE/FNDE: o formulário https://www.fnde.gov.br/siope/*.do agora exige
+     reCAPTCHA em toda consulta ("É necessário validar o captcha", verificado
+     em 2026-07-09) — inviável de automatizar sem burlar proteção anti-bot.
+     Fonte substituta (mesma API já usada pelos extratores de segurança/
+     transporte/receita): https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo
+     Conta: "Mínimo Anual de <18%/25%> das Receitas de Impostos na Manutenção
+     e Desenvolvimento do Ensino" (cod_conta
+     MinimoAnualDasReceitasDeImpostosNaManutencaoEDesenvolvimentoDoEnsinoDemonstrativoSimplificado)
+     Colunas usadas: "Valor Apurado Até o Bimestre" (despesa aplicada em MDE),
+     "% Mínimo a Aplicar no Exercício" (limite constitucional, 25% para
+     municípios pós EC 108/2020), "% Aplicado Até o Bimestre".
+     receita_vinculada_mde fica vazio (AUSENTE) — o RREO Anexo 14 não reporta
+     a receita-base separadamente, só a despesa aplicada e o percentual; não
+     inferir/calcular esse valor para não apresentar dado derivado como se
+     fosse oficial.
 
 IBGEs:
-  Sorocaba: 3552205 (7 dígitos — padrão IBGE) / 355220 (6 dígitos — padrão FNDE sem DV)
-  Paulínia:  3536505 / 353650
+  Sorocaba: 3552205
+  Paulínia:  3536505
 
 Uso:
     .venv/bin/python3 pipelines/baixar_fnde_siope.py
     .venv/bin/python3 pipelines/baixar_fnde_siope.py --fonte fnde
     .venv/bin/python3 pipelines/baixar_fnde_siope.py --fonte siope --municipios sorocaba
     .venv/bin/python3 pipelines/baixar_fnde_siope.py --anos 2022 2023 2024
-
-    # Com chave da API Portal Transparência (opcional — aumenta limite de requisições):
-    PORTAL_TRANSPARENCIA_KEY=sua-chave .venv/bin/python3 pipelines/baixar_fnde_siope.py
-
-Chave da API: https://portaldatransparencia.gov.br/api-de-dados/cadastrar-email
 
 Saída:
     data/public/{municipio}/educacao/saida/fnde_repasses_{municipio}_{ano}.csv
@@ -42,7 +56,6 @@ from __future__ import annotations
 import argparse
 import csv
 import os
-import re
 import sys
 import time
 from pathlib import Path
@@ -56,35 +69,17 @@ try:
 except ImportError:
     HTTP_OK = False
 
-try:
-    from bs4 import BeautifulSoup
-    BS4_OK = True
-except ImportError:
-    BS4_OK = False
-
 MUNICIPIOS = {
-    "sorocaba": {"ibge7": "3552205", "ibge6": "355220", "nome": "Sorocaba"},
-    "paulinia":  {"ibge7": "3536505", "ibge6": "353650", "nome": "Paulinia"},
-    "sao_paulo": {"ibge7": "3550308", "ibge6": "355030", "nome": "Sao Paulo"},
+    "sorocaba": {"ibge7": "3552205", "nome": "Sorocaba"},
+    "paulinia":  {"ibge7": "3536505", "nome": "Paulinia"},
+    "sao_paulo": {"ibge7": "3550308", "nome": "Sao Paulo"},
 }
 
 ANOS_PADRAO = list(range(2015, 2026))
 
-# Portal Transparência API
-PTG_BASE = "https://api.portaldatransparencia.gov.br/api-de-dados"
-FNDE_UG = "153173"   # Unidade Gestora FNDE no SIAFI
-
-# SIOPE download
-SIOPE_BASE = "https://www.fnde.gov.br/siope"
-SIOPE_MUNICIPIO_URL = f"{SIOPE_BASE}/municipio.do"
-
-# Known FNDE programs and their PT-Gov action identifiers
-PROGRAMAS_FNDE = {
-    "PDDE":   "Programa Dinheiro Direto na Escola",
-    "PNAE":   "Programa Nacional de Alimentação Escolar",
-    "PNATE":  "Programa Nacional de Apoio ao Transporte do Escolar",
-    "FUNDEB": "Fundo de Manutenção e Desenvolvimento da Educação Básica",
-}
+# SICONFI — indicador MDE (RREO Anexo 14)
+SICONFI_BASE = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt"
+BIMESTRE_RREO = 6  # bimestre 6 = acumulado anual, o mais completo de cada exercício
 
 FNDE_FIELDNAMES = [
     "ano", "municipio", "ibge7", "programa",
@@ -109,196 +104,67 @@ def _session(api_key: str | None = None) -> "requests.Session":
     return s
 
 
-def _clean_num(s: str) -> str:
-    """Normalize Brazilian R$ string."""
-    return re.sub(r"[^\d,.]", "", (s or "").strip())
+# ─────────────────────────────────────────────────────────────────────────────
+# Indicador MDE via SICONFI (RREO Anexo 14 — Demonstrativo Simplificado)
+# ─────────────────────────────────────────────────────────────────────────────
+
+CONTA_MDE = "Mínimo Anual de <18% / 25%> das Receitas de Impostos na Manutenção e Desenvolvimento do Ensino"
+COD_CONTA_MDE = "MinimoAnualDasReceitasDeImpostosNaManutencaoEDesenvolvimentoDoEnsinoDemonstrativoSimplificado"
 
 
-def _clean_float(s: str) -> float | None:
-    s = _clean_num(s)
-    if not s:
-        return None
-    s = re.sub(r"\.(?=\d{3})", "", s).replace(",", ".")
+def _url_rreo_anexo14(ibge7: str, ano: int) -> str:
+    params = (
+        f"an_exercicio={ano}"
+        f"&nr_periodo={BIMESTRE_RREO}"
+        f"&co_tipo_demonstrativo=RREO"
+        f"&no_anexo=RREO-Anexo%2014"
+        f"&id_ente={ibge7}"
+    )
+    return f"{SICONFI_BASE}/rreo?{params}"
+
+
+def _fetch_siope(ibge7: str, ano: int, session: "requests.Session") -> dict | None:
+    """
+    Baixa o indicador constitucional de MDE via SICONFI RREO Anexo 14.
+    Substitui a antiga raspagem do site FNDE/SIOPE (bloqueada por reCAPTCHA
+    desde ao menos 2026-07-09 — ver docstring do módulo).
+    """
+    url = _url_rreo_anexo14(ibge7, ano)
     try:
-        return float(s)
-    except ValueError:
-        return None
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# FNDE via Portal da Transparência
-# ─────────────────────────────────────────────────────────────────────────────
-
-def _fetch_ptg_transferencias(
-    ibge7: str, ano: int, session: "requests.Session"
-) -> list[dict]:
-    """
-    Query Portal Transparência API for FNDE transfers to one municipality in a year.
-    Endpoint: GET /api-de-dados/transferencias/municipios
-    Docs: https://api.portaldatransparencia.gov.br/swagger-ui.html
-    """
-    params = {
-        "codigoMunicipio": ibge7,
-        "anoMesInicio":    f"{ano}01",
-        "anoMesFim":       f"{ano}12",
-        "unidadeGestora":  FNDE_UG,
-        "pagina":          1,
-    }
-    resultados: list[dict] = []
-    while True:
-        try:
-            resp = session.get(
-                f"{PTG_BASE}/transferencias/municipios",
-                params=params, timeout=30,
-            )
-            if resp.status_code == 401:
-                print("    AVISO: API key inválida ou ausente. Registe uma em "
-                      "portaldatransparencia.gov.br/api-de-dados/cadastrar-email",
-                      file=sys.stderr)
-                return resultados
-            if resp.status_code == 403:
-                print("    AVISO 403: chave sem permissão para /transferencias/municipios. "
-                      "Endpoint requer tier de acesso específico no PT-Gov. "
-                      "Cadastre nova chave selecionando 'Transferências' em "
-                      "portaldatransparencia.gov.br/api-de-dados/cadastrar-email",
-                      file=sys.stderr)
-                return resultados
-            if resp.status_code == 429:
-                print("    Rate limit — aguardando 30s …", file=sys.stderr)
-                time.sleep(30)
-                continue
-            resp.raise_for_status()
-            data = resp.json()
-            if not data:
-                break
-            resultados.extend(data if isinstance(data, list) else [data])
-            if len(data) < 500:
-                break
-            params["pagina"] += 1
-        except Exception as exc:
-            print(f"    ERRO PTG [{ibge7}/{ano}]: {exc}", file=sys.stderr)
-            break
-        time.sleep(0.5)
-
-    return resultados
-
-
-def _ptg_to_rows(raw: list[dict], municipio: str, ibge7: str, ano: int) -> list[dict]:
-    """Map Portal Transparência JSON objects to FNDE schema rows."""
-    rows: list[dict] = []
-    seen_programas: dict[str, float] = {}
-
-    for item in raw:
-        # Field names vary by API version
-        nome_prog = (
-            item.get("nomeAcao") or item.get("descricaoAcao") or
-            item.get("nomeProgramaAcao") or ""
-        )
-        valor_raw = (
-            item.get("valorTransferido") or item.get("valor") or
-            item.get("valorRepasse") or 0
-        )
-        data_raw = (
-            item.get("dataTransferencia") or item.get("data") or ""
-        )
-
-        # Match to known FNDE programs
-        programa_key = ""
-        for sigla, descr in PROGRAMAS_FNDE.items():
-            if sigla in str(nome_prog).upper() or sigla in descr.upper():
-                if any(w.lower() in str(nome_prog).lower() for w in descr.split()[:2]):
-                    programa_key = sigla
-                    break
-
-        if not programa_key:
-            # Include unclassified FNDE items under "OUTROS_FNDE"
-            programa_key = "OUTROS_FNDE"
-
-        try:
-            valor = float(valor_raw) if isinstance(valor_raw, (int, float)) else _clean_float(str(valor_raw)) or 0
-        except (ValueError, TypeError):
-            valor = 0
-
-        seen_programas[programa_key] = seen_programas.get(programa_key, 0) + valor
-
-    # One row per program per year
-    for prog, total in seen_programas.items():
-        rows.append({
-            "ano": ano,
-            "municipio": municipio,
-            "ibge7": ibge7,
-            "programa": prog,
-            "valor_repassado": f"{total:.2f}",
-            "data_ultimo_repasse": "",
-            "fonte": "Portal Transparência Federal / FNDE",
-        })
-
-    return rows
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# SIOPE via FNDE portal
-# ─────────────────────────────────────────────────────────────────────────────
-
-def _fetch_siope(ibge6: str, ano: int, session: "requests.Session") -> dict | None:
-    """
-    Download SIOPE data for one municipality + year.
-    SIOPE is the municipal education budget system (FNDE).
-    URL: https://www.fnde.gov.br/siope/municipio.do
-    """
-    params = {
-        "acao":     "pesquisar",
-        "codMun":   ibge6,
-        "ano":      str(ano),
-        "tipoRel":  "0",  # 0 = resumo; 1 = detalhado
-    }
-    try:
-        resp = session.get(SIOPE_MUNICIPIO_URL, params=params, timeout=30)
+        resp = session.get(url, timeout=30)
         resp.raise_for_status()
-        return _parse_siope_html(resp.text, ano)
+        data = resp.json()
     except Exception as exc:
-        print(f"    ERRO SIOPE [{ibge6}/{ano}]: {exc}", file=sys.stderr)
+        print(f"    ERRO SICONFI RREO Anexo 14 [{ibge7}/{ano}]: {exc}", file=sys.stderr)
         return None
 
-
-def _parse_siope_html(html: str, ano: int) -> dict | None:
-    """Parse the SIOPE HTML page to extract key MDE indicators."""
-    if not BS4_OK:
-        # Basic regex fallback
-        receita_m = re.search(r"Receitas\s+de\s+Impostos[\s\S]{0,200}?R\$\s*([\d.,]+)", html, re.I)
-        despesa_m = re.search(r"Despesas\s+com\s+MDE[\s\S]{0,200}?R\$\s*([\d.,]+)", html, re.I)
-        pct_m     = re.search(r"Percentual\s+aplicado[\s\S]{0,100}?([\d]{1,2}[,.]\d{2})\s*%", html, re.I)
-        if not any([receita_m, despesa_m, pct_m]):
-            return None
-        return {
-            "receita_vinculada_mde": _clean_num(receita_m.group(1)) if receita_m else "",
-            "despesa_mde":           _clean_num(despesa_m.group(1)) if despesa_m else "",
-            "percentual_aplicado":   pct_m.group(1).replace(",", ".") if pct_m else "",
-        }
-
-    soup = BeautifulSoup(html, "html.parser")
-    result: dict[str, str] = {}
-
-    # SIOPE uses a table with label-value pairs
-    for row in soup.find_all("tr"):
-        cells = [td.get_text(" ", strip=True) for td in row.find_all(["th", "td"])]
-        if len(cells) < 2:
+    valores: dict[str, float] = {}
+    for item in data.get("items", []):
+        if item.get("cod_conta") != COD_CONTA_MDE:
             continue
-        label = cells[0].lower()
-        val   = _clean_num(cells[-1])
+        coluna = (item.get("coluna") or "").strip()
+        try:
+            valores[coluna] = float(item.get("valor"))
+        except (TypeError, ValueError):
+            continue
 
-        if "receita" in label and ("impost" in label or "mde" in label or "vinculad" in label):
-            result["receita_vinculada_mde"] = val
-        elif "despesa" in label and ("mde" in label or "educaç" in label or "educa" in label):
-            result["despesa_mde"] = val
-        elif "percentual" in label or "%" in cells[-1]:
-            pct = re.search(r"(\d{1,2}[,.]\d{2})", cells[-1])
-            if pct:
-                result["percentual_aplicado"] = pct.group(1).replace(",", ".")
-        elif "situação" in label or "cumprimento" in label:
-            result["situacao"] = cells[-1]
+    if not valores:
+        return None
 
-    return result if result else None
+    despesa = valores.get("Valor Apurado Até o Bimestre")
+    pct_aplicado = valores.get("% Aplicado Até o Bimestre")
+    pct_minimo = valores.get("% Mínimo a Aplicar no Exercício")
+
+    return {
+        "despesa_mde":              f"{despesa:.2f}" if despesa is not None else "",
+        "percentual_aplicado":      f"{pct_aplicado:.2f}" if pct_aplicado is not None else "",
+        "limite_constitucional_pct": f"{pct_minimo:.0f}" if pct_minimo is not None else "",
+        "situacao": (
+            "cumprido" if pct_aplicado is not None and pct_minimo is not None and pct_aplicado >= pct_minimo
+            else "nao_cumprido" if pct_aplicado is not None
+            else ""
+        ),
+    }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -306,6 +172,14 @@ def _parse_siope_html(html: str, ano: int) -> dict | None:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def coletar_fnde(municipio: str, anos: list[int], forcar: bool, session: "requests.Session") -> int:
+    """
+    Repasses FNDE por programa (PDDE/PNAE/PNATE/FUNDEB): SEM FONTE PÚBLICA
+    AUTOMATIZÁVEL confirmada (verificado 2026-07-09 — ver docstring do
+    módulo). Escreve stub "sem_dados_sem_fonte" em vez de tentar um endpoint
+    que não existe; não faz sentido gastar requisições HTTP contra uma rota
+    inexistente todo dia. Pendência: achar fonte alternativa (dados.gov.br
+    ou download manual) antes de reativar coleta real aqui.
+    """
     cfg = MUNICIPIOS[municipio]
     pub_dir = ROOT / "data" / "public" / municipio / "educacao" / "saida"
     pub_dir.mkdir(parents=True, exist_ok=True)
@@ -314,34 +188,23 @@ def coletar_fnde(municipio: str, anos: list[int], forcar: bool, session: "reques
     for ano in anos:
         dest = pub_dir / f"fnde_repasses_{municipio}_{ano}.csv"
         if dest.exists() and not forcar:
-            if "sem_dados" not in dest.read_text(encoding="utf-8"):
-                print(f"  [{municipio}/FNDE/{ano}] já existe, pulando")
-                continue
-            print(f"  [{municipio}/FNDE/{ano}] stub sem_dados detectado — refazendo")
+            print(f"  [{municipio}/FNDE/{ano}] stub já existe, pulando")
+            continue
 
-        print(f"  [{municipio}/FNDE/{ano}] Portal Transparência …")
-        raw = _fetch_ptg_transferencias(cfg["ibge7"], ano, session)
-        rows = _ptg_to_rows(raw, municipio, cfg["ibge7"], ano)
-
-        if not rows:
-            print(f"    → sem dados (API indisponível ou sem repasses neste ano)")
-            # Write empty with header so gate doesn't flag missing file
-            rows = [{
-                "ano": ano, "municipio": municipio, "ibge7": cfg["ibge7"],
-                "programa": "sem_dados", "valor_repassado": "",
-                "data_ultimo_repasse": "", "fonte": "Portal Transparência Federal / FNDE",
-            }]
+        rows = [{
+            "ano": ano, "municipio": municipio, "ibge7": cfg["ibge7"],
+            "programa": "sem_dados_sem_fonte", "valor_repassado": "",
+            "data_ultimo_repasse": "",
+            "fonte": "SEM FONTE PÚBLICA AUTOMATIZÁVEL — verificado 2026-07-09, "
+                     "endpoint /transferencias/municipios não existe no PT-Gov v3",
+        }]
 
         with dest.open("w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=FNDE_FIELDNAMES)
             w.writeheader()
             w.writerows(rows)
 
-        programas = [r["programa"] for r in rows if r["programa"] != "sem_dados"]
-        valores = sum(float(r["valor_repassado"] or 0) for r in rows if r["valor_repassado"])
-        print(f"    → {len(programas)} programa(s), total R$ {valores:,.0f} [{dest.name}]")
-        total += len(programas)
-        time.sleep(0.8)
+        print(f"  [{municipio}/FNDE/{ano}] sem fonte automatizável — stub gravado [{dest.name}]")
 
     return total
 
@@ -360,25 +223,18 @@ def coletar_siope(municipio: str, anos: list[int], forcar: bool, session: "reque
                 continue
             print(f"  [{municipio}/SIOPE/{ano}] stub nao_coletado detectado — refazendo")
 
-        print(f"  [{municipio}/SIOPE/{ano}] FNDE SIOPE portal …")
-        dados = _fetch_siope(cfg["ibge6"], ano, session)
-
-        pct_raw = (dados or {}).get("percentual_aplicado", "")
-        try:
-            pct = float(pct_raw) if pct_raw else None
-            situacao = ("cumprido" if pct and pct >= 25.0 else "nao_cumprido") if pct else ""
-        except ValueError:
-            situacao = ""
+        print(f"  [{municipio}/SIOPE/{ano}] SICONFI RREO Anexo 14 (MDE) …")
+        dados = _fetch_siope(cfg["ibge7"], ano, session)
 
         row = {
             "ano": ano,
             "municipio": municipio,
             "ibge7": cfg["ibge7"],
-            "receita_vinculada_mde": (dados or {}).get("receita_vinculada_mde", ""),
+            "receita_vinculada_mde": "",  # não reportado separadamente pelo Anexo 14 — ver docstring
             "despesa_mde":           (dados or {}).get("despesa_mde", ""),
-            "percentual_aplicado":   pct_raw,
-            "limite_constitucional_pct": "25",  # 25% para municípios (EC 108/2020 — FUNDEB)
-            "situacao": (dados or {}).get("situacao", situacao) or ("nao_coletado" if not dados else situacao),
+            "percentual_aplicado":   (dados or {}).get("percentual_aplicado", ""),
+            "limite_constitucional_pct": (dados or {}).get("limite_constitucional_pct", ""),
+            "situacao": (dados or {}).get("situacao") or "nao_coletado",
         }
 
         with dest.open("w", newline="", encoding="utf-8") as f:
@@ -409,15 +265,10 @@ def main() -> int:
 
     if not HTTP_OK:
         print("ERRO: instale requests:")
-        print("  .venv/bin/pip install requests beautifulsoup4 lxml")
+        print("  .venv/bin/pip install requests")
         return 1
 
-    api_key = os.getenv("PORTAL_TRANSPARENCIA_KEY") or os.getenv("PTG_API_KEY")
-    if not api_key:
-        print("INFO: PORTAL_TRANSPARENCIA_KEY não definido — usando API sem autenticação (limite menor)")
-        print("  Registre uma chave grátis em: portaldatransparencia.gov.br/api-de-dados/cadastrar-email")
-
-    sess = _session(api_key)
+    sess = _session()
     total_fnde = 0
     total_siope = 0
 
@@ -428,19 +279,14 @@ def main() -> int:
         if args.fonte in ("siope", "ambos"):
             total_siope += coletar_siope(mun, args.anos, args.forcar, sess)
 
-    print(f"\nFNDE: {total_fnde} registros | SIOPE: {total_siope} anos coletados")
+    print(f"\nFNDE: {total_fnde} registros | SIOPE (MDE): {total_siope} ano(s) coletados")
 
-    if total_fnde == 0 and args.fonte in ("fnde", "ambos"):
-        print("\nAVISO FNDE: sem dados coletados.")
-        print("  Opções:")
-        print("  1. Definir PORTAL_TRANSPARENCIA_KEY e tentar novamente")
-        print("  2. Download manual em portaldatransparencia.gov.br → Transferências → filtrar por FNDE")
-        print("  3. Download via fnde.gov.br/siope/ (programa a programa)")
+    if args.fonte in ("fnde", "ambos"):
+        print("\nAVISO FNDE: sem fonte pública automatizável — stub gravado (ver docstring do módulo).")
 
     if total_siope == 0 and args.fonte in ("siope", "ambos"):
-        print("\nAVISO SIOPE: sem dados coletados.")
-        print("  SIOPE portal: https://www.fnde.gov.br/siope/municipio.do")
-        print("  Parâmetros: codMun=355220 (Sorocaba) ou 353650 (Paulínia), ano=XXXX")
+        print("\nAVISO SIOPE/MDE: sem dados coletados via SICONFI RREO Anexo 14 nesta rodada "
+              "(ver stderr acima para erro específico por ano/município).")
 
     return 0
 
