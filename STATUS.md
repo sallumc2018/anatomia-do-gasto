@@ -1,6 +1,7 @@
 # STATUS — Anatomia do Gasto
 > **Regra:** ao atingir 40 linhas, migrar em batch p/ STATUS_HISTORICO.md; manter as 20 ativas + esta linha.
 ## Ativo — 2026-07-09
+- Ranking Fase 1 (transferências) ✅ `pipelines/gerar_ranking_transferencias.py` criado + `data/manifests/rankings/transferencias.json` gerado; FNS 183/5.571 municípios (3,28%) ok; **`emendas_federais` bloqueado**: valor_pago/liquidado/empenhado zerados em 100% das 15.015 linhas coletadas — bug de extrator upstream (Portal Transparência), não falta de execução real; corrigir extrator antes de rankear
 - Sprint 2 🔄 +46 municípios commitados (`92ccd06c`); cron 05:05 UTC × 3h; cobertura crescendo
 - Deploy ✅ manual autorizado pelo usuário 2026-07-09; push `d9f30e32` + deploy `dpl_HkpXk3VSKxQjPBdDjYJcH3nfUCHK` READY
 - Sprint 1 transferências ✅ refresh SP 2020-2026 (Fazenda-SP) commitado junto
