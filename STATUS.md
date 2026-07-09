@@ -13,7 +13,7 @@
 ## Blockers
 - `npm install/update/audit fix` — PROIBIDO (worm mai/2026)
 - Portal Transparência: conta bloqueada (rate limit Sprint 2) + chave sem escopo `/transferencias`. Requer desbloqueio + re-cadastro com escopo "Transferências"
-- CPF em git history: sanitizar com BFG Repo Cleaner (requer confirmação do usuário)
+- CPF em git history ✅ RESOLVIDO 2026-07-09: varredura completa de todos os 35.003 blobs alcançáveis de `origin/main` — 0 CPF real (único match é o regex-fonte de `sanear_cpf_publicos.py`). CPF real só existe em `worktree-uiux-anatomia`/tag `fluxo/coleta/v1.0` (histórico completo pré-squash, nunca esteve em `origin`; arquivo privado local+server por design). Usuário decidiu manter como está — sem BFG, sem force-push.
 ## Municípios
 | Município | Status |
 |---|---|
