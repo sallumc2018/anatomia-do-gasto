@@ -8,7 +8,9 @@ import PageFooter from "@/components/layout/page-footer"
 import { JsonLd } from "@/components/seo/json-ld"
 
 const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
-const ANOS_SIOPS = [2017, 2018, 2019, 2023, 2024, 2025]
+const ANOS_SIOPS = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+
+export const dynamicParams = false
 
 interface PageProps {
   params: Promise<{ ano: string }>
@@ -19,7 +21,6 @@ interface SiopsRow {
   pct: number
   total: number
   receitaImpostos: number
-  perCapita: number
   pctTransferenciasSus: number
   situacao: string
   fase: string
@@ -60,7 +61,7 @@ function parseBR(s: string): number {
 }
 
 function loadSiops(ano: number): SiopsRow | null {
-  const f = path.join(DATA_ROOT, "paulinia", "saude", "saida", `siops_paulinia_${ano}.csv`)
+  const f = path.join(DATA_ROOT, "sao_paulo", "saude", "saida", `siops_sao_paulo_${ano}.csv`)
   if (!fs.existsSync(f)) return null
   const lines = fs.readFileSync(f, "utf-8").split("\n").filter(Boolean)
   if (lines.length < 2) return null
@@ -74,7 +75,6 @@ function loadSiops(ano: number): SiopsRow | null {
     pct:                  parseFloat(get("percentual_asps")) || 0,
     total:                parseBR(get("despesa_saude_total")),
     receitaImpostos:      parseBR(get("receita_impostos")),
-    perCapita:            parseBR(get("despesa_saude_por_hab")),
     pctTransferenciasSus: parseFloat(get("pct_transferencias_sus")) || 0,
     situacao:             sit,
     fase:                 get("fase"),
@@ -92,13 +92,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ ano: string }> }): Promise<Metadata> {
   const { ano } = await params
   return {
-    title: `Saúde — ${ano} | Paulínia`,
-    description: `Gasto municipal em saúde de Paulínia em ${ano}: percentual da receita de impostos aplicado, gasto total, gasto per capita e cumprimento do mínimo constitucional de 15%. Fonte: SIOPS/Ministério da Saúde.`,
-    alternates: { canonical: `https://www.anatomiadogasto.ong.br/paulinia/saude/relatorio/${ano}` },
+    title: `Saúde — ${ano} | São Paulo`,
+    description: `Gasto municipal em saúde de São Paulo em ${ano}: percentual da receita de impostos aplicado, gasto total e cumprimento do mínimo constitucional de 15%. Fonte: SIOPS/Ministério da Saúde.`,
+    alternates: { canonical: `https://www.anatomiadogasto.ong.br/sao-paulo/saude/relatorio/${ano}` },
   }
 }
 
-export default async function RelatorioSaudePauliniaPage({ params }: PageProps) {
+export default async function RelatorioSaudeSaoPauloPage({ params }: PageProps) {
   const { ano } = await params
   if (!/^\d{4}$/.test(ano)) notFound()
   const year = Number(ano)
@@ -125,21 +125,21 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Início", item: "https://www.anatomiadogasto.ong.br/" },
-          { "@type": "ListItem", position: 2, name: "Saúde", item: "https://www.anatomiadogasto.ong.br/paulinia/saude" },
-          { "@type": "ListItem", position: 3, name: "Série histórica", item: "https://www.anatomiadogasto.ong.br/paulinia/saude/comparativo" },
+          { "@type": "ListItem", position: 2, name: "Saúde", item: "https://www.anatomiadogasto.ong.br/sao-paulo/saude" },
+          { "@type": "ListItem", position: 3, name: "Série histórica", item: "https://www.anatomiadogasto.ong.br/sao-paulo/saude/comparativo" },
           { "@type": "ListItem", position: 4, name: String(year) },
         ],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Dataset",
-        name: `Gasto em saúde — Paulínia ${year}`,
-        description: `Gasto municipal em saúde de Paulínia em ${year}: percentual da receita de impostos aplicado, gasto total, gasto per capita e cumprimento do mínimo constitucional de 15%. Fonte: SIOPS/Ministério da Saúde.`,
-        url: `https://www.anatomiadogasto.ong.br/paulinia/saude/relatorio/${year}`,
+        name: `Gasto em saúde — São Paulo ${year}`,
+        description: `Gasto municipal em saúde de São Paulo em ${year}: percentual da receita de impostos aplicado, gasto total e cumprimento do mínimo constitucional de 15%. Fonte: SIOPS/Ministério da Saúde.`,
+        url: `https://www.anatomiadogasto.ong.br/sao-paulo/saude/relatorio/${year}`,
         temporalCoverage: String(year),
         license: "https://creativecommons.org/licenses/by/4.0/",
         publisher: { "@type": "Organization", name: "Anatomia do Gasto", url: "https://www.anatomiadogasto.ong.br" },
-        spatialCoverage: { "@type": "Place", name: "Paulínia, São Paulo, Brasil" },
+        spatialCoverage: { "@type": "Place", name: "São Paulo, São Paulo, Brasil" },
       }} />
 
       <main id="conteudo" className="flex-1">
@@ -149,9 +149,9 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
           <div className="mx-auto px-6 py-3 flex items-center gap-2" style={{ ...S.container, flexWrap: "wrap" }}>
             <Link href="/" className="nav-link" style={{ fontSize: "12px" }}>Início</Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
-            <Link href="/paulinia/saude" className="nav-link" style={{ fontSize: "12px" }}>Saúde</Link>
+            <Link href="/sao-paulo/saude" className="nav-link" style={{ fontSize: "12px" }}>Saúde</Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
-            <Link href="/paulinia/saude/comparativo" className="nav-link" style={{ fontSize: "12px" }}>Série histórica</Link>
+            <Link href="/sao-paulo/saude/comparativo" className="nav-link" style={{ fontSize: "12px" }}>Série histórica</Link>
             <span style={{ fontSize: "12px", color: "var(--text-04)" }}>/</span>
             <span style={{ fontSize: "12px", color: "var(--text-01)" }}>{year}</span>
           </div>
@@ -162,7 +162,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
           <div className="mx-auto px-6 py-10" style={S.container}>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
-                <p className="uppercase font-semibold mb-3" style={S.label}>Paulínia / SP · Saúde</p>
+                <p className="uppercase font-semibold mb-3" style={S.label}>São Paulo / SP · Saúde</p>
                 <h1 className="font-light" style={{ fontSize: "clamp(24px, 3vw, 40px)", lineHeight: "1.2", color: "var(--text-01)" }}>
                   Gasto em saúde — {year}
                 </h1>
@@ -173,7 +173,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
                 {availableYears.map((y) => (
                   <Link
                     key={y}
-                    href={`/paulinia/saude/relatorio/${y}`}
+                    href={`/sao-paulo/saude/relatorio/${y}`}
                     style={{
                       fontSize: "13px",
                       fontFamily: "var(--font-ibm-plex-mono)",
@@ -187,7 +187,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
                   </Link>
                 ))}
                 <a
-                  href={`/api/dados/paulinia/saude/saida/siops_paulinia_${year}.csv`}
+                  href={`/api/dados/sao_paulo/saude/saida/siops_sao_paulo_${year}.csv`}
                   download
                   style={{ fontSize: "12px", fontFamily: "var(--font-ibm-plex-mono)", color: "var(--blue-40)", textDecoration: "none", border: "1px solid var(--border-01)", padding: "4px 10px", whiteSpace: "nowrap" }}
                 >
@@ -202,7 +202,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
         <section style={{ backgroundColor: "var(--bg-base)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-12" style={S.container}>
             <p className="uppercase font-semibold mb-6" style={S.label}>Indicadores SIOPS — {year}</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 {
                   label: "% Aplicado em ASPS",
@@ -275,6 +275,14 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
                 </div>
               ))}
             </div>
+            <div className="mt-6 p-5" style={{ backgroundColor: "var(--bg-base)", border: "1px solid var(--border-01)" }}>
+              <p style={{ ...S.body, color: "var(--text-03)" }}>
+                <strong style={{ color: "var(--text-01)" }}>Anomalia nos dados de origem:</strong> o campo
+                &quot;gasto por habitante&quot; declarado no SIOPS para São Paulo em {year} retorna um valor
+                agregado incompatível com a definição de per capita — por vezes maior que a própria despesa
+                total em saúde. Por isso, esse campo não é exibido neste relatório.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -284,16 +292,10 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
             <p className="uppercase font-semibold mb-2" style={S.label}>O que estes dados não mostram</p>
             <h2 className="font-light mb-6" style={S.h2}>Sem quebra por função de saúde</h2>
             <p style={{ ...S.body, maxWidth: "720px" }}>
-              O SIOPS de Paulínia é agregado — não detalha o gasto entre atenção básica, assistência
+              O SIOPS de São Paulo é agregado — não detalha o gasto entre atenção básica, assistência
               hospitalar, vigilância sanitária/epidemiológica ou outras funções, como acontece nos
               relatórios de aplicação da LRF de Sorocaba. Também não identifica fornecedor, contrato,
               unidade de saúde ou número de atendimentos.
-            </p>
-            <p className="mt-4" style={{ ...S.small, color: "var(--text-04)" }}>
-              ⚠ Anomalia na fonte: o campo &ldquo;gasto em saúde por habitante&rdquo; declarado pelo SIOPS para
-              Paulínia é inconsistente (em anos como 2019, o valor supera o próprio gasto total em
-              saúde) — não é um per capita válido. Por isso essa coluna foi removida deste relatório
-              até que a fonte seja corrigida ou recalculada de forma verificável.
             </p>
           </div>
         </section>
@@ -307,7 +309,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
                 <p style={S.h3}>Documento de origem</p>
                 <p className="mt-2" style={S.body}>
                   Sistema de Informações sobre Orçamentos Públicos em Saúde (SIOPS), Ministério da Saúde —
-                  declaração municipal de Paulínia, Fase Previsto, ano {year}.
+                  declaração municipal de São Paulo, Fase Previsto, ano {year}.
                 </p>
               </div>
               <div>
@@ -324,7 +326,7 @@ export default async function RelatorioSaudePauliniaPage({ params }: PageProps) 
                     style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
                     SIOPS — Ministério da Saúde →
                   </a>
-                  <Link href="/paulinia/saude/comparativo" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
+                  <Link href="/sao-paulo/saude/comparativo" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
                     Ver série histórica completa →
                   </Link>
                   <Link href="/metodologia" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>

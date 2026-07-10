@@ -369,6 +369,7 @@ export const SUBFUNCAO_LABELS: Record<string, string> = {
   "06.181 - Policiamento":         "Policiamento",
   "06.182 - Defesa Civil":         "Defesa Civil",
   "06.183 - Informação e Inteligência": "Informação e Inteligência",
+  "06.999 - Demais Subfunções Segurança Pública": "Demais Subfunções",
 }
 
 export interface SegurancaOrcamentoRow {

@@ -315,6 +315,7 @@ export default function SaoPauloSaudePage() {
         <section style={{ backgroundColor: "var(--bg-base)" }}>
           <div className="mx-auto px-6 py-10 flex flex-wrap gap-4" style={S.container}>
             <Link href="/sao-paulo" className="nav-link">← São Paulo</Link>
+            <Link href="/sao-paulo/saude/comparativo" className="nav-link">Série histórica SIOPS</Link>
             <Link href="/sao-paulo/saude-fiscal" className="nav-link">Saúde fiscal (LRF)</Link>
             <Link href="/sao-paulo/executivo" className="nav-link">Orçamento total</Link>
             <Link href="/sao-paulo/transferencias" className="nav-link">Transferências estaduais</Link>

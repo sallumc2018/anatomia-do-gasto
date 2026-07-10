@@ -29,6 +29,7 @@ const CONFIG = {
   variant: "dca",
   navLinks: [
     { href: "/sao-paulo", label: "← São Paulo" },
+    { href: "/sao-paulo/transporte/comparativo", label: "Comparativo histórico" },
     { href: "/sao-paulo/executivo", label: "Orçamento total" },
     { href: "/sao-paulo/seguranca", label: "Segurança pública" },
     { href: "/metodologia", label: "Metodologia" },

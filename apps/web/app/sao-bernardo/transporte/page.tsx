@@ -27,6 +27,7 @@ const CONFIG = {
   contextText: "São Bernardo é um município de grandes distâncias e histórico industrial, com demanda expressiva de transporte público e rodovias municipais.",
   navLinks: [
     { href: "/sao-bernardo", label: "← São Bernardo" },
+    { href: "/sao-bernardo/transporte/comparativo", label: "Comparativo histórico" },
     { href: "/sao-bernardo/seguranca", label: "Segurança" },
     { href: "/sao-bernardo/receita", label: "Receitas" },
     { href: "/sao-bernardo/saude-fiscal", label: "Saúde fiscal" },

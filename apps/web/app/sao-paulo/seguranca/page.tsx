@@ -43,6 +43,7 @@ const CONFIG = {
   variant: "totais",
   navLinks: [
     { href: "/sao-paulo", label: "← São Paulo" },
+    { href: "/sao-paulo/seguranca/comparativo", label: "Série histórica" },
     { href: "/sao-paulo/executivo", label: "Orçamento total" },
     { href: "/sao-paulo/transporte", label: "Transporte" },
     { href: "/metodologia", label: "Metodologia" },

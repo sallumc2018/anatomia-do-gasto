@@ -6,21 +6,20 @@ import ShellHeader from "@/components/layout/shell-header"
 import PageFooter from "@/components/layout/page-footer"
 
 export const metadata: Metadata = {
-  title: "Saúde em Paulínia — série histórica",
+  title: "Saúde em São Paulo — série histórica (SIOPS)",
   description:
-    "Série histórica do gasto municipal em saúde de Paulínia: percentual da receita de impostos aplicado em ASPS, gasto total e cumprimento do mínimo constitucional de 15% (SIOPS).",
-  alternates: { canonical: "https://www.anatomiadogasto.ong.br/paulinia/saude/comparativo" },
+    "Série histórica do gasto municipal em saúde de São Paulo: percentual da receita de impostos aplicado em ASPS, gasto total e cumprimento do mínimo constitucional de 15% (SIOPS).",
+  alternates: { canonical: "https://www.anatomiadogasto.ong.br/sao-paulo/saude/comparativo" },
 }
 
 const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
-const ANOS_SIOPS = [2017, 2018, 2019, 2023, 2024, 2025]
+const ANOS_SIOPS = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 interface SiopsRow {
   ano: number
   pct: number
   total: number
   receitaImpostos: number
-  perCapita: number
   pctTransferenciasSus: number
   situacao: string
 }
@@ -53,7 +52,7 @@ function parseBR(s: string): number {
 }
 
 function loadSiops(ano: number): SiopsRow | null {
-  const f = path.join(DATA_ROOT, "paulinia", "saude", "saida", `siops_paulinia_${ano}.csv`)
+  const f = path.join(DATA_ROOT, "sao_paulo", "saude", "saida", `siops_sao_paulo_${ano}.csv`)
   if (!fs.existsSync(f)) return null
   const lines = fs.readFileSync(f, "utf-8").split("\n").filter(Boolean)
   if (lines.length < 2) return null
@@ -64,16 +63,15 @@ function loadSiops(ano: number): SiopsRow | null {
   if (!sit || sit === "nao_coletado") return null
   return {
     ano,
-    pct:                   parseFloat(get("percentual_asps")) || 0,
-    total:                 parseBR(get("despesa_saude_total")),
-    receitaImpostos:       parseBR(get("receita_impostos")),
-    perCapita:             parseBR(get("despesa_saude_por_hab")),
-    pctTransferenciasSus:  parseFloat(get("pct_transferencias_sus")) || 0,
-    situacao:              sit,
+    pct:                  parseFloat(get("percentual_asps")) || 0,
+    total:                parseBR(get("despesa_saude_total")),
+    receitaImpostos:      parseBR(get("receita_impostos")),
+    pctTransferenciasSus: parseFloat(get("pct_transferencias_sus")) || 0,
+    situacao:             sit,
   }
 }
 
-export default function ComparativoSaudePauliniaPage() {
+export default function ComparativoSaudeSaoPauloPage() {
   const rows = ANOS_SIOPS.map(loadSiops).filter((r): r is SiopsRow => r !== null).sort((a, b) => a.ano - b.ano)
   const anoMin = rows[0]?.ano
   const anoMax = rows[rows.length - 1]?.ano
@@ -92,22 +90,22 @@ export default function ComparativoSaudePauliniaPage() {
         <section style={{ backgroundColor: "var(--bg-elevated)", ...S.borderBottom }}>
           <div className="mx-auto px-6 py-14 md:py-20" style={S.container}>
             <div className="flex items-center gap-3 mb-4">
-              <Link href="/paulinia/saude" style={{ ...S.small, color: "var(--text-03)", textDecoration: "none" }}>Saúde</Link>
+              <Link href="/sao-paulo/saude" style={{ ...S.small, color: "var(--text-03)", textDecoration: "none" }}>Saúde</Link>
               <span style={S.small}>/</span>
               <span style={S.small}>Série histórica</span>
             </div>
             <div style={{ borderLeft: "4px solid var(--teal-60)", paddingLeft: "24px" }}>
               <p className="uppercase font-semibold mb-3" style={S.label}>
-                Saúde · Paulínia/SP{anoMin && anoMax ? ` · ${anoMin}–${anoMax}` : ""}
+                Saúde · São Paulo/SP{anoMin && anoMax ? ` · ${anoMin}–${anoMax}` : ""}
               </p>
               <h1 className="font-light mb-5" style={{ fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: "1.2", color: "var(--text-01)", maxWidth: "720px" }}>
-                Quanto Paulínia aplicou em saúde a cada ano
+                Quanto São Paulo aplicou em saúde a cada ano
               </h1>
               <p style={{ ...S.body, fontSize: "15px", lineHeight: "24px", maxWidth: "640px" }}>
                 Esta página reúne, ano a ano, o percentual da receita de impostos aplicado em Ações e
-                Serviços Públicos de Saúde (ASPS), o gasto total, o gasto por habitante e a situação de
-                cumprimento do mínimo constitucional de 15% (Art. 198 CF / LC 141/2012). Os dados vêm do
-                Sistema de Informações sobre Orçamentos Públicos em Saúde (SIOPS/Ministério da Saúde).
+                Serviços Públicos de Saúde (ASPS), o gasto total e a situação de cumprimento do mínimo
+                constitucional de 15% (Art. 198 CF / LC 141/2012). Os dados vêm do Sistema de Informações
+                sobre Orçamentos Públicos em Saúde (SIOPS/Ministério da Saúde).
               </p>
             </div>
           </div>
@@ -118,7 +116,7 @@ export default function ComparativoSaudePauliniaPage() {
           <div className="mx-auto px-6 py-14" style={S.container}>
             <p className="uppercase font-semibold mb-2" style={S.label}>Como ler os números</p>
             <h2 className="font-light mb-10" style={S.h2}>O que cada indicador significa</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0" style={S.borderTop}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0" style={S.borderTop}>
               {[
                 {
                   num: "01",
@@ -137,7 +135,7 @@ export default function ComparativoSaudePauliniaPage() {
                 },
               ].map((item, i) => (
                 <div key={item.num} className="py-8" style={{
-                  paddingRight: i < 3 ? "32px" : 0,
+                  paddingRight: i < 2 ? "32px" : 0,
                   paddingLeft:  i > 0 ? "32px" : 0,
                   borderLeft:   i > 0 ? "1px solid var(--border-01)" : "none",
                   ...S.borderBottom,
@@ -155,6 +153,17 @@ export default function ComparativoSaudePauliniaPage() {
                 a Fase Previsto (declaração municipal) do SIOPS, referência oficial de conformidade.
               </p>
             </div>
+            <div className="mt-4 p-5" style={{ backgroundColor: "var(--bg-elevated)", border: "1px solid var(--border-01)" }}>
+              <p style={{ ...S.body, color: "var(--text-03)" }}>
+                <strong style={{ color: "var(--text-01)" }}>Anomalia nos dados de origem:</strong> o campo
+                &quot;gasto por habitante&quot; (despesa_saude_por_hab) retornado pelo SIOPS para São Paulo
+                traz valores agregados maiores que a própria despesa total em saúde — logicamente
+                incompatíveis com um valor por habitante (ex.: em 2020, o campo registra R$ 10,57 bi,
+                acima dos R$ 7,50 bi de despesa total). O mesmo padrão aparece nos dados SIOPS de Paulínia.
+                Por isso, esse campo não é exibido nesta página — divulgar um número que não bate com sua
+                própria definição seria publicar estatística sem fonte confiável.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -166,8 +175,8 @@ export default function ComparativoSaudePauliniaPage() {
             </p>
             <h2 className="font-light mb-3" style={S.h2}>Aplicação em saúde por ano — SIOPS</h2>
             <p className="mb-8" style={{ ...S.body, color: "var(--text-03)", maxWidth: "640px" }}>
-              Anos sem dados (2015–2016, 2020–2022) não estão disponíveis na API pública do SIOPS para
-              Paulínia e não são exibidos como zero — são omitidos.
+              Anos sem declaração no SIOPS para São Paulo não estão disponíveis e não são exibidos como
+              zero — são omitidos desta série.
             </p>
 
             <div style={{ overflowX: "auto" }}>
@@ -214,7 +223,7 @@ export default function ComparativoSaudePauliniaPage() {
                           {ok ? "✓ cumprido" : "⚠ abaixo do mínimo"}
                         </td>
                         <td style={{ padding: "14px 0 14px 0", textAlign: "right" }}>
-                          <Link href={`/paulinia/saude/relatorio/${row.ano}`} style={{ fontSize: "12px", color: "var(--blue-50)", textDecoration: "none" }}>
+                          <Link href={`/sao-paulo/saude/relatorio/${row.ano}`} style={{ fontSize: "12px", color: "var(--blue-50)", textDecoration: "none" }}>
                             Ver {row.ano} →
                           </Link>
                         </td>
@@ -250,24 +259,18 @@ export default function ComparativoSaudePauliniaPage() {
                 <h2 className="font-light mb-6" style={S.h2}>Sem quebra por função de saúde</h2>
                 <ul className="flex flex-col gap-3">
                   {[
-                    "Distribuição do gasto entre atenção básica, hospitalar, vigilância sanitária e demais funções — o SIOPS de Paulínia não detalha o gasto por função, ao contrário dos relatórios LRF de Sorocaba.",
+                    "Distribuição do gasto entre atenção básica, hospitalar, vigilância sanitária e demais funções — o SIOPS de São Paulo não detalha o gasto por função, ao contrário dos relatórios LRF de Sorocaba.",
+                    "Gasto por habitante confiável — o campo do SIOPS para esse indicador retorna valores agregados incompatíveis com a definição de per capita (ver nota acima).",
                     "Fornecedor, CNPJ ou empresa que recebeu cada pagamento.",
                     "Número de contratos, notas de empenho individuais ou processos licitatórios.",
                     "Qual UBS, hospital ou unidade de saúde executou o gasto.",
-                    "Quantos pacientes foram atendidos ou quantos procedimentos foram realizados.",
                   ].map((t) => (
                     <li key={t} style={{ ...S.body, color: "var(--text-03)" }}>— {t}</li>
                   ))}
                 </ul>
                 <p className="mt-6" style={{ ...S.small, color: "var(--text-04)" }}>
-                  Essas informações não constam do SIOPS agregado de Paulínia. Caso a prefeitura publique
+                  Essas informações não constam do SIOPS agregado de São Paulo. Caso a prefeitura publique
                   relatórios de execução detalhados por função, este site poderá incorporá-los no futuro.
-                </p>
-                <p className="mt-4" style={{ ...S.small, color: "var(--text-04)" }}>
-                  ⚠ Anomalia na fonte: o campo &ldquo;gasto em saúde por habitante&rdquo; declarado pelo SIOPS para
-                  Paulínia é inconsistente (em anos como 2019, o valor é maior que o próprio gasto total em
-                  saúde) — não é um per capita válido. Por isso essa coluna foi removida desta página até
-                  que a fonte seja corrigida ou recalculada de forma verificável.
                 </p>
               </div>
             </div>
@@ -283,7 +286,7 @@ export default function ComparativoSaudePauliniaPage() {
                 <p style={S.h3}>Documento de origem</p>
                 <p className="mt-2" style={S.body}>
                   Sistema de Informações sobre Orçamentos Públicos em Saúde (SIOPS), mantido pelo Ministério
-                  da Saúde, com base nas declarações do município de Paulínia (Fase Previsto).
+                  da Saúde, com base nas declarações do município de São Paulo (Fase Previsto).
                 </p>
               </div>
               <div>
@@ -304,8 +307,8 @@ export default function ComparativoSaudePauliniaPage() {
                   <Link href="/metodologia" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
                     Como tratamos os dados →
                   </Link>
-                  <Link href="/paulinia/saude" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
-                    Voltar para Saúde em Paulínia →
+                  <Link href="/sao-paulo/saude" style={{ fontSize: "13px", color: "var(--blue-50)", textDecoration: "none" }}>
+                    Voltar para Saúde em São Paulo →
                   </Link>
                 </div>
               </div>
@@ -319,7 +322,7 @@ export default function ComparativoSaudePauliniaPage() {
             <p className="uppercase font-semibold mb-6" style={S.label}>Relatórios detalhados por ano</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
               {[...rows].reverse().map((row) => (
-                <Link key={row.ano} href={`/paulinia/saude/relatorio/${row.ano}`}
+                <Link key={row.ano} href={`/sao-paulo/saude/relatorio/${row.ano}`}
                   className="tile-link"
                   style={{ border: "1px solid var(--border-01)", padding: "16px", textAlign: "center", textDecoration: "none" }}>
                   <p className="font-mono font-semibold" style={{ fontSize: "22px", color: "var(--text-01)" }}>{row.ano}</p>
