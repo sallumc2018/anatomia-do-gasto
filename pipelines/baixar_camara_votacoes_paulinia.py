@@ -23,7 +23,7 @@ Uso:
     .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --anos 2026 --apenas-listar
 
 Saída:
-    data/public/paulinia/camara/saida/camara_votacoes_paulinia_{ano}.csv
+    data/public/paulinia/camara/votacoes/saida/camara_votacoes_paulinia_{ano}.csv
 
 Schema CSV:
     ano, data_sessao, numero_sessao, tipo_sessao,
@@ -49,7 +49,7 @@ BASE_URL = "https://paulinia.siscam.com.br"
 PESQUISA_URL = f"{BASE_URL}/Votacoes/Pesquisa"
 VOTACAO_URL = f"{BASE_URL}/Votacoes/Votacao/{{id}}"
 
-PUBLIC_DIR = ROOT / "data/public/paulinia/camara/saida"
+PUBLIC_DIR = ROOT / "data/public/paulinia/camara/votacoes/saida"
 RAW_DIR = ROOT / "data/raw/paulinia/camara/votacoes"
 
 ANOS_PADRAO = [2025, 2026]
