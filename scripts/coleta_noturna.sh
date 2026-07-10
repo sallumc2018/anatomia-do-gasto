@@ -5,7 +5,7 @@
 set -Eeuo pipefail
 FALHAS=()
 RCLONE=/home/sallumc/.local/bin/rclone
-export PATH="/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="/home/sallumc/.nvm/versions/node/v24.16.0/bin:/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 
 # Carregar segredos (Portal Transparência, etc.) — arquivos fora do repo.
