@@ -1,26 +1,26 @@
 """
 Scraper de votações nominais — Câmara Municipal de Paulínia.
 
-Sistema: Siscam (Câmara Fácil / GOVIX ou similar) — ASP.NET WebForms com ViewState.
-Portal:  https://www.paulinia.sp.leg.br (verificar URL atual do portal de votações)
+Sistema: Siscam. Portal: https://paulinia.siscam.com.br
+(domínio antigo www.paulinia.sp.leg.br não resolve mais — descoberto e
+validado em 2026-07-10 via pipelines/baixar_camara_votacoes_sorocaba.py
+e probing manual: o menu "Atividade Legislativa" do site institucional
+www.camarapaulinia.sp.gov.br aponta para este domínio Siscam).
 
-Atenção: O portal Siscam de Paulínia requer inspeção da aba Network para confirmar
-endpoints exatos antes da primeira execução. O script inclui descoberta automática
-via crawl da página inicial.
+Ambas as páginas usadas (listagem e detalhe) são HTML renderizado no
+servidor — não precisa de Playwright, requests+BeautifulSoup bastam.
 
 Coleta:
-  - Sessões plenárias por ano
-  - Para cada sessão: matérias votadas + votação nominal por vereador
-
-Pré-requisitos:
-    .venv/bin/pip install playwright beautifulsoup4 lxml
-    .venv/bin/playwright install chromium
+  1. Enumera votações no período pedido via listagem paginada
+     (GET /Votacoes/Pesquisa?Pagina=N&PeriodoInicial=...&PeriodoFinal=...),
+     extraindo os IDs de /Votacoes/Votacao/{id} presentes nos links.
+  2. Para cada ID, busca o detalhe (GET /Votacoes/Votacao/{id}) e extrai
+     metadados da matéria + tabela nominal por vereador.
 
 Uso:
     .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py
-    .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --anos 2024 2025
-    .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --descobrir
-    .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --debug
+    .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --anos 2025 2026
+    .venv/bin/python3 pipelines/baixar_camara_votacoes_paulinia.py --anos 2026 --apenas-listar
 
 Saída:
     data/public/paulinia/camara/saida/camara_votacoes_paulinia_{ano}.csv
@@ -34,47 +34,25 @@ from __future__ import annotations
 
 import argparse
 import csv
-import json
 import re
 import sys
 import time
 from pathlib import Path
 
+import requests
+from bs4 import BeautifulSoup
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-try:
-    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-    PLAYWRIGHT_OK = True
-except ImportError:
-    PLAYWRIGHT_OK = False
-
-try:
-    from bs4 import BeautifulSoup
-    BS4_OK = True
-except ImportError:
-    BS4_OK = False
-
-# Paulínia Câmara — candidatos de URL (verificar qual está ativo)
-PORTAL_CANDIDATES = [
-    "https://www.paulinia.sp.leg.br",
-    "https://camarapaulinia.sp.gov.br",
-    "https://www.camarapaulinia.sp.gov.br",
-    "https://paulinia.siscam.com.br",
-]
-# Caminhos comuns no Siscam para sessões
-SISCAM_SESSAO_PATHS = [
-    "/sessoes/",
-    "/Sessoes/",
-    "/publico/sessao/",
-    "/transparencia/sessoes/",
-    "/plenario/sessoes/",
-]
+BASE_URL = "https://paulinia.siscam.com.br"
+PESQUISA_URL = f"{BASE_URL}/Votacoes/Pesquisa"
+VOTACAO_URL = f"{BASE_URL}/Votacoes/Votacao/{{id}}"
 
 PUBLIC_DIR = ROOT / "data/public/paulinia/camara/saida"
-RAW_DIR    = ROOT / "data/raw/paulinia/camara/votacoes"
+RAW_DIR = ROOT / "data/raw/paulinia/camara/votacoes"
 
-ANOS_PADRAO = list(range(2020, 2027))
+ANOS_PADRAO = [2025, 2026]
 
 FIELDNAMES = [
     "ano", "data_sessao", "numero_sessao", "tipo_sessao",
@@ -82,256 +60,187 @@ FIELDNAMES = [
     "resultado_geral", "vereador", "partido", "voto",
 ]
 
-# Persisted discovery result
-DISCOVERY_CACHE = RAW_DIR / "_portal_discovery.json"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+}
+
+VOTACAO_ID_RE = re.compile(r"/Votacoes/Votacao/(\d+)")
 
 
 def _clean(s: str) -> str:
     return re.sub(r"\s+", " ", (s or "").strip())
 
 
-def descobrir_portal(page: object, debug: bool = False) -> dict | None:
-    """
-    Probe candidate URLs to find the live Siscam portal for Paulínia.
-    Returns {base_url, sessao_url} or None.
-    """
-    for base in PORTAL_CANDIDATES:
-        try:
-            resp = page.goto(base, wait_until="domcontentloaded", timeout=15_000)
-            if resp and resp.status < 400:
-                html = page.content()
-                # Look for Siscam signature
-                if re.search(r"siscam|câmara fácil|govix|plenario|sessão plenária", html, re.I):
-                    print(f"  Portal ativo: {base}")
-                    # Try each session path
-                    for path in SISCAM_SESSAO_PATHS:
-                        url = base.rstrip("/") + path
-                        try:
-                            r2 = page.goto(url, wait_until="domcontentloaded", timeout=10_000)
-                            if r2 and r2.status < 400:
-                                print(f"  URL de sessões: {url}")
-                                return {"base_url": base, "sessao_url": url}
-                        except PlaywrightTimeout:
-                            pass
-                    # Return base even if session path not found
-                    return {"base_url": base, "sessao_url": base}
-        except PlaywrightTimeout:
-            if debug:
-                print(f"  TIMEOUT: {base}")
-        except Exception as exc:
-            if debug:
-                print(f"  ERRO [{base}]: {exc}")
-        time.sleep(0.5)
-
-    return None
-
-
-def _load_discovery() -> dict | None:
-    if DISCOVERY_CACHE.exists():
-        try:
-            return json.loads(DISCOVERY_CACHE.read_text(encoding="utf-8"))
-        except Exception:
-            pass
-    return None
-
-
-def _save_discovery(info: dict) -> None:
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    DISCOVERY_CACHE.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
-
-
-def _parse_sessoes_html(html: str, base_url: str) -> list[dict]:
-    if not BS4_OK:
-        return []
-    soup = BeautifulSoup(html, "html.parser")
-    sessoes = []
-
-    for row in soup.select("table tbody tr, .sessao-item, li[data-id], .list-group-item"):
-        link  = row.find("a", href=True)
-        if not link:
-            continue
-        href = link["href"]
-        if not re.search(r"sessao|sessões|plenario", href, re.I):
-            continue
-
-        # Normalize URL
-        if href.startswith("http"):
-            url = href
-        elif href.startswith("/"):
-            url = base_url.rstrip("/") + href
-        else:
-            url = base_url.rstrip("/") + "/" + href
-
-        sid_m = re.search(r"/(\d+)/?$", href)
-        sid = sid_m.group(1) if sid_m else href
-
-        cells = [_clean(c.get_text()) for c in row.find_all(["td", "span", "li", "div"])]
-        data  = next((c for c in cells if re.match(r"\d{2}/\d{2}/\d{4}", c)), "")
-        tipo  = next(
-            (c for c in cells if any(t in c.lower() for t in ("ordinária","extraordinária","solene","especial"))),
-            "",
-        )
-        numero = next((c for c in cells if re.match(r"\d+ª?\.?\s*(sessão)?", c, re.I)), "")
-
-        sessoes.append({"id": sid, "url": url, "data": data, "tipo": tipo, "numero": numero})
-
-    return sessoes
-
-
-def _parse_votacoes_generico(html: str) -> tuple[str, list[dict]]:
-    """Generic roll-call parser — works for both CâmaraSemPapel and Siscam layouts."""
-    if not BS4_OK:
-        return ("", [])
-    soup = BeautifulSoup(html, "html.parser")
-
-    resultado_tag = soup.find(string=re.compile(r"Aprovad|Rejeitad|Retirad|Arquivad", re.I))
-    resultado = _clean(resultado_tag.strip() if resultado_tag else "")
-
-    votos = []
-    for row in soup.select("table tbody tr, .voto-row, .vereador-voto"):
-        cells = [_clean(td.get_text()) for td in row.find_all(["td", "span", "div"])]
-        if not cells:
-            continue
-        vereador = cells[0]
-        partido  = next((c for c in cells[1:] if re.match(r"[A-Z]{2,12}$", c)), "")
-        voto_val = ""
-        for c in cells:
-            if c.lower() in ("sim","não","nao","abstenção","abstencao","ausente","favor","contra"):
-                voto_val = c
-                break
-
-        if vereador and len(vereador) > 3:
-            votos.append({"vereador": vereador, "partido": partido, "voto": voto_val})
-
-    return resultado, votos
-
-
-def coletar_ano(
-    ano: int, page: object, portal: dict,
-    apenas_listar: bool, debug: bool,
-) -> list[dict]:
-    rows: list[dict] = []
-    sessao_url = portal["sessao_url"]
-    base_url   = portal["base_url"]
-
-    print(f"  Buscando sessões de {ano} em {sessao_url} …")
+def _get(session: requests.Session, url: str, params: dict | None = None, timeout: int = 25) -> requests.Response | None:
     try:
-        page.goto(sessao_url, wait_until="networkidle", timeout=30_000)
-        time.sleep(1)
+        resp = session.get(url, params=params, headers=HEADERS, timeout=timeout)
+        resp.raise_for_status()
+        return resp
+    except requests.RequestException as exc:
+        print(f"  ERRO GET {url}: {exc}", file=sys.stderr)
+        return None
 
-        # Try to fill year filter
-        for selector in ["input[name*='ano']", "input[placeholder*='ano']", "select[name*='ano']"]:
-            try:
-                el = page.locator(selector).first
-                el.fill(str(ano))
-                page.keyboard.press("Enter")
-                time.sleep(1.5)
-                break
-            except Exception:
-                pass
 
-        html = page.content()
-        sessoes = _parse_sessoes_html(html, base_url)
+def enumerar_votacao_ids(session: requests.Session, ano: int, debug: bool) -> list[str]:
+    """Percorre a listagem paginada e retorna os IDs de votação únicos do ano."""
+    ids: list[str] = []
+    seen: set[str] = set()
+    periodo_inicial = f"01/01/{ano}"
+    periodo_final = f"31/12/{ano}"
+
+    pagina = 1
+    while True:
+        params = {
+            "Pagina": pagina,
+            "Materia": 0, "Sessao": 0,
+            "PeriodoInicial": periodo_inicial, "PeriodoFinal": periodo_final,
+            "Votacao": 0, "Fase": 0, "Resultado": 0, "VotanteId": 0,
+            "Voto": "Nenhum", "TipoAutor": "Todos", "AutoriaId": 0, "Assunto": "",
+        }
+        resp = _get(session, PESQUISA_URL, params=params)
+        if resp is None:
+            break
+
+        found = VOTACAO_ID_RE.findall(resp.text)
+        novos = [vid for vid in found if vid not in seen]
+        if not novos:
+            break
+
+        for vid in novos:
+            seen.add(vid)
+            ids.append(vid)
 
         if debug:
-            print(f"    {len(sessoes)} sessão(ões) encontrada(s)")
+            print(f"    página {pagina}: +{len(novos)} votações (total {len(ids)})")
 
-        if apenas_listar:
-            for s in sessoes:
-                print(f"    [{s['data']}] sessão {s['numero']} — {s['tipo']} ({s['url']})")
-            return rows
+        pagina += 1
+        time.sleep(0.5)
 
-        for s in sessoes:
-            # Get session details / agenda
-            try:
-                page.goto(s["url"], wait_until="networkidle", timeout=20_000)
-                time.sleep(1)
-                pauta_html = page.content()
-            except PlaywrightTimeout:
-                print(f"    TIMEOUT: sessão {s['id']}", file=sys.stderr)
+    return ids
+
+
+def _extrair_metadados(soup: BeautifulSoup) -> dict:
+    campos: dict[str, str] = {}
+    for p in soup.select("#content .row p"):
+        strong = p.find("strong")
+        if not strong:
+            continue
+        label = _clean(strong.get_text()).rstrip(":")
+        valor = _clean(p.get_text().replace(strong.get_text(), ""))
+        # "Data" aparece duas vezes (data do processo, data da sessão) — mantém a última
+        campos[label] = valor
+    return campos
+
+
+def parse_votacao(html: str) -> dict | None:
+    soup = BeautifulSoup(html, "html.parser")
+    h3 = soup.find("h3", class_="page-header")
+    if not h3:
+        return None
+    small = h3.find("small")
+    numero_pl = _clean(small.get_text().lstrip("- ").strip()) if small else ""
+    tipo_m = re.match(r"[A-Za-zÀ-ÿ]+", numero_pl)
+    tipo_pl = tipo_m.group(0).upper() if tipo_m else ""
+
+    campos = _extrair_metadados(soup)
+    ementa = campos.get("Assunto", "")
+    resultado_geral = campos.get("Resultado", campos.get("Situação", ""))
+
+    sessao_p = soup.find("strong", string=re.compile(r"Sessão", re.I))
+    numero_sessao, tipo_sessao, data_sessao = "", "", ""
+    if sessao_p:
+        sessao_texto = _clean(sessao_p.parent.get_text())
+        sessao_texto = sessao_texto.replace("Sessão:", "").strip()
+        m = re.match(r"(\d+)ª\s+Sessão\s+(\w+)", sessao_texto, re.I)
+        if m:
+            numero_sessao, tipo_sessao = m.group(1), m.group(2)
+    # segunda ocorrência de "Data:" no bloco da sessão é a data da sessão
+    data_labels = soup.select("#content .row p")
+    datas = [
+        _clean(p.get_text().replace(p.find("strong").get_text(), ""))
+        for p in data_labels
+        if p.find("strong") and _clean(p.find("strong").get_text()).rstrip(":") == "Data"
+    ]
+    if datas:
+        data_sessao = datas[-1]
+
+    votos = []
+    tabela = soup.find("table", class_=re.compile("table"))
+    if tabela:
+        for tr in tabela.select("tbody tr"):
+            tds = tr.find_all("td")
+            if len(tds) < 3:
                 continue
+            vereador = _clean(tds[0].get_text())
+            partido = _clean(tds[1].get_text())
+            voto = _clean(tds[2].get_text())
+            if vereador:
+                votos.append({"vereador": vereador, "partido": partido, "voto": voto})
 
-            soup = BeautifulSoup(pauta_html, "html.parser") if BS4_OK else None
-            if not soup:
-                continue
+    return {
+        "numero_pl": numero_pl,
+        "tipo_pl": tipo_pl,
+        "ementa": ementa,
+        "resultado_geral": resultado_geral,
+        "numero_sessao": numero_sessao,
+        "tipo_sessao": tipo_sessao,
+        "data_sessao": data_sessao,
+        "votos": votos,
+    }
 
-            # Find voting links (VerVotacao, votar, votacao, resultado)
-            vot_links = soup.find_all(
-                "a",
-                href=re.compile(r"votac|votar|resultado|VerVotacao", re.I),
-            )
 
-            if not vot_links:
-                # No direct voting links — record session with placeholder
+def coletar_ano(session: requests.Session, ano: int, apenas_listar: bool, debug: bool) -> list[dict]:
+    print(f"  Enumerando votações de {ano} …")
+    ids = enumerar_votacao_ids(session, ano, debug)
+    print(f"  {len(ids)} votação(ões) encontrada(s) em {ano}")
+
+    if apenas_listar:
+        for vid in ids:
+            print(f"    /Votacoes/Votacao/{vid}")
+        return []
+
+    rows: list[dict] = []
+    for i, vid in enumerate(ids, 1):
+        resp = _get(session, VOTACAO_URL.format(id=vid))
+        if resp is None:
+            continue
+        info = parse_votacao(resp.text)
+        if not info:
+            print(f"    AVISO: não foi possível parsear votação {vid}", file=sys.stderr)
+            continue
+
+        if not info["votos"]:
+            rows.append({
+                "ano": ano,
+                "data_sessao": info["data_sessao"],
+                "numero_sessao": info["numero_sessao"],
+                "tipo_sessao": info["tipo_sessao"],
+                "numero_pl": info["numero_pl"],
+                "tipo_pl": info["tipo_pl"],
+                "ementa": info["ementa"],
+                "resultado_geral": info["resultado_geral"],
+                "vereador": "", "partido": "", "voto": "",
+            })
+        else:
+            for v in info["votos"]:
                 rows.append({
                     "ano": ano,
-                    "data_sessao": s["data"],
-                    "numero_sessao": s["numero"],
-                    "tipo_sessao": s["tipo"],
-                    "numero_pl": "", "tipo_pl": "", "ementa": "",
-                    "resultado_geral": "sem_votacao_nominal",
-                    "vereador": "", "partido": "", "voto": "",
+                    "data_sessao": info["data_sessao"],
+                    "numero_sessao": info["numero_sessao"],
+                    "tipo_sessao": info["tipo_sessao"],
+                    "numero_pl": info["numero_pl"],
+                    "tipo_pl": info["tipo_pl"],
+                    "ementa": info["ementa"],
+                    "resultado_geral": info["resultado_geral"],
+                    "vereador": v["vereador"],
+                    "partido": v["partido"],
+                    "voto": v["voto"],
                 })
-                continue
 
-            for vlink in vot_links:
-                vhref = vlink["href"]
-                if vhref.startswith("http"):
-                    vurl = vhref
-                elif vhref.startswith("/"):
-                    vurl = base_url.rstrip("/") + vhref
-                else:
-                    vurl = base_url.rstrip("/") + "/" + vhref
-
-                # Extract PL info from surrounding context
-                parent = vlink.find_parent(["tr", "li", "div"])
-                pl_text = _clean(parent.get_text() if parent else vlink.get_text())
-                numero_pl = ""
-                pl_m = re.search(r"(PL|PDL|REQ|IND|MOC|PPL)\s*[\d./\-]+", pl_text, re.I)
-                if pl_m:
-                    numero_pl = pl_m.group(0)
-                tipo_pl = re.match(r"[A-Z]+", numero_pl, re.I).group(0).upper() if numero_pl else ""
-                ementa = pl_text[:300] if len(pl_text) > len(numero_pl) + 5 else ""
-
-                try:
-                    page.goto(vurl, wait_until="networkidle", timeout=20_000)
-                    time.sleep(1)
-                    resultado, votos = _parse_votacoes_generico(page.content())
-                except PlaywrightTimeout:
-                    resultado, votos = "timeout", []
-
-                if votos:
-                    for v in votos:
-                        rows.append({
-                            "ano": ano,
-                            "data_sessao": s["data"],
-                            "numero_sessao": s["numero"],
-                            "tipo_sessao": s["tipo"],
-                            "numero_pl": numero_pl,
-                            "tipo_pl": tipo_pl,
-                            "ementa": ementa,
-                            "resultado_geral": resultado,
-                            "vereador": v["vereador"],
-                            "partido": v["partido"],
-                            "voto": v["voto"],
-                        })
-                else:
-                    rows.append({
-                        "ano": ano,
-                        "data_sessao": s["data"],
-                        "numero_sessao": s["numero"],
-                        "tipo_sessao": s["tipo"],
-                        "numero_pl": numero_pl,
-                        "tipo_pl": tipo_pl,
-                        "ementa": ementa,
-                        "resultado_geral": resultado,
-                        "vereador": "", "partido": "", "voto": "",
-                    })
-
-            time.sleep(0.8)
-
-    except Exception as exc:
-        print(f"  ERRO [{ano}]: {exc}", file=sys.stderr)
+        if debug and i % 20 == 0:
+            print(f"    {i}/{len(ids)} votações processadas")
+        time.sleep(0.3)
 
     return rows
 
@@ -351,72 +260,26 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Scraper votações Câmara Paulínia (Siscam)")
     parser.add_argument("--anos", nargs="+", type=int, default=ANOS_PADRAO)
     parser.add_argument("--apenas-listar", action="store_true")
-    parser.add_argument("--descobrir", action="store_true",
-                        help="Forçar redescoberta do portal (ignora cache)")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
 
-    if not PLAYWRIGHT_OK:
-        print("ERRO: Playwright não instalado.")
-        print("  .venv/bin/pip install playwright && .venv/bin/playwright install chromium")
-        return 1
-
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    session = requests.Session()
     total = 0
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            locale="pt-BR",
-        )
-        page = context.new_page()
 
-        # Step 1: discover or load portal info
-        portal = None
-        if not args.descobrir:
-            portal = _load_discovery()
-            if portal and args.debug:
-                print(f"  Usando portal em cache: {portal}")
-
-        if not portal:
-            print("  Descobrindo portal Siscam de Paulínia …")
-            portal = descobrir_portal(page, debug=args.debug)
-            if portal:
-                _save_discovery(portal)
-                print(f"  Portal encontrado e salvo em cache: {DISCOVERY_CACHE.name}")
+    for ano in sorted(args.anos):
+        print(f"\n── {ano} ──────────────────────────────")
+        rows = coletar_ano(session, ano, args.apenas_listar, args.debug)
+        if not args.apenas_listar:
+            if rows:
+                salvar_csv(rows, ano)
+                total += len(rows)
             else:
-                print("ERRO: Portal de Paulínia não encontrado nos candidatos:", file=sys.stderr)
-                for c in PORTAL_CANDIDATES:
-                    print(f"  {c}", file=sys.stderr)
-                print("\nVerifique manualmente e atualize PORTAL_CANDIDATES no script.", file=sys.stderr)
-                context.close()
-                browser.close()
-                return 1
-
-        print(f"\nPortal: {portal['sessao_url']}")
-
-        # Step 2: scrape by year
-        for ano in sorted(args.anos):
-            print(f"\n── {ano} ──────────────────────────────")
-            rows = coletar_ano(ano, page, portal, args.apenas_listar, args.debug)
-            if not args.apenas_listar:
-                if rows:
-                    salvar_csv(rows, ano)
-                    total += len(rows)
-                else:
-                    print(f"  AVISO: nenhuma votação coletada para {ano}")
-
-        context.close()
-        browser.close()
+                print(f"  AVISO: nenhuma votação coletada para {ano}")
 
     print(f"\nTotal: {total} registros coletados")
-    if total == 0 and not args.apenas_listar:
-        print("\nDicas:")
-        print("  1. Rodar com --descobrir para redescobrir o portal")
-        print("  2. Rodar com --apenas-listar para verificar as sessões disponíveis")
-        print("  3. Inspecionar a aba Network no browser para confirmar endpoints")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

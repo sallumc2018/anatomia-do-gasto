@@ -38,7 +38,7 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 **Cobertura atual:**
 
 - **Cidades:** Bauru, Campinas, Carapicuiba, Diadema, Guarulhos, Itaquaquecetuba, Jundiai, Maua, Mogi das Cruzes, Osasco, Paulinia, Piracicaba, Ribeirao Preto, Santo Andre, Santos, Sao Bernardo do Campo, Sao Jose do Rio Preto, Sao Jose dos Campos, Sao Paulo, Sao Vicente, Sorocaba
-- **Datasets publicados:** 179
+- **Datasets publicados:** 180
 - **Datasets em validacao:** 2
 - **Atualizado em:** 2026-07-10
 <!-- AUTO:coverage-end -->
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- 90ddbb82 fix(cron): adiciona bin do nvm ao PATH da coleta noturna
-- 98047dc9 data(sprint2): coleta noturna 2026-07-09/10 — 359 municípios
-- 84c7926c feat(municipios): paridade com Sorocaba em segurança/transporte/educação/saúde
-- 910597f8 docs(educacao): registrar investigação de dados.gov.br para FNDE
-- da2262b3 feat(paulinia): adiciona páginas de série histórica e relatório anual
-- 314be05c data(sao_bernardo): consolida dataset curado com coleta Sprint2
-- ef0fbe2d fix(educacao): substituir fontes mortas de FNDE/SIOPE por SICONFI RREO Anexo 14
-- a6d478dd docs(municipios): documentar distinção sao_bernardo vs sao_bernardo_do_campo
-- 6229fb54 merge: sincronizar com 9 PRs Dependabot mergeadas (#1-9)
-- bda78428 chore(deps): bump next from 16.2.6 to 16.2.10 in /apps/web (#8)
+- be084cbd feat(coleta): adiciona cruzamento CEIS/CNEP noturno para sorocaba/paulinia/sao_bernardo
+- b8b7e486 fix(pipelines): corrige mapeamento de campos CEIS/CNEP (sancao no nivel raiz do item)
+- 852f565a feat(pipelines): adiciona coleta CEIS/CNEP com cruzamento contra fornecedores publicados
+- 6a095865 fix(lgpd): mascara RG completo vazado em contratos CKAN São Paulo 2016
+- 62195596 docs(legislacao): adiciona LGPD, LAI e manual operacional interno
+- ca54ad06 feat(sao-bernardo): coleta e publicação de SIOPS/SIOPE — 11/11 anos reais
+- 46bfdb7f fix(cron): adiciona bin do nvm ao PATH da coleta noturna
+- 29afdf84 data(sprint2): coleta noturna 2026-07-09/10 — 359 municípios
+- 032b3823 feat(municipios): paridade com Sorocaba em segurança/transporte/educação/saúde
+- 4148ae02 docs(educacao): registrar investigação de dados.gov.br para FNDE
 <!-- AUTO:activity-end -->

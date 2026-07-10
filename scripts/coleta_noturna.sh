@@ -118,6 +118,20 @@ for muni in sorocaba paulinia sao_bernardo_do_campo; do
     env MUNICIPIO="$muni" "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_ceis_cnep.py"
 done
 
+# 3e. Diárias e viagens — Sorocaba prefeitura (TDAPortal). Seção "diarias" é um
+# snapshot atual (filtro de ano do site nao afeta a tabela real, confirmado em
+# 2026-07-10), por isso roda sem --ano. Saída em data/extracted/ (nao publicada
+# automaticamente).
+run_cmd "Diárias e viagens — Sorocaba prefeitura" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_sorocaba_prefeitura.py" --secao diarias
+
+# 3f. Votações nominais — Câmara de Paulínia (Siscam). Domínio antigo
+# (paulinia.sp.leg.br) migrou para paulinia.siscam.com.br, descoberto e
+# validado em 2026-07-10. Coleta o ano corrente; publica direto em
+# data/public (mesmo padrão do script original — dado público de vereador).
+run_cmd "Votações nominais — Câmara Paulínia" \
+  "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_camara_votacoes_paulinia.py" --anos "$(date -u +%Y)"
+
 # 4. Gerar datasets.json (publicar dados coletados)
 run_cmd "Gerar catálogo de datasets" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"

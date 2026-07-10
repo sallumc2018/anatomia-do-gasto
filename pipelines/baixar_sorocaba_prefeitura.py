@@ -53,7 +53,10 @@ SECOES: dict[str, dict] = {
     "tabelas_sal":  {"num": 17, "label": "Tabelas Salariais","tem_ano": False, "tem_mes": False, "tem_secr": False},
     "despesas":     {"num": 11, "label": "Despesas",          "tem_ano": True,  "tem_mes": False, "tem_secr": False},
     "receitas":     {"num": 12, "label": "Receitas",          "tem_ano": True,  "tem_mes": False, "tem_secr": False},
-    "diarias":      {"num": 13, "label": "Diárias e Viagens", "tem_ano": True,  "tem_mes": False, "tem_secr": False},
+    # tem_ano=False: confirmado em 2026-07-10 que o filtro de ano desta seção
+    # nao afeta a tabela real (tabela_37, adiantamentos em aberto) — e sempre
+    # o mesmo snapshot atual, nao uma serie historica por ano.
+    "diarias":      {"num": 13, "label": "Diárias e Viagens", "tem_ano": False, "tem_mes": False, "tem_secr": False},
     "transferencias":{"num":14, "label": "Transferências",    "tem_ano": True,  "tem_mes": False, "tem_secr": False},
     "contas_pub":   {"num": 15, "label": "Contas Públicas",   "tem_ano": False, "tem_mes": False, "tem_secr": False},
     "licitacoes":   {"num": 18, "label": "Licitações/Contratos","tem_ano": True,"tem_mes": False, "tem_secr": False},
