@@ -151,5 +151,53 @@ seguranca,rreo,dca,...}` com o IBGE correto; depois expor UF no slug (ou no
 frontend) dos outros 7 casos ambíguos; rodar
 `check_sprint2_slug_collisions.py --strict` como gate de publicação.
 
+## Correção São Vicente + gate de IBGE — 2026-07-10 (concluído, commits locais e6698a9a + seguinte, sem push)
+
+Corrigido `pipelines/paths.py:40` (IBGE errado de Sertãozinho → correto de
+São Vicente) e reprocessado. Descoberta durante a correção: o reprocesso
+inicial só cobriu 2020-2025 (range padrão dos extratores SICONFI) — anos
+2015-2019 ficaram com o IBGE errado por mais um ciclo até ser pego pelo
+gate novo. Lição: **nunca aceitar "reprocessei" sem verificar o conteúdo
+completo**, spot-check por amostra não é suficiente.
+
+Criado `tools/gates/check_ibge_match.py`: compara o IBGE embutido no
+CONTEÚDO de cada CSV publicado (não só o nome do arquivo/caminho) contra
+o esperado pro slug do diretório. Rodado em `--strict` sobre todo
+`data/public` (4290 arquivos, 494 municípios): limpo, com 1 achado novo
+pendente — **FNS traz `CO_MUNICIPIO_IBGE=352310` para
+Itaquaquecetuba/SP, mas o IBGE oficial é 3523602**; nome e UF do registro
+batem (é claramente a mesma cidade), então parece anomalia da própria
+fonte FNS/DATASUS, não erro nosso — mas não foi investigado a fundo.
+Próximo passo: checar se é código IBGE antigo/recodificado ou erro de
+cadastro no FNS, e se afeta outros municípios silenciosamente.
+
+Também documentado: `sao_bernardo` (slug curado) precisou de alias
+explícito no gate para `sao_bernardo_do_campo` — sem isso o gate batia
+com o município real "São Bernardo/MA" (2110609) e dava falso positivo.
+Confirma na prática o risco de ambiguidade de slug já mapeado.
+
+**Decisão de arquitetura (via advisor, antes de escalar):** NÃO escalar a
+publicação nacional via bypass de QA gate (`--skip-qa-gate` /
+`datasets.csv` vazio) — foi exatamente esse bypass que permitiu o bug do
+São Vicente chegar em produção sem detecção. Coleta (`data/extracted`) é
+reversível e pode escalar livremente; a porta de `data/public` fica
+condicionada ao gate de IBGE passar limpo. Refatorar
+`publicar_dados.py` para aceitar regra de área agnóstica de município
+(em vez de exigir 5571 linhas em `datasets.csv`) é o próximo passo real
+antes de qualquer coleta nacional de SICONFI/SIOPS em escala.
+
+## Escalar coleta nacional SICONFI/SIOPS — 2026-07-10 (autorizado, não iniciado)
+
+Usuário autorizou implementar e rodar em fases por região. Gap técnico:
+`pipelines/paths.py` já suporta modo dinâmico (`MUNICIPIO_IBGE/NOME/UF`
+via env, mesmo mecanismo do sprint2), mas `coletar_municipio_sp.py`
+exige município cadastrado no dict `MUNICIPIOS` — não usa o modo
+dinâmico. Falta um orquestrador nos moldes de
+`coletar_municipios_brasil.py` (concorrência, checkpoint, filtro por UF)
+que rode SICONFI+SIOPS+SIOPE via modo dinâmico para os 5571 municípios,
+usando a chave canônica `slug_uf` de `sprint2_keys.py` para evitar a
+ambiguidade já documentada. Bloqueado pela decisão de arquitetura acima
+(gate de IBGE + publicação sem bypass) antes de rodar em escala real.
+
 Atualizar esta tabela a cada despacho novo — é o estado persistente que
 substitui reexplicar tudo a cada sessão nova, conforme pedido do usuário.
