@@ -78,6 +78,7 @@ MUNICIPIOS = {
     "sorocaba": {"ibge7": "3552205", "nome": "Sorocaba"},
     "paulinia":  {"ibge7": "3536505", "nome": "Paulinia"},
     "sao_paulo": {"ibge7": "3550308", "nome": "Sao Paulo"},
+    "sao_bernardo": {"ibge7": "3548708", "nome": "Sao Bernardo do Campo"},
 }
 
 ANOS_PADRAO = list(range(2015, 2026))

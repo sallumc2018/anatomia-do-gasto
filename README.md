@@ -38,9 +38,9 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 **Cobertura atual:**
 
 - **Cidades:** Bauru, Campinas, Carapicuiba, Diadema, Guarulhos, Itaquaquecetuba, Jundiai, Maua, Mogi das Cruzes, Osasco, Paulinia, Piracicaba, Ribeirao Preto, Santo Andre, Santos, Sao Bernardo do Campo, Sao Jose do Rio Preto, Sao Jose dos Campos, Sao Paulo, Sao Vicente, Sorocaba
-- **Datasets publicados:** 176
+- **Datasets publicados:** 179
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-07-09
+- **Atualizado em:** 2026-07-10
 <!-- AUTO:coverage-end -->
 
 O projeto nao realiza auditoria juridica nem emite juizo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificacao independente.
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
+- 90ddbb82 fix(cron): adiciona bin do nvm ao PATH da coleta noturna
+- 98047dc9 data(sprint2): coleta noturna 2026-07-09/10 — 359 municípios
+- 84c7926c feat(municipios): paridade com Sorocaba em segurança/transporte/educação/saúde
+- 910597f8 docs(educacao): registrar investigação de dados.gov.br para FNDE
+- da2262b3 feat(paulinia): adiciona páginas de série histórica e relatório anual
+- 314be05c data(sao_bernardo): consolida dataset curado com coleta Sprint2
 - ef0fbe2d fix(educacao): substituir fontes mortas de FNDE/SIOPE por SICONFI RREO Anexo 14
 - a6d478dd docs(municipios): documentar distinção sao_bernardo vs sao_bernardo_do_campo
 - 6229fb54 merge: sincronizar com 9 PRs Dependabot mergeadas (#1-9)
 - bda78428 chore(deps): bump next from 16.2.6 to 16.2.10 in /apps/web (#8)
-- 76bb8aa7 chore(deps-dev): bump @types/node from 20.19.39 to 26.1.1 in /apps/web (#9)
-- 048b1e35 chore(deps): bump actions/setup-python from 5 to 6 (#4)
-- eedbe3d5 chore(deps): bump actions/checkout from 4 to 7 (#3)
-- 673b86f2 chore(deps): bump actions/setup-node from 4.4.0 to 6.4.0 (#2)
-- 6d73ae2a chore(deps): bump astral-sh/setup-uv from 5 to 7 (#1)
-- eff3ec69 chore(deps): bump react-dom from 19.2.4 to 19.2.7 in /apps/web (#5)
 <!-- AUTO:activity-end -->

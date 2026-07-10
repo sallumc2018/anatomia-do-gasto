@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 **Cobertura atual:**
 
 - **Cidades:** Bauru, Campinas, Carapicuiba, Diadema, Guarulhos, Itaquaquecetuba, Jundiai, Maua, Mogi das Cruzes, Osasco, Paulinia, Piracicaba, Ribeirao Preto, Santo Andre, Santos, Sao Bernardo do Campo, Sao Jose do Rio Preto, Sao Jose dos Campos, Sao Paulo, Sao Vicente, Sorocaba
-- **Datasets publicados:** 176
+- **Datasets publicados:** 179
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-07-09
+- **Atualizado em:** 2026-07-10
 <!-- AUTO:coverage-end -->

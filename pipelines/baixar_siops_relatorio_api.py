@@ -10,9 +10,10 @@ conforme a EC 29/2000" na Fase - Previsto, que é o proxy do ASPS (EC-29 / Art. 
 Limite constitucional: 15% para municípios (LC 141/2012, art. 7º).
 
 IBGEs (6 dígitos — padrão DATASUS):
-  Sorocaba:  355220
-  Paulínia:  353650
-  São Paulo: 355030
+  Sorocaba:      355220
+  Paulínia:      353650
+  São Paulo:     355030
+  São Bernardo:  354870
 
 Uso:
     .venv/bin/python3 pipelines/baixar_siops_relatorio_api.py
@@ -50,6 +51,7 @@ MUNICIPIOS: dict[str, dict] = {
     "sorocaba": {"ibge6": "355220", "nome": "Sorocaba", "uf": "SP"},
     "paulinia":  {"ibge6": "353650", "nome": "Paulinia", "uf": "SP"},
     "sao_paulo": {"ibge6": "355030", "nome": "Sao Paulo", "uf": "SP"},
+    "sao_bernardo": {"ibge6": "354870", "nome": "Sao Bernardo do Campo", "uf": "SP"},
 }
 
 ANOS_PADRAO = list(range(2015, 2026))

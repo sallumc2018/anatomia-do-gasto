@@ -187,3 +187,6 @@ sao_bernardo,fns,transferencias,fns_repasses_faf_com_populacao_sao_bernardo_{ano
 sao_bernardo,seguranca,despesas-dca,despesas_seguranca_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
 sao_bernardo,transporte,orcamento-dca,dca_transporte_sao_bernardo_{ano}.csv,public,publicavel,pode_resumir,Dado publico institucional ou agregado adequado para resumo de cobertura e navegacao cidada.
 sao_paulo,contratos,ckan-contratos,ckan_contratos_sao_paulo_{ano}.csv,public,publicavel_com_cautela,mostrar_cobertura_parcial,Contratos historicos SP via CKAN; objetos podem ter termos sensiveis; evitar perfis pessoais ou juizo sobre contratados.
+sao_bernardo,saude,siops-federal,siops_sao_bernardo_{ano}.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Dado federal de saude; publicar agregadamente e sem destacar pessoa natural ou caso individual.
+sao_bernardo,saude,siops-consolidado,siops_sao_bernardo_consolidado.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Dado federal consolidado de saude; publicar agregadamente e com linguagem neutra.
+sao_bernardo,educacao,siope-federal,siope_sao_bernardo_{ano}.csv,public,publicavel_com_cautela,resumir_sem_pessoa,Dado federal de educacao; publicar agregadamente e sem destacar beneficiarios individuais.
