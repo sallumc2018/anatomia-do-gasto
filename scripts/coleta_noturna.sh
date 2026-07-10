@@ -107,6 +107,17 @@ run_cmd "Sprint 1 FNDE+SIOPE — Sorocaba e Paulínia" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_fnde_siope.py" \
     --municipios sorocaba paulinia
 
+# 3d. CEIS/CNEP — cruzamento de sanções federais contra fornecedores já
+# publicados (zona verde, ver docs/legislacao/MANUAL_LGPD_LAI_ANATOMIA_DO_GASTO.md §5).
+# Cache nacional compartilhado (data/raw/_nacional/sancoes/) já completo desde
+# a coleta de sao_paulo em 2026-07-10 — estas 3 chamadas só relêem o cache local
+# e cruzam CNPJ, sem nova requisição à API. Saída fica em data/extracted/
+# (NÃO publicada automaticamente — decisão de publicar é manual, ver handoff).
+for muni in sorocaba paulinia sao_bernardo_do_campo; do
+  run_cmd "CEIS/CNEP — cruzamento $muni" \
+    env MUNICIPIO="$muni" "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_ceis_cnep.py"
+done
+
 # 4. Gerar datasets.json (publicar dados coletados)
 run_cmd "Gerar catálogo de datasets" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"
