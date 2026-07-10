@@ -206,21 +206,25 @@ def _cnpj_do_item(item: dict) -> str:
 
 
 def _linha_para_csv(endpoint: str, item: dict, dataset_origem: str) -> dict:
+    """Normaliza item CEIS/CNEP — campos de sanção ficam no nível raiz do item
+    (confirmado contra resposta real 2026-07-10), não aninhados em "sancao"
+    como a primeira versão deste script assumia sem chave válida.
+    """
     pessoa = item.get("pessoa") or {}
-    sancao = item.get("sancao") or {}
-    orgao = sancao.get("orgaoSancionador") or {}
+    sancionado = item.get("sancionado") or {}
+    orgao = item.get("orgaoSancionador") or {}
+    tipo_sancao = item.get("tipoSancao") or {}
+    fundamentacao = item.get("fundamentacao") or []
     return {
         "cnpj": _cnpj_do_item(item),
-        "razao_social_sancionada": pessoa.get("nome") or pessoa.get("nomeInformadoPessoaJuridica") or "",
+        "razao_social_sancionada": pessoa.get("nome") or sancionado.get("nome") or "",
         "fonte_sancao": endpoint.upper(),
-        "tipo_sancao": sancao.get("tipoSancao", {}).get("descricaoResumida")
-        if isinstance(sancao.get("tipoSancao"), dict) else sancao.get("tipoSancao") or "",
+        "tipo_sancao": tipo_sancao.get("descricaoResumida") or tipo_sancao.get("descricaoPortal") or "",
         "orgao_sancionador": orgao.get("nome") or "",
-        "data_inicio_sancao": sancao.get("dataInicioSancao") or "",
-        "data_final_sancao": sancao.get("dataFinalSancao") or "",
-        "fundamentacao": (sancao.get("fundamentacao") or [{}])[0].get("descricao", "")
-        if isinstance(sancao.get("fundamentacao"), list) else sancao.get("fundamentacao") or "",
-        "publicado_em": sancao.get("dataPublicacaoSancao") or "",
+        "data_inicio_sancao": item.get("dataInicioSancao") or "",
+        "data_final_sancao": item.get("dataFimSancao") or "",
+        "fundamentacao": fundamentacao[0].get("descricao", "") if fundamentacao else "",
+        "publicado_em": item.get("dataPublicacaoSancao") or "",
         "dataset_origem": dataset_origem,
         "fonte_api": f"{BASE_URL}/{endpoint}",
     }
