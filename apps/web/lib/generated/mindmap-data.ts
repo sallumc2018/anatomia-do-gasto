@@ -98,14 +98,14 @@ export const MINDMAP_NODES = [
     "group": "root",
     "icon": "Network",
     "summary": "18 áreas publicadas (2020–2025)",
-    "detail": "34 trilhas publicadas em 17 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
+    "detail": "35 trilhas publicadas em 17 áreas temáticas. Acesse o painel municipal para explorar receita, gasto e serviços.",
     "value": "2002-2027 parcial",
     "href": "/paulinia",
     "linkLabel": "Abrir painel de Paulínia",
     "color": "var(--purple-60)",
-    "sourceCount": 34,
+    "sourceCount": 35,
     "policy": {
-      "publicavel": 21,
+      "publicavel": 22,
       "publicavelComCautela": 13,
       "naoDestacarNaUi": 0
     }
