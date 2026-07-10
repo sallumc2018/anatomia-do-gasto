@@ -53,6 +53,7 @@ recentemente — primeiro alvo natural de auditoria read-only.
 | Estado | Município/escopo | Status | Agente/Task ID | Última atualização |
 |---|---|---|---|---|
 | SP | auditoria de cobertura dos 21 municípios (read-only) | concluído | a9b76eeaa7749eb1a | 2026-07-10 |
+| PA/CE/GO/MG/PR (amostra multi-região, sprint2) | auditoria de cobertura de 20 municípios (4/UF, read-only) | concluído | ab9bf08db98cbf2c8 | 2026-07-10 |
 
 Mecanismo validado: agente em background, sem TUI extra, sem escrita,
 resultado revisado pelo hub. Achado da auditoria (ver resultado completo
@@ -89,6 +90,66 @@ Próximo passo real (não disparado, aguardando decisão do usuário): decidir
 se vale cadastrar os 16 municípios em `datasets.csv` (trabalho de mapeamento
 manual/semiautomático, maior que a tarefa original) — ou se a prioridade é
 outra e essa cobertura de QA fica como gap documentado por ora.
+
+## Auditoria multi-estado (sprint2 nacional) — 2026-07-10
+
+`data/public/` já cobre 493 municípios nacionalmente (projeto sprint2 —
+FNS/emendas federais/transferências federais), muito além dos 21 de SP.
+Amostra de 20 municípios em 5 UFs/regiões (PA, CE, GO, MG, PR) auditada
+read-only: todos têm dado publicado não-vazio e manifest sprint2
+correspondente; `verificar_publicacao.py --strict` passa limpo em todo
+`data/public`. O gap do `datasets.csv` é o mesmo já documentado, agora
+maior: **0 dos 493 municípios sprint2 estão cadastrados** (só os 5
+originais: global, paulinia, sao_bernardo, sao_paulo, sorocaba).
+
+**Achado novo, mais sério que o gap de cadastro**: cobertura sprint2 é
+fortemente enviesada para o Norte (PA 93,8%, RO 92,3%, AM 93,5%, AP 93,8%,
+TO 87,8%, RR 73,3% dos municípios do estado) contra 1,8%–6,7% em
+Nordeste/Sudeste/Sul; nenhuma capital grande (Salvador, Recife, BH,
+Curitiba, Porto Alegre, Manaus) está publicada; DF tem 0/1. Além disso,
+~40 slugs de município são ambíguos entre UFs sem desambiguação clara no
+pipeline (`belem`, `rio_branco`, `palmas`, `boa_vista`, `santo_andre`,
+`sao_vicente`, etc. — cada um candidato a 2-4 municípios reais
+diferentes). Risco real: sem resolução, esses diretórios podem estar
+atribuindo dado FNS/emendas ao município errado. Pendente decisão do
+usuário sobre prioridade (tratar ambiguidade de slug antes de expandir
+`datasets.csv`, já que cadastrar dado mal atribuído seria pior que não
+cadastrar).
+
+## Investigação de ambiguidade de slugs — 2026-07-10 (concluída)
+
+Auditoria read-only (`ace457ef7ec592619`) confirmou e refinou o achado
+anterior. Existe mecanismo de desambiguação por UF já implementado
+(`pipelines/sprint2_keys.py` + gate `tools/gates/check_sprint2_slug_collisions.py`,
+feito pelo Codex em 2026-07-02, calcula chave canônica `slug_uf` a partir de
+`data/manifests/ibge_municipios_completo.csv`), mas **não aplicado** aos
+diretórios hoje publicados em `data/public/`. Rodando o gate: 9 slugs
+ambíguos publicados: `alto_alegre, boa_vista, bonfim, cruzeiro_do_sul,
+iracema, rio_branco, santana, santo_andre, sao_vicente`.
+
+**7 desses 9** (`alto_alegre, boa_vista, bonfim, cruzeiro_do_sul, iracema,
+rio_branco, santana`) têm dado correto — a escolha do IBGE segue sempre o
+"menor código numérico" (artefato de ordenação, não é erro, mas o slug
+não indica a UF, o que é ambíguo pro leitor). `santo_andre` está correto
+(São Andre-SP real).
+
+**`sao_vicente` é um bug real, não apenas ambiguidade**: dentro do mesmo
+diretório `data/public/sao_vicente/`, os dados FNS (pipeline sprint2, 12
+arquivos) usam IBGE 355100 = São Vicente-SP correto, mas os dados de
+execução orçamentária/RREO/DCA/transporte (pipeline SICONFI "sprint1 Top 20
+SP", 131 arquivos) usam IBGE `3551702`, que pertence a **Sertãozinho-SP**,
+não a São Vicente. Causa raiz: `pipelines/paths.py:40` tem o código IBGE
+errado hardcoded para `sao_vicente` (correto seria `3551009`). Resultado:
+qualquer página de execução orçamentária de São Vicente hoje publicada está
+mostrando dado financeiro de Sertãozinho rotulado como São Vicente —
+violação real de qualidade/transparência, não hipotética.
+
+**Ação pendente (aguardando autorização do usuário, escrita fora do escopo
+C2 read-only):** corrigir `pipelines/paths.py:40` (`3551702` → `3551009`) e
+reprocessar/republicar `data/public/sao_vicente/{executivo,transporte,
+seguranca,rreo,dca,...}` com o IBGE correto; depois expor UF no slug (ou no
+frontend) dos outros 7 casos ambíguos; rodar
+`check_sprint2_slug_collisions.py --strict` como gate de publicação.
 
 Atualizar esta tabela a cada despacho novo — é o estado persistente que
 substitui reexplicar tudo a cada sessão nova, conforme pedido do usuário.
