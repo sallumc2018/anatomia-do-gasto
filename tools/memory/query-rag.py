@@ -8,7 +8,7 @@ import sqlite3
 import sys
 from collections import Counter
 
-from common import ACTIVE_AUTHORITIES, ACTIVE_STATUSES, INDEX_DB, configure_utf8_stdio
+from common import ACTIVE_AUTHORITIES, INDEX_DB, configure_utf8_stdio
 
 
 def fts_query(text: str, operator: str = "AND") -> str:

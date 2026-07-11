@@ -73,7 +73,6 @@ def salvar_csv(ano: int, acc: dict, fonte_url: str):
     dc_pct          = g(acc, "PercentualDaDCSobreARCL")
     dcl_pct         = g(acc, "PercentualDaDCLSobreARCL")
     limite          = g(acc, "LimiteDefinidoPorResolucaoDoSenadoFederal")
-    limite_pct      = (rcl * 1.20) if rcl > 0 else 0  # 120% da RCL = Resolução SF 40/2001
     limite_alert    = g(acc, "LimiteDeAlerta")
     passivo_atuarial= g(acc, "RGF2DividaConsolidadaPrevidenciariaPassivoAtuarial")
 

@@ -36,7 +36,7 @@ if moji_lic: fails.append(f"licitacoes: {moji_lic} registros com mojibake residu
 
 anos = {r.get("ano_publicacao") for r in rows}
 
-print(f"licitacoes_sorocaba_2020_2021.csv")
+print("licitacoes_sorocaba_2020_2021.csv")
 print(f"  Registros    : {len(rows)}")
 print(f"  Anos         : {sorted(anos)}")
 print(f"  Nulos id/ano/obj: {nulos_id}/{nulos_ano}/{nulos_obj}")
@@ -66,7 +66,7 @@ if moji_obras: fails.append(f"obras: {moji_obras} registros com mojibake em obje
 
 cnpj_invalidos = sum(1 for r in rows_o if r.get("cnpj_valido") == "0" and r.get("cnpj"))
 
-print(f"\nobras_sorocaba.csv")
+print("\nobras_sorocaba.csv")
 print(f"  Registros    : {len(rows_o)}")
 print(f"  Nulos oid/obj: {nulos_oid}/{nulos_obj_o}")
 print(f"  Pct invalidos: {len(pct_invalido)}")

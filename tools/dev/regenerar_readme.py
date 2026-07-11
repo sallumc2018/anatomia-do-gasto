@@ -4,12 +4,10 @@ Regenerate README sections marked with AUTO tags from authoritative sources.
 Supports --check mode for CI/CD validation (exits with 1 if outdated).
 """
 
-import os
 import re
 import sys
 import subprocess
 from pathlib import Path
-from datetime import datetime
 from typing import Dict, Tuple
 
 ROOT = Path(__file__).resolve().parents[2]

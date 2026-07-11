@@ -11,7 +11,6 @@ Uso:
 """
 import argparse
 import html
-import os
 import re
 import shutil
 import sys
@@ -20,7 +19,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from paths import EXECUCAO_RAW_DIR, as_str
+from paths import EXECUCAO_RAW_DIR
 
 PORTAL_URL = "https://fazenda.sorocaba.sp.gov.br/transparencia/"
 MAX_BYTES_PADRAO = 100 * 1024 * 1024

@@ -267,7 +267,7 @@ def main() -> None:
         print("-" * 70)
         count = 0
         for m in alvos:
-            key = municipio_storage_key(m, duplicated_keys)
+            municipio_storage_key(m, duplicated_keys)
             input_keys = municipio_input_keys(m, duplicated_keys)
             areas_com_dados = [
                 a for a in areas

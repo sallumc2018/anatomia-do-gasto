@@ -4,7 +4,6 @@ import argparse
 import csv
 import sys
 from datetime import datetime, timezone
-from pathlib import Path
 
 from common import ROOT, configure_utf8_stdio
 

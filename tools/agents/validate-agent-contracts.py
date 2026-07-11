@@ -2,13 +2,11 @@ from __future__ import annotations
 
 import sys
 import re
-from pathlib import Path
 
 from common import (
     COMMANDS_DIR,
     FORBIDDEN_DECLARATIONS,
     FORBIDDEN_WRITE_PATHS,
-    ROOT,
     command_exists,
     command_names,
     read_agents,

@@ -391,7 +391,7 @@ def main():
     ano = args.ano
     quadrimestres = ['primeiro', 'segundo', 'terceiro']
 
-    diretorio_script  = os.path.dirname(os.path.abspath(__file__))
+    os.path.dirname(os.path.abspath(__file__))
     intermediario_dir = as_str(SAUDE_EXTRACTED_DIR / "intermediario")
     saida_dir         = as_str(SAUDE_EXTRACTED_DIR / "saida")
 

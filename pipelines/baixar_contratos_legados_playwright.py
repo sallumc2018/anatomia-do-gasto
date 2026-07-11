@@ -209,7 +209,7 @@ def _fetch_via_js(page, url: str, retries: int = 3) -> dict | None:
                     continue
                 return None
             return result
-        except Exception as e:
+        except Exception:
             if attempt < retries - 1:
                 time.sleep(2 ** attempt)
                 continue

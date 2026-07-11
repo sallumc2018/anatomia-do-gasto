@@ -11,7 +11,6 @@ Uso:
 """
 import argparse
 import os
-import sys
 import time
 import urllib.request
 import urllib.error
@@ -85,7 +84,7 @@ def baixar(url, destino, forcar=False):
         print(f"  Erro de rede: {e}")
         return False
     if not conteudo.startswith(b'%PDF'):
-        print(f"  Resposta nao e PDF valido (possivel pagina de erro)")
+        print("  Resposta nao e PDF valido (possivel pagina de erro)")
         return False
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     with open(destino, 'wb') as f:

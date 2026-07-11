@@ -1,7 +1,6 @@
 """Infere esquemas JSON dos CSVs em data/public/ e os grava em data/public/.schemas/."""
 import csv
 import json
-import os
 import re
 from pathlib import Path
 from datetime import datetime

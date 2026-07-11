@@ -12,7 +12,6 @@ e um erro de atribuicao seria injusto com o parlamentar.
 """
 import csv
 from collections import defaultdict
-from pathlib import Path
 
 from paths import EXTRACTED_DIR, VALIDATED_DIR
 

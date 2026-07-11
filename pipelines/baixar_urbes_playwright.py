@@ -160,7 +160,7 @@ def main():
 
             for a in arquivos:
                 href = a["href"]
-                texto = a["texto"]
+                a["texto"]
                 # Construir nome do arquivo a partir do href (ultimo segmento)
                 nome_original = href.rstrip("/").split("/")[-1]
                 destino = URBES_RAW_DIR / subdir / nome_original
@@ -173,7 +173,7 @@ def main():
                 ok = baixar(page, href, destino)
                 if ok:
                     if destino.suffix.lower() == ".pdf" and not validar_pdf(destino):
-                        print(f"    AVISO: header PDF invalido")
+                        print("    AVISO: header PDF invalido")
                         total_erros += 1
                     else:
                         total_baixados += 1

@@ -3,7 +3,6 @@ import re
 import sys
 import json
 import base64
-import os
 from pathlib import Path
 import pdfplumber
 from paths import SAUDE_RAW_DIR, SAUDE_EXTRACTED_DIR
@@ -279,7 +278,7 @@ def expand_inputs(inputs):
 
 def main():
     args = parse_args()
-    base_dir = Path(__file__).resolve().parent
+    Path(__file__).resolve().parent
     default_pdf_dir = SAUDE_RAW_DIR / "entrada"
     output_dir = Path(args.output) if args.output else SAUDE_EXTRACTED_DIR / "intermediario"
     output_dir.mkdir(parents=True, exist_ok=True)

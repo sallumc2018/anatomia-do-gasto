@@ -105,7 +105,7 @@ def fetch_pagina(url: str, timeout: int = 20):
 
 def fetch_todos(ano: int) -> tuple[list, str]:
     url_base = _url_pncp(ano, pagina=1, tamanho=50)
-    print(f"  Buscando pagina 1...")
+    print("  Buscando pagina 1...")
     try:
         data = fetch_pagina(url_base)
     except Exception as e:

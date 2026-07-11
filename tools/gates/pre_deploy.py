@@ -15,7 +15,6 @@ Uso:
 """
 from __future__ import annotations
 
-import json
 import os
 import subprocess
 import sys
@@ -146,7 +145,6 @@ def main() -> int:
     print("\n── Gate de Deploy ────────────────────────────────────────────────")
     passed = 0
     failed = 0
-    warned = 0
 
     for name, fn in checks:
         try:
@@ -165,7 +163,7 @@ def main() -> int:
     print()
 
     if failed == 0:
-        print("✅  Todos os checks passaram — pode executar via Antigravity:")
+        print("✅  Todos os checks passaram — pode executar:")
         print("    npx vercel deploy --prod --yes")
         return 0
     else:

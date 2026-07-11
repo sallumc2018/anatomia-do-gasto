@@ -35,7 +35,6 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 try:
     from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout

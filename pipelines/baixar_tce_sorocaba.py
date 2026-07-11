@@ -433,7 +433,6 @@ def escrever_recorte_comunicados_sdg(extracted_base: Path) -> dict[str, Any]:
 
 def inventariar_contas_anuais(raw_base: Path, extracted_base: Path) -> dict[str, Any]:
     import zipfile
-    import io
     
     zip_path = raw_base / "fontes" / "contas_anuais" / "contas_anuais_municipais_zip.zip"
     if not zip_path.exists():

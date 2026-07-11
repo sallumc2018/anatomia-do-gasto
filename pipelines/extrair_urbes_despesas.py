@@ -114,7 +114,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--validar", action="store_true",
                         help="Apenas valida os CSVs já gerados")
-    args = parser.parse_args()
+    parser.parse_args()
 
     pdfs = sorted(RAW_DIR.glob("*.pdf"))
     if not pdfs:

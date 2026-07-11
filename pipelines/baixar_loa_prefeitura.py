@@ -89,7 +89,7 @@ def baixar(ano: int, forcar: bool = False) -> list[Path]:
     ano_dir.mkdir(parents=True, exist_ok=True)
     baixados = []
     for url in ANOS_URLS.get(ano, []):
-        nome = Path(url.split("/")[-1].replace("%20", "_").replace("%C3%A7", "c").replace("%C3%A1", "a"))
+        Path(url.split("/")[-1].replace("%20", "_").replace("%C3%A7", "c").replace("%C3%A1", "a"))
         # Normalize filename
         slug = "loa" if "Anexos" not in url else "loa_anexos"
         dest = ano_dir / f"{slug}_{ano}.pdf"

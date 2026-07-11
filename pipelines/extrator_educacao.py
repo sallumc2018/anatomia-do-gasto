@@ -13,7 +13,6 @@ import argparse
 import csv
 import os
 import re
-import sys
 from paths import as_str, EDUCACAO_RAW_DIR, EDUCACAO_EXTRACTED_DIR
 
 SCRIPTS_DIR  = os.path.dirname(os.path.abspath(__file__))
@@ -159,9 +158,6 @@ def extrair_receitas(texto):
         vertical = extrair_receitas_vertical(texto)
         if vertical:
             return vertical
-
-    total_prev = prop_prev + fed_prev + est_prev
-    total_arr  = prop_arr  + fed_arr  + est_arr
 
     pct_liq = (min_arr / liq_arr * 100) if liq_arr else 0.0
 

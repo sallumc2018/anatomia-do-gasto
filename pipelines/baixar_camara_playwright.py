@@ -69,7 +69,7 @@ CATEGORIAS = {
     "ppa":       f"{BASE_URL}/arquivos_publicos.html?id=67f6bebbf4079ed59efbe59e",
     "metas":     f"{BASE_URL}/arquivos_publicos.html?id=67f6c070f4079ed59efc5f51",
     "lrf":       f"{BASE_URL}/arquivos_publicos.html?id=5e3f0d0205d7040f28b4476d",
-    "gabinete":  f"http://www.camarasorocaba.sp.gov.br/arquivos_publicos.html?id=5e3f0dc905d7040f28b44e0e",
+    "gabinete":  "http://www.camarasorocaba.sp.gov.br/arquivos_publicos.html?id=5e3f0dc905d7040f28b44e0e",
     "prestacao": f"{BASE_URL}/arquivos_publicos.html?id=5fbe56f8e35da368a5726e0e",
 }
 
@@ -386,7 +386,7 @@ def main():
                     ok = baixar_arquivo(page, href, destino)
                     if ok:
                         if validar_pdf(destino):
-                            print(f"    Validado: header %PDF ok")
+                            print("    Validado: header %PDF ok")
                             baixados += 1
                         else:
                             kb = destino.stat().st_size

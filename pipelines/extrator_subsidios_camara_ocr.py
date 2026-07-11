@@ -239,7 +239,7 @@ def main() -> None:
         print(f"  Extraídos: {len(rows)} registros")
 
         if not rows:
-            print(f"  AVISO: nenhum registro extraído — verificar OCR TXT manualmente")
+            print("  AVISO: nenhum registro extraído — verificar OCR TXT manualmente")
 
         salvar_csv(rows, dest_ext)
         salvar_csv(rows, dest_pub)

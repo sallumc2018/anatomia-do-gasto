@@ -26,7 +26,6 @@ import re
 import sys
 import unicodedata
 from datetime import datetime, timezone
-from pathlib import Path
 
 from common import ROOT, configure_utf8_stdio
 

@@ -27,7 +27,6 @@ import csv
 import re
 import shutil
 import sys
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -158,7 +157,7 @@ def processar_gaps(dry_run: bool) -> dict[tuple[int, int], str]:
             got_pdf = _download_pdf(filename, pdf_dest, session)
 
         if not got_pdf:
-            print(f"  PDF não encontrado e não disponível para download — marcando fonte_ausente")
+            print("  PDF não encontrado e não disponível para download — marcando fonte_ausente")
             resultados[(ano, mes)] = "fonte_ausente"
             continue
 
@@ -167,7 +166,7 @@ def processar_gaps(dry_run: bool) -> dict[tuple[int, int], str]:
         total = _extract_dezembro_total(pdf_dest)
 
         if total is None:
-            print(f"  Não foi possível extrair valor — marcando fonte_ausente")
+            print("  Não foi possível extrair valor — marcando fonte_ausente")
             resultados[(ano, mes)] = "fonte_ausente"
         else:
             print(f"  Total Dez/{ano}: R$ {total:,.2f}")
@@ -240,7 +239,7 @@ def main() -> int:
 
     resultados = processar_gaps(dry_run=args.dry_run)
 
-    print(f"\n── Resultados ──")
+    print("\n── Resultados ──")
     for (ano, mes), val in sorted(resultados.items()):
         status = val if val == "fonte_ausente" else f"R$ {float(val):,.2f}"
         print(f"  {ano}-{mes:02d}: {status}")

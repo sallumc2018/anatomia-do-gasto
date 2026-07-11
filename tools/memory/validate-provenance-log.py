@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import csv
 import sys
-from pathlib import Path
 
 from common import ROOT
 

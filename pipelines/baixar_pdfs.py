@@ -8,7 +8,6 @@ Uso:
 """
 import argparse
 import os
-import re
 import sys
 import time
 import urllib.request
@@ -97,7 +96,7 @@ def baixar_pdf(url, destino, forcar=False):
         return False
 
     if not conteudo.startswith(b'%PDF'):
-        print(f"  Resposta nao e um PDF valido (pode ser pagina de erro do portal)")
+        print("  Resposta nao e um PDF valido (pode ser pagina de erro do portal)")
         return False
 
     with open(destino, 'wb') as f:
@@ -110,7 +109,7 @@ def baixar_pdf(url, destino, forcar=False):
 
 def processar_ano(ano, forcar):
     print(f"\n=== Ano {ano} ===")
-    print(f"Buscando links no portal...")
+    print("Buscando links no portal...")
 
     links = buscar_links_portal()
     pdfs = filtrar_links_saude(links, ano)

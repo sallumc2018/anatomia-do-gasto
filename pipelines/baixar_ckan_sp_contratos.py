@@ -244,12 +244,12 @@ def main() -> int:
         print(f"  [{ano}] baixando {recursos[ano][:70]}...")
         rows = baixar_csv(session, recursos[ano])
         if rows is None:
-            print(f"    → ERRO: download falhou")
+            print("    → ERRO: download falhou")
             continue
 
         registros = processar_linhas(rows, ano)
         if not registros:
-            print(f"    → AVISO: nenhum registro extraído (schema mudou?)")
+            print("    → AVISO: nenhum registro extraído (schema mudou?)")
             continue
 
         with dest.open("w", newline="", encoding="utf-8") as f:

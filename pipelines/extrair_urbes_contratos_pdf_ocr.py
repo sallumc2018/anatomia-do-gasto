@@ -13,7 +13,7 @@ Uso:
     python pipelines/extrair_urbes_contratos_pdf_ocr.py --subpasta all --forcar
 """
 from __future__ import annotations
-import argparse, csv, os, re
+import argparse, csv, re
 from pathlib import Path
 import sys
 

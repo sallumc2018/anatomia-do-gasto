@@ -69,7 +69,7 @@ def obter_cliente_r2():
 def sincronizar(diretorio_origem, dry_run=False, forcar=False):
     bucket_name = os.getenv("CLOUDFLARE_R2_BUCKET_NAME", "anatomia-do-gasto-pdfs")
     
-    print(f"=== Sincronização Cloudflare R2 ===")
+    print("=== Sincronização Cloudflare R2 ===")
     print(f"Diretório local: {diretorio_origem}")
     print(f"Bucket destino:  {bucket_name}")
     if dry_run:

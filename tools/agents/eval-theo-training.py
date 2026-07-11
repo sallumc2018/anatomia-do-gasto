@@ -14,7 +14,6 @@ from __future__ import annotations
 import csv
 import re
 import sys
-from pathlib import Path
 
 from common import ROOT, configure_utf8_stdio
 

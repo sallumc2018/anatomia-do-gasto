@@ -298,10 +298,10 @@ def processar_ano(ano):
 
         # Verificar extração mínima
         if not asps or "TOTAL" not in asps:
-            print(f"  ATENCAO: tabela ASPS nao encontrada ou incompleta")
+            print("  ATENCAO: tabela ASPS nao encontrada ou incompleta")
             erros.append(f"Q{quad}: tabela ASPS incompleta")
         if not sus or "TOTAL" not in sus:
-            print(f"  ATENCAO: tabela SUS nao encontrada ou incompleta")
+            print("  ATENCAO: tabela SUS nao encontrada ou incompleta")
             erros.append(f"Q{quad}: tabela SUS incompleta")
 
         # Montar linhas de despesa (por subfunção + TOTAL)

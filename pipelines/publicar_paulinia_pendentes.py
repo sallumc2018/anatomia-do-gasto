@@ -44,7 +44,7 @@ def publicar_fornecedores() -> None:
         return
     FORNECEDORES_DST.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n=== Grupo 1: SMARAPD fornecedores ===")
+    print("\n=== Grupo 1: SMARAPD fornecedores ===")
     buckets: dict[str, list[dict]] = {}
     with FORNECEDORES_SRC.open(encoding="utf-8") as f:
         for row in csv.DictReader(f):
@@ -122,7 +122,7 @@ _CAMARA_FILES = [
 
 def publicar_camara() -> None:
     CAMARA_DST.mkdir(parents=True, exist_ok=True)
-    print(f"\n=== Grupo 2: Câmara Municipal de Paulínia ===")
+    print("\n=== Grupo 2: Câmara Municipal de Paulínia ===")
 
     for src_name, dst_pattern, rename in _CAMARA_FILES:
         src = CAMARA_SRC / src_name
@@ -160,7 +160,7 @@ def publicar_catalogo() -> None:
         return
     CATALOGO_DST.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n=== Grupo 3: Catálogo LOA/PPA/LDO ===")
+    print("\n=== Grupo 3: Catálogo LOA/PPA/LDO ===")
     rows: list[dict] = []
     with CATALOGO_SRC.open(encoding="utf-8") as f:
         for row in csv.DictReader(f):

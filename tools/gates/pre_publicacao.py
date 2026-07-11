@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import os
 import re
 import sys
 from pathlib import Path

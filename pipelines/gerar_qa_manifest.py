@@ -189,7 +189,7 @@ def gerar(municipio: str, autorizado_por: str, dry_run: bool) -> None:
 
         fonte_url = FONTE_URL.get(fonte, f"pendente:{fonte}")
         chave = (area, tipo)
-        script = SCRIPT_MAP.get(chave, f"pipelines/extrator_universal.py")
+        script = SCRIPT_MAP.get(chave, "pipelines/extrator_universal.py")
         f_arquivo_tmpl = FONTE_ARQUIVO_MAP.get(chave, f"api_{area}.json")
         f_arquivo = f_arquivo_tmpl.replace("{ano}", ano)
 

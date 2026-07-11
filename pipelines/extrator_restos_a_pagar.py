@@ -319,7 +319,7 @@ def _extrair_v2022_rot(pdf_path: str, ano: int, limite_paginas: int | None) -> l
         data_words: list[tuple] = []
 
         for w in words:
-            x0, y0, x1, y1, text = w[0], w[1], w[2], w[3], w[4]
+            x0, y0, _x1, _y1, text = w[0], w[1], w[2], w[3], w[4]
             text = text.strip()
             if not text:
                 continue

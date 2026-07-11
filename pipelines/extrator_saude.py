@@ -460,7 +460,7 @@ def main():
     ano = args.ano
     DEBUG_MODE = args.debug
 
-    diretorio_script  = os.path.dirname(os.path.abspath(__file__))
+    os.path.dirname(os.path.abspath(__file__))
     pasta_pdfs        = as_str(SAUDE_RAW_DIR / "entrada")
     intermediario_dir = as_str(SAUDE_EXTRACTED_DIR / "intermediario")
     saida_dir         = as_str(SAUDE_EXTRACTED_DIR / "saida")

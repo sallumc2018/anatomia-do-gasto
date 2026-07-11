@@ -30,7 +30,7 @@ f_obras = BASE / "obras_sorocaba.csv"
 rows_obras = list(csv.DictReader(f_obras.open(encoding="utf-8")))
 
 pcts = Counter(r["percentual_concluido"] for r in rows_obras)
-print(f"\nObras — percentual_concluido distribuição:")
+print("\nObras — percentual_concluido distribuição:")
 for v, n in sorted(pcts.items()):
     print(f"  {repr(v):<20} -> {n}")
 

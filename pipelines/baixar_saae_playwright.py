@@ -133,7 +133,7 @@ def baixar_dados_abertos(page, ano: int) -> None:
             print(f"    {d['url']}")
     else:
         print(f"  Nenhum download capturado para {ano}.")
-        print(f"  Portal requer interacao manual ou inspecao de rede para mapear endpoint.")
+        print("  Portal requer interacao manual ou inspecao de rede para mapear endpoint.")
         print(f"  Sugestao: abrir {BASE_PORTAL}/tdaportalclient.aspx?418 no browser,")
         print(f"  selecionar ano {ano} > CSV > Dados Abertos e capturar a URL da requisicao.")
 

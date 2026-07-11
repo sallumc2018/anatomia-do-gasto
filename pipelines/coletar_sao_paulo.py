@@ -7,7 +7,6 @@ import os
 import subprocess
 import sys
 import time
-import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -160,7 +159,7 @@ def gdrive_sync():
     # Não deletar raw/extracted local: coleta_noturna.sh step 5 é o dono da
     # persistência e faria rclone sync de diretório vazio → apagaria do GDrive.
     # Limpeza manual: bash -c "rm -rf data/raw/sao_paulo data/extracted/sao_paulo"
-    return ok_raw and ok_ext
+    return ok_raw and ok_ext and ok_pub
 
 
 def resumo_final():
@@ -183,7 +182,7 @@ def resumo_final():
 def main():
     log(f"Início: {datetime.now(timezone.utc).isoformat()}")
     log(f"PID pai: {os.getpid()}")
-    log(f"IBGE: 3550308 (São Paulo)")
+    log("IBGE: 3550308 (São Paulo)")
 
     criar_dirs()
     fase_siconfi()

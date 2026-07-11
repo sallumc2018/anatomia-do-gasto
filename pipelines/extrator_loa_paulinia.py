@@ -195,7 +195,7 @@ def processar_tipo(raw_dir: Path, tipo: str, debug: bool = False) -> dict[int, l
             por_ano.setdefault(ano, []).extend(normalized)
             print(f"    → {len(normalized)} linhas extraídas")
         else:
-            print(f"    → nenhuma linha com dados numéricos (verifique manualmente)")
+            print("    → nenhuma linha com dados numéricos (verifique manualmente)")
 
     return por_ano
 
