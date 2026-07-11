@@ -109,14 +109,12 @@ run_cmd "Sprint 1 FNDE+SIOPE — Sorocaba e Paulínia" \
 
 # 3d. CEIS/CNEP — cruzamento de sanções federais contra fornecedores já
 # publicados (zona verde, ver docs/legislacao/MANUAL_LGPD_LAI_ANATOMIA_DO_GASTO.md §5).
-# Cache nacional compartilhado (data/raw/_nacional/sancoes/) já completo desde
-# a coleta de sao_paulo em 2026-07-10 — estas 3 chamadas só relêem o cache local
-# e cruzam CNPJ, sem nova requisição à API. Saída fica em data/extracted/
-# (NÃO publicada automaticamente — decisão de publicar é manual, ver handoff).
-for muni in sorocaba paulinia sao_bernardo_do_campo; do
-  run_cmd "CEIS/CNEP — cruzamento $muni" \
-    env MUNICIPIO="$muni" "$REPO/.venv/bin/python3" "$REPO/pipelines/baixar_ceis_cnep.py"
-done
+# Movido para cron dedicado de domingo (scripts/ceis_cnep_semanal.sh, sem
+# limite de tempo) em 2026-07-11: o cache nacional (data/raw/_nacional/sancoes/)
+# fica incompleto por dias caso a chave falhe (como aconteceu), e paginar as
+# listas nacionais completas de CEIS/CNEP até completar o cache pode estourar
+# a janela de 6h da coleta noturna. Com o cache completo o cruzamento diário
+# volta a ser rápido — mas por ora roda só semanalmente, fora desta janela.
 
 # 3e. Diárias e viagens — Sorocaba prefeitura (TDAPortal). Seção "diarias" é um
 # snapshot atual (filtro de ano do site nao afeta a tabela real, confirmado em
