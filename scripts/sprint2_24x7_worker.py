@@ -13,6 +13,7 @@ import csv
 import fcntl
 import json
 import os
+import signal
 import subprocess
 import sys
 import time
@@ -148,25 +149,52 @@ def advance_cursor(state: dict[str, Any], total: int) -> None:
     state["cursor"] = (int(state.get("cursor", 0)) + 1) % total
 
 
+_active_proc: subprocess.Popen | None = None
+
+
+def _kill_active_proc_group(sig: int = signal.SIGKILL) -> None:
+    """Mata o grupo de processos do subprocesso ativo (inclui netos orfaos)."""
+    proc = _active_proc
+    if proc is None or proc.poll() is not None:
+        return
+    try:
+        os.killpg(os.getpgid(proc.pid), sig)
+    except ProcessLookupError:
+        pass
+
+
+def _handle_sigterm(signum: int, frame: Any) -> None:
+    # O `timeout` do cron manda SIGTERM só para este processo Python; sem isto,
+    # um subprocesso bloqueado (ex: chamada HTTP travada) vira orfao e continua
+    # rodando ate seu proprio timeout interno, muito depois do corte externo.
+    _kill_active_proc_group(signal.SIGKILL)
+    sys.exit(143)
+
+
 def run_command(label: str, command: list[str], log_path: Path, timeout: int) -> CommandResult:
+    global _active_proc
     append_event({"event": "command_start", "label": label, "command": safe_command(command)})
     started = time.monotonic()
     with log_path.open("a", encoding="utf-8") as log:
         log.write(f"\n[{utc_now()}] >>> {label}: {' '.join(safe_command(command))}\n")
+        proc = subprocess.Popen(
+            command,
+            cwd=ROOT,
+            stdout=log,
+            stderr=subprocess.STDOUT,
+            text=True,
+            start_new_session=True,
+        )
+        _active_proc = proc
         try:
-            result = subprocess.run(
-                command,
-                cwd=ROOT,
-                stdout=log,
-                stderr=subprocess.STDOUT,
-                text=True,
-                timeout=timeout,
-                check=False,
-            )
-            returncode = result.returncode
+            returncode = proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            returncode = 124
             log.write(f"[{utc_now()}] TIMEOUT apos {timeout}s\n")
+            _kill_active_proc_group(signal.SIGKILL)
+            proc.wait()
+            returncode = 124
+        finally:
+            _active_proc = None
     elapsed = round(time.monotonic() - started, 1)
     append_event({"event": "command_finish", "label": label, "returncode": returncode, "elapsed_seconds": elapsed})
     return CommandResult(label=label, returncode=returncode, elapsed_seconds=elapsed)
@@ -404,6 +432,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dry-run-commit", action="store_true", help="roda gates mas nao commita/pusha")
     parser.add_argument("--push", action="store_true", help="alem de commitar, faz push para origin/main (padrao: so commit local)")
     args = parser.parse_args(argv)
+
+    signal.signal(signal.SIGTERM, _handle_sigterm)
 
     _load_secrets()
 
