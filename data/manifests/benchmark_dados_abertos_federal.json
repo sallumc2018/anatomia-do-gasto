@@ -1,0 +1,25 @@
+{
+  "fonte": "Painel de Monitoramento de Dados Abertos do Poder Executivo Federal (CGU)",
+  "escopo": "Apenas orgaos do Poder Executivo Federal (Decreto 8.777/2016 e Resolucao CGINDA 3/2017); nao cobre municipios.",
+  "data_extracao": "2026-07-11",
+  "metodo": "Export manual do painel pelo usuario; processado por pipelines/analisar_dados_abertos_federal.py",
+  "limitacao": "Nao ha vinculo direto com Sorocaba/Paulinia; serve como contexto de conformidade nacional, nao como comparador municipal.",
+  "metricas": {
+    "orgaos": {
+      "total": 256,
+      "por_status": {
+        "Sem PDA": 143,
+        "PDA publicado": 113
+      },
+      "pct_pda_publicado": 44.1
+    },
+    "bases_previstas": {
+      "total": 9749,
+      "abertas": 7171,
+      "abertas_com_atraso": 2974,
+      "nao_abertas_com_previsao_vencida_ou_futura": 2548,
+      "sem_data_previsao": 30,
+      "pct_abertas": 73.6
+    }
+  }
+}
