@@ -118,14 +118,26 @@ def active_level() -> str:
     raise RuntimeError("no active Théo confidence row")
 
 
+def score_route(route: dict, norm_q: str) -> int:
+    """Réplica exata de scoreRoute() em theo-guide.tsx: +3 por keyword como
+    substring completa da query; +1 se alguma palavra (>3 chars) da keyword
+    aparecer na query. Manter em sync com a versão TS — é a fonte de verdade
+    de produção."""
+    score = 0
+    for kw in route["keywords"]:
+        nk = normalize(kw)
+        if nk in norm_q:
+            score += 3
+        elif any(len(part) > 3 and part in norm_q for part in nk.split(" ")):
+            score += 1
+    return score
+
+
 def score_query(query: str, routes: list[dict]) -> tuple[str, int]:
     norm_q = normalize(query)
     best_id, best_score = "fontes", 0
     for route in routes:
-        score = 0
-        for kw in route["keywords"]:
-            if normalize(kw) in norm_q:
-                score += 1
+        score = score_route(route, norm_q)
         if score > best_score:
             best_score = score
             best_id = route["id"]
@@ -138,7 +150,12 @@ def classify_outcome(case: dict, matched: str, score: int) -> tuple[str, str]:
     scope = case.get("scope_check", "in")
 
     if scope == "off":
-        if matched in ("fontes",) and score == 0:
+        # 'fontes' é o fallback puro (score 0). 'apartidarismo' é uma rota
+        # dedicada a declinar perguntas político-partidárias com uma resposta
+        # de neutralidade — também é uma recusa válida, não um vazamento.
+        if matched == "fontes" and score == 0:
+            return "off_scope_detected", "good"
+        if matched == "apartidarismo":
             return "off_scope_detected", "good"
         return "off_scope_leak", "bad"
 

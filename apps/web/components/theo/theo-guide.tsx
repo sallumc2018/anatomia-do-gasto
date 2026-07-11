@@ -378,7 +378,7 @@ const THEO_ROUTES: TheoRoute[] = [
       "qualidade", "ranking qualidade", "checagem", "cruzamento", "validar dado", "dado confiavel",
       "irregularidade", "o site e confiavel", "posso confiar nos dados", "como verificar",
       "quem audita", "quem confere", "dado errado", "erro no dado", "como conferir",
-      "corrupcao", "denuncia", "suspeita", "informacao errada", "reportar erro",
+      "corrupcao", "corrupcao em sorocaba", "denuncia", "suspeita", "informacao errada", "reportar erro",
       "ouvidoria", "irregularidade fiscal",
     ],
     links: [
@@ -398,11 +398,9 @@ const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "o que e", "anatomia do gasto", "projeto", "quem fez", "quem criou", "independente",
-      "apartidario", "governo", "partido", "objetivo", "missao", "sobre", "quem mantem",
-      "quem e o responsavel", "e oficial", "e governamental", "e uma ong",
-      "como surgiu", "por que criou", "finalidade", "proposito do site",
-      "e do prefeito", "e da prefeitura", "quem e o dono", "quem financia",
+      "o que e a anatomia do gasto", "anatomia do gasto", "quem fez", "quem fez o site", "quem criou",
+      "quem criou o site", "independente", "apartidario", "sobre", "e oficial", "e governamental",
+      "e uma ong", "como surgiu", "e da prefeitura", "e do prefeito",
     ],
     links: [
       { href: "/sobre", label: "Sobre o projeto" },
@@ -425,8 +423,10 @@ const THEO_ROUTES: TheoRoute[] = [
       "fonte", "fontes", "metodologia", "validacao", "auditar", "baixar", "csv", "dados",
       "download", "confianca", "siconfi", "rreo", "dca", "portal transparencia",
       "de onde veio", "de onde saiu", "qual a fonte", "fonte oficial", "dados abertos",
-      "planilha", "dataset", "open data", "usar os dados", "como usar",
+      "planilha", "dataset", "open data", "usar os dados", "como usar", "como baixar os dados",
       "api", "acesso programatico", "baixar dados", "tem api", "endpoint",
+      "o que significa lacuna", "o que significa em coleta", "significa lacuna", "significa em coleta",
+      "o que e lacuna", "o que e em coleta", "status disponivel", "status do dado",
     ],
     links: [
       { href: "/metodologia", label: "Abrir metodologia" },
@@ -467,8 +467,11 @@ const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "tecnologia", "stack", "linguagem", "framework", "como foi construido", "desenvolvimento", "next.js", "react",
-      "typescript", "tailwind", "python", "pdfplumber", "pandas", "recharts", "como o site funciona", "codigo fonte",
+      "tecnologia", "stack", "linguagem", "linguagem do site", "framework", "como foi construido", "desenvolvimento",
+      "next.js", "react", "typescript", "tailwind", "python", "pdfplumber", "pandas", "recharts",
+      "como o site funciona", "codigo fonte", "github", "github do projeto", "repositorio", "fork",
+      "como fazer fork", "abrir issue", "issue github", "pull request", "sugerir pull request",
+      "licenca", "licenca do codigo", "auditar o codigo", "como auditar o codigo", "codigo aberto", "open source",
     ],
     links: [
       { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
@@ -527,8 +530,9 @@ const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "voluntario", "voluntariado", "ajudar", "contribuir", "participar", "apoiar", "fazer parte", "trabalhar junto",
-      "lei do voluntariado", "como ajudar", "colaborar", "quero ser voluntario", "contribuicao", "github contribuir",
+      "voluntario", "voluntariado", "ajudar", "contribuir", "como contribuir", "participar", "apoiar", "fazer parte",
+      "trabalhar junto", "lei do voluntariado", "como ajudar", "colaborar", "quero ser voluntario", "contribuicao",
+      "github contribuir", "doar", "doacao", "como doar", "fazer doacao",
     ],
     links: [
       { href: "/voluntarios", label: "Página de voluntários" },
@@ -568,7 +572,7 @@ const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "agentes", "maestro", "ia", "inteligencia artificial", "bot", "automatizacao", "frontino", "plinio", "vitruvio",
+      "agentes", "maestro", "inteligencia artificial", "bot", "automatizacao", "frontino", "plinio", "vitruvio",
       "subagentes", "rag", "economia de token", "tokens", "changes.csv", "maestro learning", "orquestrador", "codex",
     ],
     links: [
@@ -652,9 +656,10 @@ const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "partido", "apartidario", "apartidário", "politico", "esquerda", "direita", "do governo",
-      "oposicao", "candidato", "eleicao", "eleição", "quem ganhou", "ideologia", "tendencia",
-      "neutralidade", "imparcial", "vies", "viés", "a ong e de quem", "quem esta por tras",
+      "partido", "qual partido", "apartidario", "apartidário", "politico", "esquerda", "direita", "do governo",
+      "e do governo", "oposicao", "candidato", "eleicao", "eleição", "quem ganhou", "ideologia", "tendencia",
+      "neutralidade", "imparcial", "vies", "viés", "a ong e de quem", "quem esta por tras", "prefeito atual",
+      "governo atual", "quem e o prefeito",
     ],
     links: [
       { href: "/politica-de-neutralidade", label: "Política de neutralidade" },
