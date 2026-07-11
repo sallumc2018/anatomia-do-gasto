@@ -19,7 +19,7 @@
 - TCE contas anuais ✅ bug confirmado resolvido: IBGE filter OK (Sorocaba=10, Paulínia=10, Gov=0)
 - Sorocaba score 80.2% (calc_score.py 2026-07-05)
 - Paulínia score 80.2% (calc_score.py 2026-07-05); câmara+PNCP+executivo publicados ✅
-- P2 Confiabilidade 🔄 Ruff keys + hotspot refactor pendentes
+- P2 Confiabilidade 🔄 Ruff keys ✅ concluído 2026-07-11 (commit `9ba86f6a`, 54 arquivos, F401/F541/F841 + 2 bugs reais corrigidos — ver mensagem do commit). "Hotspot refactor" segue pendente: não há definição registrada em nenhum doc do que conta como hotspot — é domínio de confiabilidade/DRY-SOLID atribuído ao Codex em `CLAUDE.md` (tabela de roteamento), não decidi escopo sozinho. Precisa de definição do usuário ou despacho ao Codex.
 - Portal Transparência ✅ desbloqueada 2026-07-09; nova chave ativa e testada (`api-de-dados/emendas` respondendo normalmente)
 ## Blockers
 - `npm install/update/audit fix` — PROIBIDO (worm mai/2026)
