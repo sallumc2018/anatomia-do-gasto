@@ -199,5 +199,55 @@ usando a chave canônica `slug_uf` de `sprint2_keys.py` para evitar a
 ambiguidade já documentada. Bloqueado pela decisão de arquitetura acima
 (gate de IBGE + publicação sem bypass) antes de rodar em escala real.
 
+## Pendência — data/public/sao_bernardo/educacao/fnde_repasses_* sem gate (2026-07-10)
+
+Achado ao investigar `data/public/sao_bernardo/educacao/*` (não é trabalho
+meu, arquivos não rastreados, timestamp 2026-07-10 14:56 — provável Codex):
+11 arquivos `fnde_repasses_sao_bernardo_{2015..2025}.csv` publicados
+diretamente em `data/public`, sem passar pelo `publicar_dados.py` (não há
+entrada `sao_bernardo,educacao,...,fnde_repasses_sao_bernardo_{ano}.csv` em
+`data/manifests/datasets.csv` — só existe a entrada `siope-federal` para
+`siope_sao_bernardo_{ano}.csv`). Conteúdo é um placeholder legítimo
+("SEM FONTE PÚBLICA AUTOMATIZÁVEL — verificado 2026-07-09, endpoint
+/transferencias/municipios não existe no PT-Gov v3"), IBGE correto
+(3548708), não é dado errado — mas é a mesma classe de risco do bug do São
+Vicente: arquivo em `data/public` sem ter passado por nenhum gate.
+Não commitei nem toquei (não é meu trabalho, arquivo não rastreado — ver
+regra de edição concorrente no CLAUDE.md do repo). Ação pendente para quem
+gerou: registrar o padrão `fnde_repasses_sao_bernardo_{ano}.csv` em
+`data/manifests/datasets.csv` (área `educacao`, dataset novo tipo
+`fnde-sem-fonte` ou similar) e commitar formalmente, ou mover para
+`data/validated` e publicar via `publicar_dados.py`.
+
+## Orquestrador nacional SICONFI + publicação com gate — 2026-07-10 (implementação iniciada)
+
+Descoberta importante ao investigar antes de programar do zero: infra
+parcial **já existe** e implementa exatamente o princípio "gate de
+conteúdo, sem bypass" decidido na seção anterior:
+
+- `pipelines/coletar_municipios_brasil.py` já tem `FONTES_FEDERAIS` com 8
+  extratores SICONFI (receita, executivo, rcl, natureza_despesa,
+  receita_capital, rgf_pessoal, rgf_divida, divida_detalhada) rodando em
+  modo dinâmico (`MUNICIPIO_IBGE/NOME/UF`) — docstring do arquivo está
+  desatualizada (diz que SICONFI "não é coletado aqui", mas é). Faltam
+  `extrator_rreo_seguranca.py` e `extrator_rreo_transporte.py` (áreas
+  seguranca/transporte) e SIOPS/SIOPE nessa lista.
+- `pipelines/publicar_municipios_brasil.py` + `pipelines/sprint2_contracts.py`
+  (`AREA_CONTRACTS`, `validate_csv`, `_ibge_matches`) já fazem publicação
+  `data/extracted → data/public` com gate de conteúdo por arquivo (IBGE,
+  colunas mínimas, não-vazio, cópia atômica + SHA-256) — mas só para 3
+  áreas (`transferencias_federais`, `emendas_federais`, `fns`); SICONFI
+  não está em `AREA_CONTRACTS` porque o IBGE ali não vem em coluna própria,
+  vem embutido em `Fonte_URL` (`id_ente=<7 dígitos>`) — é o mesmo regex já
+  usado em `tools/gates/check_ibge_match.py`.
+
+Criando `pipelines/coletar_publicar_siconfi_brasil.py`: reusa a lista
+SICONFI de `coletar_municipios_brasil.py` (+ seguranca/transporte) pra
+coleta, e na publicação usa a extração de IBGE via `Fonte_URL` (mesmo
+regex do gate) pra só copiar pra `data/public` arquivo cujo conteúdo bate
+com o IBGE esperado — nunca copia por padrão de nome sozinho. Roda por UF
+(`--uf`) ou por região (`--regiao Norte|Nordeste|Centro-Oeste|Sudeste|Sul`),
+plano é começar com lote pequeno de teste antes de escalar.
+
 Atualizar esta tabela a cada despacho novo — é o estado persistente que
 substitui reexplicar tudo a cada sessão nova, conforme pedido do usuário.
