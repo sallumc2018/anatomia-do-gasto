@@ -36,7 +36,7 @@ MUNICIPIOS = {
     "carapicuiba":           {"ibge": "3510609", "uf": "SP", "nome": "Carapicuiba"},
     "piracicaba":            {"ibge": "3538709", "uf": "SP", "nome": "Piracicaba"},
     "bauru":                 {"ibge": "3506003", "uf": "SP", "nome": "Bauru"},
-    "itaquaquecetuba":       {"ibge": "3523602", "uf": "SP", "nome": "Itaquaquecetuba"},
+    "itaquaquecetuba":       {"ibge": "3523107", "uf": "SP", "nome": "Itaquaquecetuba"},
     "sao_vicente":           {"ibge": "3551009", "uf": "SP", "nome": "Sao Vicente"},
 }
 

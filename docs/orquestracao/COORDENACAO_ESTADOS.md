@@ -249,5 +249,49 @@ com o IBGE esperado — nunca copia por padrão de nome sozinho. Roda por UF
 (`--uf`) ou por região (`--regiao Norte|Nordeste|Centro-Oeste|Sudeste|Sul`),
 plano é começar com lote pequeno de teste antes de escalar.
 
+## Correção Itaquaquecetuba/SP — 2026-07-11 (concluído)
+
+Achado anterior (seção "Correção São Vicente + gate de IBGE") estava
+**parcialmente errado**: a suspeita de anomalia da fonte FNS (`352310`) não
+era bug — bate com o IBGE correto (`3523107`) truncado em 6 dígitos,
+convenção normal do DATASUS/TABWIN. O IBGE `3523602` citado ali como
+"oficial" de Itaquaquecetuba estava errado — é o código de **Itirapina/SP**.
+
+O bug real, mesma classe do São Vicente/Sertãozinho: `pipelines/paths.py:39`
+tinha Itaquaquecetuba cadastrado com o IBGE de Itirapina (`3523602`).
+Confirmado que o SICONFI foi consultado com esse código errado: todo o dado
+publicado em `data/public/itaquaquecetuba/{executivo,fiscal,receita,
+transporte}/` (129 arquivos, 2015-2026) trazia `id_ente=3523602` — ou seja,
+era o dado financeiro real de Itirapina rotulado como Itaquaquecetuba.
+
+Corrigido `pipelines/paths.py:39` (`3523602` → `3523107`) e reprocessado
+2015-2025 (extrator default só cobre 2020-2025; 2015-2019 precisou de
+`--ano` explícito por extrator, lição do São Vicente aplicada desde o
+início desta vez). 2026 retornou "dados indisponíveis" em todos os
+extratores (RREO do exercício corrente ainda não submetido) — os 6 arquivos
+de 2026 com IBGE errado foram removidos (dado ausente != zero, não dá pra
+deixar Itirapina rotulado como Itaquaquecetuba por falta de dado real).
+
+Descoberta lateral: `itaquaquecetuba` não tem nenhuma linha em
+`data/manifests/datasets.csv` (mesmo gap dos outros 15 municípios Sprint1
+já documentado acima) — `publicar_dados.py` não consegue publicar para esse
+município estruturalmente. A promoção `data/extracted → data/public` foi
+feita por cópia direta (mesmo padrão usado originalmente para publicar esse
+município, commit `7f361c4d`), legítimo para as áreas SICONFI
+(`AREAS_EXTRACTED`, integridade garantida pela API federal, sem
+curadoria manual) e só depois de `check_ibge_match.py --strict` confirmar
+zero mismatch em todo `data/public` (4549 arquivos, 495 municípios).
+
+Achado adicional não corrigido aqui (fora de escopo, reportado para
+decisão futura): `fase_publicar()` em `pipelines/coletar_municipio_sp.py`
+verifica a existência de `data/validated/<municipio>/<area>/saida` antes de
+chamar `publicar_dados.py` para TODAS as áreas — inclusive as de
+`AREAS_EXTRACTED` (executivo/fiscal/receita/transporte/seguranca), que por
+design nunca têm pasta `validated` (ver docstring de `publicar_dados.py`).
+Resultado: a fase de publicação da coleta noturna Sprint1 sempre WARN e
+nunca promove essas áreas para `data/public` automaticamente — a
+publicação real desses dados sempre dependeu de passo manual. Não
+investigado se isso afeta só os 21 municípios SP ou também outros.
+
 Atualizar esta tabela a cada despacho novo — é o estado persistente que
 substitui reexplicar tudo a cada sessão nova, conforme pedido do usuário.
