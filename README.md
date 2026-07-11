@@ -38,9 +38,9 @@ Guia rapido: [docs/onboarding-dev.md](docs/onboarding-dev.md).
 **Cobertura atual:**
 
 - **Cidades:** Bauru, Campinas, Carapicuiba, Diadema, Guarulhos, Itaquaquecetuba, Jundiai, Maua, Mogi das Cruzes, Osasco, Paulinia, Piracicaba, Ribeirao Preto, Santo Andre, Santos, Sao Bernardo do Campo, Sao Jose do Rio Preto, Sao Jose dos Campos, Sao Paulo, Sao Vicente, Sorocaba
-- **Datasets publicados:** 180
+- **Datasets publicados:** 181
 - **Datasets em validacao:** 2
-- **Atualizado em:** 2026-07-10
+- **Atualizado em:** 2026-07-11
 <!-- AUTO:coverage-end -->
 
 O projeto nao realiza auditoria juridica nem emite juizo sobre legalidade dos gastos. Ele organiza dados oficiais e registra metodologia para verificacao independente.
@@ -146,14 +146,14 @@ Deploy nao deve ser acionado manualmente sem autorizacao do mantenedor.
 <!-- AUTO:activity-start -->
 **Atividade recente:**
 
-- be084cbd feat(coleta): adiciona cruzamento CEIS/CNEP noturno para sorocaba/paulinia/sao_bernardo
-- b8b7e486 fix(pipelines): corrige mapeamento de campos CEIS/CNEP (sancao no nivel raiz do item)
-- 852f565a feat(pipelines): adiciona coleta CEIS/CNEP com cruzamento contra fornecedores publicados
-- 6a095865 fix(lgpd): mascara RG completo vazado em contratos CKAN São Paulo 2016
-- 62195596 docs(legislacao): adiciona LGPD, LAI e manual operacional interno
-- ca54ad06 feat(sao-bernardo): coleta e publicação de SIOPS/SIOPE — 11/11 anos reais
-- 46bfdb7f fix(cron): adiciona bin do nvm ao PATH da coleta noturna
-- 29afdf84 data(sprint2): coleta noturna 2026-07-09/10 — 359 municípios
-- 032b3823 feat(municipios): paridade com Sorocaba em segurança/transporte/educação/saúde
-- 4148ae02 docs(educacao): registrar investigação de dados.gov.br para FNDE
+- 95b1d905 docs(status): registra push+deploy 2026-07-11 e fix do commit noturno
+- b4df7b35 data(sprint2+siconfi): coleta noturna 2026-07-10/11 + orquestrador SICONFI nacional
+- d82cafb4 docs(hub): registra correção completa de São Vicente, gate de IBGE e plano de escala nacional
+- e9c7ec18 fix(coleta): completa correção de São Vicente e adiciona gate anti-mismatch de IBGE
+- e6698a9a fix(coleta): corrige IBGE errado de São Vicente publicado como Sertãozinho
+- 62660ee2 fix(coleta): corrige path de publicação de votações Câmara Paulínia
+- 49d52340 data(sprint2): coleta noturna 2026-07-10 — 42 municípios (FNS/emendas/transferências)
+- 0c4e0c33 fix(publicacao): classifica votações Paulínia e regenera mindmap
+- bb1a9303 docs(orquestracao): cria hub de coordenação por estado/município
+- f068a785 fix(coleta): corrige votações Paulínia (domínio migrado) e diárias Sorocaba
 <!-- AUTO:activity-end -->
