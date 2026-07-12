@@ -2,7 +2,7 @@
 
 Validates:
   - cases.csv format
-  - all expected_route IDs (except OFF_SCOPE) exist in theo-guide.tsx
+  - all expected_route IDs (except OFF_SCOPE) exist in lib/theo/routes.ts
   - confidence-state.csv has exactly one active row for théo
   - confidence-levels.csv has C0/C1/C2 rows
 
@@ -22,7 +22,7 @@ CASES = ROOT / "memory" / "training" / "theo" / "cases.csv"
 STATE = ROOT / "memory" / "agents" / "theo-confidence-state.csv"
 LEVELS = ROOT / "memory" / "agents" / "theo-confidence-levels.csv"
 SCOPE = ROOT / "memory" / "training" / "theo" / "scope.md"
-THEO_TSX = ROOT / "apps" / "web" / "components" / "theo" / "theo-guide.tsx"
+THEO_TSX = ROOT / "apps" / "web" / "lib" / "theo" / "routes.ts"
 
 CASE_FIELDS = [
     "id", "query", "expected_route", "expected_score_min",
@@ -80,7 +80,7 @@ def main() -> int:
 
     route_ids = parse_route_ids()
     if not route_ids:
-        errors.append("could not parse any route id from theo-guide.tsx")
+        errors.append("could not parse any route id from lib/theo/routes.ts")
 
     for row in case_rows:
         case_id = row.get("id", "?")
@@ -92,7 +92,7 @@ def main() -> int:
         expected = row.get("expected_route", "")
         if scope == "in" and expected not in route_ids and expected != "OFF_SCOPE":
             errors.append(
-                f"{case_id}: expected_route {expected!r} does not exist in theo-guide.tsx"
+                f"{case_id}: expected_route {expected!r} does not exist in lib/theo/routes.ts"
             )
         if scope == "off" and expected != "OFF_SCOPE":
             errors.append(
@@ -129,7 +129,7 @@ def main() -> int:
     print(f"- cases: {len(case_rows)}")
     print(f"- in-scope cases: {sum(1 for r in case_rows if r['scope_check'] == 'in')}")
     print(f"- off-scope cases: {sum(1 for r in case_rows if r['scope_check'] == 'off')}")
-    print(f"- routes in theo-guide.tsx: {len(route_ids)}")
+    print(f"- routes in lib/theo/routes.ts: {len(route_ids)}")
     print(f"- active confidence: {level}")
     if warnings:
         for w in warnings:

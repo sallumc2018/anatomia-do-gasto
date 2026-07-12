@@ -5,13 +5,13 @@ THEO_ROUTES, classifies outcomes, and writes sanitized candidate lessons to
 memory/agents/theo-learning-log.csv.
 
 Subcommands:
-  --refresh-snapshot   Parse apps/web/components/theo/theo-guide.tsx and rewrite
+  --refresh-snapshot   Parse apps/web/lib/theo/routes.ts and rewrite
                        memory/training/theo/routes-snapshot.json.
   --cycle              Run a training cycle against the cases.csv and append candidates.
   --summary            Print a stats summary of the learning log.
 
 Constraints (do NOT remove):
-  - never edits apps/web/components/theo/theo-guide.tsx
+  - never edits apps/web/lib/theo/routes.ts
   - never autonomously promotes a candidate to policy
   - respects scope.md (off-scope cases are tagged, not answered)
   - respects confidence-state.csv (C0 = log only; C1 = keyword candidates; C2 = route candidates)
@@ -30,7 +30,7 @@ from datetime import datetime, timezone
 from common import ROOT, configure_utf8_stdio
 
 
-THEO_TSX = ROOT / "apps" / "web" / "components" / "theo" / "theo-guide.tsx"
+THEO_TSX = ROOT / "apps" / "web" / "lib" / "theo" / "routes.ts"
 SNAPSHOT = ROOT / "memory" / "training" / "theo" / "routes-snapshot.json"
 CASES = ROOT / "memory" / "training" / "theo" / "cases.csv"
 LOG = ROOT / "memory" / "agents" / "theo-learning-log.csv"
@@ -74,13 +74,13 @@ def refresh_snapshot() -> int:
     text = THEO_TSX.read_text(encoding="utf-8")
     routes = parse_theo_routes(text)
     if not routes:
-        print("ERR: no routes parsed from theo-guide.tsx")
+        print("ERR: no routes parsed from lib/theo/routes.ts")
         return 1
     SNAPSHOT.parent.mkdir(parents=True, exist_ok=True)
     SNAPSHOT.write_text(
         json.dumps(
             {
-                "source": "apps/web/components/theo/theo-guide.tsx",
+                "source": "apps/web/lib/theo/routes.ts",
                 "extracted_at": datetime.now(timezone.utc).isoformat(),
                 "count": len(routes),
                 "routes": routes,
@@ -118,18 +118,51 @@ def active_level() -> str:
     raise RuntimeError("no active Théo confidence row")
 
 
+def levenshtein(a: str, b: str) -> int:
+    if a == b:
+        return 0
+    if not a:
+        return len(b)
+    if not b:
+        return len(a)
+    prev = list(range(len(b) + 1))
+    for i in range(1, len(a) + 1):
+        curr = [i] + [0] * len(b)
+        for j in range(1, len(b) + 1):
+            cost = 0 if a[i - 1] == b[j - 1] else 1
+            curr[j] = min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost)
+        prev = curr
+    return prev[len(b)]
+
+
+def is_close_match(word: str, target: str) -> bool:
+    """Réplica exata de isCloseMatch() em lib/theo/fuzzy.ts."""
+    if word == target:
+        return True
+    if len(word) <= 3 or len(target) <= 3:
+        return False
+    max_len = max(len(word), len(target))
+    tolerance = 1 if max_len <= 6 else 2
+    return levenshtein(word, target) <= tolerance
+
+
 def score_route(route: dict, norm_q: str) -> int:
-    """Réplica exata de scoreRoute() em theo-guide.tsx: +3 por keyword como
-    substring completa da query; +1 se alguma palavra (>3 chars) da keyword
-    aparecer na query. Manter em sync com a versão TS — é a fonte de verdade
-    de produção."""
+    """Réplica exata de scoreRoute() em lib/theo/matcher.ts: +3 por keyword
+    como substring completa da query; +1 se alguma palavra (>3 chars) da
+    keyword aparecer na query; +2 se a keyword for de uma palavra só e
+    estiver próxima (Levenshtein) de alguma palavra da query. Manter em
+    sync com a versão TS — é a fonte de verdade de produção."""
+    query_words = norm_q.split()
     score = 0
     for kw in route["keywords"]:
         nk = normalize(kw)
+        parts = nk.split(" ")
         if nk in norm_q:
             score += 3
-        elif any(len(part) > 3 and part in norm_q for part in nk.split(" ")):
+        elif any(len(part) > 3 and part in norm_q for part in parts):
             score += 1
+        elif len(parts) == 1 and any(is_close_match(w, nk) for w in query_words):
+            score += 2
     return score
 
 
@@ -235,7 +268,7 @@ def cycle() -> int:
                 lesson,
                 "review_and_promote" if action != "bad" else "investigate_scope_leak",
                 status,
-                "apps/web/components/theo/theo-guide.tsx",
+                "apps/web/lib/theo/routes.ts",
                 "sanitized",
             ])
             appended += 1

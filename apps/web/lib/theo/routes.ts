@@ -357,9 +357,9 @@ export const THEO_ROUTES: TheoRoute[] = [
     status: "Disponível",
     confidence: "Alta",
     keywords: [
-      "o que e a anatomia do gasto", "anatomia do gasto", "quem fez", "quem fez o site", "quem criou",
-      "quem criou o site", "independente", "apartidario", "sobre", "e oficial", "e governamental",
-      "e uma ong", "como surgiu", "e da prefeitura", "e do prefeito",
+      "o que e a anatomia do gasto", "anatomia do gasto", "anatomia", "quem fez", "quem fez o site",
+      "quem criou", "quem criou o site", "independente", "apartidario", "sobre", "e oficial",
+      "e governamental", "e uma ong", "como surgiu", "e da prefeitura", "e do prefeito",
     ],
     links: [
       { href: "/sobre", label: "Sobre o projeto" },
@@ -428,7 +428,7 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "tecnologia", "stack", "linguagem", "linguagem do site", "framework", "como foi construido", "desenvolvimento",
       "next.js", "react", "typescript", "tailwind", "python", "pdfplumber", "pandas", "recharts",
-      "como o site funciona", "codigo fonte", "github", "github do projeto", "repositorio", "fork",
+      "como o site funciona", "codigo fonte", "codigo", "github", "github do projeto", "repositorio", "fork",
       "como fazer fork", "abrir issue", "issue github", "pull request", "sugerir pull request",
       "licenca", "licenca do codigo", "auditar o codigo", "como auditar o codigo", "codigo aberto", "open source",
     ],

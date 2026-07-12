@@ -15,7 +15,7 @@ Théo does NOT execute. Training improves Théo's keyword/route coverage by:
 
 - `scope.md`: explicit in-scope vs off-scope domains.
 - `cases.csv`: training cases (query + expected route + scope flag).
-- `routes-snapshot.json`: snapshot of THEO_ROUTES from `apps/web/components/theo/theo-guide.tsx`.
+- `routes-snapshot.json`: snapshot of THEO_ROUTES from `apps/web/lib/theo/routes.ts`.
 - `promotion-criteria.md`: criteria to move Théo from C0 to C1 to C2.
 
 ## Run
@@ -41,12 +41,12 @@ updating `memory/agents/theo-confidence-state.csv`, documenting the reason, and 
 python tools/agents/validate-area.py --area agents
 ```
 
-Promotion of a candidate keyword/route to policy requires editing `apps/web/components/theo/theo-guide.tsx`
+Promotion of a candidate keyword/route to policy requires editing `apps/web/lib/theo/routes.ts`
 and a human-visible review. The trainer (Maestro) never auto-promotes.
 
 ## Sync
 
-When `theo-guide.tsx` changes (new route or keyword added), refresh the snapshot:
+When `lib/theo/routes.ts` changes (new route or keyword added), refresh the snapshot:
 
 ```powershell
 python tools/agents/train-theo.py --refresh-snapshot
