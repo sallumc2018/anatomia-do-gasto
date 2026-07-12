@@ -159,7 +159,7 @@ else
       -m "Coleta automatica via coleta_noturna.sh (00h-06h BRT); nao pusheado." \
       -m "[Claude Code > claude-sonnet-4-6 > Low]" >> "$LOG_FILE" 2>&1 \
       && log "  ✓ Commit local criado" \
-      || log "  ✗ git commit falhou (ver log)"
+      || { log "  ✗ git commit falhou (ver log)"; FALHAS+=("Commit local do lote noturno (git commit falhou apos gates OK — ver log; hooks/assinatura?)"); }
   else
     log "  ✗ Gates de commit falharam — deixando staged para revisão manual"
     FALHAS+=("Commit local do lote noturno (gate falhou)")

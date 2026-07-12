@@ -86,11 +86,26 @@ def event_log_path() -> Path:
     return STATE_DIR / f"events_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl"
 
 
+NOTIFY_EVENTS = {"commit_blocked", "gate_failed"}
+
+
 def append_event(event: dict[str, Any]) -> None:
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     payload = {"time_utc": utc_now(), **event}
     with event_log_path().open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(payload, ensure_ascii=False, sort_keys=True) + "\n")
+    if event.get("event") in NOTIFY_EVENTS:
+        notify_telegram(f"sprint2_24x7_worker: {event}")
+
+
+def notify_telegram(message: str) -> None:
+    notify_script = Path.home() / ".claude" / "notify.sh"
+    if not notify_script.exists():
+        return
+    try:
+        subprocess.run([str(notify_script), message], timeout=15, check=False)
+    except Exception:
+        pass
 
 
 def load_municipios(path: Path = IBGE_CSV, ufs: set[str] | None = None) -> list[Municipio]:
