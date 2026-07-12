@@ -1,0 +1,6 @@
+export type { TheoLink, TheoRoute, RouteMatch, FormalityLevel } from "./types"
+export { THEO_ROUTES, FALLBACK_ROUTE } from "./routes"
+export { normalize, tokenize } from "./text"
+export { levenshtein, isCloseMatch } from "./fuzzy"
+export { scoreRoute, findBestMatch } from "./matcher"
+export { detectFormality } from "./formality"
