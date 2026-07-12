@@ -40,3 +40,11 @@ export function findBestMatch(query: string): RouteMatch {
   }
   return best
 }
+
+// Ranking completo (não só o vencedor) — usado para detectar empate/quase-empate
+// entre duas rotas plausíveis, sem alterar o critério de desempate de findBestMatch.
+export function findTopMatches(query: string, limit = 2): RouteMatch[] {
+  return THEO_ROUTES.map((route) => ({ route, score: scoreRoute(route, query) })).sort(
+    (a, b) => b.score - a.score
+  ).slice(0, limit)
+}
