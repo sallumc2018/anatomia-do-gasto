@@ -146,12 +146,29 @@ def is_close_match(word: str, target: str) -> bool:
     return levenshtein(word, target) <= tolerance
 
 
+STOPWORDS = {
+    "aqui", "ali", "essa", "esse", "essas", "esses", "esta", "este", "estas",
+    "estes", "isso", "isto", "aquilo", "aquele", "aquela", "aqueles", "aquelas",
+    "onde", "quando", "quem", "qual", "quais", "como", "porque",
+    "quanto", "quanta", "quantos", "quantas",
+    "para", "pelo", "pela", "pelos", "pelas", "sobre", "entre", "sendo",
+    "sido", "muito", "muita", "muitos", "muitas", "pouco", "pouca", "mesmo",
+    "mesma", "mesmos", "mesmas", "cada", "todo", "toda", "todos", "todas",
+    "algum", "alguma", "alguns", "algumas", "nenhum", "nenhuma", "outro",
+    "outra", "outros", "outras", "ainda", "tambem", "apenas", "so", "ja",
+    "voce", "voces", "nosso", "nossa", "nossos", "nossas", "seu", "sua",
+    "seus", "suas", "meu", "minha", "meus", "minhas",
+    "projeto", "prefeitura", "cidade",
+}
+
+
 def score_route(route: dict, norm_q: str) -> int:
     """Réplica exata de scoreRoute() em lib/theo/matcher.ts: +3 por keyword
-    como substring completa da query; +1 se alguma palavra (>3 chars) da
-    keyword aparecer na query; +2 se a keyword for de uma palavra só e
-    estiver próxima (Levenshtein) de alguma palavra da query. Manter em
-    sync com a versão TS — é a fonte de verdade de produção."""
+    como substring completa da query; +1 se alguma palavra (>3 chars, fora
+    da lista de stopwords) da keyword aparecer na query; +2 se a keyword for
+    de uma palavra só e estiver próxima (Levenshtein) de alguma palavra da
+    query. Manter em sync com a versão TS — é a fonte de verdade de
+    produção."""
     query_words = norm_q.split()
     score = 0
     for kw in route["keywords"]:
@@ -159,7 +176,7 @@ def score_route(route: dict, norm_q: str) -> int:
         parts = nk.split(" ")
         if nk in norm_q:
             score += 3
-        elif any(len(part) > 3 and part in norm_q for part in parts):
+        elif any(len(part) > 4 and part not in STOPWORDS and part in norm_q for part in parts):
             score += 1
         elif len(parts) == 1 and any(is_close_match(w, nk) for w in query_words):
             score += 2

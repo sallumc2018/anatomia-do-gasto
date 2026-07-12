@@ -15,6 +15,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "itbi", "icms", "fpm", "fundeb", "transferencia", "transferencias", "quanto entrou", "recursos proprios",
       "de onde vem o dinheiro", "de onde vem o recurso", "fonte de recurso", "receita propria",
       "quanto sorocaba arrecada", "arrecadamento", "receita corrente", "quanto a prefeitura recebe",
+    
+      "de onde vem o dinheiro da prefeitura", "de onde sai a grana da cidade",
+      "arecadou",
     ],
     links: [
       { href: "/sorocaba/receita", label: "Abrir receita" },
@@ -39,6 +42,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "pacto federativo", "complementacao", "cota parte", "sus federal", "fnde", "siope",
       "como vem o dinheiro federal", "de onde vem recurso federal", "uniao repassa",
       "estado repassa", "governo federal repasse", "quanto repassa a uniao",
+    
+      "fpm o que e", "quanto o estado manda de dinheiro", "dinheiro que vem de brasilia",
     ],
     links: [
       { href: "/sorocaba/pacto-federativo", label: "Abrir pacto federativo" },
@@ -84,6 +89,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "execucao", "execucao orcamentaria", "restos a pagar", "foi executado", "o dinheiro saiu",
       "fase da despesa", "nota de empenho", "empenho liquidado", "pagamento realizado",
       "diferenca dotacao empenho", "o que foi pago", "quanto foi pago", "pagamento efetivo",
+    
+      "esse gasto ja foi liquidado", "o valor foi so reservado ou ja saiu",
     ],
     links: [
       { href: "/sorocaba/execucao", label: "Abrir execução" },
@@ -107,6 +114,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "nomenclatura", "diferenca entre empenho", "fase orcamentaria", "o que quer dizer",
       "como funciona o orcamento", "etapas do gasto", "termos tecnicos", "linguagem tecnica",
       "nao entendo o termo", "vocabulario orcamentario", "execucao orcamentaria fases",
+    
+      "o q significa empenho", "explica o que e pagamento no orcamento",
     ],
     links: [
       { href: "/sorocaba/execucao", label: "Abrir execução orçamentária" },
@@ -130,6 +139,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "quanto gasta com seguranca", "quanto gasta com transporte", "ubs", "unidade basica de saude",
       "ensino fundamental", "educacao infantil", "guarda municipal", "defesa civil",
       "medico", "medicos", "professor", "professores", "gasto com educacao", "gasto com saude",
+    
+      "gasto por servico publico",
+      "quanto custa um posto de saude", "posto de saude pra cidade",
     ],
     links: [
       { href: "/sorocaba/saude", label: "Saúde" },
@@ -157,6 +169,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "vinculacao constitucional", "gasto minimo obrigatorio",
       "minimo saude", "minimo educacao", "15 por cento saude", "25 por cento educacao",
       "cumpriu o minimo", "o que e asps", "o que e mde",
+    
+      "sorocaba ta dentro da lei no gasto de saude",
+      "dentro da lei no gasto de saude",
     ],
     links: [
       { href: "/sorocaba/saude", label: "Mínimo em saúde" },
@@ -180,6 +195,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "recebedor", "quem ganhou", "quem foi pago", "empresa contratada", "maior recebedor",
       "ranking fornecedor", "busca por empresa", "busca por cnpj", "pesquisar fornecedor",
       "qual empresa recebeu", "quanto recebeu empresa", "top fornecedores",
+    
+      "quem recebeu mais dinheiro da prefeitura", "pra quem foi pago",
     ],
     links: [
       { href: "/sorocaba/fornecedores", label: "Ver fornecedores" },
@@ -202,6 +219,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "fornecedor contratado", "empresa contratada", "valor contrato", "vigencia contrato",
       "objeto contrato", "aditivo", "dispensa de licitacao", "modalidade licitacao",
       "inexigibilidade", "contrato emergencial", "licitacao vencedor",
+    
+      "contrato com empresa privada", "contratacao da prefeitura",
     ],
     links: [
       { href: "/sorocaba/lacunas", label: "Ver lacunas documentadas" },
@@ -224,6 +243,8 @@ export const THEO_ROUTES: TheoRoute[] = [
       "obra atrasada", "obras viarias", "obra em andamento", "obra concluida", "obra parada",
       "infraestrutura", "obra de mobilidade", "obra da prefeitura", "obra do municipio",
       "custo obra", "obra licitada", "projeto de obra",
+    
+      "reforma de escola ou posto",
     ],
     links: [
       { href: "/sorocaba/lacunas", label: "Ver lacunas documentadas" },
@@ -246,6 +267,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "onibus sorocaba", "agua sorocaba", "saneamento", "previdencia municipal", "funserv investimento",
       "onibus concessao", "concessao transporte", "tarifas onibus", "deficit transporte",
       "fundo previdenciario", "passivo atuarial funserv",
+    
+      "e o saae, tem dado tbm", "gasto da urbes", "empresa publica da cidade", "orgao autonomo da prefeitura",
+      "gasto da", "empresa publica da",
     ],
     links: [
       { href: "/sorocaba/saude-fiscal", label: "Saúde fiscal (passivo FUNSERV)" },
@@ -268,6 +292,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "quanto ganha vereador", "salario vereador", "remuneracao vereador", "custo vereador",
       "quanto custa a camara", "orcamento da camara", "loa camara", "gasto da camara",
       "o que faz o vereador", "meu vereador", "mandato vereador", "partido vereador",
+    
+      "orcamento do legislativo", "quanto gasta o legislativo",
+      "salario de vereador",
     ],
     links: [
       { href: "/sorocaba/camara-municipal", label: "Abrir Câmara" },
@@ -290,6 +317,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "emenda pix", "emenda de bancada", "emenda individual", "indicou", "emenda indicada",
       "recurso emenda", "cota emenda", "entidade beneficiada", "convênio emenda",
       "quanto cada vereador destinou", "emenda foi executada", "emenda foi paga",
+    
+      "verba indicada por vereador", "quanto cada vereador indicou",
+      "verba indicada por", "indicada por vereador", "verba indicada", "quanto cada vereador", "vereador indicou",
     ],
     links: [
       { href: "/sorocaba/camara-municipal", label: "Câmara Municipal" },
@@ -315,6 +345,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "quanto deve sorocaba", "divida consolidada",
       "salario do prefeito", "salario servidor", "quanto ganha servidor", "quanto ganham os servidores",
       "gasto com servidores", "remuneracao servidor", "salario funcionalismo",
+    
+      "sorocaba deve dinheiro", "saude financeira da prefeitura",
+      "saude financeira da", "saude financeira",
     ],
     links: [
       { href: "/sorocaba/saude-fiscal", label: "Abrir saúde fiscal" },
@@ -339,6 +372,10 @@ export const THEO_ROUTES: TheoRoute[] = [
       "quem audita", "quem confere", "dado errado", "erro no dado", "como conferir",
       "corrupcao", "corrupcao em sorocaba", "denuncia", "suspeita", "informacao errada", "reportar erro",
       "ouvidoria", "irregularidade fiscal",
+    
+      "metodologia de checagem dos dados", "vcs conferem os dados antes de publicar",
+      "dado e real", "sao auditado", "conferem os dados",
+      "metodologia de checagem dos",
     ],
     links: [
       { href: "/sorocaba/auditoria", label: "Abrir auditoria" },
@@ -360,6 +397,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "o que e a anatomia do gasto", "anatomia do gasto", "anatomia", "quem fez", "quem fez o site",
       "quem criou", "quem criou o site", "independente", "apartidario", "sobre", "e oficial",
       "e governamental", "e uma ong", "como surgiu", "e da prefeitura", "e do prefeito",
+    
+      "o que e esse projeto", "pra que serve esse site", "explica o anatomia do gasto pra mim", "o que e a anatomia dos gasto", "que site e esse", "sobre o q e isso aqui", "esse site e do q mesmo", "quero entender o q e esse projeto", "resumo do que e o site",
+      "por tras desse site", "quem ta por tras",
     ],
     links: [
       { href: "/sobre", label: "Sobre o projeto" },
@@ -386,6 +426,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "api", "acesso programatico", "baixar dados", "tem api", "endpoint",
       "o que significa lacuna", "o que significa em coleta", "significa lacuna", "significa em coleta",
       "o que e lacuna", "o que e em coleta", "status disponivel", "status do dado",
+    
+      "posso confiar nesse numero",
+      "esse dado vem de onde",
     ],
     links: [
       { href: "/metodologia", label: "Abrir metodologia" },
@@ -407,6 +450,10 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "ong", "missao", "proposito", "objetivo", "finalidade", "por que criar", "meta", "visao", "valores", "ideal",
       "apartidario", "independente", "quem mantem", "proposito da ong", "quem financia", "quem e o dono",
+    
+      "pra que existe esse projeto", "missao do anatomia do gasto", "vcs sao financiado por quem", "quem banca o projeto", "o q vcs querem alcançar", "quem sustenta financeiramente o site",
+      "missao do anatomia do", "do anatomia do gasto",
+      "quem sustenta financeiramente",
     ],
     links: [
       { href: "/sobre", label: "Sobre o projeto" },
@@ -431,6 +478,7 @@ export const THEO_ROUTES: TheoRoute[] = [
       "como o site funciona", "codigo fonte", "codigo", "github", "github do projeto", "repositorio", "fork",
       "como fazer fork", "abrir issue", "issue github", "pull request", "sugerir pull request",
       "licenca", "licenca do codigo", "auditar o codigo", "como auditar o codigo", "codigo aberto", "open source",
+      "como abro uma issue",
     ],
     links: [
       { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
@@ -451,6 +499,9 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "workspace", "pastas", "arquivos", "diretorios", "organizacao", "omega", "pessoal", "profissional", "sistema",
       "ssd", "drive g", "nuvem", "junctions", "directory junctions", "sincronizacao", "estrutura de pastas",
+    
+      "como os arquivo do projeto sao organizado", "como funciona a organizacao interna", "onde fica cada coisa no repositorio", "arquitetura de diretorio do projeto", "como e dividido o workspace", "organizacao dos dados no projeto",
+      "fica cada coisa no", "organizacao dos dados no",
     ],
     links: [
       { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "Ver repositório" },
@@ -471,6 +522,9 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "roadmap", "futuro", "construindo", "proximos passos", "planos", "90 dias", "proximos meses", "expansao",
       "novidades", "metas", "planejamento", "sorocaba 100", "onde o projeto quer chegar", "o que falta fazer",
+    
+      "o q vem por ai no projeto", "quais os proximos passo do site", "planos futuros do anatomia do gasto", "o q ainda falta fazer", "proxima atualizacao do site", "vao expandir pra outras cidades", "vao adicionar mais cidade",
+      "planos futuros do anatomia",
     ],
     links: [
       { href: "/sorocaba/lacunas", label: "Ver lacunas declaradas" },
@@ -492,6 +546,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "voluntario", "voluntariado", "ajudar", "contribuir", "como contribuir", "participar", "apoiar", "fazer parte",
       "trabalhar junto", "lei do voluntariado", "como ajudar", "colaborar", "quero ser voluntario", "contribuicao",
       "github contribuir", "doar", "doacao", "como doar", "fazer doacao",
+    
+      "como eu ajudo o projeto",
+      "tem vaga pra ajudar", "de q forma posso ajudar",
     ],
     links: [
       { href: "/voluntarios", label: "Página de voluntários" },
@@ -513,6 +570,10 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "sandbox", "teste", "ambiente de teste", "treinamento", "laboratorio", "brincar", "simulacao", "o que e a pagina",
       "sandbox do theo", "theo sandbox", "perguntar para o theo", "guia de testes",
+    
+      "o q e essa area de experimento", "onde testo perguntas pro assistente",
+      "testar o theo", "posso testar",
+      "q e essa area",
     ],
     links: [
       { href: "/sandbox", label: "Reiniciar sandbox" },
@@ -533,6 +594,9 @@ export const THEO_ROUTES: TheoRoute[] = [
     keywords: [
       "agentes", "maestro", "inteligencia artificial", "bot", "automatizacao", "frontino", "plinio", "vitruvio",
       "subagentes", "rag", "economia de token", "tokens", "changes.csv", "maestro learning", "orquestrador", "codex",
+    
+      "o q sao os agente inteligente do projeto", "o q e o maestro do anatomia do gasto", "como funciona a automacao do site", "ia que ajuda a coletar os dados", "quem coordena os agente automatico", "como a ia ajuda a manter o site",
+      "o q e o", "ia que ajuda a", "que ajuda a coletar", "ajuda a coletar os",
     ],
     links: [
       { href: "https://github.com/sallumc2018/anatomia-do-gasto", label: "GitHub do projeto" },
@@ -555,6 +619,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "pedido de informacao", "como pedir", "como fazer pedido", "prazo da lai", "prazo do pedido", "prazo lai",
       "recorrer", "negativa", "recurso lai", "custo do pedido", "custo lai", "e gratis", "12527",
       "transparencia passiva", "solicitar dado", "pedir dado", "pedir informacao",
+    
+      "quanto tempo o orgao tem pra responder",
+      "quanto tempo o orgao",
     ],
     links: [
       { href: "/sorocaba/acesso-a-informacao", label: "Acesso à informação" },
@@ -576,6 +643,9 @@ export const THEO_ROUTES: TheoRoute[] = [
       "transparencia", "transparencia publica", "transparencia ativa", "transparencia passiva",
       "controle social", "sociedade civil", "fiscalizar", "fiscalizacao", "papel do cidadao",
       "participacao popular", "accountability", "o que e transparencia", "prestacao de contas",
+    
+      "pra que serve fiscalizar o governo", "papel da sociedade no controle do gasto", "sociedade pode fiscalizar a prefeitura",
+      "papel da sociedade no",
     ],
     links: [
       { href: "/sobre", label: "Sobre o projeto" },
@@ -597,6 +667,10 @@ export const THEO_ROUTES: TheoRoute[] = [
       "quanto ganha", "salario", "salário", "remuneracao", "remuneração", "vencimento", "folha de pagamento",
       "quanto ganha o prefeito", "salario do prefeito", "salario servidor", "salario do vereador",
       "subsidio", "holerite", "contracheque", "quanto ganha vereador", "quanto ganha servidor",
+    
+      "quanto recebe um vereador por mes",
+      "quanto recebe um vereador", "recebe um vereador por", "um vereador por mes",
+      "quanto recebe vereador",
     ],
     links: [
       { href: "/sorocaba/lacunas", label: "Lacunas conhecidas" },
@@ -619,6 +693,10 @@ export const THEO_ROUTES: TheoRoute[] = [
       "e do governo", "oposicao", "candidato", "eleicao", "eleição", "quem ganhou", "ideologia", "tendencia",
       "neutralidade", "imparcial", "vies", "viés", "a ong e de quem", "quem esta por tras", "prefeito atual",
       "governo atual", "quem e o prefeito",
+    
+      "isso e coisa de prefeitura", "quem controla esse site politicamente", "e a favor de quem esse site", "voces sao neutro mesmo",
+      "e projeto de oposicao",
+      "e coisa de",
     ],
     links: [
       { href: "/politica-de-neutralidade", label: "Política de neutralidade" },
