@@ -157,7 +157,7 @@ else
     git -C "$REPO" commit -q \
       -m "chore(coleta): coleta noturna $(date -u +%Y-%m-%d)" \
       -m "Coleta automatica via coleta_noturna.sh (00h-06h BRT); nao pusheado." \
-      -m "[Claude Code > claude-sonnet-4-6 > Auto]" >> "$LOG_FILE" 2>&1 \
+      -m "[Claude Code > claude-sonnet-4-6 > Low]" >> "$LOG_FILE" 2>&1 \
       && log "  ✓ Commit local criado" \
       || log "  ✗ git commit falhou (ver log)"
   else

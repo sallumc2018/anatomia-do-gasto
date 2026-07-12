@@ -399,7 +399,7 @@ def commit_and_push(timeout: int, dry_run: bool, push: bool) -> bool:
         "-m",
         "Coleta incremental automatica via sallumc-server.",
         "-m",
-        "[Claude Code > claude-sonnet-4-6 > Auto]",
+        "[Claude Code > claude-sonnet-4-6 > Low]",
     ]
     if run_command("git commit", message, STATE_DIR / "runs" / f"git_{today}.log", timeout).returncode != 0:
         return False
