@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_itaquaquecetuba_2024.csv",
+  "caminho_relativo": "data/public/itaquaquecetuba/fiscal/saida/rpps_itaquaquecetuba_2024.csv",
+  "tamanho_bytes": 368,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Contribuicoes_Segurados": "30613956.59",
+      "Contribuicoes_Patronal": "80272266.57",
+      "Total_Receitas_RPPS": "212662781.75",
+      "Aposentadorias": "79922596.72",
+      "Total_Despesas_RPPS": "96939377.19",
+      "Resultado_RPPS": "115723404.56",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3523107&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:32.096675"
+}

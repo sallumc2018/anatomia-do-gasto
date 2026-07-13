@@ -1,7 +1,7 @@
 {
   "arquivo": "rreo_seguranca_sao_vicente_2017.csv",
   "caminho_relativo": "data/public/sao_vicente/seguranca/saida/rreo_seguranca_sao_vicente_2017.csv",
-  "tamanho_bytes": 424,
+  "tamanho_bytes": 407,
   "linhas_dados": 1,
   "colunas": [
     "﻿Ano",
@@ -20,9 +20,9 @@
     "Dotacao_Inicial": "string",
     "Dotacao_Atualizada": "string",
     "Empenhado": "string",
-    "Intra_Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
     "Liquidado": "string",
-    "Intra_Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
     "Pct_Orcamento": "float/numeric",
     "Total_Municipal_Empenhado": "string",
     "Fonte_URL": "string"
@@ -30,16 +30,16 @@
   "amostra": [
     {
       "﻿Ano": "2017",
-      "Dotacao_Inicial": "10.223.400,00",
-      "Dotacao_Atualizada": "10.962.938,50",
-      "Empenhado": "10.605.192,27",
-      "Intra_Empenhado": "2.292.561,05",
-      "Liquidado": "10.512.333,42",
-      "Intra_Liquidado": "2.292.561,05",
-      "Pct_Orcamento": "2,6519",
-      "Total_Municipal_Empenhado": "399.910.908,64",
-      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3551702"
+      "Dotacao_Inicial": "14.216.000,00",
+      "Dotacao_Atualizada": "13.344.000,00",
+      "Empenhado": "10.009.745,34",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "9.949.033,56",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "1,1980",
+      "Total_Municipal_Empenhado": "835.549.664,50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3551009"
     }
   ],
-  "analisado_em": "2026-07-01T07:02:04.194546"
+  "analisado_em": "2026-07-13T05:57:35.115808"
 }

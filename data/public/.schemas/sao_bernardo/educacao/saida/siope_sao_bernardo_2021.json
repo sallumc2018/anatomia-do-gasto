@@ -1,0 +1,39 @@
+{
+  "arquivo": "siope_sao_bernardo_2021.csv",
+  "caminho_relativo": "data/public/sao_bernardo/educacao/saida/siope_sao_bernardo_2021.csv",
+  "tamanho_bytes": 167,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge7",
+    "receita_vinculada_mde",
+    "despesa_mde",
+    "percentual_aplicado",
+    "limite_constitucional_pct",
+    "situacao"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge7": "integer",
+    "receita_vinculada_mde": "empty",
+    "despesa_mde": "float/numeric",
+    "percentual_aplicado": "float/numeric",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "municipio": "sao_bernardo",
+      "ibge7": "3548708",
+      "receita_vinculada_mde": "",
+      "despesa_mde": "722335780.98",
+      "percentual_aplicado": "25.32",
+      "limite_constitucional_pct": "25",
+      "situacao": "cumprido"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.619346"
+}

@@ -1,7 +1,7 @@
 {
   "arquivo": "rreo_transporte_sao_vicente_2016.csv",
   "caminho_relativo": "data/public/sao_vicente/transporte/saida/rreo_transporte_sao_vicente_2016.csv",
-  "tamanho_bytes": 416,
+  "tamanho_bytes": 380,
   "linhas_dados": 1,
   "colunas": [
     "﻿Ano",
@@ -19,27 +19,27 @@
     "﻿Ano": "integer",
     "Dotacao_Inicial": "string",
     "Dotacao_Atualizada": "string",
-    "Empenhado": "string",
-    "Intra_Empenhado": "string",
-    "Liquidado": "string",
-    "Intra_Liquidado": "string",
+    "Empenhado": "float/numeric",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
     "Pct_Orcamento": "float/numeric",
-    "Total_Municipal_Empenhado": "string",
+    "Total_Municipal_Empenhado": "float/numeric",
     "Fonte_URL": "string"
   },
   "amostra": [
     {
       "﻿Ano": "2016",
-      "Dotacao_Inicial": "3.775.000,00",
-      "Dotacao_Atualizada": "3.775.716,00",
-      "Empenhado": "3.212.660,72",
-      "Intra_Empenhado": "202.961,53",
-      "Liquidado": "2.763.989,72",
-      "Intra_Liquidado": "202.961,53",
-      "Pct_Orcamento": "0,8684",
-      "Total_Municipal_Empenhado": "369.963.357,23",
-      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3551702"
+      "Dotacao_Inicial": "26.327.000,00",
+      "Dotacao_Atualizada": "27.675.000,00",
+      "Empenhado": "0,00",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "0,00",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,0000",
+      "Total_Municipal_Empenhado": "0,00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3551009"
     }
   ],
-  "analisado_em": "2026-07-01T07:02:04.203687"
+  "analisado_em": "2026-07-13T05:57:35.126314"
 }

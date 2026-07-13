@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_sao_bernardo_2015.csv",
+  "caminho_relativo": "data/public/sao_bernardo/receita/saida/receitas_sao_bernardo_2015.csv",
+  "tamanho_bytes": 3341,
+  "linhas_dados": 13,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "4998768000.00",
+      "Previsto_Atualizado": "3544006670.24",
+      "Arrecadado_Bimestre": "759309765.88",
+      "Arrecadado_Acumulado": "3682371160.70",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "4800925000.00",
+      "Previsto_Atualizado": "3346163670.24",
+      "Arrecadado_Bimestre": "715660171.33",
+      "Arrecadado_Acumulado": "3489378945.46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "3572475000.00",
+      "Previsto_Atualizado": "3079147235.41",
+      "Arrecadado_Bimestre": "524291274.22",
+      "Arrecadado_Acumulado": "3091098191.31",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2015&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.634104"
+}

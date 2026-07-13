@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_bernardo_2019.csv",
+  "caminho_relativo": "data/public/sao_bernardo/transporte/saida/dca_transporte_sao_bernardo_2019.csv",
+  "tamanho_bytes": 275,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2019",
+      "Empenhado": "443.652.369,03",
+      "Liquidado": "404.041.269,49",
+      "Pago": "399.050.352,45",
+      "RP_Nao_Processado": "39.611.099,54",
+      "RP_Processado": "4.990.917,04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2019&no_anexo=DCA-Anexo%20I-E&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.630912"
+}

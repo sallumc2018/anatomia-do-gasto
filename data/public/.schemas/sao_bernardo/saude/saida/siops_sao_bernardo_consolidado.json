@@ -1,0 +1,74 @@
+{
+  "arquivo": "siops_sao_bernardo_consolidado.csv",
+  "caminho_relativo": "data/public/sao_bernardo/saude/saida/siops_sao_bernardo_consolidado.csv",
+  "tamanho_bytes": 1242,
+  "linhas_dados": 11,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
+    "limite_constitucional_pct",
+    "situacao",
+    "fase"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string",
+    "fase": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2015",
+      "municipio": "sao_bernardo",
+      "ibge6": "354870",
+      "percentual_asps": "21.36",
+      "despesa_saude_total": "384192453.70",
+      "receita_impostos": "1798695173.78",
+      "despesa_saude_por_hab": "681150597.62",
+      "pct_transferencias_sus": "44.19",
+      "limite_constitucional_pct": "15",
+      "situacao": "cumprido",
+      "fase": "previsto"
+    },
+    {
+      "ano": "2016",
+      "municipio": "sao_bernardo",
+      "ibge6": "354870",
+      "percentual_asps": "22.61",
+      "despesa_saude_total": "414218459.61",
+      "receita_impostos": "1831864409.64",
+      "despesa_saude_por_hab": "712493447.97",
+      "pct_transferencias_sus": "40.26",
+      "limite_constitucional_pct": "15",
+      "situacao": "cumprido",
+      "fase": "previsto"
+    },
+    {
+      "ano": "2017",
+      "municipio": "sao_bernardo",
+      "ibge6": "354870",
+      "percentual_asps": "22.49",
+      "despesa_saude_total": "415541344.50",
+      "receita_impostos": "1847777362.61",
+      "despesa_saude_por_hab": "713301954.72",
+      "pct_transferencias_sus": "40.89",
+      "limite_constitucional_pct": "15",
+      "situacao": "cumprido",
+      "fase": "previsto"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.539659"
+}

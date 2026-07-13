@@ -1,0 +1,39 @@
+{
+  "arquivo": "rpps_sao_bernardo_2023.csv",
+  "caminho_relativo": "data/public/sao_bernardo/fiscal/saida/rpps_sao_bernardo_2023.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Contribuicoes_Segurados",
+    "Contribuicoes_Patronal",
+    "Total_Receitas_RPPS",
+    "Aposentadorias",
+    "Total_Despesas_RPPS",
+    "Resultado_RPPS",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Contribuicoes_Segurados": "float/numeric",
+    "Contribuicoes_Patronal": "float/numeric",
+    "Total_Receitas_RPPS": "float/numeric",
+    "Aposentadorias": "float/numeric",
+    "Total_Despesas_RPPS": "float/numeric",
+    "Resultado_RPPS": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Contribuicoes_Segurados": "58679178.89",
+      "Contribuicoes_Patronal": "123143463.08",
+      "Total_Receitas_RPPS": "238033688.15",
+      "Aposentadorias": "152388501.18",
+      "Total_Despesas_RPPS": "159624800.38",
+      "Resultado_RPPS": "78408887.77",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2004"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.567963"
+}

@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_vicente_2017.csv",
+  "caminho_relativo": "data/public/sao_vicente/transporte/saida/dca_transporte_sao_vicente_2017.csv",
+  "tamanho_bytes": 267,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Empenhado": "18.953.989,83",
+      "Liquidado": "18.380.395,20",
+      "Pago": "17.845.326,82",
+      "RP_Nao_Processado": "573.594,63",
+      "RP_Processado": "535.068,38",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2017&no_anexo=DCA-Anexo%20I-E&id_ente=3551009"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.126806"
+}

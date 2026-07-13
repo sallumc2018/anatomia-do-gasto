@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_alto_alegre_dos_parecis_2020.csv",
+  "caminho_relativo": "data/public/alto_alegre_dos_parecis/fiscal/saida/divida_alto_alegre_dos_parecis_2020.csv",
+  "tamanho_bytes": 503,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "DC_Bruta": "3102208.95",
+      "DC_Contratual": "2897507.71",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "200073.47",
+      "Deducoes": "12979511.38",
+      "DCL": "-9877302.43",
+      "RCL": "39178903.25",
+      "DC_pct_RCL": "7.9200",
+      "DCL_pct_RCL": "-25.2100",
+      "Limite_valor": "47014683.90",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "42313215.51",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2020&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1100379&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.018455"
+}

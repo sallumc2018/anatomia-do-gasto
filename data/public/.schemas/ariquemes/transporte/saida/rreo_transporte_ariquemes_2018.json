@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_ariquemes_2018.csv",
+  "caminho_relativo": "data/public/ariquemes/transporte/saida/rreo_transporte_ariquemes_2018.csv",
+  "tamanho_bytes": 392,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2018",
+      "Dotacao_Inicial": "60.000,00",
+      "Dotacao_Atualizada": "35.806,00",
+      "Empenhado": "30.806,00",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "27.247,11",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "0,0136",
+      "Total_Municipal_Empenhado": "226.567.111,90",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2018&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=1100023"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:34.638219"
+}

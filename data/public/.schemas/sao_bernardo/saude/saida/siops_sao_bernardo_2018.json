@@ -1,0 +1,48 @@
+{
+  "arquivo": "siops_sao_bernardo_2018.csv",
+  "caminho_relativo": "data/public/sao_bernardo/saude/saida/siops_sao_bernardo_2018.csv",
+  "tamanho_bytes": 256,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio",
+    "ibge6",
+    "percentual_asps",
+    "despesa_saude_total",
+    "receita_impostos",
+    "despesa_saude_por_hab",
+    "pct_transferencias_sus",
+    "limite_constitucional_pct",
+    "situacao",
+    "fase"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio": "string",
+    "ibge6": "integer",
+    "percentual_asps": "float/numeric",
+    "despesa_saude_total": "float/numeric",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_por_hab": "float/numeric",
+    "pct_transferencias_sus": "float/numeric",
+    "limite_constitucional_pct": "integer",
+    "situacao": "string",
+    "fase": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2018",
+      "municipio": "sao_bernardo",
+      "ibge6": "354870",
+      "percentual_asps": "24.32",
+      "despesa_saude_total": "451525321.37",
+      "receita_impostos": "1856631438.90",
+      "despesa_saude_por_hab": "826594079.54",
+      "pct_transferencias_sus": "35.34",
+      "limite_constitucional_pct": "15",
+      "situacao": "cumprido",
+      "fase": "previsto"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.542038"
+}

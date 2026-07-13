@@ -1,7 +1,7 @@
 {
   "arquivo": "siops_sao_paulo_consolidado.csv",
   "caminho_relativo": "data/public/sao_paulo/saude/saida/siops_sao_paulo_consolidado.csv",
-  "tamanho_bytes": 1171,
+  "tamanho_bytes": 1343,
   "linhas_dados": 25,
   "colunas": [
     "ano",
@@ -18,10 +18,10 @@
     "ano": "integer",
     "municipio": "string",
     "ibge6": "integer",
-    "receita_impostos": "empty",
-    "despesa_saude_total": "empty",
+    "receita_impostos": "float/numeric",
+    "despesa_saude_total": "float/numeric",
     "despesa_asps": "empty",
-    "percentual_asps": "empty",
+    "percentual_asps": "float/numeric",
     "limite_constitucional_pct": "integer",
     "situacao": "string"
   },
@@ -60,5 +60,5 @@
       "situacao": "nao_coletado"
     }
   ],
-  "analisado_em": "2026-07-01T07:02:02.750270"
+  "analisado_em": "2026-07-13T05:57:32.843869"
 }

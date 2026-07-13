@@ -1,0 +1,36 @@
+{
+  "arquivo": "dca_transporte_sao_bernardo_2022.csv",
+  "caminho_relativo": "data/public/sao_bernardo/transporte/saida/dca_transporte_sao_bernardo_2022.csv",
+  "tamanho_bytes": 273,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Empenhado",
+    "Liquidado",
+    "Pago",
+    "RP_Nao_Processado",
+    "RP_Processado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Empenhado": "string",
+    "Liquidado": "string",
+    "Pago": "string",
+    "RP_Nao_Processado": "string",
+    "RP_Processado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Empenhado": "384.247.372,71",
+      "Liquidado": "350.589.185,72",
+      "Pago": "349.826.325,26",
+      "RP_Nao_Processado": "33.658.186,99",
+      "RP_Processado": "762.860,46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-E&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.630504"
+}

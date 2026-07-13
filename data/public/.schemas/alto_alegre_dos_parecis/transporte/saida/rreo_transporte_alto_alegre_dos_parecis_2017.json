@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_alto_alegre_dos_parecis_2017.csv",
+  "caminho_relativo": "data/public/alto_alegre_dos_parecis/transporte/saida/rreo_transporte_alto_alegre_dos_parecis_2017.csv",
+  "tamanho_bytes": 399,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Dotacao_Inicial": "983.000,00",
+      "Dotacao_Atualizada": "1.380.041,58",
+      "Empenhado": "1.205.100,38",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "967.562,46",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "3,7726",
+      "Total_Municipal_Empenhado": "31.943.320,62",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=1100379"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.041338"
+}

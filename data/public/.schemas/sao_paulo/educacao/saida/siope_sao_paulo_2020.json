@@ -1,7 +1,7 @@
 {
   "arquivo": "siope_sao_paulo_2020.csv",
   "caminho_relativo": "data/public/sao_paulo/educacao/saida/siope_sao_paulo_2020.csv",
-  "tamanho_bytes": 151,
+  "tamanho_bytes": 166,
   "linhas_dados": 1,
   "colunas": [
     "ano",
@@ -18,8 +18,8 @@
     "municipio": "string",
     "ibge7": "integer",
     "receita_vinculada_mde": "empty",
-    "despesa_mde": "empty",
-    "percentual_aplicado": "empty",
+    "despesa_mde": "float/numeric",
+    "percentual_aplicado": "float/numeric",
     "limite_constitucional_pct": "integer",
     "situacao": "string"
   },
@@ -29,11 +29,11 @@
       "municipio": "sao_paulo",
       "ibge7": "3550308",
       "receita_vinculada_mde": "",
-      "despesa_mde": "",
-      "percentual_aplicado": "",
+      "despesa_mde": "11429958546.00",
+      "percentual_aplicado": "25.16",
       "limite_constitucional_pct": "25",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido"
     }
   ],
-  "analisado_em": "2026-07-01T07:02:02.893804"
+  "analisado_em": "2026-07-13T05:57:32.979280"
 }

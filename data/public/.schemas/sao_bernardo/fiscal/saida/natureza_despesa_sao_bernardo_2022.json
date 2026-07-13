@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sao_bernardo_2022.csv",
+  "caminho_relativo": "data/public/sao_bernardo/fiscal/saida/natureza_despesa_sao_bernardo_2022.csv",
+  "tamanho_bytes": 377,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "1633187252.57",
+      "Juros_Encargos": "142059763.27",
+      "Outras_Correntes": "2551506172.96",
+      "Despesas_Correntes": "4326753188.80",
+      "Investimentos": "538130621.71",
+      "Despesas_Capital": "843172125.08",
+      "Total_Despesas": "5395122401.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.570334"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_bernardo_2019.csv",
+  "caminho_relativo": "data/public/sao_bernardo/executivo/saida/despesas_executivo_sao_bernardo_2019.csv",
+  "tamanho_bytes": 6078,
+  "linhas_dados": 24,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "289743000.00",
+      "Dotacao_Atualizada": "310706701.15",
+      "Empenhado": "267187541.53",
+      "Liquidado": "254460131.71",
+      "Exceto_Intra_Liquidado": "173380778.86",
+      "Intra_Liquidado": "81079352.85",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "78120000.00",
+      "Dotacao_Atualizada": "82919008.86",
+      "Empenhado": "68315183.32",
+      "Liquidado": "66576060.62",
+      "Exceto_Intra_Liquidado": "65423866.68",
+      "Intra_Liquidado": "1152193.94",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "10000.00",
+      "Dotacao_Atualizada": "10000.00",
+      "Empenhado": "1000.00",
+      "Liquidado": "1000.00",
+      "Exceto_Intra_Liquidado": "1000.00",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2019&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3548708&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.596534"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_ariquemes_2016.csv",
+  "caminho_relativo": "data/public/ariquemes/fiscal/saida/pessoal_ariquemes_2016.csv",
+  "tamanho_bytes": 434,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "RCL": "193070257.57",
+      "RCL_Ajustada": "0.00",
+      "Pessoal_Bruto": "0.00",
+      "Pessoal_Ativo": "0.00",
+      "Pessoal_Inativo": "0.00",
+      "Pessoal_Liquido": "0.00",
+      "DTP": "110847049.75",
+      "DTP_pct_RCL": "0.0000",
+      "Limite_Maximo_pct": "0.0000",
+      "Limite_Prudencial_pct": "0.0000",
+      "Limite_Alerta_pct": "0.0000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2016&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1100023&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:34.594506"
+}

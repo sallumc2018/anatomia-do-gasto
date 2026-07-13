@@ -1,7 +1,7 @@
 {
   "arquivo": "siope_paulinia_2019.csv",
   "caminho_relativo": "data/public/paulinia/educacao/saida/siope_paulinia_2019.csv",
-  "tamanho_bytes": 150,
+  "tamanho_bytes": 163,
   "linhas_dados": 1,
   "colunas": [
     "ano",
@@ -18,8 +18,8 @@
     "municipio": "string",
     "ibge7": "integer",
     "receita_vinculada_mde": "empty",
-    "despesa_mde": "empty",
-    "percentual_aplicado": "empty",
+    "despesa_mde": "float/numeric",
+    "percentual_aplicado": "float/numeric",
     "limite_constitucional_pct": "integer",
     "situacao": "string"
   },
@@ -29,11 +29,11 @@
       "municipio": "paulinia",
       "ibge7": "3536505",
       "receita_vinculada_mde": "",
-      "despesa_mde": "",
-      "percentual_aplicado": "",
+      "despesa_mde": "441709973.09",
+      "percentual_aplicado": "32.33",
       "limite_constitucional_pct": "25",
-      "situacao": "nao_coletado"
+      "situacao": "cumprido"
     }
   ],
-  "analisado_em": "2026-07-01T07:02:04.360432"
+  "analisado_em": "2026-07-13T05:57:35.304853"
 }

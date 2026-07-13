@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_alto_paraiso_ro_2017.csv",
+  "caminho_relativo": "data/public/alto_paraiso_ro/transporte/saida/rreo_transporte_alto_paraiso_ro_2017.csv",
+  "tamanho_bytes": 397,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "float/numeric",
+    "Liquidado": "string",
+    "Intra_Liquidado": "float/numeric",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2017",
+      "Dotacao_Inicial": "545.342,95",
+      "Dotacao_Atualizada": "1.001.405,87",
+      "Empenhado": "733.128,97",
+      "Intra_Empenhado": "0,00",
+      "Liquidado": "589.655,70",
+      "Intra_Liquidado": "0,00",
+      "Pct_Orcamento": "2,3686",
+      "Total_Municipal_Empenhado": "30.952.286,01",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2017&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=1100403"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:34.337093"
+}

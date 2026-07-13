@@ -1,0 +1,45 @@
+{
+  "arquivo": "rreo_transporte_sao_bernardo_2016.csv",
+  "caminho_relativo": "data/public/sao_bernardo/transporte/saida/rreo_transporte_sao_bernardo_2016.csv",
+  "tamanho_bytes": 430,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Intra_Empenhado",
+    "Liquidado",
+    "Intra_Liquidado",
+    "Pct_Orcamento",
+    "Total_Municipal_Empenhado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Dotacao_Inicial": "string",
+    "Dotacao_Atualizada": "string",
+    "Empenhado": "string",
+    "Intra_Empenhado": "string",
+    "Liquidado": "string",
+    "Intra_Liquidado": "string",
+    "Pct_Orcamento": "float/numeric",
+    "Total_Municipal_Empenhado": "string",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2016",
+      "Dotacao_Inicial": "678.896.000,00",
+      "Dotacao_Atualizada": "711.115.926,99",
+      "Empenhado": "294.505.008,27",
+      "Intra_Empenhado": "6.720.000,00",
+      "Liquidado": "257.338.794,13",
+      "Intra_Liquidado": "6.720.000,00",
+      "Pct_Orcamento": "8,1948",
+      "Total_Municipal_Empenhado": "3.593.815.439,08",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2016&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2002&id_ente=3548708"
+    }
+  ],
+  "analisado_em": "2026-07-13T05:57:35.623220"
+}
