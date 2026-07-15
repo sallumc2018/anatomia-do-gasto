@@ -10,7 +10,7 @@ Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `
 
 Modo: **varredura completa, sem ação**. Apenas relatar falhas. Não editar arquivos.
 
-Raiz do projeto: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
+Raiz do projeto: `~/Documentos/Projects/anatomia-do-gasto`
 Raiz do frontend: `apps/web/`
 
 ---

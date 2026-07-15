@@ -18,7 +18,7 @@
 - Usar um servico systemd no `sallumc-server` rodando:
 
 ```bash
-cd /home/sallumc/anatomia-do-gasto
+cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto
 .venv/bin/python3 scripts/sprint2_24x7_worker.py --loop --sleep 30 --commit-push-every 25
 ```
 

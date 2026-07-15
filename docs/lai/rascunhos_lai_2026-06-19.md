@@ -39,7 +39,7 @@ Para cada ano do período **2020 a 2026** (ou o mais completo disponível):
 Caso os dados já estejam disponíveis em portal de transparência ativo, solicito indicação da URL de acesso.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 anatomiadogasto.ong.br
 
@@ -71,7 +71,7 @@ Com fundamento na Lei Federal nº 12.527/2011, solicito a relação de contratos
 **Justificativa:** O Portal Nacional de Contratações Públicas (PNCP) cobre os contratos publicados a partir de 01/04/2022. Para construção de série histórica completa (2020-2026), os contratos de 2020 e 2021 precisam ser obtidos diretamente do município. O Anatomia do Gasto é portal de controle social de acesso gratuito (anatomiadogasto.ong.br).
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -102,7 +102,7 @@ Relação de obras em execução e concluídas com: identificação da obra, loc
 **Formato desejado:** CSV, XLSX ou JSON. Documentos em PDF são aceitos como segunda opção.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -125,7 +125,7 @@ Com fundamento na Lei nº 12.527/2011, solicito:
 **Justificativa:** Esses registros são necessários para reconciliação da execução financeira com o fluxo de caixa declarado nos demonstrativos do SICONFI (RREO Anexos 1 e 2). Sem eles, a análise de transparência fiscal fica incompleta para períodos em que o portal local não disponibiliza os dados abertos.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -148,7 +148,7 @@ Com fundamento na Lei nº 12.527/2011, solicito dados sobre a execução orçame
 **Justificativa:** O Anatomia do Gasto mapeia os dados financeiros de entidades que impactam os contribuintes da Região Metropolitana de Sorocaba. A AGEM, como autarquia intermunicipal, é parte desse mapeamento de transparência.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -177,7 +177,7 @@ Os dados estruturados transmitidos pelo Município de Sorocaba ao sistema AUDESP
 **Justificativa:** O portal AUDESP não disponibiliza os dados de submissão municipal em formato aberto para consulta pública. Os dados já são transmitidos obrigatoriamente pelo município; o TCE-SP atua como custodiante e pode disponibilizá-los.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -198,7 +198,7 @@ Caso os dados individuais estejam sujeitos a proteção LGPD, solicito ao menos 
 **Justificativa:** O Anatomia do Gasto (anatomiadogasto.ong.br) é portal de controle social que publica dados de Paulínia desde 2020. Os dados de pessoal permitirão completar a análise de conformidade com o limite de 60% da RCL (Lei de Responsabilidade Fiscal) já publicado com dados do SICONFI.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---
@@ -226,7 +226,7 @@ URL ou base de dados dos atos oficiais publicados no Diário Oficial de Paulíni
 **Formato:** CSV, XLSX ou PDF indexado.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 ---

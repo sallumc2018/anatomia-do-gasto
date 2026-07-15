@@ -9,7 +9,7 @@
 ## Comando manual
 
 ```bash
-cd /home/sallumc/anatomia-do-gasto
+cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto
 .venv/bin/python3 tools/server/server_health_snapshot.py --stdout
 ```
 
@@ -28,7 +28,7 @@ cd /home/sallumc/anatomia-do-gasto
 ## Automacao sugerida
 
 ```cron
-*/15 * * * * cd /home/sallumc/anatomia-do-gasto && /home/sallumc/anatomia-do-gasto/.venv/bin/python3 tools/server/server_health_snapshot.py >> _logs/server_health/cron.log 2>&1
+*/15 * * * * cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto && /home/omega-blue/Documentos/Projects/anatomia-do-gasto/.venv/bin/python3 tools/server/server_health_snapshot.py >> _logs/server_health/cron.log 2>&1
 ```
 
 ## Integracao futura com HUD

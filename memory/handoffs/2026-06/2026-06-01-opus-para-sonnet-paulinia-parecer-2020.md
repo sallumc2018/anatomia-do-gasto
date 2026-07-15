@@ -2,7 +2,7 @@
 
 **Para:** próxima sessão Sonnet (coleta/Playwright). **Objetivo:** obter o documento real do
 julgamento das contas MUNICIPAIS de Paulínia 2020 no TCE-SP, que hoje **não existe no acervo**.
-Sem ele, o Opus não pode escrever o texto editorial (Protocolo Sallum: sem documento, sem narrativa).
+Sem ele, o Opus não pode escrever o texto editorial (Protocolo NeoLogos: sem documento, sem narrativa).
 
 ## Por que esta tarefa existe (achado do Opus 2026-06-01)
 - O `inventario_pdfs_contas_anuais.csv` de Paulínia (318 PDFs) é **100% CONTAS DO GOVERNADOR (estado SP)**

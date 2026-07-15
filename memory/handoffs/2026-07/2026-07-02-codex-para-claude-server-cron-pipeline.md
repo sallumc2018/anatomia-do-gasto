@@ -19,7 +19,7 @@
 
 ## Decisao operacional
 
-- O cron do servidor pode chamar `/home/sallumc/coleta_wrapper.sh` apenas como fallback.
+- O cron do servidor pode chamar `/home/omega-blue/coleta_wrapper.sh` apenas como fallback.
 - Esse arquivo deve ser uma copia instalada de `scripts/coleta_wrapper_server.sh`.
 - A coleta atual nao precisa ser interrompida.
 - Para cobertura Brasil 24/7, preferir systemd com o worker continuo.
@@ -47,7 +47,7 @@
 - Confirmar no servidor:
 
 ```bash
-diff -u /home/sallumc/anatomia-do-gasto/scripts/coleta_wrapper_server.sh /home/sallumc/coleta_wrapper.sh
+diff -u /home/omega-blue/Documentos/Projects/anatomia-do-gasto/scripts/coleta_wrapper_server.sh /home/omega-blue/coleta_wrapper.sh
 crontab -l
 ```
 

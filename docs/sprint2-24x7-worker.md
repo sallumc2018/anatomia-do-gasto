@@ -11,7 +11,7 @@
 ## Comando base
 
 ```bash
-cd /home/sallumc/anatomia-do-gasto
+cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto
 .venv/bin/python3 scripts/sprint2_24x7_worker.py --loop --sleep 30 --commit-push-every 25
 ```
 
@@ -49,8 +49,8 @@ After=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/sallumc/anatomia-do-gasto
-ExecStart=/home/sallumc/anatomia-do-gasto/.venv/bin/python3 scripts/sprint2_24x7_worker.py --loop --sleep 30 --commit-push-every 25
+WorkingDirectory=/home/omega-blue/Documentos/Projects/anatomia-do-gasto
+ExecStart=/home/omega-blue/Documentos/Projects/anatomia-do-gasto/.venv/bin/python3 scripts/sprint2_24x7_worker.py --loop --sleep 30 --commit-push-every 25
 Restart=always
 RestartSec=60
 

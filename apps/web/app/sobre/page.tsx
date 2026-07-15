@@ -252,7 +252,7 @@ export default function SobrePage() {
             <p className="uppercase font-semibold mb-2" style={S.label}>Fundador</p>
             <div className="mt-8" style={S.borderTop}>
               <div className="py-8" style={S.borderBottom}>
-                <h2 style={{ ...S.h2, fontSize: "18px" }}>Alexandre Sallum Cunha</h2>
+                <h2 style={{ ...S.h2, fontSize: "18px" }}>NeoLogos</h2>
                 <p style={{ ...S.body, color: "var(--text-03)", marginBottom: "16px" }}>
                   Cidadão inconformado com a opacidade das contas públicas. Iniciou o projeto em 2026
                   como piloto em Sorocaba/SP com o objetivo de escalar para todos os municípios brasileiros.

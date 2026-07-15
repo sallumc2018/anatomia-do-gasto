@@ -1,6 +1,6 @@
 # AI Master Prompt
 
-Contexto especifico do projeto publico Anatomia do Gasto. Leia tambem `~/Documents/Omega/OMEGA_GOVERNANCE.md`; as regras deste repositorio prevalecem quando forem mais restritivas.
+Contexto especifico do projeto publico Anatomia do Gasto. Leia tambem `~/AGENTS.md`; as regras deste repositorio prevalecem quando forem mais restritivas.
 
 ## 1. Objetivo Do Projeto
 

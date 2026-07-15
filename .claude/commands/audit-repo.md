@@ -10,7 +10,7 @@ Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `
 
 Modo: **varredura completa, sem ação**. Apenas relatar. Não commitar, não fazer push, não alterar nada.
 
-Raiz do projeto: `~/Documents/Omega/02-repos/00-anatomia-do-gasto`
+Raiz do projeto: `~/Documentos/Projects/anatomia-do-gasto`
 GitHub: `github.com/sallumc2018/anatomia-do-gasto`
 
 ---
@@ -107,7 +107,7 @@ Atenção: `npm install`, `npm update`, `npm audit fix` são proibidos sem autor
 ## 5. Qualidade do código Python
 
 ```bash
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 
 # Compilar todos os scripts Python (detecta erros de sintaxe)
 find pipelines/ tools/ -name "*.py" | xargs .venv/bin/python3 -m py_compile 2>&1 | head -20

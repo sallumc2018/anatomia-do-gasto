@@ -6,10 +6,10 @@ demais contratos de agentes.
 
 ## Raiz e classificação
 
-- Raiz canônica:
-  `/home/sallumc/Documents/Omega/02-repos/00-anatomia-do-gasto`
+- Raiz canônica neste computador:
+  `$HOME/Documentos/Projects/anatomia-do-gasto`
 - Classificação: repositório público.
-- Clones em `~/Omega/` ou `~/Documents/anatomia-do-gasto` não são fonte de verdade.
+- Clones fora de `~/Documentos/Projects/` não são fonte de verdade neste computador.
 - Conteúdo privado do Omega, da Forja ou de outros projetos nunca entra aqui.
 
 ## Controle do trabalho

@@ -1,7 +1,7 @@
 # ENGINEERING_SCOPE — Anatomia do Gasto
 
 Contrato local de responsabilidade técnica. Complementa o
-`~/Documents/Omega/MODEL_ROUTING.md`.
+`~/CODEX.md`.
 
 ## Responsável principal
 

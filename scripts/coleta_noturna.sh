@@ -4,15 +4,17 @@
 
 set -Eeuo pipefail
 FALHAS=()
-RCLONE=/home/sallumc/.local/bin/rclone
-export PATH="/home/sallumc/.nvm/versions/node/v24.16.0/bin:/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+RCLONE="${RCLONE_BIN:-$HOME/.local/bin/rclone}"
+NVM_ROOT="${NVM_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/nvm}"
+NODE_BIN=$(find "$NVM_ROOT/versions/node" -mindepth 2 -maxdepth 2 -type d -name bin 2>/dev/null | sort -V | tail -n 1 || true)
+export PATH="${NODE_BIN:+$NODE_BIN:}$HOME/.local/bin:$PATH"
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 
 # Carregar segredos (Portal Transparência, etc.) — arquivos fora do repo.
 # O arquivo por projeto tem precedência quando existir, mas mantemos o caminho
 # legado porque TASKS.md e sessões anteriores registraram a chave ali.
-OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
-PORTAIS_ENV="/home/sallumc/.config/omega/secrets/by-project/portais.env"
+OMEGA_SECRETS="${OMEGA_SECRETS:-${XDG_CONFIG_HOME:-$HOME/.config}/omega/secrets.env}"
+PORTAIS_ENV="${PORTAIS_ENV:-${XDG_CONFIG_HOME:-$HOME/.config}/omega/secrets/by-project/portais.env}"
 set +u
 if [[ -f "$OMEGA_SECRETS" ]]; then
   source "$OMEGA_SECRETS"
@@ -179,7 +181,7 @@ if [[ ${#FALHAS[@]} -gt 0 ]]; then
   done
 
   # Notificação Telegram — token não exportado ao ambiente; arquivo 600; trap garante remoção
-  OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
+  OMEGA_SECRETS="${OMEGA_SECRETS:-${XDG_CONFIG_HOME:-$HOME/.config}/omega/secrets.env}"
   TG_BOT_TOKEN=""
   TG_CHAT_ID=""
   if [[ -f "$OMEGA_SECRETS" ]]; then

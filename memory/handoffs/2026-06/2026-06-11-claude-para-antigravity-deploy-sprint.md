@@ -10,7 +10,7 @@
 ## Tarefa 1 — Push + Deploy (EXECUTAR PRIMEIRO)
 
 ```bash
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 
 # Gate de deploy (não bloqueante, mas registra problemas)
 python3 tools/gates/pre_deploy.py
@@ -37,7 +37,7 @@ Se algum Lambda passar 250MB nos build logs → reportar para Claude Code com o 
 ### Fase 1C — Dados prontos para coletar
 
 ```bash
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 
 # P1 — LOA/PPA/LDO Paulínia (PDFs locais em data/raw/paulinia/smarapd/)
 MUNICIPIO=paulinia .venv/bin/python3 pipelines/extrator_loa_paulinia.py --tipo todos

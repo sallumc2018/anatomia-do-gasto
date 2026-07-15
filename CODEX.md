@@ -2,7 +2,7 @@
 
 Leia primeiro:
 
-1. `~/Documents/Omega/OMEGA_GOVERNANCE.md`
+1. `~/AGENTS.md`
 2. `AI_MASTER_PROMPT.md`
 3. `AGENTS.md`
 
@@ -66,4 +66,4 @@ executa publicacao externa sem autorizacao.
 
 ## Disciplina de Raciocínio (obrigatória)
 
-Antes de qualquer entrega, seguir `~/Documents/Omega/DISCIPLINA_DE_RACIOCINIO.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).
+Antes de qualquer entrega, seguir `~/ENGINEERING.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).

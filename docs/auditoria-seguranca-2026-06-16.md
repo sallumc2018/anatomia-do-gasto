@@ -47,7 +47,7 @@ blob-callback com 2 regex do saneador) → **0 CPF** em 3290 blobs únicos. GitH
 13 `refs/pull/*` não removíveis por push. Solução definitiva adotada: **repositório recriado
 do zero** — repo antigo arquivado como `anatomia-do-gasto-old` (privado); novo repo público
 iniciado com commit limpo `00d9c04`. Backup local preservado em branch
-`main-full-history-20260618`; arquivo completo em `~/Documents/Omega/02-repos/`.
+`main-full-history-20260618`; arquivo completo em `~/Documentos/Projects/`.
 
 ---
 
@@ -100,8 +100,8 @@ Nenhum vazamento; respostas `{"error":"Not found"}`.
 - 0 CPF no histórico público (novo repo tem apenas 2 commits: `00d9c04` + `f775d88`)
 - 0 `refs/pull/*` (novo repo não tem histórico de PRs)
 - Conteúdo de trabalho 100% preservado
-- Backup local: branch `main-full-history-20260618`; mirror privado em `~/Documents/Omega/02-repos/`
-- Arquivo LGPD: `~/Documents/Omega/02-repos/ARQUIVO-LGPD-anatomia-README.md`
+- Backup local: branch `main-full-history-20260618`; mirror privado em `~/Documentos/Projects/`
+- Arquivo LGPD: `~/Documentos/Projects/ARQUIVO-LGPD-anatomia-README.md`
 
 ---
 

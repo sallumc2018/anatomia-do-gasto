@@ -1,6 +1,6 @@
 # 🗂️ EXPANSÃO SÃO PAULO CAPITAL — Arquivo-Mestre (fonte única)
 
-> **Este é o hub.** Codex e Sallum começam por aqui. Detalhe em `expansao-sp-capital-scope.md`; handoff de execução em `_logs/2026-06-13_codex_handoff-coleta-sp-capital-onda1.md`; regras em `protocolo-dados-reais-expansao.md`.
+> **Este é o hub.** Codex e NeoLogos começam por aqui. Detalhe em `expansao-sp-capital-scope.md`; handoff de execução em `_logs/2026-06-13_codex_handoff-coleta-sp-capital-onda1.md`; regras em `protocolo-dados-reais-expansao.md`.
 > ⏰ **Codex SEM LIMITE até 18/06/2026** → coletar o máximo possível até lá.
 > Município: **São Paulo Capital · IBGE 3550308 · DATASUS 355030**.
 

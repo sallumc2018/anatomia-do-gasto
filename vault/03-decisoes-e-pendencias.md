@@ -47,7 +47,7 @@ RAG Omega pausado. RAG específico por projeto (este vault) é a abordagem corre
 Há CPFs de PF em commits antigos de data/. Pendente: git filter-branch ou BFG para sanitizar histórico.
 
 ## Configuração de segredos
-Arquivo: `/home/sallumc/.config/omega/secrets.env` (fora do repo, nunca commitar)
+Arquivo: `/home/omega-blue/.config/omega/secrets.env` (fora do repo, nunca commitar)
 Variáveis: `PORTAL_TRANSPARENCIA_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
 
 ### TCE contas anuais — bug RESOLVIDO (2026-07-05)
@@ -62,7 +62,7 @@ Há CPFs de PF em commits antigos de `data/`. BFG Repo Cleaner pode limpar.
 Comando proposto: `bfg --delete-files '*.csv' --private` (escopo exato a confirmar).
 
 ## Configuração de segredos
-Arquivo: `/home/sallumc/.config/omega/secrets.env` (fora do repo, nunca commitar)
+Arquivo: `/home/omega-blue/.config/omega/secrets.env` (fora do repo, nunca commitar)
 Variáveis: `PORTAL_TRANSPARENCIA_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
 
 ## Crons ativos (UTC → BRT -3h)

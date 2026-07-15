@@ -28,7 +28,7 @@ Laptop antigo (Intel Pentium P6200, 2.8GB RAM, 291GB HDD) convertido em servidor
 
 **Cron servidor** (`~/coleta_wrapper.sh`, roda a cada 4h):
 ```
-0 */4 * * * /home/sallumc/coleta_wrapper.sh
+0 */4 * * * /home/omega-blue/coleta_wrapper.sh
 ```
 
 **Wrapper** (`~/coleta_wrapper.sh`) faz:
@@ -39,7 +39,7 @@ Laptop antigo (Intel Pentium P6200, 2.8GB RAM, 291GB HDD) convertido em servidor
 
 **Deploy Vercel no PC principal** (cron a ser adicionado pelo usuário às 04:00):
 ```bash
-(crontab -l; echo '0 4 * * * cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto && git pull origin main >> _logs/deploy_cron.log 2>&1 && npx vercel deploy --prod --yes >> _logs/deploy_cron.log 2>&1') | crontab -
+(crontab -l; echo '0 4 * * * cd ~/Documentos/Projects/anatomia-do-gasto && git pull origin main >> _logs/deploy_cron.log 2>&1 && npx vercel deploy --prod --yes >> _logs/deploy_cron.log 2>&1') | crontab -
 ```
 
 ### 3. Secrets sincronizados para o servidor

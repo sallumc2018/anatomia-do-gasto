@@ -1,14 +1,14 @@
 #!/bin/bash
-# Wrapper seguro para cron no sallumc-server.
+# Wrapper seguro para cron no Omega Blue.
 #
 # Fluxo:
 #   pull --ff-only -> coleta_noturna -> gates leves -> commit escopado -> push
 #
-# Este script deve ser instalado em /home/sallumc/coleta_wrapper.sh no servidor.
+# O caminho do repositório pode ser sobrescrito por ANATOMIA_REPO.
 
 set -Eeuo pipefail
 
-REPO="${ANATOMIA_REPO:-/home/sallumc/anatomia-do-gasto}"
+REPO="${ANATOMIA_REPO:-$HOME/Documentos/Projects/anatomia-do-gasto}"
 LOG_DIR="$REPO/_logs/coleta_noturna"
 WRAP_LOG="$LOG_DIR/wrapper_$(date -u +%Y%m%d_%H%M%S).log"
 PYTHON="$REPO/.venv/bin/python3"

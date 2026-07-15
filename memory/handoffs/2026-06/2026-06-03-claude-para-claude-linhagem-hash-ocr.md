@@ -1,7 +1,7 @@
 # Handoff: Linhagem de dados, Hash de fonte e OCR moderno
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet (sessão dedicada)
-**Todas as decisões aprovadas por:** Alexandre Sallum em 2026-06-03
+**Todas as decisões aprovadas por:** Alexandre NeoLogos em 2026-06-03
 
 ---
 

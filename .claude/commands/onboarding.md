@@ -23,7 +23,7 @@ Se faltar municipio ou UF, perguntar antes de continuar.
 ## Passo 1 - Verificar se ja existe
 
 ```powershell
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 Test-Path "data\public\<municipio>"
 Test-Path "apps\web\app\<municipio>"
 Select-String -Path "docs\portais-municipios.md" -Pattern "<municipio>" -ErrorAction SilentlyContinue

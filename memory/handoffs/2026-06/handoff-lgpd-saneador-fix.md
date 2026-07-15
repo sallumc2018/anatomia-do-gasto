@@ -3,7 +3,7 @@
 **Data:** 2026-06-18  
 **Para:** Codex  
 **De:** Claude Code (claude-opus-4-8 → claude-sonnet-4-6)  
-**Repo:** `~/Documents/Omega/02-repos/00-anatomia-do-gasto`  
+**Repo:** `~/Documentos/Projects/anatomia-do-gasto`
 **Prioridade:** Alta — segurança LGPD
 
 ---

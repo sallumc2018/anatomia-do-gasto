@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Leia tambem `~/Documents/Omega/OMEGA_GOVERNANCE.md`. As regras deste repositorio publico prevalecem quando forem mais restritivas.
+Leia tambem `~/AGENTS.md`. As regras deste repositorio publico prevalecem quando forem mais restritivas.
 Leia tambem `docs/roteamento-codex-claude.md` e `docs/release-ownership.md`.
 
 Voce esta em um repositorio publico.
@@ -249,4 +249,4 @@ regressoes.
 
 ## Disciplina de Raciocínio (obrigatória)
 
-Antes de qualquer entrega, seguir `~/Documents/Omega/DISCIPLINA_DE_RACIOCINIO.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).
+Antes de qualquer entrega, seguir `~/ENGINEERING.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).

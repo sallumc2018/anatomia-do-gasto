@@ -6,11 +6,13 @@
 # pipelines/baixar_ceis_cnep.py e scripts/coleta_noturna.sh (etapa 3d, movida
 # para cá em 2026-07-11).
 set -Eeuo pipefail
-export PATH="/home/sallumc/.nvm/versions/node/v24.16.0/bin:/home/sallumc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+NVM_ROOT="${NVM_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/nvm}"
+NODE_BIN=$(find "$NVM_ROOT/versions/node" -mindepth 2 -maxdepth 2 -type d -name bin 2>/dev/null | sort -V | tail -n 1 || true)
+export PATH="${NODE_BIN:+$NODE_BIN:}$HOME/.local/bin:$PATH"
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 
-OMEGA_SECRETS="/home/sallumc/.config/omega/secrets.env"
-PORTAIS_ENV="/home/sallumc/.config/omega/secrets/by-project/portais.env"
+OMEGA_SECRETS="${OMEGA_SECRETS:-${XDG_CONFIG_HOME:-$HOME/.config}/omega/secrets.env}"
+PORTAIS_ENV="${PORTAIS_ENV:-${XDG_CONFIG_HOME:-$HOME/.config}/omega/secrets/by-project/portais.env}"
 set +u
 [[ -f "$OMEGA_SECRETS" ]] && source "$OMEGA_SECRETS"
 [[ -f "$PORTAIS_ENV" ]] && source "$PORTAIS_ENV"

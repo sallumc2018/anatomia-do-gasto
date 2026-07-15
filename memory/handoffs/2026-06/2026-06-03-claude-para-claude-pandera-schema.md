@@ -1,7 +1,7 @@
 # Handoff: Adotar Pandera para validação de schema
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet (sessão de QA/validação)
-**Decisão:** aprovada por Alexandre Sallum em 2026-06-03
+**Decisão:** aprovada por Alexandre NeoLogos em 2026-06-03
 **Branch a criar:** `claude/pandera-schema` (ou agrupar com `claude/duckdb-qa`)
 
 ---

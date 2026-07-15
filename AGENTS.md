@@ -6,7 +6,7 @@ Mapa oficial de caminhos e artefatos: `CANONICAL_PATHS.md`.
 
 Antes de propor ou alterar codigo, leia e siga:
 
-- `~/Documents/Omega/OMEGA_GOVERNANCE.md`
+- `~/AGENTS.md`
 - `AI_MASTER_PROMPT.md`
 - `CODEX.md`
 - `CLAUDE.md`
@@ -90,4 +90,4 @@ Antigravity/Gemini nao integra a operacao ativa. Ver o contrato completo em
 
 ## Disciplina de Raciocínio (obrigatória)
 
-Antes de qualquer entrega, seguir `~/Documents/Omega/DISCIPLINA_DE_RACIOCINIO.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).
+Antes de qualquer entrega, seguir `~/ENGINEERING.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).

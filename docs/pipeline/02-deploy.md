@@ -27,7 +27,7 @@ cd apps/web && npm run build
 ## Execução do deploy (via Antigravity)
 
 ```bash
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 git push origin main
 npx vercel deploy --prod --yes
 ```

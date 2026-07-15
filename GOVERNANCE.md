@@ -1,7 +1,7 @@
 # Governança do Projeto
 
 ## Mantenedor Único (fase atual)
-Este projeto é mantido exclusivamente por Alexandre Sallum Cunha. 
+Este projeto é mantido exclusivamente por NeoLogos.
 Todas as decisões sobre código, dados e direcionamento são centralizadas até que parcerias formais (Câmaras 2 e 3) sejam estabelecidas.
 
 ## Tomada de Decisão

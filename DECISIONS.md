@@ -61,12 +61,12 @@
 **Multi-agente**
 - Claude (este chat e outros) + Codex + Gemini rodam em paralelo no mesmo repo.
 - Barramento: filesystem + git. Cada agente assina ao final da mensagem. Handoffs via `memory/handoffs/`.
-- **OBRIGATÓRIO: todo commit DEVE terminar com a assinatura `[CLI > Modelo > Esforço]`** (ex.: `[Claude Code > claude-opus-4-8 > High]`, `[Codex > GPT-5.5 > High]`, `[Antigravity > Gemini 3.5 Flash > Low]`). O `git author` é sempre `Sallum` (identidade git = usuário), então a assinatura da mensagem é a ÚNICA forma de atribuir autoria entre agentes. Reforçado em 30/mai/2026: 5 commits Claude ficaram sem atribuição no branch `institutional-audit`, impossibilitando rastreio por `git log` — exigiu mapa manual. Sem assinatura = autoria ambígua = retrabalho. **(Substitui a convenção anterior `[Claude]`/`[Codex]` no início do subject: a assinatura agora vai no fim/corpo, válida para todos os agentes.)**
+- **OBRIGATÓRIO: todo commit DEVE terminar com a assinatura `[CLI > Modelo > Esforço]`** (ex.: `[Claude Code > claude-opus-4-8 > High]`, `[Codex > GPT-5.5 > High]`, `[Antigravity > Gemini 3.5 Flash > Low]`). O `git author` é sempre `NeoLogos` (identidade git = usuário), então a assinatura da mensagem é a ÚNICA forma de atribuir autoria entre agentes. Reforçado em 30/mai/2026: 5 commits Claude ficaram sem atribuição no branch `institutional-audit`, impossibilitando rastreio por `git log` — exigiu mapa manual. Sem assinatura = autoria ambígua = retrabalho. **(Substitui a convenção anterior `[Claude]`/`[Codex]` no início do subject: a assinatura agora vai no fim/corpo, válida para todos os agentes.)**
 - Enforçado pelo hook `commit-msg` em `.husky/` (+ `commitlint` para o formato conventional). Ativar uma vez por clone: `git config core.hooksPath .husky` (ou `sh tools/setup-hooks.sh`).
 
 **Modelos (economia) — REGRA DO PORTÃO**
 - **Nada vai para `data/public` sem validação em sessão Opus** (cruzar cada número com a fonte oficial). Sessões Sonnet/extração escrevem SÓ em `data/raw` e `data/extracted`; não publicam nem flipam status de dataset.
-- **Sonnet** = coleta e extração mecânica de padrão conhecido (download, pdfplumber, API). **Opus** = portão de validação (`extracted → validated → public`), reconciliação entre fontes, julgamento (privacidade/LGPD, definições), texto público (rege-se pelo Protocolo Sallum — CER) e coordenação multi-agente.
+- **Sonnet** = coleta e extração mecânica de padrão conhecido (download, pdfplumber, API). **Opus** = portão de validação (`extracted → validated → public`), reconciliação entre fontes, julgamento (privacidade/LGPD, definições), texto público (rege-se pelo Protocolo NeoLogos — CER) e coordenação multi-agente.
 - Motivo: a credibilidade depende de número 100% conferível — erro que chega em `data/public` vira público. Coleta é reversível; publicação não.
 - Troca de modelo = **nova sessão** (nunca mid-session), abrindo já no modelo certo com resumo do alvo.
 

@@ -16,11 +16,11 @@
 ## Wrapper canonico
 
 - Arquivo versionado: `scripts/coleta_wrapper_server.sh`
-- Instalar no servidor como: `/home/sallumc/coleta_wrapper.sh`
+- Instalar no servidor como: `/home/omega-blue/coleta_wrapper.sh`
 - Cron esperado:
 
 ```cron
-0 */4 * * * /home/sallumc/coleta_wrapper.sh >> /home/sallumc/anatomia-do-gasto/_logs/coleta_noturna/cron.log 2>&1
+0 */4 * * * /home/omega-blue/coleta_wrapper.sh >> /home/omega-blue/Documentos/Projects/anatomia-do-gasto/_logs/coleta_noturna/cron.log 2>&1
 ```
 
 ## Fluxo

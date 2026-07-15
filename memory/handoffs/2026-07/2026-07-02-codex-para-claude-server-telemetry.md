@@ -31,14 +31,14 @@
 - No servidor, depois de puxar os commits:
 
 ```bash
-cd /home/sallumc/anatomia-do-gasto
+cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto
 .venv/bin/python3 tools/server/server_health_snapshot.py --stdout
 ```
 
 - Se o teste manual estiver OK, instalar cron leve:
 
 ```cron
-*/15 * * * * cd /home/sallumc/anatomia-do-gasto && /home/sallumc/anatomia-do-gasto/.venv/bin/python3 tools/server/server_health_snapshot.py >> _logs/server_health/cron.log 2>&1
+*/15 * * * * cd /home/omega-blue/Documentos/Projects/anatomia-do-gasto && /home/omega-blue/Documentos/Projects/anatomia-do-gasto/.venv/bin/python3 tools/server/server_health_snapshot.py >> _logs/server_health/cron.log 2>&1
 ```
 
 ## Proximo passo recomendado

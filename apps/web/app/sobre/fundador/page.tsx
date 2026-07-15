@@ -5,7 +5,7 @@ import PageFooter from "@/components/layout/page-footer"
 import { APRENDIZADO } from "@/lib/aprendizado"
 
 export const metadata: Metadata = {
-  title: "Fundador — Alexandre Sallum Cunha · Anatomia do Gasto",
+  title: "Fundador — NeoLogos · Anatomia do Gasto",
   description: "Como o Anatomia do Gasto nasceu: a história de um cidadão inconformado que decidiu rastrear o dinheiro público do Brasil em linguagem acessível.",
   alternates: { canonical: "https://www.anatomiadogasto.ong.br/sobre/fundador" },
 }
@@ -62,7 +62,7 @@ export default function FundadorPage() {
             <div style={{ borderLeft: "4px solid var(--blue-60)", paddingLeft: "24px", maxWidth: "720px" }}>
               <p className="uppercase font-semibold mb-3" style={S.label}>Fundador</p>
               <h1 className="font-light mb-8" style={{ fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: "1.2", color: "var(--text-01)" }}>
-                Alexandre Sallum Cunha
+                NeoLogos
               </h1>
               <p style={{ ...S.body, marginBottom: "20px" }}>
                 Estudei informática no COPI/FIAP, escrevi meu primeiro HTML aos 15 anos, passei por ASP, Java

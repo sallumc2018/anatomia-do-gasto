@@ -8,7 +8,7 @@
 Auditei o site inteiro (números vs fonte oficial). Veredito: todo número de destaque confere; deploy ao vivo da `/sorocaba/saude` confirmado correto. Apliquei correções pequenas e fiz commits `[Claude]` — mas eles foram parar no branch do Codex (`codex/institutional-audit-data-catalog`), porque o branch `claude/*` ainda não existia.
 
 ## ⚠️ MAPA DEFINITIVO DE ATRIBUIÇÃO — 17 commits à frente do `main` (30/mai)
-> **TODOS têm `git author = Sallum`** — o agente está SÓ no prefixo da mensagem (convenção vazou). **Resolvido pela regra de data (usuário, 30/mai):** **28/mai = Codex** (Claude indisponível), **30/mai = Claude** (Codex encerrado), **29/mai = pelo prefixo** (ambos ativos). **NÃO reescrever histórico** (branch compartilhado e pushado) — usar este mapa.
+> **TODOS têm `git author = NeoLogos`** — o agente está SÓ no prefixo da mensagem (convenção vazou). **Resolvido pela regra de data (usuário, 30/mai):** **28/mai = Codex** (Claude indisponível), **30/mai = Claude** (Codex encerrado), **29/mai = pelo prefixo** (ambos ativos). **NÃO reescrever histórico** (branch compartilhado e pushado) — usar este mapa.
 
 ### CLAUDE (14) → consolidar no branch `claude/*`
 | SHA | prefixo | descrição |

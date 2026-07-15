@@ -334,7 +334,7 @@ function Get-NetworkScan {
     "192.168.15.7"  = "Celular-Mae-2"
     "192.168.15.8"  = "Laptop-Mae"
     "192.168.15.10" = "Galaxy-A30"
-    "192.168.15.11" = "Laptop-Sallum"
+    "192.168.15.11" = "Laptop-NeoLogos"
     "192.168.15.18" = "Tablet"
   }
   $result = @{

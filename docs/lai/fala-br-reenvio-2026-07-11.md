@@ -82,7 +82,7 @@ Caso os dados já estejam disponíveis em portal de transparência ativo de Soro
 solicito a indicação da URL de acesso direto.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 *(≈1.150 caracteres)*
@@ -115,7 +115,7 @@ controle social de acesso gratuito que já publica dados de Sorocaba e utiliza e
 dados exclusivamente para fins de transparência pública.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 *(≈1.180 caracteres)*
@@ -154,7 +154,7 @@ disponíveis; os dados orçamentários de execução já estão publicados via
 SICONFI/Tesouro Nacional.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 *(≈1.550 caracteres)*
@@ -181,7 +181,7 @@ incompleta. O dado é produzido no sistema contábil municipal e não está disp
 portais públicos atuais de Sorocaba.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 *(≈1.020 caracteres)*
@@ -212,7 +212,7 @@ como custodiante e pode disponibilizá-los. O Anatomia do Gasto (anatomiadogasto
 é portal público de controle social de acesso gratuito.
 
 Atenciosamente,
-Alexandre Sallum Cunha
+NeoLogos
 contato@anatomiadogasto.ong.br
 
 *(≈1.130 caracteres — inclui a ressalva de que já consultei o Portal de Transparência

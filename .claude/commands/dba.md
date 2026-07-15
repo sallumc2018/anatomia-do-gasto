@@ -29,7 +29,7 @@ Escala de referencia: o projeto deve suportar os 5.570 municipios brasileiros. Q
 ## Passo 1 - Inspecionar schemas atuais
 
 ```powershell
-cd ~/Documents/Omega/02-repos/00-anatomia-do-gasto
+cd ~/Documentos/Projects/anatomia-do-gasto
 Get-ChildItem "data\public" -Recurse -Filter "*.csv" | Select-Object -First 3 | ForEach-Object {
   Write-Host "--- $($_.Name) ---"
   Get-Content $_.FullName | Select-Object -First 2

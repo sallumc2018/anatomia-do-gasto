@@ -4,7 +4,7 @@
 # Requer: Executar como Administrador
 
 $TabletIP   = "192.168.15.18"
-$LaptopIP   = "192.168.15.11"  # Laptop-Sallum
+$LaptopIP   = "192.168.15.11"  # Laptop-NeoLogos
 
 Write-Host "=== Hardening de firewall — Anatomia do Gasto ===" -ForegroundColor Cyan
 

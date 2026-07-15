@@ -1,7 +1,7 @@
 # Handoff: Migração de pipeline para Scrapy + rows
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet + Codex (sessão dedicada de pipeline)
-**Decisão:** aprovada por Alexandre Sallum em 2026-06-03
+**Decisão:** aprovada por Alexandre NeoLogos em 2026-06-03
 **Branch a criar:** `claude/pipeline-scrapy-migration`
 
 ---
