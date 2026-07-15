@@ -1,7 +1,7 @@
 # Handoff: Coleta resiliente — formatos, encoding e portais protegidos
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet (sessão dedicada)
-**Decisões aprovadas por:** Alexandre NeoLogos em 2026-06-03
+**Decisões aprovadas por:** NeoLogos em 2026-06-03
 **Branch:** `claude/coleta-resiliente` (ou agrupar com `claude/tenacity-retry`)
 
 ---

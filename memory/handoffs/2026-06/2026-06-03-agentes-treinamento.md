@@ -1,7 +1,7 @@
 # Handoff: Treinamento e protocolo dos agentes
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Opus (próximas sessões de treinamento)
-**Aprovado por:** Alexandre NeoLogos em 2026-06-03
+**Aprovado por:** NeoLogos em 2026-06-03
 
 ---
 

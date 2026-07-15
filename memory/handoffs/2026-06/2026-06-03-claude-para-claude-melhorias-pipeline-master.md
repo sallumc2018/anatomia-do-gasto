@@ -1,7 +1,7 @@
 # Handoff Master: Melhorias de Pipeline e Infraestrutura de Dados
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet (sessões dedicadas por item)
-**Todas as decisões aprovadas por:** Alexandre NeoLogos em 2026-06-03
+**Todas as decisões aprovadas por:** NeoLogos em 2026-06-03
 **Base:** análise real dos repos okfn-brasil/querido-diario e turicas/rows via GitHub MCP
          + leitura dos 26 scripts em pipelines/ + 8 scripts em tools/data/
 

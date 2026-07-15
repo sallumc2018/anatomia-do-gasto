@@ -1,7 +1,7 @@
 # Handoff: Adotar DuckDB para QA de dados
 **De:** Claude Opus (sessão Setup Claude Code — 2026-06-03)
 **Para:** Claude Sonnet (sessão de QA/validação)
-**Decisão:** aprovada por Alexandre NeoLogos em 2026-06-03
+**Decisão:** aprovada por NeoLogos em 2026-06-03
 **Branch a criar:** `claude/duckdb-qa`
 
 ---

@@ -9,7 +9,7 @@
 ## O que foi feito nesta sessão
 
 ### MCPs configurados (todos funcionando)
-- **filesystem** — binário global `C:\Users\user\AppData\Roaming\npm\mcp-server-filesystem.cmd`; vault: `G:\Meu Drive\00-Omega\Sallum_Omega_Vault\` ✅
+- **filesystem** — binário global `C:\Users\user\AppData\Roaming\npm\mcp-server-filesystem.cmd`; vault definido no host Windows pela variável `NEOLOGOS_VAULT` ✅
 - **GitHub MCP** — binário `C:\Omega\tools\github-mcp-server.exe`; token em `claude_desktop_config.json` ✅
 - **Windows-MCP** — extensão `ant.dir.cursortouch`; uv instalado via winget; `C:\Users\user\AppData\Local\Microsoft\WinGet\Links` adicionado à machine-level PATH ✅
 

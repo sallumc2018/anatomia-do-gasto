@@ -96,7 +96,7 @@ Token atual: `ghp_REVOGADO-E-PURGADO-DO-HISTORICO`
 Permissões atuais: repo completo + org read + user read
 Ação: rever se `org read` é necessário para as operações atuais.
 Se não for: revogar e recriar com escopo mínimo (repo + read:user apenas).
-**NÃO fazer isso agora** — confirmar com Alexandre primeiro.
+**NÃO fazer isso agora** — confirmar com NeoLogos primeiro.
 
 ---
 

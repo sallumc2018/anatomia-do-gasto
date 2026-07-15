@@ -8,7 +8,8 @@
 ## Contexto
 
 O `mcp-server-obsidian` foi instalado via `uv` e configurado no Claude Desktop.
-O Obsidian Vault de Alexandre está em: `G:\Meu Drive\00-Omega\Sallum_Omega_Vault\`
+O Obsidian Vault de NeoLogos fica no host Windows. Use a variável
+`NEOLOGOS_VAULT` para informar o caminho local desse host.
 
 O objetivo é que o Codex também acesse o Vault via MCP nativo (busca semântica,
 leitura de notas, criação de páginas) — além do filesystem cru que o Claude já tem.
@@ -23,7 +24,7 @@ leitura de notas, criação de páginas) — além do filesystem cru que o Claud
   "command": "C:\\Users\\user\\AppData\\Local\\Microsoft\\WinGet\\Links\\uv.exe",
   "args": [
     "tool", "run", "mcp-server-obsidian",
-    "--vault", "G:\\Meu Drive\\00-Omega\\Sallum_Omega_Vault"
+    "--vault", "${NEOLOGOS_VAULT}"
   ]
 }
 ```
@@ -51,7 +52,7 @@ uv tool install mcp-server-obsidian  # já feito, não repetir
          "command": "C:\\Users\\user\\AppData\\Local\\Microsoft\\WinGet\\Links\\uv.exe",
          "args": [
            "tool", "run", "mcp-server-obsidian",
-           "--vault", "G:\\Meu Drive\\00-Omega\\Sallum_Omega_Vault"
+           "--vault", "${NEOLOGOS_VAULT}"
          ]
        }
      }
