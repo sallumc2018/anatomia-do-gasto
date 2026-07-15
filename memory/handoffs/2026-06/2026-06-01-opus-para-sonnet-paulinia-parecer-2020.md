@@ -53,4 +53,4 @@ texto (Plínio) e decide o deploy com o usuário.
 
 ## Referências
 - `project_paulinia_coleta_completa` (memória, já corrigida), `reference_tce_sp_transparencia_api`,
-  `reference_protocolo_neologos_cer` (regra editorial), `STATUS.md`.
+  `reference_protocolo_sallum_cer` (regra editorial), `STATUS.md`.

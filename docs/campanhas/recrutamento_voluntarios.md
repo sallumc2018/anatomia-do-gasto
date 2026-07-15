@@ -60,7 +60,7 @@ Abaixo está o cronograma de postagens planejadas para divulgar a plataforma e a
 *   **O que é:** Repositório colaborativo de dados públicos mantido por voluntários.
 *   **Como acessar:** Acesse o convite para o **Discord** ou **Telegram** diretamente no site oficial (https://brasil.io).
 *   **Como interagir (Etiqueta):**
-    1. Apresente-se no canal `#apresentacao` ou `#geral` com foco profissional e individual: "Olá, sou NeoLogos, moro em São Paulo/Capital e sou o idealizador do Anatomia do Gasto..."
+    1. Apresente-se no canal `#apresentacao` ou `#geral` com foco profissional e individual: "Olá, sou Sallum, moro em São Paulo/Capital e sou o idealizador do Anatomia do Gasto..."
     2. Apresente a plataforma no canal `#projetos` ou `#colaboracao` de forma direta: "Desenvolvi o Anatomia do Gasto, um projeto Next.js/Python de código aberto que lê dados do SICONFI/SIOPS e traduz em gráficos simples para o cidadão comum. O projeto é open-source e está buscando desenvolvedores e analistas de dados. Link do GitHub: github..."
 
 ### B. Fórum da Open Knowledge Brasil (OKBR)
