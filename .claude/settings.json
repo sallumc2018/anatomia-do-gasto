@@ -16,7 +16,6 @@
       "Bash(systemctl status *)",
       "Bash(source ~/.bashrc)",
       "Bash(source ~/.claude/telegram.env)",
-      "Bash(source /home/sallumc/.claude/telegram.env)",
       "Bash(bash tools/scripts/pre-push-gate.sh)",
       "Bash(.venv/bin/python3 tools/diagnostico/calc_score.py)",
       "Bash(.venv/bin/python3 pipelines/gerar_datasets_json.py)",
@@ -41,8 +40,6 @@
       "Bash(npm run build)",
       "Bash(npm run lint)",
       "Bash(npm run typecheck)",
-      "Bash(/home/sallumc/.local/bin/rclone lsd *)",
-      "Bash(/home/sallumc/.local/bin/rclone ls *)",
       "Bash(git worktree list)",
       "Bash(gh workflow list *)",
       "mcp__claude_ai_Gmail__search_threads",
@@ -88,7 +85,9 @@
       "Bash(.venv/bin/python3 pipelines/coletar_municipios_brasil.py --listar *)",
       "Bash(bash scripts/sprint2_rotacao.sh --status)",
       "Bash(bash scripts/coleta_noturna.sh --dry-run)",
-      "Bash(/home/sallumc/.local/bin/rclone sync *)",
+      "Bash(bash scripts/coleta_noturna_lab.sh --dry-run)",
+      "Bash(bash scripts/coleta_noturna_lab.sh)",
+      "Bash(rclone sync *)",
       "Bash(.venv/bin/python3 tools/agents/check-scope-gates.py *)",
       "Bash(.venv/bin/python3 pipelines/verificar_qa_coverage.py *)"
     ]

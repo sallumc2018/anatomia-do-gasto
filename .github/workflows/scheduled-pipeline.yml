@@ -12,7 +12,7 @@ on:
         default: "2023 2024 2025 2026"
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: scheduled-pipeline
@@ -22,24 +22,28 @@ jobs:
   executar-pipeline:
     name: Executar raspadores e atualizar dados
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: 1. Checkout do Repositório
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: 2. Configurar o uv (Astral)
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
         with:
           enable-cache: true
           cache-dependency-glob: "requirements*.txt"
 
       - name: 3. Configurar Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
 
       - name: 4. Instalar o Just (Runner de Tarefas)
-        uses: taiki-e/install-action@just
+        uses: taiki-e/install-action@7ebe462223a33af951eed3c3ab1f754ddf2992e2 # just 1.56.0
+        with:
+          tool: just
 
       - name: 5. Instalar dependências e Playwright Chromium
         run: |
@@ -47,13 +51,21 @@ jobs:
           uv run playwright install --with-deps chromium
 
       - name: 6. Executar Pipeline de Coleta PNCP (Sorocaba e Paulínia)
+        env:
+          INPUT_ANOS: ${{ github.event.inputs.anos }}
         run: |
-          ANOS="${{ github.event.inputs.anos }}"
-          if [ -z "$ANOS" ]; then ANOS="2023 2024 2025 2026"; fi
+          ANOS="$(
+            python tools/security/validate-workflow-years.py \
+              "$INPUT_ANOS" \
+              --default "2023 2024 2025 2026"
+          )"
+          read -r -a ANOS_ARGS <<< "$ANOS"
           for CIDADE in sorocaba paulinia; do
             echo "::group::Coleta PNCP para $CIDADE"
-            export MUNICIPIO=$CIDADE
-            uv run pipelines/baixar_pncp_playwright.py --tipo todos --anos $ANOS
+            export MUNICIPIO="$CIDADE"
+            uv run pipelines/baixar_pncp_playwright.py \
+              --tipo todos \
+              --anos "${ANOS_ARGS[@]}"
             uv run pipelines/gerar_pncp_publicacao.py
             echo "::endgroup::"
           done
@@ -77,7 +89,36 @@ jobs:
             echo "Credenciais do R2 não configuradas nos GitHub Secrets. Pulando etapa de upload."
           fi
 
-      - name: 9. Salvar mudanças no repositório (Git Push)
+      - name: 9. Transportar somente saídas publicáveis
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pipeline-publicavel
+          path: |
+            data/manifests/datasets_status*.json
+            apps/web/lib/datasets_status*.json
+            data/public/.schemas/
+          if-no-files-found: error
+          retention-days: 1
+          include-hidden-files: true
+
+  salvar-atualizacoes:
+    name: Salvar atualizações publicáveis
+    needs: executar-pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 1. Checkout do Repositório
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: 2. Baixar saídas validadas do job de coleta
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: pipeline-publicavel
+          path: .
+
+      - name: 3. Salvar mudanças no repositório (Git Push)
         run: |
           git config --global user.name "Omega Automated Pipeline"
           git config --global user.email "pipeline@anatomiadogasto.ong.br"

@@ -40,11 +40,18 @@ jobs:
       - name: 5. Coletar PNCP via Playwright
         env:
           MUNICIPIO: "sorocaba"
+          INPUT_ANOS: ${{ github.event.inputs.anos }}
         run: |
-          ANOS="${{ github.event.inputs.anos }}"
-          if [ -z "$ANOS" ]; then ANOS="2022 2023 2024 2025 2026"; fi
+          ANOS="$(
+            python tools/security/validate-workflow-years.py \
+              "$INPUT_ANOS" \
+              --default "2022 2023 2024 2025 2026"
+          )"
+          read -r -a ANOS_ARGS <<< "$ANOS"
           echo "Coletando anos: $ANOS"
-          python pipelines/baixar_pncp_playwright.py --tipo todos --anos $ANOS
+          python pipelines/baixar_pncp_playwright.py \
+            --tipo todos \
+            --anos "${ANOS_ARGS[@]}"
 
       - name: 6. Gerar CSV local de publicacao
         env:

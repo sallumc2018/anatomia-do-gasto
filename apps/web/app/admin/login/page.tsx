@@ -2,6 +2,7 @@
 
 import { Suspense, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import { normalizeAdminRedirectPath } from "@/lib/admin-security"
 
 function LoginForm() {
   const router = useRouter()
@@ -26,7 +27,7 @@ function LoginForm() {
         setErro(data.error ?? "falha no login")
         return
       }
-      router.push(params.get("from") || "/admin")
+      router.push(normalizeAdminRedirectPath(params.get("from"), "/admin"))
       router.refresh()
     } finally {
       setCarregando(false)

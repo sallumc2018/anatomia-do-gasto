@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { normalizeAdminRedirectPath } from "./lib/admin-security"
 import { ADMIN_SESSION_COOKIE, verifySession } from "./lib/admin-auth"
 
 export const config = {
@@ -14,7 +15,7 @@ export async function proxy(req: NextRequest) {
 
   if (!secret || !(await verifySession(token, secret))) {
     const loginUrl = new URL("/admin/login", req.url)
-    loginUrl.searchParams.set("from", pathname)
+    loginUrl.searchParams.set("from", normalizeAdminRedirectPath(pathname))
     return NextResponse.redirect(loginUrl)
   }
 

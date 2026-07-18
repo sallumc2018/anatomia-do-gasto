@@ -156,3 +156,26 @@ powershell -ExecutionPolicy Bypass -File tools\security\check-site-local.ps1 -Sk
 ```
 
 O modo `-SiteOnly` limita a auditoria de escopo Git a `apps/web` e `data/public`. Ele serve para validar o pacote publico do site mesmo quando ha scripts operacionais locais em `tools/tablet` ou firewall fora do release. Esse modo nao autoriza publicar tablet, SSH, firewall, credenciais, logs ou artefatos locais; esses itens continuam exigindo revisao separada no modo completo.
+
+## Auditoria local do repositório — 2026-07-16
+
+Auditoria read-only realizada por Codex no repositório atual, com validação de dependências, rotas administrativas e superfícies de publicação.
+
+### Resultado resumido
+
+- `npm audit` em `apps/web`: sem vulnerabilidades conhecidas reportadas.
+- Surface de download `/api/dados/[...slug]`: sem path traversal evidente; o roteamento restringe o conjunto permitido por manifesto e reforça a raiz em `data/public`.
+- Não foram encontrados segredos hardcoded pelos padrões básicos checados no repositório.
+- JSON-LD recebeu serializer seguro contra quebra de `<script>`.
+- O login administrativo recebeu mitigação local.
+
+### Controles aplicados e pendências
+
+1. `JsonLd` usa `serializeJsonLd(data)`, que serializa JSON e escapa caracteres HTML-sensíveis (`<`, `>`, `&`, U+2028 e U+2029), impedindo quebra direta do bloco `<script>` por texto como `</script>`.
+2. O login administrativo recebeu throttle, backoff e lockout progressivo em memória de processo. Isso reduz brute force no runtime local/instância única, mas ainda não substitui rate limit compartilhado em Vercel Firewall, Edge Config, Redis ou outro store externo quando houver múltiplas instâncias/serverless.
+3. O plano operacional para fechar a defesa compartilhada de login admin está documentado em [admin-rate-limit-vercel.md](admin-rate-limit-vercel.md). Enquanto a regra não for publicada no Vercel Firewall, a pendência de brute force distribuído permanece aberta.
+
+### Próximos passos recomendados
+
+- Publicar e validar a regra de rate limit compartilhado descrita em [admin-rate-limit-vercel.md](admin-rate-limit-vercel.md) antes de tratar a defesa contra brute force como fechada em produção distribuída.
+- Reexecutar a auditoria read-only após cada mudança de endurecimento.
