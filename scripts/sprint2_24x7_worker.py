@@ -373,6 +373,7 @@ def run_commit_gates(timeout: int) -> bool:
     log_path.parent.mkdir(parents=True, exist_ok=True)
     commands = [
         ("check-secrets staged", [str(PYTHON), "tools/agents/check-secrets.py", "--staged"]),
+        ("pii leak staged", [str(PYTHON), "tools/gates/check_pii_leak.py", "--staged"]),
         ("pre-deploy gate", [str(PYTHON), "tools/gates/pre_deploy.py"]),
         ("verificar publicacao", [str(PYTHON), "pipelines/testes/verificar_publicacao.py"]),
         ("slug collisions", [str(PYTHON), "tools/gates/check_sprint2_slug_collisions.py", "--max-findings", "20"]),

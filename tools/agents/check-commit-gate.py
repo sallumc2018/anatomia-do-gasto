@@ -19,6 +19,9 @@ Camadas e severidade:
                                     'teste'/numeros repetidos legitimos; falso-bloqueio
                                     travaria commits. Revisao final e humana, no
                                     `validate-area --area publish`.
+  5. PII REAL (CPF/RG)   -> BLOCK  (via tools/gates/check_pii_leak.py; CPF validado
+                                    por digito verificador, baixissimo falso-positivo
+                                    — diferente da camada 4, aqui e alta confianca)
 
 Filosofia: BLOCK so em alta confianca e baixo falso-positivo (segredo, caminho
 operacional). O resto e WARN auditavel. Mesma logica do check-secrets.
@@ -139,6 +142,11 @@ def main(argv=None) -> int:
                 print(f"  - {item}")
             print("Para uma remocao deliberada, documente a decisao e rode com ANATOMIA_ALLOW_PUBLIC_DELETE=1.")
             blocks.append("data-public-delete")
+
+    # --- Camada 5: PII REAL (BLOCK) ---
+    pii_args = ["tools/gates/check_pii_leak.py"] + (["--staged"] if a.staged else [])
+    if run_py(*pii_args) != 0:
+        blocks.append("pii-real-cpf-rg")
 
     # --- Camada 4: MOCK / PII (WARN) ---
     # --no-warn pula esta camada (usado pelo pre-push, que so precisa dos BLOCK).
