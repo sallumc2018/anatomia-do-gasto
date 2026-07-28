@@ -13,6 +13,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
+# Áreas SICONFI provam o município pela URL de origem, não por coluna própria.
+_SICONFI_MUNICIPIO = ("fonte_url",)
+
 AREA_CONTRACTS: dict[str, dict[str, tuple[str, ...]]] = {
     "transferencias_federais": {
         "municipio": (
@@ -61,6 +64,47 @@ AREA_CONTRACTS: dict[str, dict[str, tuple[str, ...]]] = {
             "vl_repasse",
         ),
     },
+    # --- Áreas SICONFI (Tesouro Nacional) ---
+    #
+    # Estes CSVs NÃO têm coluna de município: o extrator grava uma linha por
+    # função/conta/ano, sem repetir o ente. A prova de pertencimento é a própria
+    # coluna `Fonte_URL`, que carrega `id_ente=<código IBGE>` da chamada feita à
+    # API do Tesouro — proveniência verificável, melhor que uma coluna solta,
+    # porque aponta para a requisição exata que originou cada linha.
+    # `_extract_ibge` lê esse código; o resto do gate segue idêntico às demais áreas.
+    "receita": {
+        "municipio": _SICONFI_MUNICIPIO,
+        "valor": (
+            "arrecadado_acumulado",
+            "arrecadado_bimestre",
+            "previsto_atualizado",
+            "previsto_inicial",
+        ),
+    },
+    "executivo": {
+        "municipio": _SICONFI_MUNICIPIO,
+        "valor": (
+            "liquidado",
+            "empenhado",
+            "dotacao_atualizada",
+            "dotacao_inicial",
+        ),
+    },
+    # `fiscal` guarda 6 demonstrativos diferentes no mesmo diretório (rcl,
+    # rcl_capital, divida, divida_detalhada, pessoal, natureza_despesa). Eles só
+    # compartilham `Ano` e `Fonte_URL`, então o grupo `valor` lista a coluna
+    # característica de cada um — o validador aceita a primeira que existir.
+    "fiscal": {
+        "municipio": _SICONFI_MUNICIPIO,
+        "valor": (
+            "receitas_correntes",  # rcl
+            "total_capital",       # rcl_capital
+            "dcl",                 # divida, divida_detalhada
+            "dtp",                 # pessoal
+            "total_despesas",      # natureza_despesa
+            "rcl",                 # comum a vários, fallback
+        ),
+    },
 }
 
 
@@ -101,6 +145,21 @@ def _csv_reader(text: str) -> csv.DictReader:
     except csv.Error:
         dialect = csv.excel
     return csv.DictReader(text.splitlines(), dialect=dialect)
+
+
+_ID_ENTE_RE = re.compile(r"[?&]id_ente=(\d+)", re.IGNORECASE)
+
+
+def _extract_ibge(value: str) -> str:
+    """Devolve o código do município contido no valor da célula.
+
+    Nas áreas SICONFI o município não vive numa coluna própria: vem embutido na
+    URL de proveniência (`Fonte_URL`) como `id_ente=<código IBGE>`. Quando o
+    padrão não aparece, devolve o valor original — assim as áreas que têm coluna
+    de IBGE de verdade seguem pelo mesmo caminho, sem ramificação por área.
+    """
+    match = _ID_ENTE_RE.search(value)
+    return match.group(1) if match else value
 
 
 def _ibge_matches(actual: str, expected: str) -> bool:
@@ -171,9 +230,10 @@ def validate_csv(path: Path, area: str, expected_ibge: str = "") -> ValidationRe
             value = str(row.get(ibge_column, "") or "").strip()
             if not value:
                 continue
+            codigo = _extract_ibge(value)
             populated += 1
-            if not _ibge_matches(value, expected_ibge):
-                mismatches.add(value)
+            if not _ibge_matches(codigo, expected_ibge):
+                mismatches.add(codigo)
         if populated == 0:
             return ValidationResult(
                 False,

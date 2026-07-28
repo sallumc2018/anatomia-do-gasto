@@ -1,0 +1,13 @@
+{
+  "_nota": "Áreas que pipelines/publicar_municipios_brasil.py promove de data/extracted para data/public. Cada área precisa de contrato correspondente em pipelines/sprint2_contracts.py (AREA_CONTRACTS) — o publicador recusa iniciar se declarar área sem contrato.",
+  "_criado_em": "2026-07-28",
+  "_motivo": "As três áreas federais eram a lista inteira e estavam quebradas, então nada era publicado. As áreas SICONFI já estavam coletadas para os 5.571 municípios e ficaram presas em data/extracted.",
+  "areas": [
+    "transferencias_federais",
+    "emendas_federais",
+    "fns",
+    "receita",
+    "executivo",
+    "fiscal"
+  ]
+}

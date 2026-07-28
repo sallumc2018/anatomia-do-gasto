@@ -62,7 +62,47 @@ EXTRACTED = ROOT / "data" / "extracted"
 PUBLIC    = ROOT / "data" / "public"
 MANIFESTS = ROOT / "data" / "manifests" / "sprint2"
 
-AREAS_SPRINT2 = ["transferencias_federais", "emendas_federais", "fns"]
+AREAS_MANIFEST = ROOT / "data" / "manifests" / "areas_publicaveis.json"
+
+_AREAS_FALLBACK = ["transferencias_federais", "emendas_federais", "fns"]
+
+
+def _carregar_areas_publicaveis() -> list[str]:
+    """Áreas promovidas de data/extracted para data/public.
+
+    Mora num manifesto, e não numa constante, para que habilitar uma área nova
+    seja edição de dado em vez de edição de código. O motivo é concreto: as áreas
+    SICONFI (receita, executivo, fiscal) foram coletadas para os 5.571 municípios
+    e ficaram presas em data/extracted porque esta lista trazia apenas as três
+    áreas federais — que por sua vez estavam quebradas.
+
+    Toda área declarada precisa ter contrato em AREA_CONTRACTS: sem contrato o
+    gate de integridade recusaria cada arquivo com "área Sprint 2 desconhecida",
+    e a publicação falharia arquivo a arquivo em vez de avisar aqui. Por isso a
+    checagem é feita no carregamento e interrompe o programa.
+    """
+    if not AREAS_MANIFEST.exists():
+        return list(_AREAS_FALLBACK)
+
+    try:
+        dados = json.loads(AREAS_MANIFEST.read_text(encoding="utf-8"))
+        areas = [str(a) for a in dados["areas"]]
+    except (json.JSONDecodeError, KeyError, TypeError) as exc:
+        raise SystemExit(f"{AREAS_MANIFEST} inválido: {exc}") from exc
+
+    if not areas:
+        raise SystemExit(f"{AREAS_MANIFEST} não declara nenhuma área.")
+
+    sem_contrato = [a for a in areas if a not in AREA_CONTRACTS]
+    if sem_contrato:
+        raise SystemExit(
+            f"{AREAS_MANIFEST} declara área sem contrato em AREA_CONTRACTS: "
+            f"{', '.join(sem_contrato)}"
+        )
+    return areas
+
+
+AREAS_SPRINT2 = _carregar_areas_publicaveis()
 
 # Contrato mínimo de colunas por área.
 # Pelo menos UMA opção de cada grupo deve aparecer no header (case-insensitive).
