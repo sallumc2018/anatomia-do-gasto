@@ -57,7 +57,21 @@ IBGE_CSV = ROOT / "data" / "manifests" / "ibge_municipios_completo.csv"
 
 _ANOS_CONVENIOS = sum([["--ano", str(a)] for a in range(2024, 2027)], [])
 _ANOS_FNS       = sum([["--ano", str(a)] for a in range(2024, 2027)], [])
-_ANOS_SICONFI   = sum([["--ano", str(a)] for a in range(2022, 2027)], [])
+
+# SICONFI: o RREO consolidado do exercício (nr_periodo=6) só existe depois que o
+# ano fecha e o ente transmite ao Tesouro. Pedir o ano corrente devolve erro na
+# fonte e, como todos os extratores fazem `sys.exit(1 if err else 0)`, um único
+# ano indisponível derrubava a etapa inteira — inclusive os anos já extraídos com
+# sucesso. Era essa a causa das 7 falhas SICONFI por município (medido 2026-07-28:
+# "Concluído: 4 OK, 1 com erro" → exit 1 → município marcado como falha total).
+# A janela termina no ano anterior e se ajusta sozinha na virada do ano.
+# Convênios e FNS não entram nesta regra: são transacionais e publicam o ano
+# corrente (FNS 2024–2026 validado OK na mesma medição).
+_SICONFI_ANO_INICIAL = 2022
+_SICONFI_ANO_FINAL   = datetime.now(timezone.utc).year - 1
+_ANOS_SICONFI = sum(
+    [["--ano", str(a)] for a in range(_SICONFI_ANO_INICIAL, _SICONFI_ANO_FINAL + 1)], []
+)
 
 FONTES_FEDERAIS = [
     # (script, label, args_extras)

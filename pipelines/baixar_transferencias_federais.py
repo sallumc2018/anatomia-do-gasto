@@ -95,9 +95,9 @@ def _chave_api() -> str:
     )
     if not chave:
         sys.exit(
-            "PORTAL_TRANSPARENCIA_KEY nao encontrada.\n"
+            "PORTAL_TRANSPARENCIA_KEY não encontrada.\n"
             "Configure com:\n"
-            '  [System.Environment]::SetEnvironmentVariable("PORTAL_TRANSPARENCIA_KEY","sua-chave","User")'
+            '  export PORTAL_TRANSPARENCIA_KEY="sua-chave"'
         )
     return chave
 
