@@ -83,17 +83,50 @@ critical_run_cmd() {
 
 log "=== Coleta Noturna iniciada ==="
 
+# Puxa uma pasta do GDrive antes de coletar.
+#
+# ATENCAO: e `rclone sync`, nao `copy` -- o destino passa a ESPELHAR a origem,
+# entao arquivo local que nao esteja no Drive e APAGADO. Isso e proposital
+# (o Drive e a fonte de verdade do cache), mas so vale quando o rclone existe
+# e esta configurado.
+#
+# Sem rclone, o comportamento certo depende do que ja ha em disco:
+#   - cache local populado  -> segue com ele e AVISA (a coleta e incremental;
+#                              os baixar_*.py pulam o que ja existe)
+#   - cache local vazio     -> aborta, porque nao ha de onde partir
+# Foi o que destravou a coleta na omega-vps, que tem o cache mas nao tem a
+# credencial do Drive (essa vive so no omega-gray, gateway de offsite).
+sync_from_gdrive() {
+  local label="$1" remoto="$2" local_dir="$3"
+  local populado=false
+  [ -d "$local_dir" ] && [ -n "$(ls -A "$local_dir" 2>/dev/null)" ] && populado=true
+
+  if [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]] || [[ ! -x "$RCLONE" ]]; then
+    local motivo="rclone ausente em $RCLONE"
+    [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]] && motivo="SKIP_GDRIVE_SYNC=1"
+    if [[ "$populado" == "true" ]]; then
+      log "▶ $label PULADO ($motivo) — seguindo com o cache local de $local_dir"
+      FALHAS+=("$label: pulado ($motivo) — usou cache local")
+      return 0
+    fi
+    log "  ✗ $label: $motivo e $local_dir esta vazio — nada de onde partir"
+    exit 1
+  fi
+
+  critical_run_cmd "$label" \
+    "$RCLONE" sync "$remoto" "$local_dir" \
+      --progress --checksum --create-empty-src-dirs
+}
+
 # 1. Sincronizar raw do GDrive (antes de coletar)
-critical_run_cmd "Sync raw from GDrive" \
-  "$RCLONE" sync "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/raw/" \
-    "$REPO/data/raw/" \
-    --progress --checksum --create-empty-src-dirs
+sync_from_gdrive "Sync raw from GDrive" \
+  "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/raw/" \
+  "$REPO/data/raw/"
 
 # 2. Sincronizar extracted do GDrive (para continuar de onde parou)
-critical_run_cmd "Sync extracted from GDrive" \
-  "$RCLONE" sync "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
-    "$REPO/data/extracted/" \
-    --progress --checksum --create-empty-src-dirs
+sync_from_gdrive "Sync extracted from GDrive" \
+  "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+  "$REPO/data/extracted/"
 
 # 3. Rodar coleta de São Paulo (capital)
 run_cmd "Coletar São Paulo Capital" \
