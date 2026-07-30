@@ -43,7 +43,7 @@ Riscos:
 Use a validacao do modulo afetado:
 - Python: `.venv/bin/python3 -m py_compile <scripts>`
 - Frontend: `npm run lint` e `run build`
-- Docs/instrucoes: conferencia de links, paths e consistencia com `AI_MASTER_PROMPT.md`, `CODEX.md`, `CLAUDE.md`.
+- Docs/instrucoes: conferencia de links, paths e consistencia com `AI_MASTER_PROMPT.md`, `codex.md`, `CLAUDE.md`.
 
 ## Handoff
 

@@ -3,6 +3,10 @@ description: Inicializa contexto minimo do Anatomia do Gasto e verifica ambiente
 allowed-tools: Read, Glob, Bash, Bash
 ---
 
+> ⚠️ **Leia `CONSTITUICAO.md`** — contém as regras compartilhadas oficiais
+> (roteamento completo, commit, proveniência, economia de contexto, footer,
+> flows, isolamento, assinatura).
+
 Voce esta iniciando uma sessao no projeto **Anatomia do Gasto**.
 
 Contrato: siga `memory/agents/registry.csv`. Quando reduzir contexto, consulte `tools/memory/query-rag.py`; RAG nao substitui leitura direta dos arquivos. Registre handoff reutilizavel com `tools/memory/write-handoff.py` quando houver continuidade util.

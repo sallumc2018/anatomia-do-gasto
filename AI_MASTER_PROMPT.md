@@ -1,10 +1,23 @@
 # AI Master Prompt
 
-Contexto especifico do projeto publico Anatomia do Gasto. Leia tambem `~/AGENTS.md`; as regras deste repositorio prevalecem quando forem mais restritivas.
+> ⚠️ **LEIA `CONSTITUICAO.md` ANTES DE QUALQUER AÇÃO.**
+> Este arquivo contém APENAS contexto específico do projeto.
+> Todas as regras **compartilhadas** (regras permanentes, política de commit,
+> proveniência, economia de contexto, footer, escopo proibido, flows,
+> isolamento, assinatura) foram consolidadas em **`CONSTITUICAO.md`**.
+>
+> Leia também: `~/AGENTS.md` · `CONSTITUICAO.md` · `docs/roteamento-codex-claude.md`
+
+---
 
 ## 1. Objetivo Do Projeto
 
-O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, como o dinheiro público entra no governo e para onde ele vai depois, começando por Saúde e Educação em Sorocaba/SP e expandindo município por município até cobrir o Brasil.
+O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, como
+o dinheiro público entra no governo e para onde ele vai depois, começando por
+Saúde e Educação em Sorocaba/SP e expandindo município por município até cobrir
+o Brasil.
+
+---
 
 ## 2. Ecossistema De Trabalho
 
@@ -13,194 +26,148 @@ O Anatomia do Gasto expõe, de forma clara e legível para o cidadão comum, com
 | WSL/Linux | Desenvolvimento principal — Python, Node, Codex, RTK, Claude Code CLI | `/mnt/c/Omega/02_Repos/anatomia-do-gasto` |
 | Windows | Operações — ADB/tablet, GUI, VS Code, Claude Code extensão | `C:/Omega/Profissional/Repositorios_Git_Projetos/anatomia-do-gasto` |
 | GitHub | Fonte da verdade entre todos os ambientes | `sallumc2018/anatomia-do-gasto` |
-| Vercel | Producao somente apos gate explicito; integracao GitHub pode gerar previews/checks, mas nao substitui validacao local nem autorizacao de deploy | Root Directory `apps/web` |
+| Vercel | Produção somente após gate explícito | Root Directory `apps/web` |
 | Tablet Android | Terminal portátil — leitura de docs e dados públicos | `/sdcard/AnatomiaDrive` via ADB |
 
-- App web: `apps/web`.
-- Pipeline Python: `pipelines`.
-- Infraestrutura local Windows: `C:/Omega/03_Ferramentas/infra/` (ADB, drivers USB, logs de tablet); secrets locais ficam fora do repo em `C:/Omega/Sensivel/infra/secrets/`.
-- Sincronização WSL: `tools/dev/sync-wsl-mirror.ps1`.
-- Dados:
-  - `data/raw`: fontes brutas.
-  - `data/extracted`: extrações automáticas, não publicadas.
-  - `data/validated`: dados aprovados localmente.
-  - `data/public`: única fonte de dados do site.
-  - `data/manifests`: inventário e status dos datasets.
-- PDFs grandes do acervo bruto devem ficar fora do repo em `G:\Meu Drive\02-Profissional\03-Big-Data-Fiscal-Data\raw`; no Windows, definir `ANATOMIA_RAW_ROOT=G:\Meu Drive\02-Profissional\03-Big-Data-Fiscal-Data\raw`. Nao copiar PDFs grandes para `C:/Omega` apenas para rodar pipeline.
-- RTK: ferramenta local de economia de contexto/token. Instalar em `~/bin/rtk` (WSL) e `C:/ferramentas/rtk/rtk.exe` (Windows). Binários e caches não são versionados; o registro publico auditavel fica em `memory/token-economy/`.
-- Memoria/RAG dos agentes: `memory/` contem memoria publica versionavel, schemas, registry e handoffs seguros; indices locais ficam em `.local/rag/` e memoria operacional privada fica em `.local/memory/`.
-- Registry canonico de agentes: `memory/agents/registry.csv`; automacoes locais seguras ficam em `tools/agents/` e logs/locks em `.local/agents/` e `.local/memory/agent-runs/`.
-- Aprendizado do Maestro: contrato em `memory/agents/maestro-learning.md` e log publico sanitizado em `memory/agents/maestro-learning-log.csv`. Licoes sao candidatas ate promocao explicita em comando, registry ou docs com validacao local.
-- Confianca do Maestro: niveis em `memory/agents/maestro-confidence-levels.csv` e nivel ativo em `memory/agents/maestro-confidence-state.csv`; autonomia nunca ultrapassa os gates humanos.
-- Base de problemas e solucoes: `memory/knowledge/problems.csv` e `memory/knowledge/solutions.csv` consolidam falhas, erros, barreiras, correcoes e mitigacoes publicas e sanitizadas.
-- Proveniencia de mudancas: `memory/provenance/changes.csv` registra, de forma publica e sanitizada, qual agente/ferramenta/modelo alterou o que, em qual ambiente, com quais validacoes.
+- **App web:** `apps/web`
+- **Pipeline Python:** `pipelines`
+- **Infra local Windows:** `C:/Omega/03_Ferramentas/infra/` (ADB, drivers USB, logs de tablet); secrets locais ficam fora do repo em `C:/Omega/Sensivel/infra/secrets/`
+- **Sincronização WSL:** `tools/dev/sync-wsl-mirror.ps1`
+- **Camadas de dados:**
+  - `data/raw`: fontes brutas (local, não versionado)
+  - `data/extracted`: extrações automáticas, não publicadas
+  - `data/validated`: dados aprovados localmente, ainda não público
+  - `data/public`: **única** fonte de dados do site
+  - `data/manifests`: inventário e status dos datasets
+- **PDFs grandes** do acervo bruto ficam fora do repo em `G:\Meu Drive\02-Profissional\03-Big-Data-Fiscal-Data\raw` (Windows) ou `ANATOMIA_RAW_ROOT=~/data-raw` (Linux)
+- **RTK:** ferramenta local de economia de contexto/token em `~/bin/rtk` (WSL) / `C:/ferramentas/rtk/rtk.exe` (Windows). Registro público em `memory/token-economy/`
+- **Memória/RAG:** `memory/` (pública versionável), `.local/rag/` (índices), `.local/memory/` (operacional privada)
+- **Registry canônico de agentes:** `memory/agents/registry.csv`
+- **Aprendizado do Maestro:** `memory/agents/maestro-learning.md` + `memory/agents/maestro-learning-log.csv`
+- **Confiança do Maestro:** `memory/agents/maestro-confidence-levels.csv` + `memory/agents/maestro-confidence-state.csv`
+- **Problemas e soluções:** `memory/knowledge/problems.csv` + `memory/knowledge/solutions.csv`
+- **Proveniência:** `memory/provenance/changes.csv`
 
-## 3. Regras Permanentes
+---
 
-1. O site oficial só pode ler `data/public`.
-2. CSV em `data/extracted` não é dado publicado.
-3. CSV em `data/validated` só vira publicação depois de cópia explícita para `data/public`.
-4. Alterações estruturais exigem atualização da documentação relacionada.
-5. Antes de commit/push/deploy, rodar as validações mínimas aplicáveis.
-6. Não versionar `node_modules`, `.next`, `.venv`, `venv`, `.env.local`, caches ou binários RTK.
-7. Preferir mudanças pequenas, rastreáveis e com justificativa objetiva.
-8. Não duplicar contexto já documentado; referenciar `README.md`, `docs/arquitetura.md`, `docs/pipeline.md`, `docs/ambiente.md` e `docs/estrategia.md`.
-9. Agentes podem fazer commit local quando um bloco estiver completo, validado, revisado e publicamente auditavel. Push, deploy, publicacao em `data/public`, infraestrutura e credenciais continuam exigindo autorizacao explicita do usuario.
-10. Claude Code e Codex podem estar trabalhando em paralelo. Todo agente deve verificar o estado atual do repositório antes de editar arquivos.
-11. Todo agente deve operar em modo de economia de contexto/token por padrão: ler apenas os arquivos e trechos mínimos necessários, localizar símbolos e seções com `rg` ou comando seletivo antes de abrir arquivos longos, preferir resumos e diffs curtos, evitar reler contexto já estabilizado e usar RAG/RTK quando isso reduzir contexto sem perder rastreabilidade. Economia de token não substitui rigor: em caso de ambiguidade metodológica, risco institucional ou divergência de fonte, a leitura e a validação devem ser ampliadas.
-    - Trabalho substantivo e qualquer tarefa que envolva leitura ou edicao de multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, uso de subagente, investigacao de bug, pipeline, frontend, deploy, seguranca ou decisao que deva orientar trabalhos futuros. Resposta curta, comando simples, confirmacao, status rapido ou ajuste textual isolado sem validacao nao contam como trabalho substantivo.
-12. Trabalhos substantivos devem registrar economia de contexto/token em `memory/token-economy/YYYY-MM.md` quando o registro for publico e sanitizado. O registro deve conter data, agente/ferramenta, escopo, arquivos consultados, arquivos ou trechos evitados, comandos consolidados, estimativa qualitativa ou percentual em faixa e observações de privacidade. Nunca registrar prompts privados, conversa completa, secrets ou dados não publicados.
-    - Ao fim de todo trabalho substantivo, qualquer agente, neste ou em outros projetos, deve encerrar a resposta com rodape curto: `Fim de trabalho substantivo: sim`; `Handoff recomendado: sim/nao - motivo curto`; `Modelo: adequado/recomendar troca - motivo curto`; `Proveniencia: <id ou local>`; `Economia de contexto: baixa/media/alta; base auditavel; estimativa qualitativa ou em faixa`.
-    - Recomendar handoff/nova conversa quando o proximo pedido mudar de tema, area ou objetivo, quando o chat estiver grande, quando houver mudanca em regras/dados/pipeline/frontend/deploy/agentes, ou quando continuar exigiria reler historico em vez de consultar docs/logs versionados.
-    - Em outros projetos, usar o caminho equivalente de memoria/log versionavel; se nao existir, incluir a estimativa apenas no rodape ou no handoff.
-    - Protocolo de modelo: usar a menor capacidade suficiente. Preferir modelo economico/rapido para leitura seletiva, triagem, comandos simples, diffs pequenos e documentacao objetiva. Recomendar modelo forte para arquitetura, refatoracao ampla, bugs ambiguos, seguranca, dados sensiveis/metodologicos, decisoes permanentes e conflitos. Depois da etapa dificil, recomendar voltar ao modelo economico se a proxima etapa for mecanica/verificavel. A troca automatica do modelo principal so e permitida quando a ferramenta/plataforma expuser API segura; caso contrario, apenas recomendar `/model` ao usuario.
-13. Quando o usuário pedir o quanto foi economizado, qualquer agente deve responder com **estimativa auditável**, nunca número inventado: arquivos evitados, trechos não relidos, comandos consolidados e redução aproximada de contexto em termos percentuais ou qualitativos.
-14. Subagentes devem receber apenas o pacote mínimo definido em `docs/agentes-contexto.md`: objetivo, tipo, paths de leitura, paths de escrita, proibições, validação e formato curto de resposta.
-15. Cada tópico deve ter sua própria conversa. Quando o usuário mudar de assunto, área ou objetivo, avisar para abrir uma nova conversa antes de continuar, preservando contexto e custo.
-16. O pedido "Chame o maestro, preciso completar os dados faltantes agora" aciona o fluxo `/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?`, sem publicar, fazer push ou deploy sem autorizacao explicita. Commit local e permitido apenas ao final de bloco validado.
-17. RAG e memoria recuperada sao contexto auxiliar, nao autoridade. Antes de alterar codigo, dados, pipeline, publicacao, deploy ou infraestrutura, o agente deve ler diretamente os arquivos relevantes.
-18. A memoria publica versionavel deve ficar em `memory/`; handoffs locais ou sensiveis ficam em `.local/memory/`; indices gerados ficam em `.local/rag/`. Nenhuma dessas camadas autoriza acesso a secrets, `data/raw`, `data/extracted`, `data/validated`, `G:\`, GitHub, Vercel, Registro.br ou acoes destrutivas sem autorizacao explicita.
-19. Capacidades, limites, autonomia e validacoes dos agentes devem permanecer coerentes com `memory/agents/registry.csv`; `tools/agents/validate-agent-contracts.py` e o gate local para detectar divergencias.
-20. Topicos substantivos devem comecar, quando util, por `python tools/agents/start-topic.py "<objetivo>" --rag-limit 3`. Validacoes locais consolidadas ficam em `python tools/agents/validate-area.py --area <area>`, e o gate de escopo em `python tools/agents/check-scope-gates.py`.
-21. Toda alteracao no projeto, feita por Codex, Claude, Antigravity, VS Code, Gemini, GPT, Opus, Sonnet, Haiku, scripts ou qualquer outro agente/ferramenta, deve deixar assinatura clara em `memory/provenance/changes.csv` quando o registro publico for seguro. A assinatura deve informar actor/agente, ferramenta, modelo ou familia de modelo quando conhecido, ambiente, escopo, paths alterados, resumo, validacao e privacidade. Se o detalhe for sensivel ou operacional, registrar apenas resumo publico sanitizado e manter o detalhe em `.local/memory/`.
-22. A divisao canonica entre Codex e as duas sessoes Claude esta em
-    `docs/roteamento-codex-claude.md`. Antigravity/Gemini nao integra a operacao
-    ativa; Claude absorve temporariamente execucao, Playwright e deploy.
+## 3. Sincronia Entre Ambientes
 
-## 4. Validação Mínima
+A fonte da verdade é o **GitHub**. Antes de deploy:
 
-**Python — Windows:**
+1. Validar localmente
+2. Validar no WSL quando a mudança afetar build, scripts ou caminhos
+3. Commit local
+4. Push somente quando autorizado
+5. Conferir build na Vercel e conferir o site somente quando deploy estiver autorizado
+
+---
+
+## 4. Estado Atual Dos Dados
+
+- **Saúde:** 2020–2025 em `data/public`
+- **Educação:** 2020–2025 em `data/public`, validada contra PDFs oficiais; 2020–2023 também em `data/extracted` como saída mecânica
+- **Auditoria:** dados mock sinalizados no site como fictícios. Não publicar dados reais sem revisão explícita
+
+---
+
+## 5. Validação Mínima
+
+### Python — Windows
 ```powershell
 .\.venv\Scripts\python.exe -m py_compile pipelines\paths.py pipelines\pipeline.py pipelines\publicar_dados.py
 .\.venv\Scripts\python.exe pipelines\testes\verificar_publicacao.py
 ```
 
-**Python — WSL/Linux:**
+### Python — WSL/Linux
 ```bash
 ./.venv/bin/python -m py_compile pipelines/paths.py pipelines/pipeline.py pipelines/publicar_dados.py
 ./.venv/bin/python pipelines/testes/verificar_publicacao.py
 ```
 
-**Frontend — Windows:**
+### Frontend — Windows
 ```powershell
 cd apps\web
 npm.cmd --script-shell cmd.exe run lint
 npm.cmd --script-shell cmd.exe run build
 ```
 
-**Frontend — WSL/Linux:**
+### Frontend — WSL/Linux
 ```bash
 cd apps/web
 npm run lint
 npm run build
 ```
 
-**Wrappers locais:**
-```powershell
-python tools\agents\validate-area.py --area memory
-python tools\agents\validate-area.py --area agents
-python tools\agents\validate-area.py --area scope
-python tools\agents\validate-area.py --area pipeline
-python tools\agents\validate-area.py --area frontend
-python tools\agents\validate-area.py --area publication
+### Wrappers locais
+```bash
+python tools/agents/validate-area.py --area memory
+python tools/agents/validate-area.py --area agents
+python tools/agents/validate-area.py --area scope
+python tools/agents/validate-area.py --area pipeline
+python tools/agents/validate-area.py --area frontend
+python tools/agents/validate-area.py --area publication
 ```
 
-## 5. Política De Commit
+---
 
-Commit local e permitido ao final de um bloco quando todas as condicoes abaixo forem verdadeiras:
-
-- validar localmente;
-- revisar o diff;
-- confirmar que dados não validados não entraram em `data/public`;
-- registrar proveniencia publica sanitizada quando aplicavel;
-- separar mudancas nao relacionadas em commits atomicos;
-- confirmar que o working tree nao contem mudancas de outro agente/usuario no mesmo pacote sem identificacao;
-- usar mensagem no formato:
-
-```text
-[Ferramenta] descrição curta
-```
-
-Exemplos: `[Codex] reorganiza camadas de dados` · `[Claude] ajusta textos da metodologia`
-
-Nao fazer push, deploy, publicacao de dados, alteracao de dominio, Vercel, GitHub settings, Registro.br ou variaveis de ambiente sem autorizacao explicita do usuario.
-
-## 6. Sincronia Entre Ambientes
-
-A fonte da verdade é o GitHub. Antes de deploy:
-
-1. Validar localmente.
-2. Validar no WSL quando a mudança afetar build, scripts ou caminhos.
-3. Commit local.
-4. Push somente quando autorizado.
-5. Conferir build na Vercel e conferir o site somente quando deploy estiver autorizado.
-
-## 7. Estado Atual Dos Dados
-
-- Saúde: 2020–2025 em `data/public`.
-- Educação: 2020–2025 em `data/public`, validada contra PDFs oficiais; 2020–2023 também em `data/extracted` como saída mecânica.
-- Auditoria: dados mock sinalizados no site como fictícios. Não publicar dados reais sem revisão explícita.
-
-## 8. Arquitetura De Agentes
+## 6. Arquitetura De Agentes
 
 O projeto usa um conjunto de agentes especializados coordenados pelo Maestro.
+Consulte `CONSTITUICAO.md §3` para a tabela completa de roteamento, `CONSTITUICAO.md §14`
+para isolamento de leitura/escrita, e `docs/roteamento-codex-claude.md` para a
+divisão entre Claude e Codex.
 
 ### Maestro
 
-O Maestro e aprendiz de roteamento: observa resultados, validacoes, correcoes do usuario e reroteamentos para registrar licoes candidatas. Continua dispatcher puro: nao executa trabalho dos especializados e nao autoriza gates.
+O Maestro é aprendiz de roteamento: observa resultados, validações, correções do
+usuário e reroteamentos para registrar lições candidatas. Continua dispatcher
+puro: não executa trabalho dos especializados e não autoriza gates.
 
-Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o contexto mínimo necessário — nunca repassa secrets, dados não publicados ou conteúdo de PDFs brutos.
-
-Para economizar contexto, o maestro deve preferir subagentes por função apenas quando houver fronteira clara de arquivos e validação. Tarefas pequenas ou bloqueantes ficam com o agente atual.
-
-Quando a tarefa envolver contexto ja documentado, o maestro pode consultar `tools/memory/query-rag.py` para recuperar trechos canonicos de `memory/registry.csv`. Essa recuperacao deve ser passada como resumo curto no pacote minimo do subagente e nunca substitui leitura direta antes de escrita.
-
-Para completar dados faltantes, o fluxo padrão é: `/frontino status` verifica score LAI, `dados` confere/baixa fontes oficiais, `pipeline` extrai ou gera manifests de auditoria, `qa` valida integridade, `vitruvio` entra só se a interface precisar mudar e `deploy` só entra com autorização explícita.
-
-Para objetivos amplos ou ambiguos, `/goal` define objetivo verificavel, nao-objetivos, gates, rota inicial, pacote minimo, validacao e sinal de aprendizado. `/goal` e slash command local, nao skill.
+Analisa a intenção do pedido e roteia para o subagente mais adequado. Monta o
+contexto mínimo necessário — nunca repassa secrets, dados não publicados ou
+conteúdo de PDFs brutos.
 
 ### Subagentes
 
 | Agente | Alias | Ferramenta | Ambiente | Responsabilidade |
 |---|---|---|---|---|
-| `maestro` | — | Claude Code | Windows / WSL | Dispatcher aprendiz — classifica pedidos, roteia e registra licoes candidatas |
-| `goal` | `/goal` | Claude Code | Windows / WSL | Protocolo de objetivo — transforma intencao ampla em pacote verificavel |
-| `frontino` | `/cobertura` | Claude Code | Windows | Score LAI, manifesto, roteamento de coleta, pedidos e-SIC |
-| `vitruvio` | — | Claude Code | Windows / WSL | Full-stack — frontend, backend, infra, debug, arquitetura |
-| `plinio` | `/analista` | Claude Code | WSL / Windows | Analisa dados publicados em linguagem cidadã |
-| `catao` | `/seguranca` | Claude Code | Windows | Watchdog de segurança — supply chain, firewall, alertas |
-| `dados` | — | Claude Code | WSL / Windows | Verifica e baixa fontes oficiais brutas |
-| `pipeline` | — | Claude Code | WSL (primário) | Processa fontes brutas em CSV/JSON |
-| `qa` | — | Claude Code | WSL / Windows | Valida integridade pré-publicação e cobertura read-only |
-| `deploy` | — | Claude Code | WSL / Windows | Build e publicação na Vercel (requer autorização explícita) |
-| `tablet` | — | Claude Code | Windows (ADB) | Sincroniza e monitora o tablet Android |
-| `engenheiro` | — | Codex | WSL | Refatorações grandes, migrações de estrutura |
-
-Executores principais:
-
-- Codex: auditor principal de codigo e engenheiro de confiabilidade.
-- Claude `Anatomia do Gasto - Coleta e Publicacao`: dados, cron, operacao,
-  Playwright e release sob autorizacao.
-- Claude `Anatomia do Gasto - UI/UX`: interface, acessibilidade, copy, SEO e
-  metodologia editorial.
+| `maestro` | — | Claude Code | Windows / WSL | Dispatcher aprendiz |
+| `goal` | `/goal` | Claude Code | Windows / WSL | Protocolo de objetivo |
+| `frontino` | `/cobertura` | Claude Code | Windows | Score LAI, manifesto, coleta |
+| `vitruvio` | — | Claude Code | Windows / WSL | Full-stack técnico |
+| `plinio` | `/analista` | Claude Code | WSL / Windows | Análise cidadã de dados |
+| `catao` | `/seguranca` | Claude Code | Windows | Watchdog de segurança |
+| `dados` | — | Claude Code | WSL / Windows | Fontes oficiais brutas |
+| `pipeline` | — | Claude Code | WSL (primário) | Processamento de dados |
+| `qa` | — | Claude Code | WSL / Windows | Validação pré-publicação |
+| `deploy` | — | Claude Code | WSL / Windows | Build e Vercel |
+| `tablet` | — | Claude Code | Windows (ADB) | Tablet Android |
+| `engenheiro` | — | Codex | WSL | Refatorações grandes |
 
 ### Critério De Roteamento
 
-- **WSL**: tarefas de código, pipeline, frontend, Codex — ambiente primário de desenvolvimento.
-- **Windows**: operações com tablet (ADB), GUI, tarefas que exigem drivers locais.
-- **Codex**: tarefas autônomas em WSL, refatorações em massa, geração de código estrutural.
-- **Claude Code**: absorve temporariamente as antigas funcoes operacionais do
-  Antigravity. Deploy, push e publicacao continuam exigindo autorizacao.
+- **WSL:** código, pipeline, frontend, Codex
+- **Windows:** tablet (ADB), GUI, drivers locais
+- **Codex:** refatorações autônomas, geração estrutural
+- **Claude Code:** operações, coleta, UI/UX, deploy autorizado
 
-## 9. Resposta Esperada Das IAs
+---
 
-- Ser conciso.
-- Explicar decisões técnicas quando houver tradeoff.
-- Indicar arquivos afetados em mudanças estruturais.
-- Não afirmar que algo foi validado sem ter rodado a validação.
-- Se houver lacuna de ambiente, registrar claramente.
-- Nunca agir fora do escopo autorizado pelo usuário.
-- Minimizar consumo de contexto por padrão, registrar economia em `memory/token-economy/` quando aplicável e, quando solicitado, relatar a economia obtida de forma estimada e verificável.
-- Ao encerrar trabalho substantivo, incluir o rodape padrao com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto.
-- Ao encerrar alteracao, informar a proveniencia registrada ou a razao de ter sido mantida apenas em memoria local.
-- Indicar no rodape se o modelo esta adequado ou se convem recomendar troca para uma classe de modelo, sem fixar nomes especificos.
+## 7. Resposta Esperada Das IAs
+
+- Ser conciso
+- Explicar decisões técnicas quando houver tradeoff
+- Indicar arquivos afetados em mudanças estruturais
+- Não afirmar que algo foi validado sem ter rodado a validação
+- Se houver lacuna de ambiente, registrar claramente
+- Nunca agir fora do escopo autorizado pelo usuário
+- Ao encerrar alteração, informar a proveniência registrada
+- Seguir o footer padrão de encerramento (ver `CONSTITUICAO.md §9`)
+
+---
+
+> 📅 **2026-07-19 — Reorganização:** Este arquivo foi reduzido. Regras
+> compartilhadas (regras permanentes 1–22, política de commit, proveniência,
+> economia de contexto, footer, flows, protocolo de modelo) movidas para
+> `CONSTITUICAO.md`.
+> Assinatura: `[Freebuff > ds-v4-flash > xH]`

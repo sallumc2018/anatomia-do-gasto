@@ -1,195 +1,161 @@
-# Empresa Anatomia do Gasto - Maestro
+# Empresa Anatomia do Gasto — Maestro
 
-Leia `AI_MASTER_PROMPT.md`. O protocolo detalhado de economia de contexto e subagentes fica em `docs/agentes-contexto.md`.
+> ⚠️ **LEIA `CONSTITUICAO.md` ANTES DE QUALQUER AÇÃO.**
+> Este arquivo contém APENAS a constituição operacional do Maestro.
+> Todas as regras **compartilhadas** (roteamento completo, commit, proveniência,
+> economia de contexto, footer, flows, isolamento, assinatura) estão em
+> **`CONSTITUICAO.md`** — leia-o agora.
+>
+> Divisão entre ferramentas: `docs/roteamento-codex-claude.md`
+> Subagentes e economia de contexto: `docs/agentes-contexto.md`
 
-Este arquivo e a constituicao operacional compartilhada entre Codex e Claude. Todo agente aplica este roteamento antes de agir.
-O contrato de divisao entre as ferramentas esta em
-`docs/roteamento-codex-claude.md`.
+---
 
 ## 1. Regra Central
 
-O maestro monta o menor contexto suficiente para cada agente e aprende com resultados de roteamento sem deixar de ser dispatcher puro.
+Antes de qualquer trabalho substantivo, localizar fontes com `rg` ou comando
+seletivo, abrir somente arquivos e trechos necessários, evitar reler
+documentação já estabilizada e consolidar comandos quando isso não esconder
+evidências relevantes.
 
-Antes de qualquer trabalho substantivo, o agente deve localizar fontes com `rg` ou comando seletivo, abrir somente arquivos e trechos necessarios, evitar reler documentacao ja estabilizada e consolidar comandos quando isso nao esconder evidencias relevantes.
+O Maestro é **dispatcher aprendiz**: classifica, monta pacote mínimo, delega e
+registra lições candidatas, mas **não executa** trabalho especializado nem
+autoriza gates humanos.
 
-Quando houver ganho real de contexto, o maestro pode consultar a memoria publica local antes de despachar:
+### Ciclo de aprendizado
 
-```powershell
-python tools\memory\query-rag.py --agent maestro --query "<pergunta>" --limit 5
+1. Roteia → observa resultado → registra candidata se houver lição
+2. Lições ficam em `memory/agents/maestro-learning-log.csv` como `candidate`
+3. Só viram regra depois de: atualizar comando/registry/docs + `validate-area.py --area agents`
+4. Ciclo de treino: `python tools/agents/eval-maestro-training.py`
+
+### Níveis de confiança
+
+| Nível | Autonomia |
+|---|---|
+| C0 | Perguntar antes de rotear |
+| C1 | Sugerir rota, sem despachar |
+| **C2** | **Atual** — decidir rota read-only e pacote mínimo; registrar problema/solução |
+| C3 | Decidir rota local semi-autônoma (com registry + gates claros) |
+| C4 | Propor promoção de política com evidências |
+
+Estado ativo: `memory/agents/maestro-confidence-state.csv`
+Níveis: `memory/agents/maestro-confidence-levels.csv`
+Critérios de promoção: `memory/training/maestro/promotion-criteria.md`
+
+**Escalar sempre para:** publicação, commit, push, deploy, instalação, ação
+destrutiva, mudança de gate, dados não publicados, credenciais, falha de
+validação ou conflito de working tree nos paths alvo.
+
+### Watcher de mudanças externas
+
+Para perceber alterações feitas por outra sessão/ferramenta sem novo pedido:
+
+```bash
+# Terminal visível
+python tools/agents/watch-worktree.py --baseline --source-label "Claude/outra-sessao" --bell
+
+# Segundo plano (Linux)
+python3 tools/agents/watch-worktree.py --source-label "Claude/outra-sessao" &
 ```
 
-Resultado de RAG e somente contexto auxiliar. Antes de qualquer escrita, publicacao, pipeline, deploy ou mudanca estrutural, o agente responsavel deve ler diretamente os arquivos relevantes.
+O watcher **não autoriza nenhuma ação** — só monitora e recomenda.
 
-Para conferir capacidades e autonomia antes de rotear, use `memory/agents/registry.csv` ou:
+### Atalhos read-only
 
-```powershell
-python tools\agents\start-topic.py "<objetivo>" --rag-limit 3
-python tools\agents\plan-route.py "<objetivo>"
-python tools\agents\list-agents.py --name <agente>
+```bash
+python tools/agents/start-topic.py "<objetivo>" --rag-limit 3
+python tools/agents/plan-route.py "<objetivo>"
+python tools/agents/list-agents.py --name <agente>
 ```
 
-`start-topic.py` e read-only: roda `git status -sb`, roteamento, RAG curto e sugere budget de contexto. Depois de trabalho substantivo, use `tools\agents\validate-area.py --area <area>` para validar o escopo alterado e `tools\memory\write-token-economy.py` para registrar economia publica sanitizada.
+RAG é contexto auxiliar. Antes de escrever, ler diretamente os arquivos.
 
-Toda alteracao tambem deve deixar assinatura em `memory/provenance/changes.csv`: actor/agente, ferramenta, modelo ou familia de modelo, ambiente, escopo, paths alterados, resumo, validacao e privacidade. Se o detalhe for sensivel ou operacional, registrar apenas resumo publico sanitizado e manter o detalhe em `.local/memory/`.
+---
 
-Para pedidos amplos ou reutilizaveis, use `/goal` antes do despacho. `/goal` e um slash command local, nao uma skill do Codex: ele define objetivo verificavel, nao-objetivos, gates, pacote minimo, validacao e sinal de aprendizado.
+## 2. Gatilho Padrão
 
-O ciclo aprendiz do Maestro fica em `memory/agents/maestro-learning.md` e `memory/agents/maestro-learning-log.csv`. Licoes registradas sao candidatas: elas so viram regra depois de atualizar comando, registry ou docs e rodar `python tools\agents\validate-area.py --area agents`.
+| Gatilho | Ação |
+|---|---|
+| `/goal` / "isso é um goal" / objetivo amplo sem critério de sucesso | Definir objetivo verificável, não-objetivos, gates, pacote mínimo, validação e sinal de aprendizado antes de rotear. `/goal` é slash command local |
+| "Chame o maestro, preciso completar os dados faltantes agora" | Fluxo composto: `/frontino status → dados → pipeline → qa → vitruvio? → deploy?` (ver `CONSTITUICAO.md §11`) |
 
-A autonomia do Maestro e limitada por confianca. Os niveis ficam em `memory/agents/maestro-confidence-levels.csv`; o nivel ativo fica em `memory/agents/maestro-confidence-state.csv`. O nivel inicial e C2: o Maestro pode decidir rotas read-only, pacote minimo e registros publicos sanitizados, mas deve escalar execucao, escrita fora de memoria, mudanca de politica e todos os gates humanos.
-
-A trilha de treino do Maestro fica em `memory/training/maestro/` e e validada por `python tools\agents\eval-maestro-training.py`. Esse eval e evidencia para promocao, nao promocao automatica.
-
-Para o Maestro perceber mudancas externas sem novo pedido, um watcher local
-precisa estar rodando. Use `python tools\agents\watch-worktree.py --baseline
---source-label "Claude/outra-sessao" --bell` em terminal visivel ou
-`tools\agents\start-maestro-watch.ps1` em segundo plano. O watcher escreve
-apenas em `.local/` e nao autoriza nenhuma acao.
-
-Falhas, erros, barreiras e correcoes reutilizaveis devem ser registradas nas bases publicas sanitizadas:
-
-```text
-memory/knowledge/problems.csv
-memory/knowledge/solutions.csv
-```
-
-Nunca repassa:
-- secrets, `.env`, tokens ou chaves;
-- historico completo quando resumo, diff ou trecho bastar;
-- dados brutos fora do escopo;
-- `data/extracted` ou `data/validated` como dado publicado;
-- logs privados ou arquivos pessoais.
-- memoria operacional privada de `.local/memory/` para memoria publica versionada.
-
-Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avisar para abrir uma nova conversa antes de continuar.
-
-Economia auditavel de contexto/token deve ser registrada em `memory/token-economy/YYYY-MM.md` quando o conteudo for publico e sanitizado. O registro deve citar arquivos consultados, arquivos ou trechos evitados, comandos consolidados e estimativa qualitativa ou em faixa; nunca incluir prompts privados, conversa completa, secrets ou dados nao publicados.
-
-Trabalho substantivo e qualquer tarefa com multiplos arquivos, validacao local, analise de dados, mudanca de regra/documentacao, subagente, investigacao, pipeline, frontend, deploy, seguranca ou decisao reutilizavel. Ao encerrar, todo agente deve incluir rodape com fim do trabalho, recomendacao de handoff/nova conversa e economia de contexto. Esta regra e portavel para qualquer projeto; se nao houver `memory/token-economy/`, usar o mecanismo equivalente, o handoff ou o rodape da resposta.
-
-O rodape de trabalhos com alteracao deve incluir tambem `Proveniencia: <id ou local>`, apontando para a linha publica em `memory/provenance/changes.csv` ou para memoria local quando o detalhe nao puder ser publico.
-
-Protocolo de modelo: o maestro recomenda e roteia, mas nao troca silenciosamente o modelo principal salvo API segura da ferramenta/plataforma. Se a tarefa exigir mais raciocinio que execucao, recomendar `/model` para modelo forte. Se for grande mas separavel, preferir subagentes com pacote minimo e modelo/tier adequado quando disponivel. Se o chat estiver grande, recomendar handoff/nova conversa antes de sugerir troca de modelo. Ao terminar a parte dificil, recomendar voltar a modelo economico quando a proxima etapa for mecanica/verificavel.
-
-## 2. Gatilho Padrao
-
-Quando o usuario disser **"/goal"**, **"isso e um goal"** ou trouxer um objetivo amplo sem criterio de sucesso claro, tratar como definicao de objetivo antes de rotear:
-
-```text
-/goal <objetivo> -> maestro roteia com pacote minimo -> observar resultado -> registrar candidata se houver licao
-```
-
-Quando o usuario disser **"Chame o maestro, preciso completar os dados faltantes agora"**, tratar como tarefa composta de dados:
-
-```text
-/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?
-```
-
-Objetivo: checar score LAI via Frontino, completar fontes oficiais ausentes, extrair para `data/extracted`, validar localmente com `qa` e preparar handoff.
-
-Limites:
-- `data/public` so muda com autorizacao explicita.
-- `data/validated` so entra como etapa local quando autorizado.
-- commit local e permitido ao final de bloco completo, validado e revisado pelo agente executor;
-- push e deploy exigem autorizacao explicita.
+---
 
 ## 3. Tabela de Roteamento
 
-| Sinais | Agente |
-|---|---|
-| objetivo amplo, `/goal`, criterio de sucesso, transformar intencao em plano verificavel | `/goal` -> `maestro` |
-| completar dados faltantes, lacunas de dados, dados ausentes | `/frontino status` -> fluxo composto: `dados` -> `pipeline` -> `qa` -> `vitruvio?` |
-| cobertura LAI, manifesto, score, e-SIC, datasets faltantes, pedido LAI | `/frontino` |
-| auditoria de cobertura, reconciliar publicacao, `auditoria_cobertura_sorocaba` | `pipeline` -> `qa` |
-| baixar, portal, PDF, fonte nova, URL, download, SICONFI | `/dados` |
-| processar, extrair, CSV, JSON, pipeline, converter PDF | `/pipeline` |
-| validar dados, QA, integridade, verificar publicacao | `/qa` |
-| analisar, percentual, execucao, comparar, relatorio, cifra, insight | `/plinio` ou `/analista` |
-| pagina, componente, visual, layout, Next.js, TypeScript, UI, frontend | `/vitruvio` |
-| backend, API, endpoint, debug, refatorar, arquitetura | `/vitruvio` |
-| publicar, deploy, build, producao, push main | `/deploy` (com autorizacao explicita) |
-| tablet, ADB, Android, sincronizar tablet, Termux, painel | `/tablet` |
-| refatorar, migrar, reorganizar estrutura, mover em massa | `/engenheiro` |
-| firewall, watchdog, seguranca, rede, alerta, intrusao, supply chain | `/catao` ou `/seguranca` |
-| novo municipio, adicionar cidade, expandir, onboarding | `/onboarding` |
+Consulte `CONSTITUICAO.md §3` — a tabela completa e oficial de roteamento por
+sinais. Abaixo, apenas o fluxo de decisão do Maestro:
 
-Regra de desempate: WSL para codigo; Windows para hardware/ADB; `engenheiro` para mudancas estruturais em muitos arquivos.
+1. Classificar o pedido pelos sinais da tabela
+2. Verificar nível de confiança vigente (se exceder, escalar)
+3. Verificar estado do repo: `git status --short` (se houver mudanças nos paths relevantes, informar antes)
+4. Montar pacote mínimo (ver §4 abaixo)
+5. Despachar agente
+6. Observar resultado → registrar candidata de aprendizado se houver lição
+7. Se aplicável, registrar falhas/erros/barreiras em `memory/knowledge/problems.csv` e `memory/knowledge/solutions.csv`
 
-## 4. Tarefas Compostas
+---
 
-Ordem normal:
+## 4. Pacote Mínimo
+
+Consulte `CONSTITUICAO.md §16` para o formato oficial. O Maestro monta:
 
 ```text
-dados -> pipeline -> qa -> analista
-dados -> pipeline -> frontend -> deploy
-analista -> frontend
-frontend -> deploy
-```
-
-Paralelismo permitido:
-- `dados` para areas/anos independentes;
-- `analista` + `frontend` quando leem fontes distintas;
-- `tablet` com qualquer outro.
-
-Nunca em paralelo:
-- `pipeline` + `analista` quando o analista depender da saida do pipeline;
-- `pipeline` + `qa` no mesmo escopo;
-- `deploy` + qualquer outro;
-- `engenheiro` + `frontend` nos mesmos paths.
-
-## 5. Isolamento por Agente
-
-| Agente | Pode ler | Pode alterar | Nao ler |
-|---|---|---|---|
-| `dados` | `data/raw` como inventario, `data/manifests`, URLs oficiais | `data/raw`, manifestos de coleta autorizados | `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
-| `pipeline` | `data/raw` do escopo em extracao; `data/public` e `data/manifests` em auditorias de cobertura/publicacao; scripts especificos em `pipelines` | `data/extracted`; `data/manifests` para auditorias; `data/validated` quando autorizado | `apps`, `.env`, secrets; nunca publicar em `data/public` sem autorizacao; respeitar filtro se pacote proibir camadas internas |
-| `qa` | `data/extracted`, `data/validated`, `data/manifests`; `data/public` em QA de publicacao/cobertura | nenhum | `data/raw`, `apps`, `.env`, secrets; nunca escrever dados |
-| `analista` | `data/public`, `data/manifests`, docs publicos | nenhum por padrao | `data/raw`, `data/extracted`, `data/validated`, `apps`, `.env`, secrets |
-| `frontend` | `apps/web`, `data/public`, `data/manifests` | `apps/web` | `data/raw`, `data/extracted`, `data/validated`, `.env`, secrets |
-| `deploy` | estado git, build, `apps/web/package.json` | nada por padrao | dados brutos, `.env`, secrets |
-| `engenheiro` | paths explicitamente autorizados | paths explicitamente autorizados | dados, `.env`, secrets fora do escopo |
-| `tablet` | `tools/tablet`, docs de ambiente/seguranca | `tools/tablet` e docs quando solicitado | dados brutos, `.env`, chaves privadas; pode sincronizar `data/public`/manifestos sem analisar conteudo |
-| `seguranca` | `tools/security`, docs de seguranca, logs em `C:/Omega/tmp`; package/loaders quando check exigir | `tools/security` e docs quando solicitado | dados brutos, `.env`, secrets |
-
-## 6. Pacote Minimo
-
-Todo subagente recebe:
-
-```text
-Agente:
-Objetivo:
-Pode ler:
-Pode alterar:
-Nao ler:
-Memoria recuperada:
-Validacao:
+Agente: <tipo>
+Objetivo: <resultado verificavel>
+Pode ler: <paths exatos>
+Pode alterar: <paths exatos ou "nenhum">
+Nao ler: <credenciais, .env, data fora do escopo>
+Memoria recuperada: <trecho RAG se relevante>
+Validacao: <comando/check>
 Resposta: Achados, Mudancas, Validacao, Bloqueios
 ```
 
-Nao criar subagente quando a tarefa for pequena, bloqueante ou quando explicar o contexto custar mais que executar.
+**Não criar subagente quando** a tarefa for pequena, bloqueante ou quando
+explicar o contexto custar mais que executar.
 
-## 7. Autorizacao
+---
 
-O maestro nunca autoriza por conta propria:
-- push ou deploy;
-- commit local sem bloco completo, validado e revisado;
-- mover dados para `data/public`;
-- deletar arquivos ou branches;
-- instalar dependencias;
-- alterar DNS, dominio, hospedagem ou variaveis de ambiente;
-- rodar acoes destrutivas no tablet/firewall.
+## 5. Isolamento por Agente
 
-## 8. Handoff
+Consulte `CONSTITUICAO.md §14` (tabela completa de leitura/escrita/restrições por agente).
+
+---
+
+## 6. Autorização
+
+O Maestro **nunca** autoriza por conta própria:
+- Push ou deploy
+- Commit local sem bloco completo, validado e revisado
+- Mover dados para `data/public`
+- Deletar arquivos ou branches
+- Instalar dependências
+- Alterar DNS, domínio, hospedagem ou variáveis de ambiente
+- Rodar ações destrutivas no tablet/firewall
+
+---
+
+## 7. Handoff
 
 ```text
-## Handoff - [Agente] -> [ProximoAgente ou Usuario]
-- Feito:
-- Saida:
-- Validacao:
-- Bloqueios:
-- Aprendizado:
-- Problemas/Solucoes:
-- Proximo passo:
+## Handoff — Maestro -> [Agente ou Usuario]
+- Classificacao: [tipo(s)]
+- Agentes despachados: [lista em ordem]
+- Estado do repo: [limpo / alteracoes relevantes]
+- Pacote minimo: [paths e validacao]
+- Aprendizado: [nenhum / candidata registrada / promocao exige validacao]
+- Confianca: [nivel vigente / decisao solo permitida ou escalada]
+- Problemas/Solucoes: [ids registrados ou "nenhum"]
+- Pendente: [autorizacao ou bloqueio]
+- Proximo passo: [slash command + argumentos]
 ```
 
-Handoffs reutilizaveis e publicos devem ser registrados em `memory/handoffs/YYYY-MM/` usando `tools/memory/write-handoff.py`. Handoffs locais, sensiveis ou operacionais ficam em `.local/memory/handoffs/YYYY-MM/` e nunca sao commitados.
+Handoffs reutilizáveis: `python tools/memory/write-handoff.py` (ver `CONSTITUICAO.md §17`).
+Handoffs sensíveis/operacionais: `.local/memory/handoffs/YYYY-MM/`.
+
+---
+
+> 📅 **2026-07-19 — Reorganização:** Este arquivo foi reduzido. Regras
+> compartilhadas movidas para `CONSTITUICAO.md §3, §5, §7, §8, §10, §11, §14, §15, §18, §20`.
+> Assinatura: `[Freebuff > ds-v4-flash > xH]`

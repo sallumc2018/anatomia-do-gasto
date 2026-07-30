@@ -1,31 +1,36 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> ⚠️ **LEIA `CONSTITUICAO.md` ANTES DE QUALQUER AÇÃO.**
+> Este arquivo contém APENAS instruções específicas do Claude Code.
+> Todas as regras compartilhadas (roteamento, commit, proveniência, economia de
+> contexto, footer, escopo proibido, flows, isolamento, assinatura) estão em
+> **`CONSTITUICAO.md`** — leia-o agora.
+>
+> Leia também: `docs/roteamento-codex-claude.md` · `docs/release-ownership.md` · `docs/agentes-contexto.md`
 
-Leia tambem `~/AGENTS.md`. As regras deste repositorio publico prevalecem quando forem mais restritivas.
-Leia tambem `docs/roteamento-codex-claude.md` e `docs/release-ownership.md`.
+---
 
-Voce esta em um repositorio publico.
+## Função
 
-## Funcao
+Este repositório contém o código e a documentação pública do site
+**Anatomia do Gasto** (anatomiadogasto.ong.br). Dados de gastos públicos
+municipais de Sorocaba e Paulínia (SP).
 
-Este repositorio contem o codigo e a documentacao publica do site Anatomia do Gasto (anatomiadogasto.ong.br). Dados de gastos públicos municipais de Sorocaba e Paulínia (SP).
+**Natureza:** 🟢 PÚBLICO. Tudo que for commitado aqui deve poder ser publicado.
 
-## Natureza
+---
 
-Publico. Tudo que for commitado aqui deve poder ser publicado.
-
-## Comandos
+## Comandos Práticos
 
 ```bash
-# Dependências Python (usar sempre o venv do projeto)
+# Dependências Python (sempre com .venv)
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 # OCR (instalar uma vez no sistema)
 sudo apt install tesseract-ocr tesseract-ocr-por poppler-utils
 .venv/bin/pip install pytesseract pdf2image Pillow
 
-# Rodar pipeline individual (sempre com o venv)
+# Pipeline individual
 MUNICIPIO=sorocaba .venv/bin/python3 pipelines/baixar_camara_api.py --listar
 MUNICIPIO=paulinia .venv/bin/python3 pipelines/extrator_rreo.py
 
@@ -42,73 +47,32 @@ MUNICIPIO=paulinia .venv/bin/python3 pipelines/extrator_rreo.py
 # Frontend (dev)
 cd apps/web && npm ci --ignore-scripts && npm run dev
 
-# Deploy produção
-# Regra atual: não rodar deploy manual se STATUS.md bloquear.
-# Preferir integração GitHub/Vercel; validar com docs/release-ownership.md.
+# Deploy produção — validar STATUS.md primeiro. Preferir integração GitHub/Vercel.
 ```
 
-**Mini Shai-Hulud ativa:** `npm install`, `npm update`, `npm audit fix`, `npx` sem autorização explícita são PROIBIDOS. Comece pela triagem read-only do `package-lock.json`.
+---
 
 ## Arquitetura
-
-### Fluxo de dados
-
-```
-data/raw/          ← PDFs e JSONs originais (gitignored; ANATOMIA_RAW_ROOT aponta para cá)
-    ↓ baixar_*.py
-data/extracted/    ← saída bruta dos extratores
-    ↓ extrator_*.py
-data/validated/    ← aprovado localmente
-    ↓ publicar_dados.py (gate explícito)
-data/public/       ← ÚNICA fonte lida pelo site Next.js
-    ↓ gerar_datasets_json.py
-data/manifests/datasets_status.json + apps/web/lib/datasets_status.json
-    ↓ git push → Vercel build
-anatomiadogasto.ong.br
-```
 
 ### Configuração central
 
 `pipelines/paths.py` — toda configuração de paths e municípios:
 - `MUNICIPIO` (env var, default `sorocaba`) seleciona o município ativo
 - `MUNICIPIOS` dict: ibge, cnpj_prefeitura, sefaz_sp para cada município
-- `ANATOMIA_RAW_ROOT` (env var) aponta para o diretório de dados brutos externos (default: `data/raw/`)
-- Rodar qualquer pipeline com `MUNICIPIO=paulinia python3 pipelines/...` para alternar município
-
-Municípios registrados:
-- `sorocaba`: IBGE 3552205, CNPJ 46634044000174, sefaz_sp 6695
-- `paulinia`: IBGE 3536505, CNPJ 45751435000106, sefaz_sp 5137
-
-**Nomenclatura de municípios (padronizada, uma exceção documentada):** os 5.571
-diretórios do Sprint2 em `data/public/` usam snake_case com nome IBGE completo,
-de forma consistente. Rotas do site usam hífen (`/sao-paulo`), dados usam
-underscore (`sao_paulo`) — convenção intencional (slug de URL vs chave de
-dado), não misturar. Única exceção real: **São Bernardo do Campo tem duas
-chaves por desenho** — `sao_bernardo_do_campo` (coleta bruta Sprint2 via
-`pipelines/coletar_municipio_sp.py`, chave canônica em `pipelines/paths.py`)
-alimenta `sao_bernardo` (curado, registrado em `data/manifests/datasets.csv` +
-`publication_classification.csv`, usado pela página `/sao-bernardo`).
-Consolidado em 2026-07-09: os 14 tipos de dataset do Sprint2 (executivo, FNS,
-divida-detalhada, natureza-despesa, RCL, RCL capital, RPPS, despesas-DCA,
-orcamento-DCA) foram classificados e publicados, série estendida de 2020-2025
-para 2015-2025. `sao_bernardo_do_campo` continua sendo a chave de coleta —
-não apagar, é a fonte que alimenta a publicação. Novas categorias (executivo,
-FNS) ainda não têm página própria no frontend, só os dados publicados.
+- `ANATOMIA_RAW_ROOT` (env var) aponta para dados brutos externos (default: `data/raw/`)
 
 ### Manifestos de cobertura
 
-- `data/manifests/sorocaba/mapa_cobertura.csv` — fonte de verdade do score de Sorocaba
-- `data/manifests/paulinia/mapa_cobertura.csv` — fonte de verdade do score de Paulínia
+- `data/manifests/sorocaba/mapa_cobertura.csv` — score de Sorocaba
+- `data/manifests/paulinia/mapa_cobertura.csv` — score de Paulínia
 - Status possíveis: `publicado`, `publicado_parcial`, `parcial`, `coletado_pendente_validacao`, `nao_coletado`, `lai_necessario`, `fora_de_escopo`
-- `tools/diagnostico/calc_score.py` — score ponderado: executivo 30%, contratos 20%, autarquias 15%, transferencias 15%, camara 10%, controle_externo 10%
+- Score ponderado: executivo 30%, contratos 20%, autarquias 15%, transferências 15%, câmara 10%, controle_externo 10%
 
 ### Publicação de datasets
 
 `pipelines/gerar_datasets_json.py` varre `data/public/` e gera dois arquivos em sync:
-1. `data/manifests/datasets_status.json` (commitado ao Git)
+1. `data/manifests/datasets_status.json` (commitado)
 2. `apps/web/lib/datasets_status.json` (importado pelo Next.js no build)
-
-O endpoint `apps/web/app/api/dados/[...slug]/route.ts` serve CSVs diretamente de `data/public/` (path traversal protegido; headers Cache-Control 86400s).
 
 ### Convenção de pipelines
 
@@ -119,134 +83,64 @@ O endpoint `apps/web/app/api/dados/[...slug]/route.ts` serve CSVs diretamente de
 - `validar_*.py` / `sanear_*.py` — QA e limpeza
 - `publicar_dados.py` — promoção `extracted` → `public` com gate de validação
 
-## Proibicoes absolutas
+### Nomenclatura de municípios
 
-Nunca commitar:
+Os 5.571 diretórios do Sprint2 em `data/public/` usam **snake_case** (nome IBGE).
+Rotas do site usam **hífen** (`/sao-paulo`), dados usam underscore (`sao_paulo`) —
+convenção intencional (slug de URL vs chave de dado). Única exceção real:
+**São Bernardo do Campo** tem `sao_bernardo_do_campo` (coleta bruta Sprint2) que
+alimenta `sao_bernardo` (curado, usado pela página `/sao-bernardo`).
 
-- senhas, tokens, cookies, chaves privadas, recovery codes, codigos 2FA
-- arquivos .env, conteudo de credenciais, prints sensiveis
-- memoria operacional privada, prompts internos privados, arquivos pessoais
+### Regra turbopackIgnore
 
-## Regras de dados
+Toda página nova que usa `process.cwd()` para ler arquivos de `data/public/`
+**DEVE**:
 
-- Dado ausente nao e zero.
-- Todo dado publico precisa de fonte.
-- Periodo, escopo e metodologia devem ser claros.
-- Nao forcar causalidade.
-- Nao transformar inferencia em fato.
-- Nao usar nomes reais em dados ficticios.
-- Mock deve ser explicitamente marcado como ficticio.
-- Nao publicar estatistica sem fonte.
-- PDFs grandes do acervo bruto ficam fora do repo; use `ANATOMIA_RAW_ROOT=~/data-raw` para apontar o pipeline para esse acervo externo.
-
-## Regras para novas páginas Server Component que leem data/public
-
-Toda página nova que usa `process.cwd()` para ler arquivos de `data/public/` DEVE:
-
-1. Usar `/*turbopackIgnore: true*/` dentro do `path.join()` que envolve `process.cwd()`:
+1. Usar `/*turbopackIgnore: true*/` dentro do `path.join()`:
    ```ts
    const DATA_ROOT = path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "..", "data", "public")
    ```
-2. Ter uma entrada cirúrgica em `outputFileTracingIncludes` no `next.config.ts` com APENAS o subdiretório que essa rota precisa:
+2. Ter entrada cirúrgica em `outputFileTracingIncludes` no `next.config.ts`:
    ```ts
    "/municipio/rota": ["data/public/municipio/area/saida/**/*"],
    ```
 
-**Por quê:** Sem `turbopackIgnore`, o Next.js (@vercel/nft) rastreia automaticamente TUDO de `data/public/` (251MB+) para o bundle Lambda. Isso quebra o deploy com "Serverless Function exceeded 250MB". Commit `48add5b` e `P-2026-06-10-001` documentam o incidente.
+**Por quê:** Sem isso, o Next.js rastreia TUDO de `data/public/` (251MB+) e o
+deploy quebra com "Serverless Function exceeded 250MB".
 
-## Fluxo obrigatorio
+---
 
-Antes de alterar:
-
-```bash
-git status -sb
-```
-
-Depois de alterar:
-
-```bash
-git status -sb
-git log --oneline -5
-```
-
-Commit local e permitido ao final de um bloco completo e validado, desde que o
-diff seja revisado, a proveniencia esteja registrada quando aplicavel e o pacote
-nao misture mudancas de outro agente/usuario sem identificacao. Push, deploy,
-publicacao em `data/public` e infraestrutura continuam exigindo autorizacao
-explicita do usuario. Antes de push/deploy, rodar
-`python tools/agents/check-release-readiness.py --stage push|deploy`.
-
-**Assinatura obrigatória em todo commit:** `[Claude Code > claude-sonnet-4-6 > Medium]` (ou modelo/effort correspondente).
-
-## Edicao concorrente (Claude + Codex)
+## Edição Concorrente (Claude + Codex)
 
 Quando Claude e Codex estiverem ativos ao mesmo tempo:
 
-- Antes de qualquer escrita, verifique `git status -sb` e leia o timestamp dos arquivos alvo.
-- Se um arquivo tiver modificacao recente nao commitada e voce nao foi quem fez, pare e informe antes de escrever.
-- Nunca faca commit silencioso quando o working tree ja tiver mudancas: descreva o que e seu e o que nao e antes de incluir no pacote.
-- Em caso de conflito real, prefira `git stash` ou branch temporaria em vez de sobrescrever.
+1. Antes de qualquer escrita, verifique `git status -sb` e leia o timestamp dos arquivos alvo
+2. Se um arquivo tiver modificação recente não commitada e você não foi quem fez, **pare e informe** antes de escrever
+3. Nunca faça commit silencioso quando o working tree já tiver mudanças — descreva o que é seu e o que não é
+4. Em caso de conflito real, prefira `git stash` ou branch temporária em vez de sobrescrever
 
-## Separacao de contexto
+---
 
-Nao trazer para este repositorio conteudo privado, credenciais, registros operacionais internos ou arquivos pessoais.
-
-Antes de trabalhos substantivos, opere em economia de contexto/token: localize fontes com `rg` ou comando seletivo, abra apenas os arquivos e trechos necessarios, evite reler documentacao ja estabilizada e consolide comandos quando isso nao esconder evidencia relevante.
-
-Para iniciar um topico substantivo com contexto minimo, rode:
+## Início de Trabalho Substantivo
 
 ```bash
 python3 tools/agents/start-topic.py "<objetivo>" --rag-limit 3
 ```
 
-Registre falhas, erros, barreiras e correcoes reutilizaveis em `memory/knowledge/problems.csv` e `memory/knowledge/solutions.csv`, sempre como conteudo publico e sanitizado.
-
-Registre toda alteracao em `memory/provenance/changes.csv` com actor/agente, ferramenta, modelo, ambiente, escopo, paths alterados, resumo, validacao e privacidade.
-
-Ao usar agentes ou subagentes, siga `docs/agentes-contexto.md`: envie apenas objetivo, paths permitidos, proibicoes, validacao esperada e formato curto de resposta.
-
-Para contexto ja documentado, use a memoria publica em `memory/` via `tools/memory/query-rag.py` quando isso reduzir contexto. Handoffs publicos reutilizaveis ficam em `memory/handoffs/YYYY-MM/`.
-
-Ao alterar memoria, agentes, handoffs ou RAG, rode:
-
-```bash
-python3 -m compileall -q tools/memory
-python3 -m compileall -q tools/agents
-python3 tools/agents/validate-area.py --area memory
-```
-
-Se o usuario disser "Chame o maestro, preciso completar os dados faltantes agora", acione o fluxo composto `/frontino status -> dados -> pipeline -> qa -> vitruvio? -> deploy?` descrito em `docs/agentes-contexto.md` e `.claude/commands/maestro.md`.
-
-Cada topico deve ter sua propria conversa. Se o usuario mudar de assunto, area ou objetivo, avise para abrir uma nova conversa antes de continuar.
-
-Ao finalizar trabalho substantivo, inclua rodape:
-`Fim de trabalho substantivo: sim` | `Handoff recomendado: sim/nao` | `Modelo: adequado/recomendar troca` | `Proveniencia: <id ou local>` | `Economia de contexto: baixa/media/alta`
-
-## Roteamento de IA
-
-| CLI | Função primária neste projeto | Modelo recomendado |
-|---|---|---|
-| **Claude Code - Coleta e Publicacao** | Fontes oficiais, coleta, cron, pipelines operacionais, Playwright, manifests, metodologia, publicacao e deploy autorizado | sonnet-4-6 / opus-4-8 |
-| **Claude Code - UI/UX** | Interface, acessibilidade, linguagem cidada, SEO editorial, visualizacoes e documentos longos | sonnet-4-6 / opus-4-8 |
-| **Codex** | Auditor principal de codigo; confiabilidade; bugs; DRY/SOLID; testes; CI; gates e seguranca de implementacao | GPT-5.5 Medium→High |
-
-Ecossistema ativo neste projeto: apenas Claude Code e Codex. Antigravity foi
-desinstalado (nao integra mais o ambiente); OpenCode segue existindo em outros
-projetos, mas nao neste repositorio. Claude cobre execucao, Playwright e deploy
-autorizado, sempre sob gate humano.
-
-Claude e Codex tem permissoes e limitacoes proprias e definidas por frente
-(Claude: coleta/publicacao/UI-UX; Codex: auditoria de codigo/testes/CI). Cada
-um pode, tecnicamente, fazer o trabalho do outro — isso so deve ser usado sem
-os limites normais quando o proprio agente estiver operando "sem limites"
-(modo explicitamente autorizado pelo usuario). Fora isso, os dois devem
-permanecer em sincronia estrita (ver "Edicao concorrente" acima) para nao
-duplicar nem contradizer trabalho um do outro.
-
-**Regra-chave**: dado ausente != zero. Claude responde por metodologia e
-operacao da sua frente; Codex revisa corretude tecnica e cria protecoes contra
-regressoes.
+---
 
 ## Disciplina de Raciocínio (obrigatória)
 
-Antes de qualquer entrega, seguir `~/ENGINEERING.md` — verificar antes de afirmar (mostrar a prova), portões antes do irreversível (backup→verificar→remover), relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção própria no doc).
+Antes de qualquer entrega, seguir `~/ENGINEERING.md` — verificar antes de afirmar
+(mostrar a prova), portões antes do irreversível (backup→verificar→remover),
+relatar fiel. Aplica-se também a mudanças no sistema Linux/Pop!_OS (ver seção
+própria no doc).
+
+---
+
+## Assinatura de Commit
+
+`[Claude-CP > <modelo> > <effort>]` para Coleta e Publicação
+`[Claude-UI > <modelo> > <effort>]` para UI/UX
+
+Ver padrão oficial em `CONSTITUICAO.md §21`.

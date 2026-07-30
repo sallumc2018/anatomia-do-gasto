@@ -1,14 +1,21 @@
 ﻿# AGENTS.md - Anatomia do Gasto
 
+> ⚠️ **LEIA `CONSTITUICAO.md` — é a fonte única de regras compartilhadas.**
+> Este arquivo continua válido como contrato mestre do agente, mas todas as
+> regras compartilhadas (roteamento, commit, proveniência, economia de contexto,
+> footer, escopo proibido, flows, isolamento, assinatura) foram consolidadas em
+> **`CONSTITUICAO.md`**.
+
 Este repositorio e publico.
 
 Mapa oficial de caminhos e artefatos: `CANONICAL_PATHS.md`.
 
 Antes de propor ou alterar codigo, leia e siga:
 
+- **`CONSTITUICAO.md`** ⬅️ fonte única de regras compartilhadas
 - `~/AGENTS.md`
 - `AI_MASTER_PROMPT.md`
-- `CODEX.md`
+- `codex.md`
 - `CLAUDE.md`
 - `ORQUESTRADOR.md`
 - `docs/roteamento-codex-claude.md`

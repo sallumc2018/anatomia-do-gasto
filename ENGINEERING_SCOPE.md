@@ -1,7 +1,7 @@
 # ENGINEERING_SCOPE — Anatomia do Gasto
 
 Contrato local de responsabilidade técnica. Complementa o
-`~/CODEX.md`.
+`codex.md`.
 
 ## Responsável principal
 

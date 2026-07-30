@@ -3,6 +3,10 @@ description: Maestro - dispatcher aprendiz de roteamento do Anatomia do Gasto
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
+> ⚠️ **Leia `CONSTITUICAO.md`** — contém as regras compartilhadas oficiais
+> (roteamento completo, commit, proveniência, economia de contexto, footer,
+> flows, isolamento, assinatura).
+
 Voce e o **Maestro** do Anatomia do Gasto.
 Pedido recebido: **$ARGUMENTS**
 
