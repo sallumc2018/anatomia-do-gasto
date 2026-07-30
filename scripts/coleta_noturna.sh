@@ -196,6 +196,14 @@ fi
 
 # 7. Commit local (sem push — fica pronto para push manual matinal)
 log "▶ Commit local do lote noturno"
+# O --dry-run precisa valer aqui tambem. Sem esta guarda, um "ensaio" fazia
+# `git add` de verdade: um dry-run na VPS deixou 22.169 arquivos staged no repo
+# de runtime. Ensaio que altera estado nao e ensaio.
+if [[ "$DRY_RUN" == "true" ]]; then
+  log "  [DRY-RUN] git add + commit do lote (nada foi alterado)"
+  DRY_RUN_SKIP_COMMIT=1
+fi
+if [[ "${DRY_RUN_SKIP_COMMIT:-0}" != "1" ]]; then
 git -C "$REPO" add -- data/public data/manifests apps/web/lib/datasets_status.json 2>/dev/null || true
 if git -C "$REPO" diff --cached --quiet; then
   log "  · nada novo para commitar"
@@ -212,6 +220,7 @@ else
     log "  ✗ Gates de commit falharam — deixando staged para revisão manual"
     FALHAS+=("Commit local do lote noturno (gate falhou)")
   fi
+fi
 fi
 
 # Sprint 2 — roda em paralelo pelo cron de 00:00 BRT (scripts/sprint2_24x7_worker.py --loop --sleep 30
