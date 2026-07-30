@@ -136,17 +136,30 @@ run_cmd "Votações nominais — Câmara Paulínia" \
 run_cmd "Gerar catálogo de datasets" \
   "$REPO/.venv/bin/python3" "$REPO/pipelines/gerar_datasets_json.py"
 
-# 5. Sincronizar extracted para GDrive (persist coleta)
-run_cmd "Sync extracted to GDrive" \
-  "$RCLONE" sync "$REPO/data/extracted/" \
-    "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
-    --progress --checksum
+# 5 e 6. Sincronizar extracted e public para o GDrive.
+#
+# SKIP_GDRIVE_SYNC=1 pula as duas. Existe porque a coleta passou a rodar na
+# omega-vps (mesmo clone do Sprint 2, um unico escritor do repo) enquanto as
+# credenciais do rclone/GDrive vivem SOMENTE no omega-gray, que ja e o gateway
+# de offsite da frota. Espalhar a credencial do Drive por mais uma maquina para
+# economizar um hop e trocar seguranca por conveniencia.
+# Com a flag ligada, quem sincroniza e o gray, lendo o resultado da coleta.
+if [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]]; then
+  log "▶ Sync GDrive PULADO (SKIP_GDRIVE_SYNC=1) — quem sincroniza e o omega-gray"
+elif [[ ! -x "$RCLONE" ]]; then
+  log "▶ Sync GDrive PULADO — rclone ausente em $RCLONE"
+  FALHAS+=("Sync GDrive: rclone ausente")
+else
+  run_cmd "Sync extracted to GDrive" \
+    "$RCLONE" sync "$REPO/data/extracted/" \
+      "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
+      --progress --checksum
 
-# 6. Sincronizar public para GDrive (backup + vis)
-run_cmd "Sync public to GDrive" \
-  "$RCLONE" sync "$REPO/data/public/" \
-    "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
-    --progress --checksum
+  run_cmd "Sync public to GDrive" \
+    "$RCLONE" sync "$REPO/data/public/" \
+      "gdrive:02-Profissional/00-Omega/05_bases-operacionais/anatomia-do-gasto-dados/public/" \
+      --progress --checksum
+fi
 
 # 7. Commit local (sem push — fica pronto para push manual matinal)
 log "▶ Commit local do lote noturno"
