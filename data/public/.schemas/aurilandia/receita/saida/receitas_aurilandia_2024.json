@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_aurilandia_2024.csv",
+  "caminho_relativo": "data/public/aurilandia/receita/saida/receitas_aurilandia_2024.csv",
+  "tamanho_bytes": 3846,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "36798453.70",
+      "Previsto_Atualizado": "79497096.37",
+      "Arrecadado_Bimestre": "6951275.14",
+      "Arrecadado_Acumulado": "33407750.17",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5202601&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "34878453.70",
+      "Previsto_Atualizado": "74839512.78",
+      "Arrecadado_Bimestre": "6409305.81",
+      "Arrecadado_Acumulado": "30670166.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5202601&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "32382678.70",
+      "Previsto_Atualizado": "71542781.78",
+      "Arrecadado_Bimestre": "6209305.81",
+      "Arrecadado_Acumulado": "29869210.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5202601&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:07.753999"
+}

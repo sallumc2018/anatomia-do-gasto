@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_belford_roxo_2023.csv",
+  "caminho_relativo": "data/public/belford_roxo/fiscal/saida/natureza_despesa_belford_roxo_2023.csv",
+  "tamanho_bytes": 373,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "689935122.80",
+      "Juros_Encargos": "4739213.30",
+      "Outras_Correntes": "462798114.80",
+      "Despesas_Correntes": "1157472450.90",
+      "Investimentos": "229339929.70",
+      "Despesas_Capital": "244582048.00",
+      "Total_Despesas": "1439557685.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3300456&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:06.811855"
+}

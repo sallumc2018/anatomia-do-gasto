@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_alenquer_2022.csv",
+  "caminho_relativo": "data/public/alenquer/fiscal/saida/natureza_despesa_alenquer_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "110895349.21",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "50762643.91",
+      "Despesas_Correntes": "161657993.12",
+      "Investimentos": "5587637.65",
+      "Despesas_Capital": "7252490.51",
+      "Total_Despesas": "168910483.63",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1500404&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:04.937504"
+}

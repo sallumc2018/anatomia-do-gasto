@@ -1,7 +1,7 @@
 {
   "arquivo": "emendas_federais_bandeirante_2017.csv",
   "caminho_relativo": "data/public/bandeirante/emendas_federais/saida/emendas_federais_bandeirante_2017.csv",
-  "tamanho_bytes": 1020,
+  "tamanho_bytes": 1035,
   "linhas_dados": 4,
   "colunas": [
     "ano",
@@ -33,8 +33,8 @@
     "funcao": "string",
     "subfuncao": "string",
     "valor_empenhado": "string",
-    "valor_liquidado": "float/numeric",
-    "valor_pago": "float/numeric",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
     "fonte_api": "string"
   },
   "amostra": [
@@ -67,9 +67,9 @@
       "tipo_emenda": "Emenda de Relator",
       "funcao": "Saúde",
       "subfuncao": "Administração geral",
-      "valor_empenhado": "15,00",
-      "valor_liquidado": "15,00",
-      "valor_pago": "15,00",
+      "valor_empenhado": "150.000,00",
+      "valor_liquidado": "150.000,00",
+      "valor_pago": "150.000,00",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
     },
     {
@@ -90,5 +90,5 @@
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
     }
   ],
-  "analisado_em": "2026-08-08T04:02:51.379264"
+  "analisado_em": "2026-08-10T04:21:48.279358"
 }

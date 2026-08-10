@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_blumenau_2023.csv",
+  "caminho_relativo": "data/public/blumenau/fiscal/saida/natureza_despesa_blumenau_2023.csv",
+  "tamanho_bytes": 375,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "1188641794.63",
+      "Juros_Encargos": "49077190.16",
+      "Outras_Correntes": "917222402.12",
+      "Despesas_Correntes": "2154941386.91",
+      "Investimentos": "132574262.28",
+      "Despesas_Capital": "186022116.53",
+      "Total_Despesas": "2425622302.11",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4202404&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:40.239441"
+}

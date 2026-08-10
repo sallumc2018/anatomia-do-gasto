@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_aracaju_2023.csv",
+  "caminho_relativo": "data/public/aracaju/fiscal/saida/divida_aracaju_2023.csv",
+  "tamanho_bytes": 535,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "739164632.16",
+      "DC_Contratual": "516662395.02",
+      "Emprestimos": "482648853.36",
+      "Financiamentos": "0.00",
+      "Precatorios": "222502237.14",
+      "Deducoes": "333153414.77",
+      "DCL": "406011217.39",
+      "RCL": "2564443273.48",
+      "DC_pct_RCL": "28.8800",
+      "DCL_pct_RCL": "15.8600",
+      "Limite_valor": "3071302945.78",
+      "Limite_pct_RCL": "119.7649",
+      "Limite_Alerta_valor": "2764172651.20",
+      "Passivo_Atuarial": "1344079378.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2800308&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:08.859399"
+}

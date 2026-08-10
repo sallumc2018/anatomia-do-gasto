@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_barueri_2024.csv",
+  "caminho_relativo": "data/public/barueri/fiscal/saida/divida_barueri_2024.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "32894828.99",
+      "DC_Contratual": "30838983.80",
+      "Emprestimos": "634397.88",
+      "Financiamentos": "504358.06",
+      "Precatorios": "0.00",
+      "Deducoes": "176458050.09",
+      "DCL": "-143563221.10",
+      "RCL": "4920205255.87",
+      "DC_pct_RCL": "0.6700",
+      "DCL_pct_RCL": "-2.9200",
+      "Limite_valor": "5903818507.04",
+      "Limite_pct_RCL": "119.9913",
+      "Limite_Alerta_valor": "5313436656.34",
+      "Passivo_Atuarial": "5044738916.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3505708&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:53.154489"
+}

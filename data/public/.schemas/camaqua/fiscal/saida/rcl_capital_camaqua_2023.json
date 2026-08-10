@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_camaqua_2023.csv",
+  "caminho_relativo": "data/public/camaqua/fiscal/saida/rcl_capital_camaqua_2023.csv",
+  "tamanho_bytes": 416,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Operacoes_Credito_Internas": "5748428.22",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "5748428.22",
+      "Alienacao_Bens": "20038.89",
+      "Alienacao_Bens_Imoveis": "20038.89",
+      "Alienacao_Bens_Moveis": "0.00",
+      "Outras_Capital": "1237569.90",
+      "Total_Capital": "7006037.01",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4303509&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:13.141699"
+}

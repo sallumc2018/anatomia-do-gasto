@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sao_joao_do_araguaia_2023.csv",
+  "caminho_relativo": "data/public/sao_joao_do_araguaia/fiscal/saida/divida_sao_joao_do_araguaia_2023.csv",
+  "tamanho_bytes": 500,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "9006093.44",
+      "DC_Contratual": "9006093.44",
+      "Emprestimos": "0.00",
+      "Financiamentos": "45080.61",
+      "Precatorios": "0.00",
+      "Deducoes": "1346101.98",
+      "DCL": "7659991.46",
+      "RCL": "63422546.55",
+      "DC_pct_RCL": "14.4000",
+      "DCL_pct_RCL": "12.2500",
+      "Limite_valor": "75027055.86",
+      "Limite_pct_RCL": "118.2971",
+      "Limite_Alerta_valor": "67524350.27",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1507508&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:02.314034"
+}

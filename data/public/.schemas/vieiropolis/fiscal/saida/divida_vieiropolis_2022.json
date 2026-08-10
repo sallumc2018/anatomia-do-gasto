@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_vieiropolis_2022.csv",
+  "caminho_relativo": "data/public/vieiropolis/fiscal/saida/divida_vieiropolis_2022.csv",
+  "tamanho_bytes": 506,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "4169772.87",
+      "DC_Contratual": "2501363.47",
+      "Emprestimos": "2000000.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "1668409.40",
+      "Deducoes": "3915721.61",
+      "DCL": "254051.26",
+      "RCL": "25292018.37",
+      "DC_pct_RCL": "16.4900",
+      "DCL_pct_RCL": "1.0000",
+      "Limite_valor": "30350422.04",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "27315379.84",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2517209&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.564859"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_campina_grande_2023.csv",
+  "caminho_relativo": "data/public/campina_grande/executivo/saida/despesas_executivo_campina_grande_2023.csv",
+  "tamanho_bytes": 5004,
+  "linhas_dados": 20,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "218685000.00",
+      "Dotacao_Atualizada": "260160093.85",
+      "Empenhado": "229082725.78",
+      "Liquidado": "227559069.56",
+      "Exceto_Intra_Liquidado": "204887487.67",
+      "Intra_Liquidado": "22671581.89",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2504009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "10135000.00",
+      "Dotacao_Atualizada": "5530000.00",
+      "Empenhado": "2005316.63",
+      "Liquidado": "1375064.74",
+      "Exceto_Intra_Liquidado": "1375064.74",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2504009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "31695000.00",
+      "Dotacao_Atualizada": "40594580.00",
+      "Empenhado": "34112129.40",
+      "Liquidado": "33800539.73",
+      "Exceto_Intra_Liquidado": "33800539.73",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2504009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:50.163507"
+}

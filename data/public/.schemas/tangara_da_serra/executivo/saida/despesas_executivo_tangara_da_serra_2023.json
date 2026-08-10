@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_tangara_da_serra_2023.csv",
+  "caminho_relativo": "data/public/tangara_da_serra/executivo/saida/despesas_executivo_tangara_da_serra_2023.csv",
+  "tamanho_bytes": 6267,
+  "linhas_dados": 25,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "56487311.30",
+      "Dotacao_Atualizada": "69810029.72",
+      "Empenhado": "64921978.06",
+      "Liquidado": "59651937.18",
+      "Exceto_Intra_Liquidado": "49584912.58",
+      "Intra_Liquidado": "10067024.60",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "1664518.42",
+      "Dotacao_Atualizada": "2463974.26",
+      "Empenhado": "2040607.41",
+      "Liquidado": "846954.75",
+      "Exceto_Intra_Liquidado": "846954.75",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "10160164.74",
+      "Dotacao_Atualizada": "22876011.88",
+      "Empenhado": "16167903.67",
+      "Liquidado": "12057108.59",
+      "Exceto_Intra_Liquidado": "11534993.91",
+      "Intra_Liquidado": "522114.68",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:05.973099"
+}

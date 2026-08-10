@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_belem_pb_2022.csv",
+  "caminho_relativo": "data/public/belem_pb/executivo/saida/despesas_executivo_belem_pb_2022.csv",
+  "tamanho_bytes": 3707,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "2762000.00",
+      "Dotacao_Atualizada": "3142551.69",
+      "Empenhado": "3142551.69",
+      "Liquidado": "3142551.69",
+      "Exceto_Intra_Liquidado": "3142551.69",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2501906&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "1576500.00",
+      "Dotacao_Atualizada": "2032542.84",
+      "Empenhado": "1961838.47",
+      "Liquidado": "1961838.47",
+      "Exceto_Intra_Liquidado": "1961838.47",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2501906&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "1908800.00",
+      "Dotacao_Atualizada": "3412888.71",
+      "Empenhado": "3412888.71",
+      "Liquidado": "3412651.71",
+      "Exceto_Intra_Liquidado": "3395671.06",
+      "Intra_Liquidado": "16980.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2501906&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:45.711376"
+}

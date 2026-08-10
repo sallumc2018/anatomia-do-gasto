@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sao_gabriel_rs_2025.csv",
+  "caminho_relativo": "data/public/sao_gabriel_rs/fiscal/saida/divida_sao_gabriel_rs_2025.csv",
+  "tamanho_bytes": 523,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "96528606.03",
+      "DC_Contratual": "96528606.03",
+      "Emprestimos": "2716648.76",
+      "Financiamentos": "50650458.48",
+      "Precatorios": "0.00",
+      "Deducoes": "9495336.32",
+      "DCL": "87033269.71",
+      "RCL": "274549168.40",
+      "DC_pct_RCL": "35.5400",
+      "DCL_pct_RCL": "32.0400",
+      "Limite_valor": "325952648.63",
+      "Limite_pct_RCL": "118.7229",
+      "Limite_Alerta_valor": "293357383.77",
+      "Passivo_Atuarial": "499581073.18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4318309&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.999036"
+}

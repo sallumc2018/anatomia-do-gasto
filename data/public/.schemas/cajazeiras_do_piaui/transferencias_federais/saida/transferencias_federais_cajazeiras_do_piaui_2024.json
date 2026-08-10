@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_cajazeiras_do_piaui_2024.csv",
+  "caminho_relativo": "data/public/cajazeiras_do_piaui/transferencias_federais/saida/transferencias_federais_cajazeiras_do_piaui_2024.csv",
+  "tamanho_bytes": 558,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "54000",
+      "orgao_superior_nome": "Ministério do Turismo",
+      "unidade_gestora_codigo": "540007",
+      "unidade_gestora_nome": "CAIXA - SNINFRA",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "972111",
+      "acao_descricao": "Construcao de infraestrutura no mirante do Morro da Cruz no municipio de Cajazeiras/PI.",
+      "valor_transferido": "0",
+      "municipio_ibge": "2202075",
+      "municipio_nome": "CAJAZEIRAS DO PIAUÍ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:12.014880"
+}

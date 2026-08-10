@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_sao_goncalo_do_amarante_rn_2023.csv",
+  "caminho_relativo": "data/public/sao_goncalo_do_amarante_rn/receita/saida/receitas_sao_goncalo_do_amarante_rn_2023.csv",
+  "tamanho_bytes": 4392,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "815120511.29",
+      "Previsto_Atualizado": "861961141.14",
+      "Arrecadado_Bimestre": "100660933.84",
+      "Arrecadado_Acumulado": "483173770.23",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2412005&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "814720019.01",
+      "Previsto_Atualizado": "861560648.86",
+      "Arrecadado_Bimestre": "100573403.40",
+      "Arrecadado_Acumulado": "482818872.11",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2412005&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "642818731.71",
+      "Previsto_Atualizado": "689659361.56",
+      "Arrecadado_Bimestre": "97224241.00",
+      "Arrecadado_Acumulado": "440531763.21",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2412005&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.678767"
+}

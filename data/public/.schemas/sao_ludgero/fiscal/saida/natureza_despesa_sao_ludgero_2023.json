@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sao_ludgero_2023.csv",
+  "caminho_relativo": "data/public/sao_ludgero/fiscal/saida/natureza_despesa_sao_ludgero_2023.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "36486260.41",
+      "Juros_Encargos": "284257.61",
+      "Outras_Correntes": "36224263.70",
+      "Despesas_Correntes": "72994781.72",
+      "Investimentos": "9815605.48",
+      "Despesas_Capital": "10315605.48",
+      "Total_Despesas": "83310387.20",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4217006&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:44.401281"
+}

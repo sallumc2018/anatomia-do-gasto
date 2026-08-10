@@ -1,7 +1,7 @@
 {
   "arquivo": "emendas_federais_barra_do_pirai_2019.csv",
   "caminho_relativo": "data/public/barra_do_pirai/emendas_federais/saida/emendas_federais_barra_do_pirai_2019.csv",
-  "tamanho_bytes": 1507,
+  "tamanho_bytes": 1542,
   "linhas_dados": 5,
   "colunas": [
     "ano",
@@ -33,8 +33,8 @@
     "funcao": "string",
     "subfuncao": "string",
     "valor_empenhado": "string",
-    "valor_liquidado": "float/numeric",
-    "valor_pago": "float/numeric",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
     "fonte_api": "string"
   },
   "amostra": [
@@ -50,7 +50,7 @@
       "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
       "funcao": "Agricultura",
       "subfuncao": "Promoção da produção agropecuária",
-      "valor_empenhado": "30,00",
+      "valor_empenhado": "300.000,00",
       "valor_liquidado": "0,00",
       "valor_pago": "0,00",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
@@ -67,9 +67,9 @@
       "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
       "funcao": "Saúde",
       "subfuncao": "Assistência hospitalar e ambulatorial",
-      "valor_empenhado": "35,00",
-      "valor_liquidado": "35,00",
-      "valor_pago": "35,00",
+      "valor_empenhado": "350.000,00",
+      "valor_liquidado": "350.000,00",
+      "valor_pago": "350.000,00",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
     },
     {
@@ -90,5 +90,5 @@
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
     }
   ],
-  "analisado_em": "2026-08-08T04:02:51.433624"
+  "analisado_em": "2026-08-10T04:21:48.883251"
 }

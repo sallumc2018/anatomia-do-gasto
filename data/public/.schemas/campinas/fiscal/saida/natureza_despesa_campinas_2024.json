@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_campinas_2024.csv",
+  "caminho_relativo": "data/public/campinas/fiscal/saida/natureza_despesa_campinas_2024.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "3388104422.56",
+      "Juros_Encargos": "75606161.06",
+      "Outras_Correntes": "4067619072.61",
+      "Despesas_Correntes": "7531329656.23",
+      "Investimentos": "585393759.23",
+      "Despesas_Capital": "709075931.26",
+      "Total_Despesas": "9259628773.67",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3509502&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:51.413220"
+}

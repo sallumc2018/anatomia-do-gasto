@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_barra_do_mendes_2022.csv",
+  "caminho_relativo": "data/public/barra_do_mendes/fiscal/saida/natureza_despesa_barra_do_mendes_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "21886428.13",
+      "Juros_Encargos": "1628.09",
+      "Outras_Correntes": "34544994.34",
+      "Despesas_Correntes": "56433050.56",
+      "Investimentos": "1225886.25",
+      "Despesas_Capital": "2504564.62",
+      "Total_Despesas": "58937615.18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2903003&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:06.716143"
+}

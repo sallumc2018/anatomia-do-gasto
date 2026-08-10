@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sapucaia_rj_2023.csv",
+  "caminho_relativo": "data/public/sapucaia_rj/fiscal/saida/natureza_despesa_sapucaia_rj_2023.csv",
+  "tamanho_bytes": 364,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "62788214.58",
+      "Juros_Encargos": "2594.72",
+      "Outras_Correntes": "71224853.47",
+      "Despesas_Correntes": "134015662.77",
+      "Investimentos": "22219553.28",
+      "Despesas_Capital": "22770877.95",
+      "Total_Despesas": "169772520.47",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3305406&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:53.914254"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_umburanas_2025.csv",
+  "caminho_relativo": "data/public/umburanas/executivo/saida/despesas_executivo_umburanas_2025.csv",
+  "tamanho_bytes": 4173,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "13098019.20",
+      "Dotacao_Atualizada": "17624699.90",
+      "Empenhado": "17430020.28",
+      "Liquidado": "17314338.74",
+      "Exceto_Intra_Liquidado": "16971766.23",
+      "Intra_Liquidado": "342572.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2932457&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "603779.20",
+      "Dotacao_Atualizada": "473805.68",
+      "Empenhado": "460665.68",
+      "Liquidado": "460665.68",
+      "Exceto_Intra_Liquidado": "460665.68",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2932457&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "3975104.00",
+      "Dotacao_Atualizada": "2312884.18",
+      "Empenhado": "2271144.66",
+      "Liquidado": "2264112.81",
+      "Exceto_Intra_Liquidado": "2222068.77",
+      "Intra_Liquidado": "42044.04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2932457&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:47.860667"
+}

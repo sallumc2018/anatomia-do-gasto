@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_buriti_alegre_2025.csv",
+  "caminho_relativo": "data/public/buriti_alegre/fiscal/saida/divida_buriti_alegre_2025.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "16680998.44",
+      "DC_Contratual": "16680998.44",
+      "Emprestimos": "5514348.02",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "10809589.59",
+      "DCL": "5871408.85",
+      "RCL": "79158205.20",
+      "DC_pct_RCL": "23.1000",
+      "DCL_pct_RCL": "8.1300",
+      "Limite_valor": "86644998.71",
+      "Limite_pct_RCL": "109.4580",
+      "Limite_Alerta_valor": "77980498.84",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5203906&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:13.178714"
+}

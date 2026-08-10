@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_uru_2022.csv",
+  "caminho_relativo": "data/public/uru/fiscal/saida/natureza_despesa_uru_2022.csv",
+  "tamanho_bytes": 356,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "10310439.73",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "9033132.91",
+      "Despesas_Correntes": "19343572.64",
+      "Investimentos": "1142929.89",
+      "Despesas_Capital": "1607578.43",
+      "Total_Despesas": "20951151.07",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3555901&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:47.737290"
+}

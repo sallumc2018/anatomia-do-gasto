@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_solonopole_2025.csv",
+  "caminho_relativo": "data/public/solonopole/fiscal/saida/divida_solonopole_2025.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "19838544.10",
+      "DC_Contratual": "19699368.98",
+      "Emprestimos": "1138901.91",
+      "Financiamentos": "5995242.25",
+      "Precatorios": "139175.12",
+      "Deducoes": "8410227.00",
+      "DCL": "11428317.10",
+      "RCL": "115606457.50",
+      "DC_pct_RCL": "17.9300",
+      "DCL_pct_RCL": "10.3300",
+      "Limite_valor": "132764613.00",
+      "Limite_pct_RCL": "114.8419",
+      "Limite_Alerta_valor": "119488151.70",
+      "Passivo_Atuarial": "123613394.74",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2313005&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.198072"
+}

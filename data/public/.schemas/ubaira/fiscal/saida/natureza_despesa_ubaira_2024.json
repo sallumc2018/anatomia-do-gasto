@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_ubaira_2024.csv",
+  "caminho_relativo": "data/public/ubaira/fiscal/saida/natureza_despesa_ubaira_2024.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "50661292.87",
+      "Juros_Encargos": "675881.54",
+      "Outras_Correntes": "46009996.76",
+      "Despesas_Correntes": "97347171.17",
+      "Investimentos": "13284460.25",
+      "Despesas_Capital": "14514727.46",
+      "Total_Despesas": "111861898.63",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2932101&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:58.552133"
+}

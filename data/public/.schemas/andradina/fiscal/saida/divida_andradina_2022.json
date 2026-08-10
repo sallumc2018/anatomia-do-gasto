@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_andradina_2022.csv",
+  "caminho_relativo": "data/public/andradina/fiscal/saida/divida_andradina_2022.csv",
+  "tamanho_bytes": 520,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "183258926.23",
+      "DC_Contratual": "51853889.02",
+      "Emprestimos": "23757445.41",
+      "Financiamentos": "0.00",
+      "Precatorios": "131405037.21",
+      "Deducoes": "65123742.28",
+      "DCL": "118135183.95",
+      "RCL": "245985557.99",
+      "DC_pct_RCL": "75.2600",
+      "DCL_pct_RCL": "48.5200",
+      "Limite_valor": "292182669.59",
+      "Limite_pct_RCL": "118.7804",
+      "Limite_Alerta_valor": "262964402.63",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3502101&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:43.772668"
+}

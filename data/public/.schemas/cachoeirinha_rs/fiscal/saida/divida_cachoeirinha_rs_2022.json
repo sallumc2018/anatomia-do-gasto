@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cachoeirinha_rs_2022.csv",
+  "caminho_relativo": "data/public/cachoeirinha_rs/fiscal/saida/divida_cachoeirinha_rs_2022.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "255869652.65",
+      "DC_Contratual": "255385704.53",
+      "Emprestimos": "0.00",
+      "Financiamentos": "58363738.57",
+      "Precatorios": "483948.12",
+      "Deducoes": "115903372.56",
+      "DCL": "139966280.09",
+      "RCL": "479296602.82",
+      "DC_pct_RCL": "53.4500",
+      "DCL_pct_RCL": "29.2400",
+      "Limite_valor": "574465923.38",
+      "Limite_pct_RCL": "119.8560",
+      "Limite_Alerta_valor": "517019331.04",
+      "Passivo_Atuarial": "699192078.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4303103&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:08.009478"
+}

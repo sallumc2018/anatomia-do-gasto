@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_vicosa_al_2024.csv",
+  "caminho_relativo": "data/public/vicosa_al/transferencias_federais/saida/transferencias_federais_vicosa_al_2024.csv",
+  "tamanho_bytes": 960,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "49000",
+      "orgao_superior_nome": "Ministério do Desenvolvimento Agrário e Agricultura Familiar",
+      "unidade_gestora_codigo": "490051",
+      "unidade_gestora_nome": "SEC. DE AGRICULTURA FAMILIAR E AGROECOLOGIA",
+      "funcao_id": "21",
+      "funcao_descricao": "Organização agrária",
+      "acao_id": "967311",
+      "acao_descricao": "Capacitar 25 mulheres e 25 jovens em tecnicas agricolas e gestao de negocios.Transformar a Cozinha Comunitaria em um centro de producao e comercializacao de alimentos, envolvendo 50 familias de agricultores.Verificar os resultados atraves da participacao e desempenho nos cursos, funcionamento regular da cozinha e avaliacoes de satisfacao e desempenho economicosocial dos produtores. Reestruturar a Cozinha Comunitaria",
+      "valor_transferido": "450000.0",
+      "municipio_ibge": "2709400",
+      "municipio_nome": "VIÇOSA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.731697"
+}

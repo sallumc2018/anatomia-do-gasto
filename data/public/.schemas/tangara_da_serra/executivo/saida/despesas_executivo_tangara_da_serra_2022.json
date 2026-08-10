@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_tangara_da_serra_2022.csv",
+  "caminho_relativo": "data/public/tangara_da_serra/executivo/saida/despesas_executivo_tangara_da_serra_2022.csv",
+  "tamanho_bytes": 6245,
+  "linhas_dados": 25,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "51813331.50",
+      "Dotacao_Atualizada": "56587426.53",
+      "Empenhado": "51083406.16",
+      "Liquidado": "46592595.95",
+      "Exceto_Intra_Liquidado": "43538796.96",
+      "Intra_Liquidado": "3053798.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "2065614.67",
+      "Dotacao_Atualizada": "2288614.67",
+      "Empenhado": "1818062.74",
+      "Liquidado": "500643.59",
+      "Exceto_Intra_Liquidado": "500643.59",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "8080319.71",
+      "Dotacao_Atualizada": "14978798.04",
+      "Empenhado": "10069392.73",
+      "Liquidado": "9106144.26",
+      "Exceto_Intra_Liquidado": "8625151.64",
+      "Intra_Liquidado": "480992.62",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5107958&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:05.974237"
+}

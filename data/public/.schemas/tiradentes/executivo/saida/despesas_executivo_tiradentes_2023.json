@@ -1,0 +1,49 @@
+{
+  "arquivo": "despesas_executivo_tiradentes_2023.csv",
+  "caminho_relativo": "data/public/tiradentes/executivo/saida/despesas_executivo_tiradentes_2023.csv",
+  "tamanho_bytes": 589,
+  "linhas_dados": 2,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Saúde",
+      "Dotacao_Inicial": "29166378.00",
+      "Dotacao_Atualizada": "37193601.14",
+      "Empenhado": "33577031.96",
+      "Liquidado": "32580412.53",
+      "Exceto_Intra_Liquidado": "32580412.53",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3168804&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "TOTAL",
+      "Dotacao_Inicial": "29166378.00",
+      "Dotacao_Atualizada": "37193601.14",
+      "Empenhado": "33577031.96",
+      "Liquidado": "32580412.53",
+      "Exceto_Intra_Liquidado": "32580412.53",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3168804&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:43.493799"
+}

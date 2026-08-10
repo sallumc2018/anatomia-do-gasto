@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sidrolandia_2023.csv",
+  "caminho_relativo": "data/public/sidrolandia/fiscal/saida/natureza_despesa_sidrolandia_2023.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "171615629.06",
+      "Juros_Encargos": "1696915.57",
+      "Outras_Correntes": "118286329.79",
+      "Despesas_Correntes": "291598874.42",
+      "Investimentos": "20350342.88",
+      "Despesas_Capital": "25603497.66",
+      "Total_Despesas": "332637232.23",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5007901&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.022668"
+}

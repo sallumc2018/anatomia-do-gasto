@@ -1,7 +1,7 @@
 {
   "arquivo": "emendas_federais_ataleia_2022.csv",
   "caminho_relativo": "data/public/ataleia/emendas_federais/saida/emendas_federais_ataleia_2022.csv",
-  "tamanho_bytes": 411,
+  "tamanho_bytes": 426,
   "linhas_dados": 1,
   "colunas": [
     "ano",
@@ -32,9 +32,9 @@
     "tipo_emenda": "string",
     "funcao": "string",
     "subfuncao": "string",
-    "valor_empenhado": "float/numeric",
-    "valor_liquidado": "float/numeric",
-    "valor_pago": "float/numeric",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
     "fonte_api": "string"
   },
   "amostra": [
@@ -50,11 +50,11 @@
       "tipo_emenda": "Emenda Individual - Transferências Especiais",
       "funcao": "Encargos especiais",
       "subfuncao": "Outras transferências",
-      "valor_empenhado": "50,00",
-      "valor_liquidado": "25,00",
-      "valor_pago": "25,00",
+      "valor_empenhado": "500.000,00",
+      "valor_liquidado": "250.000,00",
+      "valor_pago": "250.000,00",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
     }
   ],
-  "analisado_em": "2026-08-08T04:02:50.536920"
+  "analisado_em": "2026-08-10T04:21:42.910057"
 }

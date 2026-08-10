@@ -1,7 +1,7 @@
 {
   "arquivo": "transferencias_federais_barra_do_mendes_2025.csv",
   "caminho_relativo": "data/public/barra_do_mendes/transferencias_federais/saida/transferencias_federais_barra_do_mendes_2025.csv",
-  "tamanho_bytes": 540,
+  "tamanho_bytes": 542,
   "linhas_dados": 1,
   "colunas": [
     "ano",
@@ -34,7 +34,7 @@
     "funcao_descricao": "string",
     "acao_id": "integer",
     "acao_descricao": "string",
-    "valor_transferido": "integer",
+    "valor_transferido": "float/numeric",
     "municipio_ibge": "integer",
     "municipio_nome": "string",
     "fonte_api": "string"
@@ -49,15 +49,15 @@
       "orgao_superior_nome": "Ministério das Cidades",
       "unidade_gestora_codigo": "560018",
       "unidade_gestora_nome": "CAIXA ECONOMICA FEDERAL - FNHIS",
-      "funcao_id": "-1",
-      "funcao_descricao": "Sem informação",
+      "funcao_id": "16",
+      "funcao_descricao": "Habitação",
       "acao_id": "987034",
       "acao_descricao": "Provisao habitacional no municipio de Barra do Mendes-BA.",
-      "valor_transferido": "0",
+      "valor_transferido": "839398.4",
       "municipio_ibge": "2903003",
       "municipio_nome": "BARRA DO MENDES",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
     }
   ],
-  "analisado_em": "2026-08-08T04:02:53.422746"
+  "analisado_em": "2026-08-10T04:22:06.711815"
 }

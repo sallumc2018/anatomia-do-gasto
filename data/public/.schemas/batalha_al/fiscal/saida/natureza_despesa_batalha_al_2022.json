@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_batalha_al_2022.csv",
+  "caminho_relativo": "data/public/batalha_al/fiscal/saida/natureza_despesa_batalha_al_2022.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "58353347.62",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "28927223.03",
+      "Despesas_Correntes": "87280570.65",
+      "Investimentos": "6812646.02",
+      "Despesas_Capital": "7577092.30",
+      "Total_Despesas": "99091003.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2700706&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:42.364310"
+}

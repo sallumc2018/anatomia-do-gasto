@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sebastiao_laranjeiras_2022.csv",
+  "caminho_relativo": "data/public/sebastiao_laranjeiras/fiscal/saida/divida_sebastiao_laranjeiras_2022.csv",
+  "tamanho_bytes": 509,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "50194048.21",
+      "DC_Contratual": "50174029.70",
+      "Emprestimos": "794183.93",
+      "Financiamentos": "0.00",
+      "Precatorios": "20018.51",
+      "Deducoes": "5432840.09",
+      "DCL": "44761208.12",
+      "RCL": "45429131.11",
+      "DC_pct_RCL": "110.4900",
+      "DCL_pct_RCL": "98.5300",
+      "Limite_valor": "54514957.33",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "49063461.60",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2930006&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:11.377898"
+}

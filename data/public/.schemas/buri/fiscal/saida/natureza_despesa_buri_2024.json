@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_buri_2024.csv",
+  "caminho_relativo": "data/public/buri/fiscal/saida/natureza_despesa_buri_2024.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "68562220.96",
+      "Juros_Encargos": "23346.35",
+      "Outras_Correntes": "52082426.39",
+      "Despesas_Correntes": "120667993.70",
+      "Investimentos": "4176602.02",
+      "Despesas_Capital": "4696430.63",
+      "Total_Despesas": "135206987.73",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3508009&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:02.656847"
+}

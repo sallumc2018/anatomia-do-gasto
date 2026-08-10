@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_alagoinhas_2022.csv",
+  "caminho_relativo": "data/public/alagoinhas/fiscal/saida/natureza_despesa_alagoinhas_2022.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "271290969.53",
+      "Juros_Encargos": "5304354.31",
+      "Outras_Correntes": "304292561.52",
+      "Despesas_Correntes": "580887885.36",
+      "Investimentos": "65949790.57",
+      "Despesas_Capital": "90814400.42",
+      "Total_Despesas": "673546258.82",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2900702&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:42.975381"
+}

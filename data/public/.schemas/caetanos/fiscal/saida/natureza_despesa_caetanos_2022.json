@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_caetanos_2022.csv",
+  "caminho_relativo": "data/public/caetanos/fiscal/saida/natureza_despesa_caetanos_2022.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "21347473.18",
+      "Juros_Encargos": "334640.40",
+      "Outras_Correntes": "27469685.37",
+      "Despesas_Correntes": "49151798.95",
+      "Investimentos": "2965771.72",
+      "Despesas_Capital": "3931136.96",
+      "Total_Despesas": "53082935.91",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2905156&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:10.031582"
+}

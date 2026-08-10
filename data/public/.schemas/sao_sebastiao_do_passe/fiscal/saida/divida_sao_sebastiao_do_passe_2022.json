@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sao_sebastiao_do_passe_2022.csv",
+  "caminho_relativo": "data/public/sao_sebastiao_do_passe/fiscal/saida/divida_sao_sebastiao_do_passe_2022.csv",
+  "tamanho_bytes": 514,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "54872691.88",
+      "DC_Contratual": "54690019.75",
+      "Emprestimos": "0.00",
+      "Financiamentos": "2579926.07",
+      "Precatorios": "182672.13",
+      "Deducoes": "29854677.78",
+      "DCL": "25018014.10",
+      "RCL": "177450152.56",
+      "DC_pct_RCL": "31.3900",
+      "DCL_pct_RCL": "14.3100",
+      "Limite_valor": "209781750.62",
+      "Limite_pct_RCL": "118.2201",
+      "Limite_Alerta_valor": "188803575.60",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2929503&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:52.540513"
+}

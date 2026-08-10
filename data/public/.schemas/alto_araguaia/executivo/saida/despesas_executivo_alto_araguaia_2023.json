@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_alto_araguaia_2023.csv",
+  "caminho_relativo": "data/public/alto_araguaia/executivo/saida/despesas_executivo_alto_araguaia_2023.csv",
+  "tamanho_bytes": 4679,
+  "linhas_dados": 19,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "21823905.82",
+      "Dotacao_Atualizada": "21781702.96",
+      "Empenhado": "14971286.35",
+      "Liquidado": "14969795.45",
+      "Exceto_Intra_Liquidado": "13333175.09",
+      "Intra_Liquidado": "1636620.36",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5100300&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "2191280.00",
+      "Dotacao_Atualizada": "1783229.20",
+      "Empenhado": "1085054.51",
+      "Liquidado": "1085054.51",
+      "Exceto_Intra_Liquidado": "1085054.51",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5100300&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "12210084.00",
+      "Dotacao_Atualizada": "12619263.01",
+      "Empenhado": "7718336.00",
+      "Liquidado": "7716236.06",
+      "Exceto_Intra_Liquidado": "7315688.02",
+      "Intra_Liquidado": "400548.04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5100300&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:50.397364"
+}

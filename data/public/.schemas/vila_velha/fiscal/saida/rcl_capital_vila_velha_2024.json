@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_vila_velha_2024.csv",
+  "caminho_relativo": "data/public/vila_velha/fiscal/saida/rcl_capital_vila_velha_2024.csv",
+  "tamanho_bytes": 426,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Operacoes_Credito_Internas": "79681911.93",
+      "Operacoes_Credito_Externas": "27467200.00",
+      "Operacoes_Credito_Total": "107149111.93",
+      "Alienacao_Bens": "2693814.03",
+      "Alienacao_Bens_Imoveis": "0.00",
+      "Alienacao_Bens_Moveis": "2693814.03",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "109842925.96",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3205200&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:40.555190"
+}

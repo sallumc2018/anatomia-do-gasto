@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_andarai_2024.csv",
+  "caminho_relativo": "data/public/andarai/transferencias_federais/saida/transferencias_federais_andarai_2024.csv",
+  "tamanho_bytes": 629,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-09",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "54000",
+      "orgao_superior_nome": "Ministério do Turismo",
+      "unidade_gestora_codigo": "540007",
+      "unidade_gestora_nome": "CAIXA - SNINFRA",
+      "funcao_id": "23",
+      "funcao_descricao": "Comércio e serviços",
+      "acao_id": "964610",
+      "acao_descricao": "Construcao de Portal, implantacao de sinalizacao turistica e revitalizacao e reforma da infraestrutura de acesso a Praca do Sol, no Municipio de Andarai/BA.",
+      "valor_transferido": "960019.0",
+      "municipio_ibge": "2901304",
+      "municipio_nome": "ANDARAÍ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:42.815902"
+}

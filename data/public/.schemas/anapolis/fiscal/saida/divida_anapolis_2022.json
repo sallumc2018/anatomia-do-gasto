@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_anapolis_2022.csv",
+  "caminho_relativo": "data/public/anapolis/fiscal/saida/divida_anapolis_2022.csv",
+  "tamanho_bytes": 530,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "266475383.63",
+      "DC_Contratual": "258385640.85",
+      "Emprestimos": "210051669.07",
+      "Financiamentos": "0.00",
+      "Precatorios": "8089742.78",
+      "Deducoes": "196244657.95",
+      "DCL": "70230725.68",
+      "RCL": "1439419338.83",
+      "DC_pct_RCL": "18.5600",
+      "DCL_pct_RCL": "4.8900",
+      "Limite_valor": "1722492116.20",
+      "Limite_pct_RCL": "119.6658",
+      "Limite_Alerta_valor": "1550242904.58",
+      "Passivo_Atuarial": "108327236.20",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5201108&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.733552"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_amparo_sp_2023.csv",
+  "caminho_relativo": "data/public/amparo_sp/fiscal/saida/natureza_despesa_amparo_sp_2023.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "187145751.79",
+      "Juros_Encargos": "1462666.43",
+      "Outras_Correntes": "241760275.21",
+      "Despesas_Correntes": "430368693.43",
+      "Investimentos": "25301333.87",
+      "Despesas_Capital": "25532229.77",
+      "Total_Despesas": "456410923.20",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3501905&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:43.742749"
+}

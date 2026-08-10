@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_votorantim_2023.csv",
+  "caminho_relativo": "data/public/votorantim/fiscal/saida/natureza_despesa_votorantim_2023.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "298193547.63",
+      "Juros_Encargos": "2250864.21",
+      "Outras_Correntes": "247365353.56",
+      "Despesas_Correntes": "547809765.40",
+      "Investimentos": "16465906.28",
+      "Despesas_Capital": "18744137.54",
+      "Total_Despesas": "615094779.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3557006&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:02.286274"
+}

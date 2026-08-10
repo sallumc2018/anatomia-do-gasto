@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_belem_pa_2022.csv",
+  "caminho_relativo": "data/public/belem_pa/executivo/saida/despesas_executivo_belem_pa_2022.csv",
+  "tamanho_bytes": 5902,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "157913667.00",
+      "Dotacao_Atualizada": "164380580.79",
+      "Empenhado": "159160731.83",
+      "Liquidado": "158811809.73",
+      "Exceto_Intra_Liquidado": "145127822.57",
+      "Intra_Liquidado": "13683987.16",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1501402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "326660116.00",
+      "Dotacao_Atualizada": "355409217.28",
+      "Empenhado": "256096081.82",
+      "Liquidado": "254873529.50",
+      "Exceto_Intra_Liquidado": "244060557.22",
+      "Intra_Liquidado": "10812972.28",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1501402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "25733216.00",
+      "Dotacao_Atualizada": "34005396.94",
+      "Empenhado": "25206420.58",
+      "Liquidado": "25206420.58",
+      "Exceto_Intra_Liquidado": "25206420.58",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1501402&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.545993"
+}

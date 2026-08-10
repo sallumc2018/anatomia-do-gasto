@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_tupirama_2024.csv",
+  "caminho_relativo": "data/public/tupirama/fiscal/saida/natureza_despesa_tupirama_2024.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "9878870.66",
+      "Juros_Encargos": "179310.49",
+      "Outras_Correntes": "9867019.49",
+      "Despesas_Correntes": "19925200.64",
+      "Investimentos": "2583465.97",
+      "Despesas_Capital": "2618816.43",
+      "Total_Despesas": "22544017.07",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1721257&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:41.362880"
+}

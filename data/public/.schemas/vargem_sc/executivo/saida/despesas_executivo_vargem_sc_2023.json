@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_vargem_sc_2023.csv",
+  "caminho_relativo": "data/public/vargem_sc/executivo/saida/despesas_executivo_vargem_sc_2023.csv",
+  "tamanho_bytes": 3161,
+  "linhas_dados": 13,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "959276.04",
+      "Dotacao_Atualizada": "1688345.04",
+      "Empenhado": "1387821.74",
+      "Liquidado": "1031997.27",
+      "Exceto_Intra_Liquidado": "1031997.27",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4219150&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comércio e Serviços",
+      "Dotacao_Inicial": "0.00",
+      "Dotacao_Atualizada": "207000.00",
+      "Empenhado": "197000.00",
+      "Liquidado": "46787.50",
+      "Exceto_Intra_Liquidado": "46787.50",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4219150&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Cultura",
+      "Dotacao_Inicial": "50500.00",
+      "Dotacao_Atualizada": "308990.26",
+      "Empenhado": "154854.03",
+      "Liquidado": "146054.03",
+      "Exceto_Intra_Liquidado": "146054.03",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4219150&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:11.866308"
+}

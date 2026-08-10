@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_tabatinga_am_2023.csv",
+  "caminho_relativo": "data/public/tabatinga_am/fiscal/saida/natureza_despesa_tabatinga_am_2023.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "151915472.08",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "85339213.30",
+      "Despesas_Correntes": "237254685.38",
+      "Investimentos": "38664646.34",
+      "Despesas_Capital": "38664646.34",
+      "Total_Despesas": "280538701.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1304062&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:51.232936"
+}

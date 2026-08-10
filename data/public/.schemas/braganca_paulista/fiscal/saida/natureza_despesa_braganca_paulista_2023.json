@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_braganca_paulista_2023.csv",
+  "caminho_relativo": "data/public/braganca_paulista/fiscal/saida/natureza_despesa_braganca_paulista_2023.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "288442891.89",
+      "Juros_Encargos": "3803627.28",
+      "Outras_Correntes": "529116910.79",
+      "Despesas_Correntes": "821363429.96",
+      "Investimentos": "14597617.19",
+      "Despesas_Capital": "19020228.49",
+      "Total_Despesas": "840383658.45",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3507605&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:45.298635"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_vicente_sp_2023.csv",
+  "caminho_relativo": "data/public/sao_vicente_sp/executivo/saida/despesas_executivo_sao_vicente_sp_2023.csv",
+  "tamanho_bytes": 5353,
+  "linhas_dados": 21,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "163137797.00",
+      "Dotacao_Atualizada": "183243445.14",
+      "Empenhado": "149954753.80",
+      "Liquidado": "144177748.11",
+      "Exceto_Intra_Liquidado": "140787737.25",
+      "Intra_Liquidado": "3390010.86",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "22158648.00",
+      "Dotacao_Atualizada": "30216801.86",
+      "Empenhado": "26382719.51",
+      "Liquidado": "24080036.26",
+      "Exceto_Intra_Liquidado": "23806892.75",
+      "Intra_Liquidado": "273143.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "4686000.00",
+      "Dotacao_Atualizada": "4769629.00",
+      "Empenhado": "3677430.18",
+      "Liquidado": "3618397.04",
+      "Exceto_Intra_Liquidado": "3543436.91",
+      "Intra_Liquidado": "74960.13",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551009&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.014849"
+}

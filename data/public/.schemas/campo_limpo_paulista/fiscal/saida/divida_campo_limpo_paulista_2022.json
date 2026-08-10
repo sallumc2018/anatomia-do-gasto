@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_campo_limpo_paulista_2022.csv",
+  "caminho_relativo": "data/public/campo_limpo_paulista/fiscal/saida/divida_campo_limpo_paulista_2022.csv",
+  "tamanho_bytes": 511,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "67639180.26",
+      "DC_Contratual": "67639180.26",
+      "Emprestimos": "24070279.38",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "82069217.08",
+      "DCL": "-14430036.82",
+      "RCL": "318202356.90",
+      "DC_pct_RCL": "21.3400",
+      "DCL_pct_RCL": "-4.5500",
+      "Limite_valor": "380415433.08",
+      "Limite_pct_RCL": "119.5514",
+      "Limite_Alerta_valor": "342373889.77",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3509601&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:12.468402"
+}

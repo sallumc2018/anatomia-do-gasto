@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_bujari_2022.csv",
+  "caminho_relativo": "data/public/bujari/fiscal/saida/natureza_despesa_bujari_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "21695870.72",
+      "Juros_Encargos": "83082.24",
+      "Outras_Correntes": "8555200.28",
+      "Despesas_Correntes": "30334153.24",
+      "Investimentos": "4605208.34",
+      "Despesas_Capital": "4775310.22",
+      "Total_Despesas": "35109463.46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1200138&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:51.614897"
+}

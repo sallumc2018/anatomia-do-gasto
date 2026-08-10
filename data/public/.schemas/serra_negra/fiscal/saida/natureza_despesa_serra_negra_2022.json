@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_serra_negra_2022.csv",
+  "caminho_relativo": "data/public/serra_negra/fiscal/saida/natureza_despesa_serra_negra_2022.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "51845599.28",
+      "Juros_Encargos": "887023.93",
+      "Outras_Correntes": "63570774.28",
+      "Despesas_Correntes": "116303397.49",
+      "Investimentos": "19370039.77",
+      "Despesas_Capital": "21670547.38",
+      "Total_Despesas": "142188162.04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3551603&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.518856"
+}

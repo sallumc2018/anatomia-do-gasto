@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_tapiratiba_2024.csv",
+  "caminho_relativo": "data/public/tapiratiba/transferencias_federais/saida/transferencias_federais_tapiratiba_2024.csv",
+  "tamanho_bytes": 631,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "56000",
+      "orgao_superior_nome": "Ministério das Cidades",
+      "unidade_gestora_codigo": "560018",
+      "unidade_gestora_nome": "CAIXA ECONOMICA FEDERAL - FNHIS",
+      "funcao_id": "16",
+      "funcao_descricao": "Habitação",
+      "acao_id": "970952",
+      "acao_descricao": "Provisao de unidades habitacionais atraves do MCMV FNHIS - Programa Minha Casa, Minha Vida. Fundo Nacional de Habitacao de Interesse Social - FNHIS.",
+      "valor_transferido": "1625000.0",
+      "municipio_ibge": "3553609",
+      "municipio_nome": "TAPIRATIBA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:51.243777"
+}

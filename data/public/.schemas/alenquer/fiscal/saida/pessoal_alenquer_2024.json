@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_alenquer_2024.csv",
+  "caminho_relativo": "data/public/alenquer/fiscal/saida/pessoal_alenquer_2024.csv",
+  "tamanho_bytes": 470,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "RCL": "224666399.54",
+      "RCL_Ajustada": "216018763.54",
+      "Pessoal_Bruto": "132024706.98",
+      "Pessoal_Ativo": "132024706.98",
+      "Pessoal_Inativo": "0.00",
+      "Pessoal_Liquido": "118141092.73",
+      "DTP": "118154813.14",
+      "DTP_pct_RCL": "54.7000",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1500404&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:04.942689"
+}

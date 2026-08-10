@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_campinas_2020.csv",
+  "caminho_relativo": "data/public/campinas/fiscal/saida/rcl_capital_campinas_2020.csv",
+  "tamanho_bytes": 421,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2020",
+      "Operacoes_Credito_Internas": "108596776.40",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "108596776.40",
+      "Alienacao_Bens": "330824.20",
+      "Alienacao_Bens_Imoveis": "326762.60",
+      "Alienacao_Bens_Moveis": "4061.60",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "108927600.60",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2020&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3509502&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:51.437188"
+}

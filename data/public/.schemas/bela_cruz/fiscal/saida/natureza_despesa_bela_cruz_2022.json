@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_bela_cruz_2022.csv",
+  "caminho_relativo": "data/public/bela_cruz/fiscal/saida/natureza_despesa_bela_cruz_2022.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "59819270.12",
+      "Juros_Encargos": "1043112.20",
+      "Outras_Correntes": "29224423.05",
+      "Despesas_Correntes": "90086805.37",
+      "Investimentos": "3977342.18",
+      "Despesas_Capital": "6250671.60",
+      "Total_Despesas": "96337476.97",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2302305&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.007510"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_vitoria_de_santo_antao_2022.csv",
+  "caminho_relativo": "data/public/vitoria_de_santo_antao/fiscal/saida/divida_vitoria_de_santo_antao_2022.csv",
+  "tamanho_bytes": 515,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "9992064.63",
+      "DC_Contratual": "9992064.63",
+      "Emprestimos": "5000000.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "75057946.35",
+      "DCL": "-65065881.72",
+      "RCL": "406384493.15",
+      "DC_pct_RCL": "2.4800",
+      "DCL_pct_RCL": "-16.1400",
+      "Limite_valor": "483881391.78",
+      "Limite_pct_RCL": "119.0698",
+      "Limite_Alerta_valor": "435493252.60",
+      "Passivo_Atuarial": "73531026.72",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2616407&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:52.926986"
+}

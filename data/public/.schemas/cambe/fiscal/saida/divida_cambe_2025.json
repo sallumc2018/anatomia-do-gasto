@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cambe_2025.csv",
+  "caminho_relativo": "data/public/cambe/fiscal/saida/divida_cambe_2025.csv",
+  "tamanho_bytes": 520,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "46560638.60",
+      "DC_Contratual": "46560638.60",
+      "Emprestimos": "0.00",
+      "Financiamentos": "13557694.15",
+      "Precatorios": "0.00",
+      "Deducoes": "108848845.88",
+      "DCL": "-62288207.28",
+      "RCL": "520305111.82",
+      "DC_pct_RCL": "9.0000",
+      "DCL_pct_RCL": "-12.0400",
+      "Limite_valor": "620766134.18",
+      "Limite_pct_RCL": "119.3081",
+      "Limite_Alerta_valor": "558689520.77",
+      "Passivo_Atuarial": "876514419.79",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4103701&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:50.039881"
+}

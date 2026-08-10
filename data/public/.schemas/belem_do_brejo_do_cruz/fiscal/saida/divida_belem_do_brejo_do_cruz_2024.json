@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_belem_do_brejo_do_cruz_2024.csv",
+  "caminho_relativo": "data/public/belem_do_brejo_do_cruz/fiscal/saida/divida_belem_do_brejo_do_cruz_2024.csv",
+  "tamanho_bytes": 511,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "23039778.51",
+      "DC_Contratual": "21859134.28",
+      "Emprestimos": "948012.37",
+      "Financiamentos": "0.00",
+      "Precatorios": "1180644.23",
+      "Deducoes": "-2450757.24",
+      "DCL": "25490535.75",
+      "RCL": "42925566.32",
+      "DC_pct_RCL": "54.7700",
+      "DCL_pct_RCL": "60.5900",
+      "Limite_valor": "50482125.98",
+      "Limite_pct_RCL": "117.6039",
+      "Limite_Alerta_valor": "45433913.38",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2502003&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.112849"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_bocaiuva_2022.csv",
+  "caminho_relativo": "data/public/bocaiuva/fiscal/saida/divida_bocaiuva_2022.csv",
+  "tamanho_bytes": 512,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "65433463.11",
+      "DC_Contratual": "62766940.65",
+      "Emprestimos": "2212.49",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "61494523.91",
+      "DCL": "3938939.20",
+      "RCL": "164656775.94",
+      "DC_pct_RCL": "39.9300",
+      "DCL_pct_RCL": "2.4000",
+      "Limite_valor": "196382773.78",
+      "Limite_pct_RCL": "119.2680",
+      "Limite_Alerta_valor": "176744496.40",
+      "Passivo_Atuarial": "288981506.75",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3107307&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:10.657080"
+}

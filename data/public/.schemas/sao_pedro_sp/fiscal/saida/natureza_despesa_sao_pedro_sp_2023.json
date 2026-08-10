@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sao_pedro_sp_2023.csv",
+  "caminho_relativo": "data/public/sao_pedro_sp/fiscal/saida/natureza_despesa_sao_pedro_sp_2023.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "82329767.76",
+      "Juros_Encargos": "147507.67",
+      "Outras_Correntes": "121148646.21",
+      "Despesas_Correntes": "203625921.64",
+      "Investimentos": "11247658.98",
+      "Despesas_Capital": "11342756.27",
+      "Total_Despesas": "214968677.91",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3550407&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:59.801981"
+}

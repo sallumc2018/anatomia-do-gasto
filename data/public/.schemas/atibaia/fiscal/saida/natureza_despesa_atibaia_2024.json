@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_atibaia_2024.csv",
+  "caminho_relativo": "data/public/atibaia/fiscal/saida/natureza_despesa_atibaia_2024.csv",
+  "tamanho_bytes": 374,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "428516735.74",
+      "Juros_Encargos": "21008534.62",
+      "Outras_Correntes": "618764026.35",
+      "Despesas_Correntes": "1068289296.71",
+      "Investimentos": "115608096.16",
+      "Despesas_Capital": "158588277.06",
+      "Total_Despesas": "1231400346.52",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3504107&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:55.700414"
+}

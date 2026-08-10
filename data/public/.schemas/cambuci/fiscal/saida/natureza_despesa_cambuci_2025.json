@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cambuci_2025.csv",
+  "caminho_relativo": "data/public/cambuci/fiscal/saida/natureza_despesa_cambuci_2025.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Pessoal": "73220306.41",
+      "Juros_Encargos": "1371625.39",
+      "Outras_Correntes": "53231597.16",
+      "Despesas_Correntes": "127823528.96",
+      "Investimentos": "2143702.18",
+      "Despesas_Capital": "3624392.36",
+      "Total_Despesas": "134987093.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3300902&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:04.671166"
+}

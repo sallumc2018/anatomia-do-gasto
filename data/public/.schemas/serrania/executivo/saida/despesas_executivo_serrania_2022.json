@@ -1,0 +1,49 @@
+{
+  "arquivo": "despesas_executivo_serrania_2022.csv",
+  "caminho_relativo": "data/public/serrania/executivo/saida/despesas_executivo_serrania_2022.csv",
+  "tamanho_bytes": 578,
+  "linhas_dados": 2,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "894072.85",
+      "Dotacao_Atualizada": "894072.85",
+      "Empenhado": "422905.62",
+      "Liquidado": "418654.13",
+      "Exceto_Intra_Liquidado": "418654.13",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3166907&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "TOTAL",
+      "Dotacao_Inicial": "894072.85",
+      "Dotacao_Atualizada": "894072.85",
+      "Empenhado": "422905.62",
+      "Liquidado": "418654.13",
+      "Exceto_Intra_Liquidado": "418654.13",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3166907&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.299147"
+}

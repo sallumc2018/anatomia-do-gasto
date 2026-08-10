@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_boa_viagem_2024.csv",
+  "caminho_relativo": "data/public/boa_viagem/fiscal/saida/natureza_despesa_boa_viagem_2024.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "6349879.06",
+      "Juros_Encargos": "1898651.34",
+      "Outras_Correntes": "5767305.33",
+      "Despesas_Correntes": "12117184.39",
+      "Investimentos": "871911.06",
+      "Despesas_Capital": "1103085.80",
+      "Total_Despesas": "13220270.19",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2302404&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:54.596517"
+}

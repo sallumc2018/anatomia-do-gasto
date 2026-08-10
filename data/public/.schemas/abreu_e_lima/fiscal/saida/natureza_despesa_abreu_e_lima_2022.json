@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_abreu_e_lima_2022.csv",
+  "caminho_relativo": "data/public/abreu_e_lima/fiscal/saida/natureza_despesa_abreu_e_lima_2022.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "80058817.79",
+      "Juros_Encargos": "663422.64",
+      "Outras_Correntes": "84060226.22",
+      "Despesas_Correntes": "164782466.65",
+      "Investimentos": "32661466.52",
+      "Despesas_Capital": "34077155.27",
+      "Total_Despesas": "198859621.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2600054&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:00.204562"
+}

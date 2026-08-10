@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_barueri_2022.csv",
+  "caminho_relativo": "data/public/barueri/fiscal/saida/natureza_despesa_barueri_2022.csv",
+  "tamanho_bytes": 375,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "1399988421.07",
+      "Juros_Encargos": "3188418.35",
+      "Outras_Correntes": "1942477262.47",
+      "Despesas_Correntes": "3345654101.89",
+      "Investimentos": "856217226.04",
+      "Despesas_Capital": "866867486.72",
+      "Total_Despesas": "4366100157.29",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3505708&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:53.154939"
+}

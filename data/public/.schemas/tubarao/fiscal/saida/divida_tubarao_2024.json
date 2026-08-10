@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_tubarao_2024.csv",
+  "caminho_relativo": "data/public/tubarao/fiscal/saida/divida_tubarao_2024.csv",
+  "tamanho_bytes": 520,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "202887907.94",
+      "DC_Contratual": "202887907.94",
+      "Emprestimos": "4655117.00",
+      "Financiamentos": "154443773.19",
+      "Precatorios": "0.00",
+      "Deducoes": "11462163.80",
+      "DCL": "191425744.14",
+      "RCL": "469165688.73",
+      "DC_pct_RCL": "43.2700",
+      "DCL_pct_RCL": "40.8300",
+      "Limite_valor": "562638826.48",
+      "Limite_pct_RCL": "119.9233",
+      "Limite_Alerta_valor": "506374943.83",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4218707&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:46.107166"
+}

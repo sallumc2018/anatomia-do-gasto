@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_gabriel_rs_2023.csv",
+  "caminho_relativo": "data/public/sao_gabriel_rs/executivo/saida/despesas_executivo_sao_gabriel_rs_2023.csv",
+  "tamanho_bytes": 5624,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "43367197.32",
+      "Dotacao_Atualizada": "46712200.32",
+      "Empenhado": "38511887.94",
+      "Liquidado": "36595271.87",
+      "Exceto_Intra_Liquidado": "33008455.44",
+      "Intra_Liquidado": "3586816.43",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4318309&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "8781246.66",
+      "Dotacao_Atualizada": "7250573.00",
+      "Empenhado": "5638080.93",
+      "Liquidado": "5422580.18",
+      "Exceto_Intra_Liquidado": "5027450.60",
+      "Intra_Liquidado": "395129.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4318309&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "4528340.00",
+      "Dotacao_Atualizada": "4968260.00",
+      "Empenhado": "2939251.01",
+      "Liquidado": "2396141.19",
+      "Exceto_Intra_Liquidado": "2396141.19",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4318309&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.998462"
+}

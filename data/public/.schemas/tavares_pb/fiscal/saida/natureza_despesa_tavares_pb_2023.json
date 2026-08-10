@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_tavares_pb_2023.csv",
+  "caminho_relativo": "data/public/tavares_pb/fiscal/saida/natureza_despesa_tavares_pb_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "31829218.88",
+      "Juros_Encargos": "53516.45",
+      "Outras_Correntes": "23488328.51",
+      "Despesas_Correntes": "55371063.84",
+      "Investimentos": "4218671.10",
+      "Despesas_Capital": "5490867.05",
+      "Total_Despesas": "60861930.89",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2516607&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:47.784358"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_araguainha_2022.csv",
+  "caminho_relativo": "data/public/araguainha/fiscal/saida/natureza_despesa_araguainha_2022.csv",
+  "tamanho_bytes": 356,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "5225650.13",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "10081415.14",
+      "Despesas_Correntes": "15307065.27",
+      "Investimentos": "1906982.85",
+      "Despesas_Capital": "2670252.68",
+      "Total_Despesas": "19218392.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5101209&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:45.570674"
+}

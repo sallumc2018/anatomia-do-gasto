@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_terra_nova_do_norte_2022.csv",
+  "caminho_relativo": "data/public/terra_nova_do_norte/executivo/saida/despesas_executivo_terra_nova_do_norte_2022.csv",
+  "tamanho_bytes": 5572,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "5707000.00",
+      "Dotacao_Atualizada": "6763193.31",
+      "Empenhado": "6612602.42",
+      "Liquidado": "6400810.88",
+      "Exceto_Intra_Liquidado": "6028324.57",
+      "Intra_Liquidado": "372486.31",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5108055&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "1569000.00",
+      "Dotacao_Atualizada": "5307661.17",
+      "Empenhado": "5234723.15",
+      "Liquidado": "5210723.15",
+      "Exceto_Intra_Liquidado": "5196057.21",
+      "Intra_Liquidado": "14665.94",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5108055&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "2465500.00",
+      "Dotacao_Atualizada": "2104404.97",
+      "Empenhado": "1705858.98",
+      "Liquidado": "1704913.98",
+      "Exceto_Intra_Liquidado": "1663145.65",
+      "Intra_Liquidado": "41768.33",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5108055&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:59.400793"
+}

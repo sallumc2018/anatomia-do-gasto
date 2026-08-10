@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_tres_lagoas_2022.csv",
+  "caminho_relativo": "data/public/tres_lagoas/fiscal/saida/natureza_despesa_tres_lagoas_2022.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "412377576.94",
+      "Juros_Encargos": "22329.92",
+      "Outras_Correntes": "374349370.61",
+      "Despesas_Correntes": "786749277.47",
+      "Investimentos": "81230338.44",
+      "Despesas_Capital": "85135009.24",
+      "Total_Despesas": "915083491.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5008305&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:48.187721"
+}

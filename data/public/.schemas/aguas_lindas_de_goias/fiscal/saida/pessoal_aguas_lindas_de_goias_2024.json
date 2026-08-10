@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_aguas_lindas_de_goias_2024.csv",
+  "caminho_relativo": "data/public/aguas_lindas_de_goias/fiscal/saida/pessoal_aguas_lindas_de_goias_2024.csv",
+  "tamanho_bytes": 477,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "RCL": "633845293.85",
+      "RCL_Ajustada": "633495293.85",
+      "Pessoal_Bruto": "287945519.49",
+      "Pessoal_Ativo": "266525559.53",
+      "Pessoal_Inativo": "20074134.41",
+      "Pessoal_Liquido": "260499118.97",
+      "DTP": "260832111.90",
+      "DTP_pct_RCL": "41.1700",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5200258&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:40.717931"
+}

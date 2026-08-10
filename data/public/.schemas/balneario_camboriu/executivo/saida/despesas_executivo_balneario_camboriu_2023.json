@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_balneario_camboriu_2023.csv",
+  "caminho_relativo": "data/public/balneario_camboriu/executivo/saida/despesas_executivo_balneario_camboriu_2023.csv",
+  "tamanho_bytes": 5091,
+  "linhas_dados": 20,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "123986100.00",
+      "Dotacao_Atualizada": "140020904.26",
+      "Empenhado": "132164451.98",
+      "Liquidado": "124866454.77",
+      "Exceto_Intra_Liquidado": "92887288.83",
+      "Intra_Liquidado": "31979165.94",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4202008&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "47913600.00",
+      "Dotacao_Atualizada": "53692997.03",
+      "Empenhado": "48136043.77",
+      "Liquidado": "44703282.79",
+      "Exceto_Intra_Liquidado": "44701025.87",
+      "Intra_Liquidado": "2256.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4202008&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comércio e Serviços",
+      "Dotacao_Inicial": "18535000.00",
+      "Dotacao_Atualizada": "28634114.52",
+      "Empenhado": "27792524.75",
+      "Liquidado": "21683108.84",
+      "Exceto_Intra_Liquidado": "21679676.17",
+      "Intra_Liquidado": "3432.67",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4202008&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:42.163902"
+}

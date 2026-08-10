@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_balneario_barra_do_sul_2022.csv",
+  "caminho_relativo": "data/public/balneario_barra_do_sul/fiscal/saida/natureza_despesa_balneario_barra_do_sul_2022.csv",
+  "tamanho_bytes": 364,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "30544039.14",
+      "Juros_Encargos": "506618.38",
+      "Outras_Correntes": "30404794.34",
+      "Despesas_Correntes": "61455451.86",
+      "Investimentos": "13118762.20",
+      "Despesas_Capital": "13560870.02",
+      "Total_Despesas": "78973350.68",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4202057&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:56.948315"
+}

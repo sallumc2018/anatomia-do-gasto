@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_sao_sebastiao_do_paraiso_2025.csv",
+  "caminho_relativo": "data/public/sao_sebastiao_do_paraiso/fiscal/saida/divida_sao_sebastiao_do_paraiso_2025.csv",
+  "tamanho_bytes": 517,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "18106482.18",
+      "DC_Contratual": "18106482.18",
+      "Emprestimos": "2728221.62",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "52226423.13",
+      "DCL": "-34119940.95",
+      "RCL": "428843339.17",
+      "DC_pct_RCL": "4.2300",
+      "DCL_pct_RCL": "-7.9700",
+      "Limite_valor": "513940007.00",
+      "Limite_pct_RCL": "119.8433",
+      "Limite_Alerta_valor": "462546006.30",
+      "Passivo_Atuarial": "660098634.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3164704&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:05.640442"
+}

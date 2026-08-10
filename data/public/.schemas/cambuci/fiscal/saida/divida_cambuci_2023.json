@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cambuci_2023.csv",
+  "caminho_relativo": "data/public/cambuci/fiscal/saida/divida_cambuci_2023.csv",
+  "tamanho_bytes": 502,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "10825452.40",
+      "DC_Contratual": "9900949.40",
+      "Emprestimos": "10546.00",
+      "Financiamentos": "2196.80",
+      "Precatorios": "924503.00",
+      "Deducoes": "108558519.00",
+      "DCL": "-97733066.60",
+      "RCL": "112191747.30",
+      "DC_pct_RCL": "9.6500",
+      "DCL_pct_RCL": "-87.1100",
+      "Limite_valor": "120.00",
+      "Limite_pct_RCL": "0.0001",
+      "Limite_Alerta_valor": "108.00",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3300902&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:04.671637"
+}

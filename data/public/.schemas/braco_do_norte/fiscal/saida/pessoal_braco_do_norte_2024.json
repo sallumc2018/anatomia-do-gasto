@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_braco_do_norte_2024.csv",
+  "caminho_relativo": "data/public/braco_do_norte/fiscal/saida/pessoal_braco_do_norte_2024.csv",
+  "tamanho_bytes": 472,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "RCL": "193448107.85",
+      "RCL_Ajustada": "188899383.85",
+      "Pessoal_Bruto": "94247935.34",
+      "Pessoal_Ativo": "92820896.66",
+      "Pessoal_Inativo": "1427038.68",
+      "Pessoal_Liquido": "93408711.50",
+      "DTP": "93416575.92",
+      "DTP_pct_RCL": "49.4500",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4202800&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:06.625657"
+}

@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_terezinha_2023.csv",
+  "caminho_relativo": "data/public/terezinha/executivo/saida/despesas_executivo_terezinha_2023.csv",
+  "tamanho_bytes": 4758,
+  "linhas_dados": 20,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "6036285.20",
+      "Dotacao_Atualizada": "7280135.20",
+      "Empenhado": "7268276.21",
+      "Liquidado": "7268276.21",
+      "Exceto_Intra_Liquidado": "6827806.79",
+      "Intra_Liquidado": "440469.42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2615102&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "1203030.00",
+      "Dotacao_Atualizada": "2705530.00",
+      "Empenhado": "2701651.90",
+      "Liquidado": "2701651.90",
+      "Exceto_Intra_Liquidado": "2701651.90",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2615102&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "2388806.53",
+      "Dotacao_Atualizada": "2593479.53",
+      "Empenhado": "2556213.17",
+      "Liquidado": "2556213.17",
+      "Exceto_Intra_Liquidado": "2545944.70",
+      "Intra_Liquidado": "10268.47",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2615102&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:12.858056"
+}

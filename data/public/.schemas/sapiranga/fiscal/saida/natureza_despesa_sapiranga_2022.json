@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sapiranga_2022.csv",
+  "caminho_relativo": "data/public/sapiranga/fiscal/saida/natureza_despesa_sapiranga_2022.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "128277078.01",
+      "Juros_Encargos": "4879774.00",
+      "Outras_Correntes": "106685091.18",
+      "Despesas_Correntes": "239841943.19",
+      "Investimentos": "15141653.81",
+      "Despesas_Capital": "21837099.46",
+      "Total_Despesas": "277773516.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4319901&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:55.833811"
+}

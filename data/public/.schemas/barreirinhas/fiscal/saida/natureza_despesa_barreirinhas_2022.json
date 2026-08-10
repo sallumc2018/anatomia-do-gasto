@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_barreirinhas_2022.csv",
+  "caminho_relativo": "data/public/barreirinhas/fiscal/saida/natureza_despesa_barreirinhas_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "124098435.30",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "93573632.34",
+      "Despesas_Correntes": "217672067.64",
+      "Investimentos": "8880541.49",
+      "Despesas_Capital": "8898734.42",
+      "Total_Despesas": "226630863.33",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2101707&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:13.335459"
+}

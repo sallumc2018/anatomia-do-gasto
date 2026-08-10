@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_bonito_pe_2024.csv",
+  "caminho_relativo": "data/public/bonito_pe/executivo/saida/despesas_executivo_bonito_pe_2024.csv",
+  "tamanho_bytes": 5662,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "11990875.19",
+      "Dotacao_Atualizada": "14335007.00",
+      "Empenhado": "14286181.61",
+      "Liquidado": "14225176.19",
+      "Exceto_Intra_Liquidado": "13904961.27",
+      "Intra_Liquidado": "320214.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2602308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "3981000.00",
+      "Dotacao_Atualizada": "5317466.50",
+      "Empenhado": "5315675.62",
+      "Liquidado": "5312681.62",
+      "Exceto_Intra_Liquidado": "5271161.70",
+      "Intra_Liquidado": "41519.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2602308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "5416000.00",
+      "Dotacao_Atualizada": "4216064.87",
+      "Empenhado": "3466345.50",
+      "Liquidado": "3466345.50",
+      "Exceto_Intra_Liquidado": "3444826.62",
+      "Intra_Liquidado": "21518.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2602308&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:12.062295"
+}

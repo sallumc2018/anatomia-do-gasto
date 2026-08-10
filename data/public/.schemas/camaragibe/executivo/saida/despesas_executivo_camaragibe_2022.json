@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_camaragibe_2022.csv",
+  "caminho_relativo": "data/public/camaragibe/executivo/saida/despesas_executivo_camaragibe_2022.csv",
+  "tamanho_bytes": 3822,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "44110849.95",
+      "Dotacao_Atualizada": "51518871.00",
+      "Empenhado": "44540314.52",
+      "Liquidado": "44538773.72",
+      "Exceto_Intra_Liquidado": "35090502.62",
+      "Intra_Liquidado": "9448271.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "4737879.00",
+      "Dotacao_Atualizada": "10734516.49",
+      "Empenhado": "7482172.41",
+      "Liquidado": "7482172.41",
+      "Exceto_Intra_Liquidado": "7474232.53",
+      "Intra_Liquidado": "7939.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "1970407.00",
+      "Dotacao_Atualizada": "2135219.41",
+      "Empenhado": "1626722.34",
+      "Liquidado": "1626722.34",
+      "Exceto_Intra_Liquidado": "1601412.01",
+      "Intra_Liquidado": "25310.33",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:44.947179"
+}

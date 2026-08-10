@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_sao_luis_do_curu_2022.csv",
+  "caminho_relativo": "data/public/sao_luis_do_curu/executivo/saida/despesas_executivo_sao_luis_do_curu_2022.csv",
+  "tamanho_bytes": 5431,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "6991000.00",
+      "Dotacao_Atualizada": "7907812.84",
+      "Empenhado": "7905781.60",
+      "Liquidado": "7868781.60",
+      "Exceto_Intra_Liquidado": "7868165.92",
+      "Intra_Liquidado": "615.68",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2312601&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "281000.00",
+      "Dotacao_Atualizada": "8925.00",
+      "Empenhado": "8925.00",
+      "Liquidado": "8925.00",
+      "Exceto_Intra_Liquidado": "8925.00",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2312601&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "2273000.00",
+      "Dotacao_Atualizada": "2254209.13",
+      "Empenhado": "2242023.21",
+      "Liquidado": "2233923.21",
+      "Exceto_Intra_Liquidado": "2233923.21",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2312601&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:45.837684"
+}

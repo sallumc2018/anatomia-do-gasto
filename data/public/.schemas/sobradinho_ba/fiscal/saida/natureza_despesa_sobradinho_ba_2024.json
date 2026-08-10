@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_sobradinho_ba_2024.csv",
+  "caminho_relativo": "data/public/sobradinho_ba/fiscal/saida/natureza_despesa_sobradinho_ba_2024.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "84590757.94",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "47768102.16",
+      "Despesas_Correntes": "132358860.10",
+      "Investimentos": "7175703.67",
+      "Despesas_Capital": "14071047.25",
+      "Total_Despesas": "146429907.35",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2930774&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:05.259427"
+}

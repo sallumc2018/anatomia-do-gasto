@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_buriticupu_2022.csv",
+  "caminho_relativo": "data/public/buriticupu/fiscal/saida/natureza_despesa_buriticupu_2022.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "115036148.09",
+      "Juros_Encargos": "120233.83",
+      "Outras_Correntes": "99734050.42",
+      "Despesas_Correntes": "214890432.34",
+      "Investimentos": "32094810.73",
+      "Despesas_Capital": "34458324.55",
+      "Total_Despesas": "259252634.68",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2102325&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:04.888448"
+}

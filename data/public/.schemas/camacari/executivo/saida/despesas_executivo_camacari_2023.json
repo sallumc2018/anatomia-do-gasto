@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_camacari_2023.csv",
+  "caminho_relativo": "data/public/camacari/executivo/saida/despesas_executivo_camacari_2023.csv",
+  "tamanho_bytes": 5493,
+  "linhas_dados": 22,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "257712348.00",
+      "Dotacao_Atualizada": "267041797.87",
+      "Empenhado": "264116134.01",
+      "Liquidado": "261781931.87",
+      "Exceto_Intra_Liquidado": "252568653.83",
+      "Intra_Liquidado": "9213278.04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2905701&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4185660.00",
+      "Dotacao_Atualizada": "5415109.17",
+      "Empenhado": "5375594.34",
+      "Liquidado": "5375594.34",
+      "Exceto_Intra_Liquidado": "5161532.42",
+      "Intra_Liquidado": "214061.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2905701&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "67773476.00",
+      "Dotacao_Atualizada": "87694253.08",
+      "Empenhado": "81640653.68",
+      "Liquidado": "81463862.94",
+      "Exceto_Intra_Liquidado": "80335161.84",
+      "Intra_Liquidado": "1128701.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2905701&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:13.299609"
+}

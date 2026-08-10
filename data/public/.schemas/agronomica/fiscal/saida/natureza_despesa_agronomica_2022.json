@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_agronomica_2022.csv",
+  "caminho_relativo": "data/public/agronomica/fiscal/saida/natureza_despesa_agronomica_2022.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "14101538.72",
+      "Juros_Encargos": "670983.79",
+      "Outras_Correntes": "14227168.38",
+      "Despesas_Correntes": "28999690.89",
+      "Investimentos": "8777694.46",
+      "Despesas_Capital": "9695069.66",
+      "Total_Despesas": "38694760.55",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4200309&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:09.810883"
+}

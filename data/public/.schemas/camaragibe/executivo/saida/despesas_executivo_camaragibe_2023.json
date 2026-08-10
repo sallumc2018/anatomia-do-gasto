@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_camaragibe_2023.csv",
+  "caminho_relativo": "data/public/camaragibe/executivo/saida/despesas_executivo_camaragibe_2023.csv",
+  "tamanho_bytes": 3820,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "60468571.21",
+      "Dotacao_Atualizada": "52218183.58",
+      "Empenhado": "49577541.06",
+      "Liquidado": "49205117.06",
+      "Exceto_Intra_Liquidado": "38325237.09",
+      "Intra_Liquidado": "10879879.97",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "6568805.68",
+      "Dotacao_Atualizada": "10650523.00",
+      "Empenhado": "9719750.88",
+      "Liquidado": "9719750.88",
+      "Exceto_Intra_Liquidado": "9710668.52",
+      "Intra_Liquidado": "9082.36",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Ciência e Tecnologia",
+      "Dotacao_Inicial": "2698454.00",
+      "Dotacao_Atualizada": "1803938.76",
+      "Empenhado": "1669076.54",
+      "Liquidado": "1669076.54",
+      "Exceto_Intra_Liquidado": "1646117.08",
+      "Intra_Liquidado": "22959.46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2603454&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:44.946096"
+}

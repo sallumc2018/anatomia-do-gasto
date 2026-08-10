@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_americana_2022.csv",
+  "caminho_relativo": "data/public/americana/executivo/saida/despesas_executivo_americana_2022.csv",
+  "tamanho_bytes": 4799,
+  "linhas_dados": 19,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "166912300.00",
+      "Dotacao_Atualizada": "180033065.63",
+      "Empenhado": "169802863.61",
+      "Liquidado": "169122206.58",
+      "Exceto_Intra_Liquidado": "155846884.33",
+      "Intra_Liquidado": "13275322.25",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3501608&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "21065600.00",
+      "Dotacao_Atualizada": "26475420.03",
+      "Empenhado": "22030369.09",
+      "Liquidado": "21957113.07",
+      "Exceto_Intra_Liquidado": "21565285.28",
+      "Intra_Liquidado": "391827.79",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3501608&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Comércio e Serviços",
+      "Dotacao_Inicial": "3286200.00",
+      "Dotacao_Atualizada": "4592177.46",
+      "Empenhado": "3299471.54",
+      "Liquidado": "3235771.65",
+      "Exceto_Intra_Liquidado": "3205571.94",
+      "Intra_Liquidado": "30199.71",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3501608&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.324415"
+}

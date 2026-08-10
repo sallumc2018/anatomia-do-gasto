@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_belem_pa_2022.csv",
+  "caminho_relativo": "data/public/belem_pa/fiscal/saida/natureza_despesa_belem_pa_2022.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "1918161603.83",
+      "Juros_Encargos": "86196149.11",
+      "Outras_Correntes": "1674435558.27",
+      "Despesas_Correntes": "3678793311.21",
+      "Investimentos": "118296813.61",
+      "Despesas_Capital": "219697689.96",
+      "Total_Despesas": "4091347487.45",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1501402&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:22:01.551239"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_agua_doce_2022.csv",
+  "caminho_relativo": "data/public/agua_doce/fiscal/saida/natureza_despesa_agua_doce_2022.csv",
+  "tamanho_bytes": 364,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "23529187.61",
+      "Juros_Encargos": "890230.61",
+      "Outras_Correntes": "22298351.24",
+      "Despesas_Correntes": "46717769.46",
+      "Investimentos": "11002811.10",
+      "Despesas_Capital": "12673051.28",
+      "Total_Despesas": "59742925.42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4200408&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-10T04:21:43.791647"
+}
