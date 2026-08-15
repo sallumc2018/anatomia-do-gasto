@@ -17,6 +17,35 @@ const CONTENT_TYPES: Record<string, string> = {
   ".ttl": "text/turtle; charset=utf-8",
 }
 
+// Areas que o publicador do Sprint 2 promove (data/manifests/areas_publicaveis.json).
+// Lista fechada de proposito: o redirecionamento so vale para o que o pipeline
+// nacional realmente publica, e nao para qualquer caminho que alguem invente.
+const AREAS_SPRINT2 = new Set([
+  "transferencias_federais",
+  "emendas_federais",
+  "fns",
+  "receita",
+  "executivo",
+  "fiscal",
+])
+
+// Um segmento valido nunca contem "/", "..", nem caracteres fora deste conjunto.
+// As keys de municipio sao snake_case ASCII (geradas de data/manifests/
+// ibge_municipios_completo.csv) e os nomes de arquivo sao <area>_<key>_<ano>.csv.
+const SEGMENTO_SEGURO = /^[a-z0-9][a-z0-9_.-]*$/
+
+/** Caminho no formato <municipio>/<area>/saida/<arquivo>.csv do Sprint 2. */
+function isSprint2Path(slug: string[]): boolean {
+  if (slug.length !== 4) return false
+  const [municipio, area, saida, arquivo] = slug
+  if (saida !== "saida") return false
+  if (!AREAS_SPRINT2.has(area)) return false
+  if (!arquivo.toLowerCase().endsWith(".csv")) return false
+  return [municipio, area, arquivo].every(
+    (s) => SEGMENTO_SEGURO.test(s) && !s.includes("..")
+  )
+}
+
 function splitCsvLine(line: string): string[] {
   const out: string[] = []
   let current = ""
@@ -101,6 +130,31 @@ export async function GET(
 
   const rel = slug.join("/")
   if (!allowedDownloads().has(rel)) {
+    // Sprint 2 (cobertura nacional) nao passa pela allowlist de datasets.csv.
+    //
+    // POR QUE: datasets.csv e mantida a mao — 200 linhas, 4 municipios
+    // (paulinia, sao_bernardo, sao_paulo, sorocaba). O publicador do Sprint 2
+    // escreve em data/public e em data/manifests/sprint2/<key>/<area>.json,
+    // e nunca registrou nada em datasets.csv. Resultado medido em producao em
+    // 15/08/2026: TODO download de municipio do Sprint 2 respondia 404 — a
+    // pagina listava os municipios e cada link caia. Os 1.976 ja publicados
+    // estavam no git e inacessiveis pelo site.
+    //
+    // Manter datasets.csv a mao para 5.549 municipios x ~21 arquivos nao e
+    // opcao. E carregar os manifestos de todos eles no Lambda custaria ~60 MiB
+    // de bundle para responder um download.
+    //
+    // Solucao: validar a FORMA do caminho e redirecionar para o GitHub Raw,
+    // exatamente como ja se faz com os diretorios grandes de Sorocaba. Custa
+    // zero no bundle e serve os 5.549 igualmente.
+    //
+    // Seguranca: nao ha travessia possivel — cada segmento e validado contra
+    // [a-z0-9_.-]+, e o destino e sempre sob data/public de um repositorio
+    // PUBLICO. Nao existe arquivo ali que ja nao seja publico por definicao.
+    // Caminho inexistente vira 404 do proprio GitHub Raw.
+    if (isSprint2Path(slug)) {
+      return NextResponse.redirect(`${GITHUB_RAW}/${rel}`, { status: 302 })
+    }
     return NextResponse.json({ error: "Not found" }, { status: 404 })
   }
 

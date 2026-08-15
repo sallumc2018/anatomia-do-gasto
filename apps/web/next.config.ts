@@ -182,61 +182,23 @@ const nextConfig: NextConfig = {
     // Ao adicionar novos grupos (RO+TO, AM+PA...), a página auto-detecta.
     // Lambda precisa dos manifests (para descoberta) e dos CSVs (para listagem).
     // O glob abrangente é intencional — municípios Sprint 2 têm arquivos pequenos.
+    // Sprint 2 — as paginas leem SO manifestos, nunca data/public.
+    //
+    // Antes havia 53 globs de "data/public/<municipio>/**/*" mantidos a mao,
+    // herdados da primeira onda (RO+TO, RR+AP+AC). Nunca acompanharam os 1.976
+    // municipios ja publicados, e nao acompanhariam os 5.549 da cobertura
+    // nacional. Eram inuteis alem disso: loadMunicipios() le apenas
+    // data/manifests/sprint2/, e os downloads vao pela rota /api/dados.
+    //
+    // /municipios e /municipios/[uf] sao estaticas (generateStaticParams
+    // prerendera as 27 UFs), entao estes arquivos sao lidos no BUILD.
     "/municipios": [
       "../../data/manifests/sprint2/**/*",
-      "../../data/public/acrelandia/**/*",
-      "../../data/public/alto_alegre/**/*",
-      "../../data/public/amajari/**/*",
-      "../../data/public/amapa/**/*",
-      "../../data/public/assis_brasil/**/*",
-      "../../data/public/boa_vista/**/*",
-      "../../data/public/bonfim/**/*",
-      "../../data/public/brasileia/**/*",
-      "../../data/public/bujari/**/*",
-      "../../data/public/calcoene/**/*",
-      "../../data/public/canta/**/*",
-      "../../data/public/capixaba/**/*",
-      "../../data/public/caracarai/**/*",
-      "../../data/public/caroebe/**/*",
-      "../../data/public/cruzeiro_do_sul/**/*",
-      "../../data/public/cutias/**/*",
-      "../../data/public/epitaciolandia/**/*",
-      "../../data/public/feijo/**/*",
-      "../../data/public/ferreira_gomes/**/*",
-      "../../data/public/iracema/**/*",
-      "../../data/public/itaubal/**/*",
-      "../../data/public/jordao/**/*",
-      "../../data/public/laranjal_do_jari/**/*",
-      "../../data/public/macapa/**/*",
-      "../../data/public/mancio_lima/**/*",
-      "../../data/public/manoel_urbano/**/*",
-      "../../data/public/marechal_thaumaturgo/**/*",
-      "../../data/public/mazagao/**/*",
-      "../../data/public/mucajai/**/*",
-      "../../data/public/normandia/**/*",
-      "../../data/public/oiapoque/**/*",
-      "../../data/public/pacaraima/**/*",
-      "../../data/public/pedra_branca_do_amapari/**/*",
-      "../../data/public/placido_de_castro/**/*",
-      "../../data/public/porto_acre/**/*",
-      "../../data/public/porto_grande/**/*",
-      "../../data/public/porto_walter/**/*",
-      "../../data/public/pracuuba/**/*",
-      "../../data/public/rio_branco/**/*",
-      "../../data/public/rodrigues_alves/**/*",
-      "../../data/public/rorainopolis/**/*",
-      "../../data/public/santa_rosa_do_purus/**/*",
-      "../../data/public/santana/**/*",
-      "../../data/public/sao_joao_da_baliza/**/*",
-      "../../data/public/sao_luiz_do_anaua/**/*",
-      "../../data/public/sena_madureira/**/*",
-      "../../data/public/senador_guiomard/**/*",
-      "../../data/public/serra_do_navio/**/*",
-      "../../data/public/tarauaca/**/*",
-      "../../data/public/tartarugalzinho/**/*",
-      "../../data/public/uiramuta/**/*",
-      "../../data/public/vitoria_do_jari/**/*",
-      "../../data/public/xapuri/**/*",
+      "../../data/manifests/ibge_municipios_completo.csv",
+    ],
+    "/municipios/[uf]": [
+      "../../data/manifests/sprint2/**/*",
+      "../../data/manifests/ibge_municipios_completo.csv",
     ],
   },
   async redirects() {
