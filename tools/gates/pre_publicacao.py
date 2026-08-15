@@ -26,15 +26,47 @@ FORBIDDEN_SUFFIXES = ("_test.csv", "_mock.csv", "_tmp.csv", "_old.csv", "_bak.cs
 # Minimum row count for any published CSV (single-row = likely a placeholder)
 MIN_ROWS = 2
 
-# Schema contracts: {filename_pattern: required_columns}
-SCHEMA_CONTRACTS: dict[str, list[str]] = {
-    r"empenhos_fornecedores_.*\.csv":      ["ano", "nr_empenho", "nm_fornecedor", "vl_despesa"],
-    r"transferencias_federais_.*\.csv":    ["ano", "municipio", "orgao_remetente", "valor_bruto"],
-    r"transferencias_para_.*\.csv":        ["ano", "municipio", "fonte", "valor_bruto"],
-    r"receitas_.*\.csv":                   ["ano", "municipio"],
-    r"despesas_executivo_.*\.csv":         ["ano", "municipio"],
-    r"camara_empenhos_.*\.csv":            ["ano", "nr_empenho"],
-    r"camara_pagamentos_.*\.csv":          ["ano", "nr_empenho"],
+# Schema contracts: {filename_pattern: [conjunto_alternativo_1, conjunto_2, ...]}
+#
+# POR QUE SAO ALTERNATIVAS, e nao uma lista unica.
+# O mesmo nome de arquivo e produzido por dois pipelines com esquemas
+# diferentes, e ambos estao corretos:
+#
+#   Sprint 1 / curado (Sorocaba, Paulinia): normaliza para nomes proprios do
+#     projeto — municipio, orgao_remetente, valor_bruto.
+#   Sprint 2 / nacional: preserva os nomes da API do Portal da Transparencia —
+#     municipio_ibge, municipio_nome, valor_transferido, fonte_api.
+#
+# O contrato tinha so o primeiro. Medido em 15/08/2026: 3.494 arquivos de
+# data/public reprovavam por "colunas obrigatorias ausentes", todos do Sprint 2,
+# todos com dado integro. Era o gate que nao conhecia o esquema nacional — e o
+# esquema nacional inclusive carrega MAIS proveniencia (fonte_api e o codigo
+# IBGE, que provam a origem linha a linha).
+#
+# Basta satisfazer UM dos conjuntos. Assim o gate continua barrando arquivo
+# sem identificacao de municipio ou sem valor, que e o que ele existe para
+# barrar, sem exigir que os dois pipelines convirjam de nome.
+SCHEMA_CONTRACTS: dict[str, list[list[str]]] = {
+    r"empenhos_fornecedores_.*\.csv":   [["ano", "nr_empenho", "nm_fornecedor", "vl_despesa"]],
+    r"transferencias_federais_.*\.csv": [
+        ["ano", "municipio", "orgao_remetente", "valor_bruto"],
+        ["ano", "municipio_ibge", "valor_transferido"],
+    ],
+    r"transferencias_para_.*\.csv":     [["ano", "municipio", "fonte", "valor_bruto"]],
+    # SICONFI (receita e despesa por funcao): o esquema real NAO tem coluna de
+    # ano nem de municipio, no Sprint 2 e no curado — sao identicos, conferidos
+    # lado a lado em 15/08/2026 (Zortea x Sorocaba, 2024). O contrato antigo
+    # pedia ["ano", "municipio"] e nunca correspondeu ao que a fonte devolve.
+    #
+    # O que identifica o municipio e o ano nestes arquivos e a Fonte_URL, que
+    # carrega id_ente=<IBGE> e o exercicio. E o mesmo criterio que
+    # pipelines/sprint2_contracts.py ja adota (_SICONFI_MUNICIPIO = ("fonte_url",)):
+    # o dado prova a si mesmo pela URL de origem. Exigir Fonte_URL e mais forte
+    # do que exigir uma coluna de nome, porque a URL e verificavel contra a API.
+    r"receitas_.*\.csv":                [["Categoria", "Fonte_URL"], ["ano", "municipio"]],
+    r"despesas_executivo_.*\.csv":      [["Funcao", "Fonte_URL"], ["ano", "municipio"]],
+    r"camara_empenhos_.*\.csv":         [["ano", "nr_empenho"]],
+    r"camara_pagamentos_.*\.csv":       [["ano", "nr_empenho"]],
 }
 
 
@@ -58,7 +90,13 @@ def check_file(path: Path, strict: bool) -> list[str]:
 
     # 3. Read and validate CSV
     try:
-        with open(path, encoding="utf-8", errors="replace") as f:
+        # utf-8-sig, nao utf-8: os CSVs do SICONFI vem com BOM (conferido em
+        # 15/08/2026 — os primeiros bytes sao EF BB BF). Com "utf-8" o BOM entra
+        # no NOME da primeira coluna, que vira '﻿Funcao' em vez de 'Funcao',
+        # e qualquer contrato que exija a primeira coluna reprova o arquivo
+        # inteiro. Foram 9.638 erros falsos ate isto ser corrigido.
+        # utf-8-sig le corretamente arquivo com e sem BOM, entao nao ha perda.
+        with open(path, encoding="utf-8-sig", errors="replace") as f:
             reader = csv.DictReader(f)
             headers = reader.fieldnames or []
             rows = list(reader)
@@ -71,11 +109,18 @@ def check_file(path: Path, strict: bool) -> list[str]:
         issues.append(f"AVISO [{rel}] apenas {len(rows)} linha(s) — possível placeholder")
 
     # 5. Schema contracts
-    for pattern, required_cols in SCHEMA_CONTRACTS.items():
+    for pattern, alternativas in SCHEMA_CONTRACTS.items():
         if re.search(pattern, path.name):
-            missing = [c for c in required_cols if c not in headers]
-            if missing:
-                issues.append(f"ERRO  [{rel}] colunas obrigatórias ausentes: {missing}")
+            faltantes_por_alt = [
+                [c for c in conjunto if c not in headers] for conjunto in alternativas
+            ]
+            # Passa se QUALQUER conjunto alternativo estiver completo.
+            if not any(not faltantes for faltantes in faltantes_por_alt):
+                # Reporta o conjunto que chegou mais perto: e o mais provavel de
+                # ser o esquema pretendido, e a mensagem fica acionavel em vez de
+                # despejar todas as alternativas.
+                melhor = min(faltantes_por_alt, key=len)
+                issues.append(f"ERRO  [{rel}] colunas obrigatórias ausentes: {melhor}")
             break
 
     # 6. No column named 'mock', 'ficticio', 'dummy'
