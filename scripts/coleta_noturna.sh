@@ -213,6 +213,28 @@ if [[ "$DRY_RUN" == "true" ]]; then
   DRY_RUN_SKIP_COMMIT=1
 fi
 if [[ "${DRY_RUN_SKIP_COMMIT:-0}" != "1" ]]; then
+# LOCK COMPARTILHADO COM O SPRINT2 — os dois escrevem no MESMO clone da VPS.
+#
+# O sprint2_24x7_worker.py roda em loop continuo e commita a cada N municipios;
+# esta coleta commita uma vez por noite. Sem serializacao, um `git add` pode
+# capturar o lote do outro pela metade, ou os dois disputam .git/index.lock e
+# um falha. Em 15/08/2026 os dois ficaram ativos ao mesmo tempo pela primeira
+# vez e o risco deixou de ser teorico.
+#
+# O worker.lock que ja existia NAO serve: protege contra dois workers e fica
+# tomado durante o loop inteiro — esta coleta esperaria para sempre. Este e
+# tomado so em volta do trecho de git.
+#
+# Do outro lado, o worker usa fcntl.flock no MESMO arquivo. flock(2) do kernel
+# e o protocolo comum; nada foi inventado.
+exec {GIT_LOCK_FD}> "$REPO/_logs/git.lock"
+if ! flock -w 900 "$GIT_LOCK_FD"; then
+  log "  ✗ git.lock ocupado por mais de 900s (Sprint2 commitando?) — pulando commit desta noite"
+  FALHAS+=("Commit local do lote noturno (git.lock ocupado > 900s)")
+  DRY_RUN_SKIP_COMMIT=1
+fi
+fi
+if [[ "${DRY_RUN_SKIP_COMMIT:-0}" != "1" ]]; then
 git -C "$REPO" add -- data/public data/manifests apps/web/lib/datasets_status.json 2>/dev/null || true
 if git -C "$REPO" diff --cached --quiet; then
   log "  · nada novo para commitar"

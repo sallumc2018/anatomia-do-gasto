@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import contextlib
 import fcntl
 import json
 import os
@@ -385,12 +386,67 @@ def run_commit_gates(timeout: int) -> bool:
     return True
 
 
+GIT_LOCK_FILE = ROOT / "_logs" / "git.lock"
+
+
+@contextlib.contextmanager
+def git_lock(espera_s: int = 900):
+    """Serializa as operacoes de git entre o Sprint1 e o Sprint2.
+
+    Os dois escrevem no MESMO clone da VPS: o `coleta_noturna.sh` (Sprint1,
+    timer 01:00 BRT) e este worker (Sprint2, loop continuo). Ambos fazem
+    add/commit/push. Sem serializacao, um `git add` pode capturar o lote
+    do outro pela metade, ou os dois disputam o `.git/index.lock` e um falha.
+
+    O `worker.lock` que ja existe NAO resolve isto: ele protege contra dois
+    workers, e e mantido durante o loop inteiro — o Sprint1 esperaria para
+    sempre. Este lock e tomado so em volta do trecho de git, por segundos.
+
+    O lado do shell usa `flock` no mesmo arquivo, entao os dois falam a mesma
+    lingua (flock(2) do kernel), sem inventar protocolo.
+    """
+    GIT_LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
+    handle = GIT_LOCK_FILE.open("w", encoding="utf-8")
+    inicio = time.monotonic()
+    try:
+        while True:
+            try:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                if time.monotonic() - inicio > espera_s:
+                    append_event({"event": "git_lock_timeout", "espera_s": espera_s})
+                    raise TimeoutError(
+                        f"git.lock ocupado por mais de {espera_s}s (Sprint1 commitando?)"
+                    )
+                time.sleep(2)
+        handle.write(f"pid={os.getpid()} sprint2 {utc_now()}\n")
+        handle.flush()
+        yield
+    finally:
+        try:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+        finally:
+            handle.close()
+
+
 def commit_and_push(timeout: int, dry_run: bool, push: bool) -> bool:
     """Commita a coleta acumulada; push só ocorre se `push=True` (autorização explícita).
 
     Por padrão (`push=False`) o worker deixa o commit pronto localmente para
     revisão/push manual — nunca publica para origin sozinho.
+
+    Todo o corpo roda sob `git_lock()`: o Sprint1 escreve no mesmo clone.
     """
+    try:
+        with git_lock():
+            return _commit_and_push_locked(timeout, dry_run, push)
+    except TimeoutError as exc:
+        append_event({"event": "commit_skip", "reason": str(exc)})
+        return False
+
+
+def _commit_and_push_locked(timeout: int, dry_run: bool, push: bool) -> bool:
     if not remote_is_current(timeout):
         return False
     if not run_catalog_and_coverage(timeout):
