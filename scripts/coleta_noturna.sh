@@ -83,50 +83,52 @@ critical_run_cmd() {
 
 log "=== Coleta Noturna iniciada ==="
 
-# Puxa uma pasta do GDrive antes de coletar.
+# 1 e 2. REMOVIDOS em 15/08/2026 — eram `rclone sync` do Drive PARA o local.
 #
-# ATENCAO: e `rclone sync`, nao `copy` -- o destino passa a ESPELHAR a origem,
-# entao arquivo local que nao esteja no Drive e APAGADO. Isso e proposital
-# (o Drive e a fonte de verdade do cache), mas so vale quando o rclone existe
-# e esta configurado.
+# O que havia aqui: sync_from_gdrive() puxava
+#   gdrive:.../04_staging/anatomia-do-gasto/{raw,extracted}/ -> data/{raw,extracted}/
+# com `sync`, nao `copy`. O destino ESPELHAVA a origem: arquivo local ausente
+# no Drive era APAGADO. Era proposital enquanto o Drive fosse a fonte de
+# verdade do cache.
 #
-# Sem rclone, o comportamento certo depende do que ja ha em disco:
-#   - cache local populado  -> segue com ele e AVISA (a coleta e incremental;
-#                              os baixar_*.py pulam o que ja existe)
-#   - cache local vazio     -> aborta, porque nao ha de onde partir
-# Foi o que destravou a coleta na omega-vps, que tem o cache mas nao tem a
-# credencial do Drive (essa vive so no omega-gray, gateway de offsite).
-sync_from_gdrive() {
-  local label="$1" remoto="$2" local_dir="$3"
-  local populado=false
-  [ -d "$local_dir" ] && [ -n "$(ls -A "$local_dir" 2>/dev/null)" ] && populado=true
+# Por que sairam, e nao foram so repontados:
+#   - A fonte que espelhavam esta congelada em 21/06/2026 (medido: 2.572
+#     objetos, 312,511 MiB) enquanto os dados vivos foram para OUTRO remote,
+#     gdrive-crypt:Omega-Backups/arquivo-historico/sprint2-raw/. Religar isso
+#     restauraria junho por cima do presente.
+#   - Repontar para o remote novo manteria uma operacao destrutiva viva,
+#     apontando agora para 155 GiB em vez de 312 MiB — trocaria o calibre.
+#   - data/raw nao precisa persistir: e re-baixavel da fonte e a coleta e
+#     incremental por municipio. O bruto e descartado apos a extracao; o
+#     arquivo frio em gdrive-crypt: existe para proveniencia, nao para runtime.
+#   - data/extracted passa a ficar local em definitivo (e a entrada do
+#     publicador) e e copiado para o Drive como BACKUP, nunca lido de volta.
+#
+# Consequencia direta: SKIP_GDRIVE_SYNC deixa de poder derrubar a coleta. Era
+# essa flag, combinada com o cache esvaziado pela migracao, que fazia o
+# servico morrer no passo 1 com zero trabalho feito (15/08/2026).
+#
+# O caminho de saida para o Drive continua vivo nos passos 5 e 6.
 
-  if [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]] || [[ ! -x "$RCLONE" ]]; then
-    local motivo="rclone ausente em $RCLONE"
-    [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]] && motivo="SKIP_GDRIVE_SYNC=1"
-    if [[ "$populado" == "true" ]]; then
-      log "▶ $label PULADO ($motivo) — seguindo com o cache local de $local_dir"
-      FALHAS+=("$label: pulado ($motivo) — usou cache local")
-      return 0
-    fi
-    log "  ✗ $label: $motivo e $local_dir esta vazio — nada de onde partir"
+# 0. Convergir com o remoto ANTES de coletar.
+#
+# Sem isso a coleta commita sobre uma base velha e diverge de origin/main —
+# foi o que produziu 7-atras/6-a-frente entre 30/07 e 15/08/2026, com dois
+# escritores (o robo do GitHub Actions e esta coleta) no mesmo branch.
+# --autostash porque a arvore de runtime raramente esta limpa.
+if [[ "$DRY_RUN" == "true" ]]; then
+  log "▶ [DRY-RUN] git fetch + pull --rebase (nada foi alterado)"
+else
+  log "▶ Convergir com origin/main antes de coletar"
+  if git -C "$REPO" fetch -q origin main >> "$LOG_FILE" 2>&1 \
+     && git -C "$REPO" pull --rebase --autostash -q origin main >> "$LOG_FILE" 2>&1; then
+    log "  ✓ Convergiu com origin/main ($(git -C "$REPO" rev-parse --short HEAD))"
+  else
+    log "  ✗ Nao consegui convergir com origin/main — abortando antes de coletar"
+    log "    (coletar sobre base divergente e o que produz a divergencia)"
     exit 1
   fi
-
-  critical_run_cmd "$label" \
-    "$RCLONE" sync "$remoto" "$local_dir" \
-      --progress --checksum --create-empty-src-dirs
-}
-
-# 1. Sincronizar raw do GDrive (antes de coletar)
-sync_from_gdrive "Sync raw from GDrive" \
-  "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/raw/" \
-  "$REPO/data/raw/"
-
-# 2. Sincronizar extracted do GDrive (para continuar de onde parou)
-sync_from_gdrive "Sync extracted from GDrive" \
-  "gdrive:02-Profissional/00-Omega/04_staging/anatomia-do-gasto/extracted/" \
-  "$REPO/data/extracted/"
+fi
 
 # 3. Rodar coleta de São Paulo (capital)
 run_cmd "Coletar São Paulo Capital" \
@@ -178,7 +180,14 @@ run_cmd "Gerar catálogo de datasets" \
 # economizar um hop e trocar seguranca por conveniencia.
 # Com a flag ligada, quem sincroniza e o gray, lendo o resultado da coleta.
 if [[ "${SKIP_GDRIVE_SYNC:-0}" == "1" ]]; then
-  log "▶ Sync GDrive PULADO (SKIP_GDRIVE_SYNC=1) — quem sincroniza e o omega-gray"
+  # Corrigido em 15/08/2026: a mensagem antiga dizia "quem sincroniza e o
+  # omega-gray". Nao era verdade — o Gray nunca teve script recorrente para
+  # isto (o ~/coleta_wrapper.sh de la faz cd para um diretorio que nao existe
+  # mais, e nenhum cron o chama). O hop para o Drive hoje e VPS -> omega-core
+  # -> gdrive-crypt:, por pull do core via rrsync -ro. Enquanto ele nao for
+  # agendado, este passo simplesmente nao acontece — e dizer isso e melhor do
+  # que apontar para um responsavel que nao existe.
+  log "▶ Sync GDrive PULADO (SKIP_GDRIVE_SYNC=1) — hop pendente de agendamento no omega-core"
 elif [[ ! -x "$RCLONE" ]]; then
   log "▶ Sync GDrive PULADO — rclone ausente em $RCLONE"
   FALHAS+=("Sync GDrive: rclone ausente")
@@ -208,14 +217,55 @@ git -C "$REPO" add -- data/public data/manifests apps/web/lib/datasets_status.js
 if git -C "$REPO" diff --cached --quiet; then
   log "  · nada novo para commitar"
 else
+  # ATENCAO ao que cada um destes dois faz de verdade:
+  #
+  #   check-secrets.py --staged  -> gate REAL. Sai != 0 se achar segredo, e
+  #                                 barra o commit. E a defesa que importa num
+  #                                 repositorio publico.
+  #   pre_deploy.py              -> ADVISORY aqui. Ele so bloqueia com --block
+  #                                 (`return 1 if args.block else 0`, linha 171);
+  #                                 sem a flag sai 0 mesmo reprovando. Fica na
+  #                                 cadeia porque registra o diagnostico no log.
+  #
+  # Nao adicione --block sem antes resolver dois checks que sao falsos
+  # positivos NESTE ponto do ciclo: "Working tree apps/web limpo" reprova
+  # porque o lote da noite esta staged, e "Commits nao-pushados" reprova
+  # porque o push ainda nao aconteceu (ele vem logo abaixo). pre_deploy e
+  # gate de DEPLOY; usa-lo como gate de COMMIT inverte a ordem do ciclo.
   if "$REPO/.venv/bin/python3" "$REPO/tools/agents/check-secrets.py" --staged >> "$LOG_FILE" 2>&1 \
     && "$REPO/.venv/bin/python3" "$REPO/tools/gates/pre_deploy.py" >> "$LOG_FILE" 2>&1; then
-    git -C "$REPO" commit -q \
+    if git -C "$REPO" commit -q \
       -m "chore(coleta): coleta noturna $(date -u +%Y-%m-%d)" \
-      -m "Coleta automatica via coleta_noturna.sh (00h-06h BRT); nao pusheado." \
-      -m "[Claude Code > claude-sonnet-4-6 > Low]" >> "$LOG_FILE" 2>&1 \
-      && log "  ✓ Commit local criado" \
-      || { log "  ✗ git commit falhou (ver log)"; FALHAS+=("Commit local do lote noturno (git commit falhou apos gates OK — ver log; hooks/assinatura?)"); }
+      -m "Coleta automatica via coleta_noturna.sh (00h-06h BRT)." \
+      -m "[Claude-CP > claude-opus-5 > High]" >> "$LOG_FILE" 2>&1
+    then
+      log "  ✓ Commit local criado"
+
+      # PUSH — o fecho do ciclo. Sem ele o commit fica represado e o repo
+      # diverge de origin/main a cada noite; foi assim ate 15/08/2026, quando
+      # a credencial desta maquina era deploy key do omega-trader e nao tinha
+      # escrita aqui. Agora usa ~/.ssh/id_ed25519_anatomia via `github-anatomia`.
+      #
+      # Retentativa unica com rebase no meio: a janela entre commit e push e o
+      # unico ponto onde o robo do GitHub Actions (cron 03:00 UTC) pode entrar
+      # na frente. Nao insiste alem disso — push que falha duas vezes e falha
+      # de verdade e tem que aparecer no relatorio.
+      if git -C "$REPO" push -q origin main >> "$LOG_FILE" 2>&1; then
+        log "  ✓ Push para origin/main"
+      else
+        log "  · push rejeitado — convergindo e tentando outra vez"
+        if git -C "$REPO" pull --rebase --autostash -q origin main >> "$LOG_FILE" 2>&1 \
+           && git -C "$REPO" push -q origin main >> "$LOG_FILE" 2>&1; then
+          log "  ✓ Push para origin/main (2a tentativa, apos rebase)"
+        else
+          log "  ✗ Push falhou nas duas tentativas"
+          FALHAS+=("Push para origin/main (2 tentativas — repo fica divergente ate a proxima noite)")
+        fi
+      fi
+    else
+      log "  ✗ git commit falhou (ver log)"
+      FALHAS+=("Commit local do lote noturno (git commit falhou apos gates OK — ver log; hooks/assinatura?)")
+    fi
   else
     log "  ✗ Gates de commit falharam — deixando staged para revisão manual"
     FALHAS+=("Commit local do lote noturno (gate falhou)")
