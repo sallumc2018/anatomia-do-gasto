@@ -1,5 +1,6 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm ci --ignore-scripts",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "ignoreCommand": "bash ../../scripts/vercel_ignore_build.sh"
 }
