@@ -50,6 +50,37 @@ O worker percorre o manifesto de forma **circular**: ao chegar em 5.571 ele
 volta ao começo e recoleta, o que mantém os dados frescos. Se a preferência
 passar a ser parar, é `systemctl disable --now sprint2.service`.
 
+## Deploy
+
+A integração Git do projeto na Vercel seguia o repositório **`anatomia-do-gasto-old`**
+(ID `1227495789`), não o vivo (`anatomia-do-gasto`, ID `1273727525`). A Vercel
+rastreia repositório por **ID**, não por nome: quando o projeto foi recomeçado
+limpo em 18/06/2026 — repo novo criado, antigo renomeado para `-old` — ela
+continuou fielmente conectada ao antigo.
+
+Efeito: o último deploy de **produção** foi em **20/06/2026**. Tudo depois disso
+ficou fora do ar sem erro nenhum, porque os pushes iam para um repositório que a
+Vercel não observava. Era esta a causa de `/apoie` responder 404 desde 26/07.
+
+Reconectado em 16/08/2026. Desde então o deploy é **automático por push**, sem
+Deploy Hook e sem credencial guardada na VPS.
+
+`scripts/vercel_ignore_build.sh` é o *Ignored Build Step* que evita a tempestade
+de builds registrada no `DECISIONS.md` ("cancela deploys automaticamente" — que
+era sintoma de ~7 pushes/dia, não escolha de política):
+
+| commit | decisão |
+|---|---|
+| algo fora de `data/` | constrói |
+| coleta diária | constrói |
+| incremental do worker | pula |
+| atualização agendada do robô | pula |
+| qualquer dúvida | constrói |
+
+A dúvida constrói de propósito: um build a mais custa minutos; um build a menos
+deixa o site desatualizado sem ninguém perceber — que foi o estado entre 20/06 e
+16/08.
+
 ## Alertas
 
 `scripts/notificar.sh` é o canal único. Ele **sempre grava** em
