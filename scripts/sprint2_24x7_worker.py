@@ -19,7 +19,7 @@ import subprocess
 import sys
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -99,13 +99,33 @@ def append_event(event: dict[str, Any]) -> None:
         notify_telegram(f"sprint2_24x7_worker: {event}")
 
 
+NOTIFICADOR = ROOT / "scripts" / "notificar.sh"
+
+
 def notify_telegram(message: str) -> None:
-    notify_script = Path.home() / ".claude" / "notify.sh"
-    if not notify_script.exists():
+    """Compatibilidade: delega ao notificador unico do projeto."""
+    notificar_falha("Worker Sprint 2", message)
+
+
+def notificar_falha(titulo: str, detalhe: str = "") -> None:
+    """Avisa por scripts/notificar.sh — o unico canal do projeto.
+
+    A versao anterior chamava ~/.claude/notify.sh, arquivo que NAO EXISTE na
+    omega-vps: a funcao saia em silencio e o worker nunca avisou nada. O
+    notificador novo sempre grava em disco e empurra por Telegram ou webhook
+    quando houver credencial, entao o silencio deixa de ser ambiguo.
+    """
+    if not NOTIFICADOR.exists():
         return
     try:
-        subprocess.run([str(notify_script), message], timeout=15, check=False)
+        subprocess.run(
+            ["/bin/bash", str(NOTIFICADOR), titulo, detalhe],
+            timeout=30,
+            check=False,
+        )
     except Exception:
+        # Notificar nunca pode derrubar quem chamou: um aviso que vira um
+        # segundo incidente e pior do que a falha original.
         pass
 
 
@@ -493,6 +513,76 @@ def acquire_lock() -> Any:
     return handle
 
 
+COLETA_DIARIA = ROOT / "scripts" / "coleta_noturna.sh"
+MARCADOR_DIARIO = STATE_DIR / "ultima_coleta_diaria.txt"
+
+
+def _rodou_hoje() -> bool:
+    try:
+        return MARCADOR_DIARIO.read_text(encoding="utf-8").strip() == _hoje_brt()
+    except FileNotFoundError:
+        return False
+
+
+def _hoje_brt() -> str:
+    """Data no fuso de Brasilia — a jornada do projeto e brasileira, o host e alemao."""
+    return (datetime.now(timezone.utc) - timedelta(hours=3)).date().isoformat()
+
+
+def rodar_coleta_diaria(timeout: int) -> None:
+    """Roda as etapas DIARIAS (ex-Sprint 1) uma vez por dia, dentro deste worker.
+
+    POR QUE ISTO MORA AQUI, e nao num timer separado.
+
+    Ate 16/08/2026 havia dois agendadores para o mesmo repositorio: este worker
+    (loop continuo) e um sprint1.timer de usuario disparando coleta_noturna.sh
+    as 01:00 BRT. Os dois escreviam no mesmo clone e commitavam, o que exigiu um
+    flock compartilhado para nao corromperem o indice do git um do outro.
+
+    Duas coisas independentes com um recurso compartilhado sao mais dificeis de
+    raciocinar do que uma coisa com duas fases. Aqui a coleta diaria e uma FASE
+    do worker: nunca concorre consigo mesma, nao precisa de lock entre processos,
+    e ha um unico servico para ligar, desligar e vigiar.
+
+    O que estas etapas cobrem e que a coleta nacional NAO cobre: SIOPS (saude),
+    SIOPE/FNDE (educacao), RPPS, RREO de seguranca e transporte, transferencias
+    estaduais de SP, CEIS/CNEP (sancoes), e os raspadores proprios de Sorocaba e
+    Paulinia. Por isso nao bastava simplesmente apagar o timer.
+
+    Custo: ~1h20 por dia em que a fila nacional fica parada. No ritmo medido de
+    13,2 municipios/hora sobre os 4.466 restantes, atrasa a conclusao em cerca de
+    um dia — em troca de um servico em vez de tres.
+    """
+    if _rodou_hoje():
+        return
+    if not COLETA_DIARIA.exists():
+        append_event({"event": "coleta_diaria_ausente", "caminho": str(COLETA_DIARIA)})
+        return
+
+    append_event({"event": "coleta_diaria_inicio", "data": _hoje_brt()})
+    hoje = _hoje_brt()
+    resultado = run_command(
+        "coleta diaria",
+        ["/bin/bash", str(COLETA_DIARIA)],
+        STATE_DIR / "runs" / f"coleta_diaria_{hoje}.log",
+        # A coleta diaria e longa (19 municipios, varias APIs federais). O
+        # runbook historico lhe dava a janela 00h-06h; 6h e o mesmo teto.
+        max(timeout, 6 * 3600),
+    )
+    # Marca mesmo em falha: uma falha nao deve fazer o worker reiniciar a coleta
+    # diaria em loop e travar a fila nacional o dia inteiro. A falha vira alerta.
+    MARCADOR_DIARIO.parent.mkdir(parents=True, exist_ok=True)
+    MARCADOR_DIARIO.write_text(hoje, encoding="utf-8")
+    ok = resultado.returncode == 0
+    append_event({"event": "coleta_diaria_fim", "data": hoje, "ok": ok, "rc": resultado.returncode})
+    if not ok:
+        notificar_falha(
+            "Coleta diária falhou",
+            f"coleta_noturna.sh saiu com {resultado.returncode} em {hoje}. "
+            f"Log: {STATE_DIR / 'runs' / f'coleta_diaria_{hoje}.log'}",
+        )
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Worker 24/7 do Sprint 2.")
     parser.add_argument("--loop", action="store_true", help="roda continuamente")
@@ -520,6 +610,11 @@ def main(argv: list[str] | None = None) -> int:
     processed = 0
     append_event({"event": "worker_start", "municipios": len(municipios), "loop": args.loop})
     while True:
+        # Fase diaria (ex-Sprint 1) antes de seguir a fila nacional. Sai na hora
+        # se ja rodou hoje, entao custa uma leitura de arquivo por volta.
+        if args.loop:
+            rodar_coleta_diaria(args.timeout)
+
         municipio = next_municipio(municipios, state)
         state["last_started_at"] = utc_now()
         state["last_ibge"] = municipio.ibge
