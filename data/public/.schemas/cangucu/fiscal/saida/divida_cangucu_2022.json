@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cangucu_2022.csv",
+  "caminho_relativo": "data/public/cangucu/fiscal/saida/divida_cangucu_2022.csv",
+  "tamanho_bytes": 519,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "13863291.73",
+      "DC_Contratual": "13863291.73",
+      "Emprestimos": "0.00",
+      "Financiamentos": "13863291.73",
+      "Precatorios": "0.00",
+      "Deducoes": "39896245.39",
+      "DCL": "-26032953.66",
+      "RCL": "179031512.15",
+      "DC_pct_RCL": "7.7700",
+      "DCL_pct_RCL": "-14.5800",
+      "Limite_valor": "214237814.58",
+      "Limite_pct_RCL": "119.6649",
+      "Limite_Alerta_valor": "192814033.12",
+      "Passivo_Atuarial": "223632266.54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4304507&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:13.018744"
+}

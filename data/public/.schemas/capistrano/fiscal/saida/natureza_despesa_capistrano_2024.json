@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_capistrano_2024.csv",
+  "caminho_relativo": "data/public/capistrano/fiscal/saida/natureza_despesa_capistrano_2024.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "56280412.61",
+      "Juros_Encargos": "2876.87",
+      "Outras_Correntes": "35111952.71",
+      "Despesas_Correntes": "91395242.19",
+      "Investimentos": "1131067.75",
+      "Despesas_Capital": "2525106.46",
+      "Total_Despesas": "99242325.91",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2302909&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:29.762444"
+}

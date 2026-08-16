@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_canoas_2023.csv",
+  "caminho_relativo": "data/public/canoas/fiscal/saida/natureza_despesa_canoas_2023.csv",
+  "tamanho_bytes": 375,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "827195664.96",
+      "Juros_Encargos": "46904700.84",
+      "Outras_Correntes": "1070861587.48",
+      "Despesas_Correntes": "1944961953.28",
+      "Investimentos": "104146936.41",
+      "Despesas_Capital": "176976253.90",
+      "Total_Despesas": "2246712913.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4304606&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:34.719314"
+}

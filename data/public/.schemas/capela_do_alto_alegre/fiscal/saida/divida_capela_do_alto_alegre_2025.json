@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_capela_do_alto_alegre_2025.csv",
+  "caminho_relativo": "data/public/capela_do_alto_alegre/fiscal/saida/divida_capela_do_alto_alegre_2025.csv",
+  "tamanho_bytes": 514,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "32592224.21",
+      "DC_Contratual": "32592224.21",
+      "Emprestimos": "0.00",
+      "Financiamentos": "1211893.63",
+      "Precatorios": "0.00",
+      "Deducoes": "15239236.61",
+      "DCL": "17352987.60",
+      "RCL": "58577261.47",
+      "DC_pct_RCL": "56.8000",
+      "DCL_pct_RCL": "30.2400",
+      "Limite_valor": "68852713.76",
+      "Limite_pct_RCL": "117.5417",
+      "Limite_Alerta_valor": "61967442.38",
+      "Passivo_Atuarial": "149299035.52",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2906857&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:32.231737"
+}

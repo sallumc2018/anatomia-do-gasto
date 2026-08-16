@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_caninde_de_sao_francisco_2023.csv",
+  "caminho_relativo": "data/public/caninde_de_sao_francisco/fiscal/saida/divida_caninde_de_sao_francisco_2023.csv",
+  "tamanho_bytes": 513,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "212539717.72",
+      "DC_Contratual": "203985999.88",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "8553717.84",
+      "Deducoes": "1528399.62",
+      "DCL": "211011318.10",
+      "RCL": "211344891.36",
+      "DC_pct_RCL": "105.0200",
+      "DCL_pct_RCL": "104.2700",
+      "Limite_valor": "242847642.13",
+      "Limite_pct_RCL": "114.9058",
+      "Limite_Alerta_valor": "218562877.92",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2801207&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:27.506988"
+}

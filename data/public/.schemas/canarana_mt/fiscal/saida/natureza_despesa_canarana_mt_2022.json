@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_canarana_mt_2022.csv",
+  "caminho_relativo": "data/public/canarana_mt/fiscal/saida/natureza_despesa_canarana_mt_2022.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "64428204.54",
+      "Juros_Encargos": "1537299.11",
+      "Outras_Correntes": "87239575.21",
+      "Despesas_Correntes": "153205078.86",
+      "Investimentos": "12258416.20",
+      "Despesas_Capital": "12767733.81",
+      "Total_Despesas": "172513998.93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5102702&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:21.760906"
+}

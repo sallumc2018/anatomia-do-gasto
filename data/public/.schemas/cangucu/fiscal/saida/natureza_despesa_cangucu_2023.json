@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cangucu_2023.csv",
+  "caminho_relativo": "data/public/cangucu/fiscal/saida/natureza_despesa_cangucu_2023.csv",
+  "tamanho_bytes": 368,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "116072332.86",
+      "Juros_Encargos": "2501582.98",
+      "Outras_Correntes": "67999179.18",
+      "Despesas_Correntes": "186573095.02",
+      "Investimentos": "11459346.82",
+      "Despesas_Capital": "13983127.32",
+      "Total_Despesas": "220191841.14",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4304507&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:13.008741"
+}

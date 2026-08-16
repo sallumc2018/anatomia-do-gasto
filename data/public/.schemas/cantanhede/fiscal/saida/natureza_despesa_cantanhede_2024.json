@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cantanhede_2024.csv",
+  "caminho_relativo": "data/public/cantanhede/fiscal/saida/natureza_despesa_cantanhede_2024.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "73271223.47",
+      "Juros_Encargos": "65365.83",
+      "Outras_Correntes": "50178528.51",
+      "Despesas_Correntes": "123515117.81",
+      "Investimentos": "15626163.93",
+      "Despesas_Capital": "16501752.90",
+      "Total_Despesas": "140016870.71",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2102705&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:16.745688"
+}

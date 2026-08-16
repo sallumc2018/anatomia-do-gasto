@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_canelinha_2024.csv",
+  "caminho_relativo": "data/public/canelinha/fiscal/saida/divida_canelinha_2024.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "327495.37",
+      "DC_Contratual": "-170086.63",
+      "Emprestimos": "0.00",
+      "Financiamentos": "-170086.63",
+      "Precatorios": "0.00",
+      "Deducoes": "10957639.00",
+      "DCL": "-10630143.63",
+      "RCL": "73304032.62",
+      "DC_pct_RCL": "0.4500",
+      "DCL_pct_RCL": "-14.5000",
+      "Limite_valor": "87964839.14",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "79168355.23",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4203709&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:17.996148"
+}

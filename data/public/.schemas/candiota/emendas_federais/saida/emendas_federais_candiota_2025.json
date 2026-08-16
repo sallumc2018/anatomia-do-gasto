@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_candiota_2025.csv",
+  "caminho_relativo": "data/public/candiota/emendas_federais/saida/emendas_federais_candiota_2025.csv",
+  "tamanho_bytes": 415,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "municipio_ibge": "4304358",
+      "municipio_nome": "Candiota",
+      "localidade_do_gasto_raw": "CANDIOTA - RS",
+      "numero_emenda": "202571220006",
+      "autor": "BANCADA DO RIO GRANDE DO SUL",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda de Bancada",
+      "funcao": "Urbanismo",
+      "subfuncao": "Assistência comunitária",
+      "valor_empenhado": "15.649.710,00",
+      "valor_liquidado": "205.500,00",
+      "valor_pago": "205.500,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:14.795781"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_candido_mota_2022.csv",
+  "caminho_relativo": "data/public/candido_mota/fiscal/saida/divida_candido_mota_2022.csv",
+  "tamanho_bytes": 521,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "7779216.41",
+      "DC_Contratual": "7293115.19",
+      "Emprestimos": "6816038.79",
+      "Financiamentos": "0.00",
+      "Precatorios": "486101.22",
+      "Deducoes": "27938879.15",
+      "DCL": "-20159662.74",
+      "RCL": "145551659.50",
+      "DC_pct_RCL": "5.3900",
+      "DCL_pct_RCL": "-13.9800",
+      "Limite_valor": "173096063.40",
+      "Limite_pct_RCL": "118.9241",
+      "Limite_Alerta_valor": "155786457.06",
+      "Passivo_Atuarial": "143659232.60",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3510005&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-16T03:39:39.722861"
+}
