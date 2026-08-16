@@ -5,8 +5,13 @@ Fonte oficial:
   https://portalfns.saude.gov.br/downloads/
 
 Saidas:
-  raw externo/cache: {ANATOMIA_RAW_ROOT ou data/raw}/sorocaba/fns/repasses_faf_com_populacao/{ano}/...
-  extracted: data/extracted/sorocaba/fns/repasses_faf_com_populacao/...
+  raw (cache NACIONAL compartilhado): data/raw/_nacional/fns/repasses_faf_com_populacao/{ano}/...
+  extracted (por municipio): data/extracted/{municipio}/fns/saida/...
+
+O arquivo do portal e NACIONAL — traz todos os municipios do pais e e filtrado
+em memoria por municipio. Por isso o bruto e baixado UMA VEZ e compartilhado,
+como ja fazia baixar_emendas_federais.py. Guardar uma copia por municipio
+custava ~104 MB cada (medido: 14 GB para 134 municipios).
 
 Uso:
   python pipelines/baixar_fns_repasses.py --listar
@@ -30,7 +35,7 @@ from pathlib import Path
 from defusedxml import ElementTree as ET
 from xml.etree.ElementTree import Element as _ET_Element
 
-from paths import CFG, MUNICIPIO, EXTRACTED_DIR, RAW_DIR, ROOT
+from paths import CFG, MUNICIPIO, DATA_DIR, EXTRACTED_DIR, RAW_DIR, ROOT
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception
 import sys as _sys
 if str(ROOT) not in _sys.path:
@@ -57,7 +62,26 @@ MUNICIPIO_NOME_MUN = CFG["nome"].upper()
 UF_MUN = CFG["uf"].upper()
 ANOS_PADRAO = range(2020, 2027)
 
-FNS_RAW_DIR = RAW_DIR / "fns" / "repasses_faf_com_populacao"
+# Cache NACIONAL compartilhado, fora do diretorio por-municipio.
+#
+# O arquivo que o portal do FNS entrega e nacional: uma tabela com todos os
+# municipios do pais, filtrada em memoria depois por _filtrar_csv_municipio().
+# Ate 16/08/2026 ele era gravado dentro de data/raw/<municipio>/, ou seja, a
+# MESMA tabela nacional uma vez por municipio.
+#
+# O custo era medido, nao teorico: com 134 municipios coletados, data/raw tinha
+# 14 GB, dos quais fns = 14 GB (transferencias_federais 30 MB, emendas 66 MB).
+# ~104 MB por municipio, ~33 GB/dia no ritmo de 13,2 municipios/hora. Sobre os
+# 5.571 municipios seriam centenas de GB para guardar copias do mesmo arquivo.
+#
+# baixar_emendas_federais.py ja resolvia isso desde antes, com
+# NACIONAL_RAW_DIR = DATA_DIR / "raw" / "_nacional" / "emendas_federais" — o
+# padrao certo ja existia no repositorio, aplicado em um lugar so. Aqui ele so
+# esta sendo reusado; nada foi inventado.
+#
+# ANATOMIA_RAW_ROOT continua respeitado: DATA_DIR e a raiz do repo, e quem quiser
+# mover o bruto para fora usa a mesma variavel de sempre em paths.py.
+FNS_RAW_DIR = DATA_DIR / "raw" / "_nacional" / "fns" / "repasses_faf_com_populacao"
 FNS_EXTRACTED_DIR = EXTRACTED_DIR / "fns" / "saida"
 
 INVENTARIO_CAMPOS = [
