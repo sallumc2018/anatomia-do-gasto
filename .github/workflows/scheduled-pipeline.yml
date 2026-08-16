@@ -41,7 +41,7 @@ jobs:
           python-version: "3.12"
 
       - name: 4. Instalar o Just (Runner de Tarefas)
-        uses: taiki-e/install-action@7ebe462223a33af951eed3c3ab1f754ddf2992e2 # just 1.56.0
+        uses: taiki-e/install-action@41049aa56687c35e0afa74eed4f09cec4f9afabf # just 1.56.0
         with:
           tool: just
 
