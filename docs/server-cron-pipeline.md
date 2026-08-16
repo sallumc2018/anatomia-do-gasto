@@ -64,6 +64,17 @@ canal configurado:
 Sem nenhum canal, ele escreve `SEM_CANAL` no log, para silêncio nunca ser
 confundido com "está tudo bem".
 
+**Canal ativo desde 16/08/2026:** um tópico `ntfy.sh` aleatório, configurado em
+`~/.config/omega/secrets.env` (chmod 600) na estação e na VPS. Escolhido porque
+o ntfy aceita publicação **sem credencial** — não exigiu token de ninguém, e por
+isso pôde ser ligado de imediato. O tópico tem 24 caracteres aleatórios, então é
+inadivinhável na prática; ainda assim, tópico público do ntfy é legível por quem
+souber o nome. As mensagens não contêm segredo (host, nome do serviço, código de
+saída), mas se a preferência for sigilo real, Telegram ou ntfy auto-hospedado
+substituem sem mudar uma linha de código — basta trocar a variável.
+
+Verificado ponta a ponta: mensagens da estação e da VPS entregues no tópico.
+
 Dispara em dois níveis:
 
 1. **Interno** — o worker chama `notificar_falha()` quando a coleta diária falha
