@@ -581,6 +581,44 @@ def rodar_coleta_diaria(timeout: int) -> None:
             f"coleta_noturna.sh saiu com {resultado.returncode} em {hoje}. "
             f"Log: {STATE_DIR / 'runs' / f'coleta_diaria_{hoje}.log'}",
         )
+        return
+    disparar_deploy(hoje)
+
+
+def disparar_deploy(hoje: str) -> None:
+    """Dispara UM deploy por dia, ao fim da fase diaria bem-sucedida.
+
+    POR QUE UMA VEZ AO DIA, e nao a cada push.
+    A integracao GitHub -> Vercel esta desativada, e o DECISIONS.md registra o
+    motivo: "cancela deploys automaticamente". Isso nao era escolha de politica,
+    era sintoma de push demais. O repositorio recebe ~7 pushes/dia (worker a
+    cada 25 municipios, fase diaria, e o robo do GitHub Actions), quase todos de
+    dado. Cada um dispararia um build que le ~25.500 JSONs e prerenderiza 267
+    paginas; o Vercel enfileira e cancela os superados — exatamente o sintoma
+    registrado.
+
+    Um deploy por dia, depois que o dado do dia entrou, da o mesmo resultado sem
+    a fila. Sem a variavel definida nao faz nada e diz isso no log: o site
+    apenas continua servindo o build anterior.
+    """
+    url = os.environ.get("ANATOMIA_DEPLOY_HOOK", "").strip()
+    if not url:
+        append_event({"event": "deploy_hook_ausente", "data": hoje})
+        return
+    try:
+        resultado = subprocess.run(
+            ["curl", "-fsS", "--max-time", "30", "-X", "POST", url],
+            capture_output=True, text=True, timeout=60,
+        )
+        ok = resultado.returncode == 0
+        # A URL NAO entra no log: um deploy hook e uma credencial — quem a tem
+        # dispara build no projeto. Registra-se o resultado, nunca o segredo.
+        append_event({"event": "deploy_disparado", "data": hoje, "ok": ok})
+        if not ok:
+            notificar_falha("Deploy hook falhou", f"curl saiu com {resultado.returncode} em {hoje}.")
+    except Exception as exc:
+        append_event({"event": "deploy_erro", "data": hoje, "erro": type(exc).__name__})
+        notificar_falha("Deploy hook falhou", f"{type(exc).__name__} em {hoje}.")
 
 
 def main(argv: list[str] | None = None) -> int:
