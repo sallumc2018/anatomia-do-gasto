@@ -376,16 +376,55 @@ def remote_is_current(timeout: int) -> bool:
         return False
 
     behind, ahead = (int(parts[0]), int(parts[1]))
-    if behind > 0:
+    if behind == 0:
+        return True
+
+    # ESTAR ATRAS NAO E MOTIVO PARA DESISTIR — E MOTIVO PARA PUXAR.
+    #
+    # A versao anterior apenas registrava commit_blocked e retornava False. A
+    # protecao contra commitar sobre base velha estava certa; o que faltava era
+    # a acao seguinte. Como o worker NUNCA puxava, bastava um commit chegar ao
+    # origin (o robo do GitHub Actions as 03:00 UTC, ou um push da estacao) para
+    # ele travar — e ficar travado ate a fase diaria, uma vez por dia.
+    #
+    # Medido na omega-vps em 16/08/2026: behind 1 / ahead 0, 14 commit_blocked
+    # no mesmo dia e 30 sucessos represados. Ele coletava e publicava em disco,
+    # e nada saia para o GitHub. Como o deploy passou a depender do push, nada
+    # chegava ao site tambem: o trabalho inteiro ficava invisivel.
+    #
+    # --autostash porque a arvore de runtime raramente esta limpa. O rebase e o
+    # mesmo que a coleta diaria ja faz; com ahead == 0 e fast-forward puro.
+    append_event({"event": "remote_ahead_pulling", "behind": behind, "ahead": ahead})
+    pull = subprocess.run(
+        ["git", "pull", "--rebase", "--autostash", "origin", "main"],
+        cwd=ROOT,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        timeout=max(git_timeout, 300),
+        check=False,
+    )
+    if pull.returncode != 0:
+        # Agora sim e bloqueio de verdade: nao foi possivel convergir. Aborta
+        # qualquer rebase pela metade para nao deixar o repo em estado sujo.
+        subprocess.run(["git", "rebase", "--abort"], cwd=ROOT, check=False)
         append_event(
             {
                 "event": "commit_blocked",
-                "reason": "remote_has_new_commits",
+                "reason": "pull_rebase_failed",
                 "behind": behind,
                 "ahead": ahead,
+                "returncode": pull.returncode,
             }
         )
+        notificar_falha(
+            "Worker nao consegue convergir com origin/main",
+            f"git pull --rebase saiu com {pull.returncode} (behind={behind}, ahead={ahead}). "
+            "Enquanto isso o worker coleta mas nao publica.",
+        )
         return False
+
+    append_event({"event": "remote_pulled", "behind_antes": behind})
     return True
 
 
