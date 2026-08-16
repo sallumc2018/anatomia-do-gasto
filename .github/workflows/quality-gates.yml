@@ -26,6 +26,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      # As 24 suites de teste do repo nunca rodaram em CI nem no gate de push
+      # (o .omega-gate-check condicionava a um diretorio `tests/` que nao existe).
+      # Executadas pela primeira vez em 15/08/2026: 49 passaram.
+      #
+      # Instala o conjunto MINIMO, nao o requirements.txt inteiro: as suites sao
+      # de contrato, chave e gate — nao tocam rede, pandas, PyMuPDF nem
+      # playwright. O minimo foi medido, nao estimado: com apenas pytest a
+      # coleta falha em test_baixar_emendas_federais.py com
+      # "No module named 'tenacity'", e esse e o unico faltante. Verificado num
+      # venv limpo: pytest + tenacity -> 49 passed.
+      - name: Install test runner
+        run: python -m pip install --disable-pip-version-check --quiet pytest==9.1.1 tenacity==9.1.4
+
+      - name: Unit tests
+        run: python -m pytest -q pipelines/testes tools/gates tools/security tools/server
+
       - name: Memory validation
         run: python tools/agents/validate-area.py --area memory
 

@@ -1,5 +1,16 @@
 # Watchdog local de seguranca
 
+> **Nota de 16/08/2026 — os scripts PowerShell (`.ps1`) foram removidos.**
+>
+> O projeto nasceu no Windows e migrou para Linux. Os 39 arquivos `.ps1` do
+> repositório (3.735 linhas) não eram invocados por nenhum código: apareciam
+> apenas em documentação. Os que tinham função viva já haviam sido portados para
+> Python — `tools/hooks/check_pip_install.py` e `check_winget_install.py` dizem
+> isso na própria primeira linha ("Porte cross-platform do ...ps1").
+>
+> As seções abaixo que descrevem arquivos `.ps1` valem como registro histórico.
+> Para recuperar qualquer um deles: `git log --diff-filter=D -- '*.ps1'`.
+
 Scripts read-only para monitorar o estado minimo de seguranca do projeto no Windows.
 
 ## Arquivos gerados

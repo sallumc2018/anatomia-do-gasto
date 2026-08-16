@@ -27,3 +27,9 @@ duckdb==1.5.3
 
 # Parsing XML resistente a entidades maliciosas (baixar_fns_repasses.py)
 defusedxml==0.7.1
+
+# Execução da suíte de testes (24 arquivos em pipelines/testes, tools/gates,
+# tools/security e tools/server). Não estava declarado, e por isso não existia
+# em nenhum ambiente: nem no venv da VPS, nem no CI. As suítes nunca rodaram
+# até 15/08/2026 — quando rodaram, 49 testes passaram de primeira.
+pytest==9.1.1

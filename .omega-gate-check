@@ -3,4 +3,22 @@
 # Mantenha rápido: isto roda em TODO push. Coleta e pipelines pesados não entram aqui.
 set -e
 python3 tools/agents/validate-docs-consistency.py
-[ -d tests ] && command -v pytest >/dev/null 2>&1 && pytest -q tests || true
+
+# A linha antiga era:
+#   [ -d tests ] && command -v pytest >/dev/null 2>&1 && pytest -q tests || true
+#
+# Ela NUNCA rodou um teste sequer. O diretorio `tests/` nao existe neste repo —
+# as 24 suites vivem em pipelines/testes, tools/gates, tools/security e
+# tools/server. Com `[ -d tests ]` falso, o `|| true` engolia tudo em silencio,
+# e nenhum workflow do CI roda pytest tampouco. Descoberto em 15/08/2026: ao
+# executa-las pela primeira vez, 49 testes passaram — estavam saudaveis, so
+# nunca eram chamadas. Um portao que nunca reprova nao e um portao.
+#
+# Prefere o python do .venv quando existir (a VPS o tem); cai para o do sistema.
+PY=python3
+[ -x .venv/bin/python3 ] && PY=.venv/bin/python3
+if "$PY" -c "import pytest" 2>/dev/null; then
+  "$PY" -m pytest -q pipelines/testes tools/gates tools/security tools/server
+else
+  echo "AVISO: pytest ausente em $PY — testes NAO executados (pip install -r requirements.txt)" >&2
+fi
