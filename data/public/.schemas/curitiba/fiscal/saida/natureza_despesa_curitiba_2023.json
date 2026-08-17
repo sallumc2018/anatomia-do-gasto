@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_curitiba_2023.csv",
+  "caminho_relativo": "data/public/curitiba/fiscal/saida/natureza_despesa_curitiba_2023.csv",
+  "tamanho_bytes": 377,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "5083098828.59",
+      "Juros_Encargos": "77602829.22",
+      "Outras_Correntes": "3954896966.31",
+      "Despesas_Correntes": "9115598624.12",
+      "Investimentos": "549373243.10",
+      "Despesas_Capital": "994402246.07",
+      "Total_Despesas": "11465097364.39",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4106902&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:52.740485"
+}

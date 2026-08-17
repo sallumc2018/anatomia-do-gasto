@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cristalandia_2023.csv",
+  "caminho_relativo": "data/public/cristalandia/fiscal/saida/natureza_despesa_cristalandia_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "15372345.03",
+      "Juros_Encargos": "40222.69",
+      "Outras_Correntes": "16008051.02",
+      "Despesas_Correntes": "31420618.74",
+      "Investimentos": "4075153.25",
+      "Despesas_Capital": "4531344.22",
+      "Total_Despesas": "35951962.96",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1706100&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:13.366502"
+}

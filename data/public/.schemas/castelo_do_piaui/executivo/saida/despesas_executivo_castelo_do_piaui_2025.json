@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_castelo_do_piaui_2025.csv",
+  "caminho_relativo": "data/public/castelo_do_piaui/executivo/saida/despesas_executivo_castelo_do_piaui_2025.csv",
+  "tamanho_bytes": 5000,
+  "linhas_dados": 21,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "13337123.35",
+      "Dotacao_Atualizada": "21522023.35",
+      "Empenhado": "21239445.84",
+      "Liquidado": "19493262.19",
+      "Exceto_Intra_Liquidado": "19341653.17",
+      "Intra_Liquidado": "151609.02",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2202604&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "2514910.75",
+      "Dotacao_Atualizada": "985410.75",
+      "Empenhado": "942323.38",
+      "Liquidado": "900790.54",
+      "Exceto_Intra_Liquidado": "900790.54",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2202604&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "4473508.55",
+      "Dotacao_Atualizada": "2661508.55",
+      "Empenhado": "2571032.56",
+      "Liquidado": "2519816.41",
+      "Exceto_Intra_Liquidado": "2419311.44",
+      "Intra_Liquidado": "100504.97",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2202604&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:54.509162"
+}

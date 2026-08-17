@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_conceicao_do_jacuipe_2023.csv",
+  "caminho_relativo": "data/public/conceicao_do_jacuipe/fiscal/saida/divida_conceicao_do_jacuipe_2023.csv",
+  "tamanho_bytes": 515,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "58854025.67",
+      "DC_Contratual": "58854025.67",
+      "Emprestimos": "9192226.44",
+      "Financiamentos": "109532.66",
+      "Precatorios": "0.00",
+      "Deducoes": "-10687985.23",
+      "DCL": "69542010.90",
+      "RCL": "140365569.94",
+      "DC_pct_RCL": "42.2300",
+      "DCL_pct_RCL": "49.9000",
+      "Limite_valor": "167238683.93",
+      "Limite_pct_RCL": "119.1451",
+      "Limite_Alerta_valor": "150514815.54",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2908507&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:20.994755"
+}

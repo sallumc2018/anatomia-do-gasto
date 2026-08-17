@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_carmo_do_rio_claro_2025.csv",
+  "caminho_relativo": "data/public/carmo_do_rio_claro/transferencias_federais/saida/transferencias_federais_carmo_do_rio_claro_2025.csv",
+  "tamanho_bytes": 929,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-11",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "58000",
+      "orgao_superior_nome": "Ministério da Pesca e Aquicultura",
+      "unidade_gestora_codigo": "580003",
+      "unidade_gestora_nome": "COORD-GERAL DE ORC,FINANCAS E CONTAB.",
+      "funcao_id": "20",
+      "funcao_descricao": "Agricultura",
+      "acao_id": "977211",
+      "acao_descricao": "A Aquishow Brasil, e um evento da aquicultura nacional com feira e exposicao de produtos e servicos, palestras, paineis, torneios e premiacoes que reune todos os elos da cadeia produtiva da aquicultura brasileira, em especial a tilapicultura, para discutir os mais diversos assuntos ligados a elas, com o objetivo de aperfeicoar praticas de producao e seu desenvolvimento sustentavel, aproximar produtores de novas tecni",
+      "valor_transferido": "200000.0",
+      "municipio_ibge": "3114402",
+      "municipio_nome": "CARMO DO RIO CLARO",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:56.828802"
+}

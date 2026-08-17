@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_coronel_vivida_2026.csv",
+  "caminho_relativo": "data/public/coronel_vivida/transferencias_federais/saida/transferencias_federais_coronel_vivida_2026.csv",
+  "tamanho_bytes": 811,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-05",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "51000",
+      "orgao_superior_nome": "Ministério do Esporte",
+      "unidade_gestora_codigo": "180074",
+      "unidade_gestora_nome": "SE NAC. DE FUTEBOL E DEFESA DIR. TORCEDOR",
+      "funcao_id": "27",
+      "funcao_descricao": "Desporto e lazer",
+      "acao_id": "993209",
+      "acao_descricao": "Viabilizar a participacao da equipe adulta masculina da AFUVI - Associacao de Futsal Vividense no Campeonato Paranaense de Futsal  Serie Prata, competicao oficial organizada pela Federacao Paranaense de Futsal, representando o municipio de Coronel Vivida  (PR), conforme as acoes definidas no Plano de Trabalho.",
+      "valor_transferido": "245000.0",
+      "municipio_ibge": "4106506",
+      "municipio_nome": "CORONEL VIVIDA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:55.558143"
+}

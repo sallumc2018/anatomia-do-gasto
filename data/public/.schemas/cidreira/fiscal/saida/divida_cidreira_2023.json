@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cidreira_2023.csv",
+  "caminho_relativo": "data/public/cidreira/fiscal/saida/divida_cidreira_2023.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "38426246.82",
+      "DC_Contratual": "32988909.80",
+      "Emprestimos": "5000000.00",
+      "Financiamentos": "286078.63",
+      "Precatorios": "5437337.02",
+      "Deducoes": "19454006.73",
+      "DCL": "18972240.09",
+      "RCL": "98299631.94",
+      "DC_pct_RCL": "39.4300",
+      "DCL_pct_RCL": "19.4700",
+      "Limite_valor": "116939558.33",
+      "Limite_pct_RCL": "118.9624",
+      "Limite_Alerta_valor": "105245602.50",
+      "Passivo_Atuarial": "152756494.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4305454&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:56.936370"
+}

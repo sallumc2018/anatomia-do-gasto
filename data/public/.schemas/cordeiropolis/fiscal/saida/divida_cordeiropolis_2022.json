@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cordeiropolis_2022.csv",
+  "caminho_relativo": "data/public/cordeiropolis/fiscal/saida/divida_cordeiropolis_2022.csv",
+  "tamanho_bytes": 514,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "23809097.06",
+      "DC_Contratual": "22127976.85",
+      "Emprestimos": "0.00",
+      "Financiamentos": "15834509.89",
+      "Precatorios": "1399642.53",
+      "Deducoes": "7139051.89",
+      "DCL": "16670045.17",
+      "RCL": "215676755.88",
+      "DC_pct_RCL": "11.2000",
+      "DCL_pct_RCL": "7.8400",
+      "Limite_valor": "255151192.44",
+      "Limite_pct_RCL": "118.3026",
+      "Limite_Alerta_valor": "229636073.20",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3512407&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:51.136034"
+}

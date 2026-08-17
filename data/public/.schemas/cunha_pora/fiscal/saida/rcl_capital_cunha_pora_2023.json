@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_cunha_pora_2023.csv",
+  "caminho_relativo": "data/public/cunha_pora/fiscal/saida/rcl_capital_cunha_pora_2023.csv",
+  "tamanho_bytes": 417,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Operacoes_Credito_Internas": "315000.00",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "315000.00",
+      "Alienacao_Bens": "2231430.80",
+      "Alienacao_Bens_Imoveis": "381580.80",
+      "Alienacao_Bens_Moveis": "1849850.00",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "2546430.80",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4204707&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:25.680720"
+}

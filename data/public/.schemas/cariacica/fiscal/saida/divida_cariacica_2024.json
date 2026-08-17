@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_cariacica_2024.csv",
+  "caminho_relativo": "data/public/cariacica/fiscal/saida/divida_cariacica_2024.csv",
+  "tamanho_bytes": 527,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "234293134.19",
+      "DC_Contratual": "234293134.19",
+      "Emprestimos": "0.00",
+      "Financiamentos": "232476327.15",
+      "Precatorios": "0.00",
+      "Deducoes": "249356164.28",
+      "DCL": "-15063030.09",
+      "RCL": "1442328288.04",
+      "DC_pct_RCL": "16.3100",
+      "DCL_pct_RCL": "-1.0500",
+      "Limite_valor": "1724025945.65",
+      "Limite_pct_RCL": "119.5308",
+      "Limite_Alerta_valor": "1551623351.08",
+      "Passivo_Atuarial": "1652201103.11",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3201308&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:05.565588"
+}

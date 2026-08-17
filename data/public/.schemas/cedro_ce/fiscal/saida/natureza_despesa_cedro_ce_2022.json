@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cedro_ce_2022.csv",
+  "caminho_relativo": "data/public/cedro_ce/fiscal/saida/natureza_despesa_cedro_ce_2022.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "43203826.58",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "39678410.32",
+      "Despesas_Correntes": "82882236.90",
+      "Investimentos": "3184006.19",
+      "Despesas_Capital": "3886593.53",
+      "Total_Despesas": "86768830.43",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2303808&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:12.691797"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_caucaia_2022.csv",
+  "caminho_relativo": "data/public/caucaia/fiscal/saida/divida_caucaia_2022.csv",
+  "tamanho_bytes": 518,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "365681981.57",
+      "DC_Contratual": "365681981.57",
+      "Emprestimos": "0.00",
+      "Financiamentos": "350944553.21",
+      "Precatorios": "0.00",
+      "Deducoes": "-64526759.93",
+      "DCL": "430208741.50",
+      "RCL": "1068239650.53",
+      "DC_pct_RCL": "34.3600",
+      "DCL_pct_RCL": "40.4300",
+      "Limite_valor": "1276942104.64",
+      "Limite_pct_RCL": "119.5370",
+      "Limite_Alerta_valor": "1149247894.17",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2303709&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:26.543372"
+}

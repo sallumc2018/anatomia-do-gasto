@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_ceres_2020.csv",
+  "caminho_relativo": "data/public/ceres/emendas_federais/saida/emendas_federais_ceres_2020.csv",
+  "tamanho_bytes": 431,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2020",
+      "municipio_ibge": "5205406",
+      "municipio_nome": "Ceres",
+      "localidade_do_gasto_raw": "CÁCERES - MT",
+      "numero_emenda": "202039620010",
+      "autor": "DR. LEONARDO",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Defesa nacional",
+      "subfuncao": "Atenção básica",
+      "valor_empenhado": "343.975,37",
+      "valor_liquidado": "65.437,76",
+      "valor_pago": "57.169,39",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:16.341962"
+}

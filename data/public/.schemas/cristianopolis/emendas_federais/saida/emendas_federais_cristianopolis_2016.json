@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_cristianopolis_2016.csv",
+  "caminho_relativo": "data/public/cristianopolis/emendas_federais/saida/emendas_federais_cristianopolis_2016.csv",
+  "tamanho_bytes": 470,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2016",
+      "municipio_ibge": "5206305",
+      "municipio_nome": "Cristianópolis",
+      "localidade_do_gasto_raw": "CRISTIANÓPOLIS - GO",
+      "numero_emenda": "201629270016",
+      "autor": "DELEGADO WALDIR",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Agricultura",
+      "subfuncao": "Promoção da produção agropecuária",
+      "valor_empenhado": "290.293,65",
+      "valor_liquidado": "283.036,65",
+      "valor_pago": "283.036,65",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:56.073358"
+}

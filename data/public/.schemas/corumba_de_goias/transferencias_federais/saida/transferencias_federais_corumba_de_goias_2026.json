@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_corumba_de_goias_2026.csv",
+  "caminho_relativo": "data/public/corumba_de_goias/transferencias_federais/saida/transferencias_federais_corumba_de_goias_2026.csv",
+  "tamanho_bytes": 547,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-06",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "51000",
+      "orgao_superior_nome": "Ministério do Esporte",
+      "unidade_gestora_codigo": "180006",
+      "unidade_gestora_nome": "CEF/MINISTERIO DO ESPORTE",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "996468",
+      "acao_descricao": "Reforma de Quadra Poliesportivo no Municipio de Corumba de Goias/GO.",
+      "valor_transferido": "0",
+      "municipio_ibge": "5205802",
+      "municipio_nome": "CORUMBÁ DE GOIÁS",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:09.827576"
+}

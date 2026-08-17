@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_caririacu_2022.csv",
+  "caminho_relativo": "data/public/caririacu/fiscal/saida/natureza_despesa_caririacu_2022.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "51763821.18",
+      "Juros_Encargos": "3937.10",
+      "Outras_Correntes": "30242557.64",
+      "Despesas_Correntes": "82010315.92",
+      "Investimentos": "11877319.06",
+      "Despesas_Capital": "12730739.29",
+      "Total_Despesas": "106287581.26",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2303204&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:57.167414"
+}

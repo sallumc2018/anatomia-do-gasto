@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_condado_pe_2024.csv",
+  "caminho_relativo": "data/public/condado_pe/transferencias_federais/saida/transferencias_federais_condado_pe_2024.csv",
+  "tamanho_bytes": 599,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-09",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "AGUARDANDO PRESTAÇÃO DE CONTAS",
+      "orgao_superior_codigo": "42000",
+      "orgao_superior_nome": "Ministério da Cultura",
+      "unidade_gestora_codigo": "400088",
+      "unidade_gestora_nome": "COORDENACAO-GERAL DE TRANSFERENCIAS DA UNIAO",
+      "funcao_id": "13",
+      "funcao_descricao": "Cultura",
+      "acao_id": "947726",
+      "acao_descricao": "Projeto Na Pisada do Cavalo Marinho Estrela de Ouro - Transmissao de saberes do Cavalo Marinho.",
+      "valor_transferido": "195020.0",
+      "municipio_ibge": "2604601",
+      "municipio_nome": "CONDADO",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:19.929330"
+}

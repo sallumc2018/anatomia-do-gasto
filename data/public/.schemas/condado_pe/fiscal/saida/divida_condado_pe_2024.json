@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_condado_pe_2024.csv",
+  "caminho_relativo": "data/public/condado_pe/fiscal/saida/divida_condado_pe_2024.csv",
+  "tamanho_bytes": 520,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "58787071.49",
+      "DC_Contratual": "58676643.50",
+      "Emprestimos": "2916666.66",
+      "Financiamentos": "0.00",
+      "Precatorios": "110427.99",
+      "Deducoes": "691088.60",
+      "DCL": "58095982.89",
+      "RCL": "108063995.07",
+      "DC_pct_RCL": "56.9300",
+      "DCL_pct_RCL": "56.2600",
+      "Limite_valor": "123916794.08",
+      "Limite_pct_RCL": "114.6698",
+      "Limite_Alerta_valor": "111525114.68",
+      "Passivo_Atuarial": "281749771.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2604601&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:19.938516"
+}

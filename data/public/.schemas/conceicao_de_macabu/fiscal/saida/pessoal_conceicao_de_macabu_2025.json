@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_conceicao_de_macabu_2025.csv",
+  "caminho_relativo": "data/public/conceicao_de_macabu/fiscal/saida/pessoal_conceicao_de_macabu_2025.csv",
+  "tamanho_bytes": 470,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "RCL": "150533520.27",
+      "RCL_Ajustada": "140432613.27",
+      "Pessoal_Bruto": "94490499.45",
+      "Pessoal_Ativo": "78994081.30",
+      "Pessoal_Inativo": "15496418.15",
+      "Pessoal_Liquido": "73810785.75",
+      "DTP": "73812091.17",
+      "DTP_pct_RCL": "52.5600",
+      "Limite_Maximo_pct": "0.5400",
+      "Limite_Prudencial_pct": "0.5100",
+      "Limite_Alerta_pct": "0.4900",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3301405&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:30.144919"
+}

@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_curralinho_2022.csv",
+  "caminho_relativo": "data/public/curralinho/emendas_federais/saida/emendas_federais_curralinho_2022.csv",
+  "tamanho_bytes": 439,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "municipio_ibge": "1502806",
+      "municipio_nome": "Curralinho",
+      "localidade_do_gasto_raw": "CURRALINHO - PA",
+      "numero_emenda": "202230820015",
+      "autor": "DELEGADO EDER MAURO",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências Especiais",
+      "funcao": "Encargos especiais",
+      "subfuncao": "Outras transferências",
+      "valor_empenhado": "811.000,00",
+      "valor_liquidado": "30.500,00",
+      "valor_pago": "30.500,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:58.158834"
+}

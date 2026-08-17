@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_colinas_ma_2022.csv",
+  "caminho_relativo": "data/public/colinas_ma/fiscal/saida/natureza_despesa_colinas_ma_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "73264158.35",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "62955356.56",
+      "Despesas_Correntes": "136219514.91",
+      "Investimentos": "8727653.63",
+      "Despesas_Capital": "11567016.27",
+      "Total_Despesas": "147786531.18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2103505&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:17.065840"
+}

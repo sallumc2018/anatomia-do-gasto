@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_correntina_2022.csv",
+  "caminho_relativo": "data/public/correntina/executivo/saida/despesas_executivo_correntina_2022.csv",
+  "tamanho_bytes": 5205,
+  "linhas_dados": 21,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "16732980.00",
+      "Dotacao_Atualizada": "19057732.00",
+      "Empenhado": "18542145.54",
+      "Liquidado": "18362977.94",
+      "Exceto_Intra_Liquidado": "17038341.25",
+      "Intra_Liquidado": "1324636.69",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2909307&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4226270.00",
+      "Dotacao_Atualizada": "5347163.00",
+      "Empenhado": "5186801.02",
+      "Liquidado": "5077363.04",
+      "Exceto_Intra_Liquidado": "4968902.15",
+      "Intra_Liquidado": "108460.89",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2909307&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "8507743.00",
+      "Dotacao_Atualizada": "4672595.00",
+      "Empenhado": "3884343.22",
+      "Liquidado": "3838626.12",
+      "Exceto_Intra_Liquidado": "3717992.74",
+      "Intra_Liquidado": "120633.38",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2909307&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:05.745968"
+}

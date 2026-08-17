@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_dario_meira_2022.csv",
+  "caminho_relativo": "data/public/dario_meira/fiscal/saida/natureza_despesa_dario_meira_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "42185356.16",
+      "Juros_Encargos": "5779.06",
+      "Outras_Correntes": "16697648.41",
+      "Despesas_Correntes": "58888783.63",
+      "Investimentos": "7790197.31",
+      "Despesas_Capital": "9048567.73",
+      "Total_Despesas": "67937351.36",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910008&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:09.368186"
+}

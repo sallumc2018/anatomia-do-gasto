@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_caxias_do_sul_2024.csv",
+  "caminho_relativo": "data/public/caxias_do_sul/executivo/saida/despesas_executivo_caxias_do_sul_2024.csv",
+  "tamanho_bytes": 5882,
+  "linhas_dados": 23,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "159736902.82",
+      "Dotacao_Atualizada": "205762555.09",
+      "Empenhado": "148411441.87",
+      "Liquidado": "145613767.13",
+      "Exceto_Intra_Liquidado": "128605045.71",
+      "Intra_Liquidado": "17008721.42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4305108&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "10325148.05",
+      "Dotacao_Atualizada": "12149295.82",
+      "Empenhado": "11204842.67",
+      "Liquidado": "11191770.29",
+      "Exceto_Intra_Liquidado": "9750818.78",
+      "Intra_Liquidado": "1440951.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4305108&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "98108562.30",
+      "Dotacao_Atualizada": "118275871.03",
+      "Empenhado": "110065901.23",
+      "Liquidado": "108918954.14",
+      "Exceto_Intra_Liquidado": "99663535.11",
+      "Intra_Liquidado": "9255419.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4305108&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:16.760965"
+}

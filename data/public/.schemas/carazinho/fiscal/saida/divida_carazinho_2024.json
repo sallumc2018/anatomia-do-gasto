@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_carazinho_2024.csv",
+  "caminho_relativo": "data/public/carazinho/fiscal/saida/divida_carazinho_2024.csv",
+  "tamanho_bytes": 522,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "11497273.52",
+      "DC_Contratual": "11478705.34",
+      "Emprestimos": "0.00",
+      "Financiamentos": "9650316.17",
+      "Precatorios": "18568.18",
+      "Deducoes": "79700897.27",
+      "DCL": "-68203623.75",
+      "RCL": "359602913.91",
+      "DC_pct_RCL": "3.2100",
+      "DCL_pct_RCL": "-19.0400",
+      "Limite_valor": "429835096.69",
+      "Limite_pct_RCL": "119.5305",
+      "Limite_Alerta_valor": "386851587.02",
+      "Passivo_Atuarial": "746229615.55",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4304705&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:06.189779"
+}

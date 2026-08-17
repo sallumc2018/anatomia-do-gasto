@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_colinas_do_tocantins_2024.csv",
+  "caminho_relativo": "data/public/colinas_do_tocantins/fiscal/saida/divida_colinas_do_tocantins_2024.csv",
+  "tamanho_bytes": 516,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "48437728.90",
+      "DC_Contratual": "48437728.90",
+      "Emprestimos": "19792169.08",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "39011158.71",
+      "DCL": "9426570.19",
+      "RCL": "196890825.53",
+      "DC_pct_RCL": "24.6000",
+      "DCL_pct_RCL": "4.7900",
+      "Limite_valor": "236268990.64",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "212642091.57",
+      "Passivo_Atuarial": "278925717.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1705508&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:40:29.512014"
+}

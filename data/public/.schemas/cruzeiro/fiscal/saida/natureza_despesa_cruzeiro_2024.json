@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_cruzeiro_2024.csv",
+  "caminho_relativo": "data/public/cruzeiro/fiscal/saida/natureza_despesa_cruzeiro_2024.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "174252734.59",
+      "Juros_Encargos": "3525088.81",
+      "Outras_Correntes": "183094531.46",
+      "Despesas_Correntes": "360872354.86",
+      "Investimentos": "10673919.43",
+      "Despesas_Capital": "31513522.22",
+      "Total_Despesas": "392385877.08",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3513405&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:54.496851"
+}

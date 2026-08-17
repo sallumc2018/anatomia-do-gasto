@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_curitibanos_2022.csv",
+  "caminho_relativo": "data/public/curitibanos/fiscal/saida/divida_curitibanos_2022.csv",
+  "tamanho_bytes": 525,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "10860301.62",
+      "DC_Contratual": "10238676.65",
+      "Emprestimos": "10238676.65",
+      "Financiamentos": "0.00",
+      "Precatorios": "621624.97",
+      "Deducoes": "137935838.14",
+      "DCL": "-127075536.52",
+      "RCL": "168254743.47",
+      "DC_pct_RCL": "6.5300",
+      "DCL_pct_RCL": "-76.3900",
+      "Limite_valor": "199625434.94",
+      "Limite_pct_RCL": "118.6448",
+      "Limite_Alerta_valor": "179662891.45",
+      "Passivo_Atuarial": "57742907.18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4204806&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:57.395161"
+}

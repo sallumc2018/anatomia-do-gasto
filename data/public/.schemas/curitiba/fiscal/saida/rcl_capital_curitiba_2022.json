@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_curitiba_2022.csv",
+  "caminho_relativo": "data/public/curitiba/fiscal/saida/rcl_capital_curitiba_2022.csv",
+  "tamanho_bytes": 436,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Operacoes_Credito_Internas": "105000000.00",
+      "Operacoes_Credito_Externas": "65471000.00",
+      "Operacoes_Credito_Total": "170471000.00",
+      "Alienacao_Bens": "623149.00",
+      "Alienacao_Bens_Imoveis": "97000.00",
+      "Alienacao_Bens_Moveis": "526149.00",
+      "Outras_Capital": "58843016.46",
+      "Total_Capital": "229937165.46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4106902&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-17T03:39:52.736664"
+}
