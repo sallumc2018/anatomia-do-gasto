@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_florianopolis_2023.csv",
+  "caminho_relativo": "data/public/florianopolis/fiscal/saida/divida_florianopolis_2023.csv",
+  "tamanho_bytes": 542,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "1053597152.68",
+      "DC_Contratual": "272336797.64",
+      "Emprestimos": "5558684.13",
+      "Financiamentos": "249371095.21",
+      "Precatorios": "172413547.74",
+      "Deducoes": "329733281.19",
+      "DCL": "723863871.49",
+      "RCL": "2999978900.45",
+      "DC_pct_RCL": "35.2000",
+      "DCL_pct_RCL": "24.1900",
+      "Limite_valor": "3591324931.85",
+      "Limite_pct_RCL": "119.7117",
+      "Limite_Alerta_valor": "3232192438.66",
+      "Passivo_Atuarial": "7312989691.31",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4205407&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:46.500471"
+}

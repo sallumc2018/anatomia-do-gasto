@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_fartura_do_piaui_2024.csv",
+  "caminho_relativo": "data/public/fartura_do_piaui/receita/saida/receitas_fartura_do_piaui_2024.csv",
+  "tamanho_bytes": 4027,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "58000000.00",
+      "Previsto_Atualizado": "58000000.00",
+      "Arrecadado_Bimestre": "7119515.51",
+      "Arrecadado_Acumulado": "41428272.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2203750&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "58000000.00",
+      "Previsto_Atualizado": "58000000.00",
+      "Arrecadado_Bimestre": "7119515.51",
+      "Arrecadado_Acumulado": "41428272.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2203750&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "55356500.00",
+      "Previsto_Atualizado": "55356500.00",
+      "Arrecadado_Bimestre": "7119515.51",
+      "Arrecadado_Acumulado": "40363264.14",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2203750&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:33.303978"
+}

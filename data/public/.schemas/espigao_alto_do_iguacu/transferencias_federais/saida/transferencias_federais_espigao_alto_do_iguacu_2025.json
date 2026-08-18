@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_espigao_alto_do_iguacu_2025.csv",
+  "caminho_relativo": "data/public/espigao_alto_do_iguacu/transferencias_federais/saida/transferencias_federais_espigao_alto_do_iguacu_2025.csv",
+  "tamanho_bytes": 625,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-03",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "53000",
+      "orgao_superior_nome": "Ministério da Integração e do Desenvolvimento Regional",
+      "unidade_gestora_codigo": "530012",
+      "unidade_gestora_nome": "SECRETARIA NACIONAL PROTECAO E DEFESA CIVIL",
+      "funcao_id": "06",
+      "funcao_descricao": "Segurança pública",
+      "acao_id": "1AAWWV",
+      "acao_descricao": "EXECUÇÃO DE AÇÕES DE RESPOSTA NO MUNICIPIO DE ESPGÃO ALTO DO IGUAÇU PR",
+      "valor_transferido": "55943.0",
+      "municipio_ibge": "4107546",
+      "municipio_nome": "ESPIGÃO ALTO DO IGUAÇU",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:03.060129"
+}

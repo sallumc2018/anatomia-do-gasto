@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_eusebio_2025.csv",
+  "caminho_relativo": "data/public/eusebio/fiscal/saida/divida_eusebio_2025.csv",
+  "tamanho_bytes": 514,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "71822303.19",
+      "DC_Contratual": "71822303.19",
+      "Emprestimos": "62946777.60",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "347879318.10",
+      "DCL": "-276057014.91",
+      "RCL": "704846682.22",
+      "DC_pct_RCL": "10.2600",
+      "DCL_pct_RCL": "-39.4300",
+      "Limite_valor": "840054536.66",
+      "Limite_pct_RCL": "119.1826",
+      "Limite_Alerta_valor": "756049083.00",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2304285&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:39.198578"
+}

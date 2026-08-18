@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_embu_das_artes_2022.csv",
+  "caminho_relativo": "data/public/embu_das_artes/fiscal/saida/pessoal_embu_das_artes_2022.csv",
+  "tamanho_bytes": 479,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "RCL": "1001711600.02",
+      "RCL_Ajustada": "1001121441.02",
+      "Pessoal_Bruto": "366162279.82",
+      "Pessoal_Ativo": "331587349.74",
+      "Pessoal_Inativo": "34574930.08",
+      "Pessoal_Liquido": "337029234.30",
+      "DTP": "337029234.30",
+      "DTP_pct_RCL": "33.6700",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3515004&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:51.729091"
+}

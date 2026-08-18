@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_frei_miguelinho_2022.csv",
+  "caminho_relativo": "data/public/frei_miguelinho/fiscal/saida/divida_frei_miguelinho_2022.csv",
+  "tamanho_bytes": 503,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "28228285.24",
+      "DC_Contratual": "28170552.41",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "57732.83",
+      "Deducoes": "-635194.94",
+      "DCL": "28863480.18",
+      "RCL": "50189160.89",
+      "DC_pct_RCL": "57.9600",
+      "DCL_pct_RCL": "59.2600",
+      "Limite_valor": "58448099.87",
+      "Limite_pct_RCL": "116.4556",
+      "Limite_Alerta_valor": "52603289.88",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2605806&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:10.504105"
+}

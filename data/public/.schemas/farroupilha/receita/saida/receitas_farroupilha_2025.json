@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_farroupilha_2025.csv",
+  "caminho_relativo": "data/public/farroupilha/receita/saida/receitas_farroupilha_2025.csv",
+  "tamanho_bytes": 4405,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "535000000.00",
+      "Previsto_Atualizado": "592738371.16",
+      "Arrecadado_Bimestre": "120143254.61",
+      "Arrecadado_Acumulado": "598508008.13",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4307906&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "485988000.00",
+      "Previsto_Atualizado": "543726371.16",
+      "Arrecadado_Bimestre": "108152345.66",
+      "Arrecadado_Acumulado": "546515918.75",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4307906&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "459830000.00",
+      "Previsto_Atualizado": "494131008.26",
+      "Arrecadado_Bimestre": "104900482.46",
+      "Arrecadado_Acumulado": "518255660.23",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4307906&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:08.239691"
+}

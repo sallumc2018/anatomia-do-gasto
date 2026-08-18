@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_doutor_severiano_2022.csv",
+  "caminho_relativo": "data/public/doutor_severiano/receita/saida/receitas_doutor_severiano_2022.csv",
+  "tamanho_bytes": 4083,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "40748842.00",
+      "Previsto_Atualizado": "40748842.00",
+      "Arrecadado_Bimestre": "7295481.36",
+      "Arrecadado_Acumulado": "40458147.90",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2403202&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "38936846.00",
+      "Previsto_Atualizado": "38936846.00",
+      "Arrecadado_Bimestre": "6925251.75",
+      "Arrecadado_Acumulado": "38798819.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2403202&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "32535444.00",
+      "Previsto_Atualizado": "32535444.00",
+      "Arrecadado_Bimestre": "6791382.70",
+      "Arrecadado_Acumulado": "36692169.51",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2403202&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:31.686152"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_esplanada_2024.csv",
+  "caminho_relativo": "data/public/esplanada/fiscal/saida/natureza_despesa_esplanada_2024.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "89314527.61",
+      "Juros_Encargos": "4231.07",
+      "Outras_Correntes": "95290526.71",
+      "Despesas_Correntes": "184609285.39",
+      "Investimentos": "7210348.53",
+      "Despesas_Capital": "19586719.66",
+      "Total_Despesas": "204196005.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910602&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:12.541242"
+}

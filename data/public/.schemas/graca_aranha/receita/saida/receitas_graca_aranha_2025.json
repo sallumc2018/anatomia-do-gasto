@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_graca_aranha_2025.csv",
+  "caminho_relativo": "data/public/graca_aranha/receita/saida/receitas_graca_aranha_2025.csv",
+  "tamanho_bytes": 3529,
+  "linhas_dados": 14,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "33282383.83",
+      "Previsto_Atualizado": "33282383.83",
+      "Arrecadado_Bimestre": "3078791.83",
+      "Arrecadado_Acumulado": "37166081.32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2104701&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "33282383.83",
+      "Previsto_Atualizado": "33282383.83",
+      "Arrecadado_Bimestre": "3078791.83",
+      "Arrecadado_Acumulado": "37166081.32",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2104701&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "30945144.41",
+      "Previsto_Atualizado": "30945144.41",
+      "Arrecadado_Bimestre": "3074288.38",
+      "Arrecadado_Acumulado": "36527790.54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2104701&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:38.331739"
+}

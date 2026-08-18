@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_floresta_azul_2025.csv",
+  "caminho_relativo": "data/public/floresta_azul/fiscal/saida/divida_floresta_azul_2025.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "50405371.40",
+      "DC_Contratual": "38070616.67",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "3500165.91",
+      "Deducoes": "190264.06",
+      "DCL": "50215107.34",
+      "RCL": "52279368.30",
+      "DC_pct_RCL": "97.9600",
+      "DCL_pct_RCL": "97.6000",
+      "Limite_valor": "61742916.84",
+      "Limite_pct_RCL": "118.1019",
+      "Limite_Alerta_valor": "55568625.16",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2911006&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:47.438486"
+}

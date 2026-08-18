@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_foz_do_iguacu_2023.csv",
+  "caminho_relativo": "data/public/foz_do_iguacu/receita/saida/receitas_foz_do_iguacu_2023.csv",
+  "tamanho_bytes": 4420,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "1572347125.00",
+      "Previsto_Atualizado": "1768987863.22",
+      "Arrecadado_Bimestre": "344808741.64",
+      "Arrecadado_Acumulado": "1836645024.35",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4108304&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "1445246484.00",
+      "Previsto_Atualizado": "1641887222.22",
+      "Arrecadado_Bimestre": "329823127.44",
+      "Arrecadado_Acumulado": "1715224770.14",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4108304&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "1436112384.00",
+      "Previsto_Atualizado": "1586991925.44",
+      "Arrecadado_Bimestre": "322699957.41",
+      "Arrecadado_Acumulado": "1676015830.17",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4108304&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:40.201504"
+}

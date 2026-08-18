@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_florania_2022.csv",
+  "caminho_relativo": "data/public/florania/fiscal/saida/natureza_despesa_florania_2022.csv",
+  "tamanho_bytes": 356,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "16271726.68",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "12759689.38",
+      "Despesas_Correntes": "29031416.06",
+      "Investimentos": "898475.96",
+      "Despesas_Capital": "1681225.53",
+      "Total_Despesas": "30712641.59",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2403806&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:59.916520"
+}

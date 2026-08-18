@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_formiga_2024.csv",
+  "caminho_relativo": "data/public/formiga/fiscal/saida/divida_formiga_2024.csv",
+  "tamanho_bytes": 516,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "31557263.43",
+      "DC_Contratual": "31557263.43",
+      "Emprestimos": "31210771.44",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "18281278.75",
+      "DCL": "13275984.68",
+      "RCL": "353547925.86",
+      "DC_pct_RCL": "8.9900",
+      "DCL_pct_RCL": "3.7800",
+      "Limite_valor": "421405111.03",
+      "Limite_pct_RCL": "119.1932",
+      "Limite_Alerta_valor": "379264599.93",
+      "Passivo_Atuarial": "637490853.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3126109&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:13.861880"
+}

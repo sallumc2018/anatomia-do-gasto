@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_entre_folhas_2025.csv",
+  "caminho_relativo": "data/public/entre_folhas/transferencias_federais/saida/transferencias_federais_entre_folhas_2025.csv",
+  "tamanho_bytes": 923,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-09",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "22000",
+      "orgao_superior_nome": "Ministério da Agricultura e Pecuária",
+      "unidade_gestora_codigo": "420013",
+      "unidade_gestora_nome": "SECRETARIA DE DESENVOLVIMENTO RURAL",
+      "funcao_id": "20",
+      "funcao_descricao": "Agricultura",
+      "acao_id": "975611",
+      "acao_descricao": "Aquisicao de um Trator Agricola de fabricacao nacional, novo de fabrica, marca LS, modelo MT4.70, trator de 4 rodas, 4x4, 60cv de potencia, destinado a Associacao de Produtores Rurais do Corrego do Macaco e Adjacencias do Municipio de Entre Folhas  MG, com a finalidade de fortalecer as atividades da agricultura familiar, melhorar a produtividade no campo e apoiar o desenvolvimento sustentavel da comunidade rural bene",
+      "valor_transferido": "191000.0",
+      "municipio_ibge": "3123858",
+      "municipio_nome": "ENTRE FOLHAS",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:17.440676"
+}

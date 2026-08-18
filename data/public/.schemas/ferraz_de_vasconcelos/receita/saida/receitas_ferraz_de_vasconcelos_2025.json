@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_ferraz_de_vasconcelos_2025.csv",
+  "caminho_relativo": "data/public/ferraz_de_vasconcelos/receita/saida/receitas_ferraz_de_vasconcelos_2025.csv",
+  "tamanho_bytes": 3919,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "650000000.00",
+      "Previsto_Atualizado": "751506259.79",
+      "Arrecadado_Bimestre": "155014223.10",
+      "Arrecadado_Acumulado": "757803719.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3515707&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "648400000.00",
+      "Previsto_Atualizado": "751506251.79",
+      "Arrecadado_Bimestre": "155014223.10",
+      "Arrecadado_Acumulado": "757803719.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3515707&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "620337500.00",
+      "Previsto_Atualizado": "713644690.95",
+      "Arrecadado_Bimestre": "140665893.14",
+      "Arrecadado_Acumulado": "719943166.26",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3515707&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:01.957426"
+}

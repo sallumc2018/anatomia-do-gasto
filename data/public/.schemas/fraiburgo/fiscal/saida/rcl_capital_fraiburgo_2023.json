@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_fraiburgo_2023.csv",
+  "caminho_relativo": "data/public/fraiburgo/fiscal/saida/rcl_capital_fraiburgo_2023.csv",
+  "tamanho_bytes": 417,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Operacoes_Credito_Internas": "8567272.82",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "8567272.82",
+      "Alienacao_Bens": "296480.14",
+      "Alienacao_Bens_Imoveis": "132230.15",
+      "Alienacao_Bens_Moveis": "164249.99",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "8863752.96",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4205506&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:34.704534"
+}

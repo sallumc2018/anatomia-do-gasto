@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_fazenda_vilanova_2024.csv",
+  "caminho_relativo": "data/public/fazenda_vilanova/transferencias_federais/saida/transferencias_federais_fazenda_vilanova_2024.csv",
+  "tamanho_bytes": 959,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-11",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "24000",
+      "orgao_superior_nome": "Ministério da Ciência, Tecnologia e Inovação",
+      "unidade_gestora_codigo": "240901",
+      "unidade_gestora_nome": "FUNDO NAC.DE DESENV. CIENT. E TECNOLOGICO",
+      "funcao_id": "19",
+      "funcao_descricao": "Ciência e Tecnologia",
+      "acao_id": "1AAVCD",
+      "acao_descricao": "TÍTULO:PLATAFORMA DE MECANIZAÇÃO AGRÍCOLA ABERTA, MODULAR E INTELIGEN-TE PARA PRODUÇÃO DE MAIS ALIMENTOS VALIDADA COM IMPLEMENTO DE PULVERI-ZAÇÃO SELETIVA.                                                       CRIAR UMA PLATAFORMA DE MECANIZAÇÃO AGRÍCOLA MODULAR E TECNOLÓGICA    PARA PRODUTORES DE ALIMENTOS DE PEQUENO PORTE COMO ALTERNATIVA AOS    MICROTRATORES MERAMENTE MECÂNICOS. O EQUIPAMENTO MELHORA A",
+      "valor_transferido": "2510256.2",
+      "municipio_ibge": "4308078",
+      "municipio_nome": "FAZENDA VILANOVA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:20.069870"
+}

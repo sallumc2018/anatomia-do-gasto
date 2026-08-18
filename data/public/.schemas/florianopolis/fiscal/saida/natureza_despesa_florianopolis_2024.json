@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_florianopolis_2024.csv",
+  "caminho_relativo": "data/public/florianopolis/fiscal/saida/natureza_despesa_florianopolis_2024.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "1861827729.00",
+      "Juros_Encargos": "87100519.41",
+      "Outras_Correntes": "1066886478.37",
+      "Despesas_Correntes": "3015814726.78",
+      "Investimentos": "325712363.15",
+      "Despesas_Capital": "460393385.87",
+      "Total_Despesas": "3688766545.57",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4205407&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:46.490027"
+}

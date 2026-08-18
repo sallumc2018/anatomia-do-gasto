@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_guaiba_2025.csv",
+  "caminho_relativo": "data/public/guaiba/fiscal/saida/divida_guaiba_2025.csv",
+  "tamanho_bytes": 526,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "48107161.48",
+      "DC_Contratual": "48107161.48",
+      "Emprestimos": "30724093.37",
+      "Financiamentos": "17383068.11",
+      "Precatorios": "0.00",
+      "Deducoes": "93669730.71",
+      "DCL": "-45562569.23",
+      "RCL": "562609093.05",
+      "DC_pct_RCL": "8.5800",
+      "DCL_pct_RCL": "-8.1300",
+      "Limite_valor": "672503103.77",
+      "Limite_pct_RCL": "119.5329",
+      "Limite_Alerta_valor": "605252793.39",
+      "Passivo_Atuarial": "1302162160.13",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4309308&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:44.917195"
+}

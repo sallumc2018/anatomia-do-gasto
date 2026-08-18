@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_entre_rios_ba_2023.csv",
+  "caminho_relativo": "data/public/entre_rios_ba/receita/saida/receitas_entre_rios_ba_2023.csv",
+  "tamanho_bytes": 3623,
+  "linhas_dados": 14,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "162443630.00",
+      "Previsto_Atualizado": "162443630.00",
+      "Arrecadado_Bimestre": "33790184.65",
+      "Arrecadado_Acumulado": "161335182.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910503&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "162443630.00",
+      "Previsto_Atualizado": "162443630.00",
+      "Arrecadado_Bimestre": "33790184.65",
+      "Arrecadado_Acumulado": "161335182.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910503&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "150583502.00",
+      "Previsto_Atualizado": "150583502.00",
+      "Arrecadado_Bimestre": "32462456.60",
+      "Arrecadado_Acumulado": "158679281.55",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910503&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:37.310286"
+}

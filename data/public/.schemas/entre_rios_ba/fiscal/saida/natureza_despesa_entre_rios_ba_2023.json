@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_entre_rios_ba_2023.csv",
+  "caminho_relativo": "data/public/entre_rios_ba/fiscal/saida/natureza_despesa_entre_rios_ba_2023.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "75672970.97",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "76735157.23",
+      "Despesas_Correntes": "152408128.20",
+      "Investimentos": "3853775.31",
+      "Despesas_Capital": "9107715.47",
+      "Total_Despesas": "161515843.67",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910503&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:37.320315"
+}

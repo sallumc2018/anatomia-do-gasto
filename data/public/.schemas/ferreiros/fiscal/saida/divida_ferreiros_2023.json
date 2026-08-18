@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_ferreiros_2023.csv",
+  "caminho_relativo": "data/public/ferreiros/fiscal/saida/divida_ferreiros_2023.csv",
+  "tamanho_bytes": 489,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "0.00",
+      "DC_Contratual": "0.00",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "4557747.19",
+      "DCL": "-4557747.19",
+      "RCL": "49292077.92",
+      "DC_pct_RCL": "0.0000",
+      "DCL_pct_RCL": "-9.2500",
+      "Limite_valor": "59150493.50",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "53235444.15",
+      "Passivo_Atuarial": "325318.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2605509&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:11.209894"
+}

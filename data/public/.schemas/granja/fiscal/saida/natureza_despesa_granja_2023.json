@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_granja_2023.csv",
+  "caminho_relativo": "data/public/granja/fiscal/saida/natureza_despesa_granja_2023.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "95247681.05",
+      "Juros_Encargos": "5144203.08",
+      "Outras_Correntes": "92551815.23",
+      "Despesas_Correntes": "192943699.36",
+      "Investimentos": "47256926.21",
+      "Despesas_Capital": "52666341.51",
+      "Total_Despesas": "245610040.87",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2304707&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:36.885785"
+}

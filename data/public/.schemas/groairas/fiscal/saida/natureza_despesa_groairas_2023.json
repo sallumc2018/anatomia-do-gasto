@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_groairas_2023.csv",
+  "caminho_relativo": "data/public/groairas/fiscal/saida/natureza_despesa_groairas_2023.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "26747870.16",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "24735913.76",
+      "Despesas_Correntes": "51483783.92",
+      "Investimentos": "4982297.65",
+      "Despesas_Capital": "6251893.62",
+      "Total_Despesas": "57735677.54",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2304905&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:11.929222"
+}

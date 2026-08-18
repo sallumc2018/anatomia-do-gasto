@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_fonte_boa_2025.csv",
+  "caminho_relativo": "data/public/fonte_boa/fiscal/saida/natureza_despesa_fonte_boa_2025.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Pessoal": "110437680.18",
+      "Juros_Encargos": "120125.01",
+      "Outras_Correntes": "53910570.81",
+      "Despesas_Correntes": "164468376.00",
+      "Investimentos": "4959340.24",
+      "Despesas_Capital": "7666728.95",
+      "Total_Despesas": "174036060.90",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1301605&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:48.315860"
+}

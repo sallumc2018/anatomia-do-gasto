@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_guaira_sp_2024.csv",
+  "caminho_relativo": "data/public/guaira_sp/fiscal/saida/natureza_despesa_guaira_sp_2024.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "164677142.13",
+      "Juros_Encargos": "1032141.50",
+      "Outras_Correntes": "139662055.51",
+      "Despesas_Correntes": "305371339.14",
+      "Investimentos": "10674334.08",
+      "Despesas_Capital": "11923412.04",
+      "Total_Despesas": "349052517.69",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3517406&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:36.776729"
+}

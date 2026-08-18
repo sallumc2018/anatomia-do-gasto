@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_feira_de_santana_2022.csv",
+  "caminho_relativo": "data/public/feira_de_santana/fiscal/saida/rcl_capital_feira_de_santana_2022.csv",
+  "tamanho_bytes": 412,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Operacoes_Credito_Internas": "5784409.06",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "5784409.06",
+      "Alienacao_Bens": "538275.00",
+      "Alienacao_Bens_Imoveis": "0.00",
+      "Alienacao_Bens_Moveis": "538275.00",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "6322684.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2910800&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:16.516767"
+}

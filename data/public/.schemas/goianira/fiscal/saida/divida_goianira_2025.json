@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_goianira_2025.csv",
+  "caminho_relativo": "data/public/goianira/fiscal/saida/divida_goianira_2025.csv",
+  "tamanho_bytes": 510,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "13377346.69",
+      "DC_Contratual": "13377346.69",
+      "Emprestimos": "0.00",
+      "Financiamentos": "4850228.32",
+      "Precatorios": "0.00",
+      "Deducoes": "53593515.04",
+      "DCL": "-40216168.35",
+      "RCL": "274058999.36",
+      "DC_pct_RCL": "4.8800",
+      "DCL_pct_RCL": "-14.6900",
+      "Limite_valor": "328623765.68",
+      "Limite_pct_RCL": "119.9099",
+      "Limite_Alerta_valor": "295761389.11",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5208806&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:29.429804"
+}

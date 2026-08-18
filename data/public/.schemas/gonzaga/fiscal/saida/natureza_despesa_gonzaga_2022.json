@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_gonzaga_2022.csv",
+  "caminho_relativo": "data/public/gonzaga/fiscal/saida/natureza_despesa_gonzaga_2022.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "14927751.53",
+      "Juros_Encargos": "64961.01",
+      "Outras_Correntes": "12182298.75",
+      "Despesas_Correntes": "27175011.29",
+      "Investimentos": "3696433.98",
+      "Despesas_Capital": "3893068.36",
+      "Total_Despesas": "31068079.65",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3127503&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:48.662430"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_espirito_santo_2023.csv",
+  "caminho_relativo": "data/public/espirito_santo/fiscal/saida/natureza_despesa_espirito_santo_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "17716546.53",
+      "Juros_Encargos": "25000.00",
+      "Outras_Correntes": "24460708.21",
+      "Despesas_Correntes": "42202254.74",
+      "Investimentos": "1792624.59",
+      "Despesas_Capital": "2280018.44",
+      "Total_Despesas": "44482273.18",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2403509&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:49.551115"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_guaimbe_2022.csv",
+  "caminho_relativo": "data/public/guaimbe/fiscal/saida/divida_guaimbe_2022.csv",
+  "tamanho_bytes": 501,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "322035.53",
+      "DC_Contratual": "322035.53",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "3295127.05",
+      "DCL": "-2973091.52",
+      "RCL": "33102433.07",
+      "DC_pct_RCL": "0.9900",
+      "DCL_pct_RCL": "-9.1300",
+      "Limite_valor": "39089846.48",
+      "Limite_pct_RCL": "118.0875",
+      "Limite_Alerta_valor": "35180861.84",
+      "Passivo_Atuarial": "21990437.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3517307&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:57.847970"
+}

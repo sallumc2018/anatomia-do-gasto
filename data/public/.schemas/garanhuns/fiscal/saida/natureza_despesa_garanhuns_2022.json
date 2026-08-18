@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_garanhuns_2022.csv",
+  "caminho_relativo": "data/public/garanhuns/fiscal/saida/natureza_despesa_garanhuns_2022.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "246512614.18",
+      "Juros_Encargos": "444.26",
+      "Outras_Correntes": "121545870.50",
+      "Despesas_Correntes": "368058928.94",
+      "Investimentos": "26179108.52",
+      "Despesas_Capital": "27644550.09",
+      "Total_Despesas": "437212303.26",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2606002&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:35.256173"
+}

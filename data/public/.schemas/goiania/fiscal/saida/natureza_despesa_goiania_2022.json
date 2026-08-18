@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_goiania_2022.csv",
+  "caminho_relativo": "data/public/goiania/fiscal/saida/natureza_despesa_goiania_2022.csv",
+  "tamanho_bytes": 376,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "3389197346.97",
+      "Juros_Encargos": "98534912.94",
+      "Outras_Correntes": "2842922247.52",
+      "Despesas_Correntes": "6330654507.43",
+      "Investimentos": "145944661.77",
+      "Despesas_Capital": "308417128.33",
+      "Total_Despesas": "7035498063.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5208707&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:03.800444"
+}

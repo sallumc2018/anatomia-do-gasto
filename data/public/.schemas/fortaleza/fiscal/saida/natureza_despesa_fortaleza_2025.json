@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_fortaleza_2025.csv",
+  "caminho_relativo": "data/public/fortaleza/fiscal/saida/natureza_despesa_fortaleza_2025.csv",
+  "tamanho_bytes": 380,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "Pessoal": "6305739162.07",
+      "Juros_Encargos": "424537980.45",
+      "Outras_Correntes": "5063327320.77",
+      "Despesas_Correntes": "11793604463.29",
+      "Investimentos": "598218698.07",
+      "Despesas_Capital": "1045991259.65",
+      "Total_Despesas": "13789180284.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2304400&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:44.061503"
+}

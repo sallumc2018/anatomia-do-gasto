@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_gameleira_2022.csv",
+  "caminho_relativo": "data/public/gameleira/fiscal/saida/divida_gameleira_2022.csv",
+  "tamanho_bytes": 501,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "76964778.84",
+      "DC_Contratual": "76964778.84",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "-1973222.02",
+      "DCL": "78938000.86",
+      "RCL": "77031568.68",
+      "DC_pct_RCL": "99.9100",
+      "DCL_pct_RCL": "102.4700",
+      "Limite_valor": "92437882.42",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "83194094.17",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2605905&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:56.648832"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_dezesseis_de_novembro_2023.csv",
+  "caminho_relativo": "data/public/dezesseis_de_novembro/fiscal/saida/divida_dezesseis_de_novembro_2023.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "470015.38",
+      "DC_Contratual": "470015.38",
+      "Emprestimos": "470015.38",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "3791089.98",
+      "DCL": "-3321074.60",
+      "RCL": "24924130.68",
+      "DC_pct_RCL": "1.9200",
+      "DCL_pct_RCL": "-13.6000",
+      "Limite_valor": "5605168.01",
+      "Limite_pct_RCL": "22.4889",
+      "Limite_Alerta_valor": "5044651.21",
+      "Passivo_Atuarial": "39113318.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4306353&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:12.564647"
+}

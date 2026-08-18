@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_gravata_2023.csv",
+  "caminho_relativo": "data/public/gravata/fiscal/saida/natureza_despesa_gravata_2023.csv",
+  "tamanho_bytes": 368,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "192761364.62",
+      "Juros_Encargos": "1078968.17",
+      "Outras_Correntes": "92419803.02",
+      "Despesas_Correntes": "286260135.81",
+      "Investimentos": "13383003.12",
+      "Despesas_Capital": "16762377.79",
+      "Total_Despesas": "321709597.57",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2606408&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:55.104836"
+}

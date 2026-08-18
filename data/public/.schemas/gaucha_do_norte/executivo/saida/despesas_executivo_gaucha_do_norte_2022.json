@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_gaucha_do_norte_2022.csv",
+  "caminho_relativo": "data/public/gaucha_do_norte/executivo/saida/despesas_executivo_gaucha_do_norte_2022.csv",
+  "tamanho_bytes": 5096,
+  "linhas_dados": 21,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "11142992.43",
+      "Dotacao_Atualizada": "18414597.29",
+      "Empenhado": "18327742.76",
+      "Liquidado": "18253906.88",
+      "Exceto_Intra_Liquidado": "17983163.64",
+      "Intra_Liquidado": "270743.24",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5103858&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "348805.00",
+      "Dotacao_Atualizada": "434738.56",
+      "Empenhado": "429753.80",
+      "Liquidado": "429753.80",
+      "Exceto_Intra_Liquidado": "413702.18",
+      "Intra_Liquidado": "16051.62",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5103858&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "2296403.66",
+      "Dotacao_Atualizada": "3406903.61",
+      "Empenhado": "2910922.75",
+      "Liquidado": "2888782.75",
+      "Exceto_Intra_Liquidado": "2850280.06",
+      "Intra_Liquidado": "38502.69",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5103858&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:32.158231"
+}

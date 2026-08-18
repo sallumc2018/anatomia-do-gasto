@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_edealina_2022.csv",
+  "caminho_relativo": "data/public/edealina/fiscal/saida/natureza_despesa_edealina_2022.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "18937578.62",
+      "Juros_Encargos": "568.86",
+      "Outras_Correntes": "15212214.94",
+      "Despesas_Correntes": "34150362.42",
+      "Investimentos": "2584032.70",
+      "Despesas_Capital": "3871918.99",
+      "Total_Despesas": "40471697.04",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5207352&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:38.024566"
+}

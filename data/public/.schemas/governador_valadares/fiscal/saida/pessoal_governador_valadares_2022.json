@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_governador_valadares_2022.csv",
+  "caminho_relativo": "data/public/governador_valadares/fiscal/saida/pessoal_governador_valadares_2022.csv",
+  "tamanho_bytes": 480,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "RCL": "1197978486.34",
+      "RCL_Ajustada": "1189613799.34",
+      "Pessoal_Bruto": "756767302.90",
+      "Pessoal_Ativo": "587523362.22",
+      "Pessoal_Inativo": "145546636.60",
+      "Pessoal_Liquido": "613126897.46",
+      "DTP": "614509463.39",
+      "DTP_pct_RCL": "51.6600",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3127701&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:19.041113"
+}

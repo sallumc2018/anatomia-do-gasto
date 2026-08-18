@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_estiva_gerbi_2025.csv",
+  "caminho_relativo": "data/public/estiva_gerbi/transferencias_federais/saida/transferencias_federais_estiva_gerbi_2025.csv",
+  "tamanho_bytes": 586,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-07",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "PRESTAÇÃO DE CONTAS ENVIADA PARA ANÁLISE",
+      "orgao_superior_codigo": "56000",
+      "orgao_superior_nome": "Ministério das Cidades",
+      "unidade_gestora_codigo": "175004",
+      "unidade_gestora_nome": "CAIXA ECONOMICA FEDERAL - PROGRAMAS SOCIAIS",
+      "funcao_id": "15",
+      "funcao_descricao": "Urbanismo",
+      "acao_id": "975820",
+      "acao_descricao": "REVITALIZACAO DE ILUMINACAO PUBLICA NO MUNICIPIO DE ESTIVA GERBI",
+      "valor_transferido": "479532.0",
+      "municipio_ibge": "3557303",
+      "municipio_nome": "ESTIVA GERBI",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:15.757790"
+}

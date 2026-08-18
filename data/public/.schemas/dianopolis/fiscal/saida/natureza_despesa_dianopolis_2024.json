@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_dianopolis_2024.csv",
+  "caminho_relativo": "data/public/dianopolis/fiscal/saida/natureza_despesa_dianopolis_2024.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "54376799.22",
+      "Juros_Encargos": "317894.40",
+      "Outras_Correntes": "39316561.85",
+      "Despesas_Correntes": "94011255.47",
+      "Investimentos": "16472681.97",
+      "Despesas_Capital": "17066096.90",
+      "Total_Despesas": "118952679.83",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1707009&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:43.630276"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_eusebio_2025.csv",
+  "caminho_relativo": "data/public/eusebio/transferencias_federais/saida/transferencias_federais_eusebio_2025.csv",
+  "tamanho_bytes": 604,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "65000",
+      "orgao_superior_nome": "Ministério das Mulheres",
+      "unidade_gestora_codigo": "810012",
+      "unidade_gestora_nome": "MMULHERES",
+      "funcao_id": "14",
+      "funcao_descricao": "Direitos da cidadania",
+      "acao_id": "988472",
+      "acao_descricao": "Capacitacao de 60 maes atipicas empreendedoras, na area de Gastronomia, segmento confeitaria, no municipio de Eusebio, estado do Ceara.",
+      "valor_transferido": "100000.0",
+      "municipio_ibge": "2304285",
+      "municipio_nome": "EUSÉBIO",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:40:39.189876"
+}

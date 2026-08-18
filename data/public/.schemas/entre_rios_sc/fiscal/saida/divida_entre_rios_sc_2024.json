@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_entre_rios_sc_2024.csv",
+  "caminho_relativo": "data/public/entre_rios_sc/fiscal/saida/divida_entre_rios_sc_2024.csv",
+  "tamanho_bytes": 500,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "3489643.20",
+      "DC_Contratual": "3489643.20",
+      "Emprestimos": "3489643.20",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "3343058.18",
+      "DCL": "146585.02",
+      "RCL": "28409069.87",
+      "DC_pct_RCL": "12.3300",
+      "DCL_pct_RCL": "0.5200",
+      "Limite_valor": "33970883.84",
+      "Limite_pct_RCL": "119.5776",
+      "Limite_Alerta_valor": "30573795.46",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4205175&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-18T03:41:13.076036"
+}
