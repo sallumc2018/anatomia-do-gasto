@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_irara_2023.csv",
+  "caminho_relativo": "data/public/irara/fiscal/saida/divida_irara_2023.csv",
+  "tamanho_bytes": 509,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "73369056.06",
+      "DC_Contratual": "73369056.06",
+      "Emprestimos": "0.00",
+      "Financiamentos": "7610690.11",
+      "Precatorios": "0.00",
+      "Deducoes": "14641315.05",
+      "DCL": "58727741.01",
+      "RCL": "115454618.70",
+      "DC_pct_RCL": "64.2700",
+      "DCL_pct_RCL": "51.4500",
+      "Limite_valor": "136985542.44",
+      "Limite_pct_RCL": "118.6488",
+      "Limite_Alerta_valor": "123286988.20",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2914505&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:03.939368"
+}

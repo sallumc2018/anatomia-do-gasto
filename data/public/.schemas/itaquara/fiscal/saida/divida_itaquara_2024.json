@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itaquara_2024.csv",
+  "caminho_relativo": "data/public/itaquara/fiscal/saida/divida_itaquara_2024.csv",
+  "tamanho_bytes": 505,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "17247107.49",
+      "DC_Contratual": "17247107.49",
+      "Emprestimos": "0.00",
+      "Financiamentos": "180664.47",
+      "Precatorios": "0.00",
+      "Deducoes": "-3171542.76",
+      "DCL": "20418650.25",
+      "RCL": "40785015.09",
+      "DC_pct_RCL": "42.2900",
+      "DCL_pct_RCL": "50.0600",
+      "Limite_valor": "48942018.11",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "44047816.30",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2916708&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:21.620035"
+}

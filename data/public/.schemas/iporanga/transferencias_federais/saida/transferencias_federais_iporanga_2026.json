@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_iporanga_2026.csv",
+  "caminho_relativo": "data/public/iporanga/transferencias_federais/saida/transferencias_federais_iporanga_2026.csv",
+  "tamanho_bytes": 485,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "empty",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-07",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "42000",
+      "orgao_superior_nome": "Ministério da Cultura",
+      "unidade_gestora_codigo": "420045",
+      "unidade_gestora_nome": "CAIXA ECONOMICA FEDERAL - PAC/PRACAS/MINC",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "7AABVJ",
+      "acao_descricao": "",
+      "valor_transferido": "0",
+      "municipio_ibge": "3521200",
+      "municipio_nome": "IPORANGA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:09.582291"
+}

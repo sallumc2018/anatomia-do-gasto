@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_itaipe_2024.csv",
+  "caminho_relativo": "data/public/itaipe/transferencias_federais/saida/transferencias_federais_itaipe_2024.csv",
+  "tamanho_bytes": 539,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-07",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "26000",
+      "orgao_superior_nome": "Ministério da Educação",
+      "unidade_gestora_codigo": "157241",
+      "unidade_gestora_nome": "CEF - PAC/FNDE",
+      "funcao_id": "12",
+      "funcao_descricao": "Educação",
+      "acao_id": "961028",
+      "acao_descricao": "Construcao de Escola em Tempo Integral de 13 Salas no municipio de Itaipe/MG",
+      "valor_transferido": "1632177.55",
+      "municipio_ibge": "3132305",
+      "municipio_nome": "ITAIPÉ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:30.124297"
+}

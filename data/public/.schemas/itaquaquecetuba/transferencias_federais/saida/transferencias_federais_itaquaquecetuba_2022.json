@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_itaquaquecetuba_2022.csv",
+  "caminho_relativo": "data/public/itaquaquecetuba/transferencias_federais/saida/transferencias_federais_itaquaquecetuba_2022.csv",
+  "tamanho_bytes": 929,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "competencia": "2022-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "CONVÊNIO ANULADO",
+      "orgao_superior_codigo": "81000",
+      "orgao_superior_nome": "Ministério dos Direitos Humanos e Cidadania",
+      "unidade_gestora_codigo": "810013",
+      "unidade_gestora_nome": "SECRETARIA NACIONAL DA FAMILIA",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "936439",
+      "acao_descricao": "O presente Termo de Convenio tera por objeto a concessao de apoio da administracao publica federal para a implementacao do Projeto Reconecte e do Projeto-piloto Familia na Escola com objetivo de realizar acoes de fortalecimento dos vinculos familiares, visando a consecucao de finalidade de interesse publico e reciproco que envolve a transferencia de recursos financeiros, conforme especificacoes estabelecidas no plano",
+      "valor_transferido": "0",
+      "municipio_ibge": "3523107",
+      "municipio_nome": "ITAQUAQUECETUBA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:52.115150"
+}

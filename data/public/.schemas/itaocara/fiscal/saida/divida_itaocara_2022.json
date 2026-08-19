@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itaocara_2022.csv",
+  "caminho_relativo": "data/public/itaocara/fiscal/saida/divida_itaocara_2022.csv",
+  "tamanho_bytes": 505,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "11475926.80",
+      "DC_Contratual": "6439165.60",
+      "Emprestimos": "256522.30",
+      "Financiamentos": "146549.40",
+      "Precatorios": "5036761.20",
+      "Deducoes": "39605077.20",
+      "DCL": "-28129150.40",
+      "RCL": "132953244.00",
+      "DC_pct_RCL": "8.6300",
+      "DCL_pct_RCL": "-21.1600",
+      "Limite_valor": "120.00",
+      "Limite_pct_RCL": "0.0001",
+      "Limite_Alerta_valor": "108.00",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3302106&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:01.329902"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_itaguai_2026.csv",
+  "caminho_relativo": "data/public/itaguai/transferencias_federais/saida/transferencias_federais_itaguai_2026.csv",
+  "tamanho_bytes": 959,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-03",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "24000",
+      "orgao_superior_nome": "Ministério da Ciência, Tecnologia e Inovação",
+      "unidade_gestora_codigo": "240901",
+      "unidade_gestora_nome": "FUNDO NAC.DE DESENV. CIENT. E TECNOLOGICO",
+      "funcao_id": "19",
+      "funcao_descricao": "Ciência e Tecnologia",
+      "acao_id": "1ABBRR",
+      "acao_descricao": "TITULO:MANUTENÇÃO DE EQUIPAMENTOS MULTIUSUÁRIOS PARA PESQUISA CIENTÍFICA,TECNOLÓGICA E INOVAÇÃO NA UFRRJ                                    O PROJETO TEM POR OBJETIVO GERAL ASSEGURAR A MANUTENÇÃO PREVENTIVA E  CORRETIVA DE EQUIPAMENTOS MULTIUSUÁRIOS PERTENCENTES À INFRAESTRUTURA CIENTÍFICA E TECNOLÓGICA DA UFRRJ, DE MODO A GARANTIR A CONTINUIDADE EA ESTABILIDADE DAS ATIVIDADES DE PESQUISA, INOVAÇÃO E FORMAÇÃO",
+      "valor_transferido": "1249989.9",
+      "municipio_ibge": "3302007",
+      "municipio_nome": "ITAGUAÍ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:12.342364"
+}

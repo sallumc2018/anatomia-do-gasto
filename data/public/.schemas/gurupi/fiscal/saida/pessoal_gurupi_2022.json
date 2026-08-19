@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_gurupi_2022.csv",
+  "caminho_relativo": "data/public/gurupi/fiscal/saida/pessoal_gurupi_2022.csv",
+  "tamanho_bytes": 477,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "RCL": "420015380.48",
+      "RCL_Ajustada": "420015380.48",
+      "Pessoal_Bruto": "245537476.22",
+      "Pessoal_Ativo": "213055467.95",
+      "Pessoal_Inativo": "29096743.02",
+      "Pessoal_Liquido": "205955399.84",
+      "DTP": "206066365.92",
+      "DTP_pct_RCL": "49.0600",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1709500&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:13.734612"
+}

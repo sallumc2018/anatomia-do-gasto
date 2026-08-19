@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_guaraci_pr_2023.csv",
+  "caminho_relativo": "data/public/guaraci_pr/emendas_federais/saida/emendas_federais_guaraci_pr_2023.csv",
+  "tamanho_bytes": 439,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2023",
+      "municipio_ibge": "4109203",
+      "municipio_nome": "Guaraci",
+      "localidade_do_gasto_raw": "GUARACIABA - SC",
+      "numero_emenda": "202325690017",
+      "autor": "CELSO MALDANER",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências Especiais",
+      "funcao": "Encargos especiais",
+      "subfuncao": "Outras transferências",
+      "valor_empenhado": "3.584.260,00",
+      "valor_liquidado": "3.584.260,00",
+      "valor_pago": "3.584.260,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:55.934134"
+}

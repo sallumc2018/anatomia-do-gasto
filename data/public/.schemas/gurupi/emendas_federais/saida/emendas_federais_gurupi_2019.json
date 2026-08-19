@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_gurupi_2019.csv",
+  "caminho_relativo": "data/public/gurupi/emendas_federais/saida/emendas_federais_gurupi_2019.csv",
+  "tamanho_bytes": 433,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2019",
+      "municipio_ibge": "1709500",
+      "municipio_nome": "Gurupi",
+      "localidade_do_gasto_raw": "GURUPI - TO",
+      "numero_emenda": "201929180010",
+      "autor": "VICENTINHO ALVES",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Saúde",
+      "subfuncao": "Atenção básica",
+      "valor_empenhado": "5.000.000,00",
+      "valor_liquidado": "5.000.000,00",
+      "valor_pago": "5.000.000,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:13.717690"
+}

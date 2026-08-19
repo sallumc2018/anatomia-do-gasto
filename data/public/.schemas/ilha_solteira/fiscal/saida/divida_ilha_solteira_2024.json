@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_ilha_solteira_2024.csv",
+  "caminho_relativo": "data/public/ilha_solteira/fiscal/saida/divida_ilha_solteira_2024.csv",
+  "tamanho_bytes": 515,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "4767243.38",
+      "DC_Contratual": "623685.21",
+      "Emprestimos": "0.00",
+      "Financiamentos": "623685.21",
+      "Precatorios": "4143558.17",
+      "Deducoes": "2580186.14",
+      "DCL": "2187057.24",
+      "RCL": "182094635.45",
+      "DC_pct_RCL": "2.6200",
+      "DCL_pct_RCL": "1.2000",
+      "Limite_valor": "218273562.54",
+      "Limite_pct_RCL": "119.8682",
+      "Limite_Alerta_valor": "196446206.29",
+      "Passivo_Atuarial": "497356417.07",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3520442&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:40.785369"
+}

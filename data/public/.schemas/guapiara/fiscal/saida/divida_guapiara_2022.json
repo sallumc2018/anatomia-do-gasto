@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_guapiara_2022.csv",
+  "caminho_relativo": "data/public/guapiara/fiscal/saida/divida_guapiara_2022.csv",
+  "tamanho_bytes": 490,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "2943.81",
+      "DC_Contratual": "2943.81",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "4661551.41",
+      "DCL": "-4658607.60",
+      "RCL": "76598473.95",
+      "DC_pct_RCL": "0.0000",
+      "DCL_pct_RCL": "-6.0800",
+      "Limite_valor": "91918168.74",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "82726351.87",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3517604&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:56.417453"
+}

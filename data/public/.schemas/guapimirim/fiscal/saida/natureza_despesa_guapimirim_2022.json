@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_guapimirim_2022.csv",
+  "caminho_relativo": "data/public/guapimirim/fiscal/saida/natureza_despesa_guapimirim_2022.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "164559073.99",
+      "Juros_Encargos": "231360.12",
+      "Outras_Correntes": "157355093.75",
+      "Despesas_Correntes": "322145527.86",
+      "Investimentos": "5954378.91",
+      "Despesas_Capital": "8267082.42",
+      "Total_Despesas": "330412610.28",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3301850&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:59.900449"
+}

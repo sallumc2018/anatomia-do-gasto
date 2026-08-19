@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_guaruja_2025.csv",
+  "caminho_relativo": "data/public/guaruja/fiscal/saida/divida_guaruja_2025.csv",
+  "tamanho_bytes": 544,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "1878473822.13",
+      "DC_Contratual": "516410711.72",
+      "Emprestimos": "18994589.06",
+      "Financiamentos": "223591616.26",
+      "Precatorios": "1342777933.80",
+      "Deducoes": "19195101.03",
+      "DCL": "1859278721.10",
+      "RCL": "2427588286.67",
+      "DC_pct_RCL": "77.6800",
+      "DCL_pct_RCL": "76.8800",
+      "Limite_valor": "2901926383.35",
+      "Limite_pct_RCL": "119.5395",
+      "Limite_Alerta_valor": "2611733745.02",
+      "Passivo_Atuarial": "1785186156.57",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3518701&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:00.592475"
+}

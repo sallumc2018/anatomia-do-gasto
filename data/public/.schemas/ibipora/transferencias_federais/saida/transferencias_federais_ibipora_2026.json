@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_ibipora_2026.csv",
+  "caminho_relativo": "data/public/ibipora/transferencias_federais/saida/transferencias_federais_ibipora_2026.csv",
+  "tamanho_bytes": 971,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-06",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "55000",
+      "orgao_superior_nome": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome",
+      "unidade_gestora_codigo": "550009",
+      "unidade_gestora_nome": "DPTO. APOIO E ACOLHIM. AT. EM ALCOOL E DROGAS",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "997006",
+      "acao_descricao": "Fortalecer e qualificar a estrutura da Fazenda da Esperanca Padre Claudio Romano/PR, por meio da aquisicao de materiais, utensilios e insumos necessarios a manutencao e ao aprimoramento das atividades cotidianas, terapeuticas e ocupacionais da unidade. A proposta visa melhorar as condicoes de acolhimento, a organizacao institucional e a efetividade das acoes desenvolvidas, contribuindo para a recuperacao, autonomia e",
+      "valor_transferido": "0",
+      "municipio_ibge": "4109807",
+      "municipio_nome": "IBIPORÃ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:27.045218"
+}

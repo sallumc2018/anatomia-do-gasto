@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_ibotirama_2023.csv",
+  "caminho_relativo": "data/public/ibotirama/fiscal/saida/natureza_despesa_ibotirama_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "51665329.09",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "84488972.84",
+      "Despesas_Correntes": "136154301.93",
+      "Investimentos": "12361005.42",
+      "Despesas_Capital": "13739932.57",
+      "Total_Despesas": "149894234.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2913200&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:17.041471"
+}

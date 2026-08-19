@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_hortolandia_2022.csv",
+  "caminho_relativo": "data/public/hortolandia/executivo/saida/despesas_executivo_hortolandia_2022.csv",
+  "tamanho_bytes": 5069,
+  "linhas_dados": 20,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "85900000.00",
+      "Dotacao_Atualizada": "94602325.00",
+      "Empenhado": "79966940.98",
+      "Liquidado": "73619725.76",
+      "Exceto_Intra_Liquidado": "70661980.26",
+      "Intra_Liquidado": "2957745.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3519071&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "30423000.00",
+      "Dotacao_Atualizada": "40090015.52",
+      "Empenhado": "35060806.59",
+      "Liquidado": "31894569.22",
+      "Exceto_Intra_Liquidado": "30977412.73",
+      "Intra_Liquidado": "917156.49",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3519071&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Cultura",
+      "Dotacao_Inicial": "7248000.00",
+      "Dotacao_Atualizada": "11708878.68",
+      "Empenhado": "10627295.77",
+      "Liquidado": "9641513.07",
+      "Exceto_Intra_Liquidado": "9258117.36",
+      "Intra_Liquidado": "383395.71",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3519071&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:55.989532"
+}

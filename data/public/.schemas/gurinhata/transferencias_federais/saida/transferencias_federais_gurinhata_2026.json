@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_gurinhata_2026.csv",
+  "caminho_relativo": "data/public/gurinhata/transferencias_federais/saida/transferencias_federais_gurinhata_2026.csv",
+  "tamanho_bytes": 604,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-06",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "22000",
+      "orgao_superior_nome": "Ministério da Agricultura e Pecuária",
+      "unidade_gestora_codigo": "130141",
+      "unidade_gestora_nome": "SUBSECRETARIA DE ORCAMENTO,PLANEJAMENTO E ADM",
+      "funcao_id": "20",
+      "funcao_descricao": "Agricultura",
+      "acao_id": "996487",
+      "acao_descricao": "APOIAR A REALIZACAO DO SIMPOSIO DE VALORIZACAO DO PRODUTOR RURAL E SUCESSAO FAMILIAR NO CAMPO",
+      "valor_transferido": "334250.0",
+      "municipio_ibge": "3129103",
+      "municipio_nome": "GURINHATÃ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:43.836076"
+}

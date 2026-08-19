@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_iaciara_2024.csv",
+  "caminho_relativo": "data/public/iaciara/fiscal/saida/pessoal_iaciara_2024.csv",
+  "tamanho_bytes": 470,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "RCL": "59732921.36",
+      "RCL_Ajustada": "58882939.26",
+      "Pessoal_Bruto": "34435168.52",
+      "Pessoal_Ativo": "27021680.44",
+      "Pessoal_Inativo": "6451744.46",
+      "Pessoal_Liquido": "27983424.06",
+      "DTP": "27983424.06",
+      "DTP_pct_RCL": "47.5200",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5209903&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:06.342098"
+}

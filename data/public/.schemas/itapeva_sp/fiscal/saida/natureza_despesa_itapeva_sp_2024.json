@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_itapeva_sp_2024.csv",
+  "caminho_relativo": "data/public/itapeva_sp/fiscal/saida/natureza_despesa_itapeva_sp_2024.csv",
+  "tamanho_bytes": 363,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "230236313.74",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "296952985.24",
+      "Despesas_Correntes": "527189298.98",
+      "Investimentos": "32317212.01",
+      "Despesas_Capital": "35343074.38",
+      "Total_Despesas": "589631352.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3522406&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:16.167589"
+}

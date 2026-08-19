@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_irani_2023.csv",
+  "caminho_relativo": "data/public/irani/fiscal/saida/natureza_despesa_irani_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "25424022.01",
+      "Juros_Encargos": "92775.95",
+      "Outras_Correntes": "23737950.42",
+      "Despesas_Correntes": "49254748.38",
+      "Investimentos": "8097221.03",
+      "Despesas_Capital": "8710312.67",
+      "Total_Despesas": "57965061.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4207809&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:53.312605"
+}

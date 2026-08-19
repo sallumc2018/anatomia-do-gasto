@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itapira_2024.csv",
+  "caminho_relativo": "data/public/itapira/fiscal/saida/divida_itapira_2024.csv",
+  "tamanho_bytes": 531,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "148387693.14",
+      "DC_Contratual": "105234428.22",
+      "Emprestimos": "94650249.39",
+      "Financiamentos": "2872.88",
+      "Precatorios": "43153264.92",
+      "Deducoes": "12965272.26",
+      "DCL": "135422420.88",
+      "RCL": "423724213.77",
+      "DC_pct_RCL": "35.0800",
+      "DCL_pct_RCL": "32.0200",
+      "Limite_valor": "507569056.52",
+      "Limite_pct_RCL": "119.7876",
+      "Limite_Alerta_valor": "456812150.87",
+      "Passivo_Atuarial": "175169524.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3522604&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:03.771263"
+}

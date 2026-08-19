@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_itagimirim_2022.csv",
+  "caminho_relativo": "data/public/itagimirim/fiscal/saida/natureza_despesa_itagimirim_2022.csv",
+  "tamanho_bytes": 355,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "17425031.30",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "7448957.28",
+      "Despesas_Correntes": "24873988.58",
+      "Investimentos": "808696.69",
+      "Despesas_Capital": "1724981.81",
+      "Total_Despesas": "26598970.39",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2915304&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:40.262890"
+}

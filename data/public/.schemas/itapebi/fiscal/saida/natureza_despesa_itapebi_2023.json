@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_itapebi_2023.csv",
+  "caminho_relativo": "data/public/itapebi/fiscal/saida/natureza_despesa_itapebi_2023.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "31241617.30",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "25223813.43",
+      "Despesas_Correntes": "56465430.73",
+      "Investimentos": "1582674.10",
+      "Despesas_Capital": "4478276.52",
+      "Total_Despesas": "60943707.25",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2916302&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:18.372799"
+}

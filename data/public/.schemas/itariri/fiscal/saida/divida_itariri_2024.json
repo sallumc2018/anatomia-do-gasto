@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itariri_2024.csv",
+  "caminho_relativo": "data/public/itariri/fiscal/saida/divida_itariri_2024.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "2089468.70",
+      "DC_Contratual": "1997428.61",
+      "Emprestimos": "82681.33",
+      "Financiamentos": "0.00",
+      "Precatorios": "92040.09",
+      "Deducoes": "9198437.72",
+      "DCL": "-7108969.02",
+      "RCL": "77853980.07",
+      "DC_pct_RCL": "2.6800",
+      "DCL_pct_RCL": "-9.1300",
+      "Limite_valor": "93418972.85",
+      "Limite_pct_RCL": "119.9925",
+      "Limite_Alerta_valor": "84077075.56",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3523305&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:30.267393"
+}

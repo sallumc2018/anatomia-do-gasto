@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_imperatriz_2021.csv",
+  "caminho_relativo": "data/public/imperatriz/emendas_federais/saida/emendas_federais_imperatriz_2021.csv",
+  "tamanho_bytes": 412,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2021",
+      "municipio_ibge": "2105302",
+      "municipio_nome": "Imperatriz",
+      "localidade_do_gasto_raw": "IMPERATRIZ - MA",
+      "numero_emenda": "202171110001",
+      "autor": "BANCADA DO MARANHAO",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda de Bancada",
+      "funcao": "Transporte",
+      "subfuncao": "Transporte rodoviário",
+      "valor_empenhado": "13.710.468,00",
+      "valor_liquidado": "4.379.324,90",
+      "valor_pago": "4.379.324,90",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:59.251435"
+}

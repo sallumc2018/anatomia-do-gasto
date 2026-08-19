@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itacaja_2022.csv",
+  "caminho_relativo": "data/public/itacaja/fiscal/saida/divida_itacaja_2022.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "12544911.42",
+      "DC_Contratual": "9428841.34",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "3116070.08",
+      "Deducoes": "1062295.29",
+      "DCL": "11482616.13",
+      "RCL": "31861783.54",
+      "DC_pct_RCL": "39.4000",
+      "DCL_pct_RCL": "36.0700",
+      "Limite_valor": "38203355.99",
+      "Limite_pct_RCL": "119.9034",
+      "Limite_Alerta_valor": "34383020.39",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1710508&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:46.066535"
+}

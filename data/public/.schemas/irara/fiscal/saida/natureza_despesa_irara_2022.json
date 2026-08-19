@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_irara_2022.csv",
+  "caminho_relativo": "data/public/irara/fiscal/saida/natureza_despesa_irara_2022.csv",
+  "tamanho_bytes": 364,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "66574083.14",
+      "Juros_Encargos": "137974.04",
+      "Outras_Correntes": "28471158.13",
+      "Despesas_Correntes": "95183215.31",
+      "Investimentos": "7847513.78",
+      "Despesas_Capital": "11042166.78",
+      "Total_Despesas": "106225382.09",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2914505&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:03.936606"
+}

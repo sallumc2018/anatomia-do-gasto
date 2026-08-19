@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_iraquara_2023.csv",
+  "caminho_relativo": "data/public/iraquara/fiscal/saida/natureza_despesa_iraquara_2023.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "51435761.39",
+      "Juros_Encargos": "1200935.32",
+      "Outras_Correntes": "43695224.74",
+      "Despesas_Correntes": "96331921.45",
+      "Investimentos": "19470102.59",
+      "Despesas_Capital": "20861701.19",
+      "Total_Despesas": "117193622.64",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2914406&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:45.300656"
+}

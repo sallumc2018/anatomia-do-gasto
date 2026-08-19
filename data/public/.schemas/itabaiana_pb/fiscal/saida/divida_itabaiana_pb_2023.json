@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_itabaiana_pb_2023.csv",
+  "caminho_relativo": "data/public/itabaiana_pb/fiscal/saida/divida_itabaiana_pb_2023.csv",
+  "tamanho_bytes": 491,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "70848565.52",
+      "DC_Contratual": "68282426.93",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "2566138.59",
+      "Deducoes": "3526424.09",
+      "DCL": "67322141.43",
+      "RCL": "76468321.52",
+      "DC_pct_RCL": "93.0200",
+      "DCL_pct_RCL": "88.3900",
+      "Limite_valor": "60.00",
+      "Limite_pct_RCL": "0.0001",
+      "Limite_Alerta_valor": "54.00",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2506905&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:01.850618"
+}

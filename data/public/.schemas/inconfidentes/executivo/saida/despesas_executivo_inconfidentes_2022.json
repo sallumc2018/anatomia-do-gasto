@@ -1,0 +1,49 @@
+{
+  "arquivo": "despesas_executivo_inconfidentes_2022.csv",
+  "caminho_relativo": "data/public/inconfidentes/executivo/saida/despesas_executivo_inconfidentes_2022.csv",
+  "tamanho_bytes": 580,
+  "linhas_dados": 2,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "786000.00",
+      "Dotacao_Atualizada": "1286000.00",
+      "Empenhado": "956251.02",
+      "Liquidado": "956251.02",
+      "Exceto_Intra_Liquidado": "956251.02",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3130606&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "TOTAL",
+      "Dotacao_Inicial": "786000.00",
+      "Dotacao_Atualizada": "1286000.00",
+      "Empenhado": "956251.02",
+      "Liquidado": "956251.02",
+      "Exceto_Intra_Liquidado": "956251.02",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3130606&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:59.914282"
+}

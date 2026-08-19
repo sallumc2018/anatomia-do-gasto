@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_inhangapi_2024.csv",
+  "caminho_relativo": "data/public/inhangapi/fiscal/saida/natureza_despesa_inhangapi_2024.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "22350428.34",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "35151656.41",
+      "Despesas_Correntes": "57502084.75",
+      "Investimentos": "6614760.73",
+      "Despesas_Capital": "7530107.54",
+      "Total_Despesas": "65032192.29",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1503408&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:36.201128"
+}

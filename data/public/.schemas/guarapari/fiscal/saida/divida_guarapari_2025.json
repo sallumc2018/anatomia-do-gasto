@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_guarapari_2025.csv",
+  "caminho_relativo": "data/public/guarapari/fiscal/saida/divida_guarapari_2025.csv",
+  "tamanho_bytes": 528,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "59913247.33",
+      "DC_Contratual": "53134992.03",
+      "Emprestimos": "53017286.85",
+      "Financiamentos": "97353.18",
+      "Precatorios": "6778255.30",
+      "Deducoes": "82381649.59",
+      "DCL": "-22468402.26",
+      "RCL": "680728406.00",
+      "DC_pct_RCL": "9.0500",
+      "DCL_pct_RCL": "-3.4000",
+      "Limite_valor": "794113687.20",
+      "Limite_pct_RCL": "116.6565",
+      "Limite_Alerta_valor": "714702318.48",
+      "Passivo_Atuarial": "374920307.50",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3202405&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:34.873370"
+}

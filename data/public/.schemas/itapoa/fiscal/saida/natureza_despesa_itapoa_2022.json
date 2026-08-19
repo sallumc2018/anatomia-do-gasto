@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_itapoa_2022.csv",
+  "caminho_relativo": "data/public/itapoa/fiscal/saida/natureza_despesa_itapoa_2022.csv",
+  "tamanho_bytes": 366,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "80280942.68",
+      "Juros_Encargos": "861950.80",
+      "Outras_Correntes": "68127456.38",
+      "Despesas_Correntes": "149270349.86",
+      "Investimentos": "25649192.47",
+      "Despesas_Capital": "27222192.47",
+      "Total_Despesas": "187968838.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4208450&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:18.417226"
+}

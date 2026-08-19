@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_guaratingueta_2023.csv",
+  "caminho_relativo": "data/public/guaratingueta/fiscal/saida/natureza_despesa_guaratingueta_2023.csv",
+  "tamanho_bytes": 369,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "225242756.50",
+      "Juros_Encargos": "6471494.19",
+      "Outras_Correntes": "239219080.47",
+      "Despesas_Correntes": "470933331.16",
+      "Investimentos": "29999659.28",
+      "Despesas_Capital": "44392467.33",
+      "Total_Despesas": "515325798.49",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3518404&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:50.020210"
+}

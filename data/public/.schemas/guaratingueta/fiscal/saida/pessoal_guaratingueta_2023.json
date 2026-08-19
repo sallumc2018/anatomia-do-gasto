@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_guaratingueta_2023.csv",
+  "caminho_relativo": "data/public/guaratingueta/fiscal/saida/pessoal_guaratingueta_2023.csv",
+  "tamanho_bytes": 476,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "RCL": "491433724.00",
+      "RCL_Ajustada": "488406292.00",
+      "Pessoal_Bruto": "210675763.42",
+      "Pessoal_Ativo": "209599158.50",
+      "Pessoal_Inativo": "1076604.92",
+      "Pessoal_Liquido": "209953335.40",
+      "DTP": "209953335.40",
+      "DTP_pct_RCL": "42.9900",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3518404&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:50.024033"
+}

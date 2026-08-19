@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_guaraci_sp_2023.csv",
+  "caminho_relativo": "data/public/guaraci_sp/fiscal/saida/natureza_despesa_guaraci_sp_2023.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "42357454.97",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "40248994.41",
+      "Despesas_Correntes": "82606449.38",
+      "Investimentos": "8801184.40",
+      "Despesas_Capital": "9132938.54",
+      "Total_Despesas": "99759777.91",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3517901&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:45.401524"
+}

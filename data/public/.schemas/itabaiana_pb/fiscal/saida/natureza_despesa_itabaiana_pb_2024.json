@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_itabaiana_pb_2024.csv",
+  "caminho_relativo": "data/public/itabaiana_pb/fiscal/saida/natureza_despesa_itabaiana_pb_2024.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "56980728.26",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "26250308.94",
+      "Despesas_Correntes": "83231037.20",
+      "Investimentos": "4592206.59",
+      "Despesas_Capital": "6610297.86",
+      "Total_Despesas": "89841335.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2506905&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:38:01.860533"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_ibirataia_2024.csv",
+  "caminho_relativo": "data/public/ibirataia/fiscal/saida/natureza_despesa_ibirataia_2024.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "48654192.83",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "48516813.44",
+      "Despesas_Correntes": "97171006.27",
+      "Investimentos": "8066744.25",
+      "Despesas_Capital": "13460540.68",
+      "Total_Despesas": "110631546.95",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2912905&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:40.326631"
+}

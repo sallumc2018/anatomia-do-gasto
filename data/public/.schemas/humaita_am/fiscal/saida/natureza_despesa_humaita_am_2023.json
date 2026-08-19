@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_humaita_am_2023.csv",
+  "caminho_relativo": "data/public/humaita_am/fiscal/saida/natureza_despesa_humaita_am_2023.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "93745854.25",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "102886803.12",
+      "Despesas_Correntes": "196632657.37",
+      "Investimentos": "11836216.32",
+      "Despesas_Capital": "14190939.98",
+      "Total_Despesas": "215535263.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1301704&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-19T03:37:31.989722"
+}
