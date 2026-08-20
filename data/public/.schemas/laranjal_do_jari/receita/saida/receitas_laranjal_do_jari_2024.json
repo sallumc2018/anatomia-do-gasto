@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_laranjal_do_jari_2024.csv",
+  "caminho_relativo": "data/public/laranjal_do_jari/receita/saida/receitas_laranjal_do_jari_2024.csv",
+  "tamanho_bytes": 3621,
+  "linhas_dados": 14,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "160768901.99",
+      "Previsto_Atualizado": "160768901.99",
+      "Arrecadado_Bimestre": "41476149.39",
+      "Arrecadado_Acumulado": "203234080.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600279&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "160768901.99",
+      "Previsto_Atualizado": "160768901.99",
+      "Arrecadado_Bimestre": "41476149.39",
+      "Arrecadado_Acumulado": "203234080.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600279&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "146953699.46",
+      "Previsto_Atualizado": "146953699.46",
+      "Arrecadado_Bimestre": "38357409.97",
+      "Arrecadado_Acumulado": "196828423.48",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600279&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:05.751233"
+}

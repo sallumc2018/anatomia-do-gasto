@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_lagoa_salgada_2024.csv",
+  "caminho_relativo": "data/public/lagoa_salgada/fiscal/saida/divida_lagoa_salgada_2024.csv",
+  "tamanho_bytes": 503,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "19499076.27",
+      "DC_Contratual": "19384144.93",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "114931.34",
+      "Deducoes": "234210.20",
+      "DCL": "19264866.07",
+      "RCL": "41143454.35",
+      "DC_pct_RCL": "47.6800",
+      "DCL_pct_RCL": "47.1100",
+      "Limite_valor": "49072118.82",
+      "Limite_pct_RCL": "119.2708",
+      "Limite_Alerta_valor": "44164906.94",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2406601&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:07.378956"
+}

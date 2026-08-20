@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_junco_do_serido_2022.csv",
+  "caminho_relativo": "data/public/junco_do_serido/fiscal/saida/divida_junco_do_serido_2022.csv",
+  "tamanho_bytes": 503,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "11303385.64",
+      "DC_Contratual": "10392860.70",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "910524.94",
+      "Deducoes": "2199883.97",
+      "DCL": "9103501.67",
+      "RCL": "35161160.97",
+      "DC_pct_RCL": "32.1500",
+      "DCL_pct_RCL": "25.8900",
+      "Limite_valor": "42193393.16",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "37974053.85",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2507804&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:35.674946"
+}

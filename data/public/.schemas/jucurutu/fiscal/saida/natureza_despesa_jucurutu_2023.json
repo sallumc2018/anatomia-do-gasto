@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_jucurutu_2023.csv",
+  "caminho_relativo": "data/public/jucurutu/fiscal/saida/natureza_despesa_jucurutu_2023.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "38739904.58",
+      "Juros_Encargos": "6953.91",
+      "Outras_Correntes": "27983297.53",
+      "Despesas_Correntes": "66730156.02",
+      "Investimentos": "2691837.85",
+      "Despesas_Capital": "4226692.50",
+      "Total_Despesas": "74236858.93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2406106&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:05.499323"
+}

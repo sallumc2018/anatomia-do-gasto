@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_jangada_2024.csv",
+  "caminho_relativo": "data/public/jangada/fiscal/saida/divida_jangada_2024.csv",
+  "tamanho_bytes": 505,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "1247565.54",
+      "DC_Contratual": "1247565.54",
+      "Emprestimos": "0.00",
+      "Financiamentos": "988021.13",
+      "Precatorios": "0.00",
+      "Deducoes": "5023974.76",
+      "DCL": "-3776409.22",
+      "RCL": "39758948.64",
+      "DC_pct_RCL": "3.1400",
+      "DCL_pct_RCL": "-9.5000",
+      "Limite_valor": "9793094.89",
+      "Limite_pct_RCL": "24.6312",
+      "Limite_Alerta_valor": "8813785.40",
+      "Passivo_Atuarial": "28023646.57",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5104906&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:09.492758"
+}

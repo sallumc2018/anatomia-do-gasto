@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_luzerna_2022.csv",
+  "caminho_relativo": "data/public/luzerna/fiscal/saida/natureza_despesa_luzerna_2022.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "15451283.62",
+      "Juros_Encargos": "257586.36",
+      "Outras_Correntes": "15687279.39",
+      "Despesas_Correntes": "31396149.37",
+      "Investimentos": "8933277.54",
+      "Despesas_Capital": "9382346.18",
+      "Total_Despesas": "40778495.55",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4210035&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:56.037229"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_juazeiro_do_piaui_2024.csv",
+  "caminho_relativo": "data/public/juazeiro_do_piaui/fiscal/saida/divida_juazeiro_do_piaui_2024.csv",
+  "tamanho_bytes": 504,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "1010361.14",
+      "DC_Contratual": "1010361.14",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "-2406604.68",
+      "DCL": "3416965.82",
+      "RCL": "34807706.55",
+      "DC_pct_RCL": "2.9700",
+      "DCL_pct_RCL": "10.0400",
+      "Limite_valor": "40841203.86",
+      "Limite_pct_RCL": "117.3338",
+      "Limite_Alerta_valor": "36757083.47",
+      "Passivo_Atuarial": "101810695.24",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2205516&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:06.110443"
+}

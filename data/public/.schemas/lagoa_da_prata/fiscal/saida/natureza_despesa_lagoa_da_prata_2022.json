@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_lagoa_da_prata_2022.csv",
+  "caminho_relativo": "data/public/lagoa_da_prata/fiscal/saida/natureza_despesa_lagoa_da_prata_2022.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "81600839.00",
+      "Juros_Encargos": "69841.14",
+      "Outras_Correntes": "53951749.70",
+      "Despesas_Correntes": "135622429.84",
+      "Investimentos": "18971271.16",
+      "Despesas_Capital": "19395334.68",
+      "Total_Despesas": "155044477.43",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3137205&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:36.327934"
+}

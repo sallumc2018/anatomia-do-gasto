@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_macapa_2023.csv",
+  "caminho_relativo": "data/public/macapa/executivo/saida/despesas_executivo_macapa_2023.csv",
+  "tamanho_bytes": 5522,
+  "linhas_dados": 22,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "291626561.26",
+      "Dotacao_Atualizada": "393951236.53",
+      "Empenhado": "393951236.53",
+      "Liquidado": "384171313.14",
+      "Exceto_Intra_Liquidado": "350515650.20",
+      "Intra_Liquidado": "33655662.94",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4676000.00",
+      "Dotacao_Atualizada": "3261991.41",
+      "Empenhado": "3261991.41",
+      "Liquidado": "3053510.97",
+      "Exceto_Intra_Liquidado": "2947612.82",
+      "Intra_Liquidado": "105898.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "21991803.07",
+      "Dotacao_Atualizada": "23223058.41",
+      "Empenhado": "23223058.41",
+      "Liquidado": "22729638.40",
+      "Exceto_Intra_Liquidado": "22212191.13",
+      "Intra_Liquidado": "517447.27",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1600303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:30.706427"
+}

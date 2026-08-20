@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_lindoia_do_sul_2024.csv",
+  "caminho_relativo": "data/public/lindoia_do_sul/fiscal/saida/divida_lindoia_do_sul_2024.csv",
+  "tamanho_bytes": 507,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "11402417.80",
+      "DC_Contratual": "11402417.80",
+      "Emprestimos": "0.00",
+      "Financiamentos": "11402417.80",
+      "Precatorios": "0.00",
+      "Deducoes": "14385892.41",
+      "DCL": "-2983474.61",
+      "RCL": "42284689.06",
+      "DC_pct_RCL": "27.3200",
+      "DCL_pct_RCL": "-7.1500",
+      "Limite_valor": "50081626.87",
+      "Limite_pct_RCL": "118.4392",
+      "Limite_Alerta_valor": "45073464.18",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4209854&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:41.647022"
+}

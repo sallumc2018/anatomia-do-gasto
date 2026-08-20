@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_ivolandia_2022.csv",
+  "caminho_relativo": "data/public/ivolandia/fiscal/saida/divida_ivolandia_2022.csv",
+  "tamanho_bytes": 509,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "6196135.49",
+      "DC_Contratual": "6096210.40",
+      "Emprestimos": "506957.89",
+      "Financiamentos": "0.00",
+      "Precatorios": "99925.09",
+      "Deducoes": "6145613.25",
+      "DCL": "50522.24",
+      "RCL": "26097924.43",
+      "DC_pct_RCL": "23.7400",
+      "DCL_pct_RCL": "0.1900",
+      "Limite_valor": "31317509.32",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "28185758.38",
+      "Passivo_Atuarial": "20907179.98",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5211602&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:03.725336"
+}

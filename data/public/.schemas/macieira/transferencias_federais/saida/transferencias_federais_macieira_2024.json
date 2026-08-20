@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_macieira_2024.csv",
+  "caminho_relativo": "data/public/macieira/transferencias_federais/saida/transferencias_federais_macieira_2024.csv",
+  "tamanho_bytes": 573,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-06",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "22000",
+      "orgao_superior_nome": "Ministério da Agricultura e Pecuária",
+      "unidade_gestora_codigo": "130141",
+      "unidade_gestora_nome": "SUBSECRETARIA DE ORCAMENTO,PLANEJAMENTO E ADM",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "957208",
+      "acao_descricao": "Execucao de obras e servicos de engenharia para estradas vicinais.",
+      "valor_transferido": "0",
+      "municipio_ibge": "4210050",
+      "municipio_nome": "MACIEIRA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:12.694629"
+}

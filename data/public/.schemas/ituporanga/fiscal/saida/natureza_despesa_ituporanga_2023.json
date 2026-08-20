@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_ituporanga_2023.csv",
+  "caminho_relativo": "data/public/ituporanga/fiscal/saida/natureza_despesa_ituporanga_2023.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "56824805.31",
+      "Juros_Encargos": "1758293.19",
+      "Outras_Correntes": "53971077.06",
+      "Despesas_Correntes": "112554175.56",
+      "Investimentos": "16747717.51",
+      "Despesas_Capital": "17735193.97",
+      "Total_Despesas": "130289369.53",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4208500&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:29.928553"
+}

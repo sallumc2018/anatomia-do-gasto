@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_joao_monlevade_2023.csv",
+  "caminho_relativo": "data/public/joao_monlevade/fiscal/saida/divida_joao_monlevade_2023.csv",
+  "tamanho_bytes": 512,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "16268994.16",
+      "DC_Contratual": "16268994.16",
+      "Emprestimos": "16268994.16",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "110081444.29",
+      "DCL": "-93812450.13",
+      "RCL": "382101125.10",
+      "DC_pct_RCL": "4.3000",
+      "DCL_pct_RCL": "-24.7800",
+      "Limite_valor": "455464710.12",
+      "Limite_pct_RCL": "119.2000",
+      "Limite_Alerta_valor": "409918239.11",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3136207&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:35.545525"
+}

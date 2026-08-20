@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_lauro_de_freitas_2023.csv",
+  "caminho_relativo": "data/public/lauro_de_freitas/fiscal/saida/divida_lauro_de_freitas_2023.csv",
+  "tamanho_bytes": 518,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "713790074.72",
+      "DC_Contratual": "713757688.97",
+      "Emprestimos": "0.00",
+      "Financiamentos": "36305870.12",
+      "Precatorios": "32385.75",
+      "Deducoes": "66848460.11",
+      "DCL": "646941614.61",
+      "RCL": "921080293.01",
+      "DC_pct_RCL": "78.4500",
+      "DCL_pct_RCL": "71.1000",
+      "Limite_valor": "1091861644.92",
+      "Limite_pct_RCL": "118.5414",
+      "Limite_Alerta_valor": "982675480.43",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2919207&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:38.103223"
+}

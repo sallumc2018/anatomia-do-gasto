@@ -1,0 +1,54 @@
+{
+  "arquivo": "pessoal_juarina_2025.csv",
+  "caminho_relativo": "data/public/juarina/fiscal/saida/pessoal_juarina_2025.csv",
+  "tamanho_bytes": 464,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "RCL",
+    "RCL_Ajustada",
+    "Pessoal_Bruto",
+    "Pessoal_Ativo",
+    "Pessoal_Inativo",
+    "Pessoal_Liquido",
+    "DTP",
+    "DTP_pct_RCL",
+    "Limite_Maximo_pct",
+    "Limite_Prudencial_pct",
+    "Limite_Alerta_pct",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "RCL": "float/numeric",
+    "RCL_Ajustada": "float/numeric",
+    "Pessoal_Bruto": "float/numeric",
+    "Pessoal_Ativo": "float/numeric",
+    "Pessoal_Inativo": "float/numeric",
+    "Pessoal_Liquido": "float/numeric",
+    "DTP": "float/numeric",
+    "DTP_pct_RCL": "float/numeric",
+    "Limite_Maximo_pct": "float/numeric",
+    "Limite_Prudencial_pct": "float/numeric",
+    "Limite_Alerta_pct": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "RCL": "30726175.08",
+      "RCL_Ajustada": "30102830.67",
+      "Pessoal_Bruto": "12675967.33",
+      "Pessoal_Ativo": "12675967.33",
+      "Pessoal_Inativo": "0.00",
+      "Pessoal_Liquido": "12675967.33",
+      "DTP": "12675967.33",
+      "DTP_pct_RCL": "42.1100",
+      "Limite_Maximo_pct": "54.0000",
+      "Limite_Prudencial_pct": "51.3000",
+      "Limite_Alerta_pct": "48.6000",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1711803&no_anexo=RGF-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:14.130687"
+}

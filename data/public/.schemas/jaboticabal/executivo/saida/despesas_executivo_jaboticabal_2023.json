@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_jaboticabal_2023.csv",
+  "caminho_relativo": "data/public/jaboticabal/executivo/saida/despesas_executivo_jaboticabal_2023.csv",
+  "tamanho_bytes": 5941,
+  "linhas_dados": 24,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "45137882.00",
+      "Dotacao_Atualizada": "45018261.79",
+      "Empenhado": "43348156.80",
+      "Liquidado": "42957305.12",
+      "Exceto_Intra_Liquidado": "39429661.63",
+      "Intra_Liquidado": "3527643.49",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3524303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "3178254.00",
+      "Dotacao_Atualizada": "3669620.00",
+      "Empenhado": "3164059.75",
+      "Liquidado": "3164059.75",
+      "Exceto_Intra_Liquidado": "2853376.60",
+      "Intra_Liquidado": "310683.15",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3524303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "13504783.00",
+      "Dotacao_Atualizada": "16614606.07",
+      "Empenhado": "12976412.12",
+      "Liquidado": "12976412.12",
+      "Exceto_Intra_Liquidado": "12544054.54",
+      "Intra_Liquidado": "432357.58",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3524303&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:21.030198"
+}

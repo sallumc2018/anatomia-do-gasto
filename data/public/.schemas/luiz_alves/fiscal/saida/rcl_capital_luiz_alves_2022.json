@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_luiz_alves_2022.csv",
+  "caminho_relativo": "data/public/luiz_alves/fiscal/saida/rcl_capital_luiz_alves_2022.csv",
+  "tamanho_bytes": 417,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Operacoes_Credito_Internas": "4499999.91",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "4499999.91",
+      "Alienacao_Bens": "773430.01",
+      "Alienacao_Bens_Imoveis": "385260.01",
+      "Alienacao_Bens_Moveis": "388170.00",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "5273429.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4210001&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:30.147540"
+}

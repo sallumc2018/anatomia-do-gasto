@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_lencois_2024.csv",
+  "caminho_relativo": "data/public/lencois/transferencias_federais/saida/transferencias_federais_lencois_2024.csv",
+  "tamanho_bytes": 843,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-07",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "AGUARDANDO PRESTAÇÃO DE CONTAS",
+      "orgao_superior_codigo": "42000",
+      "orgao_superior_nome": "Ministério da Cultura",
+      "unidade_gestora_codigo": "420029",
+      "unidade_gestora_nome": "SECRET.DE CIDADANIA E DIVERSIDADE CULTURAL",
+      "funcao_id": "13",
+      "funcao_descricao": "Cultura",
+      "acao_id": "951155",
+      "acao_descricao": "Promover qualificacao em cursos, oficinas, foruns e seminarios, formacao e capacitacao virtual/presencial em Pedagogia Grio, com mapeamento e diagnostico da Rede Estadual, com aquisicao de equipamentos, concessao de bolsas para agentes Cultura Viva com producao de videos e cards animados de 100 grupos, comunidades e povos tradicionais.",
+      "valor_transferido": "600000.0",
+      "municipio_ibge": "2919306",
+      "municipio_nome": "LENÇÓIS",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:15.597860"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_junqueiro_2024.csv",
+  "caminho_relativo": "data/public/junqueiro/fiscal/saida/natureza_despesa_junqueiro_2024.csv",
+  "tamanho_bytes": 365,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "101143391.64",
+      "Juros_Encargos": "3138.59",
+      "Outras_Correntes": "79501112.26",
+      "Despesas_Correntes": "180647642.49",
+      "Investimentos": "11016647.02",
+      "Despesas_Capital": "13030493.19",
+      "Total_Despesas": "200678301.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2704005&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:42.820076"
+}

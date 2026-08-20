@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_lagarto_2024.csv",
+  "caminho_relativo": "data/public/lagarto/executivo/saida/despesas_executivo_lagarto_2024.csv",
+  "tamanho_bytes": 5355,
+  "linhas_dados": 22,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "33107800.00",
+      "Dotacao_Atualizada": "32840588.22",
+      "Empenhado": "29291725.51",
+      "Liquidado": "28710911.93",
+      "Exceto_Intra_Liquidado": "28710911.93",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2803500&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "2203000.00",
+      "Dotacao_Atualizada": "1860519.93",
+      "Empenhado": "1644906.32",
+      "Liquidado": "1644906.32",
+      "Exceto_Intra_Liquidado": "1644906.32",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2803500&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "25039800.00",
+      "Dotacao_Atualizada": "19818878.85",
+      "Empenhado": "15476847.96",
+      "Liquidado": "15065489.25",
+      "Exceto_Intra_Liquidado": "15065489.25",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2803500&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:15.773004"
+}

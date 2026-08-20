@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_jeremoabo_2023.csv",
+  "caminho_relativo": "data/public/jeremoabo/fiscal/saida/natureza_despesa_jeremoabo_2023.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "95058367.17",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "52705884.45",
+      "Despesas_Correntes": "147764251.62",
+      "Investimentos": "7720756.08",
+      "Despesas_Capital": "14994101.26",
+      "Total_Despesas": "162758352.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2918100&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:36.128858"
+}

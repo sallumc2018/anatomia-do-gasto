@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_limeira_2022.csv",
+  "caminho_relativo": "data/public/limeira/fiscal/saida/natureza_despesa_limeira_2022.csv",
+  "tamanho_bytes": 372,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "566961959.73",
+      "Juros_Encargos": "31866641.66",
+      "Outras_Correntes": "582871446.71",
+      "Despesas_Correntes": "1181700048.10",
+      "Investimentos": "37362786.22",
+      "Despesas_Capital": "61423530.29",
+      "Total_Despesas": "1348696548.27",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3526902&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:43.731361"
+}

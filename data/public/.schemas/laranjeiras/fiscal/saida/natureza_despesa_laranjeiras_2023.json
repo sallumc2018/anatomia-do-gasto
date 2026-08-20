@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_laranjeiras_2023.csv",
+  "caminho_relativo": "data/public/laranjeiras/fiscal/saida/natureza_despesa_laranjeiras_2023.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "85616777.33",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "90198600.49",
+      "Despesas_Correntes": "175815377.82",
+      "Investimentos": "6947166.47",
+      "Despesas_Capital": "7134267.23",
+      "Total_Despesas": "182949645.05",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2803609&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:41.537426"
+}

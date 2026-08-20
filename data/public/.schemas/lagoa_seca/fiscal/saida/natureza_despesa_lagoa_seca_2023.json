@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_lagoa_seca_2023.csv",
+  "caminho_relativo": "data/public/lagoa_seca/fiscal/saida/natureza_despesa_lagoa_seca_2023.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "67817941.20",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "37831926.54",
+      "Despesas_Correntes": "105649867.74",
+      "Investimentos": "3277900.19",
+      "Despesas_Capital": "4432029.80",
+      "Total_Despesas": "117247307.85",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2508307&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:34.018612"
+}

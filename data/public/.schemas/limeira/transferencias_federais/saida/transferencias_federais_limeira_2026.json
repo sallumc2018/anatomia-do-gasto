@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_limeira_2026.csv",
+  "caminho_relativo": "data/public/limeira/transferencias_federais/saida/transferencias_federais_limeira_2026.csv",
+  "tamanho_bytes": 949,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-06",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "24000",
+      "orgao_superior_nome": "Ministério da Ciência, Tecnologia e Inovação",
+      "unidade_gestora_codigo": "240901",
+      "unidade_gestora_nome": "FUNDO NAC.DE DESENV. CIENT. E TECNOLOGICO",
+      "funcao_id": "19",
+      "funcao_descricao": "Ciência e Tecnologia",
+      "acao_id": "1ABDLK",
+      "acao_descricao": "SCADAFY - SISTEMA INTEGRADO DE SOFTWARE E HARDWARE PARA CONTROLE DE   PERDAS DE  GUA POT VEL                                                DESENVOLVER, QUALIFICAR E FINALIZAR UMA SOLU  O TECNOL GICA INTEGRADA E PROPRIET RIA DE SOFTWARE E HARDWARE PARA TELEMETRIA AVAN ADA E      GEST O INTELIGENTE DE SISTEMAS DE ABASTECIMENTO DE  GUA E ESGOTAMENTO SANIT RIO, COM FOCO NA IDENTIFICA  O, QUANTIFICA  O, PREDI  O E REDU-",
+      "valor_transferido": "3360216.66",
+      "municipio_ibge": "3526902",
+      "municipio_nome": "LIMEIRA",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:43.725068"
+}

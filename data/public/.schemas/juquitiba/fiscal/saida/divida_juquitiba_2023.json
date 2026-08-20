@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_juquitiba_2023.csv",
+  "caminho_relativo": "data/public/juquitiba/fiscal/saida/divida_juquitiba_2023.csv",
+  "tamanho_bytes": 513,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "26017800.78",
+      "DC_Contratual": "23780544.12",
+      "Emprestimos": "262464.92",
+      "Financiamentos": "0.00",
+      "Precatorios": "2237256.66",
+      "Deducoes": "13931048.28",
+      "DCL": "12086752.50",
+      "RCL": "129456977.82",
+      "DC_pct_RCL": "20.1900",
+      "DCL_pct_RCL": "9.3800",
+      "Limite_valor": "154614388.39",
+      "Limite_pct_RCL": "119.4330",
+      "Limite_Alerta_valor": "139152949.55",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3526209&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:00.811161"
+}

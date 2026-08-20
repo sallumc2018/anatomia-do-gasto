@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_linha_nova_2018.csv",
+  "caminho_relativo": "data/public/linha_nova/emendas_federais/saida/emendas_federais_linha_nova_2018.csv",
+  "tamanho_bytes": 433,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2018",
+      "municipio_ibge": "4311643",
+      "municipio_nome": "Linha Nova",
+      "localidade_do_gasto_raw": "LINHA NOVA - RS",
+      "numero_emenda": "201838180007",
+      "autor": "MAURO PEREIRA",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Saúde",
+      "subfuncao": "Administração geral",
+      "valor_empenhado": "42.483,00",
+      "valor_liquidado": "42.483,00",
+      "valor_pago": "42.483,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:05.003136"
+}

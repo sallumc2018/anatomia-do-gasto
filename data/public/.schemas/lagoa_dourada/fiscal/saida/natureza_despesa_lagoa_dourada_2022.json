@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_lagoa_dourada_2022.csv",
+  "caminho_relativo": "data/public/lagoa_dourada/fiscal/saida/natureza_despesa_lagoa_dourada_2022.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "26230593.94",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "21410082.41",
+      "Despesas_Correntes": "47640676.35",
+      "Investimentos": "4181958.87",
+      "Despesas_Capital": "4181958.87",
+      "Total_Despesas": "51822635.22",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3137403&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:35.849389"
+}

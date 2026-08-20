@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_lobato_2026.csv",
+  "caminho_relativo": "data/public/lobato/emendas_federais/saida/emendas_federais_lobato_2026.csv",
+  "tamanho_bytes": 418,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "float/numeric",
+    "valor_liquidado": "float/numeric",
+    "valor_pago": "float/numeric",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2026",
+      "municipio_ibge": "4113601",
+      "municipio_nome": "Lobato",
+      "localidade_do_gasto_raw": "MONTEIRO LOBATO - SP",
+      "numero_emenda": "202637170015",
+      "autor": "MARCIO ALVINO",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Saúde",
+      "subfuncao": "Atenção básica",
+      "valor_empenhado": "50,00",
+      "valor_liquidado": "50,00",
+      "valor_pago": "50,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:32.512025"
+}

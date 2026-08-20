@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_ituiutaba_2022.csv",
+  "caminho_relativo": "data/public/ituiutaba/fiscal/saida/rcl_capital_ituiutaba_2022.csv",
+  "tamanho_bytes": 418,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Operacoes_Credito_Internas": "1050597.38",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "1050597.38",
+      "Alienacao_Bens": "1218954.65",
+      "Alienacao_Bens_Imoveis": "649254.65",
+      "Alienacao_Bens_Moveis": "569700.00",
+      "Outras_Capital": "0.00",
+      "Total_Capital": "2269552.03",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3134202&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:30.346744"
+}

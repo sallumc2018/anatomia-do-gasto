@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_luis_correia_2024.csv",
+  "caminho_relativo": "data/public/luis_correia/fiscal/saida/divida_luis_correia_2024.csv",
+  "tamanho_bytes": 520,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "14360829.00",
+      "DC_Contratual": "14357567.44",
+      "Emprestimos": "2038308.62",
+      "Financiamentos": "0.00",
+      "Precatorios": "3261.56",
+      "Deducoes": "-3274048.22",
+      "DCL": "17634877.22",
+      "RCL": "140255850.24",
+      "DC_pct_RCL": "10.7400",
+      "DCL_pct_RCL": "13.1900",
+      "Limite_valor": "160497085.88",
+      "Limite_pct_RCL": "114.4317",
+      "Limite_Alerta_valor": "144447377.30",
+      "Passivo_Atuarial": "252114156.42",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2205706&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:54.165602"
+}

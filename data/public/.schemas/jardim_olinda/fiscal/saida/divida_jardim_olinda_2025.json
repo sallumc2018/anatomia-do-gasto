@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_jardim_olinda_2025.csv",
+  "caminho_relativo": "data/public/jardim_olinda/fiscal/saida/divida_jardim_olinda_2025.csv",
+  "tamanho_bytes": 508,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "1379618.63",
+      "DC_Contratual": "1379618.63",
+      "Emprestimos": "395345.32",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "3023283.80",
+      "DCL": "-1643665.17",
+      "RCL": "29973250.19",
+      "DC_pct_RCL": "4.7300",
+      "DCL_pct_RCL": "-5.6400",
+      "Limite_valor": "34992044.63",
+      "Limite_pct_RCL": "116.7442",
+      "Limite_Alerta_valor": "31492840.17",
+      "Passivo_Atuarial": "38654473.61",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=4112603&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:38:26.658400"
+}

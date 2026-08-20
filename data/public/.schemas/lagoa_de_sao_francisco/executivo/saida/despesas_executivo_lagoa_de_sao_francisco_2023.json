@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_lagoa_de_sao_francisco_2023.csv",
+  "caminho_relativo": "data/public/lagoa_de_sao_francisco/executivo/saida/despesas_executivo_lagoa_de_sao_francisco_2023.csv",
+  "tamanho_bytes": 3901,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "6912105.00",
+      "Dotacao_Atualizada": "6174858.00",
+      "Empenhado": "5148095.23",
+      "Liquidado": "5148095.23",
+      "Exceto_Intra_Liquidado": "4849674.40",
+      "Intra_Liquidado": "298420.83",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2205573&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "193600.00",
+      "Dotacao_Atualizada": "33000.00",
+      "Empenhado": "7632.00",
+      "Liquidado": "7632.00",
+      "Exceto_Intra_Liquidado": "7632.00",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2205573&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "1563162.00",
+      "Dotacao_Atualizada": "1592438.00",
+      "Empenhado": "742251.76",
+      "Liquidado": "742251.76",
+      "Exceto_Intra_Liquidado": "742251.76",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2205573&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:34.114787"
+}

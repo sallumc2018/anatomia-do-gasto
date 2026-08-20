@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_macaubal_2024.csv",
+  "caminho_relativo": "data/public/macaubal/fiscal/saida/natureza_despesa_macaubal_2024.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Pessoal": "21797259.14",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "21109624.94",
+      "Despesas_Correntes": "42906884.08",
+      "Investimentos": "2820663.01",
+      "Despesas_Capital": "4112030.98",
+      "Total_Despesas": "50292222.20",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3528106&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-20T03:37:38.405086"
+}
