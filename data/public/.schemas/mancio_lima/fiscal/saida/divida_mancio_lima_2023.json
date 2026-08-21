@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_mancio_lima_2023.csv",
+  "caminho_relativo": "data/public/mancio_lima/fiscal/saida/divida_mancio_lima_2023.csv",
+  "tamanho_bytes": 499,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "DC_Bruta": "15473326.07",
+      "DC_Contratual": "15473326.07",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "3619684.67",
+      "DCL": "11853641.40",
+      "RCL": "74795567.38",
+      "DC_pct_RCL": "21.0000",
+      "DCL_pct_RCL": "16.0800",
+      "Limite_valor": "88434680.86",
+      "Limite_pct_RCL": "118.2352",
+      "Limite_Alerta_valor": "79591212.77",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2023&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=1200336&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:04.030757"
+}

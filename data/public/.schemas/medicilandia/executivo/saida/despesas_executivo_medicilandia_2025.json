@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_medicilandia_2025.csv",
+  "caminho_relativo": "data/public/medicilandia/executivo/saida/despesas_executivo_medicilandia_2025.csv",
+  "tamanho_bytes": 3900,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "12177705.84",
+      "Dotacao_Atualizada": "19190647.43",
+      "Empenhado": "17713096.57",
+      "Liquidado": "16908808.23",
+      "Exceto_Intra_Liquidado": "16908808.23",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504455&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "5055997.08",
+      "Dotacao_Atualizada": "2330257.37",
+      "Empenhado": "1781535.76",
+      "Liquidado": "1781535.76",
+      "Exceto_Intra_Liquidado": "1781535.76",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504455&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "6461100.00",
+      "Dotacao_Atualizada": "6471237.61",
+      "Empenhado": "2798999.93",
+      "Liquidado": "2793397.78",
+      "Exceto_Intra_Liquidado": "2793397.78",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504455&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:21.596069"
+}

@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_manari_2024.csv",
+  "caminho_relativo": "data/public/manari/receita/saida/receitas_manari_2024.csv",
+  "tamanho_bytes": 4072,
+  "linhas_dados": 16,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "95040568.00",
+      "Previsto_Atualizado": "95040568.00",
+      "Arrecadado_Bimestre": "22169946.94",
+      "Arrecadado_Acumulado": "107876432.92",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2609154&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "91104118.00",
+      "Previsto_Atualizado": "91104118.00",
+      "Arrecadado_Bimestre": "20777890.11",
+      "Arrecadado_Acumulado": "103340303.78",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2609154&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "90449062.00",
+      "Previsto_Atualizado": "90449062.00",
+      "Arrecadado_Bimestre": "20777890.11",
+      "Arrecadado_Acumulado": "103096124.14",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2609154&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:09.598183"
+}

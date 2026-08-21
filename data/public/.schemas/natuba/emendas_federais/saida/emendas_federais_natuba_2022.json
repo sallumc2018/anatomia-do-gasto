@@ -1,0 +1,60 @@
+{
+  "arquivo": "emendas_federais_natuba_2022.csv",
+  "caminho_relativo": "data/public/natuba/emendas_federais/saida/emendas_federais_natuba_2022.csv",
+  "tamanho_bytes": 448,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "municipio_ibge",
+    "municipio_nome",
+    "localidade_do_gasto_raw",
+    "numero_emenda",
+    "autor",
+    "partido",
+    "uf_autor",
+    "tipo_emenda",
+    "funcao",
+    "subfuncao",
+    "valor_empenhado",
+    "valor_liquidado",
+    "valor_pago",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "localidade_do_gasto_raw": "string",
+    "numero_emenda": "integer",
+    "autor": "string",
+    "partido": "empty",
+    "uf_autor": "empty",
+    "tipo_emenda": "string",
+    "funcao": "string",
+    "subfuncao": "string",
+    "valor_empenhado": "string",
+    "valor_liquidado": "string",
+    "valor_pago": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2022",
+      "municipio_ibge": "2509909",
+      "municipio_nome": "Natuba",
+      "localidade_do_gasto_raw": "NATUBA - PB",
+      "numero_emenda": "202237390017",
+      "autor": "PEDRO CUNHA LIMA",
+      "partido": "",
+      "uf_autor": "",
+      "tipo_emenda": "Emenda Individual - Transferências com Finalidade Definida",
+      "funcao": "Saúde",
+      "subfuncao": "Assistência hospitalar e ambulatorial",
+      "valor_empenhado": "425.859,00",
+      "valor_liquidado": "425.859,00",
+      "valor_pago": "425.859,00",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/emendas"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:06.540517"
+}

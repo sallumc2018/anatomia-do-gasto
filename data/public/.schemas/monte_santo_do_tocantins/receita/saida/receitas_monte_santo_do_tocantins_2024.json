@@ -1,0 +1,54 @@
+{
+  "arquivo": "receitas_monte_santo_do_tocantins_2024.csv",
+  "caminho_relativo": "data/public/monte_santo_do_tocantins/receita/saida/receitas_monte_santo_do_tocantins_2024.csv",
+  "tamanho_bytes": 3835,
+  "linhas_dados": 15,
+  "colunas": [
+    "﻿Categoria",
+    "Cod_Conta",
+    "Previsto_Inicial",
+    "Previsto_Atualizado",
+    "Arrecadado_Bimestre",
+    "Arrecadado_Acumulado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Categoria": "string",
+    "Cod_Conta": "string",
+    "Previsto_Inicial": "float/numeric",
+    "Previsto_Atualizado": "float/numeric",
+    "Arrecadado_Bimestre": "float/numeric",
+    "Arrecadado_Acumulado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Categoria": "Total de Receitas",
+      "Cod_Conta": "TotalReceitas",
+      "Previsto_Inicial": "29304758.51",
+      "Previsto_Atualizado": "29304758.51",
+      "Arrecadado_Bimestre": "5012220.26",
+      "Arrecadado_Acumulado": "26037170.80",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1713700&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Exceto Intra-Orçamentárias",
+      "Cod_Conta": "ReceitasExcetoIntraOrcamentarias",
+      "Previsto_Inicial": "28830080.33",
+      "Previsto_Atualizado": "28830080.33",
+      "Arrecadado_Bimestre": "4831740.65",
+      "Arrecadado_Acumulado": "24693002.97",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1713700&no_anexo=RREO-Anexo%2001"
+    },
+    {
+      "﻿Categoria": "Receitas Correntes",
+      "Cod_Conta": "ReceitasCorrentes",
+      "Previsto_Inicial": "25730041.98",
+      "Previsto_Atualizado": "25730041.98",
+      "Arrecadado_Bimestre": "4631740.65",
+      "Arrecadado_Acumulado": "22576336.63",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1713700&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:05.118913"
+}

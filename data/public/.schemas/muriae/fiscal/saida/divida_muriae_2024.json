@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_muriae_2024.csv",
+  "caminho_relativo": "data/public/muriae/fiscal/saida/divida_muriae_2024.csv",
+  "tamanho_bytes": 524,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "DC_Bruta": "43604798.57",
+      "DC_Contratual": "39001062.48",
+      "Emprestimos": "36609938.46",
+      "Financiamentos": "0.00",
+      "Precatorios": "4603736.09",
+      "Deducoes": "67292367.48",
+      "DCL": "-23687568.91",
+      "RCL": "679240911.61",
+      "DC_pct_RCL": "6.8100",
+      "DCL_pct_RCL": "-3.7000",
+      "Limite_valor": "768589093.93",
+      "Limite_pct_RCL": "113.1541",
+      "Limite_Alerta_valor": "691730184.54",
+      "Passivo_Atuarial": "965419520.63",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2024&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3143906&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:58.851424"
+}

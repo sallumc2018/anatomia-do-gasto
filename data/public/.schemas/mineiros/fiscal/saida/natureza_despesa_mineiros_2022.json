@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mineiros_2022.csv",
+  "caminho_relativo": "data/public/mineiros/fiscal/saida/natureza_despesa_mineiros_2022.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "200677730.38",
+      "Juros_Encargos": "11030680.51",
+      "Outras_Correntes": "143178329.17",
+      "Despesas_Correntes": "354886740.06",
+      "Investimentos": "61939086.69",
+      "Despesas_Capital": "68965676.22",
+      "Total_Despesas": "446698941.60",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5213103&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:21.495627"
+}

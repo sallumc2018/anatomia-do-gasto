@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_merces_2024.csv",
+  "caminho_relativo": "data/public/merces/transferencias_federais/saida/transferencias_federais_merces_2024.csv",
+  "tamanho_bytes": 648,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "integer",
+    "acao_descricao": "string",
+    "valor_transferido": "float/numeric",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2024",
+      "competencia": "2024-12",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "PRESTAÇÃO DE CONTAS ENVIADA PARA ANÁLISE",
+      "orgao_superior_codigo": "49000",
+      "orgao_superior_nome": "Ministério do Desenvolvimento Agrário e Agricultura Familiar",
+      "unidade_gestora_codigo": "490070",
+      "unidade_gestora_nome": "SEC. DE ABASTECIMENTO, COOP. E SOB. ALIMENTAR",
+      "funcao_id": "21",
+      "funcao_descricao": "Organização agrária",
+      "acao_id": "956832",
+      "acao_descricao": "Estruturar a logistica da associacao quilombola da Comunidade de Carreiros.",
+      "valor_transferido": "200000.0",
+      "municipio_ibge": "3141603",
+      "municipio_nome": "MERCÊS",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:32.171526"
+}

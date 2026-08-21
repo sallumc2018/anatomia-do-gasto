@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_monte_alegre_pa_2024.csv",
+  "caminho_relativo": "data/public/monte_alegre_pa/executivo/saida/despesas_executivo_monte_alegre_pa_2024.csv",
+  "tamanho_bytes": 4897,
+  "linhas_dados": 20,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "13943722.00",
+      "Dotacao_Atualizada": "15361414.16",
+      "Empenhado": "14627441.94",
+      "Liquidado": "14623661.45",
+      "Exceto_Intra_Liquidado": "14168709.65",
+      "Intra_Liquidado": "454951.80",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504802&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "4686000.00",
+      "Dotacao_Atualizada": "4001624.75",
+      "Empenhado": "1246177.33",
+      "Liquidado": "1241268.73",
+      "Exceto_Intra_Liquidado": "1122400.63",
+      "Intra_Liquidado": "118868.10",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504802&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "9420200.00",
+      "Dotacao_Atualizada": "11726470.52",
+      "Empenhado": "6061427.34",
+      "Liquidado": "5875908.87",
+      "Exceto_Intra_Liquidado": "5402260.57",
+      "Intra_Liquidado": "473648.30",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1504802&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:43.395276"
+}

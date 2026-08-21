@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_nazarezinho_2022.csv",
+  "caminho_relativo": "data/public/nazarezinho/executivo/saida/despesas_executivo_nazarezinho_2022.csv",
+  "tamanho_bytes": 4557,
+  "linhas_dados": 19,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "1555953.00",
+      "Dotacao_Atualizada": "2883990.79",
+      "Empenhado": "2842562.28",
+      "Liquidado": "2834370.24",
+      "Exceto_Intra_Liquidado": "2495264.58",
+      "Intra_Liquidado": "339105.66",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2510006&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "1226236.00",
+      "Dotacao_Atualizada": "496803.00",
+      "Empenhado": "490060.12",
+      "Liquidado": "490060.12",
+      "Exceto_Intra_Liquidado": "483536.37",
+      "Intra_Liquidado": "6523.75",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2510006&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "2598192.00",
+      "Dotacao_Atualizada": "1660016.40",
+      "Empenhado": "1519189.34",
+      "Liquidado": "1519189.34",
+      "Exceto_Intra_Liquidado": "1479891.47",
+      "Intra_Liquidado": "39297.87",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2510006&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:00.249278"
+}

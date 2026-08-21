@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_marata_2024.csv",
+  "caminho_relativo": "data/public/marata/executivo/saida/despesas_executivo_marata_2024.csv",
+  "tamanho_bytes": 1067,
+  "linhas_dados": 4,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "1832300.00",
+      "Dotacao_Atualizada": "2091745.00",
+      "Empenhado": "1813900.77",
+      "Liquidado": "1813900.77",
+      "Exceto_Intra_Liquidado": "1813900.77",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4311791&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Reserva de Contingência",
+      "Dotacao_Inicial": "143838.00",
+      "Dotacao_Atualizada": "0.00",
+      "Empenhado": "0.00",
+      "Liquidado": "0.00",
+      "Exceto_Intra_Liquidado": "0.00",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4311791&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Saúde",
+      "Dotacao_Inicial": "120373862.00",
+      "Dotacao_Atualizada": "140554255.00",
+      "Empenhado": "115278807.04",
+      "Liquidado": "115278807.04",
+      "Exceto_Intra_Liquidado": "115278807.04",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4311791&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:56.728700"
+}

@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_morro_agudo_de_goias_2025.csv",
+  "caminho_relativo": "data/public/morro_agudo_de_goias/fiscal/saida/divida_morro_agudo_de_goias_2025.csv",
+  "tamanho_bytes": 495,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "468300.37",
+      "DC_Contratual": "468300.37",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "4120782.07",
+      "DCL": "-3652481.70",
+      "RCL": "32528556.56",
+      "DC_pct_RCL": "1.4900",
+      "DCL_pct_RCL": "-11.6300",
+      "Limite_valor": "37685012.45",
+      "Limite_pct_RCL": "115.8521",
+      "Limite_Alerta_valor": "33916511.20",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5213855&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:26.167715"
+}

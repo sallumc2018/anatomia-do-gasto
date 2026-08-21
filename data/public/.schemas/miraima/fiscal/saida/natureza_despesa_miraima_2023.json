@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_miraima_2023.csv",
+  "caminho_relativo": "data/public/miraima/fiscal/saida/natureza_despesa_miraima_2023.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "34351804.15",
+      "Juros_Encargos": "3808.44",
+      "Outras_Correntes": "23855702.06",
+      "Despesas_Correntes": "58211314.65",
+      "Investimentos": "3676200.45",
+      "Despesas_Capital": "6105782.81",
+      "Total_Despesas": "64317097.46",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2308377&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:07.381200"
+}

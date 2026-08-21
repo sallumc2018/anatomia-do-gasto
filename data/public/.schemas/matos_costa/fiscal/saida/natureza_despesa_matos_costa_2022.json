@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_matos_costa_2022.csv",
+  "caminho_relativo": "data/public/matos_costa/fiscal/saida/natureza_despesa_matos_costa_2022.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "10210242.84",
+      "Juros_Encargos": "164409.19",
+      "Outras_Correntes": "8870805.30",
+      "Despesas_Correntes": "19245457.33",
+      "Investimentos": "4229081.68",
+      "Despesas_Capital": "5711334.44",
+      "Total_Despesas": "24956791.77",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4210704&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:19.699387"
+}

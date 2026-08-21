@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_marilia_2022.csv",
+  "caminho_relativo": "data/public/marilia/fiscal/saida/divida_marilia_2022.csv",
+  "tamanho_bytes": 532,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "717794364.62",
+      "DC_Contratual": "549246093.94",
+      "Emprestimos": "44787160.34",
+      "Financiamentos": "0.00",
+      "Precatorios": "141037741.74",
+      "Deducoes": "17000917.32",
+      "DCL": "700793447.30",
+      "RCL": "1095330079.50",
+      "DC_pct_RCL": "65.6500",
+      "DCL_pct_RCL": "64.1000",
+      "Limite_valor": "1312025937.83",
+      "Limite_pct_RCL": "119.7836",
+      "Limite_Alerta_valor": "1180823344.05",
+      "Passivo_Atuarial": "490875999.21",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3529005&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:20.458393"
+}

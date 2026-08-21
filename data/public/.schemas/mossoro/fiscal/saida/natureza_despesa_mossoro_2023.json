@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mossoro_2023.csv",
+  "caminho_relativo": "data/public/mossoro/fiscal/saida/natureza_despesa_mossoro_2023.csv",
+  "tamanho_bytes": 371,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "513792747.94",
+      "Juros_Encargos": "27670124.45",
+      "Outras_Correntes": "437373972.55",
+      "Despesas_Correntes": "978836844.94",
+      "Investimentos": "35772016.91",
+      "Despesas_Capital": "68241368.25",
+      "Total_Despesas": "1056845234.19",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2408003&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:17.052514"
+}

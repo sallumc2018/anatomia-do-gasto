@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_moipora_2022.csv",
+  "caminho_relativo": "data/public/moipora/fiscal/saida/natureza_despesa_moipora_2022.csv",
+  "tamanho_bytes": 360,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "8328244.93",
+      "Juros_Encargos": "62174.43",
+      "Outras_Correntes": "10744851.79",
+      "Despesas_Correntes": "19135271.15",
+      "Investimentos": "1323834.28",
+      "Despesas_Capital": "1460052.91",
+      "Total_Despesas": "20595324.06",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=5213400&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:33.119746"
+}

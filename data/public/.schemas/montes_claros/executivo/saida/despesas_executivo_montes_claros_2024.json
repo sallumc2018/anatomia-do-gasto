@@ -1,0 +1,59 @@
+{
+  "arquivo": "despesas_executivo_montes_claros_2024.csv",
+  "caminho_relativo": "data/public/montes_claros/executivo/saida/despesas_executivo_montes_claros_2024.csv",
+  "tamanho_bytes": 4319,
+  "linhas_dados": 17,
+  "colunas": [
+    "﻿Funcao",
+    "Dotacao_Inicial",
+    "Dotacao_Atualizada",
+    "Empenhado",
+    "Liquidado",
+    "Exceto_Intra_Liquidado",
+    "Intra_Liquidado",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Funcao": "string",
+    "Dotacao_Inicial": "float/numeric",
+    "Dotacao_Atualizada": "float/numeric",
+    "Empenhado": "float/numeric",
+    "Liquidado": "float/numeric",
+    "Exceto_Intra_Liquidado": "float/numeric",
+    "Intra_Liquidado": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Funcao": "Administração",
+      "Dotacao_Inicial": "161224310.33",
+      "Dotacao_Atualizada": "199848142.58",
+      "Empenhado": "158727362.32",
+      "Liquidado": "147272716.35",
+      "Exceto_Intra_Liquidado": "139911630.27",
+      "Intra_Liquidado": "7361086.08",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3143302&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Agricultura",
+      "Dotacao_Inicial": "32148000.00",
+      "Dotacao_Atualizada": "47446000.00",
+      "Empenhado": "32358406.27",
+      "Liquidado": "27058470.87",
+      "Exceto_Intra_Liquidado": "27058470.87",
+      "Intra_Liquidado": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3143302&no_anexo=RREO-Anexo%2002&co_poder=E"
+    },
+    {
+      "﻿Funcao": "Assistência Social",
+      "Dotacao_Inicial": "45030430.33",
+      "Dotacao_Atualizada": "59580430.33",
+      "Empenhado": "44534283.04",
+      "Liquidado": "42741390.71",
+      "Exceto_Intra_Liquidado": "41929578.78",
+      "Intra_Liquidado": "811811.93",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3143302&no_anexo=RREO-Anexo%2002&co_poder=E"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:08.216042"
+}

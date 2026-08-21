@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_matinha_2022.csv",
+  "caminho_relativo": "data/public/matinha/fiscal/saida/natureza_despesa_matinha_2022.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "45873160.05",
+      "Juros_Encargos": "30265.25",
+      "Outras_Correntes": "32950642.85",
+      "Despesas_Correntes": "78854068.15",
+      "Investimentos": "7298849.49",
+      "Despesas_Capital": "8285636.97",
+      "Total_Despesas": "87139705.12",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2106508&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:00.947734"
+}

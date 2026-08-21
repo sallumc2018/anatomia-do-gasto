@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_monte_mor_2025.csv",
+  "caminho_relativo": "data/public/monte_mor/fiscal/saida/divida_monte_mor_2025.csv",
+  "tamanho_bytes": 525,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "114845305.32",
+      "DC_Contratual": "74979137.44",
+      "Emprestimos": "5804192.01",
+      "Financiamentos": "0.00",
+      "Precatorios": "39866167.88",
+      "Deducoes": "25341723.43",
+      "DCL": "89503581.89",
+      "RCL": "410838857.77",
+      "DC_pct_RCL": "28.6200",
+      "DCL_pct_RCL": "22.3100",
+      "Limite_valor": "481488144.68",
+      "Limite_pct_RCL": "117.1963",
+      "Limite_Alerta_valor": "433339330.22",
+      "Passivo_Atuarial": "531843697.12",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3531803&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:24.145280"
+}

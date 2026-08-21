@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_manari_2022.csv",
+  "caminho_relativo": "data/public/manari/fiscal/saida/natureza_despesa_manari_2022.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "33558695.06",
+      "Juros_Encargos": "192978.21",
+      "Outras_Correntes": "39168627.32",
+      "Despesas_Correntes": "72920300.59",
+      "Investimentos": "1479589.36",
+      "Despesas_Capital": "1515589.36",
+      "Total_Despesas": "79454196.82",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2609154&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:09.604223"
+}

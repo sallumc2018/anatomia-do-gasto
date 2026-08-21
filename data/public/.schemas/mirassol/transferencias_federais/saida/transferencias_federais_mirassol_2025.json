@@ -1,0 +1,63 @@
+{
+  "arquivo": "transferencias_federais_mirassol_2025.csv",
+  "caminho_relativo": "data/public/mirassol/transferencias_federais/saida/transferencias_federais_mirassol_2025.csv",
+  "tamanho_bytes": 954,
+  "linhas_dados": 1,
+  "colunas": [
+    "ano",
+    "competencia",
+    "tipo_transferencia",
+    "modalidade_transferencia",
+    "orgao_superior_codigo",
+    "orgao_superior_nome",
+    "unidade_gestora_codigo",
+    "unidade_gestora_nome",
+    "funcao_id",
+    "funcao_descricao",
+    "acao_id",
+    "acao_descricao",
+    "valor_transferido",
+    "municipio_ibge",
+    "municipio_nome",
+    "fonte_api"
+  ],
+  "tipos": {
+    "ano": "integer",
+    "competencia": "string",
+    "tipo_transferencia": "string",
+    "modalidade_transferencia": "string",
+    "orgao_superior_codigo": "integer",
+    "orgao_superior_nome": "string",
+    "unidade_gestora_codigo": "integer",
+    "unidade_gestora_nome": "string",
+    "funcao_id": "integer",
+    "funcao_descricao": "string",
+    "acao_id": "string",
+    "acao_descricao": "string",
+    "valor_transferido": "integer",
+    "municipio_ibge": "integer",
+    "municipio_nome": "string",
+    "fonte_api": "string"
+  },
+  "amostra": [
+    {
+      "ano": "2025",
+      "competencia": "2025-07",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "24000",
+      "orgao_superior_nome": "Ministério da Ciência, Tecnologia e Inovação",
+      "unidade_gestora_codigo": "240901",
+      "unidade_gestora_nome": "FUNDO NAC.DE DESENV. CIENT. E TECNOLOGICO",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "1AAYKF",
+      "acao_descricao": "TÍTULO: TECNOLOGIAS AVANÇADAS DE MODULARIZAÇÃO NA CONSTRUÇÃO INDUSTRIALIZADA DE HABITAÇÕES DE INTERESSE SOCIAL                              O BRASIL É UM PAÍS MARCADO POR UMA GRANDE DIVERSIDADE CULTURAL E      SOCIOECONÔMICA E ENFRENTA DESAFIOS SIGNIFICATIVOS NO QUE DIZ RESPEITO À HABITAÇÃO POPULAR. COM UMA DEMANDA CONSTANTE POR MORADIAS, O SETOR  DE CONSTRUÇÃO CIVIL PRECISA EVOLUIR EM ASPECTOS TECNOLÓGICOS, BUSCANDO",
+      "valor_transferido": "0",
+      "municipio_ibge": "3530300",
+      "municipio_nome": "MIRASSOL",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:04.964440"
+}

@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mar_vermelho_2022.csv",
+  "caminho_relativo": "data/public/mar_vermelho/fiscal/saida/natureza_despesa_mar_vermelho_2022.csv",
+  "tamanho_bytes": 357,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "12693555.40",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "14101455.52",
+      "Despesas_Correntes": "26795010.92",
+      "Investimentos": "2921216.19",
+      "Despesas_Capital": "3056414.52",
+      "Total_Despesas": "31695981.83",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2704906&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:12.312576"
+}

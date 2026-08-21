@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_monte_mor_2022.csv",
+  "caminho_relativo": "data/public/monte_mor/fiscal/saida/natureza_despesa_monte_mor_2022.csv",
+  "tamanho_bytes": 367,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "126230414.53",
+      "Juros_Encargos": "168950.92",
+      "Outras_Correntes": "139148047.51",
+      "Despesas_Correntes": "265547412.96",
+      "Investimentos": "5113504.60",
+      "Despesas_Capital": "21255025.80",
+      "Total_Despesas": "307396167.40",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3531803&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:24.137958"
+}

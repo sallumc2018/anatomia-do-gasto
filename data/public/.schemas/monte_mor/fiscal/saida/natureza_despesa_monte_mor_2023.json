@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_monte_mor_2023.csv",
+  "caminho_relativo": "data/public/monte_mor/fiscal/saida/natureza_despesa_monte_mor_2023.csv",
+  "tamanho_bytes": 368,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "147746459.97",
+      "Juros_Encargos": "160791.30",
+      "Outras_Correntes": "163196668.72",
+      "Despesas_Correntes": "311103919.99",
+      "Investimentos": "17728313.93",
+      "Despesas_Capital": "32761886.32",
+      "Total_Despesas": "363491217.88",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3531803&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:24.143646"
+}

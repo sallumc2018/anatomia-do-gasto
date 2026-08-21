@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mogi_mirim_2023.csv",
+  "caminho_relativo": "data/public/mogi_mirim/fiscal/saida/natureza_despesa_mogi_mirim_2023.csv",
+  "tamanho_bytes": 370,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "243657805.43",
+      "Juros_Encargos": "10801875.68",
+      "Outras_Correntes": "283188129.25",
+      "Despesas_Correntes": "537647810.36",
+      "Investimentos": "37193950.98",
+      "Despesas_Capital": "56052358.78",
+      "Total_Despesas": "598811157.96",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3530805&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:51.749550"
+}

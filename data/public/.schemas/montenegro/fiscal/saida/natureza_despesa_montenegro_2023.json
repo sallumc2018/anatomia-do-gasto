@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_montenegro_2023.csv",
+  "caminho_relativo": "data/public/montenegro/fiscal/saida/natureza_despesa_montenegro_2023.csv",
+  "tamanho_bytes": 368,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "187076230.83",
+      "Juros_Encargos": "170921.10",
+      "Outras_Correntes": "134919941.94",
+      "Despesas_Correntes": "322167093.87",
+      "Investimentos": "11332150.14",
+      "Despesas_Capital": "14695463.32",
+      "Total_Despesas": "376224742.41",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4312401&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:13.571638"
+}

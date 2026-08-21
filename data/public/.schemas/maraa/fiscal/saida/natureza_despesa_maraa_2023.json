@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_maraa_2023.csv",
+  "caminho_relativo": "data/public/maraa/fiscal/saida/natureza_despesa_maraa_2023.csv",
+  "tamanho_bytes": 362,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "53980019.81",
+      "Juros_Encargos": "1488.44",
+      "Outras_Correntes": "32220899.15",
+      "Despesas_Correntes": "86202407.40",
+      "Investimentos": "10975290.96",
+      "Despesas_Capital": "12278415.29",
+      "Total_Despesas": "99002963.95",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=1302801&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:07.200046"
+}

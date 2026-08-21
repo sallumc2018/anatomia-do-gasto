@@ -1,8 +1,8 @@
 {
   "arquivo": "transferencias_federais_mucajai_2026.csv",
   "caminho_relativo": "data/public/mucajai/transferencias_federais/saida/transferencias_federais_mucajai_2026.csv",
-  "tamanho_bytes": 538,
-  "linhas_dados": 1,
+  "tamanho_bytes": 1435,
+  "linhas_dados": 4,
   "colunas": [
     "ano",
     "competencia",
@@ -32,14 +32,32 @@
     "unidade_gestora_nome": "string",
     "funcao_id": "integer",
     "funcao_descricao": "string",
-    "acao_id": "integer",
+    "acao_id": "string",
     "acao_descricao": "string",
-    "valor_transferido": "integer",
+    "valor_transferido": "float/numeric",
     "municipio_ibge": "integer",
     "municipio_nome": "string",
     "fonte_api": "string"
   },
   "amostra": [
+    {
+      "ano": "2026",
+      "competencia": "2026-06",
+      "tipo_transferencia": "Não se aplica",
+      "modalidade_transferencia": "EM EXECUÇÃO",
+      "orgao_superior_codigo": "53000",
+      "orgao_superior_nome": "Ministério da Integração e do Desenvolvimento Regional",
+      "unidade_gestora_codigo": "530023",
+      "unidade_gestora_nome": "SEC. NAC. POLIT. DESENV. REG. E TERRITORIAL",
+      "funcao_id": "-1",
+      "funcao_descricao": "Sem informação",
+      "acao_id": "997926",
+      "acao_descricao": "Pavimentacao de Vias Urbanas no Municipio de Mucajai/RR",
+      "valor_transferido": "0",
+      "municipio_ibge": "1400308",
+      "municipio_nome": "MUCAJAÍ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    },
     {
       "ano": "2026",
       "competencia": "2026-03",
@@ -57,7 +75,25 @@
       "municipio_ibge": "1400308",
       "municipio_nome": "MUCAJAÍ",
       "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
+    },
+    {
+      "ano": "2026",
+      "competencia": "2026-07",
+      "tipo_transferencia": "TRANSFERENCIA LEGAL",
+      "modalidade_transferencia": "ADIMPLENTE",
+      "orgao_superior_codigo": "53000",
+      "orgao_superior_nome": "Ministério da Integração e do Desenvolvimento Regional",
+      "unidade_gestora_codigo": "530012",
+      "unidade_gestora_nome": "SECRETARIA NACIONAL PROTECAO E DEFESA CIVIL",
+      "funcao_id": "06",
+      "funcao_descricao": "Segurança pública",
+      "acao_id": "1ABDHE",
+      "acao_descricao": "EXECUÇÃO DE AÇÕES DE RESPOSTA NO MUNICIPIO DE MUCAJAI RR",
+      "valor_transferido": "203217.0",
+      "municipio_ibge": "1400308",
+      "municipio_nome": "MUCAJAÍ",
+      "fonte_api": "https://api.portaldatransparencia.gov.br/api-de-dados/convenios"
     }
   ],
-  "analisado_em": "2026-08-20T03:37:44.401433"
+  "analisado_em": "2026-08-21T03:41:14.201340"
 }

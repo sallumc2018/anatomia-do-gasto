@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mormaco_2023.csv",
+  "caminho_relativo": "data/public/mormaco/fiscal/saida/natureza_despesa_mormaco_2023.csv",
+  "tamanho_bytes": 361,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2023",
+      "Pessoal": "12110113.59",
+      "Juros_Encargos": "315540.81",
+      "Outras_Correntes": "9194341.76",
+      "Despesas_Correntes": "21619996.16",
+      "Investimentos": "5283438.56",
+      "Despesas_Capital": "5283438.56",
+      "Total_Despesas": "28287526.19",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=4312427&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:03.001299"
+}

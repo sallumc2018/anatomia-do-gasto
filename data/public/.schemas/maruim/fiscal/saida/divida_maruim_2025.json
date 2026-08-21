@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_maruim_2025.csv",
+  "caminho_relativo": "data/public/maruim/fiscal/saida/divida_maruim_2025.csv",
+  "tamanho_bytes": 508,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2025",
+      "DC_Bruta": "82715185.56",
+      "DC_Contratual": "80665965.46",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "2049220.10",
+      "Deducoes": "3984596.57",
+      "DCL": "78730588.99",
+      "RCL": "101167868.74",
+      "DC_pct_RCL": "85.5700",
+      "DCL_pct_RCL": "81.4500",
+      "Limite_valor": "115994146.29",
+      "Limite_pct_RCL": "114.6551",
+      "Limite_Alerta_valor": "104394730.76",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=2804003&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:21.757699"
+}

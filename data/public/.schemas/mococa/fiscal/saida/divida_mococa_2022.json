@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_mococa_2022.csv",
+  "caminho_relativo": "data/public/mococa/fiscal/saida/divida_mococa_2022.csv",
+  "tamanho_bytes": 511,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "109582872.07",
+      "DC_Contratual": "19829401.22",
+      "Emprestimos": "0.00",
+      "Financiamentos": "0.00",
+      "Precatorios": "89753470.85",
+      "Deducoes": "7910559.72",
+      "DCL": "101672312.35",
+      "RCL": "280050401.55",
+      "DC_pct_RCL": "39.1300",
+      "DCL_pct_RCL": "36.3100",
+      "Limite_valor": "336060481.86",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "302454433.67",
+      "Passivo_Atuarial": "0.00",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=3530508&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:44.699903"
+}

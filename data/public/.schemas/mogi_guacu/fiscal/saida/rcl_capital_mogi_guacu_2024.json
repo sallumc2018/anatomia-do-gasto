@@ -1,0 +1,45 @@
+{
+  "arquivo": "rcl_capital_mogi_guacu_2024.csv",
+  "caminho_relativo": "data/public/mogi_guacu/fiscal/saida/rcl_capital_mogi_guacu_2024.csv",
+  "tamanho_bytes": 423,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Operacoes_Credito_Internas",
+    "Operacoes_Credito_Externas",
+    "Operacoes_Credito_Total",
+    "Alienacao_Bens",
+    "Alienacao_Bens_Imoveis",
+    "Alienacao_Bens_Moveis",
+    "Outras_Capital",
+    "Total_Capital",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Operacoes_Credito_Internas": "float/numeric",
+    "Operacoes_Credito_Externas": "float/numeric",
+    "Operacoes_Credito_Total": "float/numeric",
+    "Alienacao_Bens": "float/numeric",
+    "Alienacao_Bens_Imoveis": "float/numeric",
+    "Alienacao_Bens_Moveis": "float/numeric",
+    "Outras_Capital": "float/numeric",
+    "Total_Capital": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2024",
+      "Operacoes_Credito_Internas": "33780583.02",
+      "Operacoes_Credito_Externas": "0.00",
+      "Operacoes_Credito_Total": "33780583.02",
+      "Alienacao_Bens": "528412.89",
+      "Alienacao_Bens_Imoveis": "526246.89",
+      "Alienacao_Bens_Moveis": "2166.00",
+      "Outras_Capital": "478214.08",
+      "Total_Capital": "34787209.99",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2024&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=3530706&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:08.722929"
+}

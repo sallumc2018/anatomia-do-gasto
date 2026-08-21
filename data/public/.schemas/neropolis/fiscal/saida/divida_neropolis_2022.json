@@ -1,0 +1,63 @@
+{
+  "arquivo": "divida_neropolis_2022.csv",
+  "caminho_relativo": "data/public/neropolis/fiscal/saida/divida_neropolis_2022.csv",
+  "tamanho_bytes": 515,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "DC_Bruta",
+    "DC_Contratual",
+    "Emprestimos",
+    "Financiamentos",
+    "Precatorios",
+    "Deducoes",
+    "DCL",
+    "RCL",
+    "DC_pct_RCL",
+    "DCL_pct_RCL",
+    "Limite_valor",
+    "Limite_pct_RCL",
+    "Limite_Alerta_valor",
+    "Passivo_Atuarial",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "DC_Bruta": "float/numeric",
+    "DC_Contratual": "float/numeric",
+    "Emprestimos": "float/numeric",
+    "Financiamentos": "float/numeric",
+    "Precatorios": "float/numeric",
+    "Deducoes": "float/numeric",
+    "DCL": "float/numeric",
+    "RCL": "float/numeric",
+    "DC_pct_RCL": "float/numeric",
+    "DCL_pct_RCL": "float/numeric",
+    "Limite_valor": "float/numeric",
+    "Limite_pct_RCL": "float/numeric",
+    "Limite_Alerta_valor": "float/numeric",
+    "Passivo_Atuarial": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "DC_Bruta": "2735837.44",
+      "DC_Contratual": "2735837.44",
+      "Emprestimos": "2735837.44",
+      "Financiamentos": "0.00",
+      "Precatorios": "0.00",
+      "Deducoes": "54026003.29",
+      "DCL": "-51290165.85",
+      "RCL": "171208548.32",
+      "DC_pct_RCL": "1.6000",
+      "DCL_pct_RCL": "-29.9600",
+      "Limite_valor": "205450257.98",
+      "Limite_pct_RCL": "120.0000",
+      "Limite_Alerta_valor": "184905232.19",
+      "Passivo_Atuarial": "48060851.49",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2022&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&co_poder=E&id_ente=5214507&no_anexo=RGF-Anexo%2002"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:42:06.262081"
+}

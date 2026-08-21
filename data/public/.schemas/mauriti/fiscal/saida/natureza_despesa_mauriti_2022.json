@@ -1,0 +1,42 @@
+{
+  "arquivo": "natureza_despesa_mauriti_2022.csv",
+  "caminho_relativo": "data/public/mauriti/fiscal/saida/natureza_despesa_mauriti_2022.csv",
+  "tamanho_bytes": 359,
+  "linhas_dados": 1,
+  "colunas": [
+    "﻿Ano",
+    "Pessoal",
+    "Juros_Encargos",
+    "Outras_Correntes",
+    "Despesas_Correntes",
+    "Investimentos",
+    "Despesas_Capital",
+    "Total_Despesas",
+    "Fonte_URL"
+  ],
+  "tipos": {
+    "﻿Ano": "integer",
+    "Pessoal": "float/numeric",
+    "Juros_Encargos": "float/numeric",
+    "Outras_Correntes": "float/numeric",
+    "Despesas_Correntes": "float/numeric",
+    "Investimentos": "float/numeric",
+    "Despesas_Capital": "float/numeric",
+    "Total_Despesas": "float/numeric",
+    "Fonte_URL": "string"
+  },
+  "amostra": [
+    {
+      "﻿Ano": "2022",
+      "Pessoal": "83766546.53",
+      "Juros_Encargos": "0.00",
+      "Outras_Correntes": "55309231.94",
+      "Despesas_Correntes": "139075778.47",
+      "Investimentos": "5833614.67",
+      "Despesas_Capital": "7780042.64",
+      "Total_Despesas": "146855821.11",
+      "Fonte_URL": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2022&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=2308104&no_anexo=RREO-Anexo%2001"
+    }
+  ],
+  "analisado_em": "2026-08-21T03:41:20.474804"
+}
